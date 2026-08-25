@@ -1,10 +1,12 @@
 import type { ClusterMapController } from "../controllers/useClusterMapController";
 import { useMapViewController } from "../controllers/useMapViewController";
 import { useThemeController } from "../controllers/useThemeController";
-import { clusterLabel, formatCompact, formatCount, shortRevision, riskLabel } from "../models/presentation";
+import { clusterLabel, formatCompact, formatCount, riskLabel } from "../models/presentation";
 import { THEME_SWITCHER_ENABLED } from "../models/theme";
 import { shortWalletAddress } from "../models/walletProfile";
 import { ClusterAtlas } from "./ClusterAtlas";
+import { ChangelogPage } from "./ChangelogPage";
+import { DeltaPanel } from "./DeltaPanel";
 import { EvidenceGraph } from "./EvidenceGraph";
 import { GlobalViewSwitcher } from "./GlobalViewSwitcher";
 import { GlobalWalletMap } from "./GlobalWalletMap";
@@ -12,6 +14,7 @@ import { GroupInspectionPanel, WalletInspectionPanel } from "./MapInspectionPane
 import { MapIntroduction } from "./MapIntroduction";
 import { MapSidebar } from "./MapSidebar";
 import { ThemeSwitcher } from "./ThemeSwitcher";
+import { VersionControls } from "./VersionControls";
 import { WelcomePage } from "./WelcomePage";
 import { WalletProfilePage } from "./WalletProfilePage";
 
@@ -26,6 +29,11 @@ export function App({ controller }: AppProps) {
   const globalMap = controller.globalMap;
   const detail = mapView.scope === "cluster" ? controller.cluster : null;
   const showingAtlas = detail === null && mapView.globalView === "clusters";
+  const deltaHeadEntry = controller.delta === null
+    ? null
+    : controller.changelog?.entries.find((entry) => (
+      entry.kind === "analysis" && entry.version === controller.delta?.head.id
+    )) ?? null;
 
   return (
     <main className="map-app">
@@ -40,6 +48,7 @@ export function App({ controller }: AppProps) {
             <nav className="map-primary-nav" aria-label="Primary views">
               <button type="button" aria-current={mapView.page === "welcome" ? "page" : undefined} onClick={mapView.showWelcome}>WELCOME</button>
               <button type="button" aria-current={mapView.page === "map" ? "page" : undefined} onClick={mapView.showMap}>MAP</button>
+              <button type="button" aria-current={mapView.page === "changelog" ? "page" : undefined} onClick={mapView.showChangelog}>CHANGE LOG</button>
               <button type="button" aria-current={mapView.page === "profile" ? "page" : undefined} onClick={mapView.showProfile}>
                 {controller.focusedWalletAddress === null ? "SET WALLET" : (
                   <>PROFILE<span className="map-primary-nav__address"> · {shortWalletAddress(controller.focusedWalletAddress)}</span></>
@@ -59,6 +68,18 @@ export function App({ controller }: AppProps) {
         </div>
       )}
 
+      <VersionControls
+        versions={controller.versions}
+        selectedId={controller.selectedVersionId}
+        deltaEnabled={controller.deltaEnabled}
+        baseId={controller.deltaBaseId}
+        headId={controller.deltaHeadId}
+        onVersion={controller.setVersion}
+        onDeltaEnabled={controller.setDeltaEnabled}
+        onBase={controller.setDeltaBase}
+        onHead={controller.setDeltaHead}
+      />
+
       {overview === null || globalMap === null ? (
         <section className="map-loading" aria-live="polite">
           <span aria-hidden="true" />
@@ -72,12 +93,14 @@ export function App({ controller }: AppProps) {
             <div><small>THE LIST · ORIGINAL POPULATION</small><strong>{formatCount(overview.totals.population)} WALLETS</strong></div>
             <div><small>GROUPS</small><strong>{formatCount(overview.totals.groups)}</strong></div>
             <div><small>CONNECTED</small><strong>{formatCompact(globalMap.meta.edge_count)}</strong></div>
-            <div><small>REVIEW GROUPS</small><strong>{formatCount(globalMap.meta.review_cluster_count)}</strong></div>
-            <div><small>SYBILKIT</small><strong>V{overview.provenance.sybilkit_version} · {shortRevision(overview.provenance.sybilkit_revision)}</strong></div>
+            <div><small>CLEAN · REVIEW</small><strong>{formatCount(overview.totals.status_counts.clean)} · {formatCount(overview.totals.status_counts.review)}</strong></div>
+            <div><small>FLAGGED</small><strong>{formatCount(overview.totals.status_counts.flagged)}</strong></div>
           </section>}
 
           {mapView.page === "welcome" ? (
             <WelcomePage overview={overview} onOpenMap={mapView.showMap} onOpenProfile={mapView.showProfile} />
+          ) : mapView.page === "changelog" ? (
+            <ChangelogPage entries={controller.changelog?.entries ?? []} />
           ) : mapView.page === "profile" ? (
             <WalletProfilePage
               address={controller.focusedWalletAddress}
@@ -94,12 +117,16 @@ export function App({ controller }: AppProps) {
               onShowOnMap={() => void mapView.showFocusedWalletOnMap()}
             />
           ) : (
+          <>
+          {controller.deltaEnabled && controller.delta !== null ? (
+            <DeltaPanel delta={controller.delta} filter={mapView.deltaFilter} onFilter={mapView.setDeltaFilter} />
+          ) : null}
           <section className="map-workspace">
             <div className="map-stage">
               <header className="map-stage__header">
                 <div>
                   <span>{detail === null ? (showingAtlas ? "CLUSTER ANALYSIS" : "GLOBAL POPULATION") : "CLUSTER TOPOLOGY"}</span>
-                  <h2>{detail === null ? (showingAtlas ? "Evidence atlas" : "All wallets") : clusterLabel(detail.cluster.id)}</h2>
+                  <h2>{detail === null ? (showingAtlas ? "Evidence atlas" : "All wallets") : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</h2>
                   <p>
                     {detail === null
                       ? (showingAtlas ? "Confidence × points share × wallet count" : "Highest-point wallets begin at the centre")
@@ -122,6 +149,8 @@ export function App({ controller }: AppProps) {
                     theme={themes.theme}
                     selectedAddress={controller.wallet?.wallet.address ?? null}
                     focusedAddress={controller.focusedWalletAddress}
+                    deltaClasses={controller.deltaEnabled ? controller.delta?.wallet_classes ?? null : null}
+                    deltaFilter={mapView.deltaFilter}
                     resetKey={controller.resetViewKey}
                     onSelectWallet={(address, clusterId) => void mapView.selectWallet(address, clusterId)}
                   />
@@ -131,6 +160,8 @@ export function App({ controller }: AppProps) {
                     theme={themes.theme}
                     resetKey={controller.resetViewKey}
                     focusedClusterId={controller.focusedWallet?.cluster?.id ?? null}
+                    clusterDeltas={controller.deltaEnabled ? controller.delta?.head_clusters ?? null : null}
+                    deltaFilter={mapView.deltaFilter}
                     onOpenCluster={(id) => void mapView.showCluster(id)}
                   />
                 ) : controller.loading.cluster ? (
@@ -153,6 +184,7 @@ export function App({ controller }: AppProps) {
               {controller.wallet !== null ? (
                 <WalletInspectionPanel
                   detail={controller.wallet}
+                  headEntry={controller.deltaEnabled ? deltaHeadEntry : null}
                   onClose={mapView.closeWallet}
                   onViewCluster={(id) => void mapView.showCluster(id)}
                   onSelectWallet={(address, clusterId) => void mapView.selectWallet(address, clusterId)}
@@ -171,6 +203,7 @@ export function App({ controller }: AppProps) {
               onCluster={(id) => void mapView.showCluster(id)}
             />
           </section>
+          </>
           )}
 
           <footer className="map-footer">

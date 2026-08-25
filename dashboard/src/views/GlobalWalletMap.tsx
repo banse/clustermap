@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import type { GlobalMap, RiskTier } from "../models/domain";
+import type { DeltaClass, GlobalMap, RiskTier } from "../models/domain";
 import { buildGlobalLayout, type PositionedGlobalNode } from "../models/globalLayout";
-import { formatCompact, riskLabel } from "../models/presentation";
+import { deltaLabel, formatCompact, riskLabel } from "../models/presentation";
 import type { ThemeId } from "../models/theme";
 import { drawFocusReticle } from "./drawFocusReticle";
 
@@ -11,6 +11,8 @@ interface GlobalWalletMapProps {
   readonly theme: ThemeId;
   readonly selectedAddress: string | null;
   readonly focusedAddress: string | null;
+  readonly deltaClasses?: readonly DeltaClass[] | null;
+  readonly deltaFilter?: DeltaClass | "all";
   readonly resetKey: number;
   readonly onSelectWallet: (address: string, clusterId: number | null) => void;
 }
@@ -24,6 +26,7 @@ interface Palette {
   readonly selected: string;
   readonly focus: string;
   readonly falsePositive: string;
+  readonly deltas: Readonly<Record<DeltaClass, string>>;
   readonly risks: Readonly<Record<RiskTier, string>>;
 }
 
@@ -42,6 +45,12 @@ function paletteFromTheme(): Palette {
     selected: cssColor(styles, "--map-selected", "#ffffff"),
     focus: cssColor(styles, "--wallet-focus", "#e8fff0"),
     falsePositive: cssColor(styles, "--map-false-positive", "#ffffff"),
+    deltas: {
+      improved: cssColor(styles, "--delta-improved", "#36dc82"),
+      worsened: cssColor(styles, "--delta-worsened", "#ff4055"),
+      under_review: cssColor(styles, "--delta-under-review", "#f0cc4d"),
+      unchanged: cssColor(styles, "--delta-unchanged", "#718078"),
+    },
     risks: {
       independent: cssColor(styles, "--risk-independent", "#00d66b"),
       review: cssColor(styles, "--risk-review", "#f0cc4d"),
@@ -55,16 +64,21 @@ function cellKey(x: number, y: number): string {
   return `${Math.floor(x / CELL_SIZE)}:${Math.floor(y / CELL_SIZE)}`;
 }
 
-export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, resetKey, onSelectWallet }: GlobalWalletMapProps) {
+export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, deltaClasses = null, deltaFilter = "all", resetKey, onSelectWallet }: GlobalWalletMapProps) {
   const shellRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef = useRef<readonly PositionedGlobalNode[]>([]);
   const transformRef = useRef<Transform>({ x: 0, y: 0, k: 1 });
+  const fittedViewRef = useRef("");
   const drawRef = useRef<() => void>(() => undefined);
   const hoveredRef = useRef<PositionedGlobalNode | null>(null);
   const [hovered, setHovered] = useState<PositionedGlobalNode | null>(null);
   const [size, setSize] = useState({ width: 900, height: 660 });
   const layout = useMemo(() => buildGlobalLayout(map), [map]);
+  const deltaByAddress = useMemo(() => {
+    if (deltaClasses === null) return null;
+    return new Map(map.nodes.map((node, index) => [node.address, deltaClasses[index] ?? "unchanged"]));
+  }, [deltaClasses, map.nodes]);
   const spatialIndex = useMemo(() => {
     const index = new Map<string, PositionedGlobalNode[]>();
     for (const node of layout.nodes) {
@@ -101,14 +115,18 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
     canvas.style.width = `${size.width}px`;
     canvas.style.height = `${size.height}px`;
 
-    const worldWidth = layout.bounds.maxX - layout.bounds.minX;
-    const worldHeight = layout.bounds.maxY - layout.bounds.minY;
-    const fit = Math.min(size.width / worldWidth, size.height / worldHeight) * 0.94;
-    transformRef.current = {
-      k: fit,
-      x: size.width / 2 - ((layout.bounds.minX + layout.bounds.maxX) / 2) * fit,
-      y: size.height / 2 - ((layout.bounds.minY + layout.bounds.maxY) / 2) * fit,
-    };
+    const fittedView = `${map.version}:${size.width}:${size.height}:${resetKey}`;
+    if (fittedViewRef.current !== fittedView) {
+      const worldWidth = layout.bounds.maxX - layout.bounds.minX;
+      const worldHeight = layout.bounds.maxY - layout.bounds.minY;
+      const fit = Math.min(size.width / worldWidth, size.height / worldHeight) * 0.94;
+      transformRef.current = {
+        k: fit,
+        x: size.width / 2 - ((layout.bounds.minX + layout.bounds.maxX) / 2) * fit,
+        y: size.height / 2 - ((layout.bounds.minY + layout.bounds.maxY) / 2) * fit,
+      };
+      fittedViewRef.current = fittedView;
+    }
 
     const draw = () => {
       const transform = transformRef.current;
@@ -137,8 +155,8 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
         context.beginPath();
         context.moveTo(source.x, source.y);
         context.lineTo(target.x, target.y);
-        context.strokeStyle = palette.risks[edge.risk];
-        context.globalAlpha = 0.18 + Math.min(0.32, edge.strength * 0.22);
+        context.strokeStyle = deltaByAddress === null ? palette.risks[edge.risk] : palette.deltas.unchanged;
+        context.globalAlpha = deltaByAddress === null ? 0.18 + Math.min(0.32, edge.strength * 0.22) : 0.08;
         context.lineWidth = Math.max(0.35, 0.75 / transform.k);
         context.stroke();
       }
@@ -148,11 +166,15 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
         const selected = node.address === selectedAddress;
         const focused = node.address === focusedAddress;
         const isHovered = hoveredRef.current?.id === node.id;
+        const deltaClass = deltaByAddress?.get(node.address) ?? null;
+        const visible = deltaClass === null || deltaFilter === "all" || deltaClass === deltaFilter;
         const radius = Math.max(node.radius, (node.cluster_id === null ? 0.75 : 1.05) / transform.k);
         context.beginPath();
         context.arc(node.x, node.y, radius, 0, Math.PI * 2);
-        context.fillStyle = palette.risks[node.risk];
+        context.fillStyle = deltaClass === null ? palette.risks[node.risk] : palette.deltas[deltaClass];
+        context.globalAlpha = visible ? 1 : 0.08;
         context.fill();
+        context.globalAlpha = 1;
         if (selected || isHovered) {
           context.lineWidth = 2.4 / transform.k;
           context.strokeStyle = palette.selected;
@@ -183,7 +205,7 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
     };
     drawRef.current = draw;
     draw();
-  }, [focusedAddress, layout, map.edges, resetKey, selectedAddress, size.height, size.width, theme]);
+  }, [deltaByAddress, deltaFilter, focusedAddress, layout, map.edges, resetKey, selectedAddress, size.height, size.width, theme]);
 
   const screenToWorld = (clientX: number, clientY: number) => {
     const rect = canvasRef.current!.getBoundingClientRect();
@@ -285,6 +307,7 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
           <strong>#{hovered.rank} · {formatCompact(hovered.points)} PTS</strong>
           <span>{hovered.name ?? `${hovered.address.slice(0, 8)}…${hovered.address.slice(-6)}`}</span>
           <small>{riskLabel(hovered.risk).toUpperCase()}{hovered.review_flag ? " · REVIEW" : ""}</small>
+          {deltaByAddress === null ? null : <b>{deltaLabel(deltaByAddress.get(hovered.address) ?? "unchanged").toUpperCase()}</b>}
         </div>
       )}
       <div className="map-instructions" aria-hidden="true">PAN · SCROLL TO ZOOM · CLICK WALLET</div>

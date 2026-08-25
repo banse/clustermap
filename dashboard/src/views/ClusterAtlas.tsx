@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 
-import type { ClusterSummary, Overview, RiskTier } from "../models/domain";
+import type { ClusterDelta, DeltaClass, ClusterSummary, Overview, RiskTier } from "../models/domain";
+import { DELTA_CLASSES } from "../models/delta";
 import { buildClusterAtlasLayout, type PositionedCluster } from "../models/clusterAtlasLayout";
 import { clusterLabel, formatCount, formatPercent, riskLabel } from "../models/presentation";
 import type { ThemeId } from "../models/theme";
@@ -11,6 +12,8 @@ interface ClusterAtlasProps {
   readonly theme: ThemeId;
   readonly resetKey: number;
   readonly focusedClusterId: number | null;
+  readonly clusterDeltas?: readonly ClusterDelta[] | null;
+  readonly deltaFilter?: DeltaClass | "all";
   readonly onOpenCluster: (clusterId: number) => void;
 }
 
@@ -23,6 +26,7 @@ interface Palette {
   readonly markText: string;
   readonly falsePositive: string;
   readonly focus: string;
+  readonly deltas: Readonly<Record<DeltaClass, string>>;
   readonly risks: Readonly<Record<Exclude<RiskTier, "independent">, string>>;
 }
 
@@ -41,6 +45,12 @@ function paletteFromTheme(): Palette {
     markText: cssColor(styles, "--map-mark-text", "#071008"),
     falsePositive: cssColor(styles, "--map-false-positive", "#ffffff"),
     focus: cssColor(styles, "--wallet-focus", "#e8fff0"),
+    deltas: {
+      improved: cssColor(styles, "--delta-improved", "#36dc82"),
+      worsened: cssColor(styles, "--delta-worsened", "#ff4055"),
+      under_review: cssColor(styles, "--delta-under-review", "#f0cc4d"),
+      unchanged: cssColor(styles, "--delta-unchanged", "#718078"),
+    },
     risks: {
       review: cssColor(styles, "--risk-review", "#f0cc4d"),
       elevated: cssColor(styles, "--risk-elevated", "#ff8c42"),
@@ -64,7 +74,7 @@ function groupCode(cluster: ClusterSummary): string {
   return `G${String(cluster.id + 1).padStart(3, "0")}`;
 }
 
-export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOpenCluster }: ClusterAtlasProps) {
+export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, clusterDeltas = null, deltaFilter = "all", onOpenCluster }: ClusterAtlasProps) {
   const shellRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const hoveredRef = useRef<PositionedCluster | null>(null);
@@ -75,6 +85,11 @@ export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOp
     () => buildClusterAtlasLayout(overview.clusters, size.width, size.height),
     [overview.clusters, size.height, size.width],
   );
+  const deltaById = useMemo(
+    () => clusterDeltas === null ? null : new Map(clusterDeltas.map((cluster) => [cluster.id, cluster])),
+    [clusterDeltas],
+  );
+  const hoveredDelta = hovered === null ? undefined : deltaById?.get(hovered.id);
 
   useEffect(() => {
     const shell = shellRef.current;
@@ -159,12 +174,34 @@ export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOp
       for (const cluster of drawOrder) {
         const isHovered = active?.id === cluster.id;
         const isFocused = focusedClusterId === cluster.id;
+        const clusterDelta = deltaById?.get(cluster.id);
+        const visible = clusterDelta === undefined
+          || deltaFilter === "all"
+          || clusterDelta.class_counts[deltaFilter] > 0;
+        context.globalAlpha = visible ? (isHovered ? 1 : 0.88) : 0.1;
+        if (clusterDelta === undefined) {
+          context.beginPath();
+          context.arc(cluster.x, cluster.y, cluster.radius, 0, Math.PI * 2);
+          context.fillStyle = palette.risks[cluster.risk];
+          context.fill();
+        } else {
+          let start = -Math.PI / 2;
+          for (const value of DELTA_CLASSES) {
+            const count = clusterDelta.class_counts[value];
+            if (count === 0) continue;
+            const end = start + (count / clusterDelta.size) * Math.PI * 2;
+            context.beginPath();
+            context.moveTo(cluster.x, cluster.y);
+            context.arc(cluster.x, cluster.y, cluster.radius, start, end);
+            context.closePath();
+            context.fillStyle = palette.deltas[value];
+            context.fill();
+            start = end;
+          }
+        }
+        context.globalAlpha = 1;
         context.beginPath();
         context.arc(cluster.x, cluster.y, cluster.radius, 0, Math.PI * 2);
-        context.fillStyle = palette.risks[cluster.risk];
-        context.globalAlpha = isHovered ? 1 : 0.88;
-        context.fill();
-        context.globalAlpha = 1;
         context.lineWidth = isHovered ? 2.5 : 1;
         context.strokeStyle = isHovered ? palette.selected : palette.text;
         context.stroke();
@@ -201,7 +238,7 @@ export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOp
     };
     drawRef.current = draw;
     draw();
-  }, [focusedClusterId, layout, resetKey, size.height, size.width, theme]);
+  }, [deltaById, deltaFilter, focusedClusterId, layout, resetKey, size.height, size.width, theme]);
 
   const hitCluster = (clientX: number, clientY: number): PositionedCluster | null => {
     const canvas = canvasRef.current;
@@ -249,9 +286,16 @@ export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOp
       />
       {hovered === null ? null : (
         <div className="map-hover-card atlas-hover-card" aria-hidden="true">
-          <strong>{clusterLabel(hovered.id)} · {riskLabel(hovered.risk).toUpperCase()}</strong>
+          <strong>{clusterLabel(hovered.id)} · {overview.version.id} · {riskLabel(hovered.risk).toUpperCase()}</strong>
           <span>{formatCount(hovered.size)} wallets · {formatPercent(hovered.points_share)} of points</span>
           <small>{formatPercent(hovered.confidence)} confidence · {hovered.families.join(" / ")}</small>
+          {deltaById === null ? null : <b>DELTA MIX · {overview.version.id}</b>}
+          {hoveredDelta === undefined ? null : (
+            <small>
+              {formatCount(hoveredDelta.class_counts.improved)} improved · {formatCount(hoveredDelta.class_counts.worsened)} worsened · {formatCount(hoveredDelta.class_counts.under_review)} review · {formatCount(hoveredDelta.class_counts.unchanged)} unchanged
+            </small>
+          )}
+          {hoveredDelta?.is_new ? <b>NEW HEAD CLUSTER · {overview.version.id}</b> : null}
           {hovered.review_flag ? <b>POSSIBLE FALSE POSITIVE · REVIEW</b> : null}
         </div>
       )}

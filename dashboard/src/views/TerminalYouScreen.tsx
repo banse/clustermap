@@ -68,7 +68,7 @@ export function YouScreen({ data, terminal, overview }: YouScreenProps) {
             <div><dt>STATUS</dt><dd>{detail.status === "linked" ? "LINKED GROUP" : "NO GROUP LINK"}</dd></div>
             <div><dt>WEIGHT</dt><dd>{formatEth(detail.wallet.weight_eth, overview.analysis.eth_usd)}</dd></div>
             <div><dt>FIRST FUNDER</dt><dd>{detail.first_funder === null ? "NOT MEASURED" : <AddressLink address={detail.first_funder} compact />}</dd></div>
-            <div><dt>GROUP</dt><dd>{detail.cluster === null ? "—" : clusterLabel(detail.cluster.id)}</dd></div>
+            <div><dt>GROUP</dt><dd>{detail.cluster === null ? "—" : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</dd></div>
             <div><dt>CONFIDENCE</dt><dd>{detail.cluster === null ? "—" : formatPercent(detail.cluster.confidence)}</dd></div>
           </dl>
           {detail.cluster === null ? (
@@ -83,7 +83,7 @@ export function YouScreen({ data, terminal, overview }: YouScreenProps) {
                 className="terminal-primary"
                 onClick={() => void data.openCluster(detail.cluster!.id).then(() => terminal.navigate("history"))}
               >
-                [H] OPEN {clusterLabel(detail.cluster.id)} MAP
+                [H] OPEN {clusterLabel(detail.cluster.id)} · {detail.version} MAP
               </button>
             </>
           )}

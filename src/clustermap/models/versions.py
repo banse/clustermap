@@ -183,12 +183,21 @@ class VersionStore:
         from_at: str | None = None,
         to_at: str | None = None,
     ) -> dict:
+        def within_range(entry: dict) -> bool:
+            at = entry["at"]
+            after_start = from_at is None or (
+                at[:10] >= from_at if len(from_at) == 10 else at >= from_at
+            )
+            before_end = to_at is None or (
+                at[:10] <= to_at if len(to_at) == 10 else at <= to_at
+            )
+            return after_start and before_end
+
         entries = [
             entry
             for entry in self.changelog_entries
             if (kind is None or entry["kind"] == kind)
-            and (from_at is None or entry["at"] >= from_at)
-            and (to_at is None or entry["at"] <= to_at)
+            and within_range(entry)
         ]
         entries.sort(key=lambda entry: (entry["at"], entry["id"]), reverse=True)
         return {

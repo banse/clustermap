@@ -1,4 +1,4 @@
-import type { EvidenceBand, EvidenceFamily, RiskTier } from "./domain";
+import type { DeltaClass, EvidenceBand, EvidenceFamily, RiskTier, WalletStatus } from "./domain";
 
 const compact = new Intl.NumberFormat("en", {
   notation: "compact",
@@ -74,4 +74,29 @@ export function walletGroupLabel(risk: RiskTier | null): string {
   if (risk === "elevated") return "In a moderate-evidence group";
   if (risk === "review") return "In a weak-evidence group";
   return "No group link";
+}
+
+export function statusLabel(status: WalletStatus): string {
+  if (status === "flagged") return "Flagged by this rule set";
+  if (status === "review") return "Under review";
+  return "No kept group";
+}
+
+export function deltaLabel(value: DeltaClass): string {
+  if (value === "improved") return "Improved";
+  if (value === "worsened") return "Worsened";
+  if (value === "under_review") return "Under review";
+  return "Unchanged";
+}
+
+export function formatTimelineDate(value: string): string {
+  return new Intl.DateTimeFormat("en", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "UTC",
+    timeZoneName: "short",
+  }).format(new Date(value));
 }

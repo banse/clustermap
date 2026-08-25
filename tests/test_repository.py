@@ -17,7 +17,71 @@ def test_final_contract_population_is_loaded(repository: CuratorRepository) -> N
         "linked_points": 17_103_032,
         "tx_fingerprints": 12_203,
         "funding_rows": 12_498,
+        "status_counts": {"clean": 7_949, "review": 0, "flagged": 11_573},
     }
+
+
+def test_versions_are_immutable_and_published_remains_the_default(
+    repository: CuratorRepository,
+) -> None:
+    versions = repository.versions()
+
+    assert versions["published_version"] == "2026-08-22-shipped"
+    assert [(row["id"], row["cluster_count"]) for row in versions["versions"]] == [
+        ("2026-08-22-shipped", 263),
+        ("2026-08-25-v2h", 160),
+    ]
+    assert all(len(row["content_hash"]) == 64 for row in versions["versions"])
+    assert repository.overview()["version"]["published"] is True
+
+
+def test_v2h_candidate_and_delta_reproduce_the_audit_counts(
+    repository: CuratorRepository,
+) -> None:
+    candidate = repository.overview("2026-08-25-v2h")
+    delta = repository.delta("2026-08-22-shipped", "2026-08-25-v2h")
+
+    assert candidate["totals"]["population"] == 19_522
+    assert candidate["totals"]["groups"] == 160
+    assert candidate["totals"]["status_counts"] == {
+        "clean": 6_782,
+        "review": 324,
+        "flagged": 12_416,
+    }
+    assert delta["released"] == 2_082
+    assert delta["newly_flagged"] == 2_925
+    assert sum(delta["counts"].values()) == 19_522
+    assert len(delta["wallet_classes"]) == 19_522
+
+
+def test_same_version_delta_is_entirely_unchanged(
+    repository: CuratorRepository,
+) -> None:
+    delta = repository.delta("2026-08-25-v2h", "2026-08-25-v2h")
+
+    assert delta["counts"] == {
+        "improved": 0,
+        "worsened": 0,
+        "under_review": 0,
+        "unchanged": 19_522,
+    }
+    assert delta["released"] == 0
+    assert delta["newly_flagged"] == 0
+
+
+def test_wallet_history_qualifies_cluster_ids_by_version(
+    repository: CuratorRepository,
+) -> None:
+    address = repository.global_map("2026-08-25-v2h")["nodes"][0]["address"]
+    detail = repository.wallet(address, "2026-08-25-v2h")
+
+    assert detail is not None
+    assert detail["version"] == "2026-08-25-v2h"
+    assert [row["version"] for row in detail["history"]] == [
+        "2026-08-22-shipped",
+        "2026-08-25-v2h",
+    ]
+    assert all("cluster_id" in row and "status" in row for row in detail["history"])
 
 
 def test_largest_group_has_typed_evidence_edges(repository: CuratorRepository) -> None:

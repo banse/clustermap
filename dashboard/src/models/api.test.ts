@@ -47,4 +47,44 @@ describe("ClusterMapApi", () => {
 
     expect(fetchMock).toHaveBeenCalledWith("/test/map/global", { signal: undefined });
   });
+
+  it("pins the selected version on map and wallet requests", async () => {
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockImplementation(async () => (
+      new Response(JSON.stringify({}), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      })
+    ));
+    const api = new ClusterMapApi("/test");
+
+    await api.globalMap("2026-08-25-v2h");
+    await api.wallet("0x0000000000000000000000000000000000000000", "2026-08-25-v2h");
+
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      1,
+      "/test/map/global?version=2026-08-25-v2h",
+      { signal: undefined },
+    );
+    expect(fetchMock).toHaveBeenNthCalledWith(
+      2,
+      "/test/wallets/0x0000000000000000000000000000000000000000?version=2026-08-25-v2h",
+      { signal: undefined },
+    );
+  });
+
+  it("encodes the directional delta explicitly", async () => {
+    const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(
+      new Response(JSON.stringify({}), {
+        status: 200,
+        headers: { "content-type": "application/json" },
+      }),
+    );
+
+    await new ClusterMapApi("/test").delta("base version", "head/version");
+
+    expect(fetchMock).toHaveBeenCalledWith(
+      "/test/delta?base=base+version&head=head%2Fversion",
+      { signal: undefined },
+    );
+  });
 });

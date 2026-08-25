@@ -1,12 +1,17 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { ApiError, ClusterMapApi } from "../models/api";
+import { validateDelta } from "../models/delta";
 import type {
+  AnalysisVersion,
+  ChangelogResponse,
   ClusterDetail,
+  DeltaPayload,
   GlobalMap,
   ListFilters,
   ListPage,
   Overview,
+  VersionsResponse,
   WalletDetail,
 } from "../models/domain";
 import {
@@ -24,6 +29,19 @@ const initialFilters: ListFilters = {
   limit: 50,
 };
 
+function searchParam(name: string): string | null {
+  return new URLSearchParams(window.location.search).get(name);
+}
+
+function updateSearch(values: Readonly<Record<string, string | null>>): void {
+  const url = new URL(window.location.href);
+  for (const [name, value] of Object.entries(values)) {
+    if (value === null) url.searchParams.delete(name);
+    else url.searchParams.set(name, value);
+  }
+  window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+}
+
 function readStoredFocusWallet(): string | null {
   try {
     return normalizeEthereumAddress(window.localStorage.getItem(FOCUS_WALLET_STORAGE_KEY) ?? "");
@@ -33,6 +51,15 @@ function readStoredFocusWallet(): string | null {
 }
 
 export interface ClusterMapController {
+  readonly versions: readonly AnalysisVersion[];
+  readonly publishedVersionId: string | null;
+  readonly selectedVersionId: string | null;
+  readonly selectedVersion: AnalysisVersion | null;
+  readonly changelog: ChangelogResponse | null;
+  readonly delta: DeltaPayload | null;
+  readonly deltaEnabled: boolean;
+  readonly deltaBaseId: string | null;
+  readonly deltaHeadId: string | null;
   readonly overview: Overview | null;
   readonly cluster: ClusterDetail | null;
   readonly globalMap: GlobalMap | null;
@@ -43,14 +70,21 @@ export interface ClusterMapController {
   readonly list: ListPage | null;
   readonly filters: ListFilters;
   readonly loading: {
+    readonly versions: boolean;
+    readonly changelog: boolean;
     readonly overview: boolean;
     readonly globalMap: boolean;
     readonly cluster: boolean;
     readonly wallet: boolean;
     readonly list: boolean;
+    readonly delta: boolean;
   };
   readonly error: string | null;
   readonly resetViewKey: number;
+  readonly setVersion: (id: string) => void;
+  readonly setDeltaEnabled: (enabled: boolean) => void;
+  readonly setDeltaBase: (id: string) => void;
+  readonly setDeltaHead: (id: string) => void;
   readonly openCluster: (id: number) => Promise<void>;
   readonly inspectWallet: (address: string, clusterId?: number | null) => Promise<boolean>;
   readonly setFocusedWallet: (address: string) => boolean;
@@ -72,6 +106,15 @@ export interface ClusterMapController {
 
 export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMapController {
   const apiRef = useRef(apiOverride ?? new ClusterMapApi());
+  const [versionIndex, setVersionIndex] = useState<VersionsResponse | null>(null);
+  const [selectedVersionId, setSelectedVersionId] = useState<string | null>(
+    () => searchParam("version"),
+  );
+  const [changelog, setChangelog] = useState<ChangelogResponse | null>(null);
+  const [deltaEnabled, setDeltaEnabledState] = useState(() => searchParam("delta") === "1");
+  const [deltaBaseId, setDeltaBaseId] = useState<string | null>(() => searchParam("base"));
+  const [deltaHeadId, setDeltaHeadId] = useState<string | null>(() => searchParam("head"));
+  const [delta, setDelta] = useState<DeltaPayload | null>(null);
   const [overview, setOverview] = useState<Overview | null>(null);
   const [cluster, setCluster] = useState<ClusterDetail | null>(null);
   const [globalMap, setGlobalMap] = useState<GlobalMap | null>(null);
@@ -85,26 +128,77 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   const [list, setList] = useState<ListPage | null>(null);
   const [filters, setFilters] = useState<ListFilters>(initialFilters);
   const [loading, setLoading] = useState({
+    versions: true,
+    changelog: true,
     overview: true,
     globalMap: true,
     cluster: false,
     wallet: false,
     list: true,
+    delta: false,
   });
   const [error, setError] = useState<string | null>(null);
   const [resetViewKey, setResetViewKey] = useState(0);
   const [reloadKey, setReloadKey] = useState(0);
 
   useEffect(() => {
-    if (focusedWalletAddress === null) {
-      setFocusedWalletDetail(null);
-      setFocusedWalletStatus("unset");
+    const controller = new AbortController();
+    Promise.all([
+      apiRef.current.versions(controller.signal),
+      apiRef.current.changelog({}, controller.signal),
+    ])
+      .then(([index, timeline]) => {
+        const ids = new Set(index.versions.map((version) => version.id));
+        const requested = selectedVersionId;
+        const selected = requested !== null && ids.has(requested)
+          ? requested
+          : index.published_version;
+        const requestedBase = deltaBaseId;
+        const base = requestedBase !== null && ids.has(requestedBase)
+          ? requestedBase
+          : index.published_version;
+        const requestedHead = deltaHeadId;
+        const head = requestedHead !== null && ids.has(requestedHead)
+          ? requestedHead
+          : (index.versions.at(-1)?.id ?? selected);
+        setVersionIndex(index);
+        setChangelog(timeline);
+        setSelectedVersionId(deltaEnabled ? head : selected);
+        setDeltaBaseId(base);
+        setDeltaHeadId(head);
+        updateSearch({
+          version: deltaEnabled ? head : selected,
+          base: deltaEnabled ? base : null,
+          head: deltaEnabled ? head : null,
+        });
+      })
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted) {
+          setError(reason instanceof Error ? reason.message : String(reason));
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) {
+          setLoading((current) => ({ ...current, versions: false, changelog: false }));
+        }
+      });
+    return () => controller.abort();
+    // Initial URL state is intentionally captured once.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    if (selectedVersionId === null || focusedWalletAddress === null) {
+      if (focusedWalletAddress === null) {
+        setFocusedWalletDetail(null);
+        setFocusedWalletStatus("unset");
+      }
       return;
     }
     const controller = new AbortController();
     setFocusedWalletStatus("loading");
     apiRef.current
-      .wallet(focusedWalletAddress, controller.signal)
+      .wallet(focusedWalletAddress, selectedVersionId, controller.signal)
       .then((detail) => {
         setFocusedWalletDetail(detail);
         setFocusedWalletStatus("listed");
@@ -120,63 +214,127 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
         setError(reason instanceof Error ? reason.message : String(reason));
       });
     return () => controller.abort();
-  }, [focusedWalletAddress, focusedWalletReloadKey, reloadKey]);
+  }, [focusedWalletAddress, focusedWalletReloadKey, reloadKey, selectedVersionId]);
 
   useEffect(() => {
+    if (selectedVersionId === null) return;
     const controller = new AbortController();
-    setLoading((current) => ({ ...current, overview: true }));
-    apiRef.current
-      .overview(controller.signal)
-      .then(setOverview)
+    setLoading((current) => ({ ...current, overview: true, globalMap: true }));
+    setOverview(null);
+    setGlobalMap(null);
+    setCluster(null);
+    setWallet(null);
+    Promise.all([
+      apiRef.current.overview(selectedVersionId, controller.signal),
+      apiRef.current.globalMap(selectedVersionId, controller.signal),
+    ])
+      .then(([nextOverview, nextMap]) => {
+        setOverview(nextOverview);
+        setGlobalMap(nextMap);
+        setResetViewKey((value) => value + 1);
+      })
       .catch((reason: unknown) => {
-        if (!controller.signal.aborted) setError(reason instanceof Error ? reason.message : String(reason));
+        if (!controller.signal.aborted) {
+          setError(reason instanceof Error ? reason.message : String(reason));
+        }
       })
       .finally(() => {
-        if (!controller.signal.aborted) setLoading((current) => ({ ...current, overview: false }));
+        if (!controller.signal.aborted) {
+          setLoading((current) => ({ ...current, overview: false, globalMap: false }));
+        }
       });
     return () => controller.abort();
-  }, [reloadKey]);
+  }, [reloadKey, selectedVersionId]);
 
   useEffect(() => {
-    const controller = new AbortController();
-    setLoading((current) => ({ ...current, globalMap: true }));
-    apiRef.current
-      .globalMap(controller.signal)
-      .then(setGlobalMap)
-      .catch((reason: unknown) => {
-        if (!controller.signal.aborted) setError(reason instanceof Error ? reason.message : String(reason));
-      })
-      .finally(() => {
-        if (!controller.signal.aborted) setLoading((current) => ({ ...current, globalMap: false }));
-      });
-    return () => controller.abort();
-  }, [reloadKey]);
-
-  useEffect(() => {
+    if (selectedVersionId === null) return;
     const controller = new AbortController();
     const timer = window.setTimeout(() => {
       setLoading((current) => ({ ...current, list: true }));
       apiRef.current
-        .list(filters, controller.signal)
+        .list(filters, selectedVersionId, controller.signal)
         .then(setList)
         .catch((reason: unknown) => {
-          if (!controller.signal.aborted) setError(reason instanceof Error ? reason.message : String(reason));
+          if (!controller.signal.aborted) {
+            setError(reason instanceof Error ? reason.message : String(reason));
+          }
         })
         .finally(() => {
-          if (!controller.signal.aborted) setLoading((current) => ({ ...current, list: false }));
+          if (!controller.signal.aborted) {
+            setLoading((current) => ({ ...current, list: false }));
+          }
         });
     }, 160);
     return () => {
       window.clearTimeout(timer);
       controller.abort();
     };
-  }, [filters, reloadKey]);
+  }, [filters, reloadKey, selectedVersionId]);
+
+  useEffect(() => {
+    if (!deltaEnabled || deltaBaseId === null || deltaHeadId === null) {
+      setDelta(null);
+      return;
+    }
+    const controller = new AbortController();
+    setDelta(null);
+    setLoading((current) => ({ ...current, delta: true }));
+    apiRef.current
+      .delta(deltaBaseId, deltaHeadId, controller.signal)
+      .then(validateDelta)
+      .then(setDelta)
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted) {
+          setError(reason instanceof Error ? reason.message : String(reason));
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) {
+          setLoading((current) => ({ ...current, delta: false }));
+        }
+      });
+    return () => controller.abort();
+  }, [deltaBaseId, deltaEnabled, deltaHeadId, reloadKey]);
+
+  const setVersion = useCallback((id: string) => {
+    if (!versionIndex?.versions.some((version) => version.id === id)) return;
+    setSelectedVersionId(id);
+    if (deltaEnabled) setDeltaHeadId(id);
+    updateSearch({ version: id, head: deltaEnabled ? id : null, cluster: null, wallet: null });
+  }, [deltaEnabled, versionIndex]);
+
+  const setDeltaEnabled = useCallback((enabled: boolean) => {
+    setDeltaEnabledState(enabled);
+    if (enabled && deltaHeadId !== null) setSelectedVersionId(deltaHeadId);
+    updateSearch({
+      delta: enabled ? "1" : null,
+      base: enabled ? deltaBaseId : null,
+      head: enabled ? deltaHeadId : null,
+      version: enabled && deltaHeadId !== null ? deltaHeadId : selectedVersionId,
+      cluster: null,
+      wallet: null,
+    });
+  }, [deltaBaseId, deltaHeadId, selectedVersionId]);
+
+  const setDeltaBase = useCallback((id: string) => {
+    if (!versionIndex?.versions.some((version) => version.id === id)) return;
+    setDeltaBaseId(id);
+    updateSearch({ base: id });
+  }, [versionIndex]);
+
+  const setDeltaHead = useCallback((id: string) => {
+    if (!versionIndex?.versions.some((version) => version.id === id)) return;
+    setDeltaHeadId(id);
+    setSelectedVersionId(id);
+    updateSearch({ version: id, head: id, cluster: null, wallet: null });
+  }, [versionIndex]);
 
   const openCluster = useCallback(async (id: number) => {
+    if (selectedVersionId === null) return;
     setLoading((current) => ({ ...current, cluster: true }));
     setWallet(null);
     try {
-      const detail = await apiRef.current.cluster(id);
+      const detail = await apiRef.current.cluster(id, selectedVersionId);
       setCluster(detail);
       setResetViewKey((value) => value + 1);
     } catch (reason) {
@@ -184,140 +342,165 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     } finally {
       setLoading((current) => ({ ...current, cluster: false }));
     }
-  }, []);
+  }, [selectedVersionId]);
 
-  const inspectWallet = useCallback(
-    async (address: string, clusterId?: number | null) => {
-      setLoading((current) => ({ ...current, wallet: true }));
-      try {
-        const clusterPromise =
-          clusterId !== null && clusterId !== undefined && cluster?.cluster.id !== clusterId
-            ? apiRef.current.cluster(clusterId)
-            : Promise.resolve(null);
-        const [nextCluster, detail] = await Promise.all([
-          clusterPromise,
-          apiRef.current.wallet(address),
-        ]);
-        if (nextCluster !== null) {
-          setCluster(nextCluster);
-          setResetViewKey((value) => value + 1);
-        }
-        setWallet(detail);
-        return true;
-      } catch (reason) {
-        setError(reason instanceof Error ? reason.message : String(reason));
-        return false;
-      } finally {
-        setLoading((current) => ({ ...current, wallet: false }));
+  const inspectWallet = useCallback(async (address: string, clusterId?: number | null) => {
+    if (selectedVersionId === null) return false;
+    setLoading((current) => ({ ...current, wallet: true }));
+    try {
+      const clusterPromise = clusterId !== null
+        && clusterId !== undefined
+        && cluster?.cluster.id !== clusterId
+        ? apiRef.current.cluster(clusterId, selectedVersionId)
+        : Promise.resolve(null);
+      const [nextCluster, detail] = await Promise.all([
+        clusterPromise,
+        apiRef.current.wallet(address, selectedVersionId),
+      ]);
+      if (nextCluster !== null) {
+        setCluster(nextCluster);
+        setResetViewKey((value) => value + 1);
       }
-    },
-    [cluster?.cluster.id],
-  );
+      setWallet(detail);
+      return true;
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : String(reason));
+      return false;
+    } finally {
+      setLoading((current) => ({ ...current, wallet: false }));
+    }
+  }, [cluster?.cluster.id, selectedVersionId]);
 
   const updateFilters = useCallback((patch: Partial<ListFilters>) => {
     setFilters((current) => ({ ...current, ...patch, offset: patch.offset ?? 0 }));
   }, []);
 
-  return useMemo(
-    () => ({
-      overview,
-      cluster,
-      globalMap,
-      wallet,
-      focusedWalletAddress,
-      focusedWallet,
-      focusedWalletStatus,
-      list,
-      filters,
-      loading,
-      error,
-      resetViewKey,
-      openCluster,
-      inspectWallet,
-      setFocusedWallet: (address: string) => {
-        const normalized = normalizeEthereumAddress(address);
-        if (normalized === null) return false;
-        try {
-          window.localStorage.setItem(FOCUS_WALLET_STORAGE_KEY, normalized);
-        } catch {
-          // The in-memory focus still works when browser storage is unavailable.
-        }
-        setFocusedWalletDetail(null);
-        setFocusedWalletStatus("loading");
-        setFocusedWalletAddress(normalized);
-        setFocusedWalletReloadKey((value) => value + 1);
-        return true;
-      },
-      clearFocusedWallet: () => {
-        try {
-          window.localStorage.removeItem(FOCUS_WALLET_STORAGE_KEY);
-        } catch {
-          // Clearing the in-memory focus is sufficient when storage is unavailable.
-        }
-        setFocusedWalletAddress(null);
-        setFocusedWalletDetail(null);
-        setFocusedWalletStatus("unset");
-      },
-      backToOverview: () => {
-        setCluster(null);
-        setWallet(null);
-        setResetViewKey((value) => value + 1);
-      },
-      closeWallet: () => setWallet(null),
-      setQuery: (query: string) => updateFilters({ query }),
-      setLinkFilter: (link: ListFilters["link"]) => updateFilters({ link }),
-      setEvidenceFilter: (evidence: ListFilters["evidence"]) => updateFilters({ evidence }),
-      setPreset: (preset: ListFilters["preset"]) => updateFilters({ preset }),
-      setListView: (view: "raw" | "clean" | "filtered") => {
-        if (view === "raw") {
-          updateFilters({ query: "", link: "all", evidence: "all", preset: "none" });
-        } else if (view === "clean") {
-          updateFilters({ query: "", link: "unlinked", evidence: "all", preset: "none" });
-        }
-      },
-      previousPage: () =>
-        setFilters((current) => ({
-          ...current,
-          offset: Math.max(0, current.offset - current.limit),
-        })),
-      nextPage: () =>
-        setFilters((current) => ({
-          ...current,
-          offset:
-            list === null || current.offset + current.limit >= list.total
-              ? current.offset
-              : current.offset + current.limit,
-        })),
-      refresh: () => setReloadKey((value) => value + 1),
-      exportList: async () => {
-        const { blob, filename } = await apiRef.current.exportList(filters);
-        const url = URL.createObjectURL(blob);
-        const anchor = document.createElement("a");
-        anchor.href = url;
-        anchor.download = filename;
-        anchor.click();
-        URL.revokeObjectURL(url);
-        return filename;
-      },
-      resetView: () => setResetViewKey((value) => value + 1),
-      clearError: () => setError(null),
-    }),
-    [
-      cluster,
-      error,
-      filters,
-      focusedWallet,
-      focusedWalletAddress,
-      focusedWalletStatus,
-      globalMap,
-      inspectWallet,
-      list,
-      loading,
-      openCluster,
-      overview,
-      resetViewKey,
-      updateFilters,
-      wallet,
-    ],
-  );
+  const selectedVersion = versionIndex?.versions.find(
+    (version) => version.id === selectedVersionId,
+  ) ?? null;
+
+  return useMemo(() => ({
+    versions: versionIndex?.versions ?? [],
+    publishedVersionId: versionIndex?.published_version ?? null,
+    selectedVersionId,
+    selectedVersion,
+    changelog,
+    delta,
+    deltaEnabled,
+    deltaBaseId,
+    deltaHeadId,
+    overview,
+    cluster,
+    globalMap,
+    wallet,
+    focusedWalletAddress,
+    focusedWallet,
+    focusedWalletStatus,
+    list,
+    filters,
+    loading,
+    error,
+    resetViewKey,
+    setVersion,
+    setDeltaEnabled,
+    setDeltaBase,
+    setDeltaHead,
+    openCluster,
+    inspectWallet,
+    setFocusedWallet: (address: string) => {
+      const normalized = normalizeEthereumAddress(address);
+      if (normalized === null) return false;
+      try {
+        window.localStorage.setItem(FOCUS_WALLET_STORAGE_KEY, normalized);
+      } catch {
+        // The in-memory focus still works when browser storage is unavailable.
+      }
+      setFocusedWalletDetail(null);
+      setFocusedWalletStatus("loading");
+      setFocusedWalletAddress(normalized);
+      setFocusedWalletReloadKey((value) => value + 1);
+      return true;
+    },
+    clearFocusedWallet: () => {
+      try {
+        window.localStorage.removeItem(FOCUS_WALLET_STORAGE_KEY);
+      } catch {
+        // Clearing the in-memory focus is sufficient when storage is unavailable.
+      }
+      setFocusedWalletAddress(null);
+      setFocusedWalletDetail(null);
+      setFocusedWalletStatus("unset");
+    },
+    backToOverview: () => {
+      setCluster(null);
+      setWallet(null);
+      setResetViewKey((value) => value + 1);
+    },
+    closeWallet: () => setWallet(null),
+    setQuery: (query: string) => updateFilters({ query }),
+    setLinkFilter: (link: ListFilters["link"]) => updateFilters({ link }),
+    setEvidenceFilter: (evidence: ListFilters["evidence"]) => updateFilters({ evidence }),
+    setPreset: (preset: ListFilters["preset"]) => updateFilters({ preset }),
+    setListView: (view: "raw" | "clean" | "filtered") => {
+      if (view === "raw") {
+        updateFilters({ query: "", link: "all", evidence: "all", preset: "none" });
+      } else if (view === "clean") {
+        updateFilters({ query: "", link: "unlinked", evidence: "all", preset: "none" });
+      }
+    },
+    previousPage: () => setFilters((current) => ({
+      ...current,
+      offset: Math.max(0, current.offset - current.limit),
+    })),
+    nextPage: () => setFilters((current) => ({
+      ...current,
+      offset: list === null || current.offset + current.limit >= list.total
+        ? current.offset
+        : current.offset + current.limit,
+    })),
+    refresh: () => setReloadKey((value) => value + 1),
+    exportList: async () => {
+      const { blob, filename } = await apiRef.current.exportList(
+        filters,
+        selectedVersionId ?? undefined,
+      );
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      anchor.href = url;
+      anchor.download = filename;
+      anchor.click();
+      URL.revokeObjectURL(url);
+      return filename;
+    },
+    resetView: () => setResetViewKey((value) => value + 1),
+    clearError: () => setError(null),
+  }), [
+    changelog,
+    cluster,
+    delta,
+    deltaBaseId,
+    deltaEnabled,
+    deltaHeadId,
+    error,
+    filters,
+    focusedWallet,
+    focusedWalletAddress,
+    focusedWalletStatus,
+    globalMap,
+    inspectWallet,
+    list,
+    loading,
+    openCluster,
+    overview,
+    resetViewKey,
+    selectedVersion,
+    selectedVersionId,
+    setDeltaBase,
+    setDeltaEnabled,
+    setDeltaHead,
+    setVersion,
+    updateFilters,
+    versionIndex,
+    wallet,
+  ]);
 }

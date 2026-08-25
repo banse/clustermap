@@ -15,11 +15,11 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 AUDIT_HARNESS = PROJECT_ROOT / "audit" / "harness"
 sys.path.insert(0, str(AUDIT_HARNESS))
 
+import sk_v2  # noqa: E402
 from sybilkit import Dataset  # noqa: E402
 from sybilkit.cluster import FRESHNESS_FLOOR  # noqa: E402
 from sybilkit.curve import curve_points  # noqa: E402
 
-import sk_v2  # noqa: E402
 from clustermap.models.analysis import project_evidence_edges, run_analysis  # noqa: E402
 from clustermap.models.domain import evidence_band  # noqa: E402
 from clustermap.models.versions import (  # noqa: E402
@@ -293,11 +293,7 @@ def build_shipped(snapshot: dict) -> dict:
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "88d595b",
             "tag": "v0.1.0",
-            "reproduce_command": (
-                "cd audit/harness && "
-                "SYBIL_CACHE=../../data/curator_snapshot.json.gz "
-                "python3 sk_v2.py --only 'baseline(shipped)'"
-            ),
+            "reproduce_command": "uv run python scripts/build_versions.py",
         },
         rows=snapshot["raw_list"],
         clusters=clusters,
@@ -396,12 +392,7 @@ def build_v2(snapshot: dict) -> dict:
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "f0a084b",
             "tag": None,
-            "reproduce_command": (
-                "cd audit/harness && "
-                "SYBIL_CACHE=../../data/curator_snapshot.json.gz "
-                "python3 sk_v2.py --enrich-extra ../data/enrichment/full_enrich.json "
-                "--infra ../data/infra_all.json --only 'v2h (v2g + aged-weak periphery)'"
-            ),
+            "reproduce_command": "uv run python scripts/build_versions.py",
         },
         rows=snapshot["raw_list"],
         clusters=clusters,
@@ -416,14 +407,40 @@ def links(*values: tuple[str, str]) -> list[dict]:
     return [{"label": label, "url": url} for label, url in values]
 
 
-def build_changelog(snapshot: dict) -> list[dict]:
+def transition_summary(base: dict, head: dict) -> str:
+    base_by_address = {row["address"]: row for row in base["wallets"]}
+    transitions = Counter(
+        (base_by_address[row["address"]]["status"], row["status"])
+        for row in head["wallets"]
+    )
+    changed = [
+        (base_status, head_status, count)
+        for (base_status, head_status), count in sorted(transitions.items())
+        if base_status != head_status
+    ]
+    unchanged = sum(
+        count
+        for (base_status, head_status), count in transitions.items()
+        if base_status == head_status
+    )
+    parts = [
+        f"{count:,} {base_status}→{head_status}"
+        for base_status, head_status, count in changed
+    ]
+    return "; ".join([*parts, f"{unchanged:,} unchanged."])
+
+
+def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict]:
     events = sorted(snapshot["events"], key=lambda row: (row["block_number"], row["log_index"]))
     by_hour = {}
     for event in events:
         by_hour.setdefault(event["hour"], []).append(event)
     first = events[0]
     last = events[-1]
-    deployment_ts = first["ts"] - (first["block_number"] - snapshot["meta"]["deployment_block"]) * 12
+    deployment_ts = first["ts"] - (
+        first["block_number"] - snapshot["meta"]["deployment_block"]
+    ) * 12
+    announcement_ts = first["ts"] + 32.7 * 60 * 60
     entries = [
         {
             "id": "chain-contract-deployed",
@@ -462,7 +479,9 @@ def build_changelog(snapshot: dict) -> list[dict]:
                 "links": [],
             }
         )
-    for hour, rows in Counter({hour: len(rows) for hour, rows in by_hour.items()}).most_common(5):
+    for hour, _count in Counter(
+        {hour: len(rows) for hour, rows in by_hour.items()}
+    ).most_common(5):
         event = by_hour[hour][0]
         entries.append(
             {
@@ -471,12 +490,28 @@ def build_changelog(snapshot: dict) -> list[dict]:
                 "at": as_utc(event["ts"]),
                 "block": event["block_number"],
                 "title": f"Large deposit wave in hour {hour}",
-                "summary": f"{len(by_hour[hour]):,} deposits made this one of the five largest waves.",
+                "summary": (
+                    f"{len(by_hour[hour]):,} deposits made this one of the five largest waves."
+                ),
                 "links": [],
             }
         )
     entries.extend(
         [
+            {
+                "id": "context-imd-announcement",
+                "kind": "context",
+                "at": as_utc(announcement_ts),
+                "block": None,
+                "title": "imd.fun announced during hour 32",
+                "summary": (
+                    "The project channel linked imd.fun at hour 32.7; the broad hour 34–35 "
+                    "community rally followed and is essential context for the published clusters."
+                ),
+                "links": links(
+                    ("Audit context", "https://github.com/banse/clustermap/tree/main/audit")
+                ),
+            },
             {
                 "id": "chain-settled",
                 "kind": "chain",
@@ -545,6 +580,7 @@ def build_changelog(snapshot: dict) -> list[dict]:
                 "title": "Audited v2h candidate recorded",
                 "summary": (
                     "160 groups; 2,082 shipped members released and 2,925 newly flagged. "
+                    f"{transition_summary(shipped, candidate)} "
                     "The review periphery remains visible but is not removed."
                 ),
                 "version": V2_ID,
@@ -555,6 +591,7 @@ def build_changelog(snapshot: dict) -> list[dict]:
                         f"/?page=map&delta=1&base={V1_ID}&head={V2_ID}&version={V2_ID}",
                     ),
                     ("Audit evidence", "https://github.com/banse/clustermap/tree/main/audit"),
+                    ("Detector commit", "https://github.com/banse/clustermap/commit/f0a084b"),
                 ),
             },
         ]
@@ -579,7 +616,7 @@ def main() -> None:
         "snapshot_block": snapshot["meta"]["snapshot_block"],
         "published_version": V1_ID,
         "versions": [shipped, candidate],
-        "changelog": build_changelog(snapshot),
+        "changelog": build_changelog(snapshot, shipped, candidate),
     }
     write_artifact(payload)
     print(

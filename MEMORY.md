@@ -30,7 +30,12 @@ The public, crypto-native framing is a three-step handoff:
 - Snapshot block: `25,807,057`
 - Snapshot: `data/curator_snapshot.json.gz`
 - Population: 19,522 wallets from 28,353 deposits
-- SybilKit result: 263 kept groups
+- Published analysis `2026-08-22-shipped`: 263 kept groups, 7,949 clean,
+  0 review, 11,573 flagged
+- Selectable v2h candidate `2026-08-25-v2h`: 160 kept groups, 6,782 clean,
+  324 review, 12,416 flagged
+- Immutable version artifact: `data/analysis_versions.json.gz`, generated
+  deterministically by `scripts/build_versions.py`
 - SybilKit: version 0.1.1, revision
   `61696545dd93f52daedd87e37a648e10fdfc8da5`
 - Pinned source: `vendor/sybilkit`; upstream revision is recorded in
@@ -50,7 +55,8 @@ The public, crypto-native framing is a three-step handoff:
   switcher is controlled by `THEME_SWITCHER_ENABLED = false` in
   `dashboard/src/models/theme.ts`. While disabled, MaxPane is forced even when
   a browser has an older Light/Dark preference in local storage.
-- The app opens on `WELCOME`; `MAP` and `PROFILE` remain primary peer views.
+- The app opens on `WELCOME`; `MAP`, `CHANGE LOG`, and `PROFILE` remain primary
+  peer views.
   The welcome page derives its claims from the WhitelistCurator contract notice
   and clearly separates historical onchain presence from offchain evidence
   review. Its hero shows two responsive, code-comment-style source excerpts in
@@ -69,6 +75,26 @@ The public, crypto-native framing is a three-step handoff:
   promise nor proof of a unique human.
 - Within `MAP`, the default global view is `CLUSTERS`, the Evidence Atlas.
   `WALLETS` remains available through the global-view switch.
+- The published SybilKit analysis remains the default. The audited v2h rules
+  are selectable but deliberately remain a candidate until a separate
+  publication decision changes the default.
+- The selected version is always visible and URL-pinned. It controls every
+  count, map, cluster drill-down, wallet dossier, list row, and export. Cluster
+  ids are qualified by their version because ids are not stable across runs.
+- The public change log combines chain entries generated from the frozen
+  snapshot with dated analysis, publication, and context entries. Historical
+  entries are append-only and filterable by kind and date.
+- Directional delta mode compares any base/head pair on the head layout. Wallet
+  states use the closed order `clean < review < flagged`; visual classes are
+  improved, worsened, under review, and unchanged. Atlas bubbles render the
+  full member mix as coloured wedges, while dissolved base clusters and new
+  head clusters remain representable.
+- The shipped → v2h comparison is pinned at 2,082 released wallets and 2,925
+  newly flagged wallets. Its four visual classes cover all 19,522 wallets;
+  comparing a version with itself yields 19,522 unchanged.
+- A wallet dossier shows status, version-qualified cluster, and incident
+  evidence families for every version. In delta mode it also names the analysis
+  change that produced the head.
 - Evidence Atlas encoding: X = confidence, Y = logarithmic points share,
   bubble area = wallet count, yellow/orange/red = evidence tier, dashed ring =
   possible false positive.
@@ -130,9 +156,15 @@ Important current frontend files:
 - `dashboard/src/views/WelcomePage.tsx`: product history, use case, and outlook
 - `dashboard/src/views/MapIntroduction.tsx`: header context copy
 - `dashboard/src/views/ClusterAtlas.tsx`: default cluster atlas
+- `dashboard/src/views/VersionControls.tsx`: visible version and base/head controls
+- `dashboard/src/views/ChangelogPage.tsx`: immutable public timeline
+- `dashboard/src/views/DeltaPanel.tsx`: directional counts and map filter
+- `dashboard/src/views/WalletVersionHistory.tsx`: per-wallet explanations
 - `dashboard/src/views/EvidenceGraph.tsx`: selected group topology
 - `dashboard/src/views/MapInspectionPanel.tsx`: inline group/wallet details
 - `dashboard/src/controllers/useMapViewController.ts`: map selection state
+- `dashboard/src/controllers/useClusterMapController.ts`: version-pinned API state
+- `dashboard/src/models/delta.ts`: frontend delta-count validation
 - `dashboard/src/models/walletProfile.ts`: focus-address validation/presentation
 - `dashboard/src/views/WalletProfilePage.tsx`: local focus-wallet profile
 - `dashboard/src/views/drawFocusReticle.ts`: shared canvas focus marker
@@ -141,6 +173,11 @@ Important current frontend files:
 
 Detailed decisions live under `.claude/designs/`.
 
+The version-store design is recorded in
+`.claude/designs/versioned-analysis-and-delta.md`. Runtime code only reads and
+validates the stored artifact; detector recomputation is an explicit offline
+build step, never a web request.
+
 ## Operational notes
 
 - App: `http://127.0.0.1:8766`
@@ -148,18 +185,17 @@ Detailed decisions live under `.claude/designs/`.
 - Install: `make install`
 - Production build: `make build`
 - Run: `make run`
+- Rebuild immutable analysis versions: `make versions`
 - Full verification: `UV_CACHE_DIR=/tmp/clustermap-uv-cache make test`
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 16 backend tests and 27 frontend tests pass; Ruff,
+- Last verified state: 25 backend tests and 34 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
-- Browser QA covers the welcome page at desktop and 390 px, welcome-to-map and
-  welcome-to-profile navigation, the focus profile and all three focus-marker
-  contexts, and persistence across reload. Welcome-page captures are under
-  `output/playwright/welcome-page/`; contract-notice replacement captures are
-  under `output/playwright/contract-notice/`; final masthead, footer, mobile,
-  and `YOU`-reticle captures are under `output/playwright/masthead-footer/`.
+- Browser QA additionally covers published→candidate switching (263→160),
+  directional comparison totals and atlas mixes, version-qualified cluster
+  drill-down, wallet deep links/history, change-log filters, URL pinning, and
+  zero console warnings/errors.
 - Expected non-blocking test warnings: Starlette's `httpx` deprecation and the
   Vitest environment's invalid `--localstorage-file` warning.
 

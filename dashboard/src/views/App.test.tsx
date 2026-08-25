@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/re
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { ClusterMapController } from "../controllers/useClusterMapController";
-import type { ClusterDetail, GlobalMap, Overview, WalletDetail } from "../models/domain";
+import type { AnalysisVersion, ClusterDetail, DeltaPayload, GlobalMap, Overview, WalletDetail } from "../models/domain";
 import { App } from "./App";
 
 vi.mock("./EvidenceGraph", () => ({
@@ -23,7 +23,53 @@ afterEach(() => {
   delete document.documentElement.dataset.theme;
 });
 
+const analysisVersion: AnalysisVersion = {
+  id: "2026-08-22-shipped",
+  label: "Published analysis",
+  at: "2026-08-22T00:00:00Z",
+  stage: "published",
+  summary: "Shipped detector result.",
+  detector: "sybilkit",
+  detector_version: "0.1.1",
+  rule_set: "shipped",
+  snapshot_block: 25_807_057,
+  commit: "d594ed1",
+  tag: "v0.2.0",
+  reproduce_command: "python scripts/build_versions.py",
+  content_hash: "abc123",
+  published: true,
+  status_counts: { clean: 7_949, review: 0, flagged: 11_573 },
+  cluster_count: 263,
+};
+
+const candidateVersion: AnalysisVersion = {
+  ...analysisVersion,
+  id: "2026-08-25-v2h",
+  label: "V2H candidate",
+  at: "2026-08-25T00:00:00Z",
+  stage: "candidate",
+  summary: "V2H audit candidate.",
+  rule_set: "v2h",
+  tag: null,
+  published: false,
+  status_counts: { clean: 6_782, review: 324, flagged: 12_416 },
+  cluster_count: 160,
+};
+
+const delta: DeltaPayload = {
+  base: analysisVersion,
+  head: candidateVersion,
+  counts: { improved: 2_082, worsened: 2_925, under_review: 324, unchanged: 14_191 },
+  transitions: {},
+  released: 2_082,
+  newly_flagged: 2_925,
+  wallet_classes: [],
+  head_clusters: [],
+  dissolved_clusters: [],
+};
+
 const overview: Overview = {
+  version: analysisVersion,
   provenance: {
     chain_id: 1,
     chain_name: "Ethereum",
@@ -44,6 +90,7 @@ const overview: Overview = {
     linked_points: 17_103_032,
     tx_fingerprints: 12_203,
     funding_rows: 12_498,
+    status_counts: analysisVersion.status_counts,
   },
   analysis: {
     min_size: 5,
@@ -73,18 +120,21 @@ const overview: Overview = {
 };
 
 const globalMap: GlobalMap = {
+  version: analysisVersion.id,
   nodes: [],
   edges: [],
   meta: {
     node_count: 19_522,
     edge_count: 11_310,
     risk_counts: { independent: 7_949, review: 80, elevated: 3_000, critical: 8_493 },
+    status_counts: analysisVersion.status_counts,
     review_cluster_count: 56,
     layout: "test",
   },
 };
 
 const wallet: WalletDetail = {
+  version: analysisVersion.id,
   wallet: {
     rank: 24,
     address: "0xd15031d0942634ccac10274e68945a23d2720922",
@@ -97,16 +147,29 @@ const wallet: WalletDetail = {
     first_index: 14_450,
   },
   status: "linked",
+  analysis_status: "flagged",
   member_families: ["funding", "amount"],
   member_risk: "critical",
   cluster: overview.clusters[0],
   related_edges: [],
+  history: [{
+    version: analysisVersion.id,
+    label: analysisVersion.label,
+    at: analysisVersion.at,
+    address: "0xd15031d0942634ccac10274e68945a23d2720922",
+    status: "flagged",
+    cluster_id: 0,
+    member_families: ["funding", "amount"],
+    risk: "critical",
+    cluster_risk: "critical",
+  }],
   first_funder: null,
   explorer_url: "https://etherscan.io/address/0xd15031d0942634ccac10274e68945a23d2720922",
   eth_usd: null,
 };
 
 const clusterDetail: ClusterDetail = {
+  version: analysisVersion.id,
   cluster: overview.clusters[0],
   nodes: [],
   edges: [],
@@ -119,6 +182,15 @@ function controller(
   focusedAddress: string | null = focusedWallet?.wallet.address ?? null,
 ): ClusterMapController {
   return {
+    versions: [analysisVersion],
+    publishedVersionId: analysisVersion.id,
+    selectedVersionId: analysisVersion.id,
+    selectedVersion: analysisVersion,
+    changelog: { entries: [], total: 0, filters: { kind: null, from: null, to: null } },
+    delta: null,
+    deltaEnabled: false,
+    deltaBaseId: analysisVersion.id,
+    deltaHeadId: analysisVersion.id,
     overview,
     cluster: selectedCluster,
     globalMap,
@@ -126,11 +198,15 @@ function controller(
     focusedWalletAddress: focusedAddress,
     focusedWallet,
     focusedWalletStatus: focusedWallet === null ? (focusedAddress === null ? "unset" : "not-listed") : "listed",
-    list: { rows: [], total: 0, offset: 0, limit: 50 },
+    list: { version: analysisVersion.id, rows: [], total: 0, offset: 0, limit: 50 },
     filters: { query: "", link: "all", evidence: "all", preset: "none", offset: 0, limit: 50 },
-    loading: { overview: false, globalMap: false, cluster: false, wallet: false, list: false },
+    loading: { versions: false, changelog: false, overview: false, globalMap: false, cluster: false, wallet: false, list: false, delta: false },
     error: null,
     resetViewKey: 0,
+    setVersion: vi.fn(),
+    setDeltaEnabled: vi.fn(),
+    setDeltaBase: vi.fn(),
+    setDeltaHead: vi.fn(),
     openCluster: vi.fn(async () => undefined),
     inspectWallet: vi.fn(async () => true),
     setFocusedWallet: vi.fn(() => true),
@@ -274,7 +350,7 @@ describe("App", () => {
     // wallet: the tier is a property of the cluster, and a member may be held
     // there by a single rule. See `audit/`.
     expect(screen.getByText("IN A STRONG-EVIDENCE GROUP")).toBeInTheDocument();
-    expect(screen.getByText(/GROUP 001 · 99.00% confidence/)).toBeInTheDocument();
+    expect(screen.getByText(/GROUP 001 · 2026-08-22-shipped · 99.00% confidence/)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "SHOW ON MAP" }));
     await waitFor(() => expect(data.inspectWallet).toHaveBeenCalledWith(wallet.wallet.address, 0));
@@ -301,5 +377,77 @@ describe("App", () => {
     fireEvent.click(screen.getByRole("button", { name: /PROFILE/ }));
     expect(screen.getByRole("heading", { name: "NOT IN THE ORIGINAL LIST" })).toBeInTheDocument();
     expect(screen.getByText(/has no wallet node, rank, points, or SybilKit group/)).toBeInTheDocument();
+  });
+
+  it("keeps the selected analysis version visible and delegates version changes", () => {
+    const data = { ...controller(), versions: [analysisVersion, candidateVersion] };
+    render(<App controller={data} />);
+
+    expect(screen.getByText("Published analysis")).toBeInTheDocument();
+    fireEvent.change(screen.getByLabelText("Selected analysis version"), {
+      target: { value: candidateVersion.id },
+    });
+    expect(data.setVersion).toHaveBeenCalledWith(candidateVersion.id);
+  });
+
+  it("opens the immutable change log and renders chain events", () => {
+    const data = {
+      ...controller(),
+      changelog: {
+        entries: [{
+          id: "chain-1",
+          kind: "chain" as const,
+          at: "2026-08-22T00:00:00Z",
+          block: 25_807_057,
+          title: "Snapshot frozen",
+          summary: "The source population was frozen.",
+          links: [],
+        }],
+        total: 1,
+        filters: { kind: null, from: null, to: null },
+      },
+    };
+    render(<App controller={data} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "CHANGE LOG" }));
+    expect(screen.getByRole("heading", { name: "CHANGE LOG" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Snapshot frozen" })).toBeInTheDocument();
+    expect(screen.getAllByText("BLOCK 25,807,057")).toHaveLength(2);
+  });
+
+  it("shows directional delta totals and filters without changing map data", () => {
+    const data = {
+      ...controller(wallet),
+      versions: [analysisVersion, candidateVersion],
+      selectedVersionId: candidateVersion.id,
+      selectedVersion: candidateVersion,
+      deltaEnabled: true,
+      deltaBaseId: analysisVersion.id,
+      deltaHeadId: candidateVersion.id,
+      delta,
+      changelog: {
+        entries: [{
+          id: "analysis-v2h",
+          kind: "analysis" as const,
+          at: candidateVersion.at,
+          block: candidateVersion.snapshot_block,
+          title: "Audited v2h candidate recorded",
+          summary: "The head version changed wallet status.",
+          version: candidateVersion.id,
+          links: [],
+        }],
+        total: 1,
+        filters: { kind: null, from: null, to: null },
+      },
+    };
+    render(<App controller={data} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "MAP" }));
+    expect(screen.getByRole("region", { name: "Version delta" })).toHaveTextContent("2,082 released");
+    expect(screen.getByRole("region", { name: "Version delta" })).toHaveTextContent("2,925 newly flagged");
+    expect(screen.getByText("CHANGE THAT PRODUCED HEAD")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "RANK #24" }).closest("section")).toHaveTextContent("The head version changed wallet status.");
+    fireEvent.click(screen.getByRole("button", { name: /WORSENED/ }));
+    expect(screen.getByRole("button", { name: /WORSENED/ })).toHaveAttribute("aria-pressed", "true");
   });
 });

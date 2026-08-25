@@ -25,7 +25,7 @@ export function MapSidebar({ overview, globalMap, detail, globalView, onGlobal, 
       <div className="sidebar-heading">
         <div>
           <span>EVIDENCE FIELD</span>
-          <h2>{detail === null ? (showingAtlas ? "Cluster atlas" : "All wallets") : clusterLabel(detail.cluster.id)}</h2>
+          <h2>{detail === null ? (showingAtlas ? "Cluster atlas" : "All wallets") : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</h2>
         </div>
         <strong>{detail === null ? formatCount(showingAtlas ? overview.totals.groups : globalMap.meta.node_count) : formatCount(detail.cluster.size)}</strong>
       </div>
@@ -68,7 +68,7 @@ export function MapSidebar({ overview, globalMap, detail, globalView, onGlobal, 
         {overview.clusters.slice(0, 8).map((cluster) => (
           <button type="button" key={cluster.id} className={detail?.cluster.id === cluster.id ? "is-active" : ""} onClick={() => onCluster(cluster.id)}>
             <span className={`risk-dot risk-dot--${cluster.risk}`} aria-hidden="true" />
-            <span><strong>{clusterLabel(cluster.id)}</strong><small>{formatCount(cluster.size)} wallets{cluster.review_flag ? " · review" : ""}</small></span>
+            <span><strong>{clusterLabel(cluster.id)} · {overview.version.id}</strong><small>{formatCount(cluster.size)} wallets{cluster.review_flag ? " · review" : ""}</small></span>
             <b>{formatPercent(cluster.points_share)}</b>
           </button>
         ))}

@@ -1,11 +1,32 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import type { ClusterMapController } from "./useClusterMapController";
+import type { DeltaClass } from "../models/domain";
 import { normalizeEthereumAddress } from "../models/walletProfile";
 
 export type MapScope = "global" | "cluster";
 export type GlobalVisualView = "wallets" | "clusters";
-export type AppPage = "welcome" | "map" | "profile";
+export type AppPage = "welcome" | "map" | "profile" | "changelog";
+
+function readPage(): AppPage {
+  const value = new URLSearchParams(window.location.search).get("page");
+  return value === "map" || value === "profile" || value === "changelog" ? value : "welcome";
+}
+
+function readGlobalView(): GlobalVisualView {
+  return new URLSearchParams(window.location.search).get("view") === "wallets"
+    ? "wallets"
+    : "clusters";
+}
+
+function updateSearch(values: Readonly<Record<string, string | null>>): void {
+  const url = new URL(window.location.href);
+  for (const [name, value] of Object.entries(values)) {
+    if (value === null) url.searchParams.delete(name);
+    else url.searchParams.set(name, value);
+  }
+  window.history.replaceState(null, "", `${url.pathname}${url.search}${url.hash}`);
+}
 
 export interface MapViewController {
   readonly scope: MapScope;
@@ -13,6 +34,7 @@ export interface MapViewController {
   readonly page: AppPage;
   readonly walletDraft: string;
   readonly walletDraftError: string | null;
+  readonly deltaFilter: DeltaClass | "all";
   readonly selectWallet: (address: string, clusterId?: number | null) => Promise<void>;
   readonly showCluster: (clusterId: number) => Promise<void>;
   readonly showGlobal: () => void;
@@ -20,26 +42,38 @@ export interface MapViewController {
   readonly showWelcome: () => void;
   readonly showMap: () => void;
   readonly showProfile: () => void;
+  readonly showChangelog: () => void;
   readonly showFocusedWalletOnMap: () => Promise<void>;
   readonly setWalletDraft: (value: string) => void;
   readonly saveFocusedWallet: () => void;
   readonly clearFocusedWallet: () => void;
+  readonly setDeltaFilter: (value: DeltaClass | "all") => void;
   readonly closeWallet: () => void;
 }
 
 export function useMapViewController(data: ClusterMapController): MapViewController {
   const [scope, setScope] = useState<MapScope>("global");
-  const [globalView, setGlobalViewState] = useState<GlobalVisualView>("clusters");
-  const [page, setPage] = useState<AppPage>("welcome");
+  const [globalView, setGlobalViewState] = useState<GlobalVisualView>(readGlobalView);
+  const [page, setPage] = useState<AppPage>(readPage);
   const [walletDraft, setWalletDraftState] = useState(data.focusedWalletAddress ?? "");
   const [walletDraftError, setWalletDraftError] = useState<string | null>(null);
+  const [deltaFilter, setDeltaFilter] = useState<DeltaClass | "all">("all");
+  const deepLinkKey = useRef<string | null>(null);
 
   useEffect(() => {
     setWalletDraftState(data.focusedWalletAddress ?? "");
   }, [data.focusedWalletAddress]);
 
   const selectWallet = useCallback(async (address: string, clusterId?: number | null) => {
-    await data.inspectWallet(address, clusterId);
+    const opened = await data.inspectWallet(address, clusterId);
+    if (opened) {
+      deepLinkKey.current = `${data.selectedVersionId ?? ""}:${clusterId ?? ""}:${address}`;
+      updateSearch({
+        page: "map",
+        wallet: address,
+        cluster: clusterId === null || clusterId === undefined ? null : String(clusterId),
+      });
+    }
   }, [data]);
 
   const showCluster = useCallback(async (clusterId: number) => {
@@ -47,7 +81,30 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
     await data.openCluster(clusterId);
     setScope("cluster");
     setPage("map");
+    deepLinkKey.current = `${data.selectedVersionId ?? ""}:${clusterId}:`;
+    updateSearch({ page: "map", cluster: String(clusterId), wallet: null });
   }, [data]);
+
+  useEffect(() => {
+    if (data.selectedVersionId === null) return;
+    const query = new URLSearchParams(window.location.search);
+    const clusterValue = query.get("cluster");
+    const walletValue = normalizeEthereumAddress(query.get("wallet") ?? "");
+    const key = `${data.selectedVersionId}:${clusterValue ?? ""}:${walletValue ?? ""}`;
+    if (deepLinkKey.current === key) return;
+    deepLinkKey.current = key;
+    const clusterId = clusterValue === null ? null : Number(clusterValue);
+    if (clusterId === null || !Number.isInteger(clusterId) || clusterId < 0) {
+      setScope("global");
+      if (walletValue !== null && page === "map") void data.inspectWallet(walletValue, null);
+      return;
+    }
+    void data.openCluster(clusterId).then(() => {
+      setScope("cluster");
+      setPage("map");
+      if (walletValue !== null) void data.inspectWallet(walletValue, clusterId);
+    });
+  }, [data, page]);
 
   const showFocusedWalletOnMap = useCallback(async () => {
     const focus = data.focusedWallet;
@@ -56,12 +113,22 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
     if (focus.cluster !== null) {
       const opened = await data.inspectWallet(focus.wallet.address, focus.cluster.id);
       if (opened) setScope("cluster");
+      if (opened) {
+        deepLinkKey.current = `${data.selectedVersionId ?? ""}:${focus.cluster.id}:${focus.wallet.address}`;
+        updateSearch({
+          page: "map",
+          cluster: String(focus.cluster.id),
+          wallet: focus.wallet.address,
+        });
+      }
       return;
     }
     data.backToOverview();
     setScope("global");
     setGlobalViewState("wallets");
     await data.inspectWallet(focus.wallet.address, null);
+    deepLinkKey.current = `${data.selectedVersionId ?? ""}::${focus.wallet.address}`;
+    updateSearch({ page: "map", view: "wallets", cluster: null, wallet: focus.wallet.address });
   }, [data]);
 
   useEffect(() => {
@@ -82,20 +149,36 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
     page,
     walletDraft,
     walletDraftError,
+    deltaFilter,
     selectWallet,
     showCluster,
     showGlobal: () => {
       data.backToOverview();
       setScope("global");
       setPage("map");
+      updateSearch({ page: "map", cluster: null, wallet: null });
     },
     setGlobalView: (view) => {
       data.closeWallet();
       setGlobalViewState(view);
+      updateSearch({ view, wallet: null });
     },
-    showWelcome: () => setPage("welcome"),
-    showMap: () => setPage("map"),
-    showProfile: () => setPage("profile"),
+    showWelcome: () => {
+      setPage("welcome");
+      updateSearch({ page: "welcome", cluster: null, wallet: null });
+    },
+    showMap: () => {
+      setPage("map");
+      updateSearch({ page: "map" });
+    },
+    showProfile: () => {
+      setPage("profile");
+      updateSearch({ page: "profile", cluster: null, wallet: null });
+    },
+    showChangelog: () => {
+      setPage("changelog");
+      updateSearch({ page: "changelog", cluster: null, wallet: null });
+    },
     showFocusedWalletOnMap,
     setWalletDraft: (value) => {
       setWalletDraftState(value);
@@ -116,6 +199,10 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
       setWalletDraftState("");
       setWalletDraftError(null);
     },
-    closeWallet: data.closeWallet,
-  }), [data, globalView, page, scope, selectWallet, showCluster, showFocusedWalletOnMap, walletDraft, walletDraftError]);
+    setDeltaFilter,
+    closeWallet: () => {
+      data.closeWallet();
+      updateSearch({ wallet: null });
+    },
+  }), [data, deltaFilter, globalView, page, scope, selectWallet, showCluster, showFocusedWalletOnMap, walletDraft, walletDraftError]);
 }

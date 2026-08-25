@@ -42,7 +42,7 @@ export function HistoryScreen({ data, terminal, overview }: HistoryScreenProps) 
                   className={detail?.cluster.id === cluster.id ? "is-active" : ""}
                   onClick={() => void data.openCluster(cluster.id)}
                 >
-                  <span>{clusterLabel(cluster.id)}</span>
+                  <span>{clusterLabel(cluster.id)} · {overview.version.id}</span>
                   <strong>{formatPercent(cluster.points_share)}</strong>
                   <small>{formatCount(cluster.size)}W · {cluster.band.toUpperCase()}</small>
                 </button>
@@ -52,7 +52,7 @@ export function HistoryScreen({ data, terminal, overview }: HistoryScreenProps) 
 
           <div className="terminal-panel graph-terminal">
             <div className="panel-title">
-              <span>{detail === null ? "POPULATION MAP" : `${clusterLabel(detail.cluster.id)} TOPOLOGY`}</span>
+              <span>{detail === null ? "POPULATION MAP" : `${clusterLabel(detail.cluster.id)} · ${detail.version} TOPOLOGY`}</span>
               <div>
                 {detail === null ? null : <button type="button" onClick={data.backToOverview}>ALL GROUPS</button>}
                 <button type="button" onClick={data.resetView}>RESET VIEW</button>
@@ -123,7 +123,7 @@ export function HistoryScreen({ data, terminal, overview }: HistoryScreenProps) 
             <div className="panel-title"><span>LARGEST GROUPS</span><small>PRESS [C] FOR MAP</small></div>
             <table className="terminal-table signals-table">
               <thead><tr><th>GROUP</th><th>WALLETS</th><th>POINTS</th><th>SHARE</th><th>FAMILIES</th></tr></thead>
-              <tbody>{overview.clusters.slice(0, 20).map((cluster) => <tr key={cluster.id} onDoubleClick={() => void data.openCluster(cluster.id).then(() => terminal.cycleView())}><td>{clusterLabel(cluster.id)}</td><td>{formatCount(cluster.size)}</td><td>{formatCount(cluster.points)}</td><td>{formatPercent(cluster.points_share)}</td><td>{cluster.families.join(" / ").toUpperCase()}</td></tr>)}</tbody>
+              <tbody>{overview.clusters.slice(0, 20).map((cluster) => <tr key={cluster.id} onDoubleClick={() => void data.openCluster(cluster.id).then(() => terminal.cycleView())}><td>{clusterLabel(cluster.id)} · {overview.version.id}</td><td>{formatCount(cluster.size)}</td><td>{formatCount(cluster.points)}</td><td>{formatPercent(cluster.points_share)}</td><td>{cluster.families.join(" / ").toUpperCase()}</td></tr>)}</tbody>
             </table>
           </div>
         </div>

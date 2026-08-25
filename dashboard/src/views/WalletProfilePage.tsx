@@ -2,6 +2,7 @@ import type { WalletDetail } from "../models/domain";
 import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, walletGroupLabel } from "../models/presentation";
 import type { WalletProfileStatus } from "../models/walletProfile";
 import { AddressLink } from "./AddressLink";
+import { WalletVersionHistory } from "./WalletVersionHistory";
 
 interface WalletProfilePageProps {
   readonly address: string | null;
@@ -135,7 +136,7 @@ export function WalletProfilePage({
               <span className="wallet-profile__eyebrow">CLUSTERING STATE</span>
               <div className={`wallet-profile__cluster-state wallet-profile__cluster-state--${detail.cluster?.risk ?? "independent"}`}>
                 <strong>{clusterState(detail)}</strong>
-                <span>{detail.cluster === null ? "No SybilKit group met the configured threshold" : `${clusterLabel(detail.cluster.id)} · ${formatPercent(detail.cluster.confidence)} confidence`}</span>
+                <span>{detail.cluster === null ? `No SybilKit group in ${detail.version}` : `${clusterLabel(detail.cluster.id)} · ${detail.version} · ${formatPercent(detail.cluster.confidence)} confidence`}</span>
               </div>
 
               {detail.cluster === null ? (
@@ -143,7 +144,7 @@ export function WalletProfilePage({
               ) : (
                 <>
                   <div className="wallet-profile__cluster-facts">
-                    <div><span>GROUP</span><strong>{clusterLabel(detail.cluster.id)}</strong></div>
+                    <div><span>GROUP</span><strong>{clusterLabel(detail.cluster.id)} · {detail.version}</strong></div>
                     <div><span>GROUP SIZE</span><strong>{formatCount(detail.cluster.size)} WALLETS</strong></div>
                     <div><span>DIRECT LINKS</span><strong>{formatCount(detail.related_edges.length)}</strong></div>
                   </div>
@@ -182,6 +183,7 @@ export function WalletProfilePage({
               )}
             </article>
           </div>
+          <WalletVersionHistory history={detail.history} selectedVersion={detail.version} />
           <p className="wallet-profile__disclaimer">{disclaimer}</p>
           {dispute ? (
             <p className="wallet-profile__dispute">

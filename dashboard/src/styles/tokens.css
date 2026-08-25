@@ -40,6 +40,10 @@
   --risk-review: #ffe45c;
   --risk-elevated: #ff8a00;
   --risk-critical: #ff0040;
+  --delta-improved: #36dc82;
+  --delta-worsened: #ff4055;
+  --delta-under-review: #ffe45c;
+  --delta-unchanged: #718078;
 }
 
 :root[data-theme="light"] {
@@ -83,6 +87,10 @@
   --risk-review: #d3a40e;
   --risk-elevated: #dd7128;
   --risk-critical: #c83f48;
+  --delta-improved: #36865c;
+  --delta-worsened: #c83f48;
+  --delta-under-review: #d3a40e;
+  --delta-unchanged: #8a918c;
 }
 
 :root[data-theme="dark"] {
@@ -126,4 +134,8 @@
   --risk-review: #f0c84b;
   --risk-elevated: #ff8c42;
   --risk-critical: #ff5060;
+  --delta-improved: #43d17d;
+  --delta-worsened: #ff5060;
+  --delta-under-review: #f0c84b;
+  --delta-unchanged: #718078;
 }

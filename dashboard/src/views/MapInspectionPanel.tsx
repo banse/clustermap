@@ -1,6 +1,7 @@
-import type { ClusterDetail, ClusterSummary, WalletDetail } from "../models/domain";
+import type { ChangelogEntry, ClusterDetail, ClusterSummary, WalletDetail } from "../models/domain";
 import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, riskLabel } from "../models/presentation";
 import { AddressLink } from "./AddressLink";
+import { WalletVersionHistory } from "./WalletVersionHistory";
 
 function riskTitle(cluster: ClusterSummary | null): string {
   if (cluster === null) return "NO GROUP LINK";
@@ -16,7 +17,7 @@ export function GroupInspectionPanel({ detail, disclaimer }: {
     <section className="map-inspection-panel group-inspection" aria-labelledby="group-inspection-title">
       <header className="inspection-header">
         <div>
-          <span>GROUP EVIDENCE REVIEW · {clusterLabel(cluster.id)}</span>
+          <span>GROUP EVIDENCE REVIEW · {clusterLabel(cluster.id)} · {detail.version}</span>
           <h2 id="group-inspection-title">WHY THIS GROUP EXISTS</h2>
         </div>
         <strong className={`inspection-risk inspection-risk--${cluster.risk}`}>{riskTitle(cluster)}</strong>
@@ -59,8 +60,9 @@ export function GroupInspectionPanel({ detail, disclaimer }: {
   );
 }
 
-export function WalletInspectionPanel({ detail, onClose, onViewCluster, onSelectWallet }: {
+export function WalletInspectionPanel({ detail, headEntry = null, onClose, onViewCluster, onSelectWallet }: {
   readonly detail: WalletDetail;
+  readonly headEntry?: ChangelogEntry | null;
   readonly onClose: () => void;
   readonly onViewCluster: (clusterId: number) => void;
   readonly onSelectWallet: (address: string, clusterId?: number | null) => void;
@@ -113,17 +115,19 @@ export function WalletInspectionPanel({ detail, onClose, onViewCluster, onSelect
             <div><dt>Transactions</dt><dd>{formatCount(detail.wallet.tx_count)}</dd></div>
             <div><dt>First seen</dt><dd>Hour {detail.wallet.first_hour} · #{formatCount(detail.wallet.first_index)}</dd></div>
             <div><dt>First funder</dt><dd>{detail.first_funder === null ? "Not measured" : <AddressLink address={detail.first_funder} compact />}</dd></div>
-            <div><dt>Group</dt><dd>{detail.cluster === null ? "—" : clusterLabel(detail.cluster.id)}</dd></div>
+            <div><dt>Version</dt><dd>{detail.version}</dd></div>
+            <div><dt>Group</dt><dd>{detail.cluster === null ? "—" : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</dd></div>
           </dl>
           {detail.cluster === null ? null : (
             <>
               <h3>WHY THIS GROUP EXISTS</h3>
               <div className="detail-reasons">{detail.cluster.reasons.map((reason) => <div key={`${reason.family}-${reason.text}`}><span className={`family-mark family-mark--${reason.family}`} /><p><strong>{familyLabel(reason.family)}</strong><span>{reason.text}</span></p></div>)}</div>
-              <button type="button" className="detail-cluster-action" onClick={() => onViewCluster(detail.cluster!.id)}>VIEW {clusterLabel(detail.cluster.id)} MAP</button>
+              <button type="button" className="detail-cluster-action" onClick={() => onViewCluster(detail.cluster!.id)}>VIEW {clusterLabel(detail.cluster.id)} · {detail.version} MAP</button>
             </>
           )}
         </aside>
       </div>
+      <WalletVersionHistory history={detail.history} selectedVersion={detail.version} headEntry={headEntry} />
     </section>
   );
 }

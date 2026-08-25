@@ -7,9 +7,10 @@ unconnected. Detected groups are joined in yellow, orange or red according to
 the strength of their evidence. The current interface uses the MaxPane matrix
 look exclusively; it is browser-native, responsive and read-only.
 
-The bundled snapshot covers 19,522 wallets, 28,353 deposits and 263 groups
-detected by SybilKit. It comes from the final MaxPane cache and ends at Ethereum
-block 25,807,057.
+The bundled snapshot covers 19,522 wallets and 28,353 deposits. The published
+SybilKit version contains 263 groups; the selectable audited v2h candidate
+contains 160. Both use the same settled input ending at Ethereum block
+25,807,057.
 
 > **Audit — please read before interpreting the map.** The groups shown here come
 > from SybilKit 0.1.1, and its rules have been audited: they flag 11,573 of the
@@ -67,6 +68,11 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   the code for later reactivation
 - responsive desktop/mobile interface and reduced-motion support
 - a fully usable local snapshot without an API key or a running RPC
+- immutable, URL-pinned analysis versions with the published version as default
+- a public change log combining generated chain history with dated analysis and
+  publication entries
+- a directional base → head delta on both maps, with wallet histories and
+  improved, worsened, under-review and unchanged filters
 
 The earlier MaxPane screens are still in the source but are hidden for now, so
 that the clustermap is the central work surface.
@@ -98,9 +104,20 @@ of common ownership**.
 - Analysis: SybilKit, cloned from `github.com/banse/maxpane` and pinned in
   `vendor/sybilkit`
 
-The app runs SybilKit over the snapshot at startup, so the groups shown in the
-UI are reproducible rather than baked in as a finished graph result. The exact
-upstream commit is recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
+The app loads immutable analysis output from
+`data/analysis_versions.json.gz`; it never runs the v2 prototype in the web
+process. The artifact stores the status, cluster and incident evidence families
+for every wallet in every version, validates each version's content hash at
+startup, and is rebuilt deterministically from the snapshot and audit harness:
+
+```bash
+make versions
+```
+
+The published default remains `2026-08-22-shipped`; the audited
+`2026-08-25-v2h` version is deliberately selectable but not published. The
+exact detector inputs and rule identifiers are stored with each version. The
+vendored SybilKit commit remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
 
 A current local MaxPane state can be exported like this:
 
@@ -126,7 +143,9 @@ The original data and graph derivation is written up in
 `.claude/designs/clustermap.md`. The decision between `textual-serve`, xterm.js
 and the browser-native MaxPane rebuild is documented in
 `.claude/designs/maxpane-the-list-web.md`. Layout, risk tiers and the current map
-focus are in `.claude/designs/global-wallet-map-and-themes.md`.
+focus are in `.claude/designs/global-wallet-map-and-themes.md`. The immutable
+version store and directional comparison are documented in
+`.claude/designs/versioned-analysis-and-delta.md`.
 
 ## Quality assurance
 

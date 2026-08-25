@@ -330,7 +330,7 @@ export function EvidenceGraph({
         aria-label={
           detail === null
             ? `${overview.clusters.length} linked-wallet groups. Use the inspector list for keyboard navigation.`
-            : `${detail.nodes.length} wallets in ${clusterLabel(detail.cluster.id)}.${focusedAddress === null ? "" : " Your wallet is marked with a YOU reticle."} Use the original list for keyboard navigation.`
+            : `${detail.nodes.length} wallets in ${clusterLabel(detail.cluster.id)} at ${detail.version}.${focusedAddress === null ? "" : " Your wallet is marked with a YOU reticle."} Use the original list for keyboard navigation.`
         }
         onPointerDown={(event) => {
           const node = hitNode(event.clientX, event.clientY);
@@ -417,7 +417,7 @@ export function EvidenceGraph({
       />
       {hovered === null ? null : (
         <div className="graph-tooltip" aria-hidden="true">
-          <strong>{hovered.address === null ? clusterLabel(hovered.clusterId) : hovered.label}</strong>
+          <strong>{hovered.address === null ? `${clusterLabel(hovered.clusterId)} · ${detail?.version ?? overview.version.id}` : hovered.label}</strong>
           <span>{hovered.sublabel}</span>
         </div>
       )}

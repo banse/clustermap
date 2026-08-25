@@ -1,4 +1,4 @@
-.PHONY: install build test run snapshot
+.PHONY: install build test run snapshot versions
 
 install:
 	uv sync --all-groups
@@ -19,3 +19,6 @@ run:
 
 snapshot:
 	uv run python scripts/export_snapshot.py
+
+versions:
+	uv run python scripts/build_versions.py
