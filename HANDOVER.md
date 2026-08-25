@@ -4,9 +4,23 @@ Written 2026-08-25. **Where the project stands** (read first), then **three feat
 log, switching between rule-set versions, and a delta view. Functional only — layout, visual design and
 component structure are decided inside the clustermap project.
 
-The three are one feature underneath. Once a *version* is a first-class object with a status for every
-wallet, the change log is its history, the version switch renders one of them, and the delta view
-compares two. Build the version model first; the rest follows from it.
+**This document is the specification, not part of the work.** It is committed at the repository root and
+is already shipped; nothing about it needs to move. What it specifies is unbuilt.
+
+| | status |
+|---|---|
+| `HANDOVER.md` — this file | **shipped** (committed in `236ac57`, tag `v0.2.0`) |
+| Everything in Part 1 (the corrections, the audit, the dispute route) | **shipped and live** |
+| Feature A — the version model | **not built** · the foundation |
+| Feature B — switching between versions | **not built** · renders one version |
+| Feature C — the delta view | **not built** · compares two versions |
+
+**Build Feature A first, and resist the temptation to start with the change log or the delta** — they are
+the visible ones, so they are the tempting ones. All three are one feature underneath: once a *version*
+is a first-class object carrying a status for every wallet, the change log is its history, the switch
+renders one of them, and the delta compares two. Start anywhere else and you will end up with three
+incompatible notions of what a wallet's status *is*, and find that out late, after each has been wired
+into a view.
 
 ---
 
@@ -29,9 +43,14 @@ choice.
 | | |
 |---|---|
 | tag `v0.1.0` | archive of the state the site served before any correction. Recomputes the published 263 clusters / 11,573 flagged **exactly** — verified wallet-for-wallet |
-| pushed on `main` | `audit/` (harness, report, evidence, full enrichment), README/AGENTS in English, evidence-tier language |
-| **uncommitted in the working tree** | per-member evidence gate, per-wallet evidence on the wallet page, export provenance + caveats, three tests |
-| **not deployed, not tagged** | the live site still serves the pre-correction bundle |
+| tag `v0.2.0` (`236ac57`) | **deployed and live.** The presentation corrections: per-member evidence gate, group-scoped tier wording, edges capped at their weaker endpoint, export provenance + caveats, the dispute route. Clustering untouched |
+| `main` | also carries `audit/` — harness, report, evidence and the complete enrichment — which reproduces every published number from a clone |
+| working tree | clean |
+
+Verified live after deploy: the wallet the audit opened with (`0x3195c3f9…`) returns
+`member_families: ['amount']` and `member_risk: review` against a cluster still at `critical` 0.9706, and
+the old verdict string is absent from the served bundle. A tag here means "this is what the site
+asserted, from this date" — so deploy the commit you tag, and tag the commit you deployed.
 
 ## What the audit found (the reason the corrections exist)
 
