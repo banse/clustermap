@@ -18,7 +18,10 @@ interface WalletProfilePageProps {
 }
 
 function clusterState(detail: WalletDetail): string {
-  return walletGroupLabel(detail.cluster === null ? null : detail.cluster.risk).toUpperCase();
+  // The wallet's OWN tier, not its cluster's: a member held by a single
+  // evidence family is shown for review whatever its group scored.
+  if (detail.cluster === null) return walletGroupLabel(null).toUpperCase();
+  return walletGroupLabel(detail.member_risk).toUpperCase();
 }
 
 export function WalletProfilePage({
@@ -142,10 +145,28 @@ export function WalletProfilePage({
                     <div><span>GROUP SIZE</span><strong>{formatCount(detail.cluster.size)} WALLETS</strong></div>
                     <div><span>DIRECT LINKS</span><strong>{formatCount(detail.related_edges.length)}</strong></div>
                   </div>
+                  <h4>EVIDENCE ON THIS WALLET</h4>
+                  {detail.member_families.length === 0 ? (
+                    <p className="detail-note">
+                      No evidence family touches this wallet directly; it is in the group through
+                      other members.
+                    </p>
+                  ) : (
+                    <div className="inspection-family-strip">
+                      {detail.member_families.map((family) => <span key={family}><i className={`family-mark family-mark--${family}`} />{familyLabel(family)}</span>)}
+                    </div>
+                  )}
+                  {detail.member_families.length < 2 && (
+                    <p className="detail-note">
+                      Fewer than two families hold this wallet, so it is shown for review rather
+                      than at its group&rsquo;s tier. The reasons below describe the GROUP and may
+                      not apply to this wallet.
+                    </p>
+                  )}
+                  <h4>WHY THIS GROUP EXISTS</h4>
                   <div className="inspection-family-strip">
                     {detail.cluster.families.map((family) => <span key={family}><i className={`family-mark family-mark--${family}`} />{familyLabel(family)}</span>)}
                   </div>
-                  <h4>WHY THIS GROUP EXISTS</h4>
                   <div className="detail-reasons">
                     {detail.cluster.reasons.map((reason) => (
                       <div key={`${reason.family}-${reason.text}`}>

@@ -97,6 +97,8 @@ const wallet: WalletDetail = {
     first_index: 14_450,
   },
   status: "linked",
+  member_families: ["funding", "amount"],
+  member_risk: "critical",
   cluster: overview.clusters[0],
   related_edges: [],
   first_funder: null,

@@ -109,6 +109,10 @@ export interface WalletDetail {
   readonly wallet: WalletRow;
   readonly status: "linked" | "unlinked";
   readonly cluster: ClusterSummary | null;
+  /** Evidence families incident on THIS wallet — not its cluster's families. */
+  readonly member_families: readonly EvidenceFamily[];
+  /** This wallet's own tier: capped at "review" below two incident families. */
+  readonly member_risk: RiskTier;
   readonly related_edges: readonly EvidenceEdge[];
   readonly first_funder: string | null;
   readonly explorer_url: string;
@@ -138,7 +142,11 @@ export interface GlobalMapNode {
   readonly points: number;
   readonly name: string | null;
   readonly cluster_id: number | null;
+  /** The wallet's own tier (see WalletDetail.member_risk). */
   readonly risk: RiskTier;
+  /** The tier of the cluster it belongs to, kept so the two can be told apart. */
+  readonly cluster_risk: RiskTier;
+  readonly member_families: readonly EvidenceFamily[];
   readonly review_flag: boolean;
 }
 

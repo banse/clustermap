@@ -1929,6 +1929,17 @@ kbd {
   color: var(--page-ink);
   background: repeating-linear-gradient(135deg, transparent 0 7px, color-mix(in srgb, var(--map-false-positive) 12%, transparent) 7px 14px);
 }
+/* A caveat about what the evidence below does and does not cover. Recessive:
+   it qualifies a claim, it is not a claim of its own. */
+.detail-note {
+  margin: 6px 0 10px;
+  padding: 7px 9px;
+  border-left: 2px solid var(--border);
+  color: var(--muted-ink, var(--page-ink));
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.86;
+}
 .detail-cluster-action {
   min-height: 32px;
   padding: 5px 8px;

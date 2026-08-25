@@ -100,3 +100,56 @@ def test_wallet_keeps_clean_separate_from_unknown(repository: CuratorRepository)
     assert detail["status"] == "unlinked"
     assert detail["cluster"] is None
     assert repository.wallet("0x0000000000000000000000000000000000000000") is None
+
+
+def test_a_member_held_by_one_family_does_not_inherit_its_groups_tier(
+    repository: CuratorRepository,
+) -> None:
+    """The audit's finding, pinned.
+
+    A cluster's tier is computed from the cluster's evidence. Rendering it for
+    every member turned wallets carried by a single rule into "critical"
+    verdicts on group reasons that were false for them specifically —
+    `0x3195c3f9…` sat at 0.97 confidence on a cited peel chain whose funder is
+    not even in the list. Fewer than two incident families is the same
+    threshold the cluster gate uses, applied per member.
+    """
+    detail = repository.wallet("0x3195c3f94154364e897711e501e104f40d8e23fb")
+    assert detail is not None
+    assert detail["cluster"]["risk"] == "critical"
+    assert detail["member_families"] == ["amount"]
+    assert detail["member_risk"] == "review"
+
+    nodes = {node["address"]: node for node in repository.global_map()["nodes"]}
+    node = nodes["0x3195c3f94154364e897711e501e104f40d8e23fb"]
+    assert node["risk"] == "review"
+    assert node["cluster_risk"] == "critical"
+
+
+def test_every_wallets_own_tier_is_capped_by_its_own_evidence(
+    repository: CuratorRepository,
+) -> None:
+    for node in repository.global_map()["nodes"]:
+        if node["cluster_id"] is None:
+            assert node["risk"] == "independent"
+            continue
+        if len(node["member_families"]) < 2:
+            assert node["risk"] == "review", node["address"]
+        else:
+            assert node["risk"] == node["cluster_risk"], node["address"]
+
+
+def test_the_export_carries_its_own_provenance_and_known_defects(
+    repository: CuratorRepository,
+) -> None:
+    """An export gets forked and cited long after its context is gone."""
+    payload = repository.export_rows(preset="first1000")
+    assert payload["detector"]["name"] == "sybilkit"
+    assert payload["detector"]["version"]
+    assert payload["detector"]["generated_at"].endswith("Z")
+    assert any("not proof of common ownership" in c for c in payload["caveats"])
+    assert any("audit" in c for c in payload["caveats"])
+    row = payload["rows"][0]
+    assert "member_families" in row
+    assert row["member_family_count"] == len(row["member_families"])
+    assert row["under_review"] is (row["cluster_id"] is not None and row["member_family_count"] < 2)

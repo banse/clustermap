@@ -5,10 +5,10 @@ import { buildGlobalLayout } from "./globalLayout";
 
 const map: GlobalMap = {
   nodes: [
-    { id: "top", address: "top", rank: 1, points: 100, name: null, cluster_id: null, risk: "independent", review_flag: false },
-    { id: "cluster-a", address: "cluster-a", rank: 2, points: 80, name: null, cluster_id: 1, risk: "critical", review_flag: false },
-    { id: "cluster-b", address: "cluster-b", rank: 3, points: 70, name: null, cluster_id: 1, risk: "critical", review_flag: false },
-    { id: "outer", address: "outer", rank: 4, points: 10, name: null, cluster_id: null, risk: "independent", review_flag: false },
+    { id: "top", address: "top", rank: 1, points: 100, name: null, cluster_id: null, risk: "independent", cluster_risk: "independent", member_families: [], review_flag: false },
+    { id: "cluster-a", address: "cluster-a", rank: 2, points: 80, name: null, cluster_id: 1, risk: "critical", cluster_risk: "critical", member_families: ["funding", "amount"], review_flag: false },
+    { id: "cluster-b", address: "cluster-b", rank: 3, points: 70, name: null, cluster_id: 1, risk: "critical", cluster_risk: "critical", member_families: ["funding", "amount"], review_flag: false },
+    { id: "outer", address: "outer", rank: 4, points: 10, name: null, cluster_id: null, risk: "independent", cluster_risk: "independent", member_families: [], review_flag: false },
   ],
   edges: [{ source: "cluster-a", target: "cluster-b", family: "funding", strength: 1, risk: "critical" }],
   meta: {

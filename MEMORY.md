@@ -75,6 +75,10 @@ The public, crypto-native framing is a three-step handoff:
 - Evidence tiers are described as weak, moderate, or strong *group evidence*.
   Wallet views describe membership in such a group rather than assigning a
   Sybil label to an individual wallet. A group is a question, not a verdict.
+- Wallet detail and global-map records also expose the evidence families that
+  touch that wallet directly. A linked wallet with fewer than two incident
+  families is capped at the review tier instead of inheriting its cluster's
+  stronger tier; the cluster tier remains available separately.
 - Clicking a group opens its topology. `WHY THIS GROUP EXISTS` is rendered
   inline below the map.
 - Clicking a wallet replaces that inline group explanation with the complete
@@ -93,6 +97,9 @@ The public, crypto-native framing is a three-step handoff:
   deliberately not a wallet connection: the normalized address is stored only
   in browser local storage under `clustermap.focus-wallet`; there is no provider,
   signer, secret, permission request, or broadcast path.
+- CSV/JSON exports carry detector/version/timestamp provenance, the audit's
+  known caveats, and per-wallet evidence-family/review fields so exported data
+  does not lose the interpretation safeguards shown in the UI.
 - The `PROFILE` page is titled `YOUR WALLET PROFILE` and shows the saved
   wallet's original-list record and SybilKit clustering state. A valid address
   outside the frozen population remains saveable and is shown as
@@ -145,7 +152,7 @@ Detailed decisions live under `.claude/designs/`.
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 13 backend tests and 27 frontend tests pass; Ruff,
+- Last verified state: 16 backend tests and 27 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
 - Browser QA covers the welcome page at desktop and 390 px, welcome-to-map and
   welcome-to-profile navigation, the focus profile and all three focus-marker

@@ -39,6 +39,7 @@ class CuratorRepository:
             for cluster in self.result.clusters
             for member in cluster.members
         }
+        self.member_families = self._build_member_families()
         self._global_map = self._build_global_map()
 
         expected = int(self.snapshot["meta"]["population_count"])
@@ -90,6 +91,35 @@ class CuratorRepository:
             "review_flag": bool(review_reasons),
             "review_reasons": review_reasons,
         }
+
+    def _build_member_families(self) -> dict[str, frozenset[str]]:
+        """Which evidence families actually touch each wallet.
+
+        A cluster's tier is a property of the cluster. Membership alone does not
+        mean a wallet carries the evidence the tier was assigned for: an audit of
+        this snapshot found members held by a single rule of a single family
+        sitting in the top tier, on cluster reasons that were false for them
+        specifically. See `audit/`.
+        """
+        families: dict[str, set[str]] = {}
+        for edges in self.evidence.values():
+            for edge in edges:
+                families.setdefault(edge.source, set()).add(edge.family)
+                families.setdefault(edge.target, set()).add(edge.family)
+        return {address: frozenset(value) for address, value in families.items()}
+
+    def _member_risk(self, address: str, cluster_risk: str) -> str:
+        """A wallet's own tier: never stronger than its own evidence supports.
+
+        Fewer than two incident families is exactly the threshold the cluster
+        gate itself uses, applied per member instead of per group. Such a wallet
+        is shown for review rather than inheriting its cluster's verdict.
+        """
+        if cluster_risk == "independent":
+            return cluster_risk
+        if len(self.member_families.get(address, ())) < 2:
+            return "review"
+        return cluster_risk
 
     @staticmethod
     def _cluster_assessment(cluster, families: set[str]) -> tuple[str, list[str]]:
@@ -155,7 +185,13 @@ class CuratorRepository:
                     "points": row["points"],
                     "name": row.get("name"),
                     "cluster_id": cluster_id,
-                    "risk": summary["risk"] if summary is not None else "independent",
+                    "risk": (
+                        self._member_risk(address, summary["risk"])
+                        if summary is not None
+                        else "independent"
+                    ),
+                    "cluster_risk": summary["risk"] if summary is not None else "independent",
+                    "member_families": sorted(self.member_families.get(address, ())),
                     "review_flag": summary["review_flag"] if summary is not None else False,
                 }
             )
@@ -270,10 +306,16 @@ class CuratorRepository:
         cluster = self.clusters_by_id.get(cluster_id) if cluster_id is not None else None
         edges = self.evidence.get(cluster_id, ()) if cluster_id is not None else ()
         funding = self.dataset.funding.get(key)
+        summary = self._cluster_summary(cluster) if cluster is not None else None
+        own = sorted(self.member_families.get(key, ()))
         return {
             "wallet": dict(row),
             "status": "linked" if cluster is not None else "unlinked",
-            "cluster": self._cluster_summary(cluster) if cluster is not None else None,
+            "cluster": summary,
+            "member_families": own,
+            "member_risk": (
+                self._member_risk(key, summary["risk"]) if summary is not None else "independent"
+            ),
             "related_edges": related_edges(edges, key),
             "first_funder": funding.funder if funding is not None else None,
             "explorer_url": f"https://etherscan.io/address/{key}",
@@ -322,6 +364,28 @@ class CuratorRepository:
             "source": "CuratorWhitelist",
             "contract": self.snapshot["meta"]["contract"],
             "snapshot_block": self.snapshot["meta"]["snapshot_block"],
+            # An export outlives the page it came from: it gets forked, mirrored
+            # and cited long after anyone remembers what it was. So it carries
+            # what it is, when it was made, and what is known to be wrong with
+            # it — a bare `flagged` column with no provenance is the one artifact
+            # that can do real damage on its own.
+            "detector": {
+                "name": "sybilkit",
+                "version": self.snapshot["meta"].get("sybilkit_version"),
+                "generated_at": self._as_utc(datetime.now(tz=UTC).timestamp()),
+            },
+            "caveats": [
+                "A group is an analysis signal, not proof of common ownership.",
+                "`flagged` is cluster membership under sybilkit's shipped rules. An audit of"
+                " these rules measured a 45.8% link rate on a synthetic population containing"
+                " no operators at all, and found one operator of 419 wallets (15.6% of all"
+                " points) of which only 81 are flagged.",
+                "`member_families` counts the evidence families incident on the wallet itself."
+                " Fewer than two means the wallet is held in its group by a single family and"
+                " should be treated as under review, not as a verdict.",
+                "Full audit, evidence and reproduction:"
+                " https://github.com/banse/clustermap/tree/main/audit",
+            ],
             "filters": {
                 "query": query,
                 "link": link,
@@ -375,6 +439,12 @@ class CuratorRepository:
                 )
             else:
                 row["evidence_band"] = "none"
+            # What holds THIS wallet, so a downstream consumer can tell a member
+            # carried by one rule from one the whole cluster's evidence covers.
+            own = sorted(self.member_families.get(address, ()))
+            row["member_families"] = own
+            row["member_family_count"] = len(own)
+            row["under_review"] = is_linked and len(own) < 2
             selected.append(row)
         return selected
 
