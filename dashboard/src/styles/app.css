@@ -1931,6 +1931,13 @@ kbd {
 }
 /* A caveat about what the evidence below does and does not cover. Recessive:
    it qualifies a claim, it is not a claim of its own. */
+.wallet-profile__dispute {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted-ink, var(--page-ink));
+  opacity: 0.86;
+}
 .detail-note {
   margin: 6px 0 10px;
   padding: 7px 9px;

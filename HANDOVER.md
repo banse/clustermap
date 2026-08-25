@@ -275,16 +275,47 @@ explanation is a defect, not a display state.
 
 ---
 
-# Part 5 — Open decisions (not mine to make)
+# Part 5 — Decisions taken 2026-08-25
 
-1. **Deploy and tag.** The corrections are uncommitted and undeployed. A tag should mark what the site
-   actually served, so tag the deployed commit — and scope the release notes to the gate, the labels and
-   the export, **not** to the rule set: the clusters are still SybilKit 0.1.1's.
-2. **Edge colouring.** Edges are still coloured by their cluster's tier, so 567 of 11,310 spanning edges
-   draw at a stronger tier than either endpoint now carries. A one-line fix caps an edge at the weaker
-   endpoint; it visibly thins the red web. Design decision.
-3. **Appeal channel.** The audit recommends one for wallets that are named or held by weak evidence.
-   With the change log and delta view in place, an appeal has something concrete to reference — but it
-   is an open-ended commitment to answer, and that is a decision, not a feature.
-4. **Whether v2 becomes the published rule set at all**, and if so, in which version. Everything above
-   works with the shipped rules; nothing here forces the change.
+All four were open when this document was drafted. They are settled; the reasoning is kept so a later
+reader can tell what was decided from what was merely done.
+
+**1. Deploy and tag now, as `v0.2.0`, scoped to presentation.** The corrections do not touch clustering:
+still 263 clusters and 11,573 wallets linked under SybilKit 0.1.1's rules, with 1,107 of them re-tiered
+to *review* by their own evidence and the labels no longer reading as verdicts. Release notes must say
+so — if they imply the detector changed, the next person to diff it will think something was hidden.
+Deploying ahead of the version model is safe because every version is reproducible, so the change log
+and delta can be back-filled at full fidelity.
+
+**2. Edges are capped at their weaker endpoint.** Implemented: `_weakest()` in `repository.py` takes the
+minimum of the cluster's tier and both endpoints' tiers, and an edge now carries `cluster_risk` alongside
+`risk` so the two are never conflated. 1,178 of 11,310 spanning edges (10.4%) now draw below their
+cluster's tier, and none exceeds either endpoint — pinned by
+`test_no_edge_is_drawn_stronger_than_the_wallets_it_joins`. This visibly thins the red web; it thins it
+to what the per-member evidence supports.
+
+**3. A minimal dispute route ships now**, rather than waiting for versioning. The read model carries a
+`dispute` block (text, audit URL, contest URL), the wallet profile renders it where someone looks up
+their own address, and `.github/ISSUE_TEMPLATE/dispute.md` gives the filing shape. Nothing is
+adjudicated privately: the evidence is published and recomputable, so a claim can be checked by anyone
+including the person filing it. **What this deliberately does not yet have** is the thing that makes an
+appeal binding — a public, dated overrides file recording every accepted contest and its reasoning, and
+a version for a contest to reference. Both arrive with Feature A; until then a dispute references a
+release tag. A signed message from the address remains the only proof of holdership, and the template
+says so without requiring it.
+
+**4. v2 ships as a selectable version first; the default flips later, in its own tagged release.** It is
+better on both error directions (honest wallets removed 27.3% → 0.3%, farms caught 78.5% → 97.6%, false
+linking 45.6% → 0.1%), but adopting it removes 2,925 more wallets on the strength of one audit by one
+party, so people get a window to inspect it against the delta before that happens. Note what this
+avoids: because a version is a stored, reproducible status set generated offline by the harness, **the
+site never has to run v2 live** — publishing it does not require porting a prototype into the vendored
+library, which is the deeper change (it would touch `detect()`'s union loop, not just the funding
+family).
+
+## Still genuinely open
+
+- Whether the overrides file is public from the first accepted dispute, or only once there is a version
+  model to anchor it to.
+- What happens to a contested wallet in the meantime: the current answer is that nothing changes until a
+  new version is published, because versions are immutable.

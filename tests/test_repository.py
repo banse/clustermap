@@ -153,3 +153,25 @@ def test_the_export_carries_its_own_provenance_and_known_defects(
     assert "member_families" in row
     assert row["member_family_count"] == len(row["member_families"])
     assert row["under_review"] is (row["cluster_id"] is not None and row["member_family_count"] < 2)
+
+
+def test_no_edge_is_drawn_stronger_than_the_wallets_it_joins(
+    repository: CuratorRepository,
+) -> None:
+    """A link claims only what its endpoints support.
+
+    A cluster's tier is a property of the group. Once a member is capped at
+    "review" by its own evidence, an edge still drawn at the group's tier claims
+    more about that pair than anything measured about them — and renders as a
+    red line between two yellow dots.
+    """
+    order = ("independent", "review", "elevated", "critical")
+    gm = repository.global_map()
+    node_risk = {node["address"]: node["risk"] for node in gm["nodes"]}
+    for edge in gm["edges"]:
+        endpoints = min(
+            order.index(node_risk[edge["source"]]),
+            order.index(node_risk[edge["target"]]),
+        )
+        assert order.index(edge["risk"]) <= endpoints, edge
+        assert order.index(edge["risk"]) <= order.index(edge["cluster_risk"])

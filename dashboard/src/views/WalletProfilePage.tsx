@@ -11,6 +11,7 @@ interface WalletProfilePageProps {
   readonly draftError: string | null;
   readonly snapshotBlock: number;
   readonly disclaimer: string;
+  readonly dispute?: { readonly text: string; readonly audit_url: string; readonly contest_url: string };
   readonly onDraftChange: (value: string) => void;
   readonly onSave: () => void;
   readonly onClear: () => void;
@@ -36,6 +37,7 @@ export function WalletProfilePage({
   onSave,
   onClear,
   onShowOnMap,
+  dispute,
 }: WalletProfilePageProps) {
   return (
     <section className="wallet-profile" aria-labelledby="wallet-profile-title">
@@ -181,6 +183,14 @@ export function WalletProfilePage({
             </article>
           </div>
           <p className="wallet-profile__disclaimer">{disclaimer}</p>
+          {dispute ? (
+            <p className="wallet-profile__dispute">
+              {dispute.text}{" "}
+              <a href={dispute.audit_url} target="_blank" rel="noreferrer">How this was measured</a>
+              {" · "}
+              <a href={dispute.contest_url} target="_blank" rel="noreferrer">Contest this classification</a>
+            </p>
+          ) : null}
         </div>
       ) : (
         <div className="wallet-profile__state wallet-profile__state--empty">

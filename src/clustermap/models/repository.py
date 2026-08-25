@@ -17,6 +17,13 @@ ListPreset = Literal["none", "first1000", "hour0", "whale"]
 
 WHALE_DEPOSIT_WEI = 25 * 10**18
 
+#: Evidence tiers, weakest first. Used to cap an edge at its weaker endpoint.
+RISK_ORDER = ("independent", "review", "elevated", "critical")
+
+
+def _weakest(*risks: str) -> str:
+    return min(risks, key=lambda r: RISK_ORDER.index(r) if r in RISK_ORDER else len(RISK_ORDER))
+
 
 class CuratorRepository:
     def __init__(self, snapshot_path: Path, *, eth_usd: float | None = None) -> None:
@@ -196,6 +203,7 @@ class CuratorRepository:
                 }
             )
 
+        node_risk = {node["address"]: node["risk"] for node in nodes}
         edges = []
         for cluster in self.result.clusters:
             risk = summaries[cluster.cluster_id]["risk"]
@@ -206,7 +214,18 @@ class CuratorRepository:
                         "target": edge.target,
                         "family": edge.family,
                         "strength": edge.strength,
-                        "risk": risk,
+                        # No link is drawn stronger than the wallets it joins.
+                        # The cluster's tier is a property of the group; once a
+                        # member is capped at "review" by its own evidence, an
+                        # edge still drawn at the group's tier claims more about
+                        # that pair than anything measured about them supports —
+                        # and renders as a red line between two yellow dots.
+                        "risk": _weakest(
+                            risk,
+                            node_risk.get(edge.source, risk),
+                            node_risk.get(edge.target, risk),
+                        ),
+                        "cluster_risk": risk,
                     }
                 )
 
@@ -262,6 +281,19 @@ class CuratorRepository:
                     "Evidence links indicate shared onchain patterns. Only funding links "
                     "represent transfers; no link proves common ownership."
                 ),
+                # A page that names addresses has to say how to contest what it
+                # says about them. The evidence is published and recomputable,
+                # so a dispute can be checked by anyone rather than adjudicated
+                # in private.
+                "dispute": {
+                    "text": (
+                        "Every group here is reproducible from published data, and the rules "
+                        "have a measured error rate. If this analysis is wrong about a wallet, "
+                        "contest it and the evidence can be checked."
+                    ),
+                    "audit_url": "https://github.com/banse/clustermap/tree/main/audit",
+                    "contest_url": "https://github.com/banse/clustermap/issues/new?labels=dispute",
+                },
             },
             "clusters": [self._cluster_summary(cluster) for cluster in self.result.clusters],
         }

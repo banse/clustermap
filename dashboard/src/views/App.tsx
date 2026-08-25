@@ -87,6 +87,7 @@ export function App({ controller }: AppProps) {
               draftError={mapView.walletDraftError}
               snapshotBlock={overview.provenance.snapshot_block}
               disclaimer={overview.analysis.disclaimer}
+              dispute={overview.analysis.dispute}
               onDraftChange={mapView.setWalletDraft}
               onSave={mapView.saveFocusedWallet}
               onClear={mapView.clearFocusedWallet}

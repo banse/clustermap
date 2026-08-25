@@ -54,6 +54,12 @@ export interface AnalysisMeta {
   readonly min_deposit_wei: number;
   readonly eth_usd: number | null;
   readonly disclaimer: string;
+  /** How to contest what this page says about a wallet. */
+  readonly dispute?: {
+    readonly text: string;
+    readonly audit_url: string;
+    readonly contest_url: string;
+  };
 }
 
 export interface Overview {
