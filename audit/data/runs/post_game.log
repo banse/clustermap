@@ -1,0 +1,11 @@
+candidates 392, already fetched 0, to go 392
+  50/392
+  100/392
+  150/392
+  200/392
+  250/392
+  300/392
+  350/392
+
+fetched 380 | distinct recipients 194 | recipients paid by >1 candidate: 73
+wrote /Library/Vibes/aidude/tools/sybil/../../data/sybil/enrichment/post_game.json

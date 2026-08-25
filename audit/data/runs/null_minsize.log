@@ -1,0 +1,11 @@
+enrichment extended: txs 28353 funding 19522
+human amount prior from 989 ENS single-deposit wallets; top: [('0.05', 435), ('0.1', 51), ('0.051', 39), ('0.06', 23), ('1.0', 20), ('0.2', 16), ('0.055', 15), ('0.5', 13), ('0.07', 13), ('0.08', 11), ('0.052', 11), ('0.053', 10)]
+joiners per hour (observed): 19522 | honest density: 12349
+fee prior: 2538 measured values, top share 12.5% (was 27 values drawn uniformly)
+honest peel prior from 1383 ENS-named non-farm wallets: 10.1% are funded by another contributor (gap median 38 blocks)
+funder prior from 12312 non-farm resolved rows: personal=7653 (62%); top shared: [('0xd152f549', 259), ('0xc098b2a3', 233), ('0xa7efae72', 191), ('0xbf94f0ac', 148), ('0xf70da978', 146), ('0xf7858da8', 133), ('0x0d070796', 77)]
+exchange-like shared funders (>=10 honest-side wallets): 48
+honest_density    shipped        pop= 12349 flagged= 5699.0 (5558–5772) = 46.1%  clusters= 45.6  combos=[('amount,funding', 101), ('cadence,sequence', 73), ('cadence,funding', 18), ('funding,sequence', 15)]
+honest_density    v2h            pop= 12349 flagged=   18.2 (9–38) =  0.1%  clusters=  2.0  combos=[('amount,cadence,funding', 9), ('cadence,funding', 1)]
+honest_density    v2h min_size=4 pop= 12349 flagged=   21.4 (13–38) =  0.2%  clusters=  2.8  combos=[('amount,cadence,funding', 12), ('cadence,funding', 2)]
+honest_density    v2h min_size=3 pop= 12349 flagged=   39.4 (28–56) =  0.3%  clusters=  8.8  combos=[('cadence,funding', 26), ('amount,cadence,funding', 17), ('amount,funding', 1)]

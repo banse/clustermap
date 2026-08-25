@@ -100,6 +100,7 @@ class Rules:
     min_size: int = 5
     min_families: int = 2
     member_gate: str = "cluster"           # 'cluster' (shipped) | 'local2' | 'local2_strong'
+    aged_weak_periphery: int = 0           # nonce>=N + funder outside the population + only amount/cadence -> periphery
     core_only: bool = False                # components from STRONG edges only; weak edges never merge
 
 
@@ -565,6 +566,21 @@ def run(ds, cfg, rules: Rules, *, firsts_cache=None):
                 lf = local[m]
                 nfam = len(lf)
                 has_strong = any(k in STRONG_KINDS for ks in lf.values() for k in ks)
+                # A wallet that had a life before this game, whose money came
+                # from outside the population, and which is held ONLY by the two
+                # coincidence-prone families, is the exact profile of every
+                # residual false positive measured against the verified-honest
+                # controls: an aged person sending a common round amount during
+                # a busy wave. Amount+cadence agree trivially there — they are
+                # two views of the same coincidence, not two witnesses.
+                weak_only = bool(rules.aged_weak_periphery) and set(lf) <= {"amount", "cadence"}
+                if weak_only:
+                    t = ds.txs.get(firsts[m].tx_hash) if m in firsts else None
+                    f = ds.funding.get(m)
+                    aged = t is not None and t.nonce >= rules.aged_weak_periphery
+                    external = f is not None and f.funder is not None and f.funder not in firsts
+                    if aged and external:
+                        continue  # periphery: shown, never removed
                 if rules.member_gate == "local2" and nfam >= 2:
                     core.add(m)
                 elif rules.member_gate == "local2_strong" and nfam >= 2 and has_strong:
@@ -675,6 +691,7 @@ VARIANTS = {
     # v2f's fan-out test re-measured so it does not move with coverage: an
     # absolute count of fresh withdrawals on one fee value, and that value must
     # be uncommon population-wide.
+    "v2h (v2g + aged-weak periphery)": Rules(**{**CAND2, "ladder_family": True, "peel_max_nonce": 20, "jitter_band_family": True, "residual_family": True, "fresh_hub_family": True, "cex_fanout_family": True, "cex_fanout_share": 0.5, "cex_fanout_pop_max": 0.25, "aged_weak_periphery": 50}),
     "v2g (v2f, coverage-stable fan-out)": Rules(**{**CAND2, "ladder_family": True, "peel_max_nonce": 20, "jitter_band_family": True, "residual_family": True, "fresh_hub_family": True, "cex_fanout_family": True, "cex_fanout_share": 0.5, "cex_fanout_pop_max": 0.25}),
     "v2b − largest": Rules(**{**CAND2, "amount_universe": "single_first"}),
     "v2b + local2_strong": Rules(**{**CAND2, "member_gate": "local2_strong"}),

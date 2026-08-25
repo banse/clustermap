@@ -1,0 +1,17 @@
+enrichment extended: txs 28353 funding 19522
+human amount prior from 989 ENS single-deposit wallets; top: [('0.05', 435), ('0.1', 51), ('0.051', 39), ('0.06', 23), ('1.0', 20), ('0.2', 16), ('0.055', 15), ('0.5', 13), ('0.07', 13), ('0.08', 11), ('0.052', 11), ('0.053', 10)]
+joiners per hour (observed): 19522 | honest density: 12349
+fee prior: 2538 measured values, top share 12.5% (was 27 values drawn uniformly)
+honest peel prior from 1383 ENS-named non-farm wallets: 10.1% are funded by another contributor (gap median 38 blocks)
+funder prior from 12312 non-farm resolved rows: personal=7653 (62%); top shared: [('0xd152f549', 259), ('0xc098b2a3', 233), ('0xa7efae72', 191), ('0xbf94f0ac', 148), ('0xf70da978', 146), ('0xf7858da8', 133), ('0x0d070796', 77)]
+exchange-like shared funders (>=10 honest-side wallets): 48
+honest_density    shipped        pop= 12349 flagged= 5507.0 (5251–5764) = 44.6%  clusters= 44.0  combos=[('amount,funding', 97), ('cadence,sequence', 66), ('cadence,funding', 19), ('funding,sequence', 18)]
+honest_density    v2b            pop= 12349 flagged=    8.4 (0–22) =  0.1%  clusters=  0.6  combos=[('amount,cadence,funding', 2), ('amount,cadence', 1)]
+honest_density    v2b+local2_strong pop= 12349 flagged=    7.4 (0–19) =  0.1%  clusters=  0.6  combos=[('amount,cadence,funding', 2), ('amount,cadence', 1)]
+honest_density    ABCDE          pop= 12349 flagged= 1325.8 (1264–1405) = 10.7%  clusters= 61.4  combos=[('amount,sequence', 222), ('amount,funding,sequence', 60), ('amount,funding', 10), ('funding,sequence', 10)]
+honest_density    ABCDE+local2   pop= 12349 flagged=  141.4 (112–180) =  1.1%  clusters= 10.4  combos=[('amount,funding,sequence', 30), ('amount,sequence', 15), ('amount,cadence', 3), ('amount,funding', 2)]
+honest_density    ABCDE+local2+exchinfra pop= 12349 flagged=  128.8 (94–166) =  1.0%  clusters= 10.0  combos=[('amount,funding,sequence', 30), ('amount,sequence', 15), ('amount,cadence', 3), ('amount,cadence,funding,sequence', 1)]
+honest_density    ABCDE2+local2+exchinfra pop= 12349 flagged=   10.4 (0–26) =  0.1%  clusters=  1.0  combos=[('amount,cadence', 4), ('amount,cadence,funding', 1)]
+honest_density    ABCDE2+local2_strong+exchinfra pop= 12349 flagged=   10.4 (0–26) =  0.1%  clusters=  1.0  combos=[('amount,cadence', 4), ('amount,cadence,funding', 1)]
+honest_density    v2f            pop= 12349 flagged=   12.8 (0–22) =  0.1%  clusters=  1.2  combos=[('amount,cadence,funding', 5), ('amount,cadence', 1)]
+honest_density    v2g            pop= 12349 flagged=   12.8 (0–22) =  0.1%  clusters=  1.2  combos=[('amount,cadence,funding', 5), ('amount,cadence', 1)]

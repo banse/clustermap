@@ -1,7 +1,7 @@
 import type { ClusterMapController } from "../controllers/useClusterMapController";
 import { useMapViewController } from "../controllers/useMapViewController";
 import { useThemeController } from "../controllers/useThemeController";
-import { clusterLabel, formatCompact, formatCount, shortRevision } from "../models/presentation";
+import { clusterLabel, formatCompact, formatCount, shortRevision, riskLabel } from "../models/presentation";
 import { THEME_SWITCHER_ENABLED } from "../models/theme";
 import { shortWalletAddress } from "../models/walletProfile";
 import { ClusterAtlas } from "./ClusterAtlas";
@@ -102,7 +102,7 @@ export function App({ controller }: AppProps) {
                   <p>
                     {detail === null
                       ? (showingAtlas ? "Confidence × points share × wallet count" : "Highest-point wallets begin at the centre")
-                      : `${formatCount(detail.cluster.size)} wallets · ${detail.cluster.risk.toUpperCase()} evidence tier`}
+                      : `${formatCount(detail.cluster.size)} wallets · ${riskLabel(detail.cluster.risk).toUpperCase()}`}
                     {detail?.cluster.review_flag ? <strong className="cluster-review-label">POSSIBLE FALSE POSITIVE</strong> : null}
                   </p>
                 </div>

@@ -1,0 +1,74 @@
+enrichment extended: txs 12203→28353 funding 12498→19522 (funder=None 37)
+infra_extra: 612 funders
+v2h (v2g + aged-weak periphery)            clusters= 160 flagged= 12416 periph=  324 pts= 76.7% lab=142/160 whole=13/16 ens=  23 ctrl=34 resc=23 idmd= 1 ladder=423
+      farm windows: 0.45@h3-4=1984/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=397/419 ladder10.x(5-step h37-45)=176/176 bitget-ladder(1.19-1.69 h17-31)=238/239 0.05 recyclers(3 small hubs)=27/127 jitter1.10-1.14(h36-55)=540/541 jitter1.00-1.05(h56-64)=300/300 ladder0.05→0.45(h35-37)=84/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+  newly flagged: 2925 (ladderers 411, ENS 11, nonce>=20 32, funder-is-contributor 2730)
+    0x0002b4e7fe ens=None nonce=5 h4 deps=['0.067208788518676258'] funder∈pop=True resc=False idmd=False
+    0x005300cf45 ens=None nonce=4 h60 deps=['1.000785768237269775'] funder∈pop=True resc=False idmd=False
+    0x0069eb0b83 ens=None nonce=0 h5 deps=['0.055694111881244545'] funder∈pop=True resc=False idmd=False
+    0x0091c52f2a ens=None nonce=0 h22 deps=['0.05'] funder∈pop=True resc=False idmd=False
+    0x00bcda3b76 ens=None nonce=0 h38 deps=['0.05', '0.15', '0.25', '0.35', '0.45'] funder∈pop=False resc=False idmd=False
+    0x00de72c40b ens=None nonce=0 h22 deps=['0.4821'] funder∈pop=True resc=False idmd=False
+    0x00fc3edfd5 ens=None nonce=4 h46 deps=['1.125895394055394774'] funder∈pop=True resc=False idmd=False
+    0x0100271889 ens=None nonce=0 h43 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x01056214e6 ens=None nonce=0 h6 deps=['0.05435159313198991'] funder∈pop=True resc=False idmd=False
+    0x010b2be97c ens=None nonce=0 h23 deps=['0.095905783288704763'] funder∈pop=True resc=False idmd=False
+    0x0114d9c133 ens=None nonce=0 h36 deps=['0.05', '0.15', '0.25', '0.35'] funder∈pop=False resc=False idmd=False
+    0x0117aea34e ens=None nonce=4 h44 deps=['1.122953354077791212'] funder∈pop=True resc=False idmd=False
+    0x011fa4b4c7 ens=None nonce=0 h42 deps=['10.0', '10.1', '10.2', '10.3', '10.4'] funder∈pop=True resc=False idmd=False
+    0x012430b6df ens=None nonce=2 h5 deps=['0.066474939683167496'] funder∈pop=True resc=False idmd=False
+    0x0127d0f876 ens=None nonce=0 h44 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x012a163350 ens=None nonce=0 h6 deps=['0.055103951920369565'] funder∈pop=True resc=False idmd=False
+    0x01887660eb ens=None nonce=10 h16 deps=['99.3'] funder∈pop=True resc=False idmd=False
+    0x01891af6c7 ens=None nonce=4 h44 deps=['1.120874097487112604'] funder∈pop=True resc=False idmd=False
+    0x018bcb0385 ens=None nonce=1 h17 deps=['0.05'] funder∈pop=True resc=False idmd=False
+    0x01a3f215fe ens=None nonce=0 h37 deps=['10.0', '10.1', '10.2', '10.3', '10.4'] funder∈pop=True resc=False idmd=False
+    0x01d0f79c84 ens=None nonce=5 h17 deps=['99.0'] funder∈pop=True resc=False idmd=False
+    0x01d1b98b7d ens=None nonce=0 h44 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x021fc58fbc ens=None nonce=3 h18 deps=['0.089708'] funder∈pop=True resc=False idmd=False
+    0x023df882a3 ens=None nonce=0 h16 deps=['13.72'] funder∈pop=True resc=False idmd=False
+    0x024a89d926 ens=None nonce=0 h10 deps=['0.960643436628256'] funder∈pop=True resc=False idmd=False
+    0x025c085bc9 ens=None nonce=0 h10 deps=['0.617958809066793728'] funder∈pop=True resc=False idmd=False
+    0x02923bf982 ens=None nonce=4 h58 deps=['1.006227218332970852'] funder∈pop=True resc=False idmd=False
+    0x0298521b74 ens=None nonce=0 h6 deps=['0.054739678051745185'] funder∈pop=True resc=False idmd=False
+    0x02aa9adc15 ens=None nonce=4 h20 deps=['0.05', '0.15', '0.25', '0.35', '0.45', '0.55'] funder∈pop=True resc=False idmd=False
+    0x02eae83786 ens=None nonce=11 h15 deps=['1.6', '98.3'] funder∈pop=True resc=False idmd=False
+    0x02ecfbc2c9 ens=None nonce=4 h4 deps=['0.0669110373220152'] funder∈pop=True resc=False idmd=False
+    0x02fbe798d1 ens=None nonce=0 h4 deps=['0.055972353741970611'] funder∈pop=True resc=False idmd=False
+    0x0310c47951 ens=None nonce=4 h38 deps=['1.045483563138587126'] funder∈pop=True resc=False idmd=False
+    0x0314f00234 ens=None nonce=4 h63 deps=['1.018451206530730563'] funder∈pop=True resc=False idmd=False
+    0x0317b25a60 ens=None nonce=4 h51 deps=['1.108501211901008509'] funder∈pop=True resc=False idmd=False
+    0x031deec83f ens=None nonce=4 h49 deps=['1.128114934372734433'] funder∈pop=True resc=False idmd=False
+    0x0321e9aeed ens=None nonce=0 h22 deps=['0.09940567306614361'] funder∈pop=True resc=False idmd=False
+    0x033b775f51 ens=None nonce=5 h17 deps=['98.7'] funder∈pop=True resc=False idmd=False
+    0x03437bbd60 ens=None nonce=4 h37 deps=['1.107233608230291562'] funder∈pop=True resc=False idmd=False
+    0x034bbb210e ens=None nonce=0 h15 deps=['1.5'] funder∈pop=False resc=False idmd=False
+
+=== diff v2h (v2g + aged-weak periphery): released=2082 newly_flagged=2925 periphery=324 ===
+  c7    size=  998 released=  906 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c6    size=  896 released=  173 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c170  size=   37 released=   37 fam=cadence,funding,sequence :: consecutive join indices 16,408–16,444 · 17-block span
+  c164  size=   39 released=   36 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c177  size=   33 released=   29 fam=cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c181  size=   31 released=   28 fam=cadence,funding,sequence :: consecutive join indices 16,468–16,498 · 10-block span
+  c175  size=   26 released=   26 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c49   size=   24 released=   23 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c183  size=   22 released=   22 fam=amount,funding,sequence :: identical odd 0.0501Ξ send ×15
+  c195  size=   20 released=   20 fam=amount,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c182  size=   23 released=   20 fam=funding,sequence :: consecutive join indices 17,076–17,098 · 13-block span
+  c53   size=   20 released=   20 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c162  size=   23 released=   20 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c192  size=   22 released=   19 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c51   size=   18 released=   17 fam=amount,funding :: identical 1.0Ξ send ×16 in one wave
+  c204  size=   16 released=   16 fam=funding,sequence :: consecutive join indices 16,166–16,181 · 10-block span
+  c212  size=   16 released=   15 fam=cadence,funding,sequence :: consecutive join indices 16,627–16,642 · 4-block span
+  c215  size=   15 released=   15 fam=cadence,funding :: metronomic drip ×15 of 0.05Ξ every ~1 blocks
+  c21   size=   60 released=   15 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c216  size=   15 released=   15 fam=funding,sequence :: consecutive join indices 16,364–16,378 · 8-block span
+  c184  size=   14 released=   14 fam=amount,funding :: identical 0.15Ξ send ×14 in one wave
+  c186  size=   20 released=   13 fam=cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c223  size=   12 released=   12 fam=cadence,funding,sequence :: consecutive join indices 16,079–16,090 · 6-block span
+  c231  size=   12 released=   12 fam=cadence,funding :: metronomic drip ×12 of 0.05Ξ every ~2 blocks
+  c2    size= 1996 released=   12 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  released by amount: [('0.05', 890), ('0.1', 157), ('0.051', 154), ('0.06', 80), ('1.0', 71), ('0.055', 58), ('0.07', 46), ('0.052', 43), ('0.2', 41), ('0.057', 22), ('0.053', 22), ('0.5', 20), ('0.0505', 19), ('0.15', 19), ('0.058', 17)]
+  released by hour: [(0, 8), (1, 52), (2, 39), (3, 39), (4, 59), (5, 62), (6, 39), (7, 59), (8, 109), (9, 27), (10, 79), (11, 87), (12, 80), (13, 48), (14, 57), (15, 34), (16, 54), (17, 23), (18, 43), (19, 40), (20, 44), (21, 34), (22, 27), (23, 23), (24, 2), (25, 1), (26, 5), (27, 6), (29, 1), (30, 1), (31, 7), (32, 15), (33, 71), (34, 506), (35, 243), (36, 14), (37, 13), (38, 3), (39, 2), (40, 2), (41, 7), (42, 7), (43, 3), (45, 3), (46, 1), (47, 2), (59, 1)]

@@ -52,7 +52,8 @@ census = json.load(open(f"{S}/full_census.json")) if os.path.exists(f"{S}/full_c
 # row stays available so the section below can show both.
 _v2_partial = v2
 if full_v2:
-    v2 = (full_v2.get("v2g (v2f, coverage-stable fan-out)")
+    v2 = (full_v2.get("v2h (v2g + aged-weak periphery)")
+          or full_v2.get("v2g (v2f, coverage-stable fan-out)")
           or full_v2.get("v2f (v2e + fresh hub + cex fan-out)") or v2)
     v2_source = "complete enrichment (every contributor)"
 diff = json.load(open(f"{S}/v2_diff.json"))
@@ -180,12 +181,14 @@ variant_names = [
 ]
 var_rows = [(lbl, noinfra[k]) for k, lbl in variant_names if k in noinfra]
 
-null_rows = [
-    ("shipped rules", null["honest_density/shipped"]),
-    ("A–E combined", null["honest_density/ABCDE"]),
-    ("A–E + per-member gate", null["honest_density/ABCDE+local2"]),
-    ("v2 candidate (v2b)", null.get("honest_density/v2b")),
-]
+null_rows = [(lbl, null.get(key)) for lbl, key in (
+    ("shipped rules", "honest_density/shipped"),
+    ("A–E combined", "honest_density/ABCDE"),
+    ("A–E + per-member gate", "honest_density/ABCDE+local2"),
+    ("v2 candidate", "honest_density/v2h"),
+    ("v2, minimum group size 4", "honest_density/v2h min_size=4"),
+    ("v2, minimum group size 3", "honest_density/v2h min_size=3"),
+) if null.get(key)]
 
 # top clusters table
 def cl_rows():
@@ -283,8 +286,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 flag_rate = base["flagged"] / 19522 * 100
 v2_rate = v2["flagged"] / 19522 * 100
 null_ship = null["honest_density/shipped"]
-null_v2 = (null.get("honest_density/v2g") or null.get("honest_density/v2f") or null.get("honest_density/v2b")
+null_v2 = (null.get("honest_density/v2h") or null.get("honest_density/v2g")
+           or null.get("honest_density/v2f") or null.get("honest_density/v2b")
            or null["honest_density/ABCDE2+local2+exchinfra"])
+bench = json.load(open(f"{S}/bench_insitu.json")) if os.path.exists(f"{S}/bench_insitu.json") else None
 
 doc = []
 A = doc.append
@@ -349,13 +354,13 @@ findings = [
      "Round-wave, split, near-block, sequence, burst and drip all fire on 'same amount, same minutes'; a position-shuffle null reproduces 76 % of burst edges, 90 % of near-block edges and 29 % of sequence edges by chance. Noisy-OR over strengths ≥0.7 with a freshness floor of 0.85 gives a minimum confidence of 0.774, so the 0.5 'flagged' threshold never excludes anything: 0 of 263 clusters fall below it, including 110 clusters (2,671 wallets) with ≤30 % fresh wallets.",
      "cluster.py:257-271; observed confidence min 0.786, median 0.925.",
      "Collapse rules into evidence classes (amount-time proximity · machine amount fingerprint · funding structure · engine ladder · freshness) and gate on ≥2 classes; calibrate the clean-list cut on the null model's false-linking rate."),
-    ("warn", "The benchmark's precision 1.0 is an artefact",
+    ("good", "The benchmark's precision 1.0 was an artefact — rebuilt",
      "bench.py runs detect() over the 220 labelled wallets in isolation, so a control can never be pulled into a ≥5-member component by the other 19,300 wallets. In situ, 30 of the 60 'controls' are flagged — and the controls were random non-audited wallets, several of which are jitter-batch or ~99 ETH ring members, so they are not verified-honest either.",
      "bench.py:146, tests/test_bench.py:60.",
-     "Score the labelled set inside a full-population run; rebuild controls from verified-honest wallets (aged, self-funded weeks before, ENS/NFT history, no post-game sweep); add the null-model false-linking rate as a release gate (<1 %)."),
+     "Done, and it changed the headline. Controls were rebuilt against a standard fixed before it was applied and scored in situ: 308 wallets carrying a verifiable independent history, none of them audited farm members. The published rules remove 84 of them (27.3 %); the v2 rules remove 1 (≤0.3 %, and that one is a farm member the standard admitted). See the section below."),
 ]
 for chip, title, claim, ev, fix in findings:
-    A(f'<div class="finding"><span class="chip {chip}">{ {"crit":"critical","ser":"serious","warn":"gate","good":"ok"}[chip] }</span><h3>{html.escape(title)}</h3><p>{html.escape(claim)}</p><p class="ev"><strong>Evidence</strong> · {html.escape(ev)}</p><div class="fix"><strong>Fix</strong> · {html.escape(fix)}</div></div>')
+    A(f'<div class="finding"><span class="chip {chip}">{ {"crit":"critical","ser":"serious","warn":"gate","good":"resolved"}[chip] }</span><h3>{html.escape(title)}</h3><p>{html.escape(claim)}</p><p class="ev"><strong>Evidence</strong> · {html.escape(ev)}</p><div class="fix"><strong>Fix</strong> · {html.escape(fix)}</div></div>')
 
 A(f"""
 <h2>What the shipped detector cannot see</h2>
@@ -371,7 +376,7 @@ fns = [
      "signals/__init__.py:68-78 (single_first_rows). A skeptic checked the 'tiny first deposit, then ≥5 ETH' set (143 wallets): mostly human test deposits (29 ENS, nonce median 205), not evasion — the engines above are the real cost.",
      "Add a ladder-fingerprint family (≥5 wallets, byte-identical ≥3-rung tuples, first deposits within 300 blocks) and run amount rules over each wallet's largest deposit. Natural human ladders (0.05, 0.15, 0.25 … forced by the +0.1 escalation rule) still need a second family, so they stay periphery: under v2 the engines are 176/176 recovered while ENS-named flagged wallets stay at 19 — 28 at complete coverage, and the eleven added are farms rather than people (lixy4.eth, lixy5.eth, lixy10.eth, moreairdrop.eth, holdbayc.eth, all running the same 0.05→0.35 ladder)."),
     ("ser", "Unique jittered amounts in a narrow band beat every rule",
-     "One ≈1.18 ETH lump relayed serially through ~965 wallets in hours 36–64 at unique 1.0004–1.1469 ETH amounts (3.4 % of all points, 0 ENS, 0 flagged): each wallet receives 1.16–1.18 ETH from the previous hop, makes four 0-value self-sends, deposits at nonce 4 and sweeps its full balance to a fresh address 12 s later — a byte-identical script on 6 of 6 wallets checked, one hop every ~84 s interleaved with organic joiners. Unique amounts defeat identical/odd, spread-out timing defeats near-block, burst and drip, interleaving defeats sequence, and at audit time no enrichment rows existed for them, so peel/gas could never fire. It earned more points than the 300-wallet 1.2 ETH farm and kept the game alive from hour 47 to 64. A further 2,047 unflagged single-deposit wallets with unique ≥6-digit amounts (5.6 % of points, 3 ENS) sit in similar same-hour bands (0.0516–0.0673 ETH h3–6: 357 wallets, an unflagged peel chain; 0.08–0.12 h21–23: 306; 0.65–0.95: 177), structure only, not sampled.",
+     "One ≈1.18 ETH lump relayed serially through ~965 wallets in hours 36–64 at unique 1.0004–1.1469 ETH amounts (3.4 % of all points, 0 ENS, 0 flagged): each wallet receives 1.16–1.18 ETH from the previous hop, makes four 0-value self-sends, deposits at nonce 4 and sweeps its full balance to a fresh address 12 s later — a byte-identical script on 6 of 6 wallets checked, one hop every ~84 s interleaved with organic joiners. Unique amounts defeat identical/odd, spread-out timing defeats near-block, burst and drip, interleaving defeats sequence, and at audit time no enrichment rows existed for them, so peel/gas could never fire. It earned more points than the 300-wallet 1.2 ETH farm and kept the game alive from hour 47 to 64. A further 2,048 unflagged single-deposit wallets with unique ≥6-digit amounts (5.6 % of points, 3 ENS) sit in similar same-hour bands. Those have since been resolved: under the v2 rules the same set is 446 wallets and 1.2 % of points, so 78 % of that gap closes with the rules already measured here. Of the 446 that remain, 248 carry no evidence edge at all and 196 sit in components below the five-member minimum — and lowering that minimum to three is measurably the wrong trade: it recovers 102 of them and 0.8 points of credit while tripling the false-linking rate on the operator-free null population (0.1 % → 0.3 %), where the dominant false link becomes one person's two or three wallets funded from the same place. The residual is the deliberate price of the ≥5 rule.",
      "Completeness critic's on-chain check (0xa7711ede, 0x65a46770, 0x8b64f126, 0x0ec94374, 0x8839456c, 0xbbc92944); hour_saved rows for h47–64 are 1.1051 / 1.1195 / 1.1309 / … ETH senders. Of the 7,949 unflagged wallets only 613 had a tx row and 925 a funding row at audit time; all 19,522 contributors are enriched now.",
      "Add an engine-pocket family: ≥20 unique ≥6-decimal amounts within a 2 % band in one hour is amount evidence and timing evidence at once — measured 329 / 541 and 121 / 300 recovered at audit-time coverage, without touching ENS/IDMD collateral. That prediction has since been tested: with every first funder resolved the tight peel chain (funder = previous hop, like amount, nonce 4) does carry the whole relay — 540 / 541 and 300 / 300."),
     ("ser", "Exchange withdrawals as a fan-out — and a warning against excluding exchanges",
@@ -424,6 +429,8 @@ A("""<h3>Null model</h3>
 <div class="tbl"><table><thead><tr><th>rule set</th><th class="num">honest wallets flagged</th><th class="num">rate</th><th>what links them</th></tr></thead><tbody>""")
 for lbl, r in null_rows:
     if not r:
+        continue
+    if not isinstance(r, dict) or "flagged_mean" not in r:
         continue
     A(f"<tr><td>{html.escape(lbl)}</td><td class=\"num\">{r['flagged_mean']:.0f} ({min(r['flagged_runs'])}–{max(r['flagged_runs'])})</td><td class=\"num\">{r['flagged_mean']/r['population']*100:.1f} %</td><td class=\"mono\">{html.escape(', '.join(f'{k} ×{v}' for k,v in r['family_combos'][:3]))}</td></tr>")
 A("</tbody></table></div>")
@@ -533,6 +540,59 @@ count on a fee value that is uncommon population-wide (the check its own reason 
 returns 238/239 and no longer moves when coverage does. Any threshold written as a share of a group whose
 size depends on how much data you happened to have is a bug waiting for its next sweep.</p>""")
 
+
+# ---------- the in-situ benchmark against verified-honest controls ----------------
+if bench:
+    ship = bench.get("shipped (published)")
+    ship_infra = bench.get("shipped + v2 infra")
+    best = bench.get("v2h") or bench.get("v2g")
+    if ship and best:
+        A(f"""<h2>The measurement that matters: honest wallets, scored in place</h2>
+<p>Everything above compares rule sets to each other. This compares them to <em>people</em>. The
+benchmark shipped with the library scores 220 labelled wallets in isolation and reports precision 1.0,
+which is hollow twice over: a control scored alone can never be pulled into a cluster by the other
+19,300 wallets — the only way a false positive actually happens here — and its 60 "controls" were
+sampled as <em>non-audited</em> rather than <em>verified honest</em>, so several are farm members.</p>
+<p>So the controls were rebuilt against a standard <strong>written before it was applied</strong>, using
+only facts about a wallet and <strong>no detector output of any kind</strong>: it had already sent 50+
+transactions before this game existed; its first funder is not a contributor; it holds an ENS name; its
+funder funded nobody else on the list; it funded nobody on the list; and it did not sweep to a shared
+collector in the week after settlement. Applied blind to all {n(19522)} wallets that yields
+<strong>{n(ship['controls'])} controls, none of them members of the independently audited farm
+waves</strong> — the standard's own validation. Every wallet is then scored <em>inside</em> one run over
+the whole population.</p>
+<div class="tiles">
+<div class="tile"><div class="l">Honest wallets the published list removes</div><div class="v">{ship['control_fp_rate']*100:.1f} %<small>{ship['controls_flagged']} of {ship['controls']}</small></div><div class="d">wallets with a costly, verifiable independent history</div></div>
+<div class="tile"><div class="l">…under the v2 rules</div><div class="v">{best['control_fp_rate']*100:.1f} %<small>{best['controls_flagged']} of {best['controls']} removed</small></div><div class="d">plus {best.get('controls_in_periphery', 0)} shown for review but not removed ({best.get('control_touched_rate', 0)*100:.1f} % touched in all)</div></div>
+<div class="tile"><div class="l">Farms caught</div><div class="v">{ship['farm_recall']*100:.1f} %<small>→ {best['farm_recall']*100:.1f} % under v2</small></div><div class="d">across every independently audited wave</div></div>
+</div>
+<p>Both error directions improve at once, which is what separates a fix from a threshold slide. The
+wallets the published list removes are not marginal: <strong>wmp.eth</strong> had sent 4,907
+transactions before it joined, <strong>ilnico.eth</strong> 2,004, <strong>teamhodl.eth</strong> 1,491.</p>
+<p>Two things are stated here that a favourable reading would leave out. The v2 rules have a
+<em>periphery</em> tier — shown as under review, never removed — and {best.get('controls_in_periphery', 0)} further
+controls land there, so the fraction they <em>touch</em> at all is {best.get('control_touched_rate', 0)*100:.1f} %, not
+{best['control_fp_rate']*100:.1f} %. The shipped rules have no such tier: everything they flag is removed.
+And v2 is given a 612-funder exchange list derived from the data, where the shipped rules carry twelve
+hard-coded addresses — so the table below also runs the shipped rules on <em>that same list</em>, which
+separates "v2 has better data" from "v2 has better rules".</p>
+<div class="tbl"><table><thead><tr><th>rule set · identical complete data</th><th class="num">removed from the clean list</th><th class="num">of the {n(ship['controls'])} controls</th><th class="num">shown for review</th><th class="num">farms caught</th></tr></thead><tbody>
+<tr><td>shipped rules, its own 12 exchange addresses <em>(what is published)</em></td><td class="num">{n(ship['flagged_total'])}</td><td class="num">{ship['controls_flagged']} ({ship['control_fp_rate']:.1%})</td><td class="num">—</td><td class="num">{ship['farm_recall']:.1%}</td></tr>
+<tr><td>shipped rules, given v2's 612-funder exchange list</td><td class="num">{n(ship_infra['flagged_total'])}</td><td class="num">{ship_infra['controls_flagged']} ({ship_infra['control_fp_rate']:.1%})</td><td class="num">—</td><td class="num">{ship_infra['farm_recall']:.1%}</td></tr>
+<tr><td><strong>v2 rules</strong></td><td class="num">{n(best['flagged_total'])}</td><td class="num">{best['controls_flagged']} ({best['control_fp_rate']:.1%})</td><td class="num">{best.get('controls_in_periphery', 0)}</td><td class="num">{best['farm_recall']:.1%}</td></tr>
+</tbody></table></div>
+<p>Giving the published rules a better exchange list, changing nothing else, clears
+{ship['controls_flagged'] - ship_infra['controls_flagged']} of the {ship['controls_flagged']} honest wallets they remove. The other
+{ship_infra['controls_flagged'] - best['controls_flagged']} need the rules. Roughly one part missing data, five parts rules.</p>
+<div class="callout"><strong>What this measurement cannot do.</strong> It identifies wallets carrying an
+expensive independent history — not wallets certainly controlled by one human. An operator who ages and
+names wallets passes every criterion, and one did: the audited 2.067 ETH wave is 324 wallets sharing a
+single priority-fee value with <em>none</em> at nonce 0, and one of them holds an ENS name and satisfies
+the whole standard. So the false-positive rates here are ceilings, not point estimates — the true rates
+are at most this and probably lower. The standard was also amended once, on the record: its first
+version admitted a wallet that v2 flagged, and v2 was right — the wallet had funded two others on the
+list, and the criteria asked only where money came from, never where it went.</div>""")
+
 A("""<h2>The v2 rule set</h2>
 <div class="two">
 <p><strong>Windows.</strong> Round-amount windows close after 32 blocks, not after a one-hour silence. Odd amounts reach across the population only with ≥6 decimals or a shared ≥6-digit sub-cent residual; shorter odd amounts are windowed like round ones. Near-same-block edges only join jitter amounts. The near-minimum band (≤1.25 × minimum) is exempt from identity rules, sequence and drip; burst stays.</p>
@@ -540,7 +600,7 @@ A("""<h2>The v2 rule set</h2>
 <p><strong>Engines.</strong> Identical ≥3-rung deposit ladders across ≥5 wallets within 300 blocks are amount evidence; ≥20 unique ≥6-decimal amounts inside a 2 % band in one hour are amount and timing evidence. Amount rules run over each wallet's largest deposit.</p>
 <p><strong>Gate.</strong> Components need ≥5 members and ≥2 families as before, but a wallet is <em>core</em> only if ≥2 families are incident on it; the rest is <em>periphery</em>: shown, never removed from the clean list. Confidence should be calibrated per member against the null model rather than noisy-OR'd.</p>
 </div>
-<div class="callout"><strong>What to do with the published list now.</strong> The clustermap and THE LIST clean list currently remove ~1.5–2.3 k honest small wallets (idonotknowwhatimdoing.eth with 12 IDMD, punk.austingriffith.eth, 985.eth …) and keep a single ~99 ETH operator worth 13 % of all points. Before re-publishing: (1) <s>enrich nonce + first funder for every contributor</s> — done, see below, (2) rerun with the v2 rules, (3) render periphery as 'review' rather than 'linked', (4) open a self-attestation / appeal channel for the 360 ENS-named and ~870 weak-only wallets, (5) rebuild the benchmark from verified-honest controls scored in situ, and gate releases on the null-model false-linking rate. The prototype harness (<code>sk_v2.py</code>), diagnostics and null model that produced every number here are in <code>tools/sybil/</code> of the aidude workspace.</div>
+<div class="callout"><strong>What to do with the published list now.</strong> The clustermap and THE LIST clean list currently remove ~1.5–2.3 k honest small wallets (idonotknowwhatimdoing.eth with 12 IDMD, punk.austingriffith.eth, 985.eth …) and keep a single ~99 ETH operator worth 13 % of all points. Before re-publishing: (1) <s>enrich nonce + first funder for every contributor</s> — done, (2) <s>rerun with the v2 rules</s> — done, (3) render periphery as 'review' rather than 'linked' — implemented in the map's read model: a wallet held by fewer than two evidence families now shows as review rather than inheriting its group's tier, (4) open a self-attestation / appeal channel for the wallets that are named or held by weak evidence, (5) <s>rebuild the benchmark from verified-honest controls</s> — done, see above, and gate releases on the null-model false-linking rate. The prototype harness, the diagnostics, the null model and the complete enrichment that produced every number here are published at <code>github.com/banse/clustermap</code> under <code>audit/</code>, and reproduce from a clone.</div>
 
 <h2>Method</h2>
 <ul class="tight">

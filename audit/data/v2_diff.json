@@ -1,5 +1,5 @@
 {
- "variant": "v2g (v2f, coverage-stable fan-out)",
+ "variant": "v2h (v2g + aged-weak periphery)",
  "released": [
   {
    "address": "0x000000000029ebdbac531e86895078017c4ace26",
@@ -2533,6 +2533,20 @@
    "now": "clean"
   },
   {
+   "address": "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 18,
+   "deposits": 1,
+   "ens": "tonybearbrick.eth",
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0x17e7694cbebdc426b786bbb98fd7841f74d1553f",
    "baseline_cluster": 215,
    "amount_eth": "0.05",
@@ -3993,6 +4007,21 @@
    "now": "clean"
   },
   {
+   "address": "0x24d8c07f4d2b910eac28b914d588f3275cfe171c",
+   "baseline_cluster": 2,
+   "amount_eth": "0.45",
+   "hour": 3,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1,
+    "funding:shared_hub": 1
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0x24e9a332c52c14778867fe9026bb109f15ddabc4",
    "baseline_cluster": 184,
    "amount_eth": "0.15",
@@ -4815,6 +4844,21 @@
     "amount:exact_odd": 2
    },
    "now": "clean"
+  },
+  {
+   "address": "0x2df49b9d241b36abd7ea8496ba07f6d01caf166c",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 19,
+   "deposits": 1,
+   "ens": "800090000.eth",
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 2,
+    "funding:shared_hub": 2
+   },
+   "now": "periphery"
   },
   {
    "address": "0x2e0f8e8015b881a6b01d5c642754f57fd29b99a4",
@@ -8108,6 +8152,18 @@
    "now": "clean"
   },
   {
+   "address": "0x4d477f1aabcfc2fc3fc9b802e861c013e0123ad9",
+   "baseline_cluster": 7,
+   "amount_eth": "0.05",
+   "hour": 16,
+   "deposits": 2,
+   "ens": "wzrdcat.eth",
+   "incident_kinds": {
+    "sequence": 2
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0x4d48df14a698984c60e705a11dd696f368cb3a21",
    "baseline_cluster": 51,
    "amount_eth": "1.0",
@@ -10161,6 +10217,21 @@
    "now": "clean"
   },
   {
+   "address": "0x6120f5f9d32905d93bd0673ee3c70545a37c1931",
+   "baseline_cluster": 2,
+   "amount_eth": "0.45",
+   "hour": 3,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 2,
+    "funding:shared_hub": 2
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0x612952a8d811b3cd5626ebc748d5eb835fcf724b",
    "baseline_cluster": 177,
    "amount_eth": "0.05",
@@ -11027,6 +11098,20 @@
     "cadence:drip": 2
    },
    "now": "clean"
+  },
+  {
+   "address": "0x6880c355c73e9538313c5203c7783cc56609f044",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 17,
+   "deposits": 1,
+   "ens": "prufboogie.eth",
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 2
+   },
+   "now": "periphery"
   },
   {
    "address": "0x68c77779efe7c5c265bad20e68db84b9bdeca607",
@@ -12057,6 +12142,20 @@
     "amount:exact_odd": 1
    },
    "now": "clean"
+  },
+  {
+   "address": "0x73493ae0f2989efcab0efb3ab2c5224c57cb181a",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 18,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1
+   },
+   "now": "periphery"
   },
   {
    "address": "0x738514d20ce5b627224567b1181cedcf6cbde697",
@@ -17341,6 +17440,19 @@
    "now": "clean"
   },
   {
+   "address": "0xa411a8369f8660cf0e29d2accdcd9be9aba489cf",
+   "baseline_cluster": 7,
+   "amount_eth": "0.05",
+   "hour": 34,
+   "deposits": 5,
+   "ens": null,
+   "incident_kinds": {
+    "sequence": 2,
+    "funding:shared_hub": 2
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0xa413631e79ff7a28414a2a4c07a16b3c7f8b9e3b",
    "baseline_cluster": 7,
    "amount_eth": "0.05",
@@ -17937,6 +18049,21 @@
    "now": "periphery"
   },
   {
+   "address": "0xaaeae99cda50a53aae159e6fa8793514b08f18d4",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 18,
+   "deposits": 1,
+   "ens": "heisenbergknocks.eth",
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 2,
+    "funding:shared_hub": 2
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0xab0054e6d91e5be4b69c11ff7ce77c4571ff7c7c",
    "baseline_cluster": 7,
    "amount_eth": "0.05",
@@ -17961,6 +18088,21 @@
     "sequence": 2,
     "cadence:burst": 2,
     "funding:shared_hub": 2
+   },
+   "now": "periphery"
+  },
+  {
+   "address": "0xab3246f849066b7fbb8ba59ab538f2aa4620e9f0",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 17,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1,
+    "funding:shared_hub": 1
    },
    "now": "periphery"
   },
@@ -19319,6 +19461,20 @@
    "now": "clean"
   },
   {
+   "address": "0xb720241781cf64e99b39804970f9276ee7520a23",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 18,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 2
+   },
+   "now": "periphery"
+  },
+  {
    "address": "0xb734ddf067d51c87adeeb6665994bd1615f01c23",
    "baseline_cluster": 7,
    "amount_eth": "0.055",
@@ -20251,6 +20407,20 @@
     "amount:near_same_block": 2,
     "sequence": 1,
     "gas:two_axes": 2
+   },
+   "now": "periphery"
+  },
+  {
+   "address": "0xc2ead026cb1876291c8b0582fc1e72f83103ea16",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 18,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1
    },
    "now": "periphery"
   },
@@ -23485,6 +23655,20 @@
     "amount:exact_round_wave": 2
    },
    "now": "clean"
+  },
+  {
+   "address": "0xe22252860ecb290a00cb012acb756ff9117f8f4c",
+   "baseline_cluster": 6,
+   "amount_eth": "0.1",
+   "hour": 17,
+   "deposits": 1,
+   "ens": null,
+   "incident_kinds": {
+    "amount:exact_round_wave": 2,
+    "amount:split": 2,
+    "cadence:drip": 1
+   },
+   "now": "periphery"
   },
   {
    "address": "0xe290b71b1d4c9beee1961737bdc1ab1a45ed347f",
@@ -45527,19 +45711,6 @@
    "idmd": false
   },
   {
-   "address": "0x7a8375a2fd45c9bd2ac355255098047963123edd",
-   "ens": null,
-   "nonce": 56,
-   "deposits": [
-    "0.15"
-   ],
-   "hour": 16,
-   "funder": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
-   "funder_is_contributor": false,
-   "rescuer": false,
-   "idmd": false
-  },
-  {
    "address": "0x7abd56e7a85080bebbbc6503c4cc929f2ec1ef26",
    "ens": null,
    "nonce": 0,
@@ -59984,23 +60155,6 @@
    "idmd": false
   },
   {
-   "address": "0xd8c90e3e7c65a0619be147a3888d2dfbb1425e87",
-   "ens": null,
-   "nonce": 85,
-   "deposits": [
-    "0.05",
-    "0.15",
-    "0.25",
-    "0.35",
-    "0.45"
-   ],
-   "hour": 35,
-   "funder": "0xfcdd0bfecd92d6709358646f293f8e1bfc894700",
-   "funder_is_contributor": false,
-   "rescuer": false,
-   "idmd": false
-  },
-  {
    "address": "0xd8d2ee2ae11178a43c56a8d575b7f25aaf5123dd",
    "ens": null,
    "nonce": 0,
@@ -65696,7 +65850,7 @@
   {
    "cluster_id": 7,
    "size": 998,
-   "released": 904,
+   "released": 906,
    "families": [
     "amount",
     "cadence",
@@ -65708,7 +65862,7 @@
   {
    "cluster_id": 6,
    "size": 896,
-   "released": 164,
+   "released": 173,
    "families": [
     "amount",
     "cadence",
@@ -65948,6 +66102,18 @@
    "reason0": "metronomic drip \u00d712 of 0.05\u039e every ~2 blocks"
   },
   {
+   "cluster_id": 2,
+   "size": 1996,
+   "released": 12,
+   "families": [
+    "amount",
+    "cadence",
+    "funding",
+    "sequence"
+   ],
+   "reason0": "first funder is a member of the same cluster (peel chain)"
+  },
+  {
    "cluster_id": 218,
    "size": 12,
    "released": 12,
@@ -66078,18 +66244,6 @@
    "families": [
     "amount",
     "funding"
-   ],
-   "reason0": "first funder is a member of the same cluster (peel chain)"
-  },
-  {
-   "cluster_id": 2,
-   "size": 1996,
-   "released": 10,
-   "families": [
-    "amount",
-    "cadence",
-    "funding",
-    "sequence"
    ],
    "reason0": "first funder is a member of the same cluster (peel chain)"
   },

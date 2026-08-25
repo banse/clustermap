@@ -1,108 +1,68 @@
 {
  "honest_density/shipped": {
   "population": 12349,
-  "flagged_mean": 5650.4,
+  "flagged_mean": 5637.2,
   "flagged_runs": [
-   5647,
-   5613,
-   5802,
-   5612,
-   5578
+   5431,
+   5804,
+   5666,
+   5609,
+   5676
   ],
-  "clusters_mean": 44.8,
+  "clusters_mean": 45.8,
   "family_combos": [
    [
     "amount,funding",
-    116
+    97
    ],
    [
     "cadence,sequence",
-    75
+    70
    ],
    [
     "cadence,funding",
+    26
+   ],
+   [
+    "funding,sequence",
+    17
+   ],
+   [
+    "cadence,funding,sequence",
     12
    ],
    [
     "amount,cadence,funding,sequence",
-    7
-   ],
-   [
-    "funding,sequence",
-    6
-   ],
-   [
-    "cadence,funding,sequence",
     5
-   ]
-  ]
- },
- "honest_density/v2b": {
-  "population": 12349,
-  "flagged_mean": 17.2,
-  "flagged_runs": [
-   9,
-   35,
-   8,
-   8,
-   26
-  ],
-  "clusters_mean": 1.6,
-  "family_combos": [
-   [
-    "amount,cadence",
-    5
-   ],
-   [
-    "amount,cadence,funding",
-    3
-   ]
-  ]
- },
- "honest_density/v2b+local2_strong": {
-  "population": 12349,
-  "flagged_mean": 15.6,
-  "flagged_runs": [
-   9,
-   28,
-   8,
-   8,
-   25
-  ],
-  "clusters_mean": 1.6,
-  "family_combos": [
-   [
-    "amount,cadence",
-    5
-   ],
-   [
-    "amount,cadence,funding",
-    3
    ]
   ]
  },
  "honest_density/ABCDE": {
   "population": 12349,
-  "flagged_mean": 1224.6,
+  "flagged_mean": 1279.6,
   "flagged_runs": [
-   1186,
-   1340,
-   1174,
-   1202,
-   1221
+   1069,
+   1410,
+   1258,
+   1274,
+   1387
   ],
-  "clusters_mean": 51.6,
+  "clusters_mean": 58.2,
   "family_combos": [
    [
     "amount,sequence",
-    243
-   ],
-   [
-    "amount,cadence",
-    7
+    239
    ],
    [
     "amount,funding,sequence",
+    38
+   ],
+   [
+    "amount,funding",
+    7
+   ],
+   [
+    "funding,sequence",
     4
    ],
    [
@@ -110,156 +70,112 @@
     2
    ],
    [
-    "amount,cadence,funding",
-    1
-   ],
-   [
-    "amount,cadence,sequence",
+    "amount,cadence",
     1
    ]
   ]
  },
  "honest_density/ABCDE+local2": {
   "population": 12349,
-  "flagged_mean": 123,
+  "flagged_mean": 134.8,
   "flagged_runs": [
-   98,
-   143,
-   119,
-   124,
-   131
-  ],
-  "clusters_mean": 7,
-  "family_combos": [
-   [
-    "amount,sequence",
-    20
-   ],
-   [
-    "amount,cadence",
-    7
-   ],
-   [
-    "amount,funding,sequence",
-    4
-   ],
-   [
-    "amount,cadence,funding,sequence",
-    2
-   ],
-   [
-    "amount,cadence,funding",
-    1
-   ],
-   [
-    "amount,cadence,sequence",
-    1
-   ]
-  ]
- },
- "honest_density/ABCDE+local2+exchinfra": {
-  "population": 12349,
-  "flagged_mean": 107.8,
-  "flagged_runs": [
-   84,
-   122,
+   127,
+   146,
+   152,
    104,
-   117,
-   112
+   145
   ],
-  "clusters_mean": 7,
+  "clusters_mean": 9.6,
   "family_combos": [
    [
     "amount,sequence",
     24
    ],
    [
-    "amount,cadence",
-    8
+    "amount,funding,sequence",
+    21
    ],
    [
-    "amount,cadence,sequence",
+    "amount,cadence,funding,sequence",
+    2
+   ],
+   [
+    "amount,cadence",
+    1
+   ]
+  ]
+ },
+ "honest_density/v2h": {
+  "population": 12349,
+  "flagged_mean": 16.2,
+  "flagged_runs": [
+   5,
+   6,
+   37,
+   12,
+   21
+  ],
+  "clusters_mean": 2,
+  "family_combos": [
+   [
+    "amount,cadence,funding",
+    9
+   ],
+   [
+    "cadence,funding",
+    1
+   ]
+  ]
+ },
+ "honest_density/v2h min_size=4": {
+  "population": 12349,
+  "flagged_mean": 18.6,
+  "flagged_runs": [
+   5,
+   10,
+   37,
+   16,
+   25
+  ],
+  "clusters_mean": 2.6,
+  "family_combos": [
+   [
+    "amount,cadence,funding",
+    9
+   ],
+   [
+    "cadence,funding",
     3
-   ]
-  ]
- },
- "honest_density/ABCDE2+local2+exchinfra": {
-  "population": 12349,
-  "flagged_mean": 20.4,
-  "flagged_runs": [
-   9,
-   36,
-   8,
-   16,
-   33
-  ],
-  "clusters_mean": 2.2,
-  "family_combos": [
-   [
-    "amount,cadence",
-    11
-   ]
-  ]
- },
- "honest_density/ABCDE2+local2_strong+exchinfra": {
-  "population": 12349,
-  "flagged_mean": 20.4,
-  "flagged_runs": [
-   9,
-   36,
-   8,
-   16,
-   33
-  ],
-  "clusters_mean": 2.2,
-  "family_combos": [
-   [
-    "amount,cadence",
-    11
-   ]
-  ]
- },
- "honest_density/v2f": {
-  "population": 12349,
-  "flagged_mean": 18.4,
-  "flagged_runs": [
-   12,
-   38,
-   8,
-   8,
-   26
-  ],
-  "clusters_mean": 1.6,
-  "family_combos": [
-   [
-    "amount,cadence,funding",
-    4
    ],
    [
-    "amount,cadence",
-    4
+    "amount,funding",
+    1
    ]
   ]
  },
- "honest_density/v2g": {
+ "honest_density/v2h min_size=3": {
   "population": 12349,
-  "flagged_mean": 18.4,
+  "flagged_mean": 34.2,
   "flagged_runs": [
-   12,
-   38,
-   8,
-   8,
-   26
+   26,
+   22,
+   55,
+   31,
+   37
   ],
-  "clusters_mean": 1.6,
+  "clusters_mean": 7.8,
   "family_combos": [
    [
-    "amount,cadence,funding",
-    4
+    "cadence,funding",
+    22
    ],
    [
-    "amount,cadence",
-    4
+    "amount,cadence,funding",
+    16
+   ],
+   [
+    "amount,funding",
+    1
    ]
   ]
  }

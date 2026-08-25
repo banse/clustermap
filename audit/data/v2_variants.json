@@ -1,22 +1,22 @@
 {
- "baseline(shipped)": {
-  "clusters": 263,
-  "flagged": 11573,
-  "periphery": 0,
-  "points_pct": 57.63,
-  "labeled_recall": "141/160",
+ "v2h (v2g + aged-weak periphery)": {
+  "clusters": 160,
+  "flagged": 12416,
+  "periphery": 324,
+  "points_pct": 76.65,
+  "labeled_recall": "142/160",
   "operators_whole": "13/16",
   "farm_windows": {
    "0.45@h3-4": [
-    1996,
+    1984,
     1996
    ],
    "14.0@h3-15": [
-    1003,
+    997,
     1003
    ],
    "10.0@h5": [
-    770,
+    769,
     770
    ],
    "1.2@h1-2": [
@@ -28,35 +28,35 @@
     324
    ],
    "0.45@h34-37": [
-    367,
+    366,
     367
    ],
    "ring99(any dep 90-110\u039e h16-19)": [
-    81,
+    397,
     419
    ],
    "ladder10.x(5-step h37-45)": [
-    0,
+    176,
     176
    ],
    "bitget-ladder(1.19-1.69 h17-31)": [
-    232,
-    232
+    238,
+    239
    ],
    "0.05 recyclers(3 small hubs)": [
-    43,
-    48
+    27,
+    127
    ],
    "jitter1.10-1.14(h36-55)": [
-    2,
+    540,
     541
    ],
    "jitter1.00-1.05(h56-64)": [
-    0,
+    300,
     300
    ],
    "ladder0.05\u21920.45(h35-37)": [
-    9,
+    84,
     111
    ],
    "idxrun_12058": [
@@ -80,42 +80,42 @@
     100
    ]
   },
-  "ens_flagged": 360,
-  "controls_flagged": 30,
-  "rescuers_flagged": 3,
-  "idmd_flagged": 35,
-  "ladderers_flagged": 79,
+  "ens_flagged": 23,
+  "controls_flagged": 34,
+  "rescuers_flagged": 23,
+  "idmd_flagged": 1,
+  "ladderers_flagged": 423,
   "size_hist": [
    [
-    300,
+    393,
     1
    ],
    [
-    327,
+    462,
     1
    ],
    [
-    367,
+    769,
     1
    ],
    [
-    770,
+    997,
     1
    ],
    [
-    896,
+    1001,
     1
    ],
    [
-    998,
+    1087,
     1
    ],
    [
-    1104,
+    1642,
     1
    ],
    [
-    1996,
+    1984,
     1
    ]
   ]

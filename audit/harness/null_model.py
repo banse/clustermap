@@ -83,12 +83,54 @@ def main():
     honest_per_hour = {h: max(0, per_hour[h] - farm_per_hour.get(h, 0)) for h in per_hour}
     print("joiners per hour (observed):", sum(per_hour.values()), "| honest density:", sum(honest_per_hour.values()))
 
-    # --- gas fingerprint prior: measured control diversity -------------------------------
-    pf_pool = [35_000_000, 100_000_000, 1_000_000, 50_000_000, 1_500_000_000, 2_000_000_000, 10_000_000, 500_000_000,
-               30_000_000, 60_000_000, 120_000_000, 25_000_000, 75_000_000, 200_000_000, 1_200_000_000, 3_000_000_000,
-               40_000_000, 80_000_000, 150_000_000, 300_000_000, 20_000_000, 90_000_000, 110_000_000, 45_000_000,
-               55_000_000, 250_000_000, 700_000_000]
-    gl_pool = [83_967, 84_000, 91_600, 113_508, 100_000, 120_000, 95_000, 88_000, 105_000, 150_000, 86_500, 92_000, 97_500, 110_000, 130_000]
+    # --- gas fingerprint prior: the MEASURED honest-side distribution --------------------
+    # A hand-written pool of 27 values drawn uniformly gave every fee-uniformity
+    # rule a free pass: real wallets are far more concentrated than that (the
+    # most common priority fee alone carries ~12% of the honest side), so a
+    # uniform null under-states how often honest wallets share a fee value by
+    # coincidence.  Sample the real thing instead, weighted.
+    honest_side = sorted(set(firsts) - farm_members)
+    fee_counts = collections.Counter(
+        ds.txs[firsts[a].tx_hash].max_priority_fee_wei
+        for a in honest_side
+        if firsts[a].tx_hash in ds.txs and ds.txs[firsts[a].tx_hash].max_priority_fee_wei is not None
+    )
+    # sorted(), not list(): these are built by iterating a set, and Python
+    # randomises string hashing per process, so unsorted order made the whole
+    # null model non-reproducible across runs (44.6% vs 46.1% for the same
+    # seeds). Deterministic input order is the difference between a seed and a
+    # coin flip.
+    pf_values = sorted(fee_counts)
+    pf_weights = [fee_counts[v] for v in pf_values]
+    gl_counts = collections.Counter(
+        ds.txs[firsts[a].tx_hash].gas_limit
+        for a in honest_side
+        if firsts[a].tx_hash in ds.txs
+    )
+    gl_values = sorted(gl_counts)
+    gl_weights = [gl_counts[v] for v in gl_values]
+    print(f"fee prior: {len(pf_values)} measured values, top share "
+          f"{max(pf_weights)/sum(pf_weights):.1%} (was 27 values drawn uniformly)")
+    # --- honest peel structure: the prior that decides whether the null can
+    # referee the funding family at all ---------------------------------------
+    # Synthetic funders used to be exchange addresses or fresh randoms, never
+    # another synthetic contributor — so `funding:peel_chain`, the strongest
+    # evidence v2 adds, had ZERO probability of firing and its false-positive
+    # rate was never actually tested.  Model it from the closest available proxy
+    # for real people: ENS-named wallets outside the audited farms.  Their peel
+    # pairs are the empirical prior — how often a person funds a second wallet
+    # from one already on the list, and how far apart the two deposits sit.
+    ens_honest = sorted(a for a in ens if a in honest_side)
+    peel_gaps = []
+    for a in ens_honest:
+        f = ds.funding.get(a)
+        if f and f.funder in firsts and f.funder != a:
+            peel_gaps.append(firsts[a].block_number - firsts[f.funder].block_number)
+    peel_gaps.sort()
+    peel_rate = len(peel_gaps) / len(ens_honest) if ens_honest else 0.0
+    print(f"honest peel prior from {len(ens_honest)} ENS-named non-farm wallets: "
+          f"{peel_rate:.1%} are funded by another contributor "
+          f"(gap median {statistics.median(peel_gaps):.0f} blocks)" if peel_gaps else "no peel prior")
     # --- empirical funder prior from NON-farm resolved rows -----------------------------
     contributors = set(firsts)
     op_hub = collections.Counter()
@@ -110,6 +152,7 @@ def main():
     def synth(seed: int, density: dict[int, int]):
         rng = random.Random(seed)
         events, first_deps, txs, funding = [], [], {}, {}
+        placed: list[tuple[int, str]] = []
         idx = 0
         rows = []
         for h in sorted(density):
@@ -126,11 +169,21 @@ def main():
                            "new_weight_wei": amt, "tx_count": 1, "block_number": blk, "tx_hash": txh, "log_index": i % 200, "ts": None})
             first_deps.append({"contributor": addr, "index": idx})
             txs[txh] = {"tx_hash": txh, "nonce": rng.choice([0, 0, 0, 1, 2, 5, 12, 40, 150]),
-                        "max_priority_fee_wei": rng.choice(pf_pool), "max_fee_wei": rng.randint(50_000_000, 5_000_000_000),
-                        "gas_limit": rng.choice(gl_pool), "tx_type": 2}
+                        "max_priority_fee_wei": rng.choices(pf_values, weights=pf_weights)[0],
+                        "max_fee_wei": rng.randint(50_000_000, 5_000_000_000),
+                        "gas_limit": rng.choices(gl_values, weights=gl_weights)[0], "tx_type": 2}
+            placed.append((blk, addr))
             if rng.random() < coverage:
-                f = rng.choice(funder_prior)
-                if f == "personal": f = f"0x{rng.getrandbits(160):040x}"
+                if peel_gaps and placed and rng.random() < peel_rate:
+                    # This wallet's owner funded it from a wallet already on the
+                    # list: pick the one nearest the empirically observed gap.
+                    want = blk - rng.choice(peel_gaps)
+                    f = min(placed, key=lambda row: abs(row[0] - want))[1]
+                    if f == addr:
+                        f = rng.choice(placed)[1]
+                else:
+                    f = rng.choice(funder_prior)
+                    if f == "personal": f = f"0x{rng.getrandbits(160):040x}"
                 funding[addr] = {"address": addr, "funder": f, "hops": 1}
         return Dataset.from_events(events, first_deps, txs=txs, funding=funding)
 
@@ -146,7 +199,15 @@ def main():
         "ABCDE2+local2_strong+exchinfra": replace(sk_v2.VARIANTS["ABCDE2 + local2_strong"], infra_extra=frozenset(exch_like)),
         "v2f": replace(sk_v2.VARIANTS["v2f (v2e + fresh hub + cex fan-out)"], infra_extra=frozenset(exch_like)),
         "v2g": replace(sk_v2.VARIANTS["v2g (v2f, coverage-stable fan-out)"], infra_extra=frozenset(exch_like)),
+        "v2h": replace(sk_v2.VARIANTS["v2h (v2g + aged-weak periphery)"], infra_extra=frozenset(exch_like)),
+        # Does convicting components of 3-4 members raise the false-linking
+        # rate on a population that contains no operators at all?
+        "v2h min_size=4": replace(sk_v2.VARIANTS["v2h (v2g + aged-weak periphery)"], infra_extra=frozenset(exch_like), min_size=4),
+        "v2h min_size=3": replace(sk_v2.VARIANTS["v2h (v2g + aged-weak periphery)"], infra_extra=frozenset(exch_like), min_size=3),
     }
+    if "--only" in sys.argv:
+        keep = set(sys.argv[sys.argv.index("--only") + 1].split(";"))
+        variants = {k: v for k, v in variants.items() if k in keep}
     out = {}
     for dens_name, dens in (("honest_density", honest_per_hour),):
         for vname, rules in variants.items():
