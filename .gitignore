@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+dashboard/node_modules/
+dashboard/dist/
+dashboard/playwright-report/
+dashboard/test-results/
+.playwright-cli/
+output/
+third_party/

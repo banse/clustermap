@@ -1,0 +1,38 @@
+{
+  "name": "clustermap-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible": "^5.3.0",
+    "@fontsource/fragment-mono": "^5.3.0",
+    "@fontsource/saira-condensed": "^5.3.0",
+    "d3-force": "^3.0.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.62.1",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^14.6.5",
+    "@types/d3-force": "^3.0.10",
+    "@types/node": "^26.2.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.4",
+    "@vitejs/plugin-react": "^6.1.0",
+    "jsdom": "^29.1.1",
+    "typescript": "~6.0.3",
+    "vite": "^8.2.2",
+    "vitest": "^4.1.11"
+  }
+}
+
