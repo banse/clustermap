@@ -1,0 +1,44 @@
+targets: 6629 funding, 6940 txs | 6 workers, 12.0 req/s ceiling
+[txs] 10/70 batches, 998 rows
+[txs] 20/70 batches, 1998 rows
+[txs] 30/70 batches, 2995 rows
+[txs] 40/70 batches, 3995 rows
+[txs] 50/70 batches, 4985 rows
+[txs] 60/70 batches, 5966 rows
+[txs] 70/70 batches, 6906 rows
+[txs] batch pass: 6906 rows, 34 unresolved
+[txs] retry 34 in lots of 10
+[txs] done: 6940 rows, 0 unresolved
+[funding] 250/6629 (3.4 addr/s, eta 31.5 min) pending=4
+[funding] 500/6629 (3.5 addr/s, eta 28.8 min) pending=10
+[funding] 750/6629 (3.0 addr/s, eta 32.5 min) pending=22
+[funding] 1000/6629 (3.2 addr/s, eta 29.7 min) pending=28
+[funding] 1250/6629 (3.3 addr/s, eta 27.4 min) pending=34
+[funding] 1500/6629 (3.0 addr/s, eta 28.1 min) pending=46
+[funding] 1750/6629 (3.1 addr/s, eta 26.0 min) pending=52
+targets: 6629 funding, 6940 txs | 6 workers, 8.0 req/s ceiling
+[funding] resuming: 1698 already on disk, 4931 to go
+[funding] 250/4931 (3.7 addr/s, eta 21.1 min) pending=6 req=278 429=25 penalty=0.00
+[funding] 500/4931 (3.7 addr/s, eta 20.2 min) pending=12 req=548 429=51 penalty=0.00
+targets: 6629 funding, 6940 txs | 5 workers, 5.0 req/s ceiling
+[funding] resuming: 2186 already on disk, 4443 to go
+[funding] 250/4443 (3.2 addr/s, eta 21.9 min) pending=3 req=271 429=18 penalty=0.00
+[funding] 500/4443 (3.2 addr/s, eta 20.4 min) pending=4 req=540 429=34 penalty=0.00
+[funding] 750/4443 (3.0 addr/s, eta 20.8 min) pending=4 req=821 429=62 penalty=0.00
+[funding] 1000/4443 (3.0 addr/s, eta 18.9 min) pending=4 req=1087 429=76 penalty=0.00
+[funding] 1250/4443 (2.9 addr/s, eta 18.2 min) pending=4 req=1369 429=105 penalty=0.06
+[funding] 1500/4443 (3.0 addr/s, eta 16.4 min) pending=4 req=1634 429=119 penalty=0.00
+[funding] 1750/4443 (3.0 addr/s, eta 14.8 min) pending=4 req=1901 429=134 penalty=0.00
+[funding] 2000/4443 (3.0 addr/s, eta 13.8 min) pending=4 req=2182 429=162 penalty=0.00
+[funding] 2250/4443 (3.0 addr/s, eta 12.2 min) pending=4 req=2450 429=176 penalty=0.00
+[funding] 2500/4443 (2.9 addr/s, eta 11.0 min) pending=4 req=2731 429=204 penalty=0.01
+[funding] 2750/4443 (3.0 addr/s, eta 9.5 min) pending=4 req=3000 429=217 penalty=0.00
+[funding] 3000/4443 (2.9 addr/s, eta 8.2 min) pending=5 req=3282 429=247 penalty=0.22
+[funding] 3250/4443 (3.0 addr/s, eta 6.7 min) pending=5 req=3547 429=261 penalty=0.00
+[funding] 3500/4443 (3.0 addr/s, eta 5.3 min) pending=5 req=3815 429=275 penalty=0.00
+[funding] 3750/4443 (2.9 addr/s, eta 3.9 min) pending=5 req=4095 429=303 penalty=0.00
+[funding] 4000/4443 (3.0 addr/s, eta 2.5 min) pending=5 req=4362 429=318 penalty=0.00
+[funding] 4250/4443 (2.9 addr/s, eta 1.1 min) pending=5 req=4646 429=347 penalty=0.05
+[funding] retry round 2 for 5 unreadable
+[funding] done: 6629 rows, 0 still unreadable
+merged -> /Library/Vibes/aidude/tools/sybil/../../data/sybil/enrichment/full_enrich.json: funding 6629, txs 16150

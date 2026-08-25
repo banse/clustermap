@@ -1,0 +1,17 @@
+infra_extra: 25 funders
+baseline(shipped)                          clusters= 236 flagged= 11111 periph=    0 pts= 56.1% lab=141/160 whole=13/16 ens= 321 ctrl=29 resc= 3 idmd=29 ladder= 66
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 ring99(any dep 90-110Ξ h16-19)=81/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 candidate                               clusters= 119 flagged=  9274 periph=  275 pts= 53.8% lab=134/160 whole=13/16 ens=  18 ctrl=23 resc= 4 idmd= 2 ladder=133
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=70/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 − tight_peel                            clusters= 185 flagged=  9175 periph=  157 pts= 51.2% lab=134/160 whole=13/16 ens=  18 ctrl=21 resc= 4 idmd= 2 ladder=133
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=0/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 − largest                               clusters= 117 flagged=  9139 periph=  154 pts= 53.1% lab=134/160 whole=13/16 ens=  16 ctrl=22 resc= 2 idmd= 2 ladder=  1
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 ring99(any dep 90-110Ξ h16-19)=70/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 − fresh_only(cex→exclude)               clusters= 119 flagged=  9268 periph=  281 pts= 53.8% lab=134/160 whole=13/16 ens=  18 ctrl=23 resc= 4 idmd= 2 ladder=127
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=70/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 − band(1.25→0, seq min-zone)            clusters= 109 flagged=  9237 periph=  285 pts= 53.8% lab=130/160 whole=13/16 ens=  18 ctrl=25 resc= 4 idmd= 2 ladder=133
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=70/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 − local2 (cluster gate)                 clusters= 138 flagged=  9741 periph=    0 pts= 59.9% lab=134/160 whole=13/16 ens=  47 ctrl=23 resc= 5 idmd= 3 ladder=278
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=205/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2 + local2_strong                         clusters= 116 flagged=  9242 periph=  289 pts= 53.6% lab=134/160 whole=13/16 ens=  18 ctrl=23 resc= 4 idmd= 2 ladder=126
+      farm windows: 0.45@h3-4=1993/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=70/419 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100

@@ -1,0 +1,2 @@
+baseline(shipped)                          clusters= 263 flagged= 11573 periph=    0 pts= 57.6% lab=141/160 whole=13/16 ens= 360 ctrl=30 resc= 3 idmd=35 ladder= 79
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 ring99(any dep 90-110Ξ h16-19)=81/419 ladder10.x(5-step h37-45)=0/176 jitter1.10-1.14(h36-55)=2/541 jitter1.00-1.05(h56-64)=0/300 ladder0.05→0.45(h35-37)=9/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100

@@ -1,0 +1,1872 @@
+{
+ "finding": "Recall: the 96-100 ETH ring (14.3% of points) is 79% unflagged because peel chains only count inside a tier-A component",
+ "verdict": {
+  "refuted": false,
+  "confidence": 0.92
+ },
+ "claim_numbers_rederived": {
+  "windows": 54,
+  "wallets": 384,
+  "window_sizes": {
+   "8": 5,
+   "11": 2,
+   "9": 3,
+   "5": 5,
+   "2": 4,
+   "6": 8,
+   "3": 4,
+   "10": 6,
+   "7": 7,
+   "12": 2,
+   "4": 4,
+   "13": 3,
+   "14": 1
+  },
+  "windows_ge5": 42,
+  "wallets_in_windows_ge5": 348,
+  "hours": {
+   "16": 79,
+   "17": 91,
+   "18": 121,
+   "19": 93
+  },
+  "points_pct": 14.28,
+  "flagged": 81,
+  "unflagged": 303,
+  "unflagged_points_pct": 11.29,
+  "flagged_by_cluster": {
+   "13": 10,
+   "15": 9,
+   "11": 10,
+   "20": 8,
+   "16": 9,
+   "23": 6,
+   "10": 12,
+   "12": 10,
+   "22": 7
+  },
+  "ens_members": 0,
+  "funding_cache_only": {
+   "resolved": 348,
+   "funder_in_ring": 345,
+   "funder_is_contributor_not_ring": 3,
+   "funder_infra": 0
+  },
+  "funding_with_ring_enrich_extras": {
+   "resolved": 384,
+   "funder_in_ring": 380,
+   "funder_is_contributor_not_ring": 4,
+   "funder_infra": 0
+  },
+  "nonce": {
+   "with_tx": 384,
+   "nonce0": 214,
+   "dist": {
+    "0": 214,
+    "10": 69,
+    "5": 55,
+    "8": 25,
+    "9": 20,
+    "62": 1
+   }
+  },
+  "note": "claim said 348 resolved / 345 in-ring / 194 nonce0 on the cache alone: reproduced exactly (348/345; nonce0=194 among the 348, 214 among all 384 with extras). Window sizes 2-14 (not '5-7'); 42 windows >=5 hold 348 wallets, 12 windows <5 hold 36 wallets that can never clear min_size even with in-window peel links."
+ },
+ "mechanism_verified": {
+  "funding_py_lines_89_90": "comp is not None and comp == component_of.get(funder) -- confirmed in source",
+  "tierA_components_of_ring": {
+   "n_components": 54,
+   "component_sizes": [
+    14,
+    13,
+    13,
+    13,
+    12,
+    12,
+    11,
+    11,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    9,
+    9,
+    9,
+    8,
+    8,
+    8,
+    8,
+    8,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    5,
+    5,
+    5,
+    5,
+    5,
+    4,
+    4,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    2,
+    2,
+    2,
+    2
+   ],
+   "component_is_exactly_one_window": 53,
+   "components_with_nonring_members": 1,
+   "nonring_members_pulled": [
+    "0x6a44da75bb735e36714af5338cede47b6fc01ce8"
+   ]
+  },
+  "tierA_edge_kinds_touching_ring": {
+   "amount:exact_round_wave": 330,
+   "amount:near_same_block": 1,
+   "amount:split": 306
+  },
+  "peel_links": {
+   "funder_in_ring_total": 380,
+   "same_component": 10,
+   "cross_component_discarded": 370
+  },
+  "why_81_are_flagged": "each of the 9 flagged windows (98.5x12, 96.1x10, 96.8x10, 96.9x10, 95.5x9, 95.7x9, 96.3x8, 99.5x7, 96.7x6) contains exactly ONE funder->funded pair that by chance landed in the same amount window; the other 45 windows have zero in-window pairs. Flagging is luck of the amount draw, not evidence strength.",
+  "chain_order": {
+   "funder_deposit_before_child": 380,
+   "violations": 0,
+   "gap_blocks_dist": {
+    "2": 307,
+    "3": 38,
+    "4": 16,
+    "5": 7,
+    "6": 5,
+    "8": 1,
+    "14": 1,
+    "55": 1,
+    "7": 1,
+    "21": 1
+   }
+  },
+  "funding_tx_shape": {
+   "n": 36,
+   "value_over_deposit_ratio_dist": {
+    "1.03": 11,
+    "1.05": 9,
+    "1.04": 6,
+    "1.02": 5,
+    "1.06": 4,
+    "1.07": 1
+   },
+   "blocks_between_funding_and_deposit_dist": {
+    "1": 30,
+    "3": 3,
+    "2": 3
+   }
+  }
+ },
+ "ring_structure_stronger_than_claimed": {
+  "chains_with_extras": {
+   "heads": 4,
+   "lengths": [
+    164,
+    153,
+    66,
+    1
+   ],
+   "branching_funders": []
+  },
+  "chains_are_one_serial_relay": "tail of 66-chain 0xb9b0008259 (97.5) funds 0x9649147d (98.0 h16, 1-member window, not in ring set) which heads the 164-chain; tail of 164-chain 0x6da28640 (98.9) funds 0x8167d96e (95.8 h18, 1-member window) which heads the 153-chain; 66-chain head 0x5dfdd72d is funded by 0xdad06928 (multi-deposit: 1.7 h15 then 96.9 h16) <- 0x3ee21ace (1.6 then 97.2) <- 0x94450b66 (1.6 then 97.0) <- ... <- 0xf6e8a085 (0.069 then 97.2) <- 0x1c85cc7a (95.7 h16, nonce 62)",
+  "origin": {
+   "wallet": "0x1c85cc7a91f8d7cf580825090bb958d177953b56",
+   "funded_by": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+   "funder_profile": "EOA, 15,667,534 txs, 12,636 ETH balance (exchange-scale hot wallet, unlabeled) -- exchange-funded is not itself evidence",
+   "funding": "99.258072 ETH block 25774615 2026-08-17T11:50:35",
+   "deposit": "95.7 ETH block 25774657 nonce 62",
+   "forward": "100.176320 ETH block 25774658 to 0xf6e8a085cc6b5013fc2cab38e929aa2e95268a3c (ring relay wallet)",
+   "origin_wallet_history": "Disperse.app disperseEther x5 (May-Jul 2026), repeated funding from 0xbc214bc9 (nonce 700+ operator wallet); aged != human here"
+  },
+  "terminus": {
+   "chain_tail": "0x0be1a2ce4aa39a284acdacbaa9f617a17877e57e (95.6 h19, block 25775781)",
+   "forward": "102.763954 ETH to 0xa930a9a3e749993980086c411618e32f9ef7212f",
+   "then": "0xa930a9a3 -> 100.063949 ETH to 0xdb8e45b1893649b8dda6d483905b3eb7aba6a620 (block 25775796) and 2.699996 ETH back to origin wallet 0x1c85cc7a (block 25775806, 5 min later) -- loop closed to the origin"
+  },
+  "post_game_sweep": {
+   "block": 25802429,
+   "rows": 51,
+   "distinct": 51,
+   "in_ring": 50,
+   "contributors": 51,
+   "flagged": 9,
+   "value_range": [
+    0.01919861476777244,
+    0.019928894688257152
+   ],
+   "page_truncated": false,
+   "collector": "0x2135c4c61f3a683e272a5986b5e7ce05597479ee",
+   "collector_then_pays": "1.003804 ETH to 0xbc214bc9 (the wallet that seeded 0x1c85cc7a) on 2026-08-25",
+   "note": "51 ring wallets swept ~0.0192 ETH residue (after a LabratClaim) to one collector in ONE block on 2026-08-21 08:51:47; only 9 of the 51 are flagged"
+  },
+  "pre_seeded_wallet_batch": "ring nonces at deposit: 0 x214, 10 x69, 5 x55, 8 x25, 9 x20, 62 x1. Every sampled nonce-5/8/9/10 wallet carries the byte-identical pre-game script: GoblinVault deposit+mintWithPermit 2026-05-09 14:04-14:08 (blocks 25058000-25058022), GoblinToken transfer, InscriptionMintController claim 05-10 08:12 (block 25063421-23), MintHookToken, SquarePepe mint 05-13, Bonder mint, Identity0 mint 05-14, CirclesNFT 05-17, SeaDrop mintPublic 08-03 11:49 (blocks 25674173-77). These 170 'aged' wallets are one mint-farm batch, not humans.",
+  "one_pot_estimate": "~102 ETH relayed serially through ~390 wallets in 236 minutes (h16-19), 2-block hop cadence (307/380 hops), funding value 1.02-1.07x the deposit, sub-milligwei priority fees; credited weight ~37,000 ETH from a ~100 ETH pot => 14.3% of all points"
+ },
+ "onchain_spot_check": {
+  "addresses_fetched_by_this_agent": 16,
+  "addresses_reused_from_prior_agent_caches": 22,
+  "rate_limits": "1.2 s sleep, 20 s timeout, 429 backoff 15 s",
+  "aggregate_over_38_ring_band_wallets": {
+   "nonce0_at_deposit": 20,
+   "mintfarm_batch_history": 18,
+   "funded_exactly_1_block_before": 26,
+   "funded_by_relay_or_contributor": 36,
+   "forward_exactly_1_block_after": 36,
+   "forward_to_contributor": 36,
+   "swept_to_collector_in_sample": 7,
+   "dust_balance_now": 37,
+   "flagged_live": 2
+  },
+  "exceptions": {
+   "0x6a44da75bb735e36714af5338cede47b6fc01ce8": "96.012 ETH nonce 0, funded 96.1 by 0xfe0cec30 (nonce 14 personal wallet), RETURNED 96.099 to funder (not forwarded) -- a burner used once by a non-ring main wallet; pulled into a ring tier-A component only via a near-same-block edge; currently NOT flagged; would be flagged by any fix that welds the ring components (potential FP of the fix, N=1)",
+   "0x1c85cc7a91f8d7cf580825090bb958d177953b56": "origin; exchange-funded; already flagged via the lucky 95.7 window"
+  },
+  "per_address": {
+   "0xc178c7c2c4a78dd222371c2bc374e9efd194f1c6": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.8,
+    "deposit_block": 25774984,
+    "nonce_at_deposit": 8,
+    "priority_fee_wei": "433106",
+    "funded_from": "0xd9562a8eb5e4c731f7129335695087acf6020ba7",
+    "funded_eth": 102.02247260741485,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x418ea3b87b71f9baa2a657e9c38a94cd97574a65",
+    "forward_eth": 102.02405658322378,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 8,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000035
+   },
+   "0x7c08b2a2df60576423155acf9e83eee0b23a9608": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.4,
+    "deposit_block": 25775137,
+    "nonce_at_deposit": 5,
+    "priority_fee_wei": "1253140",
+    "funded_from": "0x6acecb929434c8ce8d71624250a68452f050d686",
+    "funded_eth": 102.51227285068244,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xaf3a7bed71fa4efdba5c83bc9d93cf16fd3bde7f",
+    "forward_eth": 102.52517439434645,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 5,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000033
+   },
+   "0xa9190dd8bb3b689c93701d5055561fb93be6bbf3": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.4,
+    "deposit_block": 25775350,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "3217322",
+    "funded_from": "0xb1c4b5ae6964d02fb532b9726ae3b5d385036073",
+    "funded_eth": 102.76911286453362,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x886a8b91d5ff0667f6efdea562ac77206e0af49a",
+    "forward_eth": 102.76908530810637,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 5.5602158745e-06
+   },
+   "0xf1007b507a1106f0bffe2d47bb108a94ee573970": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.2,
+    "deposit_block": 25775462,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1058846",
+    "funded_from": "0xbd7ed6ddb087312992c5edb528843b642dc59df8",
+    "funded_eth": 102.76761590854025,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x3cbfc1e139a5cd0b141332864535cf39414a17a4",
+    "forward_eth": 102.76758986314461,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 1.837720727535e-05
+   },
+   "0x8d3b99589a0aed97f350d6c0da9857ea07e0a7eb": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 95.2,
+    "deposit_block": 25775580,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "673277",
+    "funded_from": "0x98b98a343d1de27d0e08da0740a4554f92488dca",
+    "funded_eth": 102.7663176186183,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xde0204108d299fe953edc3abf634c06b9ff81d01",
+    "forward_eth": 102.7662896804911,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0xb981dfc82cbadc8b1e2f81a2c432d993c56976cc": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.5,
+    "deposit_block": 25775727,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1",
+    "funded_from": "0xf3548085afcc5d712b84c54332cbb67d41891c8b",
+    "funded_eth": 102.76481520770766,
+    "funded_blocks_before": 4,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xf9c3a5b6f7379cfc869c7e2da3589c27d9bc6fce",
+    "forward_eth": 102.76477611510255,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x8e0623a1cec6de19c771cc1dd4060f4e2ab486e4": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.3,
+    "deposit_block": 25774808,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "406411",
+    "funded_from": "0xbd0e4d3879ccfd3c7144530c87a3799fe94e66ea",
+    "funded_eth": 101.91476819331729,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x8b45b51407858e7cc37334e5730f0b5b3d5b8b1a",
+    "forward_eth": 101.9161179107159,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.3e-09
+   },
+   "0xa43c552a62daf106f169e3777482f0c1a239139b": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 97.0,
+    "deposit_block": 25774864,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "421390",
+    "funded_from": "0xbe0fe5f1d12e6b70fcf83dd1834e5f30654d8fe5",
+    "funded_eth": 101.9494446617359,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xe668d9cdc74b15681ed1215700142dee2cd6b986",
+    "forward_eth": 101.95075533778189,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000043
+   },
+   "0xdfb0a710c111dd3e61b3573b1f9020e175c66304": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.8,
+    "deposit_block": 25774907,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "467730",
+    "funded_from": "0x6576abbb1deb61040ea3e27fdf8f264348dbcf3e",
+    "funded_eth": 101.97429677702229,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xfd5b262557876ba036ef3c990ea25c49533ec751",
+    "forward_eth": 101.97540571929704,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.2e-09
+   },
+   "0x9649147d5ccf20b3ec531c59506230db5136b96d": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 98.0,
+    "deposit_block": 25774927,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "491135",
+    "funded_from": "0xb9b0008259231172818c30e7923ead1c4d08d03c",
+    "funded_eth": 101.98531270091814,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x24bcef1ed9be2bf69b96e2b4ebb444f72c1a7549",
+    "forward_eth": 101.98640552119974,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.2e-09
+   },
+   "0x8167d96e68beb2192bacc3d61be91bc728a1b60a": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 95.8,
+    "deposit_block": 25775415,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1420125",
+    "funded_from": "0x6da28640ed7ef87bec5ad7a0adb9274beede1c44",
+    "funded_eth": 102.76818832372781,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x35260d3bb73665183ace4de7b62db6c8bb84a855",
+    "forward_eth": 102.76815534511272,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 1.837720727535e-05
+   },
+   "0x0be1a2ce4aa39a284acdacbaa9f617a17877e57e": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 95.6,
+    "deposit_block": 25775781,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "562608",
+    "funded_from": "0xe863e6f86e4fbe29896cf44a406f53fd2d076e78",
+    "funded_eth": 102.76397722138954,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xa930a9a3e749993980086c411618e32f9ef7212f",
+    "forward_eth": 102.76395406482963,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": false,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x94450b66aa1615a5a870d656680bf35f55de8c07": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 97.0,
+    "deposit_block": 25774777,
+    "nonce_at_deposit": 12,
+    "priority_fee_wei": "481966",
+    "funded_from": "0x1520184788118c9629fb3a7537080d3fd2c14ed3",
+    "funded_eth": 100.17586865024533,
+    "funded_blocks_before": 3,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x3ee21aceeecedb6c756e2e0872b5fd0ee655d6b6",
+    "forward_eth": 100.17584724688382,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 4.3e-09
+   },
+   "0x6da28640ed7ef87bec5ad7a0adb9274beede1c44": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.9,
+    "deposit_block": 25775413,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "890652",
+    "funded_from": "0xe0d10feedc305ee9b9ae4a3a5f64f1714e051b8f",
+    "funded_eth": 102.76822385985038,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x8167d96e68beb2192bacc3d61be91bc728a1b60a",
+    "forward_eth": 102.76818832372781,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 1.837720727535e-05
+   },
+   "0xcf842544b17d1a990669dd136c1458c7730192ee": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 97.6,
+    "deposit_block": 25775089,
+    "nonce_at_deposit": 5,
+    "priority_fee_wei": "459519",
+    "funded_from": "0x4788d8ee3d709a61a56f577732e66b1874aa2042",
+    "funded_eth": 102.35730511593098,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x154884284771e42b5d017fed840e22a3cfae0a9c",
+    "forward_eth": 102.37022076490757,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 5,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000032
+   },
+   "0x5f33830d8df0003635ed7fd8e3eac8b2d12f8ee5": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.3,
+    "deposit_block": 25774949,
+    "nonce_at_deposit": 9,
+    "priority_fee_wei": "433959",
+    "funded_from": "0x08305f750da837148ba3543f9a390f2f663cc3c1",
+    "funded_eth": 102.00062656978808,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x533a98f79609632b1ab23a7610836f019a7a133e",
+    "forward_eth": 102.0021811444337,
+    "forward_blocks_after": 2,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 9,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000032
+   },
+   "0xf3548085afcc5d712b84c54332cbb67d41891c8b": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.2,
+    "deposit_block": 25775722,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "631655",
+    "funded_from": "0x79b3449afe46767ad588f9d204b8621c9770bddf",
+    "funded_eth": 102.76485503881403,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xb981dfc82cbadc8b1e2f81a2c432d993c56976cc",
+    "forward_eth": 102.76481520770766,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x18fd23524c28e4df0257f0e5fc9b87da61385393": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 97.6,
+    "deposit_block": 25775510,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "907994",
+    "funded_from": "0x0347ae31f07854219ae2e4320b1280924fdf5416",
+    "funded_eth": 102.7670304780687,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xa4a9cfa947251cab5a9c9a5826667d7619589db0",
+    "forward_eth": 102.7670098710897,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0xbc2c606fe247b64c6c260185b2bee73aaf34dfc8": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.3,
+    "deposit_block": 25775571,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1065050",
+    "funded_from": "0xcdf75fba5e3dcd7ca22394aae86715361a09c991",
+    "funded_eth": 102.76639442035928,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xaedc235da9d4c281bf86ea4d9c2b53f5e01de7a6",
+    "forward_eth": 102.76636647262586,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x01887660eb86050af2db46c0a5774dae5249e8da": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.3,
+    "deposit_block": 25774831,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "621787",
+    "funded_from": "0xdb113944a45250930bfa9dde2a12beb8c27b5e25",
+    "funded_eth": 101.92824195140868,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x4be583c18f4068b91ac745e7fa3f9ca7b47f58d7",
+    "forward_eth": 101.92956936366626,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000033
+   },
+   "0x16ee3e2a011c24dfb5798058484add56b6b70818": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.2,
+    "deposit_block": 25775678,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "580090",
+    "funded_from": "0xc2046a098f611c75d9b0cbf217e25073f7e8b5bb",
+    "funded_eth": 102.765313296376,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xc6459125fc216d3b0493f6fa118cfc509e75fa21",
+    "forward_eth": 102.76529340153412,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x15cd5efbf32ef568c408cb796a00a7c859e92f8a": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.0,
+    "deposit_block": 25775007,
+    "nonce_at_deposit": 8,
+    "priority_fee_wei": "477192",
+    "funded_from": "0xbfb74cb1a276c81fe75990aafedd8a9ceb086006",
+    "funded_eth": 102.0398915906898,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x53e568ffa2ce5a9145834783abdcb2a80b1265e5",
+    "forward_eth": 102.04147766364147,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 8,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000033
+   },
+   "0x21db980a4dd15d663af718f03fc4cd0a1995adce": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.2,
+    "deposit_block": 25774896,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": "455693",
+    "funded_from": "0x9c8727257e4f83ca70d1562b7f9bbc57c5625d0d",
+    "funded_eth": 101.96793766249992,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xf5d088dc32d703fcc6b52019da8b7dfc9ad6b87a",
+    "forward_eth": 101.9692577037086,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.3e-09
+   },
+   "0x663d5e2f708ffbb38dd4b382fafdc4fe1480de73": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.7,
+    "deposit_block": 25775645,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "539929",
+    "funded_from": "0x4c079324226b7dc4b9a61b98b254b05810fae1cd",
+    "funded_eth": 102.76569121495656,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xbce0dbb01d8d06ecfeff82475b5c51f5e8836270",
+    "forward_eth": 102.76566839191852,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0xc56dd549e3a2aa4f783d82eee0695ec316dc0ae5": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.0,
+    "deposit_block": 25775436,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1457252",
+    "funded_from": "0x641ddfece58a7c14b941176f4a053415a8394d89",
+    "funded_eth": 102.76794199332605,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x1ef9145b9f2d396e3d08b647d9fe158905543eff",
+    "forward_eth": 102.76791422982852,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 1.837720727535e-05
+   },
+   "0x8a23b51a5fa0478be9c680afcf3ffcbc535bc501": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.7,
+    "deposit_block": 25775468,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "1225157",
+    "funded_from": "0x298769d0c4c2257e21b12652afcb495e2e239157",
+    "funded_eth": 102.76753180844003,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x211910e89635573d40707347e55980198615085e",
+    "forward_eth": 102.76750371597329,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 1.837720727535e-05
+   },
+   "0x886a8b91d5ff0667f6efdea562ac77206e0af49a": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.3,
+    "deposit_block": 25775352,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "2412377",
+    "funded_from": "0xa9190dd8bb3b689c93701d5055561fb93be6bbf3",
+    "funded_eth": 102.76908530810637,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xcdd3b25e7613faafc8136c3c1a791dc166c9f3ef",
+    "forward_eth": 102.76905412782932,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": true,
+    "balance_eth_now": 5.5602158745e-06
+   },
+   "0xbfb74cb1a276c81fe75990aafedd8a9ceb086006": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.0,
+    "deposit_block": 25775005,
+    "nonce_at_deposit": 8,
+    "priority_fee_wei": "458433",
+    "funded_from": "0x939e45bba5b6b22466eb3ec90b317637a69efa18",
+    "funded_eth": 102.03831334109799,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x15cd5efbf32ef568c408cb796a00a7c859e92f8a",
+    "forward_eth": 102.0398915906898,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 8,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.0100000032
+   },
+   "0x29cc4a211c82d3764a3c068d984547eb9fedf3a2": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.9,
+    "deposit_block": 25775777,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "605917",
+    "funded_from": "0xd7c874b46f491bca09baccb3408d0ac4c84ae635",
+    "funded_eth": 102.76403730228547,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xe863e6f86e4fbe29896cf44a406f53fd2d076e78",
+    "forward_eth": 102.76400677029662,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0xcdf75fba5e3dcd7ca22394aae86715361a09c991": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 96.6,
+    "deposit_block": 25775569,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "885525",
+    "funded_from": "0xbdbf8a1dc1819c1bea3b5ce2421caab33934dba2",
+    "funded_eth": 102.76642561156464,
+    "funded_blocks_before": 2,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xbc2c606fe247b64c6c260185b2bee73aaf34dfc8",
+    "forward_eth": 102.76639442035928,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x2933c324c8fb1d052ce32471e7e376ad9e579171": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 97.9,
+    "deposit_block": 25775637,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "635058",
+    "funded_from": "0x8038c067d75ef239a06c01cbcc6f11eb26180d19",
+    "funded_eth": 102.76579528050999,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x8077ff2c8ff8497f03bd39fe49747b6722cf9cdd",
+    "forward_eth": 102.76576962131655,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 2.2e-09
+   },
+   "0x3ee21aceeecedb6c756e2e0872b5fd0ee655d6b6": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 97.2,
+    "deposit_block": 25774779,
+    "nonce_at_deposit": 12,
+    "priority_fee_wei": "555921",
+    "funded_from": "0x94450b66aa1615a5a870d656680bf35f55de8c07",
+    "funded_eth": 100.17584724688382,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xdad06928d7659c68bc8989f9a5abe11418f93567",
+    "forward_eth": 100.17583206727092,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 4.3e-09
+   },
+   "0x6a44da75bb735e36714af5338cede47b6fc01ce8": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 96.012,
+    "deposit_block": 25775362,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": "600000000",
+    "funded_from": "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+    "funded_eth": 96.1,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": false,
+    "forward_to": "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+    "forward_eth": 96.099,
+    "forward_blocks_after": 2,
+    "forward_to_is_contributor": false,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.001915983994967912
+   },
+   "0x5dfdd72d9b8a93f08929e5007252426076ad4386": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 99.5,
+    "deposit_block": 25774783,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": null,
+    "funded_from": "0xdad06928d7659c68bc8989f9a5abe11418f93567",
+    "funded_eth": 101.8998479187884,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x238d0c5f73ffd5bb0ab7f3c7dab3aecea86c2c07",
+    "forward_eth": 101.90121483989051,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.2e-09
+   },
+   "0x238d0c5f73ffd5bb0ab7f3c7dab3aecea86c2c07": {
+    "in_ring_windows": true,
+    "flagged": false,
+    "deposit_eth": 98.4,
+    "deposit_block": 25774785,
+    "nonce_at_deposit": 10,
+    "priority_fee_wei": null,
+    "funded_from": "0x5dfdd72d9b8a93f08929e5007252426076ad4386",
+    "funded_eth": 101.90121483989051,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0xe21db94bf5cbfb8ca8d3bc664e0da45dbd6b585e",
+    "forward_eth": 101.9025812984353,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.2e-09
+   },
+   "0x2135c4c61f3a683e272a5986b5e7ce05597479ee": {
+    "in_ring_windows": true,
+    "flagged": true,
+    "deposit_eth": 98.5,
+    "deposit_block": 25775255,
+    "nonce_at_deposit": 0,
+    "priority_fee_wei": null,
+    "funded_from": "0x63779e6a186aeeb018b53d0db2dfb44792441a77",
+    "funded_eth": 102.77000446605797,
+    "funded_blocks_before": 12,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x3b3382fdb46a55e401d1f317b1e48973cf1163ee",
+    "forward_eth": 102.76998243875086,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 0,
+    "mintfarm_batch_history": false,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 1.8783788205e-06
+   },
+   "0x1c85cc7a91f8d7cf580825090bb958d177953b56": {
+    "in_ring_windows": true,
+    "flagged": true,
+    "deposit_eth": 95.7,
+    "deposit_block": 25774657,
+    "nonce_at_deposit": 62,
+    "priority_fee_wei": null,
+    "funded_from": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "funded_eth": 99.2580725,
+    "funded_blocks_before": 42,
+    "funder_in_ring_or_relay": false,
+    "forward_to": "0xf6e8a085cc6b5013fc2cab38e929aa2e95268a3c",
+    "forward_eth": 100.17631956252488,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 33,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 0.709552508336719
+   },
+   "0xdad06928d7659c68bc8989f9a5abe11418f93567": {
+    "in_ring_windows": false,
+    "flagged": false,
+    "deposit_eth": 96.9,
+    "deposit_block": 25774781,
+    "nonce_at_deposit": 11,
+    "priority_fee_wei": null,
+    "funded_from": "0x3ee21aceeecedb6c756e2e0872b5fd0ee655d6b6",
+    "funded_eth": 100.17583206727092,
+    "funded_blocks_before": 1,
+    "funder_in_ring_or_relay": true,
+    "forward_to": "0x5dfdd72d9b8a93f08929e5007252426076ad4386",
+    "forward_eth": 101.8998479187884,
+    "forward_blocks_after": 1,
+    "forward_to_is_contributor": true,
+    "prior_txs_before_game": 10,
+    "mintfarm_batch_history": true,
+    "swept_to_collector_0x2135": false,
+    "balance_eth_now": 3.2e-09
+   }
+  }
+ },
+ "suggested_fix_evaluation": {
+  "coverage_caveat": "funding rows exist for 12,164/12,164 wallets inside tier-A components >=5 but only 301/6,635 wallets outside any component; the honest 'main wallet -> second wallet' class the design guards against is therefore ~95% invisible to any FP simulation. Numbers below are lower bounds on FP.",
+  "claim_fix_pm10_depth_agnostic": {
+   "peel_pairs": 8994,
+   "clusters": 149,
+   "flagged_total": 12118,
+   "flagged_points_pct": 69.47,
+   "ring_flagged": 384,
+   "newly_flagged": {
+    "n": 545,
+    "points_pct": 11.84,
+    "ens": 37,
+    "multi_deposit": 29,
+    "nonce_ge20": 71,
+    "nonce0": 178,
+    "no_tx": 153,
+    "in_ring": 303
+   },
+   "newly_flagged_non_ring": 242,
+   "lost": 0,
+   "new_clusters": [
+    {
+     "size": 387,
+     "new": 306,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 100.1,
+     "hours": [
+      16,
+      19
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 384,
+     "depth": 384,
+     "in_ring": 384,
+     "points_pct": 14.39
+    },
+    {
+     "size": 1542,
+     "new": 96,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      0,
+      59
+     ],
+     "ens": [
+      "armin7.eth",
+      "gyytxcl.eth",
+      "flauto.eth",
+      "dovis.eth",
+      "tedd2280.eth",
+      "ehsan0023.eth"
+     ],
+     "multi": 67,
+     "nonce_ge20": 831,
+     "peel_pairs": 283,
+     "depth": 28,
+     "in_ring": 0,
+     "points_pct": 1.46
+    },
+    {
+     "size": 18,
+     "new": 18,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      11,
+      41
+     ],
+     "ens": [
+      "mng1382.eth",
+      "11360.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 11,
+     "peel_pairs": 2,
+     "depth": 1,
+     "in_ring": 0,
+     "points_pct": 0.02
+    },
+    {
+     "size": 53,
+     "new": 16,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      34,
+      34
+     ],
+     "ens": [
+      "xyzgold.eth",
+      "btc8866.eth",
+      "pepp.eth",
+      "donethingnice.eth",
+      "survive\u5218\u58ee.eth",
+      "imrdnsyh.eth"
+     ],
+     "multi": 6,
+     "nonce_ge20": 30,
+     "peel_pairs": 2,
+     "depth": 2,
+     "in_ring": 0,
+     "points_pct": 0.05
+    },
+    {
+     "size": 12,
+     "new": 12,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      35,
+      37
+     ],
+     "ens": [
+      "skyislandnft.eth",
+      "zeehang.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 8,
+     "peel_pairs": 1,
+     "depth": 1,
+     "in_ring": 0,
+     "points_pct": 0.01
+    },
+    {
+     "size": 9,
+     "new": 9,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 1.05,
+     "hours": [
+      17,
+      20
+     ],
+     "ens": [
+      "zuruyu.eth",
+      "rethurd.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 2,
+     "peel_pairs": 1,
+     "depth": 1,
+     "in_ring": 0,
+     "points_pct": 0.03
+    },
+    {
+     "size": 1626,
+     "new": 8,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.1,
+     "hours": [
+      0,
+      43
+     ],
+     "ens": [
+      "hyyyyip.eth",
+      "volvo-s60.eth",
+      "07176.eth",
+      "lzy1060701734.eth",
+      "mehmethan.eth",
+      "bigpineapple.eth"
+     ],
+     "multi": 1,
+     "nonce_ge20": 133,
+     "peel_pairs": 1406,
+     "depth": 999,
+     "in_ring": 0,
+     "points_pct": 1.96
+    },
+    {
+     "size": 8,
+     "new": 8,
+     "families": [
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      14,
+      14
+     ],
+     "ens": [
+      "nabotz.eth",
+      "5000m.eth",
+      "football1.eth"
+     ],
+     "multi": 2,
+     "nonce_ge20": 6,
+     "peel_pairs": 2,
+     "depth": 1,
+     "in_ring": 0,
+     "points_pct": 0.01
+    }
+   ]
+  },
+  "pm10_chain_depth_ge3": {
+   "peel_pairs": 8635,
+   "clusters": 160,
+   "flagged_total": 11921,
+   "flagged_points_pct": 69.08,
+   "ring_flagged": 384,
+   "newly_flagged": {
+    "n": 348,
+    "points_pct": 11.44,
+    "ens": 4,
+    "multi_deposit": 3,
+    "nonce_ge20": 11,
+    "nonce0": 154,
+    "no_tx": 54,
+    "in_ring": 303
+   },
+   "newly_flagged_non_ring": 45,
+   "lost": 0,
+   "new_clusters": [
+    {
+     "size": 387,
+     "new": 306,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 100.1,
+     "hours": [
+      16,
+      19
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 384,
+     "depth": 384,
+     "in_ring": 384,
+     "points_pct": 14.39
+    },
+    {
+     "size": 1276,
+     "new": 33,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      0,
+      59
+     ],
+     "ens": [
+      "armin7.eth",
+      "gyytxcl.eth",
+      "dovis.eth",
+      "tedd2280.eth",
+      "ehsan0023.eth",
+      "zirama.eth"
+     ],
+     "multi": 51,
+     "nonce_ge20": 724,
+     "peel_pairs": 115,
+     "depth": 28,
+     "in_ring": 0,
+     "points_pct": 1.2
+    },
+    {
+     "size": 43,
+     "new": 3,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 0.3,
+     "hours": [
+      21,
+      33
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 36,
+     "depth": 31,
+     "in_ring": 0,
+     "points_pct": 0.08
+    },
+    {
+     "size": 1597,
+     "new": 1,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.1,
+     "hours": [
+      0,
+      43
+     ],
+     "ens": [
+      "hyyyyip.eth",
+      "volvo-s60.eth",
+      "07176.eth",
+      "lzy1060701734.eth",
+      "mehmethan.eth",
+      "bigpineapple.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 132,
+     "peel_pairs": 1397,
+     "depth": 999,
+     "in_ring": 0,
+     "points_pct": 1.92
+    },
+    {
+     "size": 21,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      8,
+      8
+     ],
+     "ens": [
+      "steevely.btcloil.eth",
+      "intelpocik.eth",
+      "musicfactory.eth",
+      "jsfekl.eth"
+     ],
+     "multi": 2,
+     "nonce_ge20": 8,
+     "peel_pairs": 7,
+     "depth": 7,
+     "in_ring": 0,
+     "points_pct": 0.02
+    },
+    {
+     "size": 24,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [],
+     "multi": 4,
+     "nonce_ge20": 8,
+     "peel_pairs": 13,
+     "depth": 13,
+     "in_ring": 0,
+     "points_pct": 0.03
+    },
+    {
+     "size": 14,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 9,
+     "depth": 9,
+     "in_ring": 0,
+     "points_pct": 0.01
+    },
+    {
+     "size": 21,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [
+      "lelouchcodegeass.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 3,
+     "peel_pairs": 14,
+     "depth": 14,
+     "in_ring": 0,
+     "points_pct": 0.02
+    }
+   ]
+  },
+  "pm10_chain_depth_ge5": {
+   "peel_pairs": 8592,
+   "clusters": 165,
+   "flagged_total": 11906,
+   "flagged_points_pct": 69.06,
+   "ring_flagged": 384,
+   "newly_flagged": {
+    "n": 333,
+    "points_pct": 11.43,
+    "ens": 3,
+    "multi_deposit": 1,
+    "nonce_ge20": 10,
+    "nonce0": 149,
+    "no_tx": 49,
+    "in_ring": 303
+   },
+   "newly_flagged_non_ring": 30,
+   "lost": 0,
+   "new_clusters": [
+    {
+     "size": 387,
+     "new": 306,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 100.1,
+     "hours": [
+      16,
+      19
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 384,
+     "depth": 384,
+     "in_ring": 384,
+     "points_pct": 14.39
+    },
+    {
+     "size": 1176,
+     "new": 17,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      0,
+      59
+     ],
+     "ens": [
+      "armin7.eth",
+      "rafmafia.eth",
+      "20110523.eth",
+      "gyytxcl.eth",
+      "pablomexica.eth",
+      "chessman.eth"
+     ],
+     "multi": 49,
+     "nonce_ge20": 672,
+     "peel_pairs": 85,
+     "depth": 28,
+     "in_ring": 0,
+     "points_pct": 1.1
+    },
+    {
+     "size": 43,
+     "new": 3,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 0.3,
+     "hours": [
+      21,
+      33
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 36,
+     "depth": 31,
+     "in_ring": 0,
+     "points_pct": 0.08
+    },
+    {
+     "size": 1597,
+     "new": 1,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.1,
+     "hours": [
+      0,
+      43
+     ],
+     "ens": [
+      "hyyyyip.eth",
+      "volvo-s60.eth",
+      "07176.eth",
+      "lzy1060701734.eth",
+      "mehmethan.eth",
+      "bigpineapple.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 132,
+     "peel_pairs": 1397,
+     "depth": 999,
+     "in_ring": 0,
+     "points_pct": 1.92
+    },
+    {
+     "size": 21,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      8,
+      8
+     ],
+     "ens": [
+      "steevely.btcloil.eth",
+      "intelpocik.eth",
+      "musicfactory.eth",
+      "jsfekl.eth"
+     ],
+     "multi": 2,
+     "nonce_ge20": 8,
+     "peel_pairs": 7,
+     "depth": 7,
+     "in_ring": 0,
+     "points_pct": 0.02
+    },
+    {
+     "size": 24,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [],
+     "multi": 4,
+     "nonce_ge20": 8,
+     "peel_pairs": 13,
+     "depth": 13,
+     "in_ring": 0,
+     "points_pct": 0.03
+    },
+    {
+     "size": 12,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 3,
+     "peel_pairs": 6,
+     "depth": 6,
+     "in_ring": 0,
+     "points_pct": 0.01
+    },
+    {
+     "size": 14,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      16,
+      16
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 9,
+     "depth": 9,
+     "in_ring": 0,
+     "points_pct": 0.01
+    }
+   ]
+  },
+  "any_contributor_funder_depth_ge5": {
+   "peel_pairs": 8640,
+   "clusters": 162,
+   "flagged_total": 11958,
+   "flagged_points_pct": 70.21,
+   "ring_flagged": 384,
+   "newly_flagged": {
+    "n": 385,
+    "points_pct": 12.58,
+    "ens": 4,
+    "multi_deposit": 36,
+    "nonce_ge20": 17,
+    "nonce0": 153,
+    "no_tx": 86,
+    "in_ring": 303
+   },
+   "newly_flagged_non_ring": 82,
+   "lost": 0,
+   "new_clusters": [
+    {
+     "size": 417,
+     "new": 336,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 100.1,
+     "hours": [
+      12,
+      19
+     ],
+     "ens": [],
+     "multi": 30,
+     "nonce_ge20": 1,
+     "peel_pairs": 415,
+     "depth": 415,
+     "in_ring": 384,
+     "points_pct": 15.5
+    },
+    {
+     "size": 1178,
+     "new": 19,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      0,
+      59
+     ],
+     "ens": [
+      "armin7.eth",
+      "rafmafia.eth",
+      "20110523.eth",
+      "gyytxcl.eth",
+      "pablomexica.eth",
+      "chessman.eth"
+     ],
+     "multi": 49,
+     "nonce_ge20": 672,
+     "peel_pairs": 93,
+     "depth": 28,
+     "in_ring": 0,
+     "points_pct": 1.1
+    },
+    {
+     "size": 61,
+     "new": 16,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      34,
+      36
+     ],
+     "ens": [
+      "gm988.eth",
+      "xyzgold.eth",
+      "btc8866.eth",
+      "pepp.eth",
+      "donethingnice.eth",
+      "00202020200.eth"
+     ],
+     "multi": 6,
+     "nonce_ge20": 32,
+     "peel_pairs": 8,
+     "depth": 8,
+     "in_ring": 0,
+     "points_pct": 0.08
+    },
+    {
+     "size": 43,
+     "new": 3,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 0.3,
+     "hours": [
+      21,
+      33
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 1,
+     "peel_pairs": 36,
+     "depth": 31,
+     "in_ring": 0,
+     "points_pct": 0.08
+    },
+    {
+     "size": 2599,
+     "new": 2,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.1,
+     "hours": [
+      0,
+      43
+     ],
+     "ens": [
+      "hyyyyip.eth",
+      "volvo-s60.eth",
+      "07176.eth",
+      "lzy1060701734.eth",
+      "mehmethan.eth",
+      "bigpineapple.eth"
+     ],
+     "multi": 0,
+     "nonce_ge20": 132,
+     "peel_pairs": 2405,
+     "depth": 1999,
+     "in_ring": 0,
+     "points_pct": 3.01
+    },
+    {
+     "size": 1105,
+     "new": 1,
+     "families": [
+      "amount",
+      "cadence",
+      "funding"
+     ],
+     "dom_amt": 14.0,
+     "hours": [
+      3,
+      15
+     ],
+     "ens": [],
+     "multi": 1,
+     "nonce_ge20": 3,
+     "peel_pairs": 1100,
+     "depth": 1000,
+     "in_ring": 0,
+     "points_pct": 17.7
+    },
+    {
+     "size": 21,
+     "new": 1,
+     "families": [
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "dom_amt": 0.05,
+     "hours": [
+      8,
+      8
+     ],
+     "ens": [
+      "steevely.btcloil.eth",
+      "intelpocik.eth",
+      "musicfactory.eth",
+      "jsfekl.eth"
+     ],
+     "multi": 2,
+     "nonce_ge20": 8,
+     "peel_pairs": 7,
+     "depth": 7,
+     "in_ring": 0,
+     "points_pct": 0.02
+    },
+    {
+     "size": 8,
+     "new": 1,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "dom_amt": 0.31,
+     "hours": [
+      8,
+      9
+     ],
+     "ens": [],
+     "multi": 0,
+     "nonce_ge20": 0,
+     "peel_pairs": 7,
+     "depth": 7,
+     "in_ring": 0,
+     "points_pct": 0.02
+    }
+   ]
+  },
+  "assessment": "The claim's fix as stated (promote peel to tier-A when funder is a contributor with first deposit within +-10%) recovers all 384 ring wallets (+303) but ALSO adds 242 non-ring wallets across 29 other clusters, including 37 ENS-named and 71 nonce>=20 wallets, mostly depth-1 'one wallet funds a few' stars (e.g. size-18 0.05-ETH cluster with 11 aged wallets, size-9 1.05-ETH cluster with zuruyu.eth/rethurd.eth) and 96 more members into the mixed 0.05-minimum mega-cluster. That is the design's named FP class and violates test_a_main_wallet_funder_outside_the_component_is_not_evidence. '~zero FP risk' is NOT supported. A chain-depth gate (funding path length >=5 hops, which a human main wallet never produces) keeps the full ring recovery and adds only ~30 non-ring wallets (3 ENS, 10 aged; 17 of them into the existing 0.05 mega-cluster). The alternative '+-5% amount union of windows' was not simulated; it would merge the entire 95.2-100.1 band (adjacent 0.1 steps are within 5%) but also the 1.19/1.29/1.39/1.49/1.59/1.69 CEX-hub staggered clusters -- risky, unevaluated."
+ },
+ "strongest_supported_claim": "One operator relayed a single ~100 ETH pot serially through ~390 wallets in hours 16-19 (origin 0x1c85cc7a, exchange-funded; terminus pays the origin back; 51 wallets swept to one collector in one block; 170 wallets share a byte-identical mint-farm history). Every hop is a funder->funded pair (380/384 resolved), but funding.py:89-90 only books a peel edge when both sit in the same tier-A component, and the operator's 0.1-ETH amount jitter puts each hop in a different single-window component (53/54 components are one window; 370/380 links discarded). Result: 303/384 wallets (79%) and 11.3% of all game points are unflagged; the 81 flagged owe it to one lucky same-window pair each. The recall gap is real and structural. The proposed fix must be depth-gated (or otherwise chain-shaped) -- the depth-agnostic +-10% version adds >=242 non-ring wallets on the available data and is untestable for the 6,334 wallets without funding rows.",
+ "files": {
+  "rederive": "skr_rederive.py -> skr_rederive.json",
+  "fix_sim": "skr_fix_sim.py -> skr_fix_sim.json",
+  "onchain": "skr_bs.py -> skr_bs.json; skr_onchain.json",
+  "chains": "skr_chains.json"
+ }
+}

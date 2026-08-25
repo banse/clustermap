@@ -1,0 +1,5406 @@
+{
+ "role": "completeness_critic",
+ "computed_from": "curator_cache.json + sk_diag mirror (cc_compute.py, cc_compute2.py); Blockscout: 14 IDMD holder pages + 16 address/tx calls (cc_bs/, cc_idmd/)",
+ "cache_computations": {
+  "coverage": {
+   "flagged": {
+    "n": 11573,
+    "tx_row": 11573,
+    "funding_row_resolved": 11536,
+    "funding_row_any": 11573
+   },
+   "unflagged": {
+    "n": 7949,
+    "tx_row": 613,
+    "funding_row_resolved": 925,
+    "funding_row_any": 925
+   },
+   "unflagged_in_size5_onefamily_components": {
+    "components": 75,
+    "members": 591,
+    "points_pct": 10.476,
+    "no_funding_row": 0,
+    "no_tx_row": 0,
+    "funder_is_contributor": 310,
+    "family_hist": {
+     "sequence": 24,
+     "amount": 47,
+     "cadence": 4
+    }
+   },
+   "wallets_in_components_lt5": {
+    "n": 7358,
+    "points_pct": 31.891,
+    "funding_row": 334,
+    "tx_row": 22
+   }
+  },
+  "hour_saved": {
+   "n": 41,
+   "flagged": 3,
+   "rows": [
+    {
+     "hour": 24,
+     "wallet": "0x771debfa5b6b855f2b0ef1d480219397cc32e190",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0,
+     "deposits": 21,
+     "nonce": null,
+     "ens": "lini-off.eth",
+     "points_pct": 0.006
+    },
+    {
+     "hour": 25,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 26,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 27,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 28,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 29,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 30,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 31,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 32,
+     "wallet": "0x1570749f16bff7b0a2620d8ac19db42fdeff4e83",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.33,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 33,
+     "wallet": "0xa67504bbcaa20d4e882c709923062e2747dad790",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 5.0,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.008
+    },
+    {
+     "hour": 34,
+     "wallet": "0x64f3f1691101cd41b9908fc10a6c7a292d5defd3",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.05,
+     "deposits": 1,
+     "nonce": 6045,
+     "ens": null,
+     "points_pct": 0.001
+    },
+    {
+     "hour": 35,
+     "wallet": "0x43904de0e226cc20dd72968954af6b439404743d",
+     "flagged": true,
+     "cluster": 210,
+     "first_amount_eth": 0.05,
+     "deposits": 3,
+     "nonce": 0,
+     "ens": null,
+     "points_pct": 0.005
+    },
+    {
+     "hour": 36,
+     "wallet": "0x662a99ef8c2491ea2a69122bcd9ad47a0725ee61",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 2.711,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.006
+    },
+    {
+     "hour": 37,
+     "wallet": "0x8d5036744e6270852158a7fef6935a92b15def82",
+     "flagged": true,
+     "cluster": 8,
+     "first_amount_eth": 0.45,
+     "deposits": 1,
+     "nonce": 0,
+     "ens": null,
+     "points_pct": 0.002
+    },
+    {
+     "hour": 38,
+     "wallet": "0x324f2e18d291b69f15eebe82a6c77a095a3d5f4c",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 10.0,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 39,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 40,
+     "wallet": "0x0f84bd7cd4af148d4d0495072214be4e79891ab2",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 8.88,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.01
+    },
+    {
+     "hour": 41,
+     "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.1,
+     "deposits": 24,
+     "nonce": null,
+     "ens": "_primus.eth",
+     "points_pct": 0.009
+    },
+    {
+     "hour": 42,
+     "wallet": "0xa92ae14f8b0ca11bc2de0dcdc482f619ad1aa2fa",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 10.0,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 43,
+     "wallet": "0xe3af5158811faa3023ebb998b22be9f8dcf0f4e3",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 9.9,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 44,
+     "wallet": "0x7dcdcfc9a5fe23705f2b54b7f44c342af3243b3d",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 9.9,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 45,
+     "wallet": "0x3f6bea612608951cb6aefcbd95af3d54c4b5b6a9",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 9.9,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 46,
+     "wallet": "0x535481a627e08912ec9171e145818098aba44f99",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 10.0,
+     "deposits": 5,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.011
+    },
+    {
+     "hour": 47,
+     "wallet": "0xa7711ede6da46d6626150edef9674a1de678c1a4",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1051,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 48,
+     "wallet": "0x65a46770e933bfa77bcb7f20f1a7282f90e1d97b",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1195,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 49,
+     "wallet": "0x6874acfc5090b923761cfc3c1800164b1fe19d17",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1309,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 50,
+     "wallet": "0x8b64f1265244a716802fbd1dcbb98d7cfbf2b1bc",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1149,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 51,
+     "wallet": "0xd8947cd0f52c3b0a9a7c71c292c41d8fc1ebae09",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1109,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 52,
+     "wallet": "0x6035efa2a516f9d74433c49bcd2ea6048b73bc75",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1224,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 53,
+     "wallet": "0xa314807bb4a11b49689c1fee3d7144f0d17dc922",
+     "flagged": true,
+     "cluster": 161,
+     "first_amount_eth": 1.0,
+     "deposits": 1,
+     "nonce": 0,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 54,
+     "wallet": "0xa03068bb62448ab165ad4d26dba2e596e1b1b3f3",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.1284,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.004
+    },
+    {
+     "hour": 55,
+     "wallet": "0x3389146faad39d82a9962cac3cf6b6f8a77acde0",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 0.05,
+     "deposits": 7,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 56,
+     "wallet": "0x0ec943744218bb0b49b1692ad4b57de60bfce8bc",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0189,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 57,
+     "wallet": "0x8839456cc5b6d8f6f497d3b5846785a02acf2a4c",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0395,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 58,
+     "wallet": "0x0526f382f786c55665bc3ef75a9f927c271e1500",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0367,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 59,
+     "wallet": "0xf13237916a81d3e996950212981fac308576ed25",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0169,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 60,
+     "wallet": "0xbbc92944632f2eba9e0e2bdb0fb7ff7713179d04",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0315,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 61,
+     "wallet": "0xbdbfff9bef447e0460b2142d1eddf7497e530db4",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 2.0199,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.005
+    },
+    {
+     "hour": 62,
+     "wallet": "0x8d76b5867f913bed878c23bd9cba66d19709b802",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0141,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 63,
+     "wallet": "0xf3cd50fa64d4acf260bd07a114672ae057d7fdb8",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0102,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    },
+    {
+     "hour": 64,
+     "wallet": "0xcde6c8b2a37ebda174410ac9f7f312453e3aaccf",
+     "flagged": false,
+     "cluster": null,
+     "first_amount_eth": 1.0122,
+     "deposits": 1,
+     "nonce": null,
+     "ens": null,
+     "points_pct": 0.003
+    }
+   ]
+  },
+  "no_strong": {
+   "all": {
+    "n": 868,
+    "points_pct": 4.741,
+    "credit_eth": 6884.5,
+    "flagged": 868,
+    "ens": 128,
+    "tx_rows": 868,
+    "nonce0": 372,
+    "nonce_ge20": 373,
+    "nonce_median": 6.0,
+    "funding_rows": 864,
+    "multi_deposit": 0
+   },
+   "ring_band_members": {
+    "n": 63,
+    "points_pct": 2.326,
+    "credit_eth": 6103.9,
+    "flagged": 63,
+    "ens": 0,
+    "tx_rows": 63,
+    "nonce0": 38,
+    "nonce_ge20": 1,
+    "nonce_median": 0,
+    "funding_rows": 63,
+    "multi_deposit": 0
+   },
+   "non_ring": {
+    "n": 805,
+    "points_pct": 2.414,
+    "credit_eth": 780.6,
+    "flagged": 805,
+    "ens": 128,
+    "tx_rows": 805,
+    "nonce0": 334,
+    "nonce_ge20": 372,
+    "nonce_median": 12,
+    "funding_rows": 801,
+    "multi_deposit": 0
+   },
+   "non_ring_credit_ge5eth": {
+    "n": 26,
+    "points_pct": 0.268,
+    "credit_eth": 187.8,
+    "flagged": 26,
+    "ens": 1,
+    "tx_rows": 26,
+    "nonce0": 6,
+    "nonce_ge20": 14,
+    "nonce_median": 24.0,
+    "funding_rows": 26,
+    "multi_deposit": 0
+   },
+   "non_ring_by_cluster_top": [
+    [
+     6,
+     144,
+     0.187
+    ],
+    [
+     14,
+     84,
+     0.361
+    ],
+    [
+     19,
+     74,
+     0.298
+    ],
+    [
+     7,
+     71,
+     0.07
+    ],
+    [
+     24,
+     47,
+     0.208
+    ],
+    [
+     164,
+     28,
+     0.032
+    ],
+    [
+     175,
+     24,
+     0.026
+    ],
+    [
+     162,
+     20,
+     0.038
+    ],
+    [
+     192,
+     20,
+     0.019
+    ],
+    [
+     51,
+     18,
+     0.074
+    ],
+    [
+     49,
+     18,
+     0.065
+    ],
+    [
+     58,
+     17,
+     0.064
+    ],
+    [
+     53,
+     16,
+     0.054
+    ],
+    [
+     21,
+     16,
+     0.074
+    ],
+    [
+     80,
+     15,
+     0.055
+    ]
+   ],
+   "non_ring_big_by_cluster": [
+    [
+     54,
+     8
+    ],
+    [
+     71,
+     6
+    ],
+    [
+     163,
+     5
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     50,
+     2
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     1,
+     1
+    ]
+   ],
+   "non_ring_big_amounts": [
+    [
+     5.0,
+     16
+    ],
+    [
+     5.2,
+     5
+    ],
+    [
+     14.0,
+     2
+    ],
+    [
+     30.0,
+     1
+    ],
+    [
+     13.8,
+     1
+    ],
+    [
+     10.0,
+     1
+    ]
+   ]
+  },
+  "ring": {
+   "single_h15_19": {
+    "n": 387,
+    "points_pct": 14.39,
+    "credit_eth": 37821.11,
+    "flagged": 81,
+    "ens": 0,
+    "tx_rows": 349,
+    "nonce0": 195,
+    "nonce_ge20": 1,
+    "nonce_median": 0,
+    "funding_rows": 349,
+    "multi_deposit": 0
+   },
+   "single_all_hours": {
+    "n": 387,
+    "points_pct": 14.39,
+    "credit_eth": 37821.11,
+    "flagged": 81,
+    "ens": 0,
+    "tx_rows": 349,
+    "nonce0": 195,
+    "nonce_ge20": 1,
+    "nonce_median": 0,
+    "funding_rows": 349,
+    "multi_deposit": 0
+   },
+   "multi_h15_19": {
+    "n": 31,
+    "points_pct": 1.182,
+    "credit_eth": 3023.43,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": null,
+    "funding_rows": 0,
+    "multi_deposit": 31
+   },
+   "single_h15_19_funder_in_ring": 347,
+   "single_h15_19_funder_resolved": 349,
+   "unflagged_points_pct_single": 11.401,
+   "unflagged_points_pct_multi": 1.182,
+   "hours_single": [
+    [
+     18,
+     123
+    ],
+    [
+     19,
+     93
+    ],
+    [
+     17,
+     91
+    ],
+    [
+     16,
+     80
+    ]
+   ]
+  },
+  "multi_deposit": {
+   "all": {
+    "n": 2037,
+    "points_pct": 13.592,
+    "credit_eth": 15695.35,
+    "flagged": 79,
+    "ens": 398,
+    "tx_rows": 114,
+    "nonce0": 35,
+    "nonce_ge20": 68,
+    "nonce_median": 44.0,
+    "funding_rows": 237,
+    "multi_deposit": 2037
+   },
+   "flagged_multi": {
+    "n": 79,
+    "points_pct": 0.206,
+    "credit_eth": 61.79,
+    "flagged": 79,
+    "ens": 12,
+    "tx_rows": 79,
+    "nonce0": 25,
+    "nonce_ge20": 47,
+    "nonce_median": 45,
+    "funding_rows": 79,
+    "multi_deposit": 79
+   },
+   "identical_sequence_ge5_wallets": {
+    "sequences": 27,
+    "wallets": 998,
+    "points_pct": 3.92,
+    "flagged": 58
+   },
+   "top_sequences": [
+    {
+     "sequence_eth": [
+      0.05,
+      0.15
+     ],
+     "wallets": 206,
+     "flagged": 22,
+     "points_pct": 0.316,
+     "hours": [
+      1,
+      59
+     ],
+     "nonce0": 8,
+     "tx_rows": 28,
+     "ens": 39
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45
+     ],
+     "wallets": 169,
+     "flagged": 12,
+     "points_pct": 0.399,
+     "hours": [
+      1,
+      40
+     ],
+     "nonce0": 14,
+     "tx_rows": 19,
+     "ens": 10
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25
+     ],
+     "wallets": 126,
+     "flagged": 10,
+     "points_pct": 0.25,
+     "hours": [
+      2,
+      54
+     ],
+     "nonce0": 4,
+     "tx_rows": 15,
+     "ens": 13
+    },
+    {
+     "sequence_eth": [
+      9.9,
+      10.0,
+      10.1,
+      10.2,
+      10.3
+     ],
+     "wallets": 107,
+     "flagged": 0,
+     "points_pct": 1.157,
+     "hours": [
+      42,
+      45
+     ],
+     "nonce0": 0,
+     "tx_rows": 0,
+     "ens": 0
+    },
+    {
+     "sequence_eth": [
+      10.0,
+      10.1,
+      10.2,
+      10.3,
+      10.4
+     ],
+     "wallets": 69,
+     "flagged": 0,
+     "points_pct": 0.75,
+     "hours": [
+      37,
+      46
+     ],
+     "nonce0": 0,
+     "tx_rows": 0,
+     "ens": 0
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35
+     ],
+     "wallets": 56,
+     "flagged": 3,
+     "points_pct": 0.123,
+     "hours": [
+      1,
+      42
+     ],
+     "nonce0": 2,
+     "tx_rows": 4,
+     "ens": 25
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55
+     ],
+     "wallets": 30,
+     "flagged": 2,
+     "points_pct": 0.087,
+     "hours": [
+      0,
+      34
+     ],
+     "nonce0": 0,
+     "tx_rows": 2,
+     "ens": 8
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65,
+      0.75,
+      0.85,
+      0.95
+     ],
+     "wallets": 28,
+     "flagged": 0,
+     "points_pct": 0.105,
+     "hours": [
+      3,
+      44
+     ],
+     "nonce0": 0,
+     "tx_rows": 0,
+     "ens": 5
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.2
+     ],
+     "wallets": 24,
+     "flagged": 2,
+     "points_pct": 0.041,
+     "hours": [
+      6,
+      42
+     ],
+     "nonce0": 0,
+     "tx_rows": 2,
+     "ens": 5
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65,
+      0.75,
+      0.85,
+      0.95,
+      1.05
+     ],
+     "wallets": 21,
+     "flagged": 1,
+     "points_pct": 0.085,
+     "hours": [
+      7,
+      36
+     ],
+     "nonce0": 0,
+     "tx_rows": 1,
+     "ens": 5
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65,
+      0.75
+     ],
+     "wallets": 19,
+     "flagged": 1,
+     "points_pct": 0.064,
+     "hours": [
+      0,
+      39
+     ],
+     "nonce0": 0,
+     "tx_rows": 3,
+     "ens": 6
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65
+     ],
+     "wallets": 16,
+     "flagged": 0,
+     "points_pct": 0.052,
+     "hours": [
+      2,
+      33
+     ],
+     "nonce0": 0,
+     "tx_rows": 1,
+     "ens": 5
+    },
+    {
+     "sequence_eth": [
+      0.1,
+      0.2
+     ],
+     "wallets": 14,
+     "flagged": 0,
+     "points_pct": 0.028,
+     "hours": [
+      0,
+      20
+     ],
+     "nonce0": 0,
+     "tx_rows": 0,
+     "ens": 2
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      1.0
+     ],
+     "wallets": 14,
+     "flagged": 1,
+     "points_pct": 0.055,
+     "hours": [
+      0,
+      42
+     ],
+     "nonce0": 0,
+     "tx_rows": 2,
+     "ens": 5
+    },
+    {
+     "sequence_eth": [
+      0.05,
+      0.15,
+      0.25,
+      0.35,
+      0.45,
+      0.55,
+      0.65,
+      0.75,
+      0.85
+     ],
+     "wallets": 12,
+     "flagged": 0,
+     "points_pct": 0.043,
+     "hours": [
+      8,
+      41
+     ],
+     "nonce0": 0,
+     "tx_rows": 0,
+     "ens": 7
+    }
+   ],
+   "big_ladder_bots(all steps>=5ETH, >=3 steps, >=5 wallets)": {
+    "n": 176,
+    "points_pct": 1.907,
+    "credit_eth": 1819.7,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": null,
+    "funding_rows": 0,
+    "multi_deposit": 176
+   },
+   "tiny_first_then_ge5": {
+    "n": 143,
+    "points_pct": 2.972,
+    "credit_eth": 5599.9,
+    "flagged": 3,
+    "ens": 29,
+    "tx_rows": 4,
+    "nonce0": 0,
+    "nonce_ge20": 4,
+    "nonce_median": 205.5,
+    "funding_rows": 14,
+    "multi_deposit": 143
+   }
+  },
+  "jitter_bands": {
+   "1.1-1.14": {
+    "n": 543,
+    "points_pct": 1.937,
+    "credit_eth": 607.84,
+    "flagged": 2,
+    "ens": 0,
+    "tx_rows": 2,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": 4.0,
+    "funding_rows": 2,
+    "multi_deposit": 0,
+    "hours_top": [
+     [
+      47,
+      43
+     ],
+     [
+      48,
+      43
+     ],
+     [
+      44,
+      42
+     ],
+     [
+      51,
+      42
+     ],
+     [
+      54,
+      42
+     ],
+     [
+      46,
+      41
+     ],
+     [
+      49,
+      40
+     ],
+     [
+      50,
+      40
+     ]
+    ],
+    "hour_span": [
+     12,
+     55
+    ],
+    "distinct_funders": 2,
+    "funder_is_contributor": 2,
+    "distinct_pf": 1
+   },
+   "1.0-1.05": {
+    "n": 350,
+    "points_pct": 1.215,
+    "credit_eth": 358.66,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": null,
+    "funding_rows": 0,
+    "multi_deposit": 0,
+    "hours_top": [
+     [
+      57,
+      42
+     ],
+     [
+      62,
+      41
+     ],
+     [
+      58,
+      40
+     ],
+     [
+      59,
+      39
+     ],
+     [
+      60,
+      39
+     ],
+     [
+      61,
+      39
+     ],
+     [
+      63,
+      39
+     ],
+     [
+      56,
+      15
+     ]
+    ],
+    "hour_span": [
+     8,
+     64
+    ],
+    "distinct_funders": 0,
+    "funder_is_contributor": 0,
+    "distinct_pf": 0
+   },
+   "0.054-0.056": {
+    "n": 136,
+    "points_pct": 0.14,
+    "credit_eth": 7.49,
+    "flagged": 7,
+    "ens": 0,
+    "tx_rows": 7,
+    "nonce0": 7,
+    "nonce_ge20": 0,
+    "nonce_median": 0,
+    "funding_rows": 8,
+    "multi_deposit": 0,
+    "hours_top": [
+     [
+      6,
+      66
+     ],
+     [
+      5,
+      50
+     ],
+     [
+      4,
+      11
+     ],
+     [
+      23,
+      5
+     ],
+     [
+      22,
+      3
+     ],
+     [
+      2,
+      1
+     ]
+    ],
+    "hour_span": [
+     2,
+     23
+    ],
+    "distinct_funders": 8,
+    "funder_is_contributor": 7,
+    "distinct_pf": 1
+   },
+   "0.065-0.068": {
+    "n": 230,
+    "points_pct": 0.262,
+    "credit_eth": 15.25,
+    "flagged": 8,
+    "ens": 0,
+    "tx_rows": 8,
+    "nonce0": 1,
+    "nonce_ge20": 1,
+    "nonce_median": 7.0,
+    "funding_rows": 24,
+    "multi_deposit": 0,
+    "hours_top": [
+     [
+      6,
+      84
+     ],
+     [
+      5,
+      64
+     ],
+     [
+      4,
+      62
+     ],
+     [
+      3,
+      10
+     ],
+     [
+      22,
+      6
+     ],
+     [
+      23,
+      4
+     ]
+    ],
+    "hour_span": [
+     3,
+     23
+    ],
+    "distinct_funders": 5,
+    "funder_is_contributor": 23,
+    "distinct_pf": 1
+   },
+   "0.3-0.31": {
+    "n": 7,
+    "points_pct": 0.013,
+    "credit_eth": 2.14,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": null,
+    "funding_rows": 0,
+    "multi_deposit": 0,
+    "hours_top": [
+     [
+      33,
+      7
+     ]
+    ],
+    "hour_span": [
+     33,
+     33
+    ],
+    "distinct_funders": 0,
+    "funder_is_contributor": 0,
+    "distinct_pf": 0
+   },
+   "2.0-2.1": {
+    "n": 0,
+    "points_pct": 0.0,
+    "credit_eth": 0.0,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": null,
+    "funding_rows": 0,
+    "multi_deposit": 0,
+    "hours_top": [],
+    "hour_span": null,
+    "distinct_funders": 0,
+    "funder_is_contributor": 0,
+    "distinct_pf": 0
+   },
+   "ALL_unique_ge6sig_singles": {
+    "n": 5342,
+    "points_pct": 13.696,
+    "credit_eth": 3066.72,
+    "flagged": 3295,
+    "ens": 5,
+    "tx_rows": 3296,
+    "nonce0": 2642,
+    "nonce_ge20": 226,
+    "nonce_median": 0.0,
+    "funding_rows": 3326,
+    "multi_deposit": 0
+   },
+   "ALL_unique_ge6sig_singles_ens_rate_vs_pop": {
+    "ens_rate": 0.0009,
+    "pop_single_ens_rate": 0.0566
+   }
+  },
+  "big_credit_flagged_outside_audited": {
+   "total": {
+    "n": 86,
+    "points_pct": 2.187,
+    "credit_eth": 3382.61,
+    "flagged": 86,
+    "ens": 1,
+    "tx_rows": 86,
+    "nonce0": 45,
+    "nonce_ge20": 24,
+    "nonce_median": 0.0,
+    "funding_rows": 86,
+    "multi_deposit": 3
+   },
+   "by_cluster": [
+    {
+     "n": 33,
+     "points_pct": 1.272,
+     "credit_eth": 2310.0,
+     "flagged": 33,
+     "ens": 0,
+     "tx_rows": 33,
+     "nonce0": 32,
+     "nonce_ge20": 0,
+     "nonce_median": 0,
+     "funding_rows": 33,
+     "multi_deposit": 0,
+     "cluster": 5,
+     "cluster_size": 33,
+     "dominant_amount": [
+      [
+       70.0,
+       33
+      ]
+     ],
+     "no_strong": 0,
+     "funder_in_cluster": 32,
+     "reasons": [
+      "first funder is a member of the same cluster (peel chain)",
+      "\u2248 W/k equal split: 2310.0\u039e across \u00d733 of 70.0\u039e"
+     ]
+    },
+    {
+     "n": 9,
+     "points_pct": 0.329,
+     "credit_eth": 540.0,
+     "flagged": 9,
+     "ens": 0,
+     "tx_rows": 9,
+     "nonce0": 0,
+     "nonce_ge20": 9,
+     "nonce_median": 34,
+     "funding_rows": 9,
+     "multi_deposit": 0,
+     "cluster": 17,
+     "cluster_size": 9,
+     "dominant_amount": [
+      [
+       60.0,
+       9
+      ]
+     ],
+     "no_strong": 0,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "\u2248 W/k equal split: 540.0\u039e across \u00d79 of 60.0\u039e",
+      "metronomic drip \u00d79 of 60.0\u039e every ~3 blocks",
+      "shared first funder 0x4ac4a331\u2026 \u00d79 inside one cluster"
+     ]
+    },
+    {
+     "n": 12,
+     "points_pct": 0.306,
+     "credit_eth": 360.0,
+     "flagged": 12,
+     "ens": 0,
+     "tx_rows": 12,
+     "nonce0": 1,
+     "nonce_ge20": 1,
+     "nonce_median": 3.0,
+     "funding_rows": 12,
+     "multi_deposit": 0,
+     "cluster": 18,
+     "cluster_size": 12,
+     "dominant_amount": [
+      [
+       30.0,
+       12
+      ]
+     ],
+     "no_strong": 1,
+     "funder_in_cluster": 10,
+     "reasons": [
+      "first funder is a member of the same cluster (peel chain)",
+      "one fee fingerprint across \u00d712 (controls spread over dozens)",
+      "\u2248 W/k equal split: 360.0\u039e across \u00d712 of 30.0\u039e"
+     ]
+    },
+    {
+     "n": 10,
+     "points_pct": 0.077,
+     "credit_eth": 50.0,
+     "flagged": 10,
+     "ens": 0,
+     "tx_rows": 10,
+     "nonce0": 7,
+     "nonce_ge20": 2,
+     "nonce_median": 0.0,
+     "funding_rows": 10,
+     "multi_deposit": 0,
+     "cluster": 50,
+     "cluster_size": 10,
+     "dominant_amount": [
+      [
+       5.0,
+       10
+      ]
+     ],
+     "no_strong": 2,
+     "funder_in_cluster": 7,
+     "reasons": [
+      "first funder is a member of the same cluster (peel chain)",
+      "\u2248 W/k equal split: 50.0\u039e across \u00d710 of 5.0\u039e",
+      "metronomic drip \u00d78 of 5.0\u039e every ~4 blocks"
+     ]
+    },
+    {
+     "n": 8,
+     "points_pct": 0.067,
+     "credit_eth": 40.0,
+     "flagged": 8,
+     "ens": 1,
+     "tx_rows": 8,
+     "nonce0": 0,
+     "nonce_ge20": 7,
+     "nonce_median": 57.5,
+     "funding_rows": 8,
+     "multi_deposit": 0,
+     "cluster": 54,
+     "cluster_size": 8,
+     "dominant_amount": [
+      [
+       5.0,
+       8
+      ]
+     ],
+     "no_strong": 8,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "identical 5.0\u039e send \u00d78 in one wave",
+      "shared first funder 0xc098b2a3\u2026 \u00d76 inside one cluster"
+     ]
+    },
+    {
+     "n": 6,
+     "points_pct": 0.057,
+     "credit_eth": 30.0,
+     "flagged": 6,
+     "ens": 0,
+     "tx_rows": 6,
+     "nonce0": 3,
+     "nonce_ge20": 2,
+     "nonce_median": 9.5,
+     "funding_rows": 6,
+     "multi_deposit": 0,
+     "cluster": 71,
+     "cluster_size": 6,
+     "dominant_amount": [
+      [
+       5.0,
+       6
+      ]
+     ],
+     "no_strong": 6,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "identical 5.0\u039e send \u00d76 in one wave",
+      "shared first funder 0x1ab4973a\u2026 \u00d73 inside one cluster"
+     ]
+    },
+    {
+     "n": 5,
+     "points_pct": 0.044,
+     "credit_eth": 26.0,
+     "flagged": 5,
+     "ens": 0,
+     "tx_rows": 5,
+     "nonce0": 2,
+     "nonce_ge20": 0,
+     "nonce_median": 3,
+     "funding_rows": 5,
+     "multi_deposit": 0,
+     "cluster": 163,
+     "cluster_size": 5,
+     "dominant_amount": [
+      [
+       5.2,
+       5
+      ]
+     ],
+     "no_strong": 5,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "identical 5.2\u039e send \u00d75 in one wave",
+      "shared first funder 0x1ab4973a\u2026 \u00d72 inside one cluster"
+     ]
+    },
+    {
+     "n": 2,
+     "points_pct": 0.023,
+     "credit_eth": 16.61,
+     "flagged": 2,
+     "ens": 0,
+     "tx_rows": 2,
+     "nonce0": 0,
+     "nonce_ge20": 2,
+     "nonce_median": 205.5,
+     "funding_rows": 2,
+     "multi_deposit": 2,
+     "cluster": 7,
+     "cluster_size": 998,
+     "dominant_amount": [
+      [
+       0.051,
+       1
+      ],
+      [
+       0.05,
+       1
+      ]
+     ],
+     "no_strong": 0,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "first funder is a member of the same cluster (peel chain)",
+      "identical odd 0.0502\u039e send \u00d73",
+      "consecutive join indices 714\u2013718 \u00b7 5-block span",
+      "burst \u00d77 of 0.05\u039e in one block, repeated over 47 blocks"
+     ]
+    },
+    {
+     "n": 1,
+     "points_pct": 0.013,
+     "credit_eth": 10.0,
+     "flagged": 1,
+     "ens": 0,
+     "tx_rows": 1,
+     "nonce0": 0,
+     "nonce_ge20": 1,
+     "nonce_median": 29,
+     "funding_rows": 1,
+     "multi_deposit": 1,
+     "cluster": 194,
+     "cluster_size": 7,
+     "dominant_amount": [
+      [
+       0.05,
+       1
+      ]
+     ],
+     "no_strong": 0,
+     "funder_in_cluster": 0,
+     "reasons": [
+      "consecutive join indices 9,343\u20139,349 \u00b7 6-block span",
+      "shared first funder 0xf70da978\u2026 \u00d72 inside one cluster"
+     ]
+    }
+   ]
+  },
+  "flagged_aged_credit_ge2": {
+   "n": 42,
+   "points_pct": 0.646,
+   "credit_eth": 801.31,
+   "flagged": 42,
+   "ens": 3,
+   "tx_rows": 42,
+   "nonce0": 0,
+   "nonce_ge20": 42,
+   "nonce_median": 58.0,
+   "funding_rows": 42,
+   "multi_deposit": 4,
+   "by_cluster": [
+    [
+     17,
+     9
+    ],
+    [
+     52,
+     8
+    ],
+    [
+     54,
+     7
+    ],
+    [
+     166,
+     6
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     168,
+     2
+    ],
+    [
+     71,
+     2
+    ],
+    [
+     50,
+     2
+    ],
+    [
+     18,
+     1
+    ],
+    [
+     194,
+     1
+    ],
+    [
+     16,
+     1
+    ]
+   ],
+   "no_strong": 25
+  },
+  "c7_markers": {
+   "cells": {
+    "0.05|nonrush|marked": 17,
+    "0.05|nonrush|unmarked": 62,
+    "0.05|rush|marked": 86,
+    "0.05|rush|unmarked": 313,
+    "band|nonrush|marked": 131,
+    "band|nonrush|unmarked": 345,
+    "band|rush|marked": 7,
+    "band|rush|unmarked": 36,
+    "other|nonrush|marked": 1
+   },
+   "any_marker": 242,
+   "nonce0": 197,
+   "peel": 81,
+   "disperse": 40,
+   "nonce_ge20": 597,
+   "ens": 156,
+   "unmarked_nonce_ge20": 570,
+   "unmarked_nonce_1_19": 186,
+   "points_pct": 0.936
+  },
+  "c6_markers": {
+   "any_marker": 737,
+   "nonce0": 721,
+   "peel": 697,
+   "unmarked": 159,
+   "unmarked_nonce_ge20": 122,
+   "unmarked_ens": 49,
+   "points_pct": 1.068
+  },
+  "gas_only_2nd_family_clusters": {
+   "clusters": 4,
+   "members": 28,
+   "points_pct": 0.101,
+   "rows": [
+    [
+     200,
+     9,
+     "0.302",
+     21,
+     22,
+     0.89,
+     0,
+     1,
+     1
+    ],
+    [
+     82,
+     8,
+     "2.95",
+     12,
+     16,
+     1.0,
+     0,
+     1,
+     1
+    ],
+    [
+     214,
+     6,
+     "0.303",
+     21,
+     22,
+     0.83,
+     0,
+     1,
+     1
+    ],
+    [
+     196,
+     5,
+     "1.11",
+     22,
+     22,
+     0.0,
+     3,
+     2,
+     1
+    ]
+   ]
+  },
+  "confidence": {
+   "min": 0.786,
+   "n_below_0.9": 121,
+   "n_lt_0_5": 0
+  },
+  "hub_variant_retention": [
+   {
+    "cluster": 54,
+    "size": 8,
+    "dom": "5.0",
+    "hours": [
+     16,
+     20
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0xc098b2a3",
+    "top_funder_n": 6,
+    "nonce0_frac": 0.0,
+    "ens": 1,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 184,
+    "size": 14,
+    "dom": "0.15",
+    "hours": [
+     7,
+     12
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0xbf94f0ac",
+    "top_funder_n": 3,
+    "nonce0_frac": 0.07,
+    "ens": 4,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 252,
+    "size": 5,
+    "dom": "0.113",
+    "hours": [
+     41,
+     45
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x9642b23e",
+    "top_funder_n": 5,
+    "nonce0_frac": 1.0,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 262,
+    "size": 5,
+    "dom": "0.05",
+    "hours": [
+     42,
+     42
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0xa9ac43f5",
+    "top_funder_n": 3,
+    "nonce0_frac": 0.8,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 14,
+    "size": 84,
+    "dom": "1.49",
+    "hours": [
+     17,
+     31
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 84,
+    "nonce0_frac": 1.0,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 19,
+    "size": 74,
+    "dom": "1.39",
+    "hours": [
+     18,
+     30
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 69,
+    "nonce0_frac": 0.97,
+    "ens": 1,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 24,
+    "size": 47,
+    "dom": "1.69",
+    "hours": [
+     21,
+     30
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 47,
+    "nonce0_frac": 1.0,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 58,
+    "size": 17,
+    "dom": "1.19",
+    "hours": [
+     20,
+     25
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 17,
+    "nonce0_frac": 1.0,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 80,
+    "size": 15,
+    "dom": "1.19",
+    "hours": [
+     27,
+     31
+    ],
+    "families": [
+     "amount",
+     "funding",
+     "gas"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 15,
+    "nonce0_frac": 1.0,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": true
+   },
+   {
+    "cluster": 71,
+    "size": 6,
+    "dom": "5.0",
+    "hours": [
+     8,
+     10
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 3,
+    "nonce0_frac": 0.5,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 163,
+    "size": 5,
+    "dom": "5.2",
+    "hours": [
+     16,
+     17
+    ],
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "top_funder": "0x1ab4973a",
+    "top_funder_n": 2,
+    "nonce0_frac": 0.4,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": false,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 261,
+    "size": 5,
+    "dom": "0.05",
+    "hours": [
+     32,
+     32
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0x3230466e",
+    "top_funder_n": 3,
+    "nonce0_frac": 0.6,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 247,
+    "size": 9,
+    "dom": "0.05",
+    "hours": [
+     33,
+     33
+    ],
+    "families": [
+     "cadence",
+     "funding"
+    ],
+    "top_funder": "0x3230466e",
+    "top_funder_n": 8,
+    "nonce0_frac": 0.89,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": true,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": true,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 216,
+    "size": 15,
+    "dom": "0.05",
+    "hours": [
+     34,
+     34
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0x9696f59e",
+    "top_funder_n": 2,
+    "nonce0_frac": 0.13,
+    "ens": 3,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": false,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 218,
+    "size": 12,
+    "dom": "0.05",
+    "hours": [
+     35,
+     35
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0x9696f59e",
+    "top_funder_n": 2,
+    "nonce0_frac": 0.0,
+    "ens": 2,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": false,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 232,
+    "size": 12,
+    "dom": "0.05",
+    "hours": [
+     35,
+     35
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0xa7efae72",
+    "top_funder_n": 2,
+    "nonce0_frac": 0.17,
+    "ens": 2,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": false,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   },
+   {
+    "cluster": 228,
+    "size": 9,
+    "dom": "0.05",
+    "hours": [
+     34,
+     34
+    ],
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "top_funder": "0x9696f59e",
+    "top_funder_n": 3,
+    "nonce0_frac": 0.11,
+    "ens": 0,
+    "funder_in_cluster": 0,
+    "keeps_hub_under_N5_and_half": false,
+    "keeps_hub_under_N3": true,
+    "keeps_under_N5": false,
+    "has_nonhub_2nd_family": false
+   }
+  ],
+  "late_hours_h36plus": {
+   "per_hour": {
+    "36": {
+     "joins": 349,
+     "flagged": 156,
+     "points_pct": 0.766,
+     "flagged_points_pct": 0.346,
+     "min005": 146
+    },
+    "37": {
+     "joins": 275,
+     "flagged": 155,
+     "points_pct": 0.751,
+     "flagged_points_pct": 0.338,
+     "min005": 53
+    },
+    "38": {
+     "joins": 90,
+     "flagged": 3,
+     "points_pct": 0.323,
+     "flagged_points_pct": 0.005,
+     "min005": 30
+    },
+    "39": {
+     "joins": 85,
+     "flagged": 2,
+     "points_pct": 0.147,
+     "flagged_points_pct": 0.004,
+     "min005": 69
+    },
+    "40": {
+     "joins": 84,
+     "flagged": 9,
+     "points_pct": 0.259,
+     "flagged_points_pct": 0.017,
+     "min005": 60
+    },
+    "41": {
+     "joins": 49,
+     "flagged": 7,
+     "points_pct": 0.225,
+     "flagged_points_pct": 0.009,
+     "min005": 12
+    },
+    "42": {
+     "joins": 94,
+     "flagged": 7,
+     "points_pct": 0.373,
+     "flagged_points_pct": 0.006,
+     "min005": 31
+    },
+    "43": {
+     "joins": 125,
+     "flagged": 3,
+     "points_pct": 0.757,
+     "flagged_points_pct": 0.003,
+     "min005": 18
+    },
+    "44": {
+     "joins": 95,
+     "flagged": 0,
+     "points_pct": 0.631,
+     "flagged_points_pct": 0.0,
+     "min005": 2
+    },
+    "45": {
+     "joins": 35,
+     "flagged": 3,
+     "points_pct": 0.221,
+     "flagged_points_pct": 0.003,
+     "min005": 7
+    },
+    "46": {
+     "joins": 56,
+     "flagged": 1,
+     "points_pct": 0.196,
+     "flagged_points_pct": 0.001,
+     "min005": 9
+    },
+    "47": {
+     "joins": 48,
+     "flagged": 2,
+     "points_pct": 0.158,
+     "flagged_points_pct": 0.002,
+     "min005": 2
+    },
+    "48": {
+     "joins": 45,
+     "flagged": 0,
+     "points_pct": 0.155,
+     "flagged_points_pct": 0.0,
+     "min005": 2
+    },
+    "49": {
+     "joins": 43,
+     "flagged": 0,
+     "points_pct": 0.145,
+     "flagged_points_pct": 0.0,
+     "min005": 3
+    },
+    "50": {
+     "joins": 41,
+     "flagged": 0,
+     "points_pct": 0.144,
+     "flagged_points_pct": 0.0,
+     "min005": 0
+    },
+    "51": {
+     "joins": 43,
+     "flagged": 0,
+     "points_pct": 0.15,
+     "flagged_points_pct": 0.0,
+     "min005": 1
+    },
+    "52": {
+     "joins": 43,
+     "flagged": 3,
+     "points_pct": 0.15,
+     "flagged_points_pct": 0.01,
+     "min005": 1
+    },
+    "53": {
+     "joins": 48,
+     "flagged": 10,
+     "points_pct": 0.166,
+     "flagged_points_pct": 0.034,
+     "min005": 1
+    },
+    "54": {
+     "joins": 68,
+     "flagged": 0,
+     "points_pct": 0.171,
+     "flagged_points_pct": 0.0,
+     "min005": 25
+    },
+    "55": {
+     "joins": 33,
+     "flagged": 0,
+     "points_pct": 0.1,
+     "flagged_points_pct": 0.0,
+     "min005": 9
+    },
+    "56": {
+     "joins": 17,
+     "flagged": 0,
+     "points_pct": 0.055,
+     "flagged_points_pct": 0.0,
+     "min005": 1
+    },
+    "57": {
+     "joins": 46,
+     "flagged": 0,
+     "points_pct": 0.149,
+     "flagged_points_pct": 0.0,
+     "min005": 3
+    },
+    "58": {
+     "joins": 47,
+     "flagged": 0,
+     "points_pct": 0.148,
+     "flagged_points_pct": 0.0,
+     "min005": 3
+    },
+    "59": {
+     "joins": 46,
+     "flagged": 1,
+     "points_pct": 0.141,
+     "flagged_points_pct": 0.001,
+     "min005": 6
+    },
+    "60": {
+     "joins": 41,
+     "flagged": 0,
+     "points_pct": 0.14,
+     "flagged_points_pct": 0.0,
+     "min005": 0
+    },
+    "61": {
+     "joins": 54,
+     "flagged": 0,
+     "points_pct": 0.195,
+     "flagged_points_pct": 0.0,
+     "min005": 1
+    },
+    "62": {
+     "joins": 41,
+     "flagged": 0,
+     "points_pct": 0.14,
+     "flagged_points_pct": 0.0,
+     "min005": 0
+    },
+    "63": {
+     "joins": 41,
+     "flagged": 0,
+     "points_pct": 0.135,
+     "flagged_points_pct": 0.0,
+     "min005": 0
+    },
+    "64": {
+     "joins": 6,
+     "flagged": 0,
+     "points_pct": 0.02,
+     "flagged_points_pct": 0.0,
+     "min005": 0
+    }
+   },
+   "flagged_total": {
+    "n": 362,
+    "points_pct": 0.779,
+    "credit_eth": 158.72,
+    "flagged": 362,
+    "ens": 14,
+    "tx_rows": 362,
+    "nonce0": 313,
+    "nonce_ge20": 40,
+    "nonce_median": 0.0,
+    "funding_rows": 362,
+    "multi_deposit": 0
+   },
+   "clusters_top": [
+    [
+     8,
+     284
+    ],
+    [
+     7,
+     27
+    ],
+    [
+     161,
+     13
+    ],
+    [
+     53,
+     11
+    ],
+    [
+     211,
+     8
+    ],
+    [
+     252,
+     5
+    ],
+    [
+     262,
+     5
+    ],
+    [
+     174,
+     2
+    ],
+    [
+     195,
+     1
+    ],
+    [
+     183,
+     1
+    ],
+    [
+     175,
+     1
+    ],
+    [
+     206,
+     1
+    ]
+   ]
+  },
+  "h24_35": {
+   "joins": 1814,
+   "flagged": 1126,
+   "flagged_clusters_top": [
+    [
+     7,
+     482
+    ],
+    [
+     8,
+     83
+    ],
+    [
+     14,
+     51
+    ],
+    [
+     170,
+     37
+    ],
+    [
+     177,
+     33
+    ],
+    [
+     19,
+     33
+    ],
+    [
+     24,
+     32
+    ],
+    [
+     181,
+     31
+    ],
+    [
+     175,
+     25
+    ],
+    [
+     182,
+     23
+    ],
+    [
+     212,
+     16
+    ],
+    [
+     204,
+     16
+    ]
+   ]
+  },
+  "exact_min_flagged": {
+   "all_flagged_at_min": {
+    "n": 1111,
+    "points_pct": 1.011,
+    "credit_eth": 101.3,
+    "flagged": 1111,
+    "ens": 93,
+    "tx_rows": 1111,
+    "nonce0": 342,
+    "nonce_ge20": 570,
+    "nonce_median": 22,
+    "funding_rows": 1111,
+    "multi_deposit": 76
+   },
+   "tierA_only_sequence_or_cadence": {
+    "n": 1111,
+    "points_pct": 1.011,
+    "credit_eth": 101.3,
+    "flagged": 1111,
+    "ens": 93,
+    "tx_rows": 1111,
+    "nonce0": 342,
+    "nonce_ge20": 570,
+    "nonce_median": 22,
+    "funding_rows": 1111,
+    "multi_deposit": 76,
+    "hours": [
+     [
+      34,
+      485
+     ],
+     [
+      35,
+      224
+     ],
+     [
+      16,
+      88
+     ],
+     [
+      33,
+      59
+     ],
+     [
+      11,
+      46
+     ],
+     [
+      10,
+      37
+     ],
+     [
+      12,
+      35
+     ],
+     [
+      8,
+      28
+     ],
+     [
+      17,
+      27
+     ],
+     [
+      14,
+      19
+     ]
+    ],
+    "clusters": [
+     [
+      7,
+      478
+     ],
+     [
+      170,
+      37
+     ],
+     [
+      177,
+      33
+     ],
+     [
+      181,
+      31
+     ],
+     [
+      191,
+      23
+     ],
+     [
+      182,
+      23
+     ],
+     [
+      179,
+      22
+     ],
+     [
+      198,
+      21
+     ]
+    ],
+    "funder_is_contributor": 198,
+    "funder_in_same_cluster": 87
+   },
+   "pre_h24_flagged_at_min": {
+    "n": 333,
+    "points_pct": 0.356,
+    "credit_eth": 39.25,
+    "flagged": 333,
+    "ens": 28,
+    "tx_rows": 333,
+    "nonce0": 163,
+    "nonce_ge20": 121,
+    "nonce_median": 1,
+    "funding_rows": 333,
+    "multi_deposit": 26
+   },
+   "pre_h24_at_min_outside_c7_clusters": [
+    [
+     191,
+     23
+    ],
+    [
+     179,
+     22
+    ],
+    [
+     198,
+     21
+    ],
+    [
+     197,
+     19
+    ],
+    [
+     186,
+     17
+    ],
+    [
+     205,
+     15
+    ],
+    [
+     217,
+     13
+    ],
+    [
+     226,
+     11
+    ],
+    [
+     227,
+     11
+    ],
+    [
+     207,
+     10
+    ]
+   ],
+   "unflagged_at_min": {
+    "n": 2955,
+    "points_pct": 5.792,
+    "credit_eth": 2851.77,
+    "flagged": 0,
+    "ens": 573,
+    "tx_rows": 225,
+    "nonce0": 42,
+    "nonce_ge20": 147,
+    "nonce_median": 62,
+    "funding_rows": 401,
+    "multi_deposit": 1033
+   }
+  },
+  "controls": {
+   "flagged": 30,
+   "by_cluster": [
+    [
+     7,
+     4
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     74,
+     2
+    ],
+    [
+     66,
+     2
+    ],
+    [
+     99,
+     1
+    ],
+    [
+     172,
+     1
+    ],
+    [
+     62,
+     1
+    ],
+    [
+     165,
+     1
+    ],
+    [
+     125,
+     1
+    ],
+    [
+     162,
+     1
+    ],
+    [
+     106,
+     1
+    ],
+    [
+     81,
+     1
+    ],
+    [
+     41,
+     1
+    ],
+    [
+     188,
+     1
+    ],
+    [
+     21,
+     1
+    ],
+    [
+     59,
+     1
+    ],
+    [
+     86,
+     1
+    ],
+    [
+     10,
+     1
+    ],
+    [
+     19,
+     1
+    ],
+    [
+     183,
+     1
+    ],
+    [
+     117,
+     1
+    ],
+    [
+     38,
+     1
+    ],
+    [
+     144,
+     1
+    ]
+   ],
+   "nonce0": 17,
+   "nonce_ge20": 8,
+   "in_audited_clusters": 0,
+   "unflagged_controls_profile": {
+    "n": 30,
+    "points_pct": 0.24,
+    "credit_eth": 361.47,
+    "flagged": 0,
+    "ens": 3,
+    "tx_rows": 3,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "nonce_median": 5,
+    "funding_rows": 3,
+    "multi_deposit": 10
+   }
+  },
+  "funder_is_contributor": {
+   "all": {
+    "n": 9601,
+    "points_pct": 63.321,
+    "credit_eth": 64435.17,
+    "flagged": 9207,
+    "ens": 41,
+    "tx_rows": 9523,
+    "nonce0": 8033,
+    "nonce_ge20": 515,
+    "nonce_median": 0,
+    "funding_rows": 9601,
+    "multi_deposit": 31
+   },
+   "same_cluster_peel": {
+    "n": 8731,
+    "points_pct": 49.134,
+    "credit_eth": 30216.61,
+    "flagged": 8731,
+    "ens": 12,
+    "tx_rows": 8731,
+    "nonce0": 7572,
+    "nonce_ge20": 402,
+    "nonce_median": 0,
+    "funding_rows": 8731,
+    "multi_deposit": 2
+   },
+   "cross_component_flagged": {
+    "n": 476,
+    "points_pct": 3.823,
+    "credit_eth": 7741.52,
+    "flagged": 476,
+    "ens": 19,
+    "tx_rows": 476,
+    "nonce0": 296,
+    "nonce_ge20": 91,
+    "nonce_median": 0.0,
+    "funding_rows": 476,
+    "multi_deposit": 7
+   },
+   "unflagged": {
+    "n": 394,
+    "points_pct": 10.365,
+    "credit_eth": 26477.04,
+    "flagged": 0,
+    "ens": 10,
+    "tx_rows": 316,
+    "nonce0": 165,
+    "nonce_ge20": 22,
+    "nonce_median": 0.0,
+    "funding_rows": 394,
+    "multi_deposit": 22,
+    "chain_depth_hist(capped10)": [
+     [
+      1,
+      131
+     ],
+     [
+      2,
+      29
+     ],
+     [
+      3,
+      27
+     ],
+     [
+      4,
+      16
+     ],
+     [
+      5,
+      12
+     ],
+     [
+      6,
+      13
+     ],
+     [
+      7,
+      15
+     ],
+     [
+      8,
+      13
+     ],
+     [
+      9,
+      13
+     ],
+     [
+      10,
+      125
+     ]
+    ],
+    "depth_ge5": {
+     "n": 191,
+     "points_pct": 6.892,
+     "credit_eth": 18105.53,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 186,
+     "nonce0": 102,
+     "nonce_ge20": 0,
+     "nonce_median": 0.0,
+     "funding_rows": 191,
+     "multi_deposit": 0
+    },
+    "depth_ge5_not_ring": {
+     "n": 6,
+     "points_pct": 0.006,
+     "credit_eth": 0.33,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 1,
+     "nonce0": 1,
+     "nonce_ge20": 0,
+     "nonce_median": 0,
+     "funding_rows": 6,
+     "multi_deposit": 0
+    },
+    "nonce0_and_depth1": {
+     "n": 33,
+     "points_pct": 0.651,
+     "credit_eth": 1595.4,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 33,
+     "nonce0": 33,
+     "nonce_ge20": 0,
+     "nonce_median": 0,
+     "funding_rows": 33,
+     "multi_deposit": 1
+    },
+    "funder_fanout_ge3": {
+     "n": 26,
+     "points_pct": 0.031,
+     "credit_eth": 1.9,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 2,
+     "nonce0": 0,
+     "nonce_ge20": 1,
+     "nonce_median": 45.5,
+     "funding_rows": 26,
+     "multi_deposit": 0
+    }
+   }
+  },
+  "priority_fee_1e7": {
+   "tx_rows_total": 11647,
+   "pf_1e7": {
+    "n": 2729,
+    "points_pct": 18.588,
+    "credit_eth": 14032.26,
+    "flagged": 2724,
+    "ens": 6,
+    "tx_rows": 2729,
+    "nonce0": 2685,
+    "nonce_ge20": 33,
+    "nonce_median": 0,
+    "funding_rows": 2729,
+    "multi_deposit": 1
+   },
+   "clusters_top": [
+    [
+     0,
+     957
+    ],
+    [
+     8,
+     359
+    ],
+    [
+     6,
+     305
+    ],
+    [
+     29,
+     100
+    ],
+    [
+     14,
+     84
+    ],
+    [
+     19,
+     69
+    ],
+    [
+     55,
+     50
+    ],
+    [
+     63,
+     50
+    ]
+   ]
+  },
+  "audited_cluster_snapshot": [
+   {
+    "cluster_id": 0,
+    "size": 1104,
+    "points_share_pct": 17.684,
+    "dominant_amount_eth": "14.0",
+    "dominant_share": 0.909,
+    "off_dominant_amount": 101,
+    "hour_min": 3,
+    "hour_max": 15,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 1.0,
+    "no_strong_rule": 3,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 9
+   },
+   {
+    "cluster_id": 1,
+    "size": 770,
+    "points_share_pct": 10.952,
+    "dominant_amount_eth": "10.0",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 5,
+    "hour_max": 5,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 1.0,
+    "no_strong_rule": 1,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 2
+   },
+   {
+    "cluster_id": 2,
+    "size": 1996,
+    "points_share_pct": 6.107,
+    "dominant_amount_eth": "0.45",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 3,
+    "hour_max": 4,
+    "nonce0_frac": 0.94,
+    "nonce_ge20_frac": 0.02,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 1.0,
+    "no_strong_rule": 2,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 2
+   },
+   {
+    "cluster_id": 3,
+    "size": 327,
+    "points_share_pct": 1.782,
+    "dominant_amount_eth": "2.067",
+    "dominant_share": 0.991,
+    "off_dominant_amount": 3,
+    "hour_min": 13,
+    "hour_max": 20,
+    "nonce0_frac": 0.01,
+    "nonce_ge20_frac": 0.28,
+    "ens_members": 2,
+    "funder_in_cluster_frac": 0.97,
+    "no_strong_rule": 3,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 3
+   },
+   {
+    "cluster_id": 4,
+    "size": 300,
+    "points_share_pct": 1.533,
+    "dominant_amount_eth": "1.2",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 1,
+    "hour_max": 2,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 1.0,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 5,
+    "size": 33,
+    "points_share_pct": 1.272,
+    "dominant_amount_eth": "70.0",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 2,
+    "hour_max": 3,
+    "nonce0_frac": 0.97,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.97,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 33
+   },
+   {
+    "cluster_id": 8,
+    "size": 367,
+    "points_share_pct": 0.829,
+    "dominant_amount_eth": "0.45",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 34,
+    "hour_max": 37,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 1,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 2,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 4
+   },
+   {
+    "cluster_id": 9,
+    "size": 10,
+    "points_share_pct": 0.469,
+    "dominant_amount_eth": "171.99",
+    "dominant_share": 1.0,
+    "off_dominant_amount": 0,
+    "hour_min": 20,
+    "hour_max": 21,
+    "nonce0_frac": 0.0,
+    "nonce_ge20_frac": 1.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.0,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 29,
+    "size": 100,
+    "points_share_pct": 0.125,
+    "dominant_amount_eth": "0.11600700941534586",
+    "dominant_share": 0.01,
+    "off_dominant_amount": 99,
+    "hour_min": 19,
+    "hour_max": 19,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 30,
+    "size": 100,
+    "points_share_pct": 0.115,
+    "dominant_amount_eth": "0.10124552446479124",
+    "dominant_share": 0.01,
+    "off_dominant_amount": 99,
+    "hour_min": 20,
+    "hour_max": 20,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 31,
+    "size": 100,
+    "points_share_pct": 0.108,
+    "dominant_amount_eth": "0.090056407226701033",
+    "dominant_share": 0.01,
+    "off_dominant_amount": 99,
+    "hour_min": 20,
+    "hour_max": 20,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 32,
+    "size": 100,
+    "points_share_pct": 0.106,
+    "dominant_amount_eth": "0.087013674842233881",
+    "dominant_share": 0.01,
+    "off_dominant_amount": 99,
+    "hour_min": 20,
+    "hour_max": 20,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   },
+   {
+    "cluster_id": 33,
+    "size": 100,
+    "points_share_pct": 0.104,
+    "dominant_amount_eth": "0.083380225889860758",
+    "dominant_share": 0.01,
+    "off_dominant_amount": 99,
+    "hour_min": 20,
+    "hour_max": 20,
+    "nonce0_frac": 1.0,
+    "nonce_ge20_frac": 0.0,
+    "ens_members": 0,
+    "funder_in_cluster_frac": 0.99,
+    "no_strong_rule": 0,
+    "multi_deposit_members": 0,
+    "distinct_priority_fees": 1
+   }
+  ],
+  "by_first_amount_bucket": {
+   "0-0.06": {
+    "n": 4860,
+    "flagged": 1587,
+    "flag_rate": 0.327,
+    "points_pct": 7.949,
+    "flagged_points_pct": 1.474,
+    "flagged_aged(nonce>=20)": 840,
+    "flagged_ens": 192,
+    "flagged_no_strong": 13
+   },
+   "0.06-0.2": {
+    "n": 4371,
+    "flagged": 3195,
+    "flag_rate": 0.731,
+    "points_pct": 6.764,
+    "flagged_points_pct": 3.717,
+    "flagged_aged(nonce>=20)": 318,
+    "flagged_ens": 114,
+    "flagged_no_strong": 325
+   },
+   "0.2-1": {
+    "n": 3237,
+    "flagged": 2522,
+    "flag_rate": 0.779,
+    "points_pct": 9.811,
+    "flagged_points_pct": 7.267,
+    "flagged_aged(nonce>=20)": 115,
+    "flagged_ens": 24,
+    "flagged_no_strong": 84
+   },
+   "1-5": {
+    "n": 4139,
+    "flagged": 2221,
+    "flag_rate": 0.537,
+    "points_pct": 21.426,
+    "flagged_points_pct": 10.929,
+    "flagged_aged(nonce>=20)": 405,
+    "flagged_ens": 29,
+    "flagged_no_strong": 357
+   },
+   "5-20": {
+    "n": 2418,
+    "flagged": 1903,
+    "flag_rate": 0.787,
+    "points_pct": 35.4,
+    "flagged_points_pct": 28.881,
+    "flagged_aged(nonce>=20)": 15,
+    "flagged_ens": 1,
+    "flagged_no_strong": 25
+   },
+   "20-95": {
+    "n": 88,
+    "flagged": 54,
+    "flag_rate": 0.614,
+    "points_pct": 2.829,
+    "flagged_points_pct": 1.907,
+    "flagged_aged(nonce>=20)": 10,
+    "flagged_ens": 0,
+    "flagged_no_strong": 1
+   },
+   "95-101": {
+    "n": 387,
+    "flagged": 81,
+    "flag_rate": 0.209,
+    "points_pct": 14.39,
+    "flagged_points_pct": 2.99,
+    "flagged_aged(nonce>=20)": 1,
+    "flagged_ens": 0,
+    "flagged_no_strong": 63
+   },
+   "101-1000000000": {
+    "n": 22,
+    "flagged": 10,
+    "flag_rate": 0.455,
+    "points_pct": 1.431,
+    "flagged_points_pct": 0.469,
+    "flagged_aged(nonce>=20)": 10,
+    "flagged_ens": 0,
+    "flagged_no_strong": 0
+   }
+  },
+  "weak_periphery_outside_c6_c7": {
+   "n": 590,
+   "points_pct": 2.157,
+   "credit_eth": 762.08,
+   "flagged": 590,
+   "ens": 71,
+   "tx_rows": 590,
+   "nonce0": 307,
+   "nonce_ge20": 225,
+   "nonce_median": 0.0,
+   "funding_rows": 586,
+   "multi_deposit": 0,
+   "aged_or_ens": 227,
+   "clusters_top": [
+    [
+     14,
+     84
+    ],
+    [
+     19,
+     74
+    ],
+    [
+     24,
+     47
+    ],
+    [
+     164,
+     28
+    ],
+    [
+     175,
+     24
+    ],
+    [
+     162,
+     20
+    ],
+    [
+     192,
+     20
+    ],
+    [
+     51,
+     18
+    ],
+    [
+     49,
+     18
+    ],
+    [
+     58,
+     17
+    ],
+    [
+     53,
+     16
+    ],
+    [
+     21,
+     16
+    ]
+   ]
+  }
+ },
+ "cache_computations_2": {
+  "one_family_components_ge5": {
+   "n_components": 75,
+   "members": 591,
+   "points_pct": 10.48,
+   "ring_band_components": 33,
+   "ring_band_members": 268,
+   "ring_band_points": 9.982,
+   "non_ring": {
+    "members": 323,
+    "points_pct": 0.498,
+    "nonce0": 60,
+    "ens": 55,
+    "funder_in_comp": 4
+   },
+   "top": [
+    {
+     "n": 14,
+     "points_pct": 0.528,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 14,
+     "nonce0": 7,
+     "nonce_ge20": 0,
+     "funding_rows": 14,
+     "funder_is_contributor": 14,
+     "multi": 0,
+     "dominant": [
+      [
+       100.1,
+       14
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 13,
+      "amount:split": 13
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 13,
+     "points_pct": 0.489,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 13,
+     "nonce0": 6,
+     "nonce_ge20": 0,
+     "funding_rows": 13,
+     "funder_is_contributor": 13,
+     "multi": 0,
+     "dominant": [
+      [
+       98.9,
+       13
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 12,
+      "amount:split": 12
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 13,
+     "points_pct": 0.487,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 13,
+     "nonce0": 8,
+     "nonce_ge20": 0,
+     "funding_rows": 13,
+     "funder_is_contributor": 13,
+     "multi": 0,
+     "dominant": [
+      [
+       99.6,
+       13
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 12,
+      "amount:split": 12
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 13,
+     "points_pct": 0.48,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 13,
+     "nonce0": 11,
+     "nonce_ge20": 0,
+     "funding_rows": 13,
+     "funder_is_contributor": 13,
+     "multi": 0,
+     "dominant": [
+      [
+       98.6,
+       13
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 12,
+      "amount:split": 12
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 12,
+     "points_pct": 0.443,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 12,
+     "nonce0": 6,
+     "nonce_ge20": 0,
+     "funding_rows": 12,
+     "funder_is_contributor": 12,
+     "multi": 0,
+     "dominant": [
+      [
+       96.5,
+       12
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 11,
+      "amount:split": 11
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 11,
+     "points_pct": 0.409,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 11,
+     "nonce0": 7,
+     "nonce_ge20": 0,
+     "funding_rows": 11,
+     "funder_is_contributor": 11,
+     "multi": 0,
+     "dominant": [
+      [
+       98.8,
+       11
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 10,
+      "amount:split": 10
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 11,
+     "points_pct": 0.405,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 11,
+     "nonce0": 4,
+     "nonce_ge20": 0,
+     "funding_rows": 11,
+     "funder_is_contributor": 11,
+     "multi": 0,
+     "dominant": [
+      [
+       95.4,
+       11
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 10,
+      "amount:split": 10
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 10,
+     "points_pct": 0.378,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 10,
+     "nonce0": 4,
+     "nonce_ge20": 0,
+     "funding_rows": 10,
+     "funder_is_contributor": 10,
+     "multi": 0,
+     "dominant": [
+      [
+       99.8,
+       10
+      ]
+     ],
+     "hours": [
+      16,
+      18
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 9,
+      "amount:split": 9
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 10,
+     "points_pct": 0.376,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 10,
+     "nonce0": 6,
+     "nonce_ge20": 0,
+     "funding_rows": 10,
+     "funder_is_contributor": 10,
+     "multi": 0,
+     "dominant": [
+      [
+       99.9,
+       10
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 9,
+      "amount:split": 9
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 10,
+     "points_pct": 0.372,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 10,
+     "nonce0": 7,
+     "nonce_ge20": 0,
+     "funding_rows": 10,
+     "funder_is_contributor": 10,
+     "multi": 0,
+     "dominant": [
+      [
+       98.3,
+       10
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 9,
+      "amount:split": 9
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 9,
+     "points_pct": 0.336,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 9,
+     "nonce0": 4,
+     "nonce_ge20": 0,
+     "funding_rows": 9,
+     "funder_is_contributor": 9,
+     "multi": 0,
+     "dominant": [
+      [
+       97.2,
+       9
+      ]
+     ],
+     "hours": [
+      16,
+      18
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 8,
+      "amount:split": 8
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 8,
+     "points_pct": 0.298,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 8,
+     "nonce0": 5,
+     "nonce_ge20": 0,
+     "funding_rows": 8,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       98.7,
+       7
+      ],
+      [
+       96.012,
+       1
+      ]
+     ],
+     "hours": [
+      17,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:near_same_block": 1,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 8,
+     "points_pct": 0.298,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 8,
+     "nonce0": 5,
+     "nonce_ge20": 0,
+     "funding_rows": 8,
+     "funder_is_contributor": 8,
+     "multi": 0,
+     "dominant": [
+      [
+       97.8,
+       8
+      ]
+     ],
+     "hours": [
+      16,
+      18
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 7,
+      "amount:split": 7
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 8,
+     "points_pct": 0.295,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 8,
+     "nonce0": 5,
+     "nonce_ge20": 0,
+     "funding_rows": 8,
+     "funder_is_contributor": 8,
+     "multi": 0,
+     "dominant": [
+      [
+       96.6,
+       8
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 7,
+      "amount:split": 7
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 8,
+     "points_pct": 0.294,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 8,
+     "nonce0": 5,
+     "nonce_ge20": 0,
+     "funding_rows": 8,
+     "funder_is_contributor": 8,
+     "multi": 0,
+     "dominant": [
+      [
+       95.3,
+       8
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 7,
+      "amount:split": 7
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 8,
+     "points_pct": 0.294,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 8,
+     "nonce0": 4,
+     "nonce_ge20": 0,
+     "funding_rows": 8,
+     "funder_is_contributor": 8,
+     "multi": 0,
+     "dominant": [
+      [
+       95.2,
+       8
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 7,
+      "amount:split": 7
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 7,
+     "points_pct": 0.264,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 7,
+     "nonce0": 2,
+     "nonce_ge20": 0,
+     "funding_rows": 7,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       99.0,
+       7
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 7,
+     "points_pct": 0.26,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 7,
+     "nonce0": 4,
+     "nonce_ge20": 0,
+     "funding_rows": 7,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       97.1,
+       7
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 7,
+     "points_pct": 0.26,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 7,
+     "nonce0": 3,
+     "nonce_ge20": 0,
+     "funding_rows": 7,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       97.5,
+       7
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 7,
+     "points_pct": 0.257,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 7,
+     "nonce0": 5,
+     "nonce_ge20": 0,
+     "funding_rows": 7,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       96.4,
+       7
+      ]
+     ],
+     "hours": [
+      17,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 7,
+     "points_pct": 0.256,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 7,
+     "nonce0": 7,
+     "nonce_ge20": 0,
+     "funding_rows": 7,
+     "funder_is_contributor": 7,
+     "multi": 0,
+     "dominant": [
+      [
+       97.3,
+       7
+      ]
+     ],
+     "hours": [
+      18,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 6,
+      "amount:split": 6
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 6,
+     "points_pct": 0.226,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 6,
+     "nonce0": 2,
+     "nonce_ge20": 0,
+     "funding_rows": 6,
+     "funder_is_contributor": 6,
+     "multi": 0,
+     "dominant": [
+      [
+       99.1,
+       6
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 5,
+      "amount:split": 5
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 6,
+     "points_pct": 0.226,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 6,
+     "nonce0": 3,
+     "nonce_ge20": 0,
+     "funding_rows": 6,
+     "funder_is_contributor": 6,
+     "multi": 0,
+     "dominant": [
+      [
+       100.0,
+       6
+      ]
+     ],
+     "hours": [
+      17,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 5,
+      "amount:split": 5
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 6,
+     "points_pct": 0.225,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 6,
+     "nonce0": 2,
+     "nonce_ge20": 0,
+     "funding_rows": 6,
+     "funder_is_contributor": 6,
+     "multi": 0,
+     "dominant": [
+      [
+       97.7,
+       6
+      ]
+     ],
+     "hours": [
+      16,
+      19
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 5,
+      "amount:split": 5
+     },
+     "funder_in_comp": 0
+    },
+    {
+     "n": 6,
+     "points_pct": 0.224,
+     "flagged": 0,
+     "ens": 0,
+     "tx_rows": 6,
+     "nonce0": 1,
+     "nonce_ge20": 0,
+     "funding_rows": 6,
+     "funder_is_contributor": 6,
+     "multi": 0,
+     "dominant": [
+      [
+       95.9,
+       6
+      ]
+     ],
+     "hours": [
+      16,
+      18
+     ],
+     "family": [
+      "amount"
+     ],
+     "kinds": {
+      "amount:exact_round_wave": 5,
+      "amount:split": 5
+     },
+     "funder_in_comp": 0
+    }
+   ]
+  },
+  "unflagged_unique_jitter_singles": {
+   "n": 2047,
+   "points_pct": 5.615,
+   "flagged": 0,
+   "ens": 3,
+   "tx_rows": 1,
+   "nonce0": 1,
+   "nonce_ge20": 0,
+   "funding_rows": 31,
+   "funder_is_contributor": 24,
+   "multi": 0,
+   "hours_hist": [
+    [
+     1,
+     5
+    ],
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     12
+    ],
+    [
+     4,
+     88
+    ],
+    [
+     5,
+     113
+    ],
+    [
+     6,
+     147
+    ],
+    [
+     7,
+     13
+    ],
+    [
+     8,
+     28
+    ],
+    [
+     9,
+     99
+    ],
+    [
+     10,
+     102
+    ],
+    [
+     11,
+     24
+    ],
+    [
+     12,
+     66
+    ],
+    [
+     13,
+     1
+    ],
+    [
+     14,
+     1
+    ],
+    [
+     15,
+     5
+    ],
+    [
+     16,
+     12
+    ],
+    [
+     17,
+     24
+    ],
+    [
+     18,
+     18
+    ],
+    [
+     19,
+     11
+    ],
+    [
+     20,
+     7
+    ],
+    [
+     21,
+     11
+    ],
+    [
+     22,
+     167
+    ],
+    [
+     23,
+     148
+    ],
+    [
+     24,
+     2
+    ],
+    [
+     25,
+     1
+    ],
+    [
+     27,
+     1
+    ],
+    [
+     28,
+     1
+    ],
+    [
+     29,
+     1
+    ],
+    [
+     33,
+     7
+    ],
+    [
+     35,
+     10
+    ],
+    [
+     36,
+     31
+    ],
+    [
+     37,
+     44
+    ],
+    [
+     38,
+     42
+    ],
+    [
+     39,
+     4
+    ],
+    [
+     41,
+     1
+    ],
+    [
+     42,
+     23
+    ],
+    [
+     43,
+     40
+    ],
+    [
+     44,
+     42
+    ],
+    [
+     45,
+     7
+    ],
+    [
+     46,
+     41
+    ],
+    [
+     47,
+     43
+    ],
+    [
+     48,
+     43
+    ],
+    [
+     49,
+     40
+    ],
+    [
+     50,
+     40
+    ],
+    [
+     51,
+     42
+    ],
+    [
+     52,
+     39
+    ],
+    [
+     53,
+     37
+    ],
+    [
+     54,
+     43
+    ],
+    [
+     55,
+     19
+    ],
+    [
+     56,
+     15
+    ],
+    [
+     57,
+     42
+    ],
+    [
+     58,
+     40
+    ],
+    [
+     59,
+     39
+    ],
+    [
+     60,
+     39
+    ],
+    [
+     61,
+     39
+    ],
+    [
+     62,
+     41
+    ],
+    [
+     63,
+     39
+    ],
+    [
+     64,
+     6
+    ]
+   ],
+   "bands_top": [
+    [
+     0.1,
+     744,
+     0.794,
+     24,
+     0
+    ],
+    [
+     1.1,
+     615,
+     2.21,
+     0,
+     0
+    ],
+    [
+     1.0,
+     394,
+     1.395,
+     0,
+     0
+    ],
+    [
+     0.9,
+     69,
+     0.269,
+     0,
+     0
+    ],
+    [
+     0.7,
+     54,
+     0.19,
+     0,
+     0
+    ],
+    [
+     0.8,
+     54,
+     0.201,
+     0,
+     0
+    ],
+    [
+     0.6,
+     18,
+     0.06,
+     0,
+     0
+    ],
+    [
+     1.2,
+     18,
+     0.075,
+     0,
+     0
+    ],
+    [
+     2.6,
+     18,
+     0.11,
+     0,
+     1
+    ],
+    [
+     2.5,
+     9,
+     0.053,
+     0,
+     0
+    ],
+    [
+     0.3,
+     7,
+     0.013,
+     0,
+     0
+    ],
+    [
+     0.2,
+     7,
+     0.012,
+     0,
+     0
+    ]
+   ],
+   "h4_6_0.05_0.07": {
+    "n": 345,
+    "points_pct": 0.383,
+    "flagged": 0,
+    "ens": 0,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "funding_rows": 16,
+    "funder_is_contributor": 15,
+    "multi": 0
+   }
+  },
+  "flagged_exact_min": {
+   "n": 1111,
+   "marked(nonce0 or funder contributor)": 401,
+   "unmarked": {
+    "n": 710,
+    "points_pct": 0.635,
+    "flagged": 710,
+    "ens": 90,
+    "tx_rows": 710,
+    "nonce0": 0,
+    "nonce_ge20": 532,
+    "funding_rows": 710,
+    "funder_is_contributor": 0,
+    "multi": 47
+   },
+   "unmarked_rush_h32_36": {
+    "n": 578,
+    "points_pct": 0.476,
+    "flagged": 578,
+    "ens": 64,
+    "tx_rows": 578,
+    "nonce0": 0,
+    "nonce_ge20": 435,
+    "funding_rows": 578,
+    "funder_is_contributor": 0,
+    "multi": 34
+   },
+   "unmarked_pre_h24": {
+    "n": 131,
+    "points_pct": 0.158,
+    "flagged": 131,
+    "ens": 26,
+    "tx_rows": 131,
+    "nonce0": 0,
+    "nonce_ge20": 97,
+    "funding_rows": 131,
+    "funder_is_contributor": 0,
+    "multi": 13
+   }
+  },
+  "flagged_band_0.05_0.0625": {
+   "n": 580,
+   "points_pct": 0.565,
+   "marked": 196,
+   "unmarked": {
+    "n": 384,
+    "points_pct": 0.378,
+    "flagged": 384,
+    "ens": 117,
+    "tx_rows": 384,
+    "nonce0": 0,
+    "nonce_ge20": 297,
+    "funding_rows": 384,
+    "funder_is_contributor": 0,
+    "multi": 3
+   },
+   "clusters": [
+    [
+     7,
+     519
+    ],
+    [
+     195,
+     19
+    ],
+    [
+     183,
+     17
+    ],
+    [
+     233,
+     10
+    ],
+    [
+     244,
+     8
+    ],
+    [
+     221,
+     3
+    ]
+   ]
+  },
+  "flagged_unmarked_aged_or_ens": {
+   "n": 1226,
+   "points_pct": 2.275,
+   "flagged": 1226,
+   "ens": 329,
+   "tx_rows": 1226,
+   "nonce0": 0,
+   "nonce_ge20": 1221,
+   "funding_rows": 1226,
+   "funder_is_contributor": 0,
+   "multi": 44,
+   "clusters_top": [
+    [
+     7,
+     538
+    ],
+    [
+     6,
+     113
+    ],
+    [
+     164,
+     26
+    ],
+    [
+     170,
+     23
+    ],
+    [
+     177,
+     21
+    ],
+    [
+     175,
+     20
+    ],
+    [
+     49,
+     17
+    ],
+    [
+     183,
+     16
+    ],
+    [
+     181,
+     15
+    ],
+    [
+     162,
+     13
+    ],
+    [
+     212,
+     11
+    ],
+    [
+     198,
+     11
+    ],
+    [
+     204,
+     11
+    ],
+    [
+     216,
+     11
+    ],
+    [
+     215,
+     10
+    ]
+   ],
+   "credit_ge1eth": {
+    "n": 123,
+    "points_pct": 1.121,
+    "flagged": 123,
+    "ens": 27,
+    "tx_rows": 123,
+    "nonce0": 0,
+    "nonce_ge20": 123,
+    "funding_rows": 123,
+    "funder_is_contributor": 0,
+    "multi": 8
+   },
+   "in_audited_big(0,1,2,3,4,9)": 26
+  },
+  "flagged_unmarked_all": {
+   "n": 1602,
+   "points_pct": 2.818,
+   "flagged": 1602,
+   "ens": 329,
+   "tx_rows": 1602,
+   "nonce0": 0,
+   "nonce_ge20": 1221,
+   "funding_rows": 1602,
+   "funder_is_contributor": 0,
+   "multi": 50,
+   "nonce_1_19": 381,
+   "clusters_top": [
+    [
+     7,
+     707
+    ],
+    [
+     6,
+     146
+    ],
+    [
+     170,
+     31
+    ],
+    [
+     164,
+     28
+    ],
+    [
+     181,
+     25
+    ],
+    [
+     177,
+     25
+    ],
+    [
+     175,
+     22
+    ],
+    [
+     183,
+     21
+    ],
+    [
+     49,
+     17
+    ],
+    [
+     192,
+     15
+    ],
+    [
+     162,
+     15
+    ],
+    [
+     204,
+     14
+    ]
+   ]
+  }
+ },
+ "idmd_holders": {
+  "holders_fetched": 688,
+  "in_population": [
+   "0x6ba9ad599e6271252817933831e3148936cf742a",
+   "0xf98c3bf5f3544f64e60560304b58dca900a3c4db",
+   "0x2bdf1a698d39a4358e2c162deacc038fadb8a9d5",
+   "0xe80f0054b45abcefad67453a58cc05a92aea0f60",
+   "0x84cb570cfea8c6afd3b6c1ab491db754886bf8e7",
+   "0x162ea116bbfae0a36d8019975f0472e4a5e2cec0",
+   "0x5c1b2bf3e255850d061a1e379f525fffcfa615c7",
+   "0xaa90befc76b37f487eec5c1a593ea5b9826440be",
+   "0xaa057dd6b98682e20c2352cd6f423297b4d6e57a",
+   "0xf2369008053ca8e6fd7a0ccea3baf0915eff1149",
+   "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+   "0x8e49f27740cba1e6d5799d8562cdf580c66d666e",
+   "0xfcf083b04a25ea6403f2a38b8e275c57e48e2c06",
+   "0xe6a3863664daf7306b6790f55b0ce28e50464280",
+   "0x554ff71952ca45d1260ab3436bfc13360fd61ee7",
+   "0xe5e1df0ed179c55fadedd57433e88e3ff1571870",
+   "0x7ecb01f223a3f51940ec65280b786ac74ad2e92d",
+   "0x7c670f9dff85e61965cb04d0a105e8f9cc9310d2",
+   "0x7906d5e4a10fbb07f5491018ab29df072a76eb3d",
+   "0x77e2034c789cc82e01d21b320425fcb392d11b92",
+   "0x765d105f3bdfc8f613b4ff050c8fd38c602ab2cf",
+   "0x76500b6a6c640ae7b695ef049f20d24a2ca476df",
+   "0x75874edda73ad5109d09a56d51e1fb5dfd50368b",
+   "0x73fcb2d05f2e29561b58177af7f22ac19b3b484f",
+   "0x70b71b98c8b95643462c68e0a396d0a6d15337bf",
+   "0x6d75bd1c110f0f69ee7525b3f04438bef71b518e",
+   "0x6d0fd0499ca1432f1cf3cd997a97b86231788bb9",
+   "0x631ddad240268e880fbe6705f5505ba921ac8032",
+   "0x5ee21b07c673d23e35fc14d91be0a448e3244036",
+   "0x5869458f360d8c1ce49e35fccb3d0a1f25e8d533",
+   "0x565b8545522e23601dbc6d2e5ce1f6ac038bafb8",
+   "0x4ac4a33101abb2aa21167de2b881429b915818a3",
+   "0x3dc7ea19d36df2048331f4dbbbc12ed4439b1f40",
+   "0x3a9436134db40a6a210eb642b3c495b30e082ee4",
+   "0x38b06dbbc841e872425eefbc222de3fa08d00d27",
+   "0x34f768eaf4560351eff3d8509aaf2f67856221b0",
+   "0x33294e54ca9838eb677db19e260eece637deefdc",
+   "0x30b4ce3fcdbb7c719394163520d5779863d614cf",
+   "0x2d3162890e0a81bb0f4a1f65e8878d20853f6216",
+   "0x2b5b3c4d1e60e7763fde11836f3f733d84d05891",
+   "0x2a5936f4d1061f87b8945b9d694e2730cc30d8f7",
+   "0x29e427fdee32f07a5fc9c2027b96b8865dfe74bc",
+   "0x28f1dd1c0322ab37fc92445c80cde829ad69a2ad",
+   "0x26a1e46832bd5ffd7d21481d185fc258a7080316",
+   "0x253ecae3e5828e31ab54203130dd07838e33b1ab",
+   "0x23631b12402fe1b2404fccfab01557269b0df108",
+   "0x200e710acaa6a93bbc77146026328c40f1d60fb1",
+   "0x1edf4a63ed081aa473e6c764e59931c37d70d10d",
+   "0x1c948c0c23cafba26b8f71f379a13c616ef6190d",
+   "0x1c0aff3a75512455ff1d148e55ded32dedacd04c",
+   "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+   "0x1341df844780b66af4ccc98ae0f34be87eabe1d5",
+   "0x0d05ab490b23561779bf64d3826df9f920f01d18",
+   "0x0a33bb5047489ee4fad6604f3fa5fc65e4df378c",
+   "0xf38e04d7663b6162f9a1fc923ab5faff45c11a34",
+   "0x371903abb32f5f69b536b77495e92adedfea25da",
+   "0xcfa188662925fa90e364494b26a61a35caae077e",
+   "0xa227a71e217173de3edcbfb66607e3ef283e4a82",
+   "0x0993aef44c8aa7d21093115275194c8cc483f326",
+   "0xbc214bc9974c96e80cec5dd93bb1fbb5681d2916",
+   "0x5962c7e8afb90c9ed9893b4dcda24b690660cf3b",
+   "0xeafcb3d7128c81a948f9784529168127a7392d25",
+   "0xe85b310e16d996256c524410c57d772b678a46f5",
+   "0xe28601398a5448d1147e6e8b0e0c6d686f0d216d",
+   "0xc05bc25eaa52a23476e113b9a139a66e7473b364",
+   "0x622d35fc7e377ebb6d97f0cdf9e3295d1f7c701d",
+   "0x57eaa5c142ccd063d511811b1166bc92411a8c7c",
+   "0x35f51dbaf773d579e8d3c2e70e2c908a4a02be33",
+   "0x17a22320470b5b0e6e5633a01a9979497dbe53ad",
+   "0x04d8a6118c698aa3b8db3cdb71f36e44fea6af4c",
+   "0xac024b7fdf80c2a949619a2543f4ec8f1b48c7e0",
+   "0x902abfde086583067d2854e36fe1034ec9079bb8",
+   "0x64159156f53ea0f291a031d258308660907d26ff",
+   "0x500e4170fce824fcdc62d5e0d1f8e3a202634deb",
+   "0x40e9049a6e7030a7090f43c33593f0b02ce00c39",
+   "0x2c4109e0f6aa46986c66ddcd66c6c7c80cebb4d7",
+   "0x1a751188343bee997ff2132f5454e0b5da477705",
+   "0x08b296a897b1c8a033066a34dfde80c66a825d7b",
+   "0xfb33adaef6b62b26d14a3817158a4766b8a05267",
+   "0xf8ac5532cf5d261c00c5a71c246225256db6424d",
+   "0xc00e2f70ac19d8549cd3e3bbb5f08ba02d40428a",
+   "0x95299c134bb8e9b0a35a2ff2a389e1041da26d42",
+   "0x901648073264db52846bfdedb4e98b96b48ae3e9",
+   "0x5476ff2a30103b83a67e57d21c699e66352a9ffb",
+   "0x3d4881b92e9dfe7eec1ae23ece6c8e4c946e35fa",
+   "0x383f42b5de515c564641f65f5da3bd8b4a35b4b4",
+   "0x2825cdb4a71ac7942da889f1ff72d536a8209343",
+   "0x0b516edc029ec08075b7d4e0267f6d5015e2c342",
+   "0xfff3f37b4deb160235196c235004742559313861",
+   "0xfe35e15be885750d9b2363cbb6abdd57ac9c4c40",
+   "0xfc36db952de0156ad45a9c6654cab1ba07dadec2",
+   "0xfbb4dbf497d1adb40724ce29dc6f3bd81168e407",
+   "0xfb07b2db89d83875cda17183bd8c284e644f972e",
+   "0xde6b86eca49bd822a61c20ff681c9657c5c7a895",
+   "0xd2f70a9e2b8914cd2830c6ca48d696258bb9422d",
+   "0xc6579c593b34916fcc7f3f2750e8b56749bf0808",
+   "0xaea8c6444a5e4efd738a6ec51f3d0ed0928c110b",
+   "0xae2445cdc416b6a70bbf84a8678a13ea6003e7f8",
+   "0xad8dcda3df80a524db2824422caa99e4c0a7dd4e",
+   "0x98542a7bac725e47dc787e0cb38352b509307c79",
+   "0x9533ac559b64918ee8828c4be5c9a2dbb0e7afc5",
+   "0x8dcdb2db0268cde7b5c55492ef31e4fa3d187ac8",
+   "0x8d834919956af4f696f729bdcaba61c9f16529f5",
+   "0x8a09064a767f3013f6fadc99c187e4a28659614a",
+   "0x63f134562dfad5bc72f0f9c7101b2ef54b5444d5",
+   "0x5f19095aa27b9ee4c5b337ae4e868cfe6708cdd7",
+   "0x5c7d92736a6db05b85ef1aebbc3190f05cff3008",
+   "0x4a86bf18bfa222665e1c0a5f2054f65c59f86537",
+   "0x48e4e74fe1d0c14404ceb57b9fec5b21329c6ec9",
+   "0x3e0a3a1759229cf1e97b2735e467947dc610f631",
+   "0x3aff89488542a1b3301a88017f8b6d1a472abd2e",
+   "0x3a87effabfd03e6358ee90c11b12d6a47dacacdf",
+   "0x1cbd934eaf49fe310ba4e27606029c9def0168e3",
+   "0x17a2eecd3ee3462b94954bf46f38b78d18273973",
+   "0x155fc33424a6103113aab831ac7e72c7e30a4c4b",
+   "0x135d176c49605d1c34fb1513bf620653ba2225b8",
+   "0xfb3fa9cf7c5a05fad7dfc2c54dabb1d086147d5b",
+   "0xf931596243ae34653ae6d710c54cccf957f19773",
+   "0xf7eeba93375e337faea0f205de552e20b3c97e02",
+   "0xf257a3bad4dfdd6991391d59993011ff0ac40823",
+   "0xea206a51c4dfb41d483de457c4bc93b10716c72c",
+   "0xe99c714d1d649f3dada0202d4728e1c424730b74",
+   "0xe6c486eb5f5cc2c64b53ab6c3942986d648c9b89",
+   "0xd99f65c8952044f84d482509647b192c70c86a04",
+   "0xd7fcc8b795f9464989d6ffb094c2b4d5d1bf1006",
+   "0xd717e96bc764e9644e2f09bed46c71e53240748e",
+   "0xd61e09150afe3b0d8a51eadf2e9890e5ea20b12e",
+   "0xd4203e6ffc798765dea121d795b2a56684c1c738",
+   "0xd2f1d9c0f8b4c62de63a6b1d8f68b3ceff09c18e",
+   "0xcf917d706681cdb279bacb69cb3cab2be4f7e91e",
+   "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+   "0xce925af5293c66c7c2c14a851aaaee34ddaa9319",
+   "0xce485e854ef129d13dc1e25d103412bd25e97904",
+   "0xc80ded6b332336d71b1413678a6060e5dec6b985",
+   "0xc28d30dd716a40b0c19215b732ce7be0e80a5098",
+   "0xc14ee66158ffeacb49ddcc9e3aa5cc833e8a2acc",
+   "0xbdf05e45143d65139978c46ad5c3e2a7c3dd1aea",
+   "0xbbbdc1163009f303fb589121205a20f7c3d4170f",
+   "0xbb49216821a19a0a03b22d6586e4790c4cc22c36",
+   "0xbb24cda09cb5a838ec93bae56278dc799f34feb4",
+   "0xba5bf8576f8b6863653da795be62ed8a52bc7515",
+   "0xba4f262d8c37e161fa97378782ecbdf7fff37d25",
+   "0xba0cc7f2c61d7a55b5aa2a4b2abec6eb85024625",
+   "0xb966968d6c58a04cae205cdd18c3800c46caa87a",
+   "0xb44618648884fdb5d6faf14dc8617207e168d8aa",
+   "0xb3623d62ff30fadb5b2e127c07cab0d1b0808276",
+   "0xb29ca77acedf1a508da499b282e809842fb76e6b",
+   "0xb1f5981098992d87ad4199e0552789ef15e30d35",
+   "0xb19d8bee913c07fe553800a65d94bc9075a8a124",
+   "0xaf3c7db3a8ca9fe3dc12930b8c93862c490270f9",
+   "0xadd7689c51e88af18d6e348e826c728aaf53c6e3",
+   "0xab777eb4cbbb7341541158b60952572539d72f8d",
+   "0xa9cec403edbfd2dfe214258c3c0755b79e60aeac",
+   "0xa8c4aa8aa2673918605211cad32631aaf3aad0ee",
+   "0xa85ad5e8be9ea10d6fad513230a903678bce3089",
+   "0x9beadc1297f97fff916a487e49dea1004510c59e",
+   "0x9b228b4f71b3bc7e4b478251f218060d7b70dc25",
+   "0x94bbd0c887c1a4edce31fde95707d09234b18fdb",
+   "0x92825f42cfad162330027f8f65b48a37b9189511",
+   "0x887b86b6b6957f7bbea88b8cefd392f39236a88c"
+  ],
+  "flagged": [
+   "0xf98c3bf5f3544f64e60560304b58dca900a3c4db",
+   "0xe80f0054b45abcefad67453a58cc05a92aea0f60",
+   "0xaa057dd6b98682e20c2352cd6f423297b4d6e57a",
+   "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+   "0x554ff71952ca45d1260ab3436bfc13360fd61ee7",
+   "0x75874edda73ad5109d09a56d51e1fb5dfd50368b",
+   "0x6d75bd1c110f0f69ee7525b3f04438bef71b518e",
+   "0x6d0fd0499ca1432f1cf3cd997a97b86231788bb9",
+   "0x631ddad240268e880fbe6705f5505ba921ac8032",
+   "0x28f1dd1c0322ab37fc92445c80cde829ad69a2ad",
+   "0x253ecae3e5828e31ab54203130dd07838e33b1ab",
+   "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+   "0x0d05ab490b23561779bf64d3826df9f920f01d18",
+   "0xe85b310e16d996256c524410c57d772b678a46f5",
+   "0x622d35fc7e377ebb6d97f0cdf9e3295d1f7c701d",
+   "0x57eaa5c142ccd063d511811b1166bc92411a8c7c",
+   "0x17a22320470b5b0e6e5633a01a9979497dbe53ad",
+   "0x64159156f53ea0f291a031d258308660907d26ff",
+   "0xc00e2f70ac19d8549cd3e3bbb5f08ba02d40428a",
+   "0xfff3f37b4deb160235196c235004742559313861",
+   "0xfb07b2db89d83875cda17183bd8c284e644f972e",
+   "0xde6b86eca49bd822a61c20ff681c9657c5c7a895",
+   "0xad8dcda3df80a524db2824422caa99e4c0a7dd4e",
+   "0x9533ac559b64918ee8828c4be5c9a2dbb0e7afc5",
+   "0x63f134562dfad5bc72f0f9c7101b2ef54b5444d5",
+   "0x4a86bf18bfa222665e1c0a5f2054f65c59f86537",
+   "0x3aff89488542a1b3301a88017f8b6d1a472abd2e",
+   "0xd61e09150afe3b0d8a51eadf2e9890e5ea20b12e",
+   "0xc14ee66158ffeacb49ddcc9e3aa5cc833e8a2acc",
+   "0xba4f262d8c37e161fa97378782ecbdf7fff37d25",
+   "0xb966968d6c58a04cae205cdd18c3800c46caa87a",
+   "0xb44618648884fdb5d6faf14dc8617207e168d8aa",
+   "0xb29ca77acedf1a508da499b282e809842fb76e6b",
+   "0xb1f5981098992d87ad4199e0552789ef15e30d35",
+   "0xa85ad5e8be9ea10d6fad513230a903678bce3089"
+  ]
+ },
+ "blockscout_samples": {
+  "0xa7711ede6da46d6626150edef9674a1de678c1a4": {
+   "ens": null,
+   "balance_eth": 2.0824126071e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-18T19:05:11.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xB32B34405Bf3Be82E1298b83309c7bA36B815538",
+     "value_eth": 1.1786958629328217,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T19:04:59.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.1050962979480548,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-18T19:04:47.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T19:04:23.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T19:03:59.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T19:03:35.000000Z",
+     "from": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "to": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T19:03:23.000000Z",
+     "from": "0x75c0a9aef01Eb7d6fd9b172d2Fe235C40FAfF7E8",
+     "to": "0xa7711Ede6dA46d6626150EdEf9674A1De678c1A4",
+     "value_eth": 1.1787429273811127,
+     "nonce": 5,
+     "method": null
+    }
+   ]
+  },
+  "0x65a46770e933bfa77bcb7f20f1a7282f90e1d97b": {
+   "ens": null,
+   "balance_eth": 2.1076360809e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-18T20:04:35.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0xbEFf4047DE8443BfB25dBb4FDa72452a436B1b1F",
+     "value_eth": 1.1766600494992796,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T20:04:23.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.1195295294159313,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-18T20:04:11.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T20:03:59.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T20:03:47.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T20:03:35.000000Z",
+     "from": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "to": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T20:03:23.000000Z",
+     "from": "0xD4a81CFaDE7ea7E57c268b35753513F3225795C0",
+     "to": "0x65a46770e933BFA77bcb7f20f1a7282f90E1d97b",
+     "value_eth": 1.1767081687676362,
+     "nonce": 5,
+     "method": null
+    }
+   ]
+  },
+  "0x8b64f1265244a716802fbd1dcbb98d7cfbf2b1bc": {
+   "ens": null,
+   "balance_eth": 2.136845361e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-18T22:04:47.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0x5F8b0b7D519dF871200CF9071E8eFaeB64140960",
+     "value_eth": 1.172820232037902,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T22:04:23.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.114924899334247,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-18T22:04:11.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T22:03:59.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T22:03:47.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T22:03:35.000000Z",
+     "from": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "to": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-18T22:03:23.000000Z",
+     "from": "0x5C4DDD7034dBab1dDc7A2407EE87DAa6C912aAfb",
+     "to": "0x8b64F1265244A716802FBd1DCbb98D7cFBf2b1BC",
+     "value_eth": 1.1728664081956028,
+     "nonce": 5,
+     "method": null
+    }
+   ]
+  },
+  "0x0ec943744218bb0b49b1692ad4b57de60bfce8bc": {
+   "ens": null,
+   "balance_eth": 2.2197283227e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-19T04:36:59.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0xA7A7C72D01B0d39E66c159be30b4108a4263C7Db",
+     "value_eth": 1.1645205294716217,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T04:36:47.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.0188585138055795,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-19T04:36:35.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T04:36:23.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T04:36:11.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T04:35:59.000000Z",
+     "from": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "to": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T04:35:35.000000Z",
+     "from": "0xa4b71C13aa64Ad9ECbfEb39b723BE416eaB73BDe",
+     "to": "0x0eC943744218bB0B49b1692Ad4B57de60bFce8bC",
+     "value_eth": 1.1645588609514685,
+     "nonce": 13,
+     "method": null
+    }
+   ]
+  },
+  "0x8839456cc5b6d8f6f497d3b5846785a02acf2a4c": {
+   "ens": null,
+   "balance_eth": 2.2134508641e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-19T05:06:11.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0x5D747620E6DA93796273Cd78F5059d3164E88D39",
+     "value_eth": 1.1637907964849075,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T05:05:59.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.0394515949879743,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-19T05:05:35.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T05:05:23.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T05:05:11.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T05:04:59.000000Z",
+     "from": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "to": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T05:04:47.000000Z",
+     "from": "0x42169Ae09D85C6ED8913FF1Ef61621524b50A79a",
+     "to": "0x8839456cC5B6D8F6F497d3b5846785A02acf2a4c",
+     "value_eth": 1.1638298550854784,
+     "nonce": 5,
+     "method": null
+    }
+   ]
+  },
+  "0xbbc92944632f2eba9e0e2bdb0fb7ff7713179d04": {
+   "ens": null,
+   "balance_eth": 2.2095149349e-05,
+   "tx_items": [
+    {
+     "ts": "2026-08-19T08:06:35.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0x17Aa8bdf8cDF458b5E185F4f73Cf5d3157fA4237",
+     "value_eth": 1.159067349876881,
+     "nonce": 5,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T08:06:23.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91",
+     "value_eth": 1.0315237062614242,
+     "nonce": 4,
+     "method": "deposit"
+    },
+    {
+     "ts": "2026-08-19T08:05:59.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "value_eth": 4e-18,
+     "nonce": 3,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T08:05:35.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "value_eth": 3e-18,
+     "nonce": 2,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T08:05:23.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "value_eth": 2e-18,
+     "nonce": 1,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T08:05:11.000000Z",
+     "from": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "to": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "value_eth": 1e-18,
+     "nonce": 0,
+     "method": null
+    },
+    {
+     "ts": "2026-08-19T08:04:59.000000Z",
+     "from": "0x4B0c31BC20f30639f29E669e5F1D4C93c63E206C",
+     "to": "0xBBc92944632f2eBa9e0E2bDB0Fb7FF7713179d04",
+     "value_eth": 1.1591064627585548,
+     "nonce": 5,
+     "method": null
+    }
+   ]
+  },
+  "0x4ac4a33101abb2aa21167de2b881429b915818a3": {
+   "ens": null,
+   "balance_eth": 14.905024420197478,
+   "tx_items": [
+    {
+     "ts": "2026-08-25T04:34:23.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0xfCC926dfef1548A8e74C36D1b0d3c05f13B60918",
+     "value_eth": 4.0,
+     "nonce": 1940,
+     "method": "multisendETH"
+    },
+    {
+     "ts": "2026-08-24T21:54:23.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0xF993026CAA000C091c120E8Fe0F6E510C2cc4425",
+     "value_eth": 0.16921837228041903,
+     "nonce": 1939,
+     "method": null
+    },
+    {
+     "ts": "2026-08-24T19:22:11.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0x47a45870854898AC84D529C4dD05113CD5e28eCf",
+     "value_eth": 0.0,
+     "nonce": 1938,
+     "method": "claimSupporterETHTo"
+    },
+    {
+     "ts": "2026-08-24T19:20:59.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0x47a45870854898AC84D529C4dD05113CD5e28eCf",
+     "value_eth": 0.0,
+     "nonce": 1937,
+     "method": "syncPosition"
+    },
+    {
+     "ts": "2026-08-24T18:50:23.000000Z",
+     "from": "0xBc8781aB2f1C98E4eD07E36dd593423bB01fBeb6",
+     "to": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "value_eth": 1e-09,
+     "nonce": 153,
+     "method": null
+    },
+    {
+     "ts": "2026-08-24T18:39:35.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c",
+     "value_eth": 0.0,
+     "nonce": 1936,
+     "method": "acceptDepositorBid"
+    },
+    {
+     "ts": "2026-08-24T18:38:59.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c",
+     "value_eth": 0.0,
+     "nonce": 1935,
+     "method": "acceptDepositorBid"
+    },
+    {
+     "ts": "2026-08-24T18:38:59.000000Z",
+     "from": "0x4aC4a33101aBB2AA21167De2b881429B915818a3",
+     "to": "0xB276F62DB0ce8CA2Ca5bc522695bE604521eAc1c",
+     "value_eth": 0.0,
+     "nonce": 1934,
+     "method": "acceptDepositorBid"
+    }
+   ]
+  },
+  "0xf98c3bf5f3544f64e60560304b58dca900a3c4db": {
+   "ens": null,
+   "balance_eth": 0.005247898426172618,
+   "tx_items": [
+    {
+     "ts": "2026-08-25T07:00:47.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+     "value_eth": 0.06,
+     "nonce": 2013,
+     "method": "unxswapTo"
+    },
+    {
+     "ts": "2026-08-25T06:11:11.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+     "value_eth": 0.035,
+     "nonce": 2012,
+     "method": "swapAndForwardEth"
+    },
+    {
+     "ts": "2026-08-25T03:23:35.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x337685fdaB40D39bd02028545a4FfA7D287cC3E2",
+     "value_eth": 0.052,
+     "nonce": 2011,
+     "method": "swapAndForwardEth"
+    },
+    {
+     "ts": "2026-08-25T03:22:11.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+     "value_eth": 0.0,
+     "nonce": 2010,
+     "method": "unxswapTo"
+    },
+    {
+     "ts": "2026-08-24T22:32:11.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+     "value_eth": 0.085,
+     "nonce": 2009,
+     "method": "dagSwapTo"
+    },
+    {
+     "ts": "2026-08-24T22:03:11.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+     "value_eth": 0.0,
+     "nonce": 2008,
+     "method": "dagSwapTo"
+    },
+    {
+     "ts": "2026-08-24T13:42:47.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x8feAB81D36E7576107D5dE0758c1b839Be31B4F6",
+     "value_eth": 0.042,
+     "nonce": 2007,
+     "method": "unxswapToWithBaseRequest"
+    },
+    {
+     "ts": "2026-08-24T04:19:11.000000Z",
+     "from": "0xF98c3BF5F3544F64E60560304b58DcA900A3c4DB",
+     "to": "0x28b1Dc1a5E3699A428BC51d234DFab7C9CB2a183",
+     "value_eth": 0.0,
+     "nonce": 2006,
+     "method": "dagSwapTo"
+    }
+   ]
+  }
+ },
+ "relay_bot_verdict": {
+  "sampled": 6,
+  "scripted_serial_relay": 6,
+  "pattern": "IN ~1.16-1.18 ETH from a fresh wallet (funder nonce 5 = previous hop) -> 4 zero-value self-sends nonce0-3 at 12-24 s -> deposit() nonce4 (1.00-1.14 unique amount) -> sweep nonce5 full balance to a fresh unique address 12 s later; residual 2.1e-5 ETH",
+  "population": "965 unflagged single-deposit wallets 1.0004-1.1469 ETH, h8-64 (798 in h42-64), median inter-arrival 84 s, 0 same-block pairs, 39-40/hour, 0 ENS, 0 tx/funding enrichment rows; 3.43% of points from one ~1.18 ETH lump; these are the hour_saved rescuers of h47-64"
+ }
+}

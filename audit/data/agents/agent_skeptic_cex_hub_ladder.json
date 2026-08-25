@@ -1,0 +1,366 @@
+{
+ "agent": "skeptic_cex_hub_ladder",
+ "finding_under_test": "CEX hub x2-3 edges weld aged human crowds into clusters (hours 33-35 sequence runs and round waves)",
+ "investigator_file_cited": "agent_cex_hub_ladder.json DOES NOT EXIST in scratchpad; numbers were taken from agent_xhub.json (rule_variants_global, rule_variants_per_slice_cluster, hub_edge_inventory, others_samples)",
+ "lookups_used": 31,
+ "A_second_family_check": {
+  "all_10_clusters_families": {
+   "216": [
+    "funding",
+    "sequence"
+   ],
+   "218": [
+    "funding",
+    "sequence"
+   ],
+   "232": [
+    "funding",
+    "sequence"
+   ],
+   "228": [
+    "funding",
+    "sequence"
+   ],
+   "184": [
+    "amount",
+    "funding"
+   ],
+   "225": [
+    "amount",
+    "funding"
+   ],
+   "182": [
+    "funding",
+    "sequence"
+   ],
+   "215": [
+    "cadence",
+    "funding"
+   ],
+   "254": [
+    "funding",
+    "sequence"
+   ],
+   "51": [
+    "amount",
+    "funding"
+   ]
+  },
+  "hub_edge_N": {
+   "c216": "Binance18 x2",
+   "c218": "Binance18 x2",
+   "c232": "OKX3 x2",
+   "c228": "Binance18 x3",
+   "c184": "OKX24 x3 + FTX2 x3",
+   "c225": "FTX2 x2",
+   "c182": "OKX24 x2",
+   "c215": "Binance18 x2",
+   "c254": "Binance18 x2",
+   "c51": "OKX_HW3 x4 (claim said N=2-3: wrong for c51)"
+  },
+  "verdict": "10/10 have exactly {tierA family, funding} with funding = shared_hub on a CEX6 wallet only (no peel chain); N=2-3 for 9/10, c51 is x4"
+ },
+ "B_fix_numbers_check": {
+  "baseline": {
+   "label": "baseline",
+   "clusters": 263,
+   "flagged": 11573,
+   "points_pct": 57.63,
+   "slice_flagged": 3574,
+   "slice_total": 3574
+  },
+  "exch6_fresh_only": {
+   "label": "CEX hub edges kept only when both endpoints are nonce-0 (fresh) at deposit",
+   "clusters": 253,
+   "flagged": 11455,
+   "points_pct": 57.45,
+   "slice_flagged": 3456
+  },
+  "delta_flagged": 118,
+  "delta_points_pct": 0.18,
+  "freed_clusters_from_investigator_table": {
+   "182": 23,
+   "215": 15,
+   "216": 15,
+   "184": 14,
+   "218": 12,
+   "232": 12,
+   "228": 9,
+   "54": 8,
+   "225": 5,
+   "254": 5
+  },
+  "sum_freed": 118,
+  "verdict": "-118 flagged / -0.18 pts% reproduced exactly (23+15+15+14+12+12+9+8+5+5=118). BUT the freed set includes c54, which is a proven single-operator 5.0-ETH ring (see D) - so 'keeps both 5.0-ETH loops' is wrong unless it meant c71/c163"
+ },
+ "C_h33_35_crowd_evidence": {
+  "per_hour": {
+   "32": {
+    "first_deposits": 67,
+    "min_0.05": 51,
+    "min_0.05_frac": 0.761,
+    "gaps_le2_frac": 0.333,
+    "joins_per_block": 0.22
+   },
+   "33": {
+    "first_deposits": 206,
+    "min_0.05": 160,
+    "min_0.05_frac": 0.777,
+    "gaps_le2_frac": 0.746,
+    "joins_per_block": 0.69
+   },
+   "34": {
+    "first_deposits": 701,
+    "min_0.05": 621,
+    "min_0.05_frac": 0.886,
+    "gaps_le2_frac": 0.993,
+    "joins_per_block": 2.34
+   },
+   "35": {
+    "first_deposits": 552,
+    "min_0.05": 378,
+    "min_0.05_frac": 0.685,
+    "gaps_le2_frac": 0.989,
+    "joins_per_block": 1.84
+   },
+   "36": {
+    "first_deposits": 349,
+    "min_0.05": 146,
+    "min_0.05_frac": 0.418,
+    "gaps_le2_frac": 0.989,
+    "joins_per_block": 1.16
+   },
+   "37": {
+    "first_deposits": 275,
+    "min_0.05": 53,
+    "min_0.05_frac": 0.193,
+    "gaps_le2_frac": 0.993,
+    "joins_per_block": 0.92
+   }
+  },
+  "dev_feed_window_08-17_12:00_to_08-18_12:59": [
+   "2026-08-18 04:42 UTC POST 'site: https://www.imd.fun/' (only post; surge trigger otherwise unknown, Asian afternoon, many Chinese ENS names)"
+  ],
+  "hour_saved_33_35": [
+   {
+    "hour": 33,
+    "wallet": "0xa67504bbcaa20d4e882c709923062e2747dad790",
+    "ts": 1787030147.0
+   },
+   {
+    "hour": 34,
+    "wallet": "0x64f3f1691101cd41b9908fc10a6c7a292d5defd3",
+    "ts": 1787033195.0
+   },
+   {
+    "hour": 35,
+    "wallet": "0x43904de0e226cc20dd72968954af6b439404743d",
+    "ts": 1787036363.0
+   }
+  ],
+  "note": "h33 was saved 17 min into the hour; h34-35 were NOT rescue hours, they were a surge (826 / 662 ETH volume vs 53 ETH in h33)",
+  "sequence_components_ge5_h33_36": {
+   "observed_with_pair": 13,
+   "expected_by_chance": 9.16,
+   "n_components": 59
+  },
+  "members_in_those_components": 880,
+  "members_flagged": 733,
+  "cex6_share_among_h33_36_resolved_first_depositors": 0.0865,
+  "poisson_p_observed_ge13_given_9.16": 0.136,
+  "seven_cex_hub_only_h34_35_clusters_aggregate": {
+   "clusters": [
+    216,
+    218,
+    232,
+    228,
+    182,
+    254,
+    215
+   ],
+   "members": 91,
+   "nonce0": 17,
+   "nonce_ge20": 57,
+   "nonce_median": 56,
+   "ens": 10,
+   "multi_deposit": 8,
+   "distinct_first_funders": 60,
+   "cex6_funded": 23,
+   "distinct_priority_fees": 49,
+   "distinct_gas_limits": 12,
+   "all_amount_0.05": true,
+   "points_pct_total": 0.0815
+  },
+  "verdict": "At h34 (701 first deposits, 88.6% exactly 0.05, 99.3% of consecutive joins <=2 blocks apart) the sequence rule fires on ANY 5 consecutive joiners; 59 sequence components formed in h33-36, 13 carry a CEX6 pair vs 9.2 expected by chance (p=0.14) -> the CEX pair is a coincidence selector, not evidence. The 7 hub-only clusters (91 wallets) have 60 distinct first funders, 49 distinct priority fees, 12 gas limits, median nonce 56, 17 nonce-0, 57 nonce>=20, 10 ENS, all exactly 0.05 ETH: a crowd. Core claim HOLDS for these 91 wallets (0.081 pts%)."
+ },
+ "D_round_wave_clusters_REFUTATION": {
+  "c54_5.0x8_FTX2x6": {
+   "verdict": "TRUE POSITIVE, one operator; freed by the proposed fix",
+   "pot_cycle": [
+    "0x76f8e9a0: OKX_HW3 5.0 in 12:47 -> deposit 5.0 12:48 (n=64) -> 5.0 out 12:48 to 0x8a1661f3 -> 0x8a1661f3 sends 5.00037 to OKX_HW3 13:06",
+    "0xe2e14fef: OKX_HW3 5.01 in 13:18 -> deposit 13:18 -> 5.0 to 0x8ed69b64 -> 4.99999 to OKX_HW3 13:26",
+    "0xece4455c: OKX_HW3 5.0 in 15:05 -> deposit 15:06 -> 5.0 to 0x7137ecc0 -> 5.00011 to OKX_HW3 15:26",
+    "0x2b2e9e21: OKX_HW3 5.0 in 15:43 -> deposit 15:44 -> 5.0 to 0x3568186c 15:44",
+    "0x1defd735: OKX_HW3 5.0 in 16:13 -> deposit 16:23 -> 5.0 to 0xc12703d8 16:24",
+    "0x00395934: 0xf70da978 4.99948 in 16:33 -> deposit 16:35 -> 5.01 to 0xb3f63ded 16:49 -> 5.04788 to Binance14 16:53",
+    "0xb5447676: Bitget6 5.0098 in 13:07 -> deposit 13:07 (n=7) -> 5.0092 to 0x664034cd 13:08 -> 5.01235 to Bitget6 13:12",
+    "0xcebbbd17: OKX_HW3 5.0 in 14:39 -> deposit 14:39 (n=56)"
+   ],
+   "lock_step_history_7_of_8": [
+    "2024-01-07 19:14/19:15 publicReserve 0.2 on 0xE87753eB",
+    "2024-01-11 07:09/07:10 0.225/0.227/0.215 out",
+    "2024-03-14..20 OKX24/OKX3 3.1-3.7 ETH in -> zkSync DiamondProxy requestL2Transaction within 3 min",
+    "2024-03/04 MerkleDistributor(ZKJ) claim + ZKJ transfer",
+    "2024-05-02 12:55-12:59 OKX 0.01 in -> 0x2e1a7ef1 0x8132b321 (>=6 wallets within 4 min)",
+    "2024-12-25 14:43-14:51 DepositWrapper depositETH ~0.046",
+    "2024-12-27 06:57-07:00 0.0126 in from 0xf7858da8",
+    "2025-08-02 12:27 two intermediates 0x8a1661f3 & 0x8ed69b64 both send 0.10983 to OKX_HW3 the same minute",
+    "2025-09-16 06:40-06:56 Seaport",
+    "2026-03-15 14:48/14:49 Distributor claim",
+    "2026-04-25 11:47-11:51 SafeProxy 0.001 (all within 4 min)"
+   ],
+   "implication": "'aged wallet with DeFi/NFT/airdrop history' is NOT evidence of an independent human in this population; the finding's evidentiary standard is exactly what this studio is built to pass"
+  },
+  "c184_0.15x14_OKX24x3_FTX2x3": {
+   "verdict": "MIXED WITH A PROVEN >=3-WALLET OPERATOR; the finding's sample 0xad407ef3 is one of the operator's wallets",
+   "operator_set": [
+    "0x56479ace (n=82, first funder FTX2): Binance20 0.14993 in 03:57 -> deposit 0.15 04:04 -> 0.15 to 0xb205fe9b 04:21 -> 0.15 to Bitget6 04:25",
+    "0x59a61edf (n=10, first funder OKX24): Binance18 0.14993 in 07:33 -> deposit 0.15 07:41 -> 0.15 to 0xc7874923 07:45 -> 0.15 to Bitget6 07:49",
+    "0xad407ef3 (n=3, first funder OKX24): deposit 0.15 07:42 -> 0.15 to 0x53fcceab 07:44 -> 0.15 to Bitget6 07:48",
+    "the three Bitget deposit addresses 0xc7874923 / 0xb205fe9b / 0x53fcceab were ALL created 2026-03-06 07:01-07:54 by identical dust consolidations (2 small inbound, sweep to Bitget6) -> same Bitget account/operator"
+   ],
+   "note_on_0.14993": "0.14993 = 0.15 minus Binance's fixed ETH withdrawal fee; identical received amounts from an exchange are NOT by themselves an operator signature - here the operator link is the shared-hour Bitget deposit-address set, not the amount",
+   "human_like_members_verified": [
+    "0xefd67df6 unityacademy.eth n=273 (SeaDrop mints, holds 0.167 ETH, no sweep)",
+    "0x81bce760 619996.eth n=23 (holds 0.15, LabratClaim 08-21) plausible",
+    "0x2b6bb54b 2055ai.eth n=62 plausible"
+   ]
+  },
+  "c225_0.25x5_FTX2x2": {
+   "verdict": "not re-checked on-chain; cache: nonces 1626/2/49/92/221, 3 ENS, 4 distinct funders -> plausibly human, consistent with claim"
+  },
+  "c51_1.0x16_OKX_HW3x4": {
+   "verdict": "mixed as the claim says; N=4 not 2-3; 0x622d35fc is a fresh OKX pass-through (1.01089 in, deposit 1.0, 1.0098 bridged out within 5 min)"
+  }
+ },
+ "E_14_of_14_sample_check": {
+  "rows": [
+   [
+    "c216",
+    "0x55ebca2f",
+    112,
+    null,
+    "aged; not re-checked"
+   ],
+   [
+    "c216",
+    "0x5b1f0ed3",
+    51,
+    null,
+    "aged (Binance18 pair member)"
+   ],
+   [
+    "c216",
+    "0xcc73dec0",
+    77,
+    "xiaohan.eth",
+    "aged"
+   ],
+   [
+    "c218",
+    "0x993e9c4f",
+    788,
+    "jatin48.eth",
+    "VERIFIED aged: 1.996 ETH balance, active to 08-25 (WETH, Relay)"
+   ],
+   [
+    "c218",
+    "0x3bd46137",
+    183,
+    null,
+    "aged"
+   ],
+   [
+    "c232",
+    "0x782cf784",
+    123,
+    null,
+    "aged"
+   ],
+   [
+    "c232",
+    "0xfcfc9fce",
+    172,
+    "baiwanzzu.eth",
+    "VERIFIED aged; note: carries the c54-studio SafeProxy-0.001 marker once"
+   ],
+   [
+    "c228",
+    "0xda62689d",
+    51,
+    null,
+    "aged, 2 deposits"
+   ],
+   [
+    "c228",
+    "0x0a9e4440",
+    10,
+    null,
+    "THIN: 20 lifetime txs, Binance-funded 2026-04, deposit 0.05 at n=10, emptied (0.20093 out) 37 min after deposit, balance 0"
+   ],
+   [
+    "c184",
+    "0x2b6bb54b",
+    62,
+    "2055ai.eth",
+    "aged; ZKJ claim/transfer + DepositWrapper 2024-12-25 14:57 (c54 studio did 14:49-14:51) - partial overlap, inconclusive"
+   ],
+   [
+    "c184",
+    "0xefd67df6",
+    273,
+    "unityacademy.eth",
+    "VERIFIED human-like: SeaDrop mints, holds 0.167 ETH, no sweep"
+   ],
+   [
+    "c184",
+    "0xad407ef3",
+    3,
+    null,
+    "REFUTED as human: 9 lifetime txs; deposit 0.15 then forwarded 0.15 at 07:44 to 0x53fcceab, a Bitget6 deposit address created 2026-03-06 07:04 - sibling of the Bitget deposit addresses used by c184 members 0x59a61edf and 0x56479ace => one operator"
+   ],
+   [
+    "c225",
+    "0x4789f8ed",
+    1626,
+    "gulocrypto.eth",
+    "aged (not re-checked)"
+   ],
+   [
+    "c225",
+    "0xf5089f5f",
+    221,
+    "orsana.eth",
+    "aged (not re-checked)"
+   ]
+  ],
+  "ens_named": 7,
+  "nonce_ge20_at_deposit": 12,
+  "refuted_as_human": 1,
+  "thin": 1,
+  "verdict": "'14/14 aged wallets with ENS names' is wrong: 7/14 ENS (50%); 12/14 nonce>=20; 0xad407ef3 is an operator wallet; 0x0a9e4440 is a thin, since-emptied wallet"
+ },
+ "F_fresh_binance18_pair_members": [
+  "0xc6569979 (c216): Binance18 1.05577 in 06:22 -> deposit 0.05 06:23 n=0 -> 0.5+0.5 to 0x28b1dc1a (dagSwapTo router) 06:25-26 -> 1.91753 out 06:46; single fresh wallet, no sibling",
+  "0x88191f4f (c215): Binance18 0.13841 in 07:43 -> deposit 0.05 07:47 n=0 -> 0.0692 into Diamond 0xb300000b 08:45; 3 lifetime txs",
+  "0x63ca36b5 (c254): Binance18 0.49993 in 06:58 -> 5 laddered deposits 0.05..0.45 06:59-07:01 -> 0.49987 out 07:03; fresh ladderer",
+  "none of these three shows a sibling; the fresh-gate would drop these edges (partner not nonce-0) - correct for them"
+ ],
+ "G_root_cause": "The hub edge is only the corroborator. The actual defect is that sequence/drip have no null model for join rate: at >=1 join/block with a dominant amount, consecutive-index runs are guaranteed. A fix that keeps the CEX hub rule but gates sequence/drip on the local join rate (or excludes the 0.05 protocol minimum from sequence/drip as it already is from amount rules) would free the same 91 h34-35 wallets WITHOUT freeing c54 and c184's operator.",
+ "files": {
+  "rederive": "skeptic_cexhub_rederive.json",
+  "surge": "skeptic_cexhub_surge.json",
+  "onchain": "skeptic_cexhub_onchain.json",
+  "bs_cache_dir": "skeptic_cexhub_bs/"
+ }
+}

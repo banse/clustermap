@@ -1,0 +1,22 @@
+baseline(shipped)                          clusters= 263 flagged= 11573 periph=    0 pts= 57.6% lab=141/160 whole=13/16 ens= 360 ctrl=30 resc= 3 ladder= 79
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+A round windows ≤32 blocks                 clusters= 233 flagged= 10741 periph=    0 pts= 52.2% lab=141/160 whole=13/16 ens= 244 ctrl=26 resc= 3 ladder= 79
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+B min exempt everywhere                    clusters= 214 flagged= 10887 periph=    0 pts= 57.0% lab=130/160 whole=13/16 ens= 312 ctrl=30 resc= 2 ladder= 44
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+C odd: jitter_only (≤5 decimals = round)   clusters= 268 flagged= 11396 periph=    0 pts= 57.5% lab=141/160 whole=13/16 ens= 308 ctrl=30 resc= 3 ladder= 76
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+D near: jitter_only                        clusters= 278 flagged= 11460 periph=    0 pts= 57.4% lab=141/160 whole=13/16 ens= 343 ctrl=29 resc= 3 ladder= 79
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+E hub_min 5                                clusters= 235 flagged= 11296 periph=    0 pts= 57.1% lab=141/160 whole=13/16 ens= 320 ctrl=30 resc= 3 ladder= 65
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+F member gate local2                       clusters= 217 flagged= 10313 periph=  828 pts= 52.8% lab=139/160 whole=13/16 ens= 169 ctrl=24 resc= 2 ladder= 18
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=1001/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+ABCDE combined                             clusters= 187 flagged=  9359 periph=    0 pts= 50.9% lab=130/160 whole=13/16 ens=  62 ctrl=22 resc= 2 ladder= 25
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+ABCDE2 + local2                            clusters= 172 flagged=  8986 periph=   50 pts= 50.4% lab=130/160 whole=13/16 ens=  16 ctrl=21 resc= 2 ladder=  0
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+ABCDE2 + local2_strong                     clusters= 166 flagged=  8936 periph=   61 pts= 50.2% lab=130/160 whole=13/16 ens=  16 ctrl=21 resc= 2 ladder=  0
+      farm windows: 0.45@h3-4=1993/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+ABCDE2 + local2 + weak-exchange-hub + gas1axis20 clusters= 172 flagged=  8987 periph=   49 pts= 50.4% lab=130/160 whole=13/16 ens=  16 ctrl=21 resc= 2 ladder=  0
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100

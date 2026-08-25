@@ -1,12 +1,10 @@
 import type { ClusterDetail, ClusterSummary, WalletDetail } from "../models/domain";
-import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent } from "../models/presentation";
+import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, riskLabel } from "../models/presentation";
 import { AddressLink } from "./AddressLink";
 
 function riskTitle(cluster: ClusterSummary | null): string {
   if (cluster === null) return "NO GROUP LINK";
-  if (cluster.risk === "critical") return "STRONG SYBIL SIGNAL";
-  if (cluster.risk === "elevated") return "ELEVATED EVIDENCE";
-  return "UNCERTAIN SIGNAL";
+  return riskLabel(cluster.risk).toUpperCase();
 }
 
 export function GroupInspectionPanel({ detail, disclaimer }: {

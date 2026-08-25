@@ -1,0 +1,10 @@
+human amount prior from 989 ENS single-deposit wallets; top: [('0.05', 435), ('0.1', 51), ('0.051', 39), ('0.06', 23), ('1.0', 20), ('0.2', 16), ('0.055', 15), ('0.5', 13), ('0.07', 13), ('0.08', 11), ('0.052', 11), ('0.053', 10)]
+joiners per hour (observed): 19522 | honest density: 14262
+funder prior from 7201 non-farm resolved rows: personal=4360 (61%); top shared: [('0xd152f549', 253), ('0x1ab4973a', 242), ('0xdfd5293d', 84), ('0x9696f59e', 77), ('0xc098b2a3', 74), ('0x4976a4a0', 72), ('0x28c6c062', 70)]
+exchange-like shared funders (>=10 honest-side wallets): 29
+honest_density    shipped        pop= 14262 flagged= 6381.6 (6167–6570) = 44.7%  clusters= 41.2  combos=[('amount,funding', 110), ('cadence,sequence', 76), ('amount,cadence,funding,sequence', 5), ('funding,sequence', 4)]
+honest_density    ABCDE          pop= 14262 flagged= 1428.2 (1333–1554) = 10.0%  clusters= 58.0  combos=[('amount,sequence', 277), ('amount,funding,sequence', 3), ('amount,cadence,funding,sequence', 3), ('amount,cadence,funding', 3)]
+honest_density    ABCDE+local2   pop= 14262 flagged=  147.2 (102–201) =  1.0%  clusters= 10.0  combos=[('amount,sequence', 37), ('amount,funding,sequence', 3), ('amount,cadence,funding,sequence', 3), ('amount,cadence,funding', 3)]
+honest_density    ABCDE+local2+exchinfra pop= 14262 flagged=  126.4 (94–156) =  0.9%  clusters=  9.6  combos=[('amount,sequence', 40), ('amount,cadence,sequence', 4), ('amount,cadence', 4)]
+honest_density    ABCDE2+local2+exchinfra pop= 14262 flagged=   14.6 (0–24) =  0.1%  clusters=  1.6  combos=[('amount,cadence', 8)]
+honest_density    ABCDE2+local2_strong+exchinfra pop= 14262 flagged=   14.6 (0–24) =  0.1%  clusters=  1.6  combos=[('amount,cadence', 8)]

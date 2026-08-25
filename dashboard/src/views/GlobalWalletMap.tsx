@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { GlobalMap, RiskTier } from "../models/domain";
 import { buildGlobalLayout, type PositionedGlobalNode } from "../models/globalLayout";
-import { formatCompact } from "../models/presentation";
+import { formatCompact, riskLabel } from "../models/presentation";
 import type { ThemeId } from "../models/theme";
 import { drawFocusReticle } from "./drawFocusReticle";
 
@@ -284,7 +284,7 @@ export function GlobalWalletMap({ map, theme, selectedAddress, focusedAddress, r
         <div className="map-hover-card" aria-hidden="true">
           <strong>#{hovered.rank} · {formatCompact(hovered.points)} PTS</strong>
           <span>{hovered.name ?? `${hovered.address.slice(0, 8)}…${hovered.address.slice(-6)}`}</span>
-          <small>{hovered.risk.toUpperCase()}{hovered.review_flag ? " · REVIEW" : ""}</small>
+          <small>{riskLabel(hovered.risk).toUpperCase()}{hovered.review_flag ? " · REVIEW" : ""}</small>
         </div>
       )}
       <div className="map-instructions" aria-hidden="true">PAN · SCROLL TO ZOOM · CLICK WALLET</div>

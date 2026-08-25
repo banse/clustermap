@@ -1,0 +1,4557 @@
+{
+ "agent": "skeptic_ring99",
+ "role": "refute finding \"~99 ETH peel-chain ring: 434 wallets, 16.2% of all points, 81% unflagged\"",
+ "verdict": {
+  "refuted": false,
+  "confidence": 0.95,
+  "one_line": "Ring reproduces exactly (387 first-deposit wallets h16-19, 81 flagged / 306 unflagged, 14.39% pts; extended 434, 353 unflagged, 16.16% pts, unflagged 13.18%). Structure is STRONGER than claimed: not 40 chains but one serial lump. Two corrections: 15 of the 434 are honest stragglers (0.56 pts-%), and >=1 first-ring wallet (0x6a44da75) is a different actor."
+ },
+ "rederived_from_cache": {
+  "first_deposit_ring": {
+   "n": 387,
+   "flagged": 81,
+   "unflagged": 306,
+   "clusters": {
+    "c10": 12,
+    "c11": 10,
+    "c12": 10,
+    "c13": 10,
+    "c15": 9,
+    "c16": 9,
+    "c20": 8,
+    "c22": 7,
+    "c23": 6
+   },
+   "hours": {
+    "16": 80,
+    "17": 91,
+    "18": 123,
+    "19": 93
+   },
+   "points_pct": 14.39,
+   "unflagged_points_pct": 11.4,
+   "points_abs_M": 4.27,
+   "total_points_M": 29.676,
+   "multi_deposit": 0,
+   "multi_flagged": 0,
+   "ens_members": 0,
+   "ens": []
+  },
+  "any_deposit_ring": {
+   "n": 434,
+   "flagged": 81,
+   "unflagged": 353,
+   "clusters": {
+    "c10": 12,
+    "c11": 10,
+    "c12": 10,
+    "c13": 10,
+    "c15": 9,
+    "c16": 9,
+    "c20": 8,
+    "c22": 7,
+    "c23": 6
+   },
+   "hours": {
+    "1": 1,
+    "7": 1,
+    "8": 1,
+    "11": 1,
+    "15": 29,
+    "16": 81,
+    "17": 91,
+    "18": 123,
+    "19": 95,
+    "20": 4,
+    "21": 1,
+    "22": 2,
+    "23": 1,
+    "24": 2,
+    "34": 1
+   },
+   "points_pct": 16.16,
+   "unflagged_points_pct": 13.18,
+   "points_abs_M": 4.797,
+   "total_points_M": 29.676,
+   "multi_deposit": 47,
+   "multi_flagged": 0,
+   "ens_members": 1,
+   "ens": [
+    [
+     "unemployedarc.eth",
+     1787604808.05609
+    ]
+   ]
+  },
+  "core_h15_19_after_removing_stragglers": {
+   "n": 419,
+   "flagged": 81,
+   "unflagged": 338,
+   "points_pct": 15.61,
+   "unflagged_points_pct": 12.62,
+   "multi_deposit": 32,
+   "hours_first": {
+    "15": 29,
+    "16": 81,
+    "17": 91,
+    "18": 123,
+    "19": 95
+   }
+  },
+  "stragglers_h1_34": {
+   "n": 15,
+   "points_pct": 0.56,
+   "flagged": 0,
+   "addrs": [
+    "0x073be86d6cf0a64acf4a67e302d021a2dd4bba02",
+    "0x12b08a11afe175150704f7acb4ec92e608b671a0",
+    "0x27ba37d658c9c1e7f3175d662fdb21f0ae347871",
+    "0x28a4bc4b459170c9cf336111341d040c2a26c838",
+    "0x40cd76e5769d7679716fb9c702175d4460165213",
+    "0x5439a236a706a64c965c0aeb735f829d7d188d4d",
+    "0x77251af7305400b32b6bb2fced473d2a575afef2",
+    "0x827a41635ab8be0ad6bae79fd8faf8926b066f18",
+    "0x8a20d538aa75aa20993cf78df8ab5e5b633eca13",
+    "0x9028a9dbdbe767f9a1e45632f92196be523f697c",
+    "0xa03d34223f8ea1172dae78f98fcbdff2b2a722d4",
+    "0xd4b4cab5cf150f46448a8b312cf4d96521953c5f",
+    "0xea206a51c4dfb41d483de457c4bc93b10716c72c",
+    "0xeea51b104df6c7c770dfc8e86873b797e87bedab",
+    "0xfcb4734e75f1c1883b88fc9c558de8b816ce69ee"
+   ]
+  },
+  "funding_graph": {
+   "resolved_any": 350,
+   "funder_in_ring_any": 347,
+   "funder_in_ring_first": 347,
+   "resolved_first": 349,
+   "first_funder_in_ring_any": 347,
+   "non_ring_funders": [
+    [
+     "0xd4b4cab5cf150f46448a8b312cf4d96521953c5f",
+     "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     false
+    ],
+    [
+     "0x1c85cc7a91f8d7cf580825090bb958d177953b56",
+     "0xbc214bc9974c96e80cec5dd93bb1fbb5681d2916",
+     false
+    ],
+    [
+     "0x6a44da75bb735e36714af5338cede47b6fc01ce8",
+     "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+     false
+    ]
+   ],
+   "hops_dist": {
+    "1": 350
+   },
+   "branching_funders": []
+  },
+  "unresolved_funder_n": 84,
+  "chain_order_funder_deposit_before_child": {
+   "funder_deposit_before_child": 347,
+   "violations": 0,
+   "violation_examples": []
+  },
+  "hop_block_gaps_funder_to_child": {
+   "2": 280,
+   "3": 35,
+   "4": 13,
+   "5": 7,
+   "6": 5,
+   "7": 1,
+   "21": 1,
+   "17": 1,
+   "55": 1,
+   "14": 1,
+   "8": 1,
+   "11": 1
+  },
+  "serial_single_lump_test": {
+   "ring_deposits": 420,
+   "block_gap_hist": {
+    "0": 2,
+    "1": 1,
+    "2": 333,
+    "3": 42,
+    "4": 18,
+    "5": 8,
+    "6": 5,
+    "7": 1,
+    "8": 1,
+    "11": 1,
+    "14": 1,
+    "17": 1,
+    "21": 1,
+    "22": 1,
+    "34": 1,
+    "52": 1,
+    "55": 1
+   },
+   "blocks_with_2plus": 2,
+   "first_ts": 1786967939,
+   "last_ts": 1786982111,
+   "span_min": 236.2,
+   "mean_gap_s": 33.8,
+   "gaps_lt2": 3,
+   "gaps_gt6": [
+    [
+     25774677,
+     25774699,
+     22,
+     16
+    ],
+    [
+     25774699,
+     25774733,
+     34,
+     16
+    ],
+    [
+     25775007,
+     25775014,
+     7,
+     17
+    ],
+    [
+     25775108,
+     25775129,
+     21,
+     17
+    ],
+    [
+     25775177,
+     25775194,
+     17,
+     17
+    ],
+    [
+     25775200,
+     25775255,
+     55,
+     17
+    ],
+    [
+     25775322,
+     25775336,
+     14,
+     18
+    ],
+    [
+     25775596,
+     25775604,
+     8,
+     19
+    ],
+    [
+     25775612,
+     25775623,
+     11,
+     19
+    ],
+    [
+     25775781,
+     25775833,
+     52,
+     19
+    ]
+   ]
+  },
+  "dry_run_h15": {
+   "n": 32,
+   "block_gaps": {
+    "2": 8,
+    "3": 7,
+    "4": 6,
+    "6": 5,
+    "7": 1,
+    "19": 1,
+    "86": 1,
+    "89": 1,
+    "1011": 1
+   },
+   "amounts": [
+    [
+     1.6,
+     5
+    ],
+    [
+     1.7,
+     4
+    ],
+    [
+     0.069,
+     2
+    ],
+    [
+     0.083,
+     2
+    ],
+    [
+     0.084,
+     2
+    ],
+    [
+     0.077,
+     2
+    ],
+    [
+     0.065,
+     2
+    ],
+    [
+     0.05,
+     2
+    ],
+    [
+     0.073,
+     1
+    ],
+    [
+     0.076,
+     1
+    ],
+    [
+     0.064,
+     1
+    ],
+    [
+     0.09,
+     1
+    ]
+   ],
+   "same_order_as_big_lump": false,
+   "order_match_fraction": 0.219
+  },
+  "tx_fingerprint": {
+   "coverage": 349,
+   "nonce": {
+    "None": 85,
+    "62": 1,
+    "10": 60,
+    "9": 18,
+    "8": 24,
+    "5": 51,
+    "0": 195
+   },
+   "priority_fee": {
+    "n": 349,
+    "sub_milligwei": 290,
+    "range_gwei": [
+     1e-09,
+     0.6
+    ],
+    "n_exact_1wei": 10
+   },
+   "gas_limit_range": [
+    83978,
+    114501
+   ],
+   "distinct_gas_limits": 348,
+   "all_type2": {
+    "2": 349
+   }
+  },
+  "population_sub_milligwei": {
+   "wallets_with_tx": 11647,
+   "sub_milligwei": 487
+  },
+  "amounts": {
+   "distinct_90_110_band_any": 61,
+   "range": [
+    90.0,
+    109.54
+   ],
+   "not_0.1_multiples_in_core": [
+    [
+     "0x1a241ad88d87a5d1b162d8311a6210dabc3ff6c2",
+     96.43
+    ],
+    [
+     "0x6a44da75bb735e36714af5338cede47b6fc01ce8",
+     96.012
+    ]
+   ]
+  },
+  "big_deposits_by_hour_90_110_vs_other": {
+   "h0:50-90": 11,
+   "h1:50-90": 2,
+   "h1:90-110": 1,
+   "h1:>110": 21,
+   "h2:50-90": 18,
+   "h3:50-90": 25,
+   "h3:>110": 1,
+   "h4:>110": 1,
+   "h5:>110": 1,
+   "h6:>110": 1,
+   "h7:50-90": 3,
+   "h7:90-110": 1,
+   "h10:50-90": 2,
+   "h10:90-110": 1,
+   "h11:50-90": 1,
+   "h11:90-110": 1,
+   "h12:50-90": 2,
+   "h12:>110": 1,
+   "h14:50-90": 2,
+   "h15:50-90": 2,
+   "h15:>110": 1,
+   "h16:50-90": 1,
+   "h16:90-110": 110,
+   "h16:>110": 1,
+   "h17:90-110": 91,
+   "h18:50-90": 3,
+   "h18:90-110": 123,
+   "h19:50-90": 1,
+   "h19:90-110": 96,
+   "h20:50-90": 2,
+   "h20:90-110": 3,
+   "h20:>110": 10,
+   "h21:90-110": 1,
+   "h21:>110": 3,
+   "h22:90-110": 2,
+   "h23:90-110": 1,
+   "h23:>110": 1,
+   "h24:50-90": 1,
+   "h24:90-110": 3,
+   "h24:>110": 1,
+   "h34:90-110": 1,
+   "h34:>110": 1,
+   "h35:>110": 1,
+   "h36:50-90": 1,
+   "h40:50-90": 1,
+   "h40:>110": 2
+  },
+  "same_block_pairs": {
+   "25775645": 2,
+   "25775362": 2
+  }
+ },
+ "onchain_spot_checks": {
+  "n_addresses": 22,
+  "note": "Blockscout v2 keyless, 1.2 s spacing; my 12 \"chain heads\" are heads only because the cache stores FIRST funder (aged wallets had a May-2026 first funder; nonce-0 heads lacked coverage)",
+  "chain_heads_all_funded_by_ring_wallet": [
+   {
+    "head": "0xcf842544",
+    "in": "102.3573 from 0x4788d8ee (ring) 13:25:35",
+    "deposit": "97.6 13:25:59",
+    "out": "102.3702 to 0x15488428 (ring) 13:26:11"
+   },
+   {
+    "head": "0x5f33830d",
+    "in": "102.0006 from 0x08305f75 (ring) 12:57:47",
+    "deposit": "99.3 12:57:59",
+    "out": "102.0022 to 0x533a98f7 (ring) 12:58:23"
+   },
+   {
+    "head": "0xf3548085",
+    "in": "102.7649 from 0x79b3449a (ring) 15:32:35",
+    "deposit": "98.2 15:32:47",
+    "out": "102.7648 to 0xb981dfc8 (ring) 15:32:59"
+   },
+   {
+    "head": "0x18fd2352",
+    "in": "102.7670 from 0x0347ae31 (ring) 14:49:59",
+    "deposit": "97.6",
+    "out": "102.7670 to 0xa4a9cfa9 (ring)"
+   },
+   {
+    "head": "0xbc2c606f",
+    "in": "102.7664 from 0xcdf75fba (ring tail of len-24 chain) 15:02:23",
+    "deposit": "99.3",
+    "out": "102.7664 to 0xaedc235d (ring)"
+   },
+   {
+    "head": "0x01887660",
+    "in": "101.9282 from 0xdb113944 (ring, unresolved in cache) 12:33:47",
+    "deposit": "99.3",
+    "out": "101.9296 to 0x4be583c1 (ring)"
+   },
+   {
+    "head": "0x16ee3e2a",
+    "in": "102.7653 from 0xc2046a09 (ring tail of len-15 chain) 15:23:47",
+    "deposit": "98.2",
+    "out": "102.7653 to 0xc6459125 (ring)"
+   },
+   {
+    "head": "0x15cd5efb",
+    "in": "102.0399 from 0xbfb74cb1 (ring tail of len-25 chain) 13:09:23",
+    "deposit": "96.0",
+    "out": "102.0415 to 0x53e568ff (ring)"
+   },
+   {
+    "head": "0x21db980a",
+    "in": "101.9679 from 0x9c872725 (ring tail of len-5 chain) 12:47:11",
+    "deposit": "98.2",
+    "out": "101.9693 to 0xf5d088dc (ring)"
+   },
+   {
+    "head": "0x663d5e2f",
+    "in": "102.7657 from 0x4c079324 (ring tail of len-2 chain) 15:17:11",
+    "deposit": "99.7",
+    "out": "102.7657 to 0xbce0dbb0 (ring)"
+   },
+   {
+    "head": "0xc56dd549",
+    "in": "102.7679 from 0x641ddfec (ring tail of len-7 chain) 14:35:11",
+    "deposit": "96.0",
+    "out": "102.7679 to 0x1ef9145b (ring); 08-21 LabratClaim then 0.0192 to sink 0x2135c4c6"
+   },
+   {
+    "head": "0x8a23b51a",
+    "in": "102.7675 from 0x298769d0 (ring tail of len-3 chain) 14:41:35",
+    "deposit": "99.7",
+    "out": "102.7675 to 0x211910e8 (ring); 08-21 0.0192 to sink 0x2135c4c6"
+   }
+  ],
+  "chain_tails_all_forward_to_ring_wallet": [
+   {
+    "tail": "0x886a8b91 (tail of len-69)",
+    "out": "102.7691 to 0xcdd3b25e (head of len-9 chain) 14:18:47; 08-21 LabratClaim, 0.0194 to sink"
+   },
+   {
+    "tail": "0xbfb74cb1 (tail of len-25)",
+    "out": "102.0399 to 0x15cd5efb (head of len-17)"
+   },
+   {
+    "tail": "0x29cc4a21 (tail of len-25)",
+    "out": "102.7640 to 0xe863e6f8 (head of len-2)"
+   },
+   {
+    "tail": "0xcdf75fba (tail of len-24)",
+    "out": "102.7664 to 0xbc2c606f (head of len-23)"
+   },
+   {
+    "tail": "0x2933c324 (tail of len-23)",
+    "out": "102.7658 to 0x8077ff2c (unresolved singleton)"
+   }
+  ],
+  "single_lump_trace_h18_19": "102.7691 (14:18) > 102.7679 (14:35) > 102.7675 (14:41) > 102.7670 (14:49) > 102.7664 (15:02) > 102.7658 (15:15) > 102.7657 (15:17) > 102.7653 (15:23) > 102.7649 (15:32) > 102.7640 (15:43): monotone decrease by gas = same ETH lump",
+  "link_wallet_0x3ee21ace": "aged nonce-10 warm-up wallet; 11:51:35 in 1.7213 from 0x94450b66 (ring) -> 1.6 deposit -> 1.7226 to 0xdad06928; 12:23:23 in 100.1758 from 0x94450b66 -> 97.2 deposit -> 100.1758 to 0xdad06928 (same next-hop both times = scripted dry run then real run)",
+  "identical_warmup_histories": "0x5f33830d,0x01887660,0x15cd5efb,0x21db980a,0xbfb74cb1,0xcf842544,0x3ee21ace,0x5dfdd72d,0x238d0c5f: GoblinVault 05-09 14:0x, GoblinToken, InscriptionMintController 05-10 08:12:59, MintHookToken, SquarePepe 05-13 08:35-36, Bonder, Identity0 05-14 13:30-31, CirclesNFT 05-17, SeaDrop 08-03 11:49 (same minute across wallets)",
+  "sink_and_main_wallet_verified_from_investigator_cache": "0x2135c4c6: 106 incoming, 101 from 100 distinct ring wallets (0.019 ETH gas leftovers, 08-17..08-21) + 102.77 from 0x63779e6a then own 98.5 deposit and 102.77 to 0x3b3382fd (i.e. sink is itself a chain member); received 1.05+1.04 from 0xbc214bc9 08-21, dispersed 0.98+1.02 via Disperse, sent 1.0038 back to 0xbc214bc9 08-25. 0xbc214bc9 (9.05 ETH, FWA bidder nonce ~735, unflagged contributor 0.05+0.3 h12) also first-funded aged chain member 0x1c85cc7a with 2.0 ETH on 05-15 and 07-30; 0x1c85cc7a got 99.2581 from 0x21a31ee1 (Binance 15) 11:50:35 and forwarded 100.1763 to 0xf6e8a085",
+  "stragglers_checked_honest": [
+   {
+    "addr": "0xd4b4cab5",
+    "ens": "unemployedarc.eth",
+    "nonce": "~4987",
+    "bal": "14.97 ETH",
+    "activity": "FWA/FWAIRLaunch/Relay/WETH Aug-24; deposits 1.0 h1 + 100.0 h1"
+   },
+   {
+    "addr": "0x073be86d",
+    "is_contract": true,
+    "nonce": 1329,
+    "bal": "166.7 ETH",
+    "activity": "Aave/Morpho/Pendle/sUSDe since May; ladder 5,10,..,50 h20 then 70,90 h24 from own wallet"
+   },
+   {
+    "addr": "0x827a4163",
+    "nonce": 1346,
+    "bal": "0.16 ETH",
+    "activity": "Relay bridge user; 14-step ladder 0.25..107 h34"
+   },
+   {
+    "addr": "0x27ba37d6",
+    "nonce": 154,
+    "bal": "0.36",
+    "activity": "funded 1.0093 by 0x1ab4973a, 9.9999 by 0xdfd5293d, 88.0053 by 0x9696f59e (exchange hot wallets) 06:27-06:43, ladder 0.05..99.33 h7-10, then 99.0 to 0x47f8570f"
+   }
+  ],
+  "outlier_in_first_ring_not_ring": {
+   "addr": "0x6a44da75",
+   "deposit": "96.012 h18 block 25775362 (same block as ring member 0xea221e36 98.7)",
+   "funding": "96.1 in from 0xfe0cec30 (nonce 14) 14:20:23, 96.099 back to 0xfe0cec30 14:20:59, then 1.0 in / 0.999 to 0x3922d8f6",
+   "fee": "0.6 gwei (ring uses <0.001)",
+   "verdict": "separate small actor, not in the serial chain"
+  }
+ },
+ "corrections_to_claim": [
+  "434 -> 419 core wallets (h15-19); the 15 h1-34 stragglers are honest ladderers/whales holding 0.56 pts-% (3 of 4 checked have nonce 154-1346 and DeFi/bridge history). Core = 15.61% of points, 338 unflagged (80.7%) holding 12.62%.",
+  "At least 1, likely 2 first-ring wallets are not the operator: 0x6a44da75 (96.012) and probably 0x1a241ad8 (96.43; both non-0.1-multiples). 385/387.",
+  "\"40 linear peel chains\" understates it: the 40/87 chain split is a cache artifact of FIRST-funder resolution; on-chain every sampled head is fed by a ring tail. It is ONE serial lump (333/419 consecutive ring deposits exactly 2 blocks apart, only 3 gaps <2 blocks, 236 min at 33.8 s/hop) plus a 32-wallet 1.6-1.7 ETH dry run at h15.",
+  "Priority fee: 290/349 sub-milligwei (range 1 wei .. 0.6 gwei; 10 at exactly 1 wei), not a clean 0.0003-0.001 band.",
+  "Suggested fix tolerance: funding lump 101.9-102.77 vs deposits 95.2-100.1 -> ratio 1.018-1.080; a +-5% window on (deposit+gas) would miss roughly half the hops. Use funding in [deposit, deposit*1.10] within 3 blocks, or match on the FORWARDED amount (in == out within 0.02 ETH) instead."
+ ],
+ "strongest_supported_claim": "One operator passed a single ~102 ETH lump serially through 419 wallets (h15-19, 2026-08-17 11:5x-15:5x UTC), each depositing a randomized 95.2-100.1 ETH (0.1 ETH grid) and forwarding the lump 12 s later; 194 fresh nonce-0 wallets + ~155 pre-aged wallets with byte-identical 10-tx warm-up scripts; gas leftovers swept 08-17..08-21 to chain member 0x2135c4c6 which settles with 0xbc214bc9 (unflagged contributor; also first funder of aged chain member 0x1c85cc7a). 15.6% of all points; 338 wallets / 12.6% of points sit in the published clean list; sybilkit catches 81 (9 clusters) only where a round-amount window happens to contain two consecutive hops.",
+ "timelines": {
+  "0xcf842544b17d1a990669dd136c1458c7730192ee": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "10000003200000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 0,
+     "pf_wei": "183",
+     "hash": "0xb7597e563926f395fd579367aadfa2134c68dca2382890675ef1a1e7b97e37ed"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T09:01:47",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 1,
+     "pf_wei": "102",
+     "hash": "0x55247966a9f9216cf2145cdbf289b5d64dda9ab8f799ae9b9bf9aaa4a788ce81"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:36:35",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 2,
+     "pf_wei": "149249609",
+     "hash": "0x5127caf5946e0ef0b1e18266ec7af5fd22453fdede955fca3702028882611328"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:31:23",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 3,
+     "pf_wei": "339715815",
+     "hash": "0x32b3c6b4aefe5fa6d3843d320a1010f92fefb04a0a3e4a94719c19eed6a20177"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:59",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 4,
+     "pf_wei": "132279603",
+     "hash": "0x813f9221d8fa17bc7f7f057238f9da44bea3ab9ed6de73e55761072c87308200"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:25:35",
+     "other": "0x4788d8ee3d709a61a56f577732e66b1874aa2042",
+     "name": null,
+     "eth": 102.3573,
+     "method": null,
+     "nonce": 6,
+     "pf_wei": null,
+     "hash": "0x8d2e1953b63fa47b16051c3badb0c27d4dd98ff1d91e562f8437f2d0c8186bcc"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:25:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 97.6,
+     "method": "deposit",
+     "nonce": 5,
+     "pf_wei": "459519",
+     "hash": "0xf952427ecbe5aaa02529c9a54ac59850daf75c0f4db317b825c2136dea6b4037"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:26:11",
+     "other": "0x154884284771e42b5d017fed840e22a3cfae0a9c",
+     "name": null,
+     "eth": 102.3702,
+     "method": null,
+     "nonce": 6,
+     "pf_wei": null,
+     "hash": "0xc1e2d4047e7c1604aa4165480977c27e738fa28eb2b650d2f0d52d13b06bd80a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:26:59",
+     "other": "0x15488b61045fb45c04d0d79c937abbc2e7d80a9c",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0xc716b67c5f9d367bdaf4d1ba2f28636517497761a743122fa9e2807d5bd612a6"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:51:47",
+     "other": "0x1548193d02f8099b084702fc86c479617e4c0a9c",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xf22598e15d89b335319124819a026bd34bf8e562bd21c4c194136b9ddb6ee147"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:18:23",
+     "other": "0x15488f8a079c4c3677a17c40655d2122295a0a9c",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xf8a06f93c60aa0d9f708ec671418118d4c5306262b72c703efa142100ce69d91"
+    }
+   ]
+  },
+  "0x5f33830d8df0003635ed7fd8e3eac8b2d12f8ee5": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "10000003200000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:11",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1000000000",
+     "hash": "0x624e81b92e929b5a566cfca530b507f5082e2ab7258b6e6f37be581578ad49ac"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:11",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "1000000000",
+     "hash": "0x06746e5c64df4095c80337c414f4647723679d87c10c3850992761cc10774b26"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:24:59",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0x94e9ade739163612fdc22b6d63158374063259c99b974bfcc2293c9f9101a944"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0x87a591f13277fc15109e8004b265070a5411a65922a8cdd38c53a5ad7a1d4ab6"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T09:01:47",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0x408ea87e17f834867519f258393db0d5269dbdfdf1db93a6644b48f33a262382"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:36:23",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0x1fd075b3af5c6c873d3ca198eb26b347d69bcbbb907b4f05c0f91e690960fce5"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:31:11",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "339715815",
+     "hash": "0xab051f4df1c27fb41d3b762a390add6a3c5810cfe6e3a0baad54d109bf1f67a9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-17T09:00:47",
+     "other": "0x6802fd415f508fe8eec319cbebfb854b4b350e36",
+     "name": "CirclesNFT",
+     "eth": 0.0,
+     "method": "mint",
+     "nonce": 7,
+     "pf_wei": "122473574",
+     "hash": "0x8d91f09d3caf49f5504b1417acd1569015d443d977a1baeb73f470fb87b631e6"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:47",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 8,
+     "pf_wei": "132279603",
+     "hash": "0x044df6fc3c56f267f9b4edf618671f51b74aecbf761b9e1d155a321575a322ff"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:57:47",
+     "other": "0x08305f750da837148ba3543f9a390f2f663cc3c1",
+     "name": null,
+     "eth": 102.0006,
+     "method": null,
+     "nonce": 10,
+     "pf_wei": null,
+     "hash": "0x350de5c4b93cc4062713144e17a466308fb471284f6ee756562a0c4da25d177d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:57:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.3,
+     "method": "deposit",
+     "nonce": 9,
+     "pf_wei": "433959",
+     "hash": "0x28c19c195eb2b4e6842f70dc645cc70e783f4ff35787e89670fbf5a10e62e1a5"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:58:23",
+     "other": "0x533a98f79609632b1ab23a7610836f019a7a133e",
+     "name": null,
+     "eth": 102.0022,
+     "method": null,
+     "nonce": 10,
+     "pf_wei": null,
+     "hash": "0x386be507801e4e6027d6c92fa6e2b2af0befe7b938596e6a0eec330c2acd2ef8"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:58:47",
+     "other": "0x533afe52c7e37e714e2d367039d4d3068229133e",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0xfd442962f1fc834b4cf769d8f9230191f586507967a2fd7e903dd3c190123dea"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:21:23",
+     "other": "0x533a2f3e7f24e1e4aadcba42560f367bf21c133e",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x561dc4c88465d6a95097569910259a9747c3953d10179febbaa6525d03cc5d50"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:17:47",
+     "other": "0x533a5a51608bfafed8f1df19442a296343c5133e",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xba45aabedcb2e0077fc673e99bd14b8e4e1e7f406728b603d0fe2d2102b89ee6"
+    }
+   ]
+  },
+  "0xf3548085afcc5d712b84c54332cbb67d41891c8b": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:32:35",
+     "other": "0x79b3449afe46767ad588f9d204b8621c9770bddf",
+     "name": null,
+     "eth": 102.7649,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x17a492055c6a2486754ef8a5f9fd11b892181ac95c479532cef2078f3358c98e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:32:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 98.2,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "631655",
+     "hash": "0x01022511619c9b992a637281642166fcbc0eaf20b3eb7bef3cd172b97e70402f"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:32:59",
+     "other": "0xb981dfc82cbadc8b1e2f81a2c432d993c56976cc",
+     "name": null,
+     "eth": 102.7648,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xfec5705caa64bbf89bcd5f619825b8f549d445a8f46bd01c47b74615147f2c32"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:44:35",
+     "other": "0xb981b58eb93ade61fe0151ddddfb8057880776cc",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xca751783d93b7c08a477140898abe89bfba2f5ed4e9a229fbc77483a753762c9"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:15:23",
+     "other": "0xb98163f1c739aebd2ef9257e280bf740251176cc",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x426c41792dde4ab55be3cf938506eacee90cbc5d2f841f4ee10e2d2d31b26e93"
+    }
+   ]
+  },
+  "0x18fd23524c28e4df0257f0e5fc9b87da61385393": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:49:59",
+     "other": "0x0347ae31f07854219ae2e4320b1280924fdf5416",
+     "name": null,
+     "eth": 102.767,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x989df657c635e4961a7636c2d4739456b10117ce9191a6e8956a57f220aa6201"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:50:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 97.6,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "907994",
+     "hash": "0x3d0805ecc39f721f9455085584e84e222db8cd0b53a7dacaaa479c48bfee2b75"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:50:35",
+     "other": "0xa4a9cfa947251cab5a9c9a5826667d7619589db0",
+     "name": null,
+     "eth": 102.767,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xf7e7df093ec444ca4813f8dcb0c959ff373a17955616c64e237acb99329f4d2f"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:02:47",
+     "other": "0xa4a9e4553b5b5674132b2e3a220079a4bba99db0",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x07167a46addf3d9578c36c49532d766b43cbaeee71ac480076a6a421e54d5c4a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:16:47",
+     "other": "0xa4a99c2e230332e79ea09ab77945130891039db0",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xe34690840f6d092701b8f7ef85269a3ae94e05deddf861d7826a7aced715b516"
+    }
+   ]
+  },
+  "0xbc2c606fe247b64c6c260185b2bee73aaf34dfc8": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:02:23",
+     "other": "0xcdf75fba5e3dcd7ca22394aae86715361a09c991",
+     "name": null,
+     "eth": 102.7664,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xeaa8f412f4008809f3150820b4a9fb5fd9abb4a2e840163f4b9e335cf85fba43"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:02:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.3,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1065050",
+     "hash": "0xa78212f7e320dca3cbbccaae1ea2f3642122849dd2442dd71322916e00866a0e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:02:47",
+     "other": "0xaedc235da9d4c281bf86ea4d9c2b53f5e01de7a6",
+     "name": null,
+     "eth": 102.7664,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x0a7f26ad26ce1219094a5874130af943226f519ea6bea7db5a8b199364e19133"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:12:59",
+     "other": "0xaedc977ea952c2ba2142f0bc03c5a97b69d407a6",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xdfacd3a3cb5a9b00b3ced6961b5199a3cc6466f0c9e004d228647a772c6e5863"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:15:59",
+     "other": "0xaedc3eca0c4f4e9f11a6bb658baf1cc254dee7a6",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xeb1bd5f30ea3fe06a3d660c9c27edf140e9076e38e972a19708790285acedf82"
+    }
+   ]
+  },
+  "0x01887660eb86050af2db46c0a5774dae5249e8da": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "10000003300000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:06:23",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "150",
+     "hash": "0xe194795394db6f2c12a5bf098bf64906c41614e3c98f925994e9f518183f360b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:06:23",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "150",
+     "hash": "0xda779e9658eb732081273844b7787b953ddb6341d8967f86a42f8a0bc5ae3455"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:16:59",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0xfc9bba0012fa7de43669e4604deeaebc4660e0de0b350a5e0b08ab3c1dc13df9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0x27b8fb42a5a32a0d8c8f5defdf72d35d197b27abd3778d0bcf76d05efc9171ae"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:53:23",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0x8b55d07a88dd604a7f4cf34726f8eeafc19bde92824ed0be1abe362c8d4d606f"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:35:35",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0x2cf2086ac11d00f067b71bf865cd49f4ee3288e5906b55f9413933321d321e8d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T11:22:47",
+     "other": "0x258ffe22cde3d9c52faa0276cc7e0baa6ad3966f",
+     "name": "Bonder",
+     "eth": 0.0005,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "75035544",
+     "hash": "0x923299784b160d764d888b5930ff9443a118ca7b136b0e74d5df7634359f42f9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:30:23",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 7,
+     "pf_wei": "339715815",
+     "hash": "0x7aa85fcae0287abacb00a694a2e3b324d27e5b584011abdd9e15cdf0fd844282"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-17T09:00:23",
+     "other": "0x6802fd415f508fe8eec319cbebfb854b4b350e36",
+     "name": "CirclesNFT",
+     "eth": 0.0,
+     "method": "mint",
+     "nonce": 8,
+     "pf_wei": "122473574",
+     "hash": "0xd2fd8876a7bf8f6197ff7f596e53a32fab0253f631bb5b71e190b9bfb3cc509d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:23",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 9,
+     "pf_wei": "132279603",
+     "hash": "0x0c3e69080888fac5056ed92ca839cdb3d1fe4c68dd1c01ca4d4bc6f357f7bdc0"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:33:47",
+     "other": "0xdb113944a45250930bfa9dde2a12beb8c27b5e25",
+     "name": null,
+     "eth": 101.9282,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0xf348ff3f9ab318ef36fb10d8fc6abac729a3fb341beab31d32b29d2434eb40e2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:33:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.3,
+     "method": "deposit",
+     "nonce": 10,
+     "pf_wei": "621787",
+     "hash": "0x3bf2422be89f2daa9b6d60b892b41697bf6e360c57c75bcd42dd69ab2a3d09c4"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:34:11",
+     "other": "0x4be583c18f4068b91ac745e7fa3f9ca7b47f58d7",
+     "name": null,
+     "eth": 101.9296,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0x9f9faf15dafa920d3425c760e3cbf883be784d3f22f4ad968afaf2215f77ef41"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:34:35",
+     "other": "0x4be5f3e422b76962cdce8d32d5f62da9230558d7",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0xe9cb46e6b4b5f009b95277c61c0fbbb47ca0f6b1db8fd38e17d67ab0a6153903"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:46:11",
+     "other": "0x4be535612eab1a6e356e74a2c26251ca28e958d7",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x26b6521c3aa8d58e0538b8d636c6c7847dc2e8918af546fb98661e324ea3827d"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:00:59",
+     "other": "0x4be5269ef3e66c99dd0466e827901fe90b2f58d7",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x6c3440e5143355df9ab115c07601e04d27805e4d9e3abee3440651439f9a2ad3"
+    }
+   ]
+  },
+  "0x16ee3e2a011c24dfb5798058484add56b6b70818": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:23:47",
+     "other": "0xc2046a098f611c75d9b0cbf217e25073f7e8b5bb",
+     "name": null,
+     "eth": 102.7653,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x46e28c72d49cccef40819576202103d3a8565c34df0fc49530eade25bfd82751"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:23:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 98.2,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "580090",
+     "hash": "0x02cc974f2164317264985435fb42e67b322d1c178c78490e4d559994d03a6fd0"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:24:11",
+     "other": "0xc6459125fc216d3b0493f6fa118cfc509e75fa21",
+     "name": null,
+     "eth": 102.7653,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x2c1271df2c4e151931a25522d1b1d6340677398f694b6576e3944e8fdd218155"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:33:47",
+     "other": "0xc645f61fe28eb5af7661a49d0219aa78c0b8fa21",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xbf0b9eb39a5e3eb87f4cd8663644c5244adc150e6d987d2395d57bd7844c54a6"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:17:59",
+     "other": "0xc645d862532b7e5129ee889baf4c8c5a75a7fa21",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x306a2cd117af24222f972736719413b6b4b8cfba2f3c9d475fee466f198f5e65"
+    }
+   ]
+  },
+  "0x15cd5efbf32ef568c408cb796a00a7c859e92f8a": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "10000003300000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:59",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1000000000",
+     "hash": "0xd1fa6940472581ed8c86c87122c01f2964019f123ab7fa2068724e303c3b3731"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:59",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "1000000000",
+     "hash": "0x4773dfab87787c11205ab453a45f2fec6c8f89ada4e09993ce671c6ad87ff923"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:24:59",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0x741783310fe9710205586149a2b4b63bd9b69b41692cc5187f3d0a5689f1bf4a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0xab1d3cd6fb7f8be4b8cf8ec0b8eb6ff14bb619a8caa2a1a434c595349206afea"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T09:01:11",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0xc38e00383957ab0194a4614c5640d9e3505f4b6fc6f06f664794feb30251f0ea"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:36:23",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0xc19b691a4509e61ec792d8929b964a164c5926ed7b0877ccbd336e1f28735dd8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:31:23",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "339715815",
+     "hash": "0x4ec5b809c50b543d49a7614f22129bfb9b8d3dab65568fd6fb6aedf1ea632212"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:47",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 7,
+     "pf_wei": "132279603",
+     "hash": "0x58395a13a71d64b010aaee47eac4a060bea744e6f4523bc0645ebaeba754df3f"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:09:23",
+     "other": "0xbfb74cb1a276c81fe75990aafedd8a9ceb086006",
+     "name": null,
+     "eth": 102.0399,
+     "method": null,
+     "nonce": 9,
+     "pf_wei": null,
+     "hash": "0x307bc256a7e8b54f331480c17b89e192568a0a04c11d48bfa17143d9ea15c2c2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:09:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 96.0,
+     "method": "deposit",
+     "nonce": 8,
+     "pf_wei": "477192",
+     "hash": "0x482eb0f14d02b24ccf41ac1fc804a05b11c11bc3732f1281ae85017b4784d80e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:09:47",
+     "other": "0x53e568ffa2ce5a9145834783abdcb2a80b1265e5",
+     "name": null,
+     "eth": 102.0415,
+     "method": null,
+     "nonce": 9,
+     "pf_wei": null,
+     "hash": "0x3620b313557813a8f3ef5c0b2efa4e2bbf5316c4b8651344128507306d7df13d"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:10:59",
+     "other": "0x53e5289f9c8f2af7f26bc7f9b9ea3489d0fa65e5",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0x3f5a035129106f42a822f85a15ad39a265ad6731986967cff6cc6dbf5c1402c6"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:37:11",
+     "other": "0x53e57b4b34cc1af9207595a3ff268376f20e65e5",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x3f36eef2c03203bd19c192c7a6dfec3bdadb33767063ba26596662a3468ffded"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:19:47",
+     "other": "0x53e59bdbd7bd31ebed022f7b8b274a997b9a65e5",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x9d9fd2b9fe24bcb932203dd493b5c1a1b63d4783b37182a1bc37ca0fe99f5695"
+    }
+   ]
+  },
+  "0x21db980a4dd15d663af718f03fc4cd0a1995adce": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "3300000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:05:59",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "150",
+     "hash": "0xfe25259322efebca286c5310b652369f1180157904e795e057bee33d456bb4c3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:06:23",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "150",
+     "hash": "0xf1d4098a0168c3255cea363d13f0e8efc9cf8f0c3bf2eea3d4e1a1fb556653fd"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:19:35",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0x8fff5488bae9086561f5bd509f7067aabe681fdc527ab67acc099c923c20b8fb"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0x642f290f1465704d47534bff69535d091360fa39dcccea32ba598cf0b66eb09b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:53:35",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0x811d3afbf86e76fad2bbac1dcad28a0802d1dbb3e25c96107ea5cd51b02a8185"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:35:59",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0xb0a990332a1a86be0e3e2c0be14fbcef8a64d7b99456eed9040172805a1ccf68"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T11:22:47",
+     "other": "0x258ffe22cde3d9c52faa0276cc7e0baa6ad3966f",
+     "name": "Bonder",
+     "eth": 0.0005,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "75035544",
+     "hash": "0xae8999512bd7aa0731f1f944a0ac9be213fb1442793b193dd816fe2cae818a9e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:30:47",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 7,
+     "pf_wei": "339715815",
+     "hash": "0xfcbab020e931e5a192442e0a7fe19d00ddd3108b82f48ec7839e7f4bfae395ed"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-17T09:00:35",
+     "other": "0x6802fd415f508fe8eec319cbebfb854b4b350e36",
+     "name": "CirclesNFT",
+     "eth": 0.0,
+     "method": "mint",
+     "nonce": 8,
+     "pf_wei": "122473574",
+     "hash": "0xc9b7a6c4a575860344f3c8221cfe43d07b245aa86afac42a4cd7376400abb1f8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:35",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 9,
+     "pf_wei": "132279603",
+     "hash": "0x1c2960832ac8dbb5ac3173b3027730aa7ee611f5b0185486e815b4f76336d121"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:47:11",
+     "other": "0x9c8727257e4f83ca70d1562b7f9bbc57c5625d0d",
+     "name": null,
+     "eth": 101.9679,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0xe388bfb353ffa3e6b88fd72b8a42235e66294796d8ffdf97a35577a6ded89ea3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:47:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 98.2,
+     "method": "deposit",
+     "nonce": 10,
+     "pf_wei": "455693",
+     "hash": "0x7bc491f426b04a9ff1b0b6aae6d85240274ecdf31b9212c50a648b782893545e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:47:35",
+     "other": "0xf5d088dc32d703fcc6b52019da8b7dfc9ad6b87a",
+     "name": null,
+     "eth": 101.9693,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0xba890586842cc87e124d52f769f5197d75932ba23eaf647887a2254bead1bddd"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:48:23",
+     "other": "0xf5d0b37c311305b632f55fdc8e569ddcc72fb87a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0xaebdab49c31efaaf773a926b0353a669d6e515e1136875e6c1822037db093702"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:00:59",
+     "other": "0xf5d06a570b81fe1f1eb76f0bf1008bcca1c6b87a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x537e0770ce94525364cfda054390e69b66c3dc918d3e59a72519ea2a3d7faadc"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:22:59",
+     "other": "0xf5d018ef7bbf5b185742dd2128b36f78d426b87a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x17335a134a52e6b5aae9709f15a5cc33d8fc3757981e39e770967ae248b4a238"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:34:59",
+     "other": "0xf5d06a570b81fe1f1eb76f0bf1008bcca1c6b87a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": "5395747",
+     "hash": "0xf80cf02427f03326454b0d907790a9da2456a7b5fd2c99b8f16eb056ecf1c9a5"
+    }
+   ]
+  },
+  "0x663d5e2f708ffbb38dd4b382fafdc4fe1480de73": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:17:11",
+     "other": "0x4c079324226b7dc4b9a61b98b254b05810fae1cd",
+     "name": null,
+     "eth": 102.7657,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x0fa394c75e6763e53ba60f71bee2e6d132adac42da52f6fb7344016f549fa61e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:17:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.7,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "539929",
+     "hash": "0x53a78712965d9349bf25a487c01b32ac7d1df8e39ab37319a34e7024143805f2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:17:35",
+     "other": "0xbce0dbb01d8d06ecfeff82475b5c51f5e8836270",
+     "name": null,
+     "eth": 102.7657,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x9cc76fb5281e350e7e52ea3328708cf371a9d46bc0ca0c137ef22fd5354b2c68"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:26:59",
+     "other": "0xbce07a5e39d6394ab5b79f65783cdda490b92270",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xf886e438e021046f8ca07722cf476c826a7b4fb7e15fd594b0b48423dc4c8817"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:16:47",
+     "other": "0xbce076ce69d480dc27c6182e02c0c09631ec6270",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xd33f6cc95eb0cd096f955f277c7306679ff773e728276ec86643410ddf30b1ad"
+    }
+   ]
+  },
+  "0xc56dd549e3a2aa4f783d82eee0695ec316dc0ae5": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "18377207275350"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:35:11",
+     "other": "0x641ddfece58a7c14b941176f4a053415a8394d89",
+     "name": null,
+     "eth": 102.7679,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x12dbc7feebd5564b1a6f3f6034ef8da2d900e84bb0ea2193df9d4cc9aeadc61a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:35:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 96.0,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1457252",
+     "hash": "0xa431de16a93dfb22233631c0eff249933986c83e5763d03ef31c121722f00c24"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:35:35",
+     "other": "0x1ef9145b9f2d396e3d08b647d9fe158905543eff",
+     "name": null,
+     "eth": 102.7679,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xc4660deb2b28e96b3c485a950eb9e9a80b0e4858b7fe6aa4931d0cf7d585aa28"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:49:23",
+     "other": "0x1ef93c8a9a107496a4d504e5eccd6c8497cf3eff",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x148f411d23950e5a0a153a1ce5c88a53bdc71f31563b7015c2073c70302633d5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:17:59",
+     "other": "0x1ef924465c4a02c193893d411a69c56652f33eff",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x7b3b2e82360831f97e05a2d730606a7f1828c41de1e2f54201335c79375b8cee"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T08:49:47",
+     "other": "0x751dceaf7dca5ca424e6e74c9c93745126592023",
+     "name": "LabratClaim",
+     "eth": 0.014,
+     "method": "claim",
+     "nonce": 2,
+     "pf_wei": "1000000",
+     "hash": "0x0d3c7262318f134030185a255122d28530a9f916a632bec68495406788d2cff6"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T08:51:47",
+     "other": "0x2135c4c61f3a683e272a5986b5e7ce05597479ee",
+     "name": null,
+     "eth": 0.0192,
+     "method": null,
+     "nonce": 3,
+     "pf_wei": "1058185336",
+     "hash": "0x101d28694f1a1848a16f76240013bd2f195f193cb8624e406304bf6086792b14"
+    }
+   ]
+  },
+  "0x8a23b51a5fa0478be9c680afcf3ffcbc535bc501": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "18377207275350"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:41:35",
+     "other": "0x298769d0c4c2257e21b12652afcb495e2e239157",
+     "name": null,
+     "eth": 102.7675,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x7e8f74fa52b167b2eecd9ced15afb624c5eab8884c3f2c11ed5f8f565ce5bea7"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:41:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.7,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1225157",
+     "hash": "0x72fc6bc30e02c37397b02d36de6ac6eb4a8b199bbf717f2793e3d9e0313e043d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:41:59",
+     "other": "0x211910e89635573d40707347e55980198615085e",
+     "name": null,
+     "eth": 102.7675,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x04aed3c2edc3f57b45ddbe848281cd0831bebd83f549f8e846eb0298add8e461"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:57:59",
+     "other": "0x2119402920f209afca40c59f2dd6779f58f9085e",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xa5aecd9b4de58b16edbca3d4c947d21ab8e77a550c0d9f22e6f0fd090aa7e0c6"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:18:23",
+     "other": "0x21194d1b7594d3433bfd0d15bc61512449c5085e",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xe44c4ff06381da7c75a9ec468304ade553ee9b8b75b19fe03eb3e2b48dfd55bc"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T08:50:11",
+     "other": "0x751dceaf7dca5ca424e6e74c9c93745126592023",
+     "name": "LabratClaim",
+     "eth": 0.0143,
+     "method": "claim",
+     "nonce": 2,
+     "pf_wei": "1000000",
+     "hash": "0xc585660a26a667b2fad35b13da3475b727b248f252d45034aeded26c0db6e5c9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T08:51:47",
+     "other": "0x2135c4c61f3a683e272a5986b5e7ce05597479ee",
+     "name": null,
+     "eth": 0.0192,
+     "method": null,
+     "nonce": 3,
+     "pf_wei": "1058185336",
+     "hash": "0x8ddf7cebced27b14964e67fc96937acbbfc76beecae0aa19890e15b36ef84554"
+    }
+   ]
+  },
+  "0x886a8b91d5ff0667f6efdea562ac77206e0af49a": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "5560215874500"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:18:23",
+     "other": "0xa9190dd8bb3b689c93701d5055561fb93be6bbf3",
+     "name": null,
+     "eth": 102.7691,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xaac32e130183345ec77be605cda2642a2c332b479f58f24898671d4e481a1309"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:18:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 98.3,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "2412377",
+     "hash": "0xc9b1bf9e5630485c383212d5d4fa800e2466e28901ad6c4d4bf5e78be9042449"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:18:47",
+     "other": "0xcdd3b25e7613faafc8136c3c1a791dc166c9f3ef",
+     "name": null,
+     "eth": 102.7691,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x0a847a9a0ef6e963bca90892046cf9f0fca41427d1a89415122f390aa445bc56"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:26:35",
+     "other": "0xcdd365e7b0720a7cc3bc81d73eea41041f2f03ef",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xf78061730603004d27a1489170cd3a79d08f9f91ddcdef720520afaca456418b"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:18:35",
+     "other": "0xcdd300be606aa756c761831eebeb511f58c9f3ef",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x9fb60e6dd73b67a6af728078d5eedd08e923ca154251524abf7d731570372105"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:29:59",
+     "other": "0xcdd300be606aa756c761831eebeb511f58c9f3ef",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": "5395747",
+     "hash": "0x7685f775bf051c54075b3c4453d0a4e9c294de4e5c7663d4433b037cf8d7e243"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T07:41:23",
+     "other": "0x751dceaf7dca5ca424e6e74c9c93745126592023",
+     "name": "LabratClaim",
+     "eth": 0.0142,
+     "method": "claim",
+     "nonce": 2,
+     "pf_wei": "1000000",
+     "hash": "0xc09fbeb876d6afd27b32849d5a3ee56e94d24a10093b676f4492f67872ce6617"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T07:42:35",
+     "other": "0xfec06f9cb0fd38224194abdc8fde18ee7e055334",
+     "name": "LabratToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 3,
+     "pf_wei": "287008290",
+     "hash": "0x8a98dad76ff5d46014610a41cd3fde12df85b392a2b07f90dac4aa79e7ac4497"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-21T07:50:59",
+     "other": "0x2135c4c61f3a683e272a5986b5e7ce05597479ee",
+     "name": null,
+     "eth": 0.0194,
+     "method": null,
+     "nonce": 4,
+     "pf_wei": "256290810",
+     "hash": "0xb3345755554b07719dfc80b795f4bfcff8f30417e8841bb00837516559da52d4"
+    }
+   ]
+  },
+  "0xbfb74cb1a276c81fe75990aafedd8a9ceb086006": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "10000003200000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:59",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "1000000000",
+     "hash": "0x5aa77b478f322b2149ba5a92a5bb5f3e0da1b962e9acf47f5b8b9ea884a6d658"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:08:59",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "1000000000",
+     "hash": "0x64b80e52a2c72add3c60494dd85e99e6b2be89b4f27a55ed74dd0af10cfb1d19"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:24:59",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0x62ed41664d368396a5a53f3dffeb85c3c05e8231174602f4ebeeec7814ccaf21"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0x6840c016def275ef9b59aab9038987e752525b04a44093e295f03313c5d7dd50"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T09:01:47",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0x4042e44c0870d035776cba6655a29d8f66c785b90746eca0d8895cc8c7d87fed"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:36:23",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0x769cb2d3a7a0f5a73dcb032088611efdb4c305180d816015ee5d5256c193b2c5"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:31:23",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "339715815",
+     "hash": "0xea85440aa8a78204facad312d15063bb4d73e132a8d01d1daffd3dfa8608cb52"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:47",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 7,
+     "pf_wei": "132279603",
+     "hash": "0x651a056d756429aeab7278dc413f764a1ac0e9bf318387dfb6fe6494545e9042"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:08:59",
+     "other": "0x939e45bba5b6b22466eb3ec90b317637a69efa18",
+     "name": null,
+     "eth": 102.0383,
+     "method": null,
+     "nonce": 9,
+     "pf_wei": null,
+     "hash": "0x398d031668cc453ccc660871b4d26ceaf791991000351ee94af8d78fe325a639"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:09:11",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.0,
+     "method": "deposit",
+     "nonce": 8,
+     "pf_wei": "458433",
+     "hash": "0xc53742536ee9ebf08a3209dcbbfa24e35cb9ef6740bf210dbc8a3a426947243c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T13:09:23",
+     "other": "0x15cd5efbf32ef568c408cb796a00a7c859e92f8a",
+     "name": null,
+     "eth": 102.0399,
+     "method": null,
+     "nonce": 9,
+     "pf_wei": null,
+     "hash": "0x307bc256a7e8b54f331480c17b89e192568a0a04c11d48bfa17143d9ea15c2c2"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:09:47",
+     "other": "0x15cd4dd91bed82fb53a6b7390afae367817b2f8a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0x70c53afbf6da7d3ecbfd16d38b569683ec98dabd2ef0cd9e08943b9f97f4eaed"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T13:22:59",
+     "other": "0x15cdc0f19452898309e559a98e9055bb030c1f8a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x404ca8d9af8b40577ba4dac79e35b99011cb223e5fb474e8c6c9b5b9a5666528"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:17:23",
+     "other": "0x15cdccc084dba5ac1136909f9389cb4d31f22f8a",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x0a13a6df6730b40283e9ef515d1e1fe4e2dad50383644f3bcdd942721c3e25ea"
+    }
+   ]
+  },
+  "0x29cc4a211c82d3764a3c068d984547eb9fedf3a2": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:43:23",
+     "other": "0xd7c874b46f491bca09baccb3408d0ac4c84ae635",
+     "name": null,
+     "eth": 102.764,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xce1cd38286650de5bde6ab357129b96047efa13df3d6b26eb43b40493c2f2593"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:43:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 99.9,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "605917",
+     "hash": "0xbed1b10cd1dcf4391437b17000e08d86e17fef04995836cc9ccda554f61df452"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:43:59",
+     "other": "0xe863e6f86e4fbe29896cf44a406f53fd2d076e78",
+     "name": null,
+     "eth": 102.764,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xdc8666e629e468e2811aece9edc816cdcd6dd85765624b07a501077879781688"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T16:05:59",
+     "other": "0xe86392b6cd814e1ec817b3e1120734ebc8156e78",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x1c43529aaaf4c9045241f82af3c86bb2c808fb0737adac90b69c6ed863290a5e"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:16:59",
+     "other": "0xe8633db29ce204d2d2ed148a90eb6b23cf846e78",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x569a08e40af5898939f164941952a7a2b97dfcbac11a60118379d531e18490ed"
+    }
+   ]
+  },
+  "0xcdf75fba5e3dcd7ca22394aae86715361a09c991": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:01:47",
+     "other": "0xbdbf8a1dc1819c1bea3b5ce2421caab33934dba2",
+     "name": null,
+     "eth": 102.7664,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x0d198f456a995b8fc645d65a472f440ee4e858a2b2c40dfd434e157c2446c1d2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:02:11",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 96.6,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "885525",
+     "hash": "0x83ac3f1d9df0384cee827e5479e104992c37965a403f3cdb8e1dbd5583d93466"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:02:23",
+     "other": "0xbc2c606fe247b64c6c260185b2bee73aaf34dfc8",
+     "name": null,
+     "eth": 102.7664,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0xeaa8f412f4008809f3150820b4a9fb5fd9abb4a2e840163f4b9e335cf85fba43"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:12:59",
+     "other": "0xbc2c9e81751508b68d7167c24e8fa52929f73fc8",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x1943bb7c6bcc33e064f2a008a469337d3b5f2e9f5b2e46f44e6994e9caa52543"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:15:59",
+     "other": "0xbc2c8faaad6a69712839fd8ca020d1a814b8dfc8",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x8207138d9d088df9e6c0cd501108f10f17e26abcdbf6f8cd89826ce6817e0b3f"
+    }
+   ]
+  },
+  "0x2933c324c8fb1d052ce32471e7e376ad9e579171": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "2200000000"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:15:35",
+     "other": "0x8038c067d75ef239a06c01cbcc6f11eb26180d19",
+     "name": null,
+     "eth": 102.7658,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x80d680071293955b8deca54384a852b13c9c5592d6ba6473e49b65244b220c79"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:15:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 97.9,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "635058",
+     "hash": "0x3918198e341a2d373586fd3fbb57369e7e365b8d0a992d8b52328d380b909a94"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T15:15:59",
+     "other": "0x8077ff2c8ff8497f03bd39fe49747b6722cf9cdd",
+     "name": null,
+     "eth": 102.7658,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": null,
+     "hash": "0x79b21f70db304d769fc84572f506e3dc75a71aac0f34dfe160920ad5979f6fd2"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T15:26:59",
+     "other": "0x80772311c11feee158b0cbfcfbe90fcfc2631cdd",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0xf4916ced6f440cbd967d451e302a954073437b809595b5d18ace68903fa65d53"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:15:35",
+     "other": "0x80777f059648b539d064969de89c724f5a809cdd",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x28ad9a5ab7bf1219016b09f2067b0fca6688a192ec7cb889908f72f4599e4a99"
+    }
+   ]
+  },
+  "0xd4b4cab5cf150f46448a8b312cf4d96521953c5f": {
+   "info": {
+    "name": null,
+    "ens_domain_name": "unemployedarc.eth",
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "14970698854277854096"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-08-23T21:52:23",
+     "other": "0x86adce3344e0b7a33aa8dfe80076a2ce5faa535b",
+     "name": null,
+     "eth": 0.005,
+     "method": null,
+     "nonce": 4940,
+     "pf_wei": "600000000",
+     "hash": "0x5875c3c0fcd857ac9302d0fdbc6e11ab6e531ed95bbc03497f41aafdf83f195b"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-23T22:01:47",
+     "other": "0x86adce3344e0b7a33aa8dfe80076a2ce5faa535b",
+     "name": null,
+     "eth": 4.11,
+     "method": null,
+     "nonce": 4,
+     "pf_wei": "600000000",
+     "hash": "0x358756943823334d9e60523070d01f589664336822b09e8c59f5a45736bca807"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-23T22:07:23",
+     "other": "0xa1bdbb267356db2269d42ee02104845b2b2e32e3",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 16,
+     "pf_wei": "5395747",
+     "hash": "0x334bc812b473a33952fbbc6bc1030bc6013079a03277de3784d889d35cf59931"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T14:06:35",
+     "other": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+     "name": "RelayDepository",
+     "eth": 1.7313,
+     "method": "depositNative",
+     "nonce": 4941,
+     "pf_wei": "600000000",
+     "hash": "0xaf6cbaaade95b89c4904059cd45c144ac002b3457e4db90466c5f59135d6c865"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:00:23",
+     "other": "0x47a45870854898ac84d529c4dd05113cd5e28ecf",
+     "name": "FWAIRLaunch",
+     "eth": 0.25,
+     "method": "support",
+     "nonce": 4942,
+     "pf_wei": "2444000000",
+     "hash": "0x9c70a96eaa7d14bfc337efaa0b4001010e31a11d76e85b9eb277ed6ffdebdf0e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:11:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.4627,
+     "method": "acquireBatch",
+     "nonce": 4943,
+     "pf_wei": "2867000000",
+     "hash": "0x63ed8833cd6bbd5e4759b6b44ba282b38b9fa867f33b5cdae1893cd11c462153"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:15:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4944,
+     "pf_wei": "2864000000",
+     "hash": "0xf674dcbea0e78b3fbc45a253232e94cb4e2a2e79deb4fe985d011aa1efa25e0d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:16:35",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.4749,
+     "method": "acquireBatch",
+     "nonce": 4945,
+     "pf_wei": "2812000000",
+     "hash": "0x1e89490c03989e3a13a8bd06b94cb58eade4dad4e5a2c69eb8d52766d215d8fc"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:16:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.4749,
+     "method": "acquireBatch",
+     "nonce": 4946,
+     "pf_wei": "2788000000",
+     "hash": "0x833d4204bdd71ca970474f0c4ef81f33b6c7725fda14700f9675cc3939a8400c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:17:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4947,
+     "pf_wei": "2758000000",
+     "hash": "0xde98e0df680e0e67eb8c0d724512d422c9022a41c250d0f84b2fa6d227ef2c54"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:23:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4948,
+     "pf_wei": "2534000000",
+     "hash": "0x28708cf0565d224cd00a3e3aadda82ea36ec1c03e5787704b99d3b2776210b7e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:24:35",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4949,
+     "pf_wei": "2572000000",
+     "hash": "0xd7c5a90f1e8429949e13f2f1ec53ee93449b539478989b7a03da26e82a0d186e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:25:59",
+     "other": "0x47a45870854898ac84d529c4dd05113cd5e28ecf",
+     "name": "FWAIRLaunch",
+     "eth": 0.0,
+     "method": "harvestRewardTokens",
+     "nonce": 4950,
+     "pf_wei": "2633000000",
+     "hash": "0x057849bc4e22b6a6f68289b5f56e14a9945f3ebc563899b059f7621f589a4e81"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:27:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.4887,
+     "method": "acquireBatch",
+     "nonce": 4951,
+     "pf_wei": "2667000000",
+     "hash": "0xe9857ce9733b21a1788f936fd28f91535b96a746b62189ba666115adb74702a0"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:27:35",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.4917,
+     "method": "acquireBatch",
+     "nonce": 4952,
+     "pf_wei": "2683000000",
+     "hash": "0x5c7e78a1289f84a1b6e00acb9f84ba84c7a977cba1c67eee776cad07e492717c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:31:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4953,
+     "pf_wei": "2536000000",
+     "hash": "0xeb381cc003a8d51ad9d0262fe03b03e1204a271fd7ff7d2c92ed8fba518f45b2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:36:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "processAcquisitions",
+     "nonce": 4954,
+     "pf_wei": "2520000000",
+     "hash": "0xac401e199889a260b1b94e904be6d8d54c66b243273f369b3504eb8efd6a4720"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:40:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.5429,
+     "method": "acquireBatch",
+     "nonce": 4955,
+     "pf_wei": "2412000000",
+     "hash": "0x9b4de7caa151ba0eb6f3a21188c5b71d8249df0663842c9fc6e9716ec30eb5e4"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:41:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.5441,
+     "method": "acquireBatch",
+     "nonce": 4956,
+     "pf_wei": "2400000000",
+     "hash": "0x9b2a6dd298b0f41da2bf011545ad1485e63b0ad4d8ef0387bc47011b4ba4ac4c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:53:47",
+     "other": "0x47a45870854898ac84d529c4dd05113cd5e28ecf",
+     "name": "FWAIRLaunch",
+     "eth": 0.0,
+     "method": "syncPosition",
+     "nonce": 4957,
+     "pf_wei": "2760000000",
+     "hash": "0xb534ed41408e97834311eebb20f6b15c8fbec4a224f4f79a6f604058a518cc2a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:53:59",
+     "other": "0x47a45870854898ac84d529c4dd05113cd5e28ecf",
+     "name": "FWAIRLaunch",
+     "eth": 0.0,
+     "method": "syncPosition",
+     "nonce": 4958,
+     "pf_wei": "2761000000",
+     "hash": "0x7748d01764f172fe62139bafba7f46390e2cba7dec5a76b364d92c440ff6c6f9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:54:11",
+     "other": "0x47a45870854898ac84d529c4dd05113cd5e28ecf",
+     "name": "FWAIRLaunch",
+     "eth": 0.0,
+     "method": "harvestRewardTokens",
+     "nonce": 4959,
+     "pf_wei": "2808000000",
+     "hash": "0x01a9c1b9c643cfe70bcb0a33d0fa96058a02b98af9fa5357636406cce2a03958"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:55:11",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4960,
+     "pf_wei": "2785000000",
+     "hash": "0xa3beec27140d911cd763f23206bc95d0bb42a9f71291fea944966600a39663b3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:55:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4961,
+     "pf_wei": "2939000000",
+     "hash": "0x799dc15c96c195c8ecec8a2e3c88d23e99f291e4e559a122a23dd92ea7bfd4ba"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:55:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4962,
+     "pf_wei": "2939000000",
+     "hash": "0x8eb41c47fed101b56ccae11819c327991a87dffc31d3ae273e4e69d372c93731"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:55:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4963,
+     "pf_wei": "2917000000",
+     "hash": "0xfad52502ea6d2fb39be95c95338c9cc34798e1b6ff5c3d827a7e975b4f9c2895"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:55:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4964,
+     "pf_wei": "2913000000",
+     "hash": "0x33bdcd7e1df629655b423bfe1c3df7c0194cfcbaa3a4ee046e52098711b49778"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:56:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4965,
+     "pf_wei": "2904000000",
+     "hash": "0xb0cbbb132b2c1dd79bf8d645d09f44a35449ca109650e2abff65034a642a6d26"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:56:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4966,
+     "pf_wei": "2913000000",
+     "hash": "0xf09bb1134725a9814228d1bf620384e5a20d07de4a94fdf97eb6fb62902ccf02"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:57:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4967,
+     "pf_wei": "2898000000",
+     "hash": "0xb55929e21999209a238619263e2468e664284520d69fb37e58924d3492c336b5"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T16:57:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4968,
+     "pf_wei": "2879000000",
+     "hash": "0xb8e876a8ef7b68940af0ee096807f30cc31d6f8c57a8589c66d68c200b6e4dc3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:04:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4969,
+     "pf_wei": "2481000000",
+     "hash": "0xc7ef8a8d75dbc4b304764dac67539791a3da018b3ad1f28c1345942419377553"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:04:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4970,
+     "pf_wei": "2467000000",
+     "hash": "0xefb4a0ecfa3fd0639f47cb82e0718c74d870ad286c117858cd6a25facc3cd95b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:04:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4971,
+     "pf_wei": "2445000000",
+     "hash": "0xb817027a32937b89704b02c653b87a0287b55b84187fdb4a3388fd0923fdaf7f"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:04:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4972,
+     "pf_wei": "2416000000",
+     "hash": "0x99b846152d55c8b1c30e451a9d51e4810f57a994784aa46e9c1f5b003c1884cc"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:05:11",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4973,
+     "pf_wei": "2446000000",
+     "hash": "0xba8331d6a1b8910caceeb838b5bb04a7e2596d76c15e7a9d517bfd11166f5bcd"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:05:23",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4974,
+     "pf_wei": "2446000000",
+     "hash": "0x46a4a53796843bbc13afee54dade42545125dbb8aa86412e5144dc1f16323315"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:05:35",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4975,
+     "pf_wei": "2467000000",
+     "hash": "0xc94d2143ad60dbbdae25bcd2b6199d4722794deaf232d052b80f5e2eabce0f61"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:05:47",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4976,
+     "pf_wei": "2455000000",
+     "hash": "0xf256913cd5b19814edd9ca3d8d677fe2074cf12dbc2d9e701153824bdaae3003"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-24T17:05:59",
+     "other": "0xb276f62db0ce8ca2ca5bc522695be604521eac1c",
+     "name": "FWA",
+     "eth": 0.0,
+     "method": "acceptDepositorBid",
+     "nonce": 4977,
+     "pf_wei": "2443000000",
+     "hash": "0x8a5a454a6cf769b175a30d6683209213f4b14cda49edd6df1df64d49441bb32a"
+    }
+   ]
+  },
+  "0x827a41635ab8be0ad6bae79fd8faf8926b066f18": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "161390130331750916"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-18T08:21:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 9,
+     "pf_wei": "5000000",
+     "hash": "0xbe3d153b04b29bd240169f5fd089cea6403a8e7862715b8a636ac9102b50fdff"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T08:31:23",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 69,
+     "pf_wei": "5395747",
+     "hash": "0x226d471de4d3f739a84297f9792f929c9e64eb7efd9071db3ceca7ac1b8f1e55"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T08:31:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 10,
+     "pf_wei": "5000000",
+     "hash": "0x46808cc853601e9bff4ac2d8eba69d8c947fa2c1ea23664159ca3b5b9c8d4c46"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T08:40:35",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 70,
+     "pf_wei": "5395747",
+     "hash": "0xcffbf65370e23eaa6121d6e3e09bec7bbfcf8b07046498c49b5bfdc8abc8f550"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T08:51:59",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": "5000000",
+     "hash": "0x62bfaaca02dd1ab28c47032803d0eac5f2357661d6e0e1cd5931892d2c82de22"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:02:23",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 71,
+     "pf_wei": "5395747",
+     "hash": "0xdf12393c30ed3737ee592e109ef1d59dfa2c27bf8e75eada9c850b04306b57f5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:03:23",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 12,
+     "pf_wei": "5000000",
+     "hash": "0xafdb08dae99d2aa195c904ffe97970357a5f00ae58ecfafeb0b85d01f7c14bab"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:10:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 72,
+     "pf_wei": "5395747",
+     "hash": "0x128f644d4107f6f2f8db1b6c4ae4282081375e11e228c52ebd885cb940d396e4"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:11:11",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 13,
+     "pf_wei": "5000000",
+     "hash": "0x52cbea93bfa599835f26e7bcd2a96ce138d255ca0af8d529e2e32d9f1200c6e3"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:23:11",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 73,
+     "pf_wei": "5395747",
+     "hash": "0x21ab418d89fd6d8f1937f9ce142d5eb473850d1e078f29ca51ff44d6529ddce2"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:23:35",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 14,
+     "pf_wei": "5000000",
+     "hash": "0xb7a1cd778bd283fb056ffec6cbcd0932787d76054ea83b6c2a444808c6bf12d5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:39:35",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 74,
+     "pf_wei": "5395747",
+     "hash": "0xacb8b53a3223acb12dfb20f90154db1013a7e4a723cb56ee09b10a47cc83cf0a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:39:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 15,
+     "pf_wei": "5000000",
+     "hash": "0xb6dab4620b13173a039f8de9f0244aac64f9f7b78c0ef7ec1682df2f6e227eab"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:48:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 75,
+     "pf_wei": "5395747",
+     "hash": "0x52d5c2cb21828631085b1057a17c3eefd4a9eb62a21f75265755cb02b434b93c"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:49:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 16,
+     "pf_wei": "5000000",
+     "hash": "0xb60b374747818162fee9e00f4b793c5de59226e14b9272fdc03ba4894de9b482"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:59:35",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 76,
+     "pf_wei": "5395747",
+     "hash": "0x7c3163d6c7627eb9aa29d1c44708f5f236ba609eff1683a2a954142cddc4e2ac"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T09:59:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 17,
+     "pf_wei": "5000000",
+     "hash": "0xcae65ea7f4735b86a47d5cab2d6897ecfbf21b7200a3f739de636f217120dfab"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:10:11",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 77,
+     "pf_wei": "5395747",
+     "hash": "0xccb9a9f2f75a2af8b78c47418f9f78762c1d86d7b9fecd0b9d992df7573d0426"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:10:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 18,
+     "pf_wei": "5000000",
+     "hash": "0x74f30fbeb017e1f8a25672db80cca490da28464924c6007076e4fbe5190ca008"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:21:11",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 78,
+     "pf_wei": "5395747",
+     "hash": "0x00ee054763e790fd0b05b69bf0c2640123e01792a14f7aec0baef4f594dca05f"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:21:23",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 19,
+     "pf_wei": "5000000",
+     "hash": "0x3e4e394a9c04921b5609803d218870f87fbe4b6feb47b15959ae070ce346b01f"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:33:11",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 79,
+     "pf_wei": "5395747",
+     "hash": "0xb5ad9045fdec140590a778b01d34bf2013ff159021a2d1e4077b49ab63d3bd2b"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:33:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 20,
+     "pf_wei": "5000000",
+     "hash": "0x8bd5982ae1a77e16b6883a65427b13b44ebcbf9bf4c4f1190e57b3a76043cc47"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:45:35",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 80,
+     "pf_wei": "5395747",
+     "hash": "0xb163d2855ed81f7ad433ef61988ebe27047e11d311e23f1d27ba025ba473534a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:45:47",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 21,
+     "pf_wei": "5000000",
+     "hash": "0x6c6a90bba775f52e7f28482fcc426b9ff651fadb0536267f63e90d0ccfe31de2"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:55:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 81,
+     "pf_wei": "5395747",
+     "hash": "0x6dfd0e40bfb7e0d1f2aa9d8d926f98f3a4af03035c1aba8bc31058aea84c5070"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T10:56:23",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 22,
+     "pf_wei": "5000000",
+     "hash": "0x22ee24c9eac04c6c715e632baed056e520cdeb96a8abcb2b694debaac8ac731a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:13:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 82,
+     "pf_wei": "5395747",
+     "hash": "0x548c75a3b9bfb93dba9b65f81e4c4c2c7478cb0cd12f473833759e4f85d365bd"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:14:11",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 23,
+     "pf_wei": "5000000",
+     "hash": "0x3d416b6fb37ef59f8658736ed7b489bbe7866eb65a2cf8d5d944a4a8859b6d69"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:24:47",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 83,
+     "pf_wei": "5395747",
+     "hash": "0x665ee8eff4f91dc299e198cd1485053d065a4967bfb73ca9e0154a49f7c4bf68"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:25:11",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 24,
+     "pf_wei": "5000000",
+     "hash": "0x1a1eb0d91531dc24bed77d14fde3c720ab2755e2fa71b07b062239174d8887a7"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:38:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 84,
+     "pf_wei": "5395747",
+     "hash": "0x36c45e44f764e358099622bbb5230342296bb90d1f96cdf71f0c534badc9ffa4"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:39:11",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 25,
+     "pf_wei": "5000000",
+     "hash": "0xfaea95d48d1f3f5217e4c61409fd853b12601d5b8c5c305358b57ee2210d1ddb"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:50:35",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 85,
+     "pf_wei": "5395747",
+     "hash": "0xe2aa9e3cd1ac6430d55965bd8e372b8f6645f58f4ef4e991cd727e919ca567db"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T11:50:59",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 26,
+     "pf_wei": "5000000",
+     "hash": "0xc35b477a93c7c9da9296595668f6ccf9f7be54f29e8825b1fb16eaf1befb36d7"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T12:03:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 86,
+     "pf_wei": "5395747",
+     "hash": "0x89ec94fd2dc500dfd96227320ea71773c39a926c4642725fe83384bbfe1c78f5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T12:04:23",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 27,
+     "pf_wei": "5000000",
+     "hash": "0x599ef632488d174814b78867b7551804e1052d0517459e48b5dfd7583f25ae70"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T12:14:47",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 87,
+     "pf_wei": "5395747",
+     "hash": "0x7f4c040bc9337839ce2ce8c9f48905223322821c5403b0d6e1f82d9971add492"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T12:15:11",
+     "other": "0x96300aeafb9d31ab57f840eea55a7dfe2d3162b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 28,
+     "pf_wei": "5000000",
+     "hash": "0xed601f2255d122a6de1b6bf2a2fe116f5315b47bd1b673d88a6fa162ac92fe3e"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-18T12:26:59",
+     "other": "0x9630d3818b5adbfd52eb38f5fdc310aec6c262b9",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 88,
+     "pf_wei": "5395747",
+     "hash": "0x943cd9e91b550c9e1bdf7354ce7041a832a23ea1eef2087d09b066e5910c981b"
+    }
+   ]
+  },
+  "0x073be86d6cf0a64acf4a67e302d021a2dd4bba02": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": true,
+    "creation_transaction_hash": null,
+    "coin_balance": "166723537635424487469"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-11T16:46:47",
+     "other": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "name": "InitializableImmutableAdminUpgradeabilityProxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1280,
+     "pf_wei": "2000000000",
+     "hash": "0x3ae8774f498f9144ffa51e0bd76bc273a1581acc0a0498c4f0daac6567979d9c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-11T16:47:11",
+     "other": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "name": "InitializableImmutableAdminUpgradeabilityProxy",
+     "eth": 0.0,
+     "method": "withdraw",
+     "nonce": 1281,
+     "pf_wei": "2000000000",
+     "hash": "0x61edeb8529292ba519bc216fcd6fdf30645eb9c4a351f3f87b428f2e1796ae56"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-11T16:48:47",
+     "other": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+     "name": "USDC",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1282,
+     "pf_wei": "2000000000",
+     "hash": "0x2eb1d2729e88925368b6ac1beecc779ad959bc2e60471db620489211319bc902"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-11T16:49:11",
+     "other": "0xacddac6c77318b615f7f6fb9bb67c6833e9c05f1",
+     "name": "LZMultiCall",
+     "eth": 0.0,
+     "method": "execute",
+     "nonce": 1283,
+     "pf_wei": "2000000000",
+     "hash": "0x7ab86b17dd45fdea4ef36d1ec21f8566ab83df7d97ef3d6f827ee9106805f763"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-15T07:18:11",
+     "other": "0xfe34bf713f3c2499026cdfa5af43eb22aa2d1adb",
+     "name": "ERC1967Proxy",
+     "eth": 80.0,
+     "method": "supplyCollateral",
+     "nonce": 1284,
+     "pf_wei": "191433355",
+     "hash": "0x91230aea75afee3abe46ce976c9846e51fddc8964eb3f8a1402033d38e848ed8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-15T07:18:35",
+     "other": "0xf820fb4680712cd7263a0d3d024d5b5aea82fd70",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "borrow",
+     "nonce": 1285,
+     "pf_wei": "190697288",
+     "hash": "0xb29dd7b7244b1b61b4f2c5f3179a4d1d8c5836db802b87d8f65f96cda80716e5"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-15T07:20:23",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1286,
+     "pf_wei": "2000000000",
+     "hash": "0x08bd4b8e5e63ee10722e7f899c8f0ed1b5f5e53b2cdec015093c2495da6fbaec"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-15T07:20:47",
+     "other": "0xacddac6c77318b615f7f6fb9bb67c6833e9c05f1",
+     "name": "LZMultiCall",
+     "eth": 0.0,
+     "method": "execute",
+     "nonce": 1287,
+     "pf_wei": "2000000000",
+     "hash": "0x9962a06449fe09827a5a8b9f8fe5c79960c25688488048ebb1e5320a84b762eb"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-17T06:29:35",
+     "other": "0x889edc2edab5f40e902b864ad4d7ade8e412f9b1",
+     "name": "OssifiableProxy",
+     "eth": 0.0,
+     "method": "claimWithdrawals",
+     "nonce": 1288,
+     "pf_wei": "2000000000",
+     "hash": "0x287e30fb071bd7b022e3d688e8595f07b0ce6c53b5c2bbd7fbc4935e1c268c68"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-23T17:04:11",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1289,
+     "pf_wei": "107559259",
+     "hash": "0x0f5f875b3f38eed10f5a77db022511624f2f6ba235d0a61726c536041679b3be"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-23T17:04:23",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1290,
+     "pf_wei": "118808142",
+     "hash": "0x2d7423c983ac7632133aaf5f228893605c0cce24079b71a053f79d67b4cfa115"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-23T17:04:35",
+     "other": "0xf820fb4680712cd7263a0d3d024d5b5aea82fd70",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1291,
+     "pf_wei": "102620552",
+     "hash": "0x8b3484752d9bad1001a2c451637b1e829cef5b5fe43055de13fd5702d9ad3a8c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-03T06:29:23",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1292,
+     "pf_wei": "2000000000",
+     "hash": "0x8bf3d76b09e4750a95047cfa4732fc031f1555ec7ec00c77b0b7365efd860819"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-03T06:29:35",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1293,
+     "pf_wei": "196500554",
+     "hash": "0x2aa4f21f0c4ff80479f29a5fd08ba4da037ac63e7ad2d816bdbb8ea844175c56"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-03T06:30:23",
+     "other": "0xf820fb4680712cd7263a0d3d024d5b5aea82fd70",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1294,
+     "pf_wei": "2000000000",
+     "hash": "0x18c3e1d9aed94934309acc282e0b6e00a3241dae8502e91cb800baa83b475da8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-18T21:51:47",
+     "other": "0x68177f9e40fd4dedd2487209820c8d461fd034b7",
+     "name": "SablierMerkleInstant",
+     "eth": 0.0006,
+     "method": "claim",
+     "nonce": 1295,
+     "pf_wei": "1500170000",
+     "hash": "0xc70892afe769bd8a5a221e45023e30255f2e2e2bb8795bb5c29e6f9d01eeaf2b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-29T09:17:47",
+     "other": "0xfc82267a9e065aaf407f64dadd49bfbdc9511fb1",
+     "name": "PendleMarketV7",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1296,
+     "pf_wei": "2000000000",
+     "hash": "0x99764c2e5503f470b5998abdb83a0ccc7b962ddef7188c07813248f36231c7a0"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-29T09:18:11",
+     "other": "0x888888888889758f76e7103c6cbf23abbf58f946",
+     "name": "PendleRouterV4",
+     "eth": 0.0,
+     "method": "0x60fc8466",
+     "nonce": 1297,
+     "pf_wei": "2000000000",
+     "hash": "0xdb43d5a06bcb2204a92576611dd3263efea56dc86e05ead14f6a9c193deae8a4"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-29T09:21:23",
+     "other": "0x3d7d6fdf07ee548b939a80edbc9b2256d0cdc003",
+     "name": "TransparentUpgradeableProxy",
+     "eth": 0.0,
+     "method": "redeem",
+     "nonce": 1298,
+     "pf_wei": "2000000000",
+     "hash": "0x31f821c2df3bfaca49fc07b8d8b96315e5c42b1db90532b4e74e43e6c6041365"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-29T09:22:11",
+     "other": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+     "name": "Staked USDe",
+     "eth": 0.0,
+     "method": "cooldownShares",
+     "nonce": 1299,
+     "pf_wei": "2000000000",
+     "hash": "0xcd9adddf601959e95241ba051f892b2346983ecf838db0939c6b2f89ba891786"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-06-29T09:33:11",
+     "other": "0x4e3fbd56cd56c3e72c1403e103b45db9da5b9d2b",
+     "name": "ConvexToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1300,
+     "pf_wei": "2000000000",
+     "hash": "0x811f4acb9fa8365723ab28542dc63d3cb47c6f23f2235524e0e8dedd25b60b28"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-03T17:30:11",
+     "other": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+     "name": "Staked USDe",
+     "eth": 0.0,
+     "method": "unstake",
+     "nonce": 1301,
+     "pf_wei": "2000000000",
+     "hash": "0x5c4de184aa9c9fbf180b1cca8bd4f19356dc42d300bb1582783394ee43ffc8a8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T11:02:11",
+     "other": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+     "name": "USDe",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 1302,
+     "pf_wei": "2000000000",
+     "hash": "0xe44a7e3058f4b32dbba6f6efcb44cfcc48b5dd1de1ce1aa88d73b0c90dbadb1c"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T11:06:23",
+     "other": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "name": "InitializableImmutableAdminUpgradeabilityProxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1303,
+     "pf_wei": "2000000000",
+     "hash": "0x6b8ddbb2a732b48553bf24cc432a73b5cec8dd89c594d91219ac72db5579eb79"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T11:06:47",
+     "other": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "name": "InitializableImmutableAdminUpgradeabilityProxy",
+     "eth": 0.0,
+     "method": "withdraw",
+     "nonce": 1304,
+     "pf_wei": "2000000000",
+     "hash": "0x8bcc2b8d18e95a5488ccc5380025c332e5ee72dfdc09078fd8ff859cf15ee3b9"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T20:00:59",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1305,
+     "pf_wei": "2000000000",
+     "hash": "0xeb483590495de8cd448a07bd5e79dbacb805fcb50aaaa38aef58b7efb0344748"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T20:02:35",
+     "other": "0xf820fb4680712cd7263a0d3d024d5b5aea82fd70",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1306,
+     "pf_wei": "2000000000",
+     "hash": "0x7a60e50352b2ea975f425045078e00793b56ba4c7cb2e4836a9837f828a0296b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-11T20:03:23",
+     "other": "0xfe34bf713f3c2499026cdfa5af43eb22aa2d1adb",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "withdrawCollateral",
+     "nonce": 1307,
+     "pf_wei": "155886915",
+     "hash": "0x463b39a82240a057b57b804724d1aad3b89258f2160e1416f26702b36660cc54"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-25T13:52:35",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 1308,
+     "pf_wei": "73072642",
+     "hash": "0xe5edb4d4e74659eb1fdd2f58e719e436288155524888c01c44ca38622d1f7446"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-25T13:52:47",
+     "other": "0xf820fb4680712cd7263a0d3d024d5b5aea82fd70",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1309,
+     "pf_wei": "65466838",
+     "hash": "0x4aaca8d62c99a8a64dfbb024d35395a61a886a4e5c699db25c35a787e460a2aa"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-07-25T13:53:59",
+     "other": "0xfe34bf713f3c2499026cdfa5af43eb22aa2d1adb",
+     "name": "ERC1967Proxy",
+     "eth": 0.0,
+     "method": "withdrawCollateral",
+     "nonce": 1310,
+     "pf_wei": "65025561",
+     "hash": "0x2925adf2f5be8055c1d2f518db74bb255a286375a6b65d69db17b485d8312a33"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T08:53:35",
+     "other": "0x87870bca3f3fd6335c3f4ce8392d69350b4fa4e2",
+     "name": "InitializableImmutableAdminUpgradeabilityProxy",
+     "eth": 0.0,
+     "method": "repay",
+     "nonce": 1311,
+     "pf_wei": "2000000000",
+     "hash": "0x8222b3ceb3c422b0e47666658de8e8863de9bae030a5b3c23e3ae3b2e5a3642a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:18:11",
+     "other": "0x073be86d6cf0a64acf4a67e302d021a2dd4bba02",
+     "name": null,
+     "eth": 1.0,
+     "method": null,
+     "nonce": 1312,
+     "pf_wei": "2000000000",
+     "hash": "0x0b840ac37f126786b0ecd33deb55b5f44db5907f548dfbbcfda5c12163143985"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:21:11",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 5.0,
+     "method": "deposit",
+     "nonce": 1313,
+     "pf_wei": "3000000000",
+     "hash": "0x6fbac4addc1cf765a77989260d2a7ea7fc65cfad5c0d5fd641525db90b382102"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:23:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 5.0,
+     "method": "deposit",
+     "nonce": 1316,
+     "pf_wei": "3000000000",
+     "hash": "0xc3e2a180bd9938363b67ae84a70acecaae9f50b2288237932940d734abb006a0"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:24:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 10.0,
+     "method": "deposit",
+     "nonce": 1317,
+     "pf_wei": "3000000000",
+     "hash": "0xa3c66efc2907e0c7a30dda6ba853a3d9d7154d945c4173be7b583ffa72a61a00"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:25:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 15.0,
+     "method": "deposit",
+     "nonce": 1318,
+     "pf_wei": "3000000000",
+     "hash": "0x9b6f29758b69a0260d365bc0153cfaf3accb0ff5dbf28bb56dcdc9a8118a45c6"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:26:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 20.0,
+     "method": "deposit",
+     "nonce": 1319,
+     "pf_wei": "3000000000",
+     "hash": "0xc61c450ae7efeec2a2da1fb9049328701ffc6e5a30f3fa635ef4eaaa4df08ed8"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:26:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 25.0,
+     "method": "deposit",
+     "nonce": 1320,
+     "pf_wei": "3000000000",
+     "hash": "0x82603a61651c2f92e2b31ee5e4622ebfdc4dd629df1175feabb5bbea53b5308e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T16:26:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 30.0,
+     "method": "deposit",
+     "nonce": 1321,
+     "pf_wei": "3000000000",
+     "hash": "0x87ff676d1f25773a214448243f8d49cf55cae184dd5014ed328954c12c82463d"
+    }
+   ]
+  },
+  "0x3ee21aceeecedb6c756e2e0872b5fd0ee655d6b6": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "4300000000"
+   },
+   "txs": [
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:04:11",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0111,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "150",
+     "hash": "0xdc930b6b8991705049226b44310423307cda70d566a028757766fe0808b3503d"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:04:11",
+     "other": "0x424a0db8614f7bec1db4c4909d4d0bb66db5745e",
+     "name": "GoblinVault",
+     "eth": 0.0,
+     "method": "mintWithPermit",
+     "nonce": 1,
+     "pf_wei": "150",
+     "hash": "0xc33b11f56fc01849315ef7aae92de68ae5298b65748150eab7140a72aead812b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-09T14:14:59",
+     "other": "0x3e800a1999d9c03f0deaf1deddc16ad5415bddd6",
+     "name": "GoblinToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 2,
+     "pf_wei": "100",
+     "hash": "0x4676958b790cf497a965877f9d02234c3743132c0cd688ddd544c783f845ddc2"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:12:59",
+     "other": "0xa8f39d775397f635b4c7e869b3025ec41befe012",
+     "name": "InscriptionMintController",
+     "eth": 0.001,
+     "method": "claim",
+     "nonce": 3,
+     "pf_wei": "183",
+     "hash": "0xe6ef2d2e1d9234cda625ca4bbf66b3a90ef272ff8a940bb5eb2da057f6bec3bb"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-10T08:53:11",
+     "other": "0x956a8af1d0b873cfa46f8d3b8ca70f6bc70e18fb",
+     "name": "MintHookToken",
+     "eth": 0.0,
+     "method": "transfer",
+     "nonce": 4,
+     "pf_wei": "102",
+     "hash": "0xdd38a51d50242cf4501e9f09c9e75221cbf2bd31dd623b9f088bc1994d9d0774"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T08:35:35",
+     "other": "0xb3f85ef5a814793fd620b922393d71cced24a842",
+     "name": "SquarePepe",
+     "eth": 0.0002,
+     "method": "mint",
+     "nonce": 5,
+     "pf_wei": "149249609",
+     "hash": "0x74a3d1fcd7fbf6244afe8cee5d75d41ccd2c4c8f597c793ad2a908bc40b0116a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-13T11:22:23",
+     "other": "0x258ffe22cde3d9c52faa0276cc7e0baa6ad3966f",
+     "name": "Bonder",
+     "eth": 0.0005,
+     "method": "mint",
+     "nonce": 6,
+     "pf_wei": "75035544",
+     "hash": "0xbca9bdaa0b0c99ea09e9952420dbe3d9a726bca2da5e5ecdc3742c12e001e7a0"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-14T13:30:23",
+     "other": "0x1e9fe9a5bba33d0403368fc2dce7af660daf5b1e",
+     "name": "Identity0",
+     "eth": 0.0006,
+     "method": "mint",
+     "nonce": 7,
+     "pf_wei": "339715815",
+     "hash": "0x132ff109c4620671b6707339aee57fb7833b5ad6bc424697647e78d88c3b807f"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-17T08:59:59",
+     "other": "0x6802fd415f508fe8eec319cbebfb854b4b350e36",
+     "name": "CirclesNFT",
+     "eth": 0.0,
+     "method": "mint",
+     "nonce": 8,
+     "pf_wei": "122473574",
+     "hash": "0x5c90c5d24a55d647b103b5102cb830b754c82ba6d54e9a4c7d91c5792d83dce1"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-03T11:49:11",
+     "other": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "name": "SeaDrop",
+     "eth": 0.0,
+     "method": "mintPublic",
+     "nonce": 9,
+     "pf_wei": "132279603",
+     "hash": "0xe769323fbd98c58bdee742b4f696c8b54f0bceaf2fb9e87ff9118745288e935a"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T11:51:35",
+     "other": "0x94450b66aa1615a5a870d656680bf35f55de8c07",
+     "name": null,
+     "eth": 1.7213,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0xa1d318ae2bccd3f18b02863574a7629a69d50ed3dfe0745469abe98990b74955"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T11:51:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 1.6,
+     "method": "deposit",
+     "nonce": 10,
+     "pf_wei": "99884",
+     "hash": "0x6278be6c94f24faee03bc1db79d1c2aacfc030662aac11bbf5ac031dc3e7cde4"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T11:52:11",
+     "other": "0xdad06928d7659c68bc8989f9a5abe11418f93567",
+     "name": null,
+     "eth": 1.7226,
+     "method": null,
+     "nonce": 11,
+     "pf_wei": null,
+     "hash": "0xc17ad00ce5707628df6a7e4ed9f77cfbc9376751ca0a07f2dd1cfb48be0a1d30"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T11:53:11",
+     "other": "0xdad063602691c4c8d26d572b11f6576c27163567",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0x2243bb64e58ece0797f9b6ed2b2dbec8cd24fd9f2b50c70ef92e942cf321b1af"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:23:23",
+     "other": "0x94450b66aa1615a5a870d656680bf35f55de8c07",
+     "name": null,
+     "eth": 100.1758,
+     "method": null,
+     "nonce": 13,
+     "pf_wei": null,
+     "hash": "0xea85c24b1c896c621aee57b2d2e363c88040fcd6b4a23b37855be8791b805df7"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:23:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 97.2,
+     "method": "deposit",
+     "nonce": 12,
+     "pf_wei": "555921",
+     "hash": "0x4ad8d7e449a1e8a6e092809c6061fc67199b69cf38128ef0b3ecc7663d5ff83e"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T12:23:47",
+     "other": "0xdad06928d7659c68bc8989f9a5abe11418f93567",
+     "name": null,
+     "eth": 100.1758,
+     "method": null,
+     "nonce": 13,
+     "pf_wei": null,
+     "hash": "0x8fc06bfd0093dfc7eab2a94ceed69338f532d591f5ff9643f273122631a8a756"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:24:11",
+     "other": "0xdad0bfe0975468e2a6d9811eca15ca355e923567",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5000000",
+     "hash": "0xe1bcb22b34d5df24dd26f5e5237bd650d647ce99d9b0730316ef908ed9a4d1e9"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:28:35",
+     "other": "0xdad02f57ef8d28661b504e4751dba04b7d383567",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0xc2dc527d65bb7abefba27878f75dab16356f349494c87f3a3c97dcab37163383"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:41:35",
+     "other": "0xdad059201f22a16f78b3f4e37819470229c50567",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x9576eaba2f5f99f9680782383f71b23b19a3f1fa13d92bf22bf600baea6faa85"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T12:49:35",
+     "other": "0xdad02f57ef8d28661b504e4751dba04b7d383567",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": "5395747",
+     "hash": "0x923c09f5b433a35902badbdef928958806eb5a6d9362f771506a1fce775c2659"
+    }
+   ]
+  },
+  "0x27ba37d658c9c1e7f3175d662fdb21f0ae347871": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "361125158396004180"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-04-16T21:48:23",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 29,
+     "pf_wei": "1395747",
+     "hash": "0x50367dae32439f654e42d15c7cd5248395b172b27a70e5b68d058b2366387db1"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T21:49:47",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 29,
+     "pf_wei": "5000000",
+     "hash": "0xeb3edbc57ccd7e536b248128f319ec2481e0ac3b1fcfd663fc6ce38388bde1ed"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T21:56:23",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 30,
+     "pf_wei": "1395747",
+     "hash": "0x327ee062021ac18d395f7452f24c7d4acbf7fc137462169af8ae03ee96d96d96"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T21:56:47",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 30,
+     "pf_wei": "5000000",
+     "hash": "0xf75f2e07d54c6c708b65f34be0625a4bfbab523486228011730b8fc3508e3e9d"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:01:23",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 31,
+     "pf_wei": "1395747",
+     "hash": "0x18dd7131258efc968b5668002d14470e2f190a72ef008fb13e73d368a7b94e90"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:01:47",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 31,
+     "pf_wei": "5000000",
+     "hash": "0x9aaa65260c571e4dbb004d90f6c7e4a5c685510ce45628c5143edd520031adf1"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:07:35",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 32,
+     "pf_wei": "1395747",
+     "hash": "0xb8eaf0888863caddf98545ae777cb0cc90fa125b62195a43b6921d8d7dc96fdb"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:07:59",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 32,
+     "pf_wei": "5000000",
+     "hash": "0x7b1920322f6c2ce89431f22d95849ef8d6d1bce44adf9a623c3d198b54fa9259"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:12:47",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 33,
+     "pf_wei": "1395747",
+     "hash": "0xf247bcc58f81f67ab918606cb05b01a871d8d841d1655c1f5f6c1a6f3223ccb5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:12:59",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 33,
+     "pf_wei": "5000000",
+     "hash": "0x476e11ee77413f85e10d9282a6ec53426e8fcf21d92b59f24fade2a7e513b586"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:19:47",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 34,
+     "pf_wei": "1395747",
+     "hash": "0xf2982dbd25dc91fe54a91986769cc66e939a287474516e73e84836e25f890f4c"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:20:11",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 34,
+     "pf_wei": "5000000",
+     "hash": "0x120050c6e8b81664f13a8b5fd6362367a573ec104276470ee981ef6b5de8e3c6"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:25:47",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 35,
+     "pf_wei": "1395747",
+     "hash": "0xc101165b6db2fdeca451bb034a32203a82aa4d0416248809241beef1683bbba1"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:26:11",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 35,
+     "pf_wei": "5000000",
+     "hash": "0x47327238f9e85359c0c673a3803dc75e857fa4fdd318a829a9060e0f0e6f0eeb"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:30:35",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 36,
+     "pf_wei": "1395747",
+     "hash": "0xa0d6ee5735a2b7a965fef8df9773629d809f84d28f1eb5eb9c8009e7f2bb5df8"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:31:11",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 36,
+     "pf_wei": "5000000",
+     "hash": "0x030c744e29652666107a3ac66f036640a20cad391e794075004702fea79368b5"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:36:11",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 37,
+     "pf_wei": "1395747",
+     "hash": "0xd11a357f97e999fdc5d9330a4222bee25ba2c61e99c6ac696208a198b3087f11"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:36:47",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 37,
+     "pf_wei": "5000000",
+     "hash": "0xa970a21b17617f8783f64e77e75f253e72bc81aa508d869e37ba46de4a17775b"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:40:11",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 38,
+     "pf_wei": "1395747",
+     "hash": "0xd3f534fae3a44d26935cd3a68747c5a0df4338668ec2f040b4580914e1d5fc39"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:41:47",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 38,
+     "pf_wei": "5000000",
+     "hash": "0x81b304d62fbc6b4c78162d33da1656bf53d80ab9037254ea007c6ee81b4c7702"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:45:35",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 39,
+     "pf_wei": "1395747",
+     "hash": "0x8203d1423676ffb12b5be25054353981882dec6caf1b7aaec050a312eda3bac1"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:46:59",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 39,
+     "pf_wei": "5000000",
+     "hash": "0x0db88bad34ea0b05353e8bab28fc6688b17173c62f73147437f362ba6cd12f53"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:52:23",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 40,
+     "pf_wei": "1395747",
+     "hash": "0xed7cc3ea053beca02f7ec96eafd7c7461d7b9fe61d6f591723c8d8c9ce6c1bc1"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:52:35",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 40,
+     "pf_wei": "5000000",
+     "hash": "0xe121c00136c0923a7e9e8cc0a546efb4559b5647c388e04485a1d966605dfc88"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:57:59",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 41,
+     "pf_wei": "1395747",
+     "hash": "0xefee6e33f4c341df2645fcc3c9c93ff196710d4d31fa29b8b8827facfddbe488"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T22:58:23",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 41,
+     "pf_wei": "5000000",
+     "hash": "0x4ddcc5a9e992de1042af2b2dad80c65fcfa166035a52c4e6883b08735710b306"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T23:03:11",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 42,
+     "pf_wei": "1395747",
+     "hash": "0xe1bbd66b73d7f79c4128e8eee7bf8fd31015ccb5fecd6b05c9e9b64e91dc2654"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T23:03:23",
+     "other": "0x47f8b37f411fd92a875948d5e1ddae3b26f98641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 42,
+     "pf_wei": "5000000",
+     "hash": "0xc9b9424036b46d001a86ddb332a8bdc303c36d707708d2549dab18bd588ac7eb"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-16T23:10:23",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 43,
+     "pf_wei": "1395747",
+     "hash": "0x3fefac98f17a572eeb1d90c0a825f12d9ec0a0fa7f1dfbb62f8d01e143f525e0"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-23T01:05:59",
+     "other": "0x47f00730b90fa62609e3d0a360bafcadc5a58641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "34383109",
+     "hash": "0xf4ec8a9242fe289f27177587e0252280f5f1b0074fe2b932b7db905b6b6de3e8"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-04-23T01:08:59",
+     "other": "0x47f866fff8ddd4a28eba5a8ad1815a2acfc28641",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 44,
+     "pf_wei": "1395747",
+     "hash": "0x5e8dd820709d5eb6b1b2e935875b2dc9bf8463596c68cad2a72929fe43b2fc30"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-05-22T08:07:35",
+     "other": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+     "name": "TetherToken",
+     "eth": 0.0,
+     "method": "approve",
+     "nonce": 144,
+     "pf_wei": "64363343",
+     "hash": "0xbd3f6d9523e1a359dfad19e4dc6779c6822cb37e24a7852c7a3aaa2ae1ee68d3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T04:43:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 0.05,
+     "method": "deposit",
+     "nonce": 145,
+     "pf_wei": "33708236",
+     "hash": "0xa1e979117a0f591e9c796b22fc300d17bd7f497d17541e5f57322f10533b1a0a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T04:47:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 0.33,
+     "method": "deposit",
+     "nonce": 146,
+     "pf_wei": "47842529",
+     "hash": "0x93b0e80e3dc505715af0b98033b294ec438318e1a015bc2e2d7127f28554d8e4"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T06:27:11",
+     "other": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+     "name": null,
+     "eth": 1.0093,
+     "method": null,
+     "nonce": 3668615,
+     "pf_wei": "1100000",
+     "hash": "0xdc7c265892bd19a3b25a291474ba9693e23c993938a120f877502ef08615e686"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T06:39:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 0.46,
+     "method": "deposit",
+     "nonce": 147,
+     "pf_wei": "68332202",
+     "hash": "0x62a4d23a16e7a998dfbfb84089fd4ba78a6fe9dd8de1a7a1b8b7793f1df3027a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T06:39:59",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 1.06,
+     "method": "deposit",
+     "nonce": 148,
+     "pf_wei": "54860723",
+     "hash": "0xa50d79bd5f86f97a4d1fb6e8df7bc610cdca5fce752413e9884028cb9b4bac34"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T06:40:47",
+     "other": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     "name": null,
+     "eth": 9.9999,
+     "method": null,
+     "nonce": 15010504,
+     "pf_wei": "1000000000",
+     "hash": "0xaf57ea33b29760c912e3442fb1da739317910fc14abe6797050c728be126ad54"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T06:41:47",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 5.0,
+     "method": "deposit",
+     "nonce": 149,
+     "pf_wei": "76548585",
+     "hash": "0x6199f6f82c9bb52d86118ada6529f85c06b666647a87517431f3075edf8f284a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T06:42:23",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 10.3,
+     "method": "deposit",
+     "nonce": 150,
+     "pf_wei": "76548585",
+     "hash": "0x5b0fc357f9ea1f6669245b7bd009ab5faea874eae27aa1b0875604c741823b23"
+    }
+   ]
+  },
+  "0x6a44da75bb735e36714af5338cede47b6fc01ce8": {
+   "info": {
+    "name": null,
+    "ens_domain_name": null,
+    "is_contract": false,
+    "creation_transaction_hash": null,
+    "coin_balance": "1915983994967912"
+   },
+   "txs": [
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:20:23",
+     "other": "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+     "name": null,
+     "eth": 96.1,
+     "method": null,
+     "nonce": 14,
+     "pf_wei": "600000000",
+     "hash": "0x96f79a692d586db0ab985bb9298b63137990dfd68a0bc793ad9a491cb765ce6b"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:20:35",
+     "other": "0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91",
+     "name": "WhitelistCurator",
+     "eth": 96.012,
+     "method": "deposit",
+     "nonce": 0,
+     "pf_wei": "600000000",
+     "hash": "0x8245e431e94eacd0ae52dff844cc3b0b23c630ea45c4c643856a3c4c4298655a"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:20:59",
+     "other": "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+     "name": null,
+     "eth": 96.099,
+     "method": null,
+     "nonce": 1,
+     "pf_wei": "600000000",
+     "hash": "0x13d2462caa0ce7005bdbba5489d5fefc7ee9171cb014647c91a3862ee390cf2e"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:26:35",
+     "other": "0xfe0cec30a9af6c64b8887b6479e48926d55806c0",
+     "name": null,
+     "eth": 1.0,
+     "method": null,
+     "nonce": 15,
+     "pf_wei": "600000000",
+     "hash": "0xa377beb190acc7caa861ca38237297e7e77d9d01831142edf113cdf738cab2e3"
+    },
+    {
+     "dir": "out",
+     "ts": "2026-08-17T14:27:35",
+     "other": "0x3922d8f6ceba2819d8eb42cb228060ae676c1ca0",
+     "name": null,
+     "eth": 0.999,
+     "method": null,
+     "nonce": 2,
+     "pf_wei": "600000000",
+     "hash": "0xc3858a5f08e2f67cb5a9152f6cfb60d84ec935db0ffc93a244c812af9da827d8"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T14:33:59",
+     "other": "0xfe0c20e72d4303f11ce9344d33163a90602306c0",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "100000",
+     "hash": "0x0e3c6d6c008295e5e418c420c492010b05123442ad318236e902a521fa2f55c3"
+    },
+    {
+     "dir": "in",
+     "ts": "2026-08-17T20:18:59",
+     "other": "0xfe0c383883817e296bcace3b3a5b4e8ca59d06c0",
+     "name": null,
+     "eth": 0.0,
+     "method": null,
+     "nonce": 0,
+     "pf_wei": "5395747",
+     "hash": "0x298c84da5559e795d112527cb9f453b44e5e3d0901ca9c63e30ac2b6947aa6ef"
+    }
+   ]
+  }
+ },
+ "files": [
+  "skeptic_ring99_rederive.py",
+  "skeptic_ring99_rederive.json",
+  "skeptic_ring99_core.json",
+  "skeptic_ring99_bs.py",
+  "skeptic_ring99_bs.json"
+ ]
+}

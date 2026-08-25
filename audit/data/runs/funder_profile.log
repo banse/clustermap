@@ -1,0 +1,66 @@
+funding rows: 19522 / 19522 contributors
+distinct funders: 14624
+[funders] 25/147 batches, 2500 profiled
+[funders] 50/147 batches, 3300 profiled
+[funders] 75/147 batches, 3400 profiled
+[funders] 100/147 batches, 4700 profiled
+[funders] 125/147 batches, 7200 profiled
+[funders] 147/147 batches, 9324 profiled
+[funders] retry 5300 in lots of 10
+[funders] 150/147 batches, 9354 profiled
+[funders] 175/147 batches, 9444 profiled
+[funders] 200/147 batches, 9694 profiled
+[funders] 225/147 batches, 9944 profiled
+[funders] 250/147 batches, 10194 profiled
+[funders] 275/147 batches, 10444 profiled
+[funders] 300/147 batches, 10694 profiled
+[funders] 325/147 batches, 10944 profiled
+[funders] 350/147 batches, 11194 profiled
+[funders] 375/147 batches, 11444 profiled
+[funders] 400/147 batches, 11694 profiled
+[funders] 425/147 batches, 11944 profiled
+[funders] 450/147 batches, 12194 profiled
+[funders] 475/147 batches, 12444 profiled
+[funders] 500/147 batches, 12694 profiled
+[funders] 525/147 batches, 12944 profiled
+[funders] 550/147 batches, 13194 profiled
+[funders] 575/147 batches, 13444 profiled
+[funders] 600/147 batches, 13694 profiled
+[funders] 625/147 batches, 13944 profiled
+[funders] 650/147 batches, 14194 profiled
+[funders] 675/147 batches, 14444 profiled
+[funders] retry 160 in lots of 1
+[funders] 700/147 batches, 14487 profiled
+[funders] 725/147 batches, 14512 profiled
+[funders] 750/147 batches, 14537 profiled
+[funders] 775/147 batches, 14562 profiled
+[funders] 800/147 batches, 14587 profiled
+[funders] 825/147 batches, 14612 profiled
+classes: {'service': 185, 'personal': 1580, 'contributor': 12402, 'contract': 243, 'exchange': 184, 'operator': 30}
+wallets funded by class: {'service': 322, 'personal': 1636, 'contributor': 12885, 'contract': 590, 'exchange': 3892, 'operator': 160}
+wrote funder_profile.json (14624), infra_cex_full.json (184), infra_all.json (612)
+  0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23 funded=  327 nonce=  3703861      eoa exchange
+  0xd152f549545093347a162dce210e7293f1452150 funded=  259 nonce=        1 contract contract
+  0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573 funded=  252 nonce=  1175005      eoa exchange
+  0xc098b2a3aa256d2140208c3de6543aaef5cd3a94 funded=  233 nonce=  2939944      eoa exchange
+  0xdfd5293d8e347dfe59e90efd55b2956a1343963d funded=  207 nonce= 15088539      eoa exchange
+  0x4976a4a02f38326660d17bf34b431dc6e2eb2327 funded=  203 nonce=  5885781      eoa exchange
+  0x21a31ee1afc51d94c2efccaa2092ad1028285549 funded=  198 nonce= 15661043      eoa exchange
+  0xa7efae728d2936e78bda97dc267687568dd593f3 funded=  191 nonce=  2743936      eoa exchange
+  0x9696f59e4d72e237be84ffd425dcad154bf96976 funded=  180 nonce=  9866883      eoa exchange
+  0x28c6c06298d514db089934071355e5743bf21d60 funded=  177 nonce= 17989338      eoa exchange
+  0x56eddb7aa87536c09ccc2793473599fd21a8b17f funded=  173 nonce= 10110704      eoa exchange
+  0xbf94f0ac752c739f623c463b5210a7fb2cbb420b funded=  148 nonce=  1819347      eoa exchange
+  0xf70da97812cb96acdf810712aa562db8dfa3dbef funded=  147 nonce=  4731955      eoa exchange
+  0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840 funded=  133 nonce=  1814982      eoa exchange
+  0x3230466e58bb1019f5695ff55248ece1e753eb79 funded=  100 nonce=      106      eoa contributor
+  0x6729b0a85c81a0a3ac92d891791b61c4917884b2 funded=   99 nonce=      209      eoa contributor
+  0x0d0707963952f2fba59dd06f2b425ace40b492fe funded=   79 nonce= 10073105      eoa exchange
+  0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf funded=   64 nonce=   414730      eoa exchange
+  0x4b4e14a3773ee558b6597070797fd51eb48606e5 funded=   61 nonce=   155607      eoa exchange
+  0x5babe600b9fcd5fb7b66c0611bf4896d967b23a1 funded=   61 nonce=   997481      eoa exchange
+  0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88 funded=   61 nonce=  8004560      eoa exchange
+  0xf89d7b9c864f589bbf53a82105107622b35eaa40 funded=   61 nonce=  7204423      eoa exchange
+  0x331d9a049d496385998067abf6cbb6371c8d2466 funded=   59 nonce=   413651      eoa exchange
+  0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589 funded=   51 nonce=   414635      eoa exchange
+  0x18dd3c14e34c1bc379f7538068c59160d9f68e25 funded=   46 nonce=   417809      eoa exchange

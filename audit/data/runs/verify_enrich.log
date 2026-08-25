@@ -1,0 +1,12 @@
+answer key: 12461 rows resolved by the paginated walk
+
+uniform sample (n=60): agree 60/60 (unreadable 0, excluded)
+
+high-activity stratum: 1057 wallets had sent >=100 txs before depositing
+high-nonce sample (n=60): agree 60/60 (unreadable 0, excluded)
+
+tx rows fetched by RPC: 16150
+tx rows: agree 60/60 (unreadable 0, excluded)
+
+coverage: funding 19127/19522 (97.98%), first-deposit tx 19522/19522 (100.00%)
+funder=None (walked to the end, nothing incoming): 37

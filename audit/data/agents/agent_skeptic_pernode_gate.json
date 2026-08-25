@@ -1,0 +1,719 @@
+{
+ "agent": "skeptic_pernode_gate",
+ "finding_under_test": "Component-level '>=2 families' gate lets 1,148 one-family nodes and 868 no-strong-rule nodes ride in; per-node gate (>=2 families at node AND >=1 strong) removes 1,566 at >=99.5% recall on 11 audited farm waves",
+ "investigator_file_cited": "agent_prior_art_fp_control.json DOES NOT EXIST; numbers traced to agent_priorart.json + pernode_out.json + policies_out.json (pernode.py, policies.py)",
+ "verdict": "REFUTED AS STATED (structural half holds; remedial half and affected-wallet count do not)",
+ "A_numbers_rederived": {
+  "base_flagged": 11573,
+  "base_equals_live_263_clusters": true,
+  "per_node": {
+   "ge2": 10425,
+   "eq1": 1148,
+   "weak_only": 868,
+   "P4_kept": 10007,
+   "removed": 1566,
+   "eq1_and_weak_only_overlap": 450,
+   "eq1_union_weak_only": 1566
+  },
+  "note": "eq1 (1,148) and weak-only (868) overlap by 450; union = 1,566 = base - P4. All counts reproduce exactly.",
+  "P4_kept": 10007,
+  "removed_R": 1566,
+  "ENS_in_R": 229,
+  "ladderers_in_R": 59,
+  "controls_in_R": 8,
+  "ENS_in_R_nonce_profile": "0 with nonce 0, 226/229 nonce>=20, median nonce 427",
+  "ladderers_in_R_profile": "59/59 sequence-only, 56x0.05 + 3x0.051; 37 nonce>=20, 17 nonce 0, 10 ENS; 23 in cluster 7 (0.05x998)",
+  "P4_second_family_via_gas_only": 23,
+  "P4_needs_hub_as_second_family": 478
+ },
+ "B_recall_claim_check": {
+  "claimed": ">=99.5% on all 11 audited farm waves",
+  "measured_11": {
+   "0.45@h3-4": "1994/1996",
+   "14.0@h3-15": "1001/1003",
+   "10.0@h5": "769/770",
+   "1.2@h1-2": "300/300",
+   "2.067": "324/324",
+   "0.45@h34-37": "365/367",
+   "idxrun_12058": "100/100",
+   "idxrun_13326": "100/100",
+   "idxrun_13795": "100/100",
+   "idxrun_13897": "100/100",
+   "idxrun_14001": "100/100"
+  },
+  "0.45@h34-37_is_99.46pct": "365/367 = 0.9946 < 0.995 (minor)",
+  "windows_added_after_policies_run_(sk_v2 now has 19)": {
+   "bitget-ladder(1.19-1.69 h17-31)": {
+    "P0": "232/232",
+    "P4": "0/232"
+   },
+   "ring99(any dep 90-110Ξ h16-19)": {
+    "P0": "81/419",
+    "P4": "18/419"
+   },
+   "0.05 recyclers(3 small hubs)": {
+    "P0": "43/48",
+    "P4": "43/48"
+   },
+   "ladder0.05→0.45(h35-37)": {
+    "P0": "9/111",
+    "P4": "2/111"
+   },
+   "jitter1.10-1.14(h36-55)": {
+    "P0": "2/541",
+    "P4": "0/541"
+   }
+  },
+  "all_known_farm_window_members_flagged": {
+   "P0": 5627,
+   "P4": 5316,
+   "lost": 311,
+   "window_union_size": 7087
+  },
+  "bitget6_operator_footprint": {
+   "bitget6_candidates": 242,
+   "bitget6_flagged_P0": 241,
+   "bitget6_in_R": 238,
+   "bitget6_kept_P4": 3,
+   "kept_by_cluster": [
+    [
+     7,
+     2
+    ],
+    [
+     177,
+     1
+    ]
+   ]
+  },
+  "reading": "P4 zeroes the 232-wallet Bitget-6 peel-loop farm (100% recall loss) and frees 63 of the 81 ring99 members P0 catches; the '11 waves' were exactly the windows where drip/burst/sequence already carry the node, so the recall check was not informative about weak-only farms."
+ },
+ "C_who_are_the_1566": {
+  "cache_only_classes": {
+   "neither (nonce 1-19, no ENS)": 271,
+   "human-like (nonce>=20 or ENS)": 814,
+   "farm-like (nonce0, single dep, hub/Disperse funder)": 301,
+   "fresh (nonce0) but funder fan-out<5": 180
+  },
+  "class_definitions": "farm-like = nonce 0 at deposit AND single deposit AND funder is Disperse or a first-funder with fan-out>=5; human-like = nonce>=20 at deposit OR ENS; fresh-lowfan = nonce 0 but funder fan-out<5; neither = nonce 1-19, no ENS",
+  "points_pct": {
+   "R_total": 5.445,
+   "human_like": 1.344,
+   "farm_like": 1.165,
+   "fresh_lowfan": 1.654,
+   "neither": 1.282,
+   "bitget_in_R": 0.964,
+   "ring99_in_R": 2.326
+  },
+  "R_kind_combos_top": [
+   [
+    [
+     "sequence"
+    ],
+    407
+   ],
+   [
+    [
+     "amount:exact_round_wave"
+    ],
+    252
+   ],
+   [
+    [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    186
+   ],
+   [
+    [
+     "amount:exact_odd"
+    ],
+    178
+   ],
+   [
+    [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:shared_hub"
+    ],
+    176
+   ],
+   [
+    [
+     "amount:exact_round_wave",
+     "amount:split"
+    ],
+    153
+   ],
+   [
+    [
+     "cadence:drip"
+    ],
+    79
+   ],
+   [
+    [
+     "amount:exact_odd",
+     "amount:near_same_block"
+    ],
+    28
+   ]
+  ],
+  "R_by_live_cluster_top": [
+   {
+    "cluster_id": 7,
+    "removed": 414,
+    "size": 998,
+    "dom": "0.05",
+    "h": "0-59",
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "nonce0": 0.2,
+    "top_funder": "0xd152f549545093347a162dce210e7293f1452150",
+    "top_funder_n": 40
+   },
+   {
+    "cluster_id": 6,
+    "removed": 150,
+    "size": 896,
+    "dom": "0.1",
+    "h": "0-43",
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "nonce0": 0.8,
+    "top_funder": "0xfeb99e2c46b9a5fda836e6d4374a59fc61a5e221",
+    "top_funder_n": 14
+   },
+   {
+    "cluster_id": 14,
+    "removed": 84,
+    "size": 84,
+    "dom": "1.49",
+    "h": "17-31",
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "nonce0": 1.0,
+    "top_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "top_funder_n": 84
+   },
+   {
+    "cluster_id": 19,
+    "removed": 74,
+    "size": 74,
+    "dom": "1.39",
+    "h": "18-30",
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "nonce0": 0.97,
+    "top_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "top_funder_n": 69
+   },
+   {
+    "cluster_id": 24,
+    "removed": 47,
+    "size": 47,
+    "dom": "1.69",
+    "h": "21-30",
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "nonce0": 1.0,
+    "top_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "top_funder_n": 47
+   },
+   {
+    "cluster_id": 164,
+    "removed": 32,
+    "size": 39,
+    "dom": "0.07",
+    "h": "1-22",
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "nonce0": 0.1,
+    "top_funder": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "top_funder_n": 3
+   },
+   {
+    "cluster_id": 170,
+    "removed": 25,
+    "size": 37,
+    "dom": "0.05",
+    "h": "34-34",
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "nonce0": 0.11,
+    "top_funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "top_funder_n": 2
+   },
+   {
+    "cluster_id": 175,
+    "removed": 24,
+    "size": 26,
+    "dom": "0.1",
+    "h": "31-36",
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "nonce0": 0.12,
+    "top_funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "top_funder_n": 2
+   }
+  ],
+  "human_like_concentration": "272 in cluster 7 (0.05x998 h0-59), 103 in cluster 6 (0.1x896); 287 of 814 deposited in h30-35 (the late 0.05 rally)"
+ },
+ "D_onchain_spot_check_22": {
+  "method": "Blockscout v2 /addresses, /counters (unreliable: returns '0' strings), /transactions (newest 50) with 1.1s sleeps; cast nonce via publicnode for current nonce; 66 Blockscout calls + 22 RPC",
+  "verdict_counts": {
+   "farm_like": 10,
+   "aged_sleeper_sybil_pair": 2,
+   "human_like": 10
+  },
+  "by_stratum": {
+   "bitget_ladder": "4/4 FARM",
+   "round_hub_fresh_nonbitget(Bitget6, 5.0/5.2)": "2/2 FARM same operator",
+   "ring99_in_R": "2/2 FARM (full sweep 12s after deposit)",
+   "near_alone": "2 FARM (one with 4 zero-value self-sends to push nonce to 4 before deposit) + 1 HUMAN",
+   "round_wave_alone": "4 HUMAN (2 ENS) + 1 sleeper",
+   "sequence_only_0.05": "3/3 HUMAN",
+   "exact_odd_only": "2 HUMAN + 1 sleeper"
+  },
+  "bitget6_signature_6_of_6": "funding = deposit + 0.0098 ETH exactly (1.1998/1.4998/1.3998/1.4998/5.2098/5.0198), deposit at nonce 0 within 24-96 s, full balance swept to a fresh distinct address 12-120 s later, current nonce 2, balance ~0.0002; consistent with xhub sample 34/36 and 4/4 sweep destinations forwarding to Bitget 6",
+  "sleeper_pair": "0xa8752abec1dfaf21c96f989cca0c780d44a1bc8a and 0xeff3a382afaf0380b876f01d6a7b72f0f86b3e99: both created 2024-07-30, identical action sequence (Swell approve, 0x54e44DbB, BeaconProxy transfer, 0.0062 out to 0xC6533104 at 2026-07-22T01:52:59), both CEX-funded minutes before deposit (Binance 0xDFd5293D / 0x21a31Ee1), both swept to 0x79558d92 — aged, nonce-5 wallets that any nonce/ENS 'human-like' heuristic and the per-node gate would clear",
+  "rows": [
+   {
+    "stratum": "bitget_ladder",
+    "addr": "0x91683ccdd6f03b0d37c9e100f867e0facf2501dc",
+    "amount": "1.19",
+    "hour": 27,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub",
+     "gas:two_axes"
+    ],
+    "live_cluster": 80,
+    "deposit_tx": "0x020949379ce57fa75147aa95476f0137924d0831f7a83907ff3b5617cf2cf13e",
+    "verdict": "FARM",
+    "detail": "FARM: Bitget6 1.1998 in 23:48:11 -> deposit 1.19 n=0 23:49:35 -> sweep 1.199496 to fresh 0xd70A2Eb4 23:49:47; cur nonce 2"
+   },
+   {
+    "stratum": "bitget_ladder",
+    "addr": "0x9d713fcb49bdf52fcd05298d18d5661b458e3f74",
+    "amount": "1.49",
+    "hour": 25,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:shared_hub"
+    ],
+    "live_cluster": 14,
+    "deposit_tx": "0x2537ebacc028c0ca67bf5cb90391a76fe81b817ef7ef25ee04f53d5b9d089660",
+    "verdict": "FARM",
+    "detail": "FARM: Bitget6 1.4998 in 21:57:11 -> deposit 1.49 n=0 21:58:35 -> sweep 1.499592 to 0xAFD2748e 21:58:47; cur nonce 2"
+   },
+   {
+    "stratum": "bitget_ladder",
+    "addr": "0x678bc827bce80a18d9dfca1d440426da75e399b2",
+    "amount": "1.39",
+    "hour": 22,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "live_cluster": 19,
+    "deposit_tx": "0xceda3184f279328d4b7bfcd7072fd29eb132ec78d98e79aecadced5ffd3ddd53",
+    "verdict": "FARM",
+    "detail": "FARM: Bitget6 1.3998 in 18:42:11 -> deposit 1.39 n=0 18:43:47 -> sweep 1.399551 to 0x8c8EFb74 18:43:59; cur nonce 2"
+   },
+   {
+    "stratum": "bitget_ladder",
+    "addr": "0xcfb60d74df85f750598e99cb7a75903e12dac267",
+    "amount": "1.49",
+    "hour": 28,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:shared_hub"
+    ],
+    "live_cluster": 14,
+    "deposit_tx": "0x49c3e765bd6853b42c510347d1ce9aedddf8e82e0a6111722c4e113809f36023",
+    "verdict": "FARM",
+    "detail": "FARM: Bitget6 1.4998 in 23:57:23 -> deposit 1.49 n=0 23:58:47 -> sweep 1.499553 to 0x2655366b 23:59:11; cur nonce 2"
+   },
+   {
+    "stratum": "round_wave_alone_ens",
+    "addr": "0x4e848cb280ba065f44e64f923a78a52141033f09",
+    "amount": "0.13",
+    "hour": 15,
+    "deposit_nonce": 3256,
+    "current_nonce": 3258,
+    "ens": "runish.eth",
+    "funder": "0x5baeac0a0417a05733884852aa068b706967e790",
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "live_cluster": 169,
+    "deposit_tx": "0xe3ec0609c2690fe67bd8415002213dd4abadd124bc90adf45f8ed60d2f8738ce",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: runish.eth, nonce 3256->3258, Seaport/mints/Relay since <=2026-06, deposit 0.13 mid-history"
+   },
+   {
+    "stratum": "round_wave_alone_ens",
+    "addr": "0x0fb37542609921dfbad4d36441d9328985f50449",
+    "amount": "0.07",
+    "hour": 8,
+    "deposit_nonce": 179,
+    "current_nonce": 180,
+    "ens": "bayc9984.eth",
+    "funder": "0x2142b521f3155f1b5d0e230e710aa36cdba88f4b",
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "live_cluster": 164,
+    "deposit_tx": "0x1112ca7906bd0659e70e3a9466e0e585deb23d638dc52e5c95f73172bc88feb2",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: bayc9984.eth, nonce 179->180, active since 2024-01 (Ethena, USDe, NFTs), deposit 0.07"
+   },
+   {
+    "stratum": "round_wave_alone_noens",
+    "addr": "0xe4953f077e80ad2313d362408f53703991127ed0",
+    "amount": "0.2",
+    "hour": 35,
+    "deposit_nonce": 369,
+    "current_nonce": 379,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "live_cluster": 206,
+    "deposit_tx": "0x73cd1012ff60fe56c157fed6d838e041ddb8f1dfb6a1f6ecf44982fda8d1bf39",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 369->379, Relay/Uniswap/Bridgers activity before and after; deposit 0.2 (funder Bitget6 but aged)"
+   },
+   {
+    "stratum": "round_wave_alone_noens",
+    "addr": "0xde6b86eca49bd822a61c20ff681c9657c5c7a895",
+    "amount": "0.2",
+    "hour": 21,
+    "deposit_nonce": 75,
+    "current_nonce": 106,
+    "ens": null,
+    "funder": "0x95dc16c8ef7881394d5aa1a0b1603aaa584fb73f",
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "live_cluster": 165,
+    "deposit_tx": "0x199f7edef66e3789d476bd898ad1f3631979b89566dde67d5879a65e9909fd50",
+    "verdict": "HUMAN-ish",
+    "detail": "HUMAN-ish: nonce 75->106, Seaport/LiFi/WETH activity after game; wallet only 3 days old at deposit"
+   },
+   {
+    "stratum": "round_wave_alone_noens",
+    "addr": "0xa8752abec1dfaf21c96f989cca0c780d44a1bc8a",
+    "amount": "0.09",
+    "hour": 12,
+    "deposit_nonce": 5,
+    "current_nonce": 7,
+    "ens": null,
+    "funder": "0x900e61f8a72af906a0107e555cf5d6dcf8745a43",
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "live_cluster": 6,
+    "deposit_tx": "0x75ea284b8c7667a6cf1d9b126349c84a309c5926542fbfbd1c8ecfdeb44b12bd",
+    "verdict": "SLEEPER SYBIL",
+    "detail": "SLEEPER SYBIL: created 2024-07-30, nonce 5; Binance 0xDFd5293D 0.09393 in 08:12 -> deposit 0.09 08:17 -> 0.09372 out next day to 0x79558d92; identical history to 0xeff3a382 (same sweep dest)"
+   },
+   {
+    "stratum": "sequence_only_005",
+    "addr": "0x7a9050fddb950a36bf1bdad96d43d9f3fb181f27",
+    "amount": "0.05",
+    "hour": 35,
+    "deposit_nonce": 81,
+    "current_nonce": 99,
+    "ens": null,
+    "funder": "0x97e5a1df7e667038d4a66ce692d37fe25c8ee965",
+    "kinds": [
+     "sequence"
+    ],
+    "live_cluster": 7,
+    "deposit_tx": "0x8b15aa2c6f22cb16a1b591f6e2756e04806ce4bfe2a396418d1c72aee4480e9e",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 81->99, continuous swap activity on 0x4313C378 proxy Jul-Aug, deposit 0.05"
+   },
+   {
+    "stratum": "sequence_only_005",
+    "addr": "0x45ea26c38bb45247d7121ac180be419bc3a1447e",
+    "amount": "0.05",
+    "hour": 35,
+    "deposit_nonce": 2782,
+    "current_nonce": 2862,
+    "ens": null,
+    "funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "kinds": [
+     "sequence"
+    ],
+    "live_cluster": 7,
+    "deposit_tx": "0x92b4b3a81d1fd40696d6227d21657f486930ffe3fef6ac26f340e018efc621e7",
+    "verdict": "HUMAN/bot-trader",
+    "detail": "HUMAN/bot-trader: nonce 2782->2862, heavy ongoing DEX activity, balance 0.44"
+   },
+   {
+    "stratum": "sequence_only_005",
+    "addr": "0x573343ba252ae7ddf7e74fc4c6678e0253786718",
+    "amount": "0.05",
+    "hour": 34,
+    "deposit_nonce": 40,
+    "current_nonce": 49,
+    "ens": null,
+    "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "kinds": [
+     "sequence"
+    ],
+    "live_cluster": 170,
+    "deposit_tx": "0x9c02c4cfed21662524fbaedccebe0b5ab2034e107efaf794506839d0a9c94126",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 40->49, ProofOfNothing/Relay activity since 2026-04, deposit 0.05"
+   },
+   {
+    "stratum": "exact_odd_only",
+    "addr": "0x1db9459a13bd909b3f02f7c4716c3f9af6e2e2a1",
+    "amount": "0.051",
+    "hour": 19,
+    "deposit_nonce": 581,
+    "current_nonce": 588,
+    "ens": null,
+    "funder": "0x25bfc2157d7c9200fbd926e0499d2d7cb7c81abf",
+    "kinds": [
+     "amount:exact_odd"
+    ],
+    "live_cluster": 7,
+    "deposit_tx": "0xc1dd8e624cd319477d04cad8f5ea8540d075fd0b03f04bac208795e7bca7236b",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 581->588, Relay bridging, SeaDrop mint, deposit 0.051"
+   },
+   {
+    "stratum": "exact_odd_only",
+    "addr": "0x846bb9d89fca2a40987d61fb0c0894a098e5bc00",
+    "amount": "0.051",
+    "hour": 15,
+    "deposit_nonce": 327,
+    "current_nonce": 376,
+    "ens": null,
+    "funder": "0xabec955dfd1b547126224fd72d370541fb86ce9b",
+    "kinds": [
+     "amount:exact_odd"
+    ],
+    "live_cluster": 7,
+    "deposit_tx": "0x1bf4a52899b6300a9e0245090429eb4bcffc8538956c45275504201be111cd30",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 327->376, NFT mints after game, deposit 0.051"
+   },
+   {
+    "stratum": "exact_odd_only",
+    "addr": "0xeff3a382afaf0380b876f01d6a7b72f0f86b3e99",
+    "amount": "0.061",
+    "hour": 6,
+    "deposit_nonce": 5,
+    "current_nonce": 7,
+    "ens": null,
+    "funder": "0xcd79adb50478f273a3689fa25524c4ab9128fca6",
+    "kinds": [
+     "amount:exact_odd"
+    ],
+    "live_cluster": 7,
+    "deposit_tx": "0x626f3dd37f8b785664565796fcfef88637b0356d13559d6e9b9d5a0f5ff47b09",
+    "verdict": "SLEEPER SYBIL",
+    "detail": "SLEEPER SYBIL: created 2024-07-30 (same hour as 0xa8752abe, identical Swell/BeaconProxy sequence), 0x21a31Ee1 0.06393 in 02:25 -> deposit 0.061 02:57 -> 0.06372 out to 0x79558d92 (shared sweep dest)"
+   },
+   {
+    "stratum": "near_alone",
+    "addr": "0xd69c6ea26974db7b121548f511d8008266466f9e",
+    "amount": "13.8",
+    "hour": 12,
+    "deposit_nonce": 1611,
+    "current_nonce": 1616,
+    "ens": null,
+    "funder": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+    "kinds": [
+     "amount:near_same_block"
+    ],
+    "live_cluster": 0,
+    "deposit_tx": "0xc966a749ad6f63a402fb273cd6976da9e90929e58722291deca9ffb98b38600f",
+    "verdict": "HUMAN",
+    "detail": "HUMAN: nonce 1611->1616, aged since 2025-05, DEX activity, deposit 13.8"
+   },
+   {
+    "stratum": "near_alone",
+    "addr": "0xcc0f4c245e05f8267ed22dfbd699de75459f91b4",
+    "amount": "1.104933918496229964",
+    "hour": 52,
+    "deposit_nonce": 4,
+    "current_nonce": 6,
+    "ens": null,
+    "funder": "0xb19e6fbe2bffa4e09b6fed3784c560716af3e581",
+    "kinds": [
+     "amount:near_same_block"
+    ],
+    "live_cluster": 161,
+    "deposit_tx": "0x1d2dd8d3b387bd96ea123417a0e585fb1ea8c756983d5b453df6e04b4d6d751f",
+    "verdict": "FARM",
+    "detail": "FARM: 0xb19e6fbe 1.167736 in 00:56:11 -> four 0-value self-sends n=0..3 (nonce inflation) -> deposit 1.10493 n=4 00:57:11 -> sweep 1.167697 to 0xe13580b6 00:57:23"
+   },
+   {
+    "stratum": "near_alone",
+    "addr": "0x3fd48b23befeb5465d56f9e3443733eff14a4cfb",
+    "amount": "1.95",
+    "hour": 20,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0xeec968f5ad0f50f0c11ffe5ff79f2c8f52530c04",
+    "kinds": [
+     "amount:near_same_block"
+    ],
+    "live_cluster": 3,
+    "deposit_tx": "0xc24ef7555ad0d2d6b781364cd3973b25b0fc2bb43ab1983f030f7bfc6a0e65f3",
+    "verdict": "FARM",
+    "detail": "FARM: 0xeEc968F5 2.999709 in 16:12:11 -> deposit 1.95 n=0 16:13:23 -> sweep 2.999699 to 0xe208eed1 16:15:35; cur nonce 2, balance 0"
+   },
+   {
+    "stratum": "ring99_in_R",
+    "addr": "0xeb8a503e9810940c1195b8c20d7e1618165a1fbd",
+    "amount": "96.8",
+    "hour": 17,
+    "deposit_nonce": 5,
+    "current_nonce": 7,
+    "ens": null,
+    "funder": "0x6410cb2da35999ce25e066e7e69fc26eb49bcbea",
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split"
+    ],
+    "live_cluster": 11,
+    "deposit_tx": "0xeaa61d7c36d7222eabd9476543212a39e7dfb494b5da57078fedc07346bbd34a",
+    "verdict": "FARM (ring)",
+    "detail": "FARM (ring): low-activity wallet (nonce 5, 2 mints since 05-10), deposit 96.8 n=5 13:21:23 -> sweep 102.228215 to 0x0Cd2073C 13:21:35"
+   },
+   {
+    "stratum": "ring99_in_R",
+    "addr": "0xff155759bd7a6a00083052c6174a8c7526fea6bb",
+    "amount": "98.5",
+    "hour": 19,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x5ea3ed92ff0f9004a745dd72edecec4f105b91de",
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split"
+    ],
+    "live_cluster": 10,
+    "deposit_tx": "0x48ef86ee6d43a31145781cd09868cb962075c8496449866ca56a8c9cbba0a68a",
+    "verdict": "FARM (ring)",
+    "detail": "FARM (ring): 0x5eA3ed92 102.765055 in 15:28:11 -> deposit 98.5 n=0 15:28:23 -> sweep 102.765034 to 0x81B1A5a0 15:28:35"
+   },
+   {
+    "stratum": "round_hub_fresh_nonbitget",
+    "addr": "0x1e7b3b0e4df96c90a5103e3586ecddd0df178356",
+    "amount": "5.2",
+    "hour": 16,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "live_cluster": 163,
+    "deposit_tx": "0x78fc77f1fcce698eae5261cc2c53d8325d4d18403a64c92ef8014039e9d61668",
+    "verdict": "FARM (same Bitget6 operator, outside window)",
+    "detail": "FARM (same Bitget6 operator, outside window): 5.2098 in 12:03:47 -> deposit 5.2 n=0 12:04:11 -> sweep 5.208 to 0x55fb25cA 12:06:11"
+   },
+   {
+    "stratum": "round_hub_fresh_nonbitget",
+    "addr": "0xa530657a115361f6f25c2c0c88ef59ef4c69aa95",
+    "amount": "5.0",
+    "hour": 9,
+    "deposit_nonce": 0,
+    "current_nonce": 2,
+    "ens": null,
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "live_cluster": 71,
+    "deposit_tx": "0xf5a4a7b9941354b177ec22e8191c175e72447c0598ab32d6d00469aa13375df5",
+    "verdict": "FARM (same Bitget6 operator, outside window)",
+    "detail": "FARM (same Bitget6 operator, outside window): 5.0198 in 05:13:11 -> deposit 5.0 n=0 05:13:59 -> sweep 5.019 to 0x8f7Acf50 05:14:59"
+   }
+  ]
+ },
+ "E_prior_art_verified": {
+  "hop_192": "V: node score = share of txs exclusive to the network; networks >90% avg; 'only red addresses (with a 100% score) are took into account in the final report'; community bounty report, not Hop's official method",
+  "chaos_labs_layerzero": "V: 'including only samples with a Silhouette score > 0.7'; 'maximize precision over recall'; feature-space clustering, not union-find",
+  "trusta": "V: centroid per cluster, 'Addresses that are located far from the Centroid, beyond a specified threshold, are excluded'; no numeric threshold, no precision metrics",
+  "arxiv_2505.09313": "V: per-address LightGBM on subgraph features, 193,701 addresses / 23,240 sybils, P/R/F1/AUC > 0.9",
+  "reading": "the prior-art mapping is accurate; all four gate membership per sample"
+ },
+ "F_what_holds": "(1) union-find + component-level family count does let 1,148 one-family and 868 no-strong nodes inherit conviction — verified; (2) ~814 of the 1,566 (52%, 1.34% of points) look human by nonce/ENS and 10/12 sampled from those strata are aged active wallets — a real precision gain; (3) per-sample gating is standard prior art.",
+ "G_what_fails": "(1) 'affected_wallets_estimate 1,566' as honest wallets is overstated by ~40%: >=301 farm-like by cache signature (237 Bitget-6-funded), +180 fresh, +271 indeterminate incl. sleepers; (2) the recall claim omits a 100% loss on a confirmed 232-wallet farm and 78% loss on flagged ring99; (3) the STRONG/WEAK split treats shared_hub as weak even when every hub-funded member is nonce-0 with deposit+0.0098 funding and an immediate sweep — the suggested fix as written is not deployable; (4) 365/367 = 99.46%, not >=99.5%.",
+ "H_strongest_supported_version": "Per-node family counting is a legitimate precision control that would free ~800-1,000 human-looking wallets (~1.3-2.5% of points), but only if paired with a rule that keeps fresh, hub-funded, swept single-deposit wallets (e.g. hub edges count as strong when both endpoints are nonce 0 / funded deposit+dust) — otherwise it hands back the entire Bitget-6 operator (238 of 241 wallets) and most of ring99.",
+ "lookups_used": {
+  "blockscout_calls": 66,
+  "addresses": 22,
+  "rpc_calls": 22,
+  "webfetch": 4
+ },
+ "files": {
+  "rederive": "skeptic_pernode_rederive.json",
+  "classified_R": "skeptic_pernode_R_classified.json",
+  "sample": "skeptic_pernode_sample.json",
+  "onchain_raw": "skeptic_pernode_onchain.json",
+  "onchain_verdicts": "skeptic_pernode_onchain_verdicts.json",
+  "bitget_counts": "skeptic_pernode_bitget_counts.json",
+  "bs_cache_dir": "skeptic_pernode_bs/",
+  "scripts": [
+   "skeptic_pernode_rederive.py",
+   "skeptic_pernode_onchain.py"
+  ]
+ }
+}

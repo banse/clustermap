@@ -1,0 +1,605 @@
+{
+ "a_hub_exclude_6_exchange_scale_EOAs_only": {
+  "flagged": 11199,
+  "lost": 374,
+  "ens_lost": 24,
+  "nonce_ge20_lost": 93,
+  "nonce0_lost": 251,
+  "points_pct": 56.34,
+  "clusters": 245
+ },
+ "a_clusters_dying": [
+  {
+   "size": 84,
+   "dominant": [
+    "1.49",
+    44
+   ],
+   "nonce0_frac": 1.0,
+   "ens": 0
+  },
+  {
+   "size": 74,
+   "dominant": [
+    "1.29",
+    35
+   ],
+   "nonce0_frac": 0.97,
+   "ens": 1
+  },
+  {
+   "size": 47,
+   "dominant": [
+    "1.69",
+    47
+   ],
+   "nonce0_frac": 1.0,
+   "ens": 0
+  },
+  {
+   "size": 23,
+   "dominant": [
+    "0.05",
+    23
+   ],
+   "nonce0_frac": 0.3,
+   "ens": 2
+  },
+  {
+   "size": 18,
+   "dominant": [
+    "1.0",
+    16
+   ],
+   "nonce0_frac": 0.22,
+   "ens": 5
+  },
+  {
+   "size": 17,
+   "dominant": [
+    "1.19",
+    17
+   ],
+   "nonce0_frac": 1.0,
+   "ens": 0
+  },
+  {
+   "size": 15,
+   "dominant": [
+    "0.05",
+    15
+   ],
+   "nonce0_frac": 0.13,
+   "ens": 3
+  },
+  {
+   "size": 15,
+   "dominant": [
+    "0.05",
+    15
+   ],
+   "nonce0_frac": 0.2,
+   "ens": 1
+  },
+  {
+   "size": 14,
+   "dominant": [
+    "0.15",
+    14
+   ],
+   "nonce0_frac": 0.07,
+   "ens": 4
+  },
+  {
+   "size": 12,
+   "dominant": [
+    "0.05",
+    12
+   ],
+   "nonce0_frac": 0.0,
+   "ens": 2
+  },
+  {
+   "size": 12,
+   "dominant": [
+    "0.05",
+    12
+   ],
+   "nonce0_frac": 0.17,
+   "ens": 2
+  },
+  {
+   "size": 9,
+   "dominant": [
+    "0.05",
+    9
+   ],
+   "nonce0_frac": 0.11,
+   "ens": 0
+  }
+ ],
+ "b_jitter_series": {
+  "other": {
+   "pockets": 56,
+   "hours": [
+    2,
+    3,
+    4,
+    5,
+    8,
+    9,
+    10,
+    11,
+    12,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    33,
+    36
+   ],
+   "wallets": 3863,
+   "flagged": 3270,
+   "ens": 1,
+   "points_pct": 9.33,
+   "example": {
+    "hour": 2,
+    "n": 10,
+    "lo": "1.187586",
+    "hi": "1.225436",
+    "band_pct": 3.19,
+    "block_span": 0,
+    "median_gap": 0,
+    "gap_range": 0,
+    "flagged": 10,
+    "ens": 1,
+    "points_pct": 0.051,
+    "tx_rows": 10,
+    "nonce0": 0,
+    "sample": [
+     "0xf1ef8cc2b12e920c1c1b36d38a4bb50f48e4a6a0",
+     "0xfa628b7d00e338899c83e9b5797f945d8ba58b3e"
+    ]
+   }
+  },
+  "0.054-0.056": {
+   "pockets": 5,
+   "hours": [
+    4,
+    5,
+    6,
+    22,
+    23
+   ],
+   "wallets": 178,
+   "flagged": 7,
+   "ens": 0,
+   "points_pct": 0.18,
+   "example": {
+    "hour": 4,
+    "n": 34,
+    "lo": "0.055852002173424891",
+    "hi": "0.056304855029741916",
+    "band_pct": 0.81,
+    "block_span": 253,
+    "median_gap": 3,
+    "gap_range": 116,
+    "flagged": 1,
+    "ens": 0,
+    "points_pct": 0.036,
+    "tx_rows": 1,
+    "nonce0": 1,
+    "sample": [
+     "0x46cf4cbf62e045b6557a6218379b379c9129c2bd",
+     "0x42a3fcfbd827294bf573ba1488d7f4bccbf9aa69"
+    ]
+   }
+  },
+  "0.065-0.068": {
+   "pockets": 3,
+   "hours": [
+    4,
+    5,
+    6
+   ],
+   "wallets": 210,
+   "flagged": 8,
+   "ens": 0,
+   "points_pct": 0.24,
+   "example": {
+    "hour": 4,
+    "n": 62,
+    "lo": "0.066222640748873454",
+    "hi": "0.067309882460782213",
+    "band_pct": 1.64,
+    "block_span": 297,
+    "median_gap": 2,
+    "gap_range": 93,
+    "flagged": 7,
+    "ens": 0,
+    "points_pct": 0.073,
+    "tx_rows": 7,
+    "nonce0": 0,
+    "sample": [
+     "0xc9358e988c4fbe42fd43d44521133fc42333162c",
+     "0xcaeaa093dcdd30a5f0fe0c3f6a01e216350241f6"
+    ]
+   }
+  },
+  "1.00-1.05": {
+   "pockets": 16,
+   "hours": [
+    7,
+    9,
+    10,
+    12,
+    36,
+    37,
+    38,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64
+   ],
+   "wallets": 416,
+   "flagged": 1,
+   "ens": 0,
+   "points_pct": 1.47,
+   "example": {
+    "hour": 7,
+    "n": 9,
+    "lo": "0.99050684872214788",
+    "hi": "0.991084737383444127",
+    "band_pct": 0.06,
+    "block_span": 34,
+    "median_gap": 3.0,
+    "gap_range": 10,
+    "flagged": 0,
+    "ens": 0,
+    "points_pct": 0.039,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "sample": [
+     "0x06fb500b6f93f8ef61d6ed313c211c0bd7964d6e",
+     "0x67869e87b5f205799835845a8da7fe2e2f491830"
+    ]
+   }
+  },
+  "1.10-1.14": {
+   "pockets": 19,
+   "hours": [
+    12,
+    23,
+    36,
+    37,
+    38,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55
+   ],
+   "wallets": 561,
+   "flagged": 2,
+   "ens": 0,
+   "points_pct": 2.01,
+   "example": {
+    "hour": 12,
+    "n": 9,
+    "lo": "1.143103660443441536",
+    "hi": "1.228044531598129664",
+    "band_pct": 7.43,
+    "block_span": 126,
+    "median_gap": 12.0,
+    "gap_range": 37,
+    "flagged": 0,
+    "ens": 0,
+    "points_pct": 0.04,
+    "tx_rows": 0,
+    "nonce0": 0,
+    "sample": [
+     "0x4fccbc946b6c7976ac7121da85869ff1c12f708f",
+     "0xe7cac86bc1fa5d54dff436d254a9d84c5fbd4441"
+    ]
+   }
+  }
+ },
+ "b_pockets_total": {
+  "pockets": 99,
+  "wallets": 5228,
+  "flagged": 3288,
+  "points_pct": 13.23
+ },
+ "b_prior": {
+  "ens_single_wallets": 989,
+  "ens_single_with_unique_ge6digit_odd_amount": 5,
+  "population_single_with_unique_ge6digit_odd_amount": 5342
+ },
+ "e_cluster7": {
+  "size": 998,
+  "edge_kinds_inside": {
+   "amount:exact_odd": 420,
+   "amount:exact_round_wave": 68,
+   "amount:near_same_block": 36,
+   "sequence": 505,
+   "cadence:burst": 134,
+   "cadence:drip": 10,
+   "funding:peel_chain": 76,
+   "funding:shared_hub": 391
+  },
+  "amount_0.05": 478,
+  "ens": 156,
+  "nonce_ge20": 597,
+  "nonce0": 197,
+  "hours": [
+   0,
+   59
+  ],
+  "distinct_amounts": 31,
+  "points_pct": 0.94,
+  "peel_pairs": 76,
+  "peel_pairs_both_0.05": 14,
+  "peel_funders_with_ens": 8,
+  "peel_funders_distinct": 63
+ },
+ "e_peel_leverage": {
+  "clusters_with_peel": 144,
+  "clusters_size_ge20_with_le2_peel_edges": 7,
+  "members_thereof": 183
+ },
+ "d_split_round_lt90": [
+  [
+   "60.0",
+   9,
+   "540.0",
+   0,
+   0,
+   0
+  ],
+  [
+   "5.0",
+   10,
+   "50.0",
+   22,
+   23,
+   0
+  ],
+  [
+   "30.0",
+   12,
+   "360.0",
+   1,
+   2,
+   0
+  ],
+  [
+   "70.0",
+   33,
+   "2310.0",
+   2,
+   3,
+   0
+  ],
+  [
+   "1.59",
+   40,
+   "63.6",
+   18,
+   30,
+   0
+  ],
+  [
+   "1.49",
+   44,
+   "65.56",
+   17,
+   31,
+   0
+  ],
+  [
+   "1.69",
+   47,
+   "79.43",
+   21,
+   30,
+   0
+  ],
+  [
+   "1.0",
+   58,
+   "58.0",
+   0,
+   4,
+   0
+  ],
+  [
+   "14.3",
+   100,
+   "1430.0",
+   12,
+   14,
+   0
+  ],
+  [
+   "1.2",
+   300,
+   "360.0",
+   1,
+   2,
+   0
+  ],
+  [
+   "0.45",
+   367,
+   "165.15",
+   34,
+   37,
+   1
+  ],
+  [
+   "0.1",
+   545,
+   "54.5",
+   0,
+   23,
+   47
+  ],
+  [
+   "10.0",
+   770,
+   "7700.0",
+   5,
+   5,
+   0
+  ],
+  [
+   "14.0",
+   1003,
+   "14042.0",
+   3,
+   15,
+   0
+  ],
+  [
+   "0.45",
+   1996,
+   "898.2",
+   3,
+   4,
+   0
+  ]
+ ],
+ "f_aged_clusters": {
+  "clusters_nonce0_frac_le_0.3": 110,
+  "members": 2671,
+  "min_conf_among_them": 0.786,
+  "examples": [
+   [
+    7,
+    998,
+    "0.05",
+    0.2,
+    0.6,
+    156,
+    0.88
+   ],
+   [
+    3,
+    327,
+    "2.067",
+    0.01,
+    0.28,
+    2,
+    0.851
+   ],
+   [
+    164,
+    39,
+    "0.07",
+    0.1,
+    0.77,
+    9,
+    0.861
+   ],
+   [
+    170,
+    37,
+    "0.05",
+    0.11,
+    0.62,
+    6,
+    0.863
+   ],
+   [
+    177,
+    33,
+    "0.05",
+    0.24,
+    0.64,
+    2,
+    0.886
+   ],
+   [
+    181,
+    31,
+    "0.05",
+    0.16,
+    0.52,
+    1,
+    0.871
+   ],
+   [
+    25,
+    30,
+    "1.176969",
+    0.0,
+    0.67,
+    0,
+    0.849
+   ],
+   [
+    175,
+    26,
+    "0.1",
+    0.12,
+    0.81,
+    3,
+    0.856
+   ],
+   [
+    49,
+    24,
+    "1.0",
+    0.12,
+    0.88,
+    8,
+    0.858
+   ],
+   [
+    162,
+    23,
+    "0.2",
+    0.26,
+    0.65,
+    9,
+    0.878
+   ],
+   [
+    182,
+    23,
+    "0.05",
+    0.3,
+    0.43,
+    2,
+    0.873
+   ],
+   [
+    183,
+    22,
+    "0.0501",
+    0.0,
+    0.73,
+    7,
+    0.848
+   ]
+  ]
+ }
+}

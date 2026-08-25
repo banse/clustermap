@@ -1,0 +1,8 @@
+enrichment extended: txs 12203→12273 funding 12498→12568
+infra_extra: 25 funders
+v2b (peel books cadence)                   clusters= 130 flagged=  9548 periph=  192 pts= 59.3% lab=138/160 whole=13/16 ens=  18 ctrl=23 resc= 4 idmd= 2 ladder=134
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=215/419 ladder10.x(5-step h37-45)=49/176 jitter1.10-1.14(h36-55)=0/541 jitter1.00-1.05(h56-64)=0/300 ladder0.05→0.45(h35-37)=61/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2d (v2c, peel nonce≤20)                   clusters= 121 flagged=  9731 periph=  210 pts= 66.2% lab=138/160 whole=13/16 ens=  18 ctrl=25 resc= 4 idmd= 2 ladder=146
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=397/419 ladder10.x(5-step h37-45)=49/176 jitter1.10-1.14(h36-55)=0/541 jitter1.00-1.05(h56-64)=0/300 ladder0.05→0.45(h35-37)=61/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2e (v2d + jitter band + residual)         clusters=  99 flagged= 10324 periph=  280 pts= 67.7% lab=138/160 whole=13/16 ens=  18 ctrl=24 resc=12 idmd= 2 ladder=146
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=397/419 ladder10.x(5-step h37-45)=49/176 jitter1.10-1.14(h36-55)=329/541 jitter1.00-1.05(h56-64)=121/300 ladder0.05→0.45(h35-37)=61/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100

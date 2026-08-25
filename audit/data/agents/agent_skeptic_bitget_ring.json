@@ -1,0 +1,592 @@
+{
+ "agent": "skeptic_bitget_ring",
+ "finding_under_test": "Blanket exchange exclusion deletes the strongest farm (Bitget 6 staggered-amount ring), 233 wallets",
+ "verdict": {
+  "refuted": false,
+  "core_holds": true,
+  "numbers_corrected": true
+ },
+ "rederived_from_cache": {
+  "bitget6_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+  "bitget6_base_rate": {
+   "funded_resolved": 242,
+   "resolved_total": 12498,
+   "rate": 0.0194,
+   "note": "resolved set = 12,498 candidates, not the full 19,522 population"
+  },
+  "bitget6_funded_flagged": 241,
+  "bitget6_funded_unflagged": [
+   "0xdfb087f65c5582cc39dd4f16b3b7bf89261a98af"
+  ],
+  "bitget6_funded_by_cluster": {
+   "c14": 84,
+   "c19": 69,
+   "c24": 47,
+   "c58": 17,
+   "c80": 15,
+   "c71": 3,
+   "c163": 2,
+   "c7": 2,
+   "c177": 1,
+   "c206": 1,
+   "none": 1
+  },
+  "amount_funder_lock_population_wide": {
+   "1.19": "32/33 Bitget (1 unresolved)",
+   "1.29": "34/35",
+   "1.39": "35/35",
+   "1.49": "44/44",
+   "1.59": "40/40",
+   "1.69": "47/52 (4 unresolved, 1 other funder; the 5 non-Bitget 1.69 senders are unclustered)"
+  },
+  "per_cluster": {
+   "14": {
+    "size": 84,
+    "amounts": {
+     "1.59": 40,
+     "1.49": 44
+    },
+    "hours": [
+     17,
+     31
+    ],
+    "nonces": [
+     [
+      0,
+      84
+     ]
+    ],
+    "priority_fees": [
+     [
+      10000000,
+      84
+     ]
+    ],
+    "gas_limits": [
+     [
+      91462,
+      47
+     ],
+     [
+      91600,
+      33
+     ],
+     [
+      91477,
+      4
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      84
+     ]
+    ]
+   },
+   "19": {
+    "size": 74,
+    "amounts": {
+     "1.29": 35,
+     "1.39": 35,
+     "1.45": 4
+    },
+    "hours": [
+     18,
+     30
+    ],
+    "nonces": [
+     [
+      0,
+      72
+     ],
+     [
+      1371,
+      1
+     ],
+     [
+      245,
+      1
+     ]
+    ],
+    "priority_fees": [
+     [
+      10000000,
+      69
+     ],
+     [
+      253000,
+      2
+     ],
+     [
+      150000000,
+      1
+     ],
+     [
+      1500000000,
+      1
+     ],
+     [
+      300000,
+      1
+     ]
+    ],
+    "gas_limits": [
+     [
+      91600,
+      39
+     ],
+     [
+      91462,
+      29
+     ],
+     [
+      91477,
+      3
+     ],
+     [
+      114501,
+      2
+     ],
+     [
+      91508,
+      1
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      69
+     ],
+     [
+      "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+      1
+     ],
+     [
+      "0x1b87b6ef6de51d272bd30493d0761d9a8de6b3d0",
+      1
+     ],
+     [
+      "0x910d66170e278131d1a0f288256eb06185001e34",
+      1
+     ],
+     [
+      "0xfd247199fe2700408bc64d5c5056baae44344c5e",
+      1
+     ],
+     [
+      "0x3fd48b23befeb5465d56f9e3443733eff14a4cfb",
+      1
+     ]
+    ]
+   },
+   "24": {
+    "size": 47,
+    "amounts": {
+     "1.69": 47
+    },
+    "hours": [
+     21,
+     30
+    ],
+    "nonces": [
+     [
+      0,
+      47
+     ]
+    ],
+    "priority_fees": [
+     [
+      10000000,
+      47
+     ]
+    ],
+    "gas_limits": [
+     [
+      91462,
+      28
+     ],
+     [
+      91600,
+      15
+     ],
+     [
+      91477,
+      4
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      47
+     ]
+    ]
+   },
+   "58": {
+    "size": 17,
+    "amounts": {
+     "1.19": 17
+    },
+    "hours": [
+     20,
+     25
+    ],
+    "nonces": [
+     [
+      0,
+      17
+     ]
+    ],
+    "priority_fees": [
+     [
+      10000000,
+      17
+     ]
+    ],
+    "gas_limits": [
+     [
+      91600,
+      10
+     ],
+     [
+      91462,
+      5
+     ],
+     [
+      91477,
+      2
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      17
+     ]
+    ]
+   },
+   "71": {
+    "size": 6,
+    "amounts": {
+     "5.0": 6
+    },
+    "hours": [
+     8,
+     10
+    ],
+    "nonces": [
+     [
+      0,
+      3
+     ],
+     [
+      772,
+      1
+     ],
+     [
+      21,
+      1
+     ],
+     [
+      19,
+      1
+     ]
+    ],
+    "priority_fees": [
+     [
+      25475689,
+      1
+     ],
+     [
+      300000000,
+      1
+     ],
+     [
+      61460395,
+      1
+     ],
+     [
+      50000000,
+      1
+     ],
+     [
+      29682027,
+      1
+     ],
+     [
+      54628434,
+      1
+     ]
+    ],
+    "gas_limits": [
+     [
+      114501,
+      4
+     ],
+     [
+      76334,
+      2
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      3
+     ],
+     [
+      "0xaf0531cd3b32800be4ae378eb0b9d43a1d26845c",
+      1
+     ],
+     [
+      "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+      1
+     ],
+     [
+      "0x331d9a049d496385998067abf6cbb6371c8d2466",
+      1
+     ]
+    ]
+   },
+   "80": {
+    "size": 15,
+    "amounts": {
+     "1.19": 15
+    },
+    "hours": [
+     27,
+     31
+    ],
+    "nonces": [
+     [
+      0,
+      15
+     ]
+    ],
+    "priority_fees": [
+     [
+      10000000,
+      15
+     ]
+    ],
+    "gas_limits": [
+     [
+      91462,
+      15
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      15
+     ]
+    ]
+   },
+   "163": {
+    "size": 5,
+    "amounts": {
+     "5.2": 5
+    },
+    "hours": [
+     16,
+     17
+    ],
+    "nonces": [
+     [
+      3,
+      3
+     ],
+     [
+      0,
+      2
+     ]
+    ],
+    "priority_fees": [
+     [
+      165447516,
+      1
+     ],
+     [
+      198075512,
+      1
+     ],
+     [
+      100536704,
+      1
+     ],
+     [
+      107776958,
+      1
+     ],
+     [
+      78720869,
+      1
+     ]
+    ],
+    "gas_limits": [
+     [
+      114501,
+      5
+     ]
+    ],
+    "funders": [
+     [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      2
+     ],
+     [
+      "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+      1
+     ],
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      1
+     ],
+     [
+      "0xa7efae728d2936e78bda97dc267687568dd593f3",
+      1
+     ]
+    ]
+   }
+  },
+  "claim_vs_fact": {
+   "nonce0_97_100pct": "TRUE for c14 (84/84), c19 (72/74), c24 (47/47), c58 (17/17); FALSE for c71 (3/6=50%) and c163 (2/5=40%)",
+   "one_priority_fee": "TRUE for c14, c24, c58 (and c80): all 10,000,000 wei = 0.01 gwei; FALSE for c19 (5 distinct: 69 at 0.01 gwei + 5 strangers), c71 (6 distinct), c163 (5 distinct)",
+   "hours_17_31": "TRUE for ring (c14 h17-31, c19 h18-30, c24 h21-30, c58 h20-25); FALSE for c71 (h8-10) and c163 (h16-17)",
+   "hundred_pct_bitget": "c14 84/84, c24 47/47, c58 17/17, c80 15/15 = 100%; c19 69/74 = 93%; c71 3/6; c163 2/5; over the 233 unflagged-by-(a): 222/233 = 95%",
+   "hubN_84_69_47_17": "verified",
+   "identical_odd_amount_wording": "1.49/1.29/1.69/1.19 are multiples of 0.01 => ROUND under sybilkit, not odd; that is exactly why these components carry only weak amount families (split / round wave) and depend on the funding family",
+   "pf_0.01gwei_is_common": "10,000,000 wei is the 2nd most common priority fee in the enriched set: 2,729 of 12,203 txs (22%), used by c0 (957), c8 (359), c6 (305)... => shared priority fee alone is weak corroboration; combined with amount+funder lock it is not"
+  },
+  "ring_cadence": {
+   "n": 232,
+   "defn": "Bitget-funded members of c14,c19,c24,c58,c80",
+   "block_gap_median": 15,
+   "sec_gap_median": 180,
+   "sec_gap_mean": 217,
+   "max_gap_s": 3444,
+   "same_block_pairs": 8,
+   "amount_interleaving": "six amounts interleaved in random order across the whole 14h window (e.g. 1.49 1.59 1.59 1.49 1.49 1.29 1.29 1.59 1.49 1.39 ...), each amount spans 9.6-13.8h with median intra-amount gap 8-19 min",
+   "interpretation": "one pipeline emitting a deposit every ~3.6 min around the clock (incl. 02:00-05:00 UTC), rotating amounts; not six independent user cohorts"
+  }
+ },
+ "onchain_spot_check": {
+  "lookups_used": 37,
+  "sample_ring": 16,
+  "sample_other": 5,
+  "hop2": 14,
+  "ring_lifecycle_16_of_16": {
+   "lifetime_txs": 3,
+   "tx1": "funded by 0x1ab4973a with exactly amount+0.0098 ETH (1.4998/1.5998/1.2998/1.3998/1.6998/1.1998) i.e. round withdrawal minus 0.0002 fee",
+   "tx2": "deposit() at nonce 0, 48-228 s after funding (one at 2844 s)",
+   "tx3": "sweep of the entire remaining balance (X.x995) to a fresh, unique address 0-1 min after the deposit",
+   "distinct_sweep_destinations": "16/16 distinct, none are contributors, none fund anyone"
+  },
+  "hop2_14_of_14": {
+   "pattern": "each fresh sweep destination has exactly 2 txs: receive from ring wallet, then forward full balance to 0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23 itself 3-4 min later",
+   "reading": "hop-2 addresses behave like exchange deposit addresses being consolidated into the same hot wallet; i.e. the ETH went Bitget-hot -> ring wallet -> game (refunded) -> deposit address -> Bitget-hot in ~6-10 min; a small rotating float funds 232 wallets",
+   "examples": [
+    [
+     "0xa9b7b9fa31907728ae63cac5e0640ca9ddbf515d",
+     [
+      [
+       "0x75beb15e",
+       null,
+       1.49953,
+       "08-17 13:12"
+      ]
+     ],
+     [
+      [
+       "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+       null,
+       1.4994,
+       "08-17 13:16",
+       null
+      ]
+     ]
+    ],
+    [
+     "0xa4036936278b83d91568ffeddc8b90b2432c6b2d",
+     [
+      [
+       "0x8b8ed20e",
+       null,
+       1.49944,
+       "08-17 21:45"
+      ]
+     ],
+     [
+      [
+       "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+       null,
+       1.49931,
+       "08-17 21:49",
+       null
+      ]
+     ]
+    ],
+    [
+     "0xf4ebbce8bd1939c1fd237f2980b8bbd05eccc6dc",
+     [
+      [
+       "0xe876898c",
+       null,
+       1.49944,
+       "08-18 03:00"
+      ]
+     ],
+     [
+      [
+       "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+       null,
+       1.49932,
+       "08-18 03:04",
+       null
+      ]
+     ]
+    ],
+    [
+     "0x0b7a91fb0ef1207992bbaf89565b0efd542380fe",
+     [
+      [
+       "0x6878587d",
+       null,
+       1.59946,
+       "08-17 14:10"
+      ]
+     ],
+     [
+      [
+       "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+       null,
+       1.59933,
+       "08-17 14:14",
+       null
+      ]
+     ]
+    ]
+   ]
+  },
+  "non_ring_samples": {
+   "0x5e904605a8e7666a736748033d15ab6a93a406cb (c19 stranger, 1.45)": "4 txs; funded 2.999449 by 0x910d6617 (not Bitget), swept 2.99944 to 0xff1543cd which is itself a contributor => a separate small peel group; pf 253000 wei; not part of the Bitget ring",
+   "0x12afb5fd9ea74bda3c569f8e6742392cbf8cd1f8 (c71, 5.0, Bitget)": "4 txs; funded 5.0498 by Bitget 96 s before deposit; swept 5.048 to fresh 0xf4b26cfe 1 min after; pf 25.5M wei, gas limit 114501 (not the ring fingerprint); same loop shape but different fee/gas profile and hour 9 => could be the same operator warming up or an unrelated Bitget-funded farmer; ring membership not supported",
+   "0x74e6d1d674d6bcd6908d055985abeef1141f028a (c71, 5.0, non-Bitget)": "50+ txs, nonce 772, funded 2025 by 0x1376b146, DeFi/NFT history => human-like aged wallet welded into c71 by the 5.0 round window (a false positive inside the 233)",
+   "0x1e7b3b0e4df96c90a5103e3586ecddd0df178356 (c163, 5.2, Bitget)": "4 txs; funded 5.2098 by Bitget 24 s before; swept 5.208 to fresh 0x55fb25ca; different fee profile (165M wei)",
+   "0xdfb087f65c5582cc39dd4f16b3b7bf89261a98af (Bitget-funded, UNFLAGGED, 2.55)": "4 txs; funded 2.5998 by Bitget 204 s before; swept 2.598 to fresh 0xde8b3776 4 min after => same loop shape as the ring, yet unflagged (a false negative the detector misses because 2.55 has no amount twin)"
+  },
+  "label_check": "Blockscout /addresses/0x1ab4973a: name=None, public_tags=[], is_contract=False, reputation=scam, balance 8,052 ETH; the \"Bitget 6\" label is Etherscan-only (via the xhub agent) and was NOT verifiable keyless here. Whatever the entity, 14/14 hop-2 wallets return the ETH to it.",
+  "address_poisoning_note": "0-value incoming txs from look-alike prefixes (0xf4b2ddca vs 0xf4b26cfe, 0x55fb13fd vs 0x55fb25ca, 0xde8b77c5 vs 0xde8b3776) are third-party address-poisoning spam, not operator activity"
+ },
+ "variant_check": {
+  "a_unflags_233": "84+74+47+17+6+5 = 233 members become unflagged under (a): verified from variants table",
+  "strongest_farm_within_233": "217 = Bitget-funded ring members of c14/c19/c24/c58 (c80 survives via gas); the other 16 (c71 6, c163 5, c19 strangers 5) are heterogeneous and include at least 1 aged human-like wallet and 1 ENS wallet (justdefaultname.eth, nonce 1371)",
+  "d_prime_numbers": "fc_variants2.json: d' (N>=5 & N/size>=0.5) flagged 11341 (-232), 22 clusters lost, controls 30, labeled 141 \u2014 internally consistent with the script read; not independently re-run",
+  "binomial_note": "P[X>=84 | m=84, p=0.0194] ~ 1e-144; trivially passes; the base-rate is over the 12,498 resolved candidates only (funding was never resolved for the 7,024 non-candidates), so the true population rate is unknown but cannot plausibly reach 0.5"
+ },
+ "files": {
+  "local": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_local.json",
+  "ring_rows": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_ring_rows.json",
+  "sample": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_sample.json",
+  "onchain_summary": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_onchain_summary.json",
+  "hop2_summary": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_hop2_summary.json",
+  "raw_dir": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_bitget_onchain_raw/"
+ }
+}

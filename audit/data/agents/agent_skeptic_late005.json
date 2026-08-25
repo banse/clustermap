@@ -1,0 +1,924 @@
+{
+ "role": "skeptic",
+ "finding": "late_005_waves: cadence burst on 0.05 vacuous game-wide; drip below organic expectation",
+ "verdict": {
+  "refuted": false,
+  "confidence": 0.85
+ },
+ "rederived_from_cache": {
+  "burst_guard_code": "cadence.py: per_amount_block keyed by amount only, no time window; qualifying = blocks with >=cfg.min_size(5) single-deposit senders of the same wei; guard is len(qualifying)>=2 GAME-WIDE. cfg.protocol_min_amount_wei=0.05 exempts the minimum only from identical_amount_windows (amount/split), not from cadence/sequence (DetectConfig docstring says so explicitly).",
+  "qualifying_blocks_005_gamewide": {
+   "n_blocks": 47,
+   "members": 308,
+   "by_hour": {
+    "6": 2,
+    "11": 4,
+    "12": 4,
+    "15": 1,
+    "17": 2,
+    "33": 1,
+    "34": 22,
+    "35": 11
+   },
+   "max_per_block": 21,
+   "size_hist": {
+    "5": 20,
+    "6": 13,
+    "7": 7,
+    "8": 1,
+    "9": 3,
+    "10": 1,
+    "15": 1,
+    "21": 1
+   }
+  },
+  "note_same_window_fix": "34 of the 47 qualifying blocks lie inside h33-35 (h34 alone has 22) so 'require >=2 qualifying blocks within the same wave window' would still be satisfied in the rally; that part of the suggested fix is ineffective. Only the protocol-minimum exemption does the work.",
+  "h33_35": {
+   "blocks_with_joins": 660,
+   "joiners": 1459,
+   "blocks_ge5_005_singles": 34,
+   "blocks_ge5_005_alljoiners": 40,
+   "max_005_singles_per_block": 9,
+   "max_joins_per_block": 10,
+   "block_range": [
+    25779738,
+    25780633
+   ],
+   "blocks_in_range": 896
+  },
+  "h33_35_note": "investigator's '40 blocks with >=5 0.05 joins' counts all joiners; in the rule's own universe (single-deposit wallets) it is 34. 660 blocks with joins and max 10 joins/block confirmed (max 0.05 singles per block = 9). h34: 701 joiners, 261 blocks, 0.05 share 0.886, per-block hist 1:79 2:60 3:58 4:31 5:14 6:9 7:4 8:3 9:2 10:1.",
+  "burst_drip_h32_36": {
+   "real_burst_members": 202,
+   "real_drip_members": 66,
+   "null_within_hour_amount_shuffle": {
+    "burst": [
+     158.3,
+     12.698425099200294
+    ],
+    "drip": [
+     139.64666666666668,
+     33.004673743106274
+    ],
+    "z_burst": 3.44,
+    "z_drip": -2.23
+   },
+   "null_within_10min_bins": {
+    "burst": [
+     188.30666666666667,
+     11.27057920231057
+    ],
+    "drip": [
+     148.82666666666665,
+     34.65847595546514
+    ],
+    "z_burst": 1.21,
+    "z_drip": -2.39
+   },
+   "null_within_25_block_bins": {
+    "burst": [
+     191.51333333333332,
+     11.12339077000454
+    ],
+    "drip": [
+     158.07333333333332,
+     31.185701139393284
+    ],
+    "z_burst": 0.94,
+    "z_drip": -2.95
+   },
+   "h33_35_drip": {
+    "real": 84,
+    "null_hour": [
+     86.54666666666667,
+     26.543947625693423
+    ]
+   },
+   "interpretation": "investigator's 202 vs 157.5+/-13.3 reproduces (158.3+/-12.7) but is a +3.4 sigma EXCESS under their within-hour null; the excess is an artefact of the within-hour ramp of the 0.05 share (10-minute joiner bins 48->166). Under a within-10-minute or within-25-block shuffle the real burst count sits at +1.2 / +0.9 sigma: burst membership in the rally is consistent with organic density. Drip is 2.2-3 sigma BELOW every null (the rule breaks a run on a 0-block gap, and real blocks are clumpier than shuffled ones)."
+  },
+  "reasons_on_27_late_clusters": {
+   "with_cadence_reason": 17,
+   "ids": [
+    170,
+    177,
+    181,
+    210,
+    212,
+    215,
+    219,
+    220,
+    223,
+    231,
+    234,
+    240,
+    241,
+    247,
+    250,
+    259,
+    260
+   ],
+   "investigator_said": 21,
+   "correction": "17 of 27, not 21 (investigator's own per-cluster list yields 17)"
+  },
+  "cadence_plus_sequence_only_clusters": {
+   "ids": [
+    210,
+    219,
+    234,
+    250,
+    259,
+    260
+   ],
+   "members": 50,
+   "confirmed": true
+  },
+  "ablations_mirror_combiner": {
+   "drop_cadence_all": {
+    "clusters": 245,
+    "flagged": 11289,
+    "released": 284,
+    "gained": 0,
+    "released_pts_pct": 0.257,
+    "released_005": 281,
+    "released_hour_ge24": 131,
+    "released_ens": 21,
+    "released_nonce0": 126,
+    "released_by_cluster": [
+     [
+      7,
+      38
+     ],
+     [
+      186,
+      20
+     ],
+     [
+      197,
+      19
+     ],
+     [
+      215,
+      15
+     ],
+     [
+      217,
+      13
+     ],
+     [
+      179,
+      13
+     ],
+     [
+      231,
+      12
+     ],
+     [
+      234,
+      11
+     ],
+     [
+      227,
+      11
+     ],
+     [
+      191,
+      11
+     ],
+     [
+      241,
+      11
+     ],
+     [
+      226,
+      11
+     ]
+    ]
+   },
+   "drop_cadence_on_005": {
+    "clusters": 245,
+    "flagged": 11289,
+    "released": 284,
+    "gained": 0,
+    "released_pts_pct": 0.257,
+    "released_005": 281,
+    "released_hour_ge24": 131,
+    "released_ens": 21,
+    "released_nonce0": 126,
+    "released_by_cluster": [
+     [
+      7,
+      38
+     ],
+     [
+      186,
+      20
+     ],
+     [
+      197,
+      19
+     ],
+     [
+      215,
+      15
+     ],
+     [
+      217,
+      13
+     ],
+     [
+      179,
+      13
+     ],
+     [
+      231,
+      12
+     ],
+     [
+      234,
+      11
+     ],
+     [
+      227,
+      11
+     ],
+     [
+      191,
+      11
+     ],
+     [
+      241,
+      11
+     ],
+     [
+      226,
+      11
+     ]
+    ]
+   },
+   "drop_cadence_on_005_hour_ge24": {
+    "clusters": 254,
+    "flagged": 11442,
+    "released": 131,
+    "gained": 0,
+    "released_pts_pct": 0.114,
+    "released_005": 131,
+    "released_hour_ge24": 131,
+    "released_ens": 7,
+    "released_nonce0": 45,
+    "released_by_cluster": [
+     [
+      7,
+      28
+     ],
+     [
+      215,
+      15
+     ],
+     [
+      231,
+      12
+     ],
+     [
+      234,
+      11
+     ],
+     [
+      241,
+      11
+     ],
+     [
+      210,
+      10
+     ],
+     [
+      247,
+      9
+     ],
+     [
+      219,
+      9
+     ],
+     [
+      250,
+      8
+     ],
+     [
+      260,
+      6
+     ],
+     [
+      220,
+      6
+     ],
+     [
+      259,
+      6
+     ]
+    ]
+   },
+   "drop_burst_on_005": {
+    "clusters": 257,
+    "flagged": 11486,
+    "released": 87,
+    "gained": 0,
+    "released_pts_pct": 0.083,
+    "released_005": 87,
+    "released_hour_ge24": 78,
+    "released_ens": 3,
+    "released_nonce0": 30,
+    "released_by_cluster": [
+     [
+      7,
+      28
+     ],
+     [
+      234,
+      11
+     ],
+     [
+      210,
+      10
+     ],
+     [
+      219,
+      9
+     ],
+     [
+      250,
+      8
+     ],
+     [
+      260,
+      6
+     ],
+     [
+      259,
+      6
+     ],
+     [
+      257,
+      5
+     ],
+     [
+      238,
+      4
+     ]
+    ]
+   },
+   "drop_drip_on_005": {
+    "clusters": 251,
+    "flagged": 11376,
+    "released": 197,
+    "gained": 0,
+    "released_pts_pct": 0.173,
+    "released_005": 194,
+    "released_hour_ge24": 53,
+    "released_ens": 18,
+    "released_nonce0": 96,
+    "released_by_cluster": [
+     [
+      186,
+      20
+     ],
+     [
+      197,
+      19
+     ],
+     [
+      215,
+      15
+     ],
+     [
+      217,
+      13
+     ],
+     [
+      179,
+      13
+     ],
+     [
+      231,
+      12
+     ],
+     [
+      227,
+      11
+     ],
+     [
+      191,
+      11
+     ],
+     [
+      241,
+      11
+     ],
+     [
+      226,
+      11
+     ],
+     [
+      7,
+      10
+     ],
+     [
+      242,
+      9
+     ]
+    ]
+   },
+   "drop_burst_and_drip_h32_36_005": {
+    "clusters": 254,
+    "flagged": 11442,
+    "released": 131,
+    "gained": 0,
+    "released_pts_pct": 0.114,
+    "released_005": 131,
+    "released_hour_ge24": 131,
+    "released_ens": 7,
+    "released_nonce0": 45,
+    "released_by_cluster": [
+     [
+      7,
+      28
+     ],
+     [
+      215,
+      15
+     ],
+     [
+      231,
+      12
+     ],
+     [
+      234,
+      11
+     ],
+     [
+      241,
+      11
+     ],
+     [
+      210,
+      10
+     ],
+     [
+      247,
+      9
+     ],
+     [
+      219,
+      9
+     ],
+     [
+      250,
+      8
+     ],
+     [
+      260,
+      6
+     ],
+     [
+      220,
+      6
+     ],
+     [
+      259,
+      6
+     ]
+    ]
+   }
+  },
+  "ablation_notes": "dropping ALL cadence edges releases 284 wallets; dropping only cadence edges whose both endpoints are 0.05 releases the same 284 -> the cadence family's entire marginal contribution is on the protocol minimum (0.45/10.0/1.2 farm clusters never need it). Restricting to hour>=24: 131 released (0.114% of points), 45 of them nonce-0, 7 ENS; by cluster c7 28, c215 15, c231 12, c234 11, c241 11, c210 10, c247 9, c219 9, c250 8, c260 6, c220 6, c259 6. Drip's load-bearing effect is mostly EARLY (144 of 197 drip-released wallets have hour<24: c186, c197, c217, c179, c227, c191, c226) - outside this finding's scope but the same mechanism.",
+  "cadence_edge_breakdown": {
+   "('cadence:burst', True, False)": 93,
+   "('cadence:burst', True, True)": 168,
+   "('cadence:burst', False, False)": 2991,
+   "('cadence:drip', True, False)": 161,
+   "('cadence:drip', True, True)": 60,
+   "('cadence:drip', False, False)": 1042
+  },
+  "nonce_profile": {
+   "six_clusters_50": {
+    "nonce0": 18,
+    "nonce>=20": 23,
+    "nonce5-19": 5,
+    "nonce1-4": 4
+   },
+   "population_h32_36_005_singles": {
+    "n": 1170,
+    "with_tx": 860,
+    "nonce0_frac": 0.22,
+    "ge20_frac": 0.586,
+    "flagged": 723
+   },
+   "known_farm_clusters_nonce0_frac": [
+    [
+     2,
+     1996,
+     [
+      0.94,
+      0.02,
+      1996
+     ]
+    ],
+    [
+     0,
+     1104,
+     [
+      1.0,
+      0.0,
+      1104
+     ]
+    ],
+    [
+     7,
+     998,
+     [
+      0.2,
+      0.6,
+      998
+     ]
+    ],
+    [
+     6,
+     896,
+     [
+      0.8,
+      0.15,
+      896
+     ]
+    ],
+    [
+     1,
+     770,
+     [
+      1.0,
+      0.0,
+      770
+     ]
+    ],
+    [
+     8,
+     367,
+     [
+      1.0,
+      0.0,
+      367
+     ]
+    ],
+    [
+     3,
+     327,
+     [
+      0.01,
+      0.28,
+      327
+     ]
+    ],
+    [
+     4,
+     300,
+     [
+      1.0,
+      0.0,
+      300
+     ]
+    ]
+   ],
+   "late27": [
+    [
+     170,
+     37,
+     [
+      0.11,
+      0.62,
+      37
+     ]
+    ],
+    [
+     177,
+     33,
+     [
+      0.24,
+      0.64,
+      33
+     ]
+    ],
+    [
+     181,
+     31,
+     [
+      0.16,
+      0.52,
+      31
+     ]
+    ],
+    [
+     182,
+     23,
+     [
+      0.3,
+      0.43,
+      23
+     ]
+    ],
+    [
+     204,
+     16,
+     [
+      0.12,
+      0.69,
+      16
+     ]
+    ],
+    [
+     210,
+     10,
+     [
+      0.2,
+      0.6,
+      10
+     ]
+    ],
+    [
+     212,
+     16,
+     [
+      0.19,
+      0.69,
+      16
+     ]
+    ],
+    [
+     215,
+     15,
+     [
+      0.2,
+      0.67,
+      15
+     ]
+    ],
+    [
+     216,
+     15,
+     [
+      0.13,
+      0.73,
+      15
+     ]
+    ],
+    [
+     218,
+     12,
+     [
+      0.0,
+      0.83,
+      12
+     ]
+    ],
+    [
+     219,
+     9,
+     [
+      0.44,
+      0.44,
+      9
+     ]
+    ],
+    [
+     220,
+     12,
+     [
+      0.08,
+      0.67,
+      12
+     ]
+    ],
+    [
+     223,
+     12,
+     [
+      0.42,
+      0.5,
+      12
+     ]
+    ],
+    [
+     228,
+     9,
+     [
+      0.11,
+      0.67,
+      9
+     ]
+    ],
+    [
+     231,
+     12,
+     [
+      0.0,
+      0.67,
+      12
+     ]
+    ],
+    [
+     232,
+     12,
+     [
+      0.17,
+      0.58,
+      12
+     ]
+    ],
+    [
+     234,
+     11,
+     [
+      0.36,
+      0.45,
+      11
+     ]
+    ],
+    [
+     239,
+     11,
+     [
+      0.45,
+      0.45,
+      11
+     ]
+    ],
+    [
+     240,
+     11,
+     [
+      0.18,
+      0.73,
+      11
+     ]
+    ],
+    [
+     241,
+     11,
+     [
+      0.73,
+      0.27,
+      11
+     ]
+    ],
+    [
+     247,
+     9,
+     [
+      0.89,
+      0.0,
+      9
+     ]
+    ],
+    [
+     250,
+     8,
+     [
+      0.12,
+      0.62,
+      8
+     ]
+    ],
+    [
+     254,
+     5,
+     [
+      0.4,
+      0.6,
+      5
+     ]
+    ],
+    [
+     259,
+     6,
+     [
+      0.33,
+      0.33,
+      6
+     ]
+    ],
+    [
+     260,
+     6,
+     [
+      0.83,
+      0.17,
+      6
+     ]
+    ],
+    [
+     261,
+     5,
+     [
+      0.6,
+      0.4,
+      5
+     ]
+    ],
+    [
+     262,
+     5,
+     [
+      0.8,
+      0.0,
+      5
+     ]
+    ]
+   ]
+  }
+ },
+ "onchain_spotcheck": {
+  "calls": 50,
+  "addresses_checked": 35,
+  "method": "Blockscout v2 /addresses + /transactions (first page), 1.1 s sleep, 429 backoff; plus 5 contract-name lookups and 5 chain-end traces",
+  "shared_post_deposit_targets": {
+   "0x4313c378cc91ea583c91387b9216e2c03096b27f": "TransparentUpgradeableProxy (verified), method 0xeffbec13 with ETH value - a public dapp used by 12 of the checked wallets and by 0x5b2dda1f since April",
+   "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183": "OKX DexRouter (dagSwapTo) - 11 wallets",
+   "0x4cd00e387622c35bddb9b4c962c136462338bc31": "RelayDepository (Relay bridge, depositNative) - 5 wallets",
+   "0xb300000b72deaeb607a12d5f54773d1c19c7028d": "Diamond (bridge/aggregator) - 2 wallets",
+   "conclusion": "no operator sink; post-deposit activity is DEX/bridge/dapp use typical of airdrop-hunter wallets"
+  },
+  "peel_chain_traced_h34": {
+   "chain": [
+    "0x5b2dda1f006a10bd894b308aaaf2309cbea1419f (aged, nonce 252, Binance-funded since Apr, cluster c7)",
+    "0x6ecc694c25753a05aaa5deaf53890d968aac9d7f (nonce0, dep 06:39:47, fwd 0.061618 -> next, c7)",
+    "0x86e96ac374ab045ee2938b9851b2a407428e2266 (nonce0, dep 06:42:59, fwd 0.061593, c260)",
+    "0x22ce5d8afd4c0795321a564085b8d40b814be466 (nonce0, dep 06:43:59, fwd 0.061572, c212)",
+    "0x1a7e762a441377cfae26ba9942429fddf7fc3e03 (nonce0, dep, fwd 0.061552, UNFLAGGED)",
+    "0xe10a71c24d88690641d2b71c8aa72921666738e8 (nonce0, dep 06:53:11, fwd 0.061534, c7)",
+    "0x8cd10e57f7b922eddcd7b9b9d691d8183e433b29 (nonce0, dep 06:57:23, fwd 0.061505, c210)",
+    "0xd9e6867712c6400a01b03371021e538705f1af8b (AGED: Binance-funded Jan 2026, 20 txs, dep 06:58:59, fwd 0.061571 -> 0x173db8687a...)"
+   ],
+   "shape": "one ~0.0616 ETH seed walks through >=8 wallets in 20 minutes, each deposits 0.05 (refunded) and forwards the whole remainder within ~1 min; mixes fresh wallets with the operator's own aged wallets. Caught only by accident (2 links via 0.05 cadence bursts, 3 via other c7 edges), 1 link unflagged. sybilkit's peel-chain rule needs funder in the SAME tier-A component so it never fires on this.",
+   "other_chains": "0xe672f06f (c7 member, week-old, exchange-funded) funded 0x34bcb66e (c260) with exactly 0.05 which was returned after the deposit (bounce recycler); 0xb376e0ee -> 0x31fd71fd (c234) -> 0x341b9e4c1d (contributor, unflagged; 0x341b9e4c1d is a May-2026 wallet that bounces ETH with 0xb376e0ee); 0x2e0db3f8 -> 0x4fd3f3bf (c260) -> 0xf073f22cc8 (contributor, unflagged)",
+   "population_count": "enrichment funding rows 12,498; 9,002 links where the first funder is an earlier contributor; 273 chain components (9,275 wallets, dominated by the audited farms); 37 chains start at hour>=24 (502 wallets): 365x0.45 (c8), 26x0.05 h31-33 (0x3230466e recycler: c247 8, c241 5, c261 3, 4 unflagged), 11x1.0 (c161), and ~30 chains of 2-9 wallets at 0.05 in h32-37. Of 1,356 h32-36 0.05 joiners, 936 have a funding row, 96 sit in a chain, 80 of those flagged."
+  },
+  "wallet_verdicts": {
+   "c260 (6 in block 25780257, indices 16620-16625)": {
+    "0x86e96ac3": "farm-like: chain link (see trace)",
+    "0x34bcb66e": "farm-like: bounce child of c7 member 0xe672f06f (0.05 in 60 s before, 0.05 back 84 s after deposit), then small dapp buys",
+    "0x4fd3f3bf": "farm-like: 0x2e0db3f8 mini-farm child, 0.1 in 132 s before, 0.09999 forwarded to contributor 0xf073f22cc8 75 min later, 3 lifetime txs, balance 0",
+    "0x3cf18ae3": "ambiguous: funded 0.1577 by one-shot intermediate 0x97c29f46 (1 tx, internally funded) 10 min before; then 0.15 dapp buy, approve, 0.0897 to 0xc1d13492",
+    "0xec49f8d3": "ambiguous: internally funded (0xc1d13492, 68k-tx service), 8 txs incl. 2x0.05 dapp buys and Relay bridge-out 0.0814",
+    "0xdc27aebd": "human-like: nonce 87, active since Nov 2025, 23 distinct targets, 34 txs before launch, Binance-funded",
+    "summary": "5/6 fresh, 3 provable sybil-mechanics (chain/bounce/mini-farm child), 2 ambiguous, 1 aged human - the cluster is a mixed block, majority farm-like"
+   },
+   "c210": {
+    "0x8cd10e57": "farm-like: chain link (funded 0.06153 by chain member 0xe10a71c2 120 s before, forwards 0.0615 to aged chain member 0xd9e6867712 36 s after deposit)",
+    "0x43904de0": "human-like rescuer: received 2.626 ETH from 0x2cff890f (2,700-ETH wallet with heavy USDT/USDC flow = exchange/whale, not a fresh hub), deposited 0.05 then 0.5 then 2.62 (ladder), returned 2.626 to 0x86b3d574de an hour later; 3 deposits so attached via sequence only"
+   },
+   "c219": {
+    "0x7d9669f6": "unknown: 2 lifetime txs, internal funding, deposit then 0.05 OKX swap",
+    "0xd380343e": "human-like trader: internal funding, ~1.2 ETH of OKX swaps / salted orders / Relay bridge; enrichment 'first funder 0xcb0bb35c' is WRONG - 0xcb0bb35c is a zero-value dust spammer (50 x 0 ETH to 47 addresses on 08-18 14:18+), its tx to this wallet is 1 gwei AFTER the deposit",
+    "0x26a0ab3c": "human-like ladderer: Binance-15/16 funded 0.15+0.35, deposits 0.05/0.15/0.25/0.35/0.45 in 10 minutes, 0.499 out; exchange-funded so operator-ness unknowable",
+    "0x7f5f91b8": "human-like: Chinese ENS, nonce 328, 0.976 from 0x1ab4973a 27 days earlier, ladder 0.05/0.5/0.9, 0.92 ETH still held"
+   },
+   "c234": {
+    "0x31fd71fd": "farm-like: 0.058 in 24 s before, deposit, forwards 0.05798 to contributor 0x341b9e4c1d 5 min later, balance 0, 3 txs",
+    "0x8b0bd8c8": "human-like: exchange-funded 0.05017 132 s before, then 7 small dapp buys, 4 more inbound funders, 30 txs",
+    "0x34d8adcd": "ambiguous: exchange-family funded 0.076 48 s before, deposit, 0.05+0.025 into bridge Diamond, later Relay bridge-out",
+    "0xbbf36875": "ambiguous: exchange 0x4976a4a0 funded 0.071 72 s before, OKX swaps, salted order 0.0507"
+   },
+   "c259": {
+    "0xdc9b32f3": "unknown: internal funding, 0.22 out to 0x19350c11ef 41 min after deposit, 3 txs",
+    "0x33da4aac": "human-like trader: exchange-family funded, 7 OKX swaps over 8 h, second funder 0xa67d7eb4dc (8.2 ETH EOA, also funded 0x8b0bd8c8 of c234)"
+   },
+   "c250": {
+    "0xfce50e47": "ambiguous: 0.06 from 0x19e28dbf 84 s before, deposit, Relay bridge-out 0.02 + 2 transfers to 0x31be3eaa3e",
+    "0x9be7171f": "bot/trader: nonce 7608 at deposit, 46 outgoing to 9 targets in the last 50 txs (OKX swaps, Relay); one very active wallet, not a farm unit"
+   }
+  },
+  "tally_18_nonce0_checked": {
+   "farm-like (chain link / bounce / mini-farm child)": 5,
+   "ambiguous fresh exchange-or-service-funded": 7,
+   "human-like (trader/ladderer)": 4,
+   "unknown (2-3 txs, internal funding)": 2
+  },
+  "selection_bias": "I deliberately sampled the nonce-0 members; the investigator's 30-sample (23 human-like) was mostly aged members. Both are consistent: the six clusters are ~46% aged wallets (nonce>=20) and ~36% fresh, vs 59%/22% in the h32-36 0.05 population and 94-100% fresh in the audited farms."
+ },
+ "corrections_to_investigator": [
+  "'Reasons on 21 of the 27 clusters' -> 17 of 27 (their own per-cluster list).",
+  "'40 blocks with >=5 0.05 joins' -> 34 in the rule's universe (single-deposit wallets); 40 only when multi-deposit wallets are counted.",
+  "'Burst members real 202 vs null 157.5' is a +3.4 sigma EXCESS under their null, which contradicts 'vacuous' on its face; the excess disappears under a within-10-minute (188+/-11) or within-25-block (192+/-11) null - that is the number that supports the claim.",
+  "affected_wallets_estimate 50 counts only the six no-funding clusters; the wallets whose flag is load-bearing on late 0.05 cadence edges are 131 (0.114% of points). Of these, c247 (9) + c241 (11) hold the verified 0x3230466e recycling farm (13 farm-funded), c260 holds 3 provable sybil-mechanics wallets, c210/c215/c220 hold chain links. Plausibly-honest release is ~100, not 50 and not 131.",
+  "Suggested fix part 1 (>=2 qualifying blocks within the same wave window) is ineffective: 34 of the 47 qualifying blocks are inside h33-35 (22 in h34 alone). Only the protocol-minimum exemption changes the outcome.",
+  "Suggested drip fix ('only when the amount's share of the hour's joins < 30%') releases the 0x3230466e recycler (h33 0.05 share 78%) - the one thing drip actually caught.",
+  "Their 'fresh_hub_complement' list is partly wrong: 0xcb0bb35c (x3) is a zero-value dust spammer, 0x2cff890f (x3) is a 2,700-ETH exchange/whale wallet that bankrolled the h35 rescuer, not a farm hub.",
+  "Their 'human-like' heuristic (aged, many txs, many targets) is defeated by the traced chain: 0x5b2dda1f (nonce 252) and 0xd9e6867712 (Jan-2026 history) are links of the same 0.0616-ETH peel chain as six fresh wallets. 'Aged' in this rally includes operators' own reused wallets.",
+  "Severity 'high' is arguable: 0.11% of points and ~100 honest wallets out of 11,573 flagged; the bigger defect exposed here is the OPPOSITE one - peel chains across components (funder = earlier contributor, forward-the-remainder within minutes) are invisible to sybilkit because funding:peel_chain requires the funder to sit in the same tier-A component."
+ ],
+ "strongest_supported_claim": "In the h32-36 rally the cadence family on the 0.05 minimum has no discriminative power: the burst guard (>=2 qualifying blocks, game-wide, 47 blocks / 34 inside the rally) is a tautology at this density, burst membership is within ~1 sigma of a within-10-minute organic null, and drip fires 2-3 sigma BELOW organic expectation. 131 flagged wallets (0.114% of points, 45 nonce-0, 7 ENS) hang on those edges; 6 clusters / 50 wallets have no other family than the equally-vacuous sequence rule. Exempting the minimum from cadence after h24 releases ~100 plausibly honest wallets but also ~25-30 real sybil wallets (0x3230466e recycler, 0x5b2dda1f chain links, c260 mini-farm children) that only a cross-component peel-chain rule would re-catch.",
+ "files": [
+  "skeptic_late05.py",
+  "skeptic_late05_rederive.json",
+  "skeptic_late05_onchain.py",
+  "skeptic_late05_onchain.json",
+  "skeptic_late05_chains.json",
+  "skeptic_late05_chain_ends.json",
+  "skeptic_late05_targets.json"
+ ]
+}

@@ -1,0 +1,44 @@
+contributors 19522 | funding rows 19522 (100.0%) | tx rows 28353 (100.0% of first deposits)
+
+funding source of every contributor:
+  contributor  wallets  12885 (66.0%)  points 78.35%
+  exchange     wallets   3892 (19.9%)  points 14.30%
+  personal     wallets   1636 ( 8.4%)  points  4.58%
+  contract     wallets    590 ( 3.0%)  points  1.24%
+  service      wallets    322 ( 1.6%)  points  1.03%
+  operator     wallets    160 ( 0.8%)  points  0.33%
+  no-incoming  wallets     37 ( 0.2%)  points  0.17%
+
+funded by another contributor: 12530 wallets (64.2%), 76.4% of points
+  of those, tight peel (funder deposited <=30 blocks earlier at a like amount, child nonce<=20): 10901 wallets (70.1% of points)
+  chain depth (hops back inside the population): {'1': 913, '2': 356, '3-5': 353, '6-20': 988, '21-100': 2409, '101-1000': 5819, '1000+': 1692}
+  deepest chain: 1999 hops (ends at 0x06846a43111210c917189090d70b327fcb2e9be4, hour 20, 0.0782 ETH) — a single lump relayed wallet to wallet
+  peel-chain components: 478 (>=5 members: 124), largest 2735
+    size= 2735 pts=16.95% hours 3-5 amounts [(0.45, 1966), (10.0, 769)]
+    size= 2000 pts= 2.29% hours 19-20 amounts [(0.0991, 13), (0.0979, 13), (0.1004, 12)]
+    size= 1001 pts=16.09% hours 3-13 amounts [(14.0, 1001)]
+    size=  939 pts= 3.29% hours 34-64 amounts [(1.1, 6), (1.1352, 6), (1.1131, 6)]
+    size=  502 pts= 2.46% hours 5-5 amounts [(1.2001, 5), (1.1926, 4), (1.1973, 4)]
+    size=  502 pts= 0.55% hours 14-21 amounts [(0.1, 400), (0.05, 102)]
+    size=  416 pts=15.47% hours 12-19 amounts [(100.1, 14), (99.6, 13), (98.6, 13)]
+    size=  365 pts= 0.82% hours 35-37 amounts [(0.45, 365)]
+    size=  300 pts= 4.36% hours 12-20 amounts [(14.3, 100), (13.353, 2), (14.116, 2)]
+    size=  300 pts= 1.53% hours 1-2 amounts [(1.2, 300)]
+    size=  277 pts= 1.49% hours 13-20 amounts [(2.067, 277)]
+    size=  208 pts= 0.24% hours 3-6 amounts [(0.0672, 16), (0.0669, 12), (0.0671, 12)]
+
+share a first funder with >=1 other contributor: 5219 (26.7%)
+  out-degree 2-2:   159 funders,    318 wallets  {'contributor': 50, 'personal': 56, 'contract': 17, 'exchange': 14, 'service': 22}
+  out-degree 3-5:    94 funders,    343 wallets  {'service': 15, 'contributor': 21, 'exchange': 26, 'contract': 8, 'operator': 24}
+  out-degree 6-20:    71 funders,    751 wallets  {'exchange': 43, 'operator': 5, 'contributor': 14, 'contract': 5, 'service': 4}
+  out-degree 21-100:    20 funders,    979 wallets  {'exchange': 13, 'service': 2, 'contributor': 4, 'operator': 1}
+  out-degree 101-+:    14 funders,   2828 wallets  {'exchange': 13, 'contract': 1}
+
+nonce at first deposit (19522 known, 100.0%):
+  nonce 0       11298 wallets (57.9%)  points 64.28%
+  nonce 1-4      1728 wallets ( 8.9%)  points  6.13%
+  nonce 5-19     1731 wallets ( 8.9%)  points 13.13%
+  nonce 20-99    1806 wallets ( 9.3%)  points  6.84%
+  nonce 100+     2959 wallets (15.2%)  points  9.62%
+
+wrote full_census.json

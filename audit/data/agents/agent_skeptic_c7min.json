@@ -1,0 +1,3148 @@
+{
+ "finding": "cluster7_min_crowd: R13b exemption does not reach sequence/cadence; h34-35 0.05 rush welded as farm",
+ "source_verification": {
+  "sequence.py": "no protocol_min_amount_wei reference; near() with tol_bps=1000 on max(a,b): 0.05 chains to any amount in [0.045,0.0555] (claim text says 0.051-0.055; 0.0551 also passes)",
+  "cadence.py": "no protocol_min_amount_wei reference (burst nor drip)",
+  "exemption_lives_in": "signals/__init__.identical_amount_windows (exact+split) and amounts.py near pass only"
+ },
+ "rederived_numbers_match_investigator": {
+  "cfg": {
+   "min_size": 5,
+   "min_families": 2,
+   "near_amount_tol": 0.1,
+   "protocol_min_amount_wei": 50000000000000000
+  },
+  "c7_size": 998,
+  "c7_hour_hist_34_35": {
+   "h34": 317,
+   "h35": 125
+  },
+  "c7_members_at_min": 478,
+  "c7_min_h34": 294,
+  "c7_min_h35": 105,
+  "pop_first_deposits_h30_37": {
+   "30": 32,
+   "31": 33,
+   "32": 67,
+   "33": 206,
+   "34": 701,
+   "35": 552,
+   "36": 349,
+   "37": 275
+  },
+  "pop_first_min_h30_37": {
+   "30": 4,
+   "31": 7,
+   "32": 51,
+   "33": 160,
+   "34": 621,
+   "35": 378,
+   "36": 146,
+   "37": 53
+  },
+  "volume_eth_h31_36": {
+   "31": 90.57,
+   "32": 15.89,
+   "33": 53.37,
+   "34": 825.95,
+   "35": 662.0,
+   "36": 338.81
+  },
+  "hour_saved_h31_35": [
+   {
+    "hour": 31,
+    "wallet": "0xcefdb5f635bfc913d12e6eac3738e92b1681bd65",
+    "ts": 1787021951.0
+   },
+   {
+    "hour": 32,
+    "wallet": "0x1570749f16bff7b0a2620d8ac19db42fdeff4e83",
+    "ts": 1787026247.0
+   },
+   {
+    "hour": 33,
+    "wallet": "0xa67504bbcaa20d4e882c709923062e2747dad790",
+    "ts": 1787030147.0
+   },
+   {
+    "hour": 34,
+    "wallet": "0x64f3f1691101cd41b9908fc10a6c7a292d5defd3",
+    "ts": 1787033195.0
+   },
+   {
+    "hour": 35,
+    "wallet": "0x43904de0e226cc20dd72968954af6b439404743d",
+    "ts": 1787036363.0
+   }
+  ],
+  "seq_runs_touching_c7": 36,
+  "seq_runs_touching_c7_members": 541,
+  "seq_runs_touching_c7_members_in_c7": 541,
+  "seq_edges_inside_c7": 505,
+  "seq_edges_inside_c7_min_min": 403,
+  "seq_edge_pairs_c7": [
+   [
+    [
+     "0.05",
+     "0.05"
+    ],
+    403
+   ],
+   [
+    [
+     "0.05",
+     "0.051"
+    ],
+    38
+   ],
+   [
+    [
+     "0.051",
+     "0.051"
+    ],
+    33
+   ],
+   [
+    [
+     "0.05",
+     "0.055"
+    ],
+    14
+   ],
+   [
+    [
+     "0.05",
+     "0.052"
+    ],
+    10
+   ],
+   [
+    [
+     "0.05",
+     "0.053"
+    ],
+    3
+   ],
+   [
+    [
+     "0.05",
+     "0.0521"
+    ],
+    1
+   ],
+   [
+    [
+     "0.05",
+     "0.0502"
+    ],
+    1
+   ],
+   [
+    [
+     "0.0502",
+     "0.055"
+    ],
+    1
+   ],
+   [
+    [
+     "0.055",
+     "0.06"
+    ],
+    1
+   ]
+  ],
+  "seq_edges_population": 7301,
+  "seq_edges_population_min_min": 956,
+  "seq_edges_population_either_min": 1035,
+  "near_check": {
+   "0.05~0.055": true,
+   "0.05~0.0551": true,
+   "0.05~0.045": true
+  },
+  "run_16270_key": [
+   "consecutive join indices 16,270\u201316,362 \u00b7 41-block span"
+  ],
+  "run_16270_stats": {
+   "n": 93,
+   "tx_cov": 93,
+   "nonce_median": 135,
+   "nonce0": 8,
+   "nonce_ge20": 65,
+   "distinct_pf": 39,
+   "distinct_gl": 8,
+   "funding_cov": 93,
+   "distinct_funders": 71,
+   "ens": 10,
+   "multi": 7,
+   "funder_in_c7": 1
+  },
+  "seq_run_members_h34_35_stats": {
+   "n": 416,
+   "tx_cov": 416,
+   "nonce_median": 63.0,
+   "nonce0": 84,
+   "nonce_ge20": 250,
+   "distinct_pf": 182,
+   "distinct_gl": 16,
+   "funding_cov": 416,
+   "distinct_funders": 231,
+   "ens": 39,
+   "multi": 22,
+   "funder_in_c7": 13
+  },
+  "burst_blocks_touching_c7_total": 26,
+  "burst_blocks_at_min_touching_c7": 20,
+  "burst_blocks_at_min_h34_35": 19,
+  "burst_members_at_min_h34_35_stats": {
+   "n": 116,
+   "tx_cov": 116,
+   "nonce_median": 66.0,
+   "nonce0": 23,
+   "nonce_ge20": 72,
+   "distinct_pf": 58,
+   "distinct_gl": 9,
+   "funding_cov": 116,
+   "distinct_funders": 76,
+   "ens": 10,
+   "multi": 0,
+   "funder_in_c7": 5
+  },
+  "consec_pairs_h34_35": {
+   "total": 1253,
+   "gap_le2": 1242,
+   "amount_near": 877,
+   "both": 869
+  },
+  "h34_blocks": {
+   "min": 25780037,
+   "max": 25780334,
+   "span": 297,
+   "first_deposits": 701,
+   "per_block": 2.35
+  },
+  "h34_35_first_deposit_amount_band": {
+   "total": 1253,
+   "exact_min": 999,
+   "within_band_le_0.055": 1031
+  },
+  "baseline": {
+   "clusters": 263,
+   "flagged": 11573,
+   "c7_flagged": 998
+  },
+  "drop_sequence": {
+   "clusters": 264,
+   "flagged": 10766,
+   "c7_flagged": 548
+  },
+  "exempt_min_sequence_either": {
+   "clusters": 244,
+   "flagged": 10776,
+   "c7_flagged": 551
+  },
+  "exempt_min_sequence_both": {
+   "clusters": 243,
+   "flagged": 10868,
+   "c7_flagged": 639
+  },
+  "labeled_keys": [
+   "meta",
+   "clusters",
+   "members",
+   "controls"
+  ],
+  "variantA": {
+   "clusters": 228,
+   "flagged": 10571,
+   "c7_flagged": 537
+  },
+  "variantA_c7_dropped_stats": {
+   "n": 461,
+   "tx_cov": 461,
+   "nonce_median": 70,
+   "nonce0": 93,
+   "nonce_ge20": 281,
+   "distinct_pf": 205,
+   "distinct_gl": 23,
+   "funding_cov": 461,
+   "distinct_funders": 274,
+   "ens": 48,
+   "multi": 39,
+   "funder_in_c7": 17
+  },
+  "variantA_c7_dropped_hours": [
+   [
+    34,
+    289
+   ],
+   [
+    35,
+    94
+   ],
+   [
+    7,
+    12
+   ],
+   [
+    33,
+    11
+   ],
+   [
+    8,
+    11
+   ],
+   [
+    16,
+    8
+   ],
+   [
+    15,
+    8
+   ],
+   [
+    14,
+    7
+   ]
+  ],
+  "variantA_c7_dropped_amounts": [
+   [
+    "0.05",
+    455
+   ],
+   [
+    "0.0502",
+    3
+   ],
+   [
+    "0.0521",
+    2
+   ],
+   [
+    "0.051",
+    1
+   ]
+  ],
+  "variantA_c7_kept_stats": {
+   "n": 537,
+   "tx_cov": 537,
+   "nonce_median": 41,
+   "nonce0": 104,
+   "nonce_ge20": 316,
+   "distinct_pf": 223,
+   "distinct_gl": 28,
+   "funding_cov": 537,
+   "distinct_funders": 286,
+   "ens": 108,
+   "multi": 0,
+   "funder_in_c7": 64
+  },
+  "c7_min_h34_35_tierA_signature": [
+   [
+    "sequence",
+    283
+   ],
+   [
+    "cadence:burst+sequence",
+    110
+   ],
+   [
+    "cadence:burst",
+    6
+   ]
+  ],
+  "c7_min_h34_35_stats": {
+   "n": 399,
+   "tx_cov": 399,
+   "nonce_median": 63,
+   "nonce0": 82,
+   "nonce_ge20": 238,
+   "distinct_pf": 177,
+   "distinct_gl": 15,
+   "funding_cov": 399,
+   "distinct_funders": 227,
+   "ens": 37,
+   "multi": 22,
+   "funder_in_c7": 11
+  },
+  "c7_min_h34_35_nonce0": {
+   "n": 82,
+   "funding_cov": 82,
+   "distinct_funders": 63,
+   "top_funders": [
+    [
+     "0xc1d13492285eb664951e201bf7c80c7c6318a1b5",
+     4
+    ],
+    [
+     "0x28c6c06298d514db089934071355e5743bf21d60",
+     3
+    ],
+    [
+     "0x2e0db3f849b19b8d23993c4434ed02bf930d94f2",
+     3
+    ],
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     3
+    ],
+    [
+     "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f",
+     3
+    ],
+    [
+     "0xe7351fd770a37282b91d153ee690b63579d6dd7f",
+     2
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     2
+    ],
+    [
+     "0x5577d2ffaf27e33bb285d54652961f7f1c46b06a",
+     2
+    ]
+   ]
+  },
+  "c7_min_h34_35_nonce0_addrs": [
+   "0x9771fd33220faccf22631ed2200cb2b5b02533dc",
+   "0xe10a71c24d88690641d2b71c8aa72921666738e8",
+   "0x0f745fa611a34d8bfa33c95e9da9d8a093fbb568",
+   "0xb310d2c95de6fde868c07743f0ae52772ef44fac",
+   "0x48ba70be0dfefd00aabf96f5ee8aa2287abe449e",
+   "0x4b3869bec543dee08b6ad0434db43c39fc7e3db2",
+   "0x01fc7b14ea026c31938aac6a18124cb42f11fbc3",
+   "0x1fa026844ef64fd92a7ccc227bd0f26cf505a6c6",
+   "0xc70a8ba0768843efb918cb3c52ce8275eddbc543",
+   "0x2d6ba11ab1bdd74b95390cd9a75330f5762ce131",
+   "0x74114b615bcaa561e668a51d902c30cfaf4bda97",
+   "0x09e1093d107f723c4a25f0d3810cd728606f2335",
+   "0x278a7de7b4d9947ce42eac81ec5b7d36e16a00e8",
+   "0x7e567f444a5b08d6dc5ee3c28581fac6aa68d40d",
+   "0x4cacdb3668af1f40504987bde2279d71e4e1f1b6",
+   "0xae278ea19ad666490a22b18019ce9cda0e8673aa",
+   "0x9da041653fe7c2dd3f5f8b30243cdb8d0ea04cd0",
+   "0x9323e00c6aba5078db18d8add81a43d785a6fb28",
+   "0x1d048ca31a7d94c745543babeec98372b4e950c4",
+   "0xf75562078c05d701476304757c2b8fae3a900cca",
+   "0xa1cd70862f68a1da478f84754575ff47b177e023",
+   "0xafd38d2f846e72617d9286f190c1a8274a2aa65b",
+   "0xebb3d3073fcf8338984fe9eadadd413d1dd978a9",
+   "0x9f94b87aab3c0753c09c9542c262418022550c23",
+   "0x848af959236b2c388104533754405a4c19280d11",
+   "0x47ad97afc474ee49ff2c2cb40ce414797817a59b",
+   "0x012507af2cab879b6b9445253b6bca06f203a3a2",
+   "0x6ecc694c25753a05aaa5deaf53890d968aac9d7f",
+   "0xd801432efb17cbf51469d584bcb0afcf6547fd36",
+   "0x6dd997d2845a0dc7e942c9dc9212bcb0207273e9",
+   "0xa35a28c99f126287f69ed3a862e639b9834aba7d",
+   "0x4cb9bb30f56bb5215af2ae9fef679708b235bffd",
+   "0x4116c6bc305dd6a9da29a4a6793dd2bc0e22ef62",
+   "0x4cb1dfac76e303236c33d1e08e8575d2bae118f1",
+   "0xe290b71b1d4c9beee1961737bdc1ab1a45ed347f",
+   "0x9f07a8cf6ddb7262c66af41e1ea5af04dd2dda75",
+   "0x43ddd95ba27be45836a01eed7842c3d5fc4de87a",
+   "0xcd5ecffe811e6843acefbf4818b492ae8ca16339",
+   "0xa64363f1d52da088392ebef04de379805fc88bd7",
+   "0x4c52258d38dfb4197be615f96690085c19da6d17",
+   "0xd6a0bfa4d5f0374986f44307e921cdce35a723e9",
+   "0xec83583a87a0f15c7fd1bf5cd470e3da527837c7",
+   "0x5e29789be66be5761f266cdd965bc0543170ce05",
+   "0xf4b5fd32e3a5aab410fd34c3f207cc14fad3be0e",
+   "0x08ebf3b4fb59586ef7930bcc37f661851ba88eba",
+   "0x047f649b63ecf4fc62953ff02c94165e4ad1052a",
+   "0x4812311f2cdcc495ec40fb366be3fb0ef079dbf9",
+   "0x63a3fb3692e598ed97df37b482b5195d7fc8049b",
+   "0xddee14a7edf4c24f6072385e7068db3e654030ca",
+   "0x551b27b6406e818f54af8e85836363307bdda64d",
+   "0x5f8a11e46c53f31306b69b9ce4b5f2d9428d42da",
+   "0x6ea52cf20764e47392e005632b6d6a77eed4f92c",
+   "0xd46539976dfb37b6fa1212aee0a42a452455f93d",
+   "0xf42b209c4091c4fb59e68e99f48d781ad8fdb5de",
+   "0x9e75e111398fb3288bdb2e96848a70b23573ec11",
+   "0xb38ca2f4364bcefa5ceb45862d9d04e75ca16477",
+   "0xc963d278365f4b0a159a78b0c6abb85a7ba18ce9",
+   "0xde0a2c6ebc51748e34e88522c747436e2bdc5cf0",
+   "0xea57f8b066ea495d4493d1064f172923256edfc2",
+   "0x89b9efff83a65c15b4171ddbabc0d03830055754",
+   "0x0e615b9885ab5f4ad7b9ad348cbfa410b6d71d23",
+   "0x2f6f25953e1cbe96a8e85f163cdee3f9b4072157",
+   "0xcb3580fb6a016c8044e4b818aa8d802a3ced19ad",
+   "0xe7717bafd30a27c6308a1df3a033242f81c4d7c3",
+   "0x12872ad8bba45dcfbba3faf8d642767130423bd4",
+   "0x9bae9fea775779022199c9e1090f614159fc3ab6",
+   "0x050a8f8135903c936a17598f90e62353c88c3c2e",
+   "0x1dd7ef9b44f26864fa818e47f10f064d3e35eaad",
+   "0xa2cd711ff69c48fffc5fd1a68d9d4659a1a195bc",
+   "0xc6f0949ba6397e52234ad0ee21c1697ffb6bedc1",
+   "0x98e854867f478e219d0192880c7c75d534a4d675",
+   "0x959dc533906e64b651d705e94a0ce1a5359a9a0a",
+   "0xc878af3645cb2b04cdfaf2ba9914d412b61d74d1",
+   "0x6fd92b68aa80eedeb149b7f089c513ac2e284e1f",
+   "0x11ca11151310e6606dd94e6d3263c060cc343cce",
+   "0x773c2e83708fe00b2dfabe14f0167ea03613d20d",
+   "0x9bd9e2e8dc0861306bedbda2790185f896305d2d",
+   "0x3c306ef62bc49483681d6af1524aaf6baa3560a0",
+   "0x94f83b6aba686adca0547763c6b8aac9d7fdd38f",
+   "0x471af911380b1d29e472cf299aff979eedbceb8b",
+   "0x10efca27d09f5ecbca5ebaa175af06335474e7bc",
+   "0x2e0f8e8015b881a6b01d5c642754f57fd29b99a4"
+  ],
+  "run_16270_members": [
+   "0x082d61fb853de22a95a902392d33393db1a05e9f",
+   "0x09ce0fbe3957451350493bc9d42f68f280f26375",
+   "0x0ae5956deccec5d32b055ad81d21fab17b669725",
+   "0x0b1f82adcbee6e8ba5c9305504e183944f0dbfa6",
+   "0x1118dd23bad92d2ecefa0e8cc81c787b1c2a0227",
+   "0x11ab7923e8c94510914bf708b21c8adfd7374795",
+   "0x148902aa7df1fc8dcabba452c1b507592e48dba3",
+   "0x160204bf116c9853147bc65cf65a180fb5d16fcd",
+   "0x17a22320470b5b0e6e5633a01a9979497dbe53ad",
+   "0x1a05448e8059730ff6ab6516fb52f45c4889a911",
+   "0x1a442d3869a63b4e87253ab2d1e58c107b9bed1c",
+   "0x1b718ba533f4897d7fbdff1cdfd9c7a00854a7e6",
+   "0x1c4d1b47a6013d9d2bf69db527b261c2e2b88918",
+   "0x1febebf55702c4610d51be384d253d617489d802",
+   "0x237a9b5aae7d4b6c23f82421ef5a99105dc1df6a",
+   "0x2889853aa905031292d1ad23cde1e75b6da5bc67",
+   "0x2bcb86acdd6de3771a1f34f5e5b07bdea38d5204",
+   "0x2c296a2aecdd2eee5e029a0e0e2c65bbe2ccc527",
+   "0x2fa8b7f9f51bd163d7bc95603b666adcdcf37c1a",
+   "0x38df2108d84c72dd379766fe3408d05fb4cc7b43",
+   "0x3fd7f61787c926430bfbaf2d2b9df79ffc8060e1",
+   "0x4051ba2062d725dcb057ee1e576866fa962efaf4",
+   "0x42ae6345af8cbaa249904f611e9bff4d2342acff",
+   "0x436eb6f6c1504680134a901ebc0c21c36b82bd16",
+   "0x486a6b61965374b600329864db42371d715ea179",
+   "0x488372bef8504d1f9f8efc59b2e5f909ec5097f9",
+   "0x49f0fb0b857a3f666d2d8c6de89eb4f6bfaab25e",
+   "0x4b90efd49d4d66c48e742395d8830a86d8b87b5d",
+   "0x4f790a2307907e35006360e24a337c8acca727e6",
+   "0x546d88265d9f0ace4b4e8fb4ea683e966f6c5e33",
+   "0x5aaf1f87d7c0084b1b8150096ed1921860c6c5ed",
+   "0x5de84f4ae163742778a9fbbecfab8feeb80bf193",
+   "0x5ef8de154d1dcd3fd1f9d5f50ebb445487b54a13",
+   "0x6015a9456ed3a77a35adfd1af8e46c8b4f5e4956",
+   "0x61ec111acb9c26c5ec22e269318bf1061dc459a3",
+   "0x61fd0d043d519f5a2bd05785000f30db96809429",
+   "0x6473576f9a4a2f3f67eb94ee558f0c9dec2e38d4",
+   "0x68c77779efe7c5c265bad20e68db84b9bdeca607",
+   "0x74114b615bcaa561e668a51d902c30cfaf4bda97",
+   "0x762dcf08f7969d71a3ef8e8edf3690ccc221a245",
+   "0x7711f5127422ccb4ab9c0a730a227388ea74c9ba",
+   "0x785354ea5e52173ebaad7f3852d47431b45f2fff",
+   "0x7c0f38cccce18bcf9ffd72fb66412a4cf3faa0a2",
+   "0x7c95874a52b9980539d14db3f1d732a440bf7c8f",
+   "0x7e340fa949d24a54e7031d3c534986a4c29a654a",
+   "0x8322094d4d910ee3a2ffe0d9fd52f2255b0d80b8",
+   "0x848af959236b2c388104533754405a4c19280d11",
+   "0x87be84d8eca3e79df1944ddd8897e2e171192f21",
+   "0x89285e9d3ee5262ff77b065b558569edf3991759",
+   "0x89b9efff83a65c15b4171ddbabc0d03830055754",
+   "0x8b4b54c0d5a345e0f700e4a98450c3265f5eff84",
+   "0x8c5bb737243afcd2d441bf8d90e4ecc06854ced6",
+   "0x8cf784519a308f8ac1e1dce5420ed0cefcbac191",
+   "0x94f83b6aba686adca0547763c6b8aac9d7fdd38f",
+   "0x955327bfed6e2bc1ecc2a7d4ef80aa8732cc4cf2",
+   "0x959dc533906e64b651d705e94a0ce1a5359a9a0a",
+   "0x968b7a79bdb37ac71f5ea891d367b6447f92b4b9",
+   "0x973efe97a5fb054af9b71307bd9fd504b04d18a4",
+   "0x9bd9e2e8dc0861306bedbda2790185f896305d2d",
+   "0x9cd2b5071f72a8b41464ae82cca7f74da4322e93",
+   "0xaa3cc9b524b0388b3bfad035bd0302cc59aac07b",
+   "0xad4f66d498c8368b5dcbf233cb0957e6ef3bf388",
+   "0xaeb3075cad78597c26ac5a6885dbdeb20ed61849",
+   "0xb0e868debf20254c0b1c56e91509f38f5cce9963",
+   "0xb1f5981098992d87ad4199e0552789ef15e30d35",
+   "0xb4ac4609e6098b1e27e8aab353117ca530b8703f",
+   "0xb9d978e379eda1d0cc26f09d11c435b3c16cb3d9",
+   "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+   "0xc4909a49284916610249a09dd02154645f1561aa",
+   "0xc5ce20837212c15e194ffb018da528d88163fc4e",
+   "0xc87812bdf3ff1093dc3f211d31218e136174ea81",
+   "0xcafe9972bd1f2c2ca659eac4839cdb4720000000",
+   "0xccaf47fe775c8dd46daecb4ea9822bd2370df531",
+   "0xcfc1a8826c787702118daa474359e3aa50d9e546",
+   "0xcffc64d985790a27fd45a442836c3419377a9e9a",
+   "0xd01a73bef8d17aa02466754fe43e99342ae30043",
+   "0xd06210462fa34227ecfff888c143fccd32b89157",
+   "0xd5afbbb5cd64865a22da2c6c308e8ea4de09d6ab",
+   "0xd6f30f290bbea9616794c3c5890b92aa298c14b4",
+   "0xd73f9a18912a7dbd1cf3a58c98b30193b1c688d3",
+   "0xd780876b1a3aba25b0ab27b8e748fbcd482b3740",
+   "0xdab34e0924f824b8980b4e795543ce9cd337cc70",
+   "0xde0a2c6ebc51748e34e88522c747436e2bdc5cf0",
+   "0xe098563faa02bdd2c4dcd099065a7d480efb04b6",
+   "0xe5a68310af4c2c273f2f25a172c6320e82ff0ef8",
+   "0xe672f06f9c2c8b701495299c7805a1b16b67345a",
+   "0xea57f8b066ea495d4493d1064f172923256edfc2",
+   "0xedd2f380ef1836561893380fde4f05e561d3b3ee",
+   "0xeef2b441c6408dbbe65ef8afb5b982c9e5361071",
+   "0xf1dfcc615484bf4d7ccb06093995487f4938dd91",
+   "0xf26f064294118fc1a05045d2e31b5051216a03dc",
+   "0xf34eb3293e7e65a457d295caae302e37ec2910c8",
+   "0xf74ff45d3793edfc28841e605469ad930ea4c27d"
+  ],
+  "burst_min_h34_35_members": [
+   "0x000000000029ebdbac531e86895078017c4ace26",
+   "0x0024494c8de070ecfa567bf25bb4e81c360cd7b9",
+   "0x01fc7b14ea026c31938aac6a18124cb42f11fbc3",
+   "0x01fd3b06a6ddf908360f7c4e6a2875b6b8630bb8",
+   "0x03054889bb871ef4f1d46c3d6fdb09c6970b1004",
+   "0x047f649b63ecf4fc62953ff02c94165e4ad1052a",
+   "0x05799507bbeb6f61ad508f5e1de73dcb66b5ab40",
+   "0x068840e61ee83012108c04b8bcfa777edbbe1c30",
+   "0x07fc49b10c1bf3655f5de803b33d487c30c1d4b0",
+   "0x0958f43536da10841a4263b2caf1609c81eb2f1f",
+   "0x0f5994afdf8c01351a37e501cd28a961d76da66e",
+   "0x11ab7923e8c94510914bf708b21c8adfd7374795",
+   "0x18dfba0adf8c8d546b69fb9644aab6b1c7142dfc",
+   "0x1a05448e8059730ff6ab6516fb52f45c4889a911",
+   "0x1d048ca31a7d94c745543babeec98372b4e950c4",
+   "0x237a9b5aae7d4b6c23f82421ef5a99105dc1df6a",
+   "0x2621d470163e4c907ec74d6380dfcee311cfab6b",
+   "0x2ca28a917e46dc82aa5272f772d2126ac17b7272",
+   "0x2f6d71633ac62f44b4056ca3495290812b5ee295",
+   "0x2f6f25953e1cbe96a8e85f163cdee3f9b4072157",
+   "0x333333333356861a663705a92076b004efc73fb9",
+   "0x37618999e4a9f1b37919ab0c754bdefb1ff91325",
+   "0x37a16151ba53bbc6330adef069f1bd49f4814a6b",
+   "0x38663bd1196886c6a09ecd9450456afd0f2fffff",
+   "0x39480bd4566496ea4f283af164f8c3eec563d70b",
+   "0x399864bce9649b64ad8a08d2b8a6eba49391b089",
+   "0x3fd7f61787c926430bfbaf2d2b9df79ffc8060e1",
+   "0x41769899189f8cd3f97a8943e74a754ea4b11989",
+   "0x41e45d7c669b13a005d1b515cfe2ba297f03af1f",
+   "0x472639860af91d8e523034beceeab8b01980c3f2",
+   "0x47d783f9a264d879479fb88227bb8d6a8e23415a",
+   "0x4812311f2cdcc495ec40fb366be3fb0ef079dbf9",
+   "0x488aa5f754e6c44467c47195e52dfd66713e6c9b",
+   "0x48ba70be0dfefd00aabf96f5ee8aa2287abe449e",
+   "0x49f0fb0b857a3f666d2d8c6de89eb4f6bfaab25e",
+   "0x4a0b8647e8d3bccf07458d87bfcee822cfe55be6",
+   "0x4cacdb3668af1f40504987bde2279d71e4e1f1b6",
+   "0x4f7d7ccce8599895394d2fd5d73370bc3bc1e04b",
+   "0x51642597d657ae92df37c5c83ccf00a84f6b1584",
+   "0x540cc0a465e2cc67aedba354dc4ed70bb3502104",
+   "0x572dfaeb4aa070716e33fb60c49a7701f31fd6b2",
+   "0x5cfa32eccdf889add4679aa049f10420742b7503",
+   "0x5d7104632ab863aaa40fb866d4662f61e401691e",
+   "0x5de84f4ae163742778a9fbbecfab8feeb80bf193",
+   "0x5dfe41b20d096de52777bcccd3e003421f98aa35",
+   "0x6112dfad6d1e31ab8f1aa115c109d9635b5dd2c9",
+   "0x615544e9154785e31049c9209a67f692360a4148",
+   "0x61deb114746977c754c6a85ee2ad2ed763fb3250",
+   "0x63a3fb3692e598ed97df37b482b5195d7fc8049b",
+   "0x670f05b260a95d8a3dd9451ba1f8e7810b729432",
+   "0x71c51ec09d469758d314ad1d8de55f67ad547cd1",
+   "0x74576bb26f3d7d065bd0be35fd9a422aaf280141",
+   "0x7588b6f5a6b8d7c10d983f88e2614a1d797f9b74",
+   "0x7718929ad696e08d14b26eaf6ce0dd73dfad0a0c",
+   "0x7abdc8db5127195c0cf1d9627acdc549c158ac3d",
+   "0x7c0f38cccce18bcf9ffd72fb66412a4cf3faa0a2",
+   "0x7c6428aee44928ae2aab3f751b96f3797252a4b7",
+   "0x7c705b7eeaec1fa5554bdbdcc6994ef82e51111f",
+   "0x8314c8ceedba504696d68c1540e36e4f5bd8fa90",
+   "0x832e2d3cc20045e1911aefe21fdbc8f2b8867cbc",
+   "0x836072e338dbab939be128ae774eb8ae396f41c0",
+   "0x86835779147e5161457f653aaa8add879a36cab8",
+   "0x885e6aeac396e26cc9d2ab27c1c6c553ba348b04",
+   "0x8cb5e00eaa7c87ed30c101c8bda8b804d8efade6",
+   "0x8d5624fa29526c879a1ca7560961e4c5a08089ae",
+   "0x8fe80fba85b88ad7591dcab7d3bc09c1b84e97f0",
+   "0x9323e00c6aba5078db18d8add81a43d785a6fb28",
+   "0x9335cd5edeedd1092aa99b8c50a338974289d938",
+   "0x93a8d185b3328d7486bde339b38446994d321693",
+   "0x96ae9c69eb2a7a89b4cc477d6efe18306bc68987",
+   "0x9771fd33220faccf22631ed2200cb2b5b02533dc",
+   "0x98e854867f478e219d0192880c7c75d534a4d675",
+   "0x998539140b52752130bc95468bb15e1327407ca0",
+   "0x9bd9e2e8dc0861306bedbda2790185f896305d2d",
+   "0x9cd2b5071f72a8b41464ae82cca7f74da4322e93",
+   "0x9fc9aa2b0b3e437759145d7c955739b3aeb21087",
+   "0xa1cd70862f68a1da478f84754575ff47b177e023",
+   "0xa2cd711ff69c48fffc5fd1a68d9d4659a1a195bc",
+   "0xa413631e79ff7a28414a2a4c07a16b3c7f8b9e3b",
+   "0xa7c37e9472f75d548ef264a2bb4a799cd8b4518a",
+   "0xab0054e6d91e5be4b69c11ff7ce77c4571ff7c7c",
+   "0xab0ab2305be720a92db29d03f80cdd024fb79559",
+   "0xb0e868debf20254c0b1c56e91509f38f5cce9963",
+   "0xb310d2c95de6fde868c07743f0ae52772ef44fac",
+   "0xb38ca2f4364bcefa5ceb45862d9d04e75ca16477",
+   "0xb67e8b820cd1c58a19822ac96ff0578240fc3893",
+   "0xb79b56e600b4edc76ca7e4c566d66079a910c4ac",
+   "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+   "0xbd228f247868fc83de86c99e80e836edd6eb2d71",
+   "0xc17e6217015d28d0c2b210f8f4d8e7bdf1ecfa75",
+   "0xc6c271dbb337c8a7a16e369b87c78c1a63dc9123",
+   "0xc6d399c783aed317c1862aa6086fda3a2a2e60cf",
+   "0xccaf47fe775c8dd46daecb4ea9822bd2370df531",
+   "0xcdd70a07cac954ae3aad44a49c56c3e6f6f9d0ab",
+   "0xcf160701e47fa0e026fecc480ceb1f4113243533",
+   "0xd4406a0fcc23671022d5256d974ac9695ad72724",
+   "0xd46539976dfb37b6fa1212aee0a42a452455f93d",
+   "0xd780876b1a3aba25b0ab27b8e748fbcd482b3740",
+   "0xd801432efb17cbf51469d584bcb0afcf6547fd36",
+   "0xd9925c957bf278c79624f642c3a88629a29b3a35",
+   "0xdbafeb6844099657fffb0499f5c71d5237b0a02c",
+   "0xdd3c7a6911dd6af7b9d9220b6d5ea7eff5f58742",
+   "0xdd9c2da294152d197cc888e9bfbfb5d1e649bd44",
+   "0xddf22dd3587b9dc1ef35a08621eaf3ae1ce14f19",
+   "0xdefce7d2f2513c84140f457930e6c9fb0bfc471c",
+   "0xe10a71c24d88690641d2b71c8aa72921666738e8",
+   "0xe13180be709f084812641b214593083022b2c365",
+   "0xe290b71b1d4c9beee1961737bdc1ab1a45ed347f",
+   "0xe884946507e8f2303db5e0738a5e69560e4f3428",
+   "0xebb3d3073fcf8338984fe9eadadd413d1dd978a9",
+   "0xed007a4535457079fd886ab3f34d8bf508bc100b",
+   "0xf165347c05797cacaa15a2da7cdb484d54523b64",
+   "0xf26f064294118fc1a05045d2e31b5051216a03dc",
+   "0xf4b5fd32e3a5aab410fd34c3f207cc14fad3be0e",
+   "0xf75562078c05d701476304757c2b8fae3a900cca",
+   "0xfa8327c6ff914ccc2bcaeaec8b09594dab3cb5ba"
+  ]
+ },
+ "poisson_burst_check_h34_35": {
+  "34": {
+   "single_min_first_deposits": 579,
+   "block_span": 297,
+   "lambda_per_block": 1.95,
+   "p_block_ge5": 0.048,
+   "expected_blocks_ge5": 14.3,
+   "observed_blocks_ge5": 22,
+   "max_per_block": 9
+  },
+  "35": {
+   "single_min_first_deposits": 313,
+   "block_span": 298,
+   "lambda_per_block": 1.05,
+   "p_block_ge5": 0.004,
+   "expected_blocks_ge5": 1.3,
+   "observed_blocks_ge5": 11,
+   "max_per_block": 8
+  }
+ },
+ "variants": {
+  "labeled_farm_n": 160,
+  "controls_n": 60,
+  "baseline": {
+   "clusters": 263,
+   "flagged": 11573,
+   "released": 0,
+   "c7_flagged": 998,
+   "farm_flagged": 141,
+   "controls_flagged": 30,
+   "released_by_cluster_top": [],
+   "cluster197_flagged": 19,
+   "cluster179_flagged": 23,
+   "cluster186_flagged": 20,
+   "released_nonce0": 0,
+   "released_hours_top": []
+  },
+  "A_band_exempt_seq_drip_either": {
+   "clusters": 228,
+   "flagged": 10571,
+   "released": 1002,
+   "c7_flagged": 537,
+   "farm_flagged": 134,
+   "controls_flagged": 29,
+   "released_by_cluster_top": [
+    [
+     7,
+     461
+    ],
+    [
+     170,
+     37
+    ],
+    [
+     177,
+     33
+    ],
+    [
+     181,
+     31
+    ],
+    [
+     179,
+     23
+    ],
+    [
+     182,
+     23
+    ],
+    [
+     186,
+     20
+    ],
+    [
+     197,
+     19
+    ],
+    [
+     212,
+     16
+    ],
+    [
+     204,
+     16
+    ],
+    [
+     215,
+     15
+    ],
+    [
+     216,
+     15
+    ],
+    [
+     217,
+     13
+    ],
+    [
+     232,
+     12
+    ]
+   ],
+   "cluster197_flagged": 0,
+   "cluster179_flagged": 0,
+   "cluster186_flagged": 0,
+   "released_nonce0": 280,
+   "released_hours_top": [
+    [
+     34,
+     480
+    ],
+    [
+     35,
+     214
+    ],
+    [
+     16,
+     89
+    ],
+    [
+     33,
+     59
+    ],
+    [
+     10,
+     37
+    ]
+   ]
+  },
+  "F_min_exempt_seq_either": {
+   "clusters": 244,
+   "flagged": 10776,
+   "released": 797,
+   "c7_flagged": 551,
+   "farm_flagged": 141,
+   "controls_flagged": 29,
+   "released_by_cluster_top": [
+    [
+     7,
+     447
+    ],
+    [
+     170,
+     37
+    ],
+    [
+     177,
+     33
+    ],
+    [
+     181,
+     31
+    ],
+    [
+     182,
+     23
+    ],
+    [
+     212,
+     16
+    ],
+    [
+     204,
+     16
+    ],
+    [
+     216,
+     15
+    ],
+    [
+     232,
+     12
+    ],
+    [
+     223,
+     12
+    ],
+    [
+     218,
+     12
+    ],
+    [
+     239,
+     11
+    ],
+    [
+     234,
+     11
+    ],
+    [
+     240,
+     11
+    ]
+   ],
+   "cluster197_flagged": 19,
+   "cluster179_flagged": 19,
+   "cluster186_flagged": 16,
+   "released_nonce0": 181,
+   "released_hours_top": [
+    [
+     34,
+     480
+    ],
+    [
+     35,
+     179
+    ],
+    [
+     33,
+     39
+    ],
+    [
+     14,
+     19
+    ],
+    [
+     16,
+     17
+    ]
+   ]
+  },
+  "F2_min_exempt_seq_both": {
+   "clusters": 243,
+   "flagged": 10868,
+   "released": 705,
+   "c7_flagged": 639,
+   "farm_flagged": 141,
+   "controls_flagged": 29,
+   "released_by_cluster_top": [
+    [
+     7,
+     359
+    ],
+    [
+     170,
+     37
+    ],
+    [
+     177,
+     33
+    ],
+    [
+     181,
+     31
+    ],
+    [
+     182,
+     23
+    ],
+    [
+     212,
+     16
+    ],
+    [
+     204,
+     16
+    ],
+    [
+     216,
+     15
+    ],
+    [
+     232,
+     12
+    ],
+    [
+     223,
+     12
+    ],
+    [
+     218,
+     12
+    ],
+    [
+     239,
+     11
+    ],
+    [
+     234,
+     11
+    ],
+    [
+     240,
+     11
+    ]
+   ],
+   "cluster197_flagged": 19,
+   "cluster179_flagged": 20,
+   "cluster186_flagged": 16,
+   "released_nonce0": 165,
+   "released_hours_top": [
+    [
+     34,
+     446
+    ],
+    [
+     35,
+     150
+    ],
+    [
+     33,
+     35
+    ],
+    [
+     14,
+     15
+    ],
+    [
+     16,
+     13
+    ]
+   ]
+  },
+  "F3_min_exempt_seq_and_drip_either": {
+   "clusters": 228,
+   "flagged": 10574,
+   "released": 999,
+   "c7_flagged": 540,
+   "farm_flagged": 134,
+   "controls_flagged": 29,
+   "released_by_cluster_top": [
+    [
+     7,
+     458
+    ],
+    [
+     170,
+     37
+    ],
+    [
+     177,
+     33
+    ],
+    [
+     181,
+     31
+    ],
+    [
+     179,
+     23
+    ],
+    [
+     182,
+     23
+    ],
+    [
+     186,
+     20
+    ],
+    [
+     197,
+     19
+    ],
+    [
+     212,
+     16
+    ],
+    [
+     204,
+     16
+    ],
+    [
+     215,
+     15
+    ],
+    [
+     216,
+     15
+    ],
+    [
+     217,
+     13
+    ],
+    [
+     232,
+     12
+    ]
+   ],
+   "cluster197_flagged": 0,
+   "cluster179_flagged": 0,
+   "cluster186_flagged": 0,
+   "released_nonce0": 279,
+   "released_hours_top": [
+    [
+     34,
+     480
+    ],
+    [
+     35,
+     214
+    ],
+    [
+     16,
+     89
+    ],
+    [
+     33,
+     59
+    ],
+    [
+     10,
+     37
+    ]
+   ]
+  }
+ },
+ "variantA_profile": {
+  "variantA": {
+   "flagged": 10571,
+   "released": 1002,
+   "newly_flagged": 0
+  },
+  "released_all_stats": {
+   "n": 1002,
+   "tx_cov": 1002,
+   "nonce_median": 30.5,
+   "nonce0": 280,
+   "nonce_ge20": 545,
+   "distinct_pf": 404,
+   "top_pf_share": 0.09,
+   "distinct_gl": 32,
+   "top_gl_share": 0.25,
+   "distinct_funders": 551,
+   "top_funder": [
+    [
+     "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     36
+    ],
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     35
+    ],
+    [
+     "0x28c6c06298d514db089934071355e5743bf21d60",
+     31
+    ]
+   ],
+   "infra_funded": 93,
+   "ens": 92,
+   "multi": 79,
+   "amounts_top": [
+    [
+     "0.05",
+     989
+    ],
+    [
+     "0.0502",
+     3
+    ],
+    [
+     "0.051",
+     3
+    ],
+    [
+     "0.0515",
+     3
+    ]
+   ],
+   "hours_top": [
+    [
+     34,
+     480
+    ],
+    [
+     35,
+     214
+    ],
+    [
+     16,
+     89
+    ],
+    [
+     33,
+     59
+    ],
+    [
+     10,
+     37
+    ],
+    [
+     8,
+     33
+    ]
+   ]
+  },
+  "released_outside_c7_stats": {
+   "n": 541,
+   "tx_cov": 541,
+   "nonce_median": 17,
+   "nonce0": 187,
+   "nonce_ge20": 264,
+   "distinct_pf": 215,
+   "top_pf_share": 0.14,
+   "distinct_gl": 29,
+   "top_gl_share": 0.23,
+   "distinct_funders": 313,
+   "top_funder": [
+    [
+     "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     23
+    ],
+    [
+     "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+     19
+    ],
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     16
+    ]
+   ],
+   "infra_funded": 40,
+   "ens": 44,
+   "multi": 40,
+   "amounts_top": [
+    [
+     "0.05",
+     534
+    ],
+    [
+     "0.0515",
+     3
+    ],
+    [
+     "0.051",
+     2
+    ],
+    [
+     "0.050582970027928033",
+     1
+    ]
+   ],
+   "hours_top": [
+    [
+     34,
+     191
+    ],
+    [
+     35,
+     120
+    ],
+    [
+     16,
+     81
+    ],
+    [
+     33,
+     48
+    ],
+    [
+     10,
+     37
+    ],
+    [
+     8,
+     22
+    ]
+   ]
+  },
+  "released_in_c7_stats": {
+   "n": 461,
+   "tx_cov": 461,
+   "nonce_median": 70,
+   "nonce0": 93,
+   "nonce_ge20": 281,
+   "distinct_pf": 205,
+   "top_pf_share": 0.1,
+   "distinct_gl": 23,
+   "top_gl_share": 0.27,
+   "distinct_funders": 274,
+   "top_funder": [
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     19
+    ],
+    [
+     "0x28c6c06298d514db089934071355e5743bf21d60",
+     19
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     15
+    ]
+   ],
+   "infra_funded": 53,
+   "ens": 48,
+   "multi": 39,
+   "amounts_top": [
+    [
+     "0.05",
+     455
+    ],
+    [
+     "0.0502",
+     3
+    ],
+    [
+     "0.0521",
+     2
+    ],
+    [
+     "0.051",
+     1
+    ]
+   ],
+   "hours_top": [
+    [
+     34,
+     289
+    ],
+    [
+     35,
+     94
+    ],
+    [
+     7,
+     12
+    ],
+    [
+     8,
+     11
+    ],
+    [
+     33,
+     11
+    ],
+    [
+     15,
+     8
+    ]
+   ]
+  },
+  "released_by_origin_cluster": [
+   {
+    "n": 461,
+    "tx_cov": 461,
+    "nonce_median": 70,
+    "nonce0": 93,
+    "nonce_ge20": 281,
+    "distinct_pf": 205,
+    "top_pf_share": 0.1,
+    "distinct_gl": 23,
+    "top_gl_share": 0.27,
+    "distinct_funders": 274,
+    "top_funder": [
+     [
+      "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      19
+     ],
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      19
+     ],
+     [
+      "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      15
+     ]
+    ],
+    "infra_funded": 53,
+    "ens": 48,
+    "multi": 39,
+    "amounts_top": [
+     [
+      "0.05",
+      455
+     ],
+     [
+      "0.0502",
+      3
+     ],
+     [
+      "0.0521",
+      2
+     ],
+     [
+      "0.051",
+      1
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      289
+     ],
+     [
+      35,
+      94
+     ],
+     [
+      7,
+      12
+     ],
+     [
+      33,
+      11
+     ],
+     [
+      8,
+      11
+     ],
+     [
+      15,
+      8
+     ]
+    ],
+    "cluster": 7,
+    "cluster_size": 998,
+    "released": 461,
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 37,
+    "tx_cov": 37,
+    "nonce_median": 45,
+    "nonce0": 4,
+    "nonce_ge20": 23,
+    "distinct_pf": 16,
+    "top_pf_share": 0.19,
+    "distinct_gl": 7,
+    "top_gl_share": 0.49,
+    "distinct_funders": 33,
+    "top_funder": [
+     [
+      "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+      2
+     ],
+     [
+      "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+      2
+     ],
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      2
+     ]
+    ],
+    "infra_funded": 1,
+    "ens": 6,
+    "multi": 3,
+    "amounts_top": [
+     [
+      "0.05",
+      37
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      37
+     ]
+    ],
+    "cluster": 170,
+    "cluster_size": 37,
+    "released": 37,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 33,
+    "tx_cov": 33,
+    "nonce_median": 54,
+    "nonce0": 8,
+    "nonce_ge20": 21,
+    "distinct_pf": 16,
+    "top_pf_share": 0.21,
+    "distinct_gl": 8,
+    "top_gl_share": 0.33,
+    "distinct_funders": 30,
+    "top_funder": [
+     [
+      "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+      3
+     ],
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      2
+     ],
+     [
+      "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      1
+     ]
+    ],
+    "infra_funded": 2,
+    "ens": 2,
+    "multi": 2,
+    "amounts_top": [
+     [
+      "0.05",
+      33
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      20
+     ],
+     [
+      35,
+      13
+     ]
+    ],
+    "cluster": 177,
+    "cluster_size": 33,
+    "released": 33,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 31,
+    "tx_cov": 31,
+    "nonce_median": 20,
+    "nonce0": 5,
+    "nonce_ge20": 16,
+    "distinct_pf": 16,
+    "top_pf_share": 0.19,
+    "distinct_gl": 6,
+    "top_gl_share": 0.45,
+    "distinct_funders": 26,
+    "top_funder": [
+     [
+      "0x2e0db3f849b19b8d23993c4434ed02bf930d94f2",
+      3
+     ],
+     [
+      "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+      2
+     ],
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      2
+     ]
+    ],
+    "infra_funded": 4,
+    "ens": 1,
+    "multi": 2,
+    "amounts_top": [
+     [
+      "0.05",
+      31
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      31
+     ]
+    ],
+    "cluster": 181,
+    "cluster_size": 31,
+    "released": 31,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 23,
+    "tx_cov": 23,
+    "nonce_median": 9,
+    "nonce0": 7,
+    "nonce_ge20": 10,
+    "distinct_pf": 13,
+    "top_pf_share": 0.17,
+    "distinct_gl": 6,
+    "top_gl_share": 0.39,
+    "distinct_funders": 22,
+    "top_funder": [
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      2
+     ],
+     [
+      "0x9184624acd7d86b3414acd314ffec16646acf097",
+      1
+     ],
+     [
+      "0x471af911380b1d29e472cf299aff979eedbceb8b",
+      1
+     ]
+    ],
+    "infra_funded": 1,
+    "ens": 2,
+    "multi": 5,
+    "amounts_top": [
+     [
+      "0.05",
+      23
+     ]
+    ],
+    "hours_top": [
+     [
+      35,
+      23
+     ]
+    ],
+    "cluster": 182,
+    "cluster_size": 23,
+    "released": 23,
+    "families": [
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 23,
+    "tx_cov": 23,
+    "nonce_median": 0,
+    "nonce0": 15,
+    "nonce_ge20": 8,
+    "distinct_pf": 7,
+    "top_pf_share": 0.57,
+    "distinct_gl": 5,
+    "top_gl_share": 0.61,
+    "distinct_funders": 23,
+    "top_funder": [
+     [
+      "0x9161ec388ee90aefc17bfea89fcf8b69eaa9b83e",
+      1
+     ],
+     [
+      "0x753cc680ae0b9ba7836064b3f9fd262d4918da81",
+      1
+     ],
+     [
+      "0x69dc401a5049bcb515a0b1e6e43e3fe5ea3f1a60",
+      1
+     ]
+    ],
+    "infra_funded": 1,
+    "ens": 0,
+    "multi": 4,
+    "amounts_top": [
+     [
+      "0.05",
+      22
+     ],
+     [
+      "0.051",
+      1
+     ]
+    ],
+    "hours_top": [
+     [
+      16,
+      23
+     ]
+    ],
+    "cluster": 179,
+    "cluster_size": 23,
+    "released": 23,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 20,
+    "tx_cov": 20,
+    "nonce_median": 0.0,
+    "nonce0": 11,
+    "nonce_ge20": 8,
+    "distinct_pf": 12,
+    "top_pf_share": 0.2,
+    "distinct_gl": 2,
+    "top_gl_share": 0.85,
+    "distinct_funders": 20,
+    "top_funder": [
+     [
+      "0xfbefbba2465fa01e482f1ca5d16d7618ea19c529",
+      1
+     ],
+     [
+      "0x278668ebe7d29f19649be5acbd83f2e9df1fa1d1",
+      1
+     ],
+     [
+      "0x52240082dfb363dc3b094fba795a53f6bf11cf1d",
+      1
+     ]
+    ],
+    "infra_funded": 0,
+    "ens": 4,
+    "multi": 2,
+    "amounts_top": [
+     [
+      "0.05",
+      17
+     ],
+     [
+      "0.050582970027928033",
+      1
+     ],
+     [
+      "0.051719359804828936",
+      1
+     ],
+     [
+      "0.051",
+      1
+     ]
+    ],
+    "hours_top": [
+     [
+      8,
+      20
+     ]
+    ],
+    "cluster": 186,
+    "cluster_size": 20,
+    "released": 20,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 19,
+    "tx_cov": 19,
+    "nonce_median": 0,
+    "nonce0": 12,
+    "nonce_ge20": 5,
+    "distinct_pf": 12,
+    "top_pf_share": 0.21,
+    "distinct_gl": 4,
+    "top_gl_share": 0.63,
+    "distinct_funders": 8,
+    "top_funder": [
+     [
+      "0x2fc92dde494064724fd371e55172877f86d842e9",
+      12
+     ],
+     [
+      "0x6aabd15ca173ee3f6ed89e28c10a278e9924d517",
+      1
+     ],
+     [
+      "0x5a54191f061af40690a9dc6a52e9b41491552e42",
+      1
+     ]
+    ],
+    "infra_funded": 2,
+    "ens": 4,
+    "multi": 0,
+    "amounts_top": [
+     [
+      "0.05",
+      19
+     ]
+    ],
+    "hours_top": [
+     [
+      10,
+      19
+     ]
+    ],
+    "cluster": 197,
+    "cluster_size": 19,
+    "released": 19,
+    "families": [
+     "cadence",
+     "funding"
+    ]
+   },
+   {
+    "n": 16,
+    "tx_cov": 16,
+    "nonce_median": 94.0,
+    "nonce0": 2,
+    "nonce_ge20": 11,
+    "distinct_pf": 10,
+    "top_pf_share": 0.19,
+    "distinct_gl": 6,
+    "top_gl_share": 0.44,
+    "distinct_funders": 14,
+    "top_funder": [
+     [
+      "0xe7351fd770a37282b91d153ee690b63579d6dd7f",
+      2
+     ],
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      2
+     ],
+     [
+      "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+      1
+     ]
+    ],
+    "infra_funded": 2,
+    "ens": 1,
+    "multi": 3,
+    "amounts_top": [
+     [
+      "0.05",
+      16
+     ]
+    ],
+    "hours_top": [
+     [
+      33,
+      16
+     ]
+    ],
+    "cluster": 204,
+    "cluster_size": 16,
+    "released": 16,
+    "families": [
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 16,
+    "tx_cov": 16,
+    "nonce_median": 36.5,
+    "nonce0": 3,
+    "nonce_ge20": 11,
+    "distinct_pf": 9,
+    "top_pf_share": 0.31,
+    "distinct_gl": 6,
+    "top_gl_share": 0.31,
+    "distinct_funders": 15,
+    "top_funder": [
+     [
+      "0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589",
+      2
+     ],
+     [
+      "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+      1
+     ],
+     [
+      "0x8b4ad5c0cc04d57a64beae771c1693c554c3ac31",
+      1
+     ]
+    ],
+    "infra_funded": 1,
+    "ens": 0,
+    "multi": 0,
+    "amounts_top": [
+     [
+      "0.05",
+      16
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      16
+     ]
+    ],
+    "cluster": 212,
+    "cluster_size": 16,
+    "released": 16,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 15,
+    "tx_cov": 15,
+    "nonce_median": 77,
+    "nonce0": 2,
+    "nonce_ge20": 11,
+    "distinct_pf": 7,
+    "top_pf_share": 0.4,
+    "distinct_gl": 4,
+    "top_gl_share": 0.47,
+    "distinct_funders": 13,
+    "top_funder": [
+     [
+      "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+      2
+     ],
+     [
+      "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      2
+     ],
+     [
+      "0xa7efae728d2936e78bda97dc267687568dd593f3",
+      1
+     ]
+    ],
+    "infra_funded": 4,
+    "ens": 3,
+    "multi": 0,
+    "amounts_top": [
+     [
+      "0.05",
+      15
+     ]
+    ],
+    "hours_top": [
+     [
+      34,
+      15
+     ]
+    ],
+    "cluster": 216,
+    "cluster_size": 15,
+    "released": 15,
+    "families": [
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "n": 15,
+    "tx_cov": 15,
+    "nonce_median": 69,
+    "nonce0": 3,
+    "nonce_ge20": 10,
+    "distinct_pf": 12,
+    "top_pf_share": 0.13,
+    "distinct_gl": 6,
+    "top_gl_share": 0.33,
+    "distinct_funders": 13,
+    "top_funder": [
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      2
+     ],
+     [
+      "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+      2
+     ],
+     [
+      "0x623777cc098c6058a46cf7530f45150ff6a8459d",
+      1
+     ]
+    ],
+    "infra_funded": 3,
+    "ens": 1,
+    "multi": 0,
+    "amounts_top": [
+     [
+      "0.05",
+      15
+     ]
+    ],
+    "hours_top": [
+     [
+      35,
+      15
+     ]
+    ],
+    "cluster": 215,
+    "cluster_size": 15,
+    "released": 15,
+    "families": [
+     "cadence",
+     "funding"
+    ]
+   }
+  ],
+  "c7_min_h34_35_nonce0_fingerprint": {
+   "n": 82,
+   "tx_cov": 82,
+   "nonce_median": 0.0,
+   "nonce0": 82,
+   "nonce_ge20": 0,
+   "distinct_pf": 54,
+   "top_pf_share": 0.11,
+   "distinct_gl": 11,
+   "top_gl_share": 0.39,
+   "distinct_funders": 63,
+   "top_funder": [
+    [
+     "0xc1d13492285eb664951e201bf7c80c7c6318a1b5",
+     4
+    ],
+    [
+     "0x2e0db3f849b19b8d23993c4434ed02bf930d94f2",
+     3
+    ],
+    [
+     "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f",
+     3
+    ]
+   ],
+   "infra_funded": 8,
+   "ens": 0,
+   "multi": 6,
+   "amounts_top": [
+    [
+     "0.05",
+     82
+    ]
+   ],
+   "hours_top": [
+    [
+     34,
+     57
+    ],
+    [
+     35,
+     25
+    ]
+   ]
+  },
+  "c7_min_h34_35_nonce0_pf_gl_pairs_top": [
+   [
+    "(2000000000, 113329)",
+    6
+   ],
+   [
+    "(600000000, 114329)",
+    5
+   ],
+   [
+    "(71778626, 114328)",
+    2
+   ],
+   [
+    "(600000000, 113330)",
+    2
+   ],
+   [
+    "(56339656, 114328)",
+    2
+   ],
+   [
+    "(112855736, 114328)",
+    2
+   ]
+  ],
+  "c7_min_h34_35_nonce_ge20_fingerprint": {
+   "n": 238,
+   "tx_cov": 238,
+   "nonce_median": 198.5,
+   "nonce0": 0,
+   "nonce_ge20": 238,
+   "distinct_pf": 122,
+   "top_pf_share": 0.09,
+   "distinct_gl": 13,
+   "top_gl_share": 0.33,
+   "distinct_funders": 141,
+   "top_funder": [
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     14
+    ],
+    [
+     "0x28c6c06298d514db089934071355e5743bf21d60",
+     12
+    ],
+    [
+     "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+     10
+    ]
+   ],
+   "infra_funded": 31,
+   "ens": 35,
+   "multi": 15,
+   "amounts_top": [
+    [
+     "0.05",
+     238
+    ]
+   ],
+   "hours_top": [
+    [
+     34,
+     177
+    ],
+    [
+     35,
+     61
+    ]
+   ]
+  },
+  "funder_0x331d9a04": {
+   "population_wallets": 25,
+   "flagged": 20,
+   "in_c7": 10,
+   "hours_top": [
+    [
+     34,
+     10
+    ],
+    [
+     35,
+     4
+    ],
+    [
+     33,
+     2
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     9,
+     1
+    ]
+   ]
+  },
+  "funder_0x56eddb7a": {
+   "population_wallets": 69,
+   "flagged": 55,
+   "in_c7": 25,
+   "hours_top": [
+    [
+     34,
+     21
+    ],
+    [
+     35,
+     13
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     12,
+     4
+    ],
+    [
+     1,
+     4
+    ]
+   ]
+  },
+  "pop_min_h34_35": {
+   "n": 999,
+   "flagged_baseline": 709,
+   "flagged_variantA": 16,
+   "in_c7": 399,
+   "nonce_median": 47,
+   "nonce0": 180,
+   "nonce_ge20": 506,
+   "distinct_pf": 373,
+   "distinct_funders": 453,
+   "infra_funded": 99,
+   "ens": 92,
+   "multi": 107
+  },
+  "labeled": {
+   "farm_members_n": 0,
+   "farm_flagged_base": 0,
+   "farm_flagged_A": 0,
+   "controls_n": 60,
+   "controls_flagged_base": 30,
+   "controls_flagged_A": 29
+  }
+ },
+ "onchain_sample_disjoint_from_investigator": [
+  {
+   "addr": "0x7c0f38cccce18bcf9ffd72fb66412a4cf3faa0a2",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0622,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787033879.0,
+   "nonce_at_deposit": 369,
+   "pf_gwei": 0.127,
+   "gas_limit": 114328,
+   "funder": "0x4c2c5230f03731622b509861178bc406fd07ee02",
+   "ens_cache": null,
+   "page_out": 46,
+   "page_in": 4,
+   "distinct_to_contracts": 16,
+   "non_curator_out_before_launch": 44,
+   "oldest_page_days_before_launch": 66.6,
+   "post_settle_out_n": 1,
+   "post_settle_out_eth": 0.02,
+   "post_settle_out_to_names": [
+    "DexRouter"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x56eddb7aa8",
+    "from_name": null,
+    "minutes_before": 2.2,
+    "value_eth": 0.0476
+   },
+   "class": "human-like",
+   "why": [
+    "nonce=369",
+    "other_contracts=16",
+    "aged 66.6d",
+    "funded_just_before_with_~0.05"
+   ]
+  },
+  {
+   "addr": "0x38df2108d84c72dd379766fe3408d05fb4cc7b43",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.447,
+   "tx_count_bs": "0",
+   "page_txs": 21,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787034035.0,
+   "nonce_at_deposit": 11,
+   "pf_gwei": 0.054,
+   "gas_limit": 113329,
+   "funder": "0x475063d1c827a37fb094ef046160f1905824277d",
+   "ens_cache": null,
+   "page_out": 19,
+   "page_in": 2,
+   "distinct_to_contracts": 6,
+   "non_curator_out_before_launch": 11,
+   "oldest_page_days_before_launch": 110.7,
+   "post_settle_out_n": 4,
+   "post_settle_out_eth": 0.01,
+   "post_settle_out_to_names": [
+    "DirectToken",
+    "DexRouter"
+   ],
+   "last_fund_before_dep": {
+    "from": "0xca7ded7e4f",
+    "from_name": null,
+    "minutes_before": 100935.0,
+    "value_eth": 0.1078
+   },
+   "class": "human-like",
+   "why": [
+    "other_contracts=6",
+    "aged 110.7d"
+   ]
+  },
+  {
+   "addr": "0x8c5bb737243afcd2d441bf8d90e4ecc06854ced6",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0,
+   "tx_count_bs": "309",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787033747.0,
+   "nonce_at_deposit": 362,
+   "pf_gwei": 0.01,
+   "gas_limit": 90663,
+   "funder": "0x89bbf8176f259e8be72f1615b15e2224d0eb78ff",
+   "ens_cache": null,
+   "page_out": 42,
+   "page_in": 8,
+   "distinct_to_contracts": 12,
+   "non_curator_out_before_launch": 35,
+   "oldest_page_days_before_launch": 87.7,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0x56eddb7aa8",
+    "from_name": null,
+    "minutes_before": 26779.6,
+    "value_eth": 0.1041
+   },
+   "class": "human-like",
+   "why": [
+    "nonce=362",
+    "other_contracts=12",
+    "aged 87.7d"
+   ]
+  },
+  {
+   "addr": "0xea57f8b066ea495d4493d1064f172923256edfc2",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.2707,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787033915.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.065,
+   "gas_limit": 114328,
+   "funder": "0x0000317bec33af037b5fab2028f52d14658f6a56",
+   "ens_cache": null,
+   "page_out": 46,
+   "page_in": 4,
+   "distinct_to_contracts": 3,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -8.0,
+   "post_settle_out_n": 46,
+   "post_settle_out_eth": 3.0921,
+   "post_settle_out_to_names": [
+    "Seaport",
+    "RelayDepository",
+    "FWA"
+   ],
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "other_contracts=3",
+    "swept_after"
+   ]
+  },
+  {
+   "addr": "0x148902aa7df1fc8dcabba452c1b507592e48dba3",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": true,
+   "balance_eth": 0.0032,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787034107.0,
+   "nonce_at_deposit": 96,
+   "pf_gwei": 0.053,
+   "gas_limit": 91463,
+   "funder": "0xc244d43b8216b68cbf9404c1ead4f930ea8ffb6c",
+   "ens_cache": null,
+   "page_out": 44,
+   "page_in": 6,
+   "distinct_to_contracts": 17,
+   "non_curator_out_before_launch": 22,
+   "oldest_page_days_before_launch": 96.7,
+   "post_settle_out_n": 11,
+   "post_settle_out_eth": 0.0185,
+   "post_settle_out_to_names": [
+    "TransparentUpgradeableProxy",
+    "LabratToken",
+    "Elon Elementals",
+    "WEBCAT"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x331d9a049d",
+    "from_name": null,
+    "minutes_before": 7282.2,
+    "value_eth": 0.0081
+   },
+   "class": "human-like",
+   "why": [
+    "nonce=96",
+    "other_contracts=17",
+    "aged 96.7d"
+   ]
+  },
+  {
+   "addr": "0x1a05448e8059730ff6ab6516fb52f45c4889a911",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.3611,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787033879.0,
+   "nonce_at_deposit": 81,
+   "pf_gwei": 0.5,
+   "gas_limit": 75553,
+   "funder": "0x2e6160fefe84b01ce130185c7432c0d50c86e600",
+   "ens_cache": null,
+   "page_out": 43,
+   "page_in": 7,
+   "distinct_to_contracts": 16,
+   "non_curator_out_before_launch": 5,
+   "oldest_page_days_before_launch": 2.1,
+   "post_settle_out_n": 19,
+   "post_settle_out_eth": 0.5856,
+   "post_settle_out_to_names": [
+    "MEEKO",
+    "RelayDepository",
+    "Contract",
+    "0x988531bd"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x331d9a049d",
+    "from_name": null,
+    "minutes_before": 0.6,
+    "value_eth": 0.1851
+   },
+   "class": "human-like",
+   "why": [
+    "nonce=81",
+    "other_contracts=16"
+   ]
+  },
+  {
+   "addr": "0xc5ce20837212c15e194ffb018da528d88163fc4e",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0038,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787034143.0,
+   "nonce_at_deposit": 152,
+   "pf_gwei": 0.036,
+   "gas_limit": 113329,
+   "funder": "0x062a598a9e4b0318ab130bc52639298b393b7a1a",
+   "ens_cache": null,
+   "page_out": 48,
+   "page_in": 2,
+   "distinct_to_contracts": 8,
+   "non_curator_out_before_launch": 14,
+   "oldest_page_days_before_launch": 7.3,
+   "post_settle_out_n": 22,
+   "post_settle_out_eth": 0.2297,
+   "post_settle_out_to_names": [
+    "SwingHook",
+    "RelayDepository",
+    "DexRouter",
+    "LiFiDiamond"
+   ],
+   "class": "human-like",
+   "why": [
+    "nonce=152",
+    "other_contracts=8"
+   ]
+  },
+  {
+   "addr": "0x1c4d1b47a6013d9d2bf69db527b261c2e2b88918",
+   "stratum": "run16270",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0001,
+   "tx_count_bs": "0",
+   "page_txs": 43,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787033795.0,
+   "nonce_at_deposit": 16,
+   "pf_gwei": 0.048,
+   "gas_limit": 91463,
+   "funder": "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb",
+   "ens_cache": null,
+   "page_out": 38,
+   "page_in": 5,
+   "distinct_to_contracts": 10,
+   "non_curator_out_before_launch": 16,
+   "oldest_page_days_before_launch": 17.7,
+   "post_settle_out_n": 9,
+   "post_settle_out_eth": 0.1413,
+   "post_settle_out_to_names": [
+    "MEEKO",
+    "RelayDepository",
+    "UniversalRouter",
+    "DexRouter"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x331d9a049d",
+    "from_name": null,
+    "minutes_before": 0.6,
+    "value_eth": 0.0538
+   },
+   "class": "farm-like",
+   "why": [
+    "other_contracts=10",
+    "funded_just_before_with_~0.05"
+   ]
+  },
+  {
+   "addr": "0x8314c8ceedba504696d68c1540e36e4f5bd8fa90",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.072,
+   "tx_count_bs": "0",
+   "page_txs": 16,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036939.0,
+   "nonce_at_deposit": 10,
+   "pf_gwei": 0.079,
+   "gas_limit": 114328,
+   "funder": "0x28c6c06298d514db089934071355e5743bf21d60",
+   "ens_cache": null,
+   "page_out": 14,
+   "page_in": 2,
+   "distinct_to_contracts": 3,
+   "non_curator_out_before_launch": 9,
+   "oldest_page_days_before_launch": 118.6,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0x9696f59e4d",
+    "from_name": null,
+    "minutes_before": 136725.4,
+    "value_eth": 0.0198
+   },
+   "class": "human-like",
+   "why": [
+    "other_contracts=3",
+    "aged 118.6d"
+   ]
+  },
+  {
+   "addr": "0xcdd70a07cac954ae3aad44a49c56c3e6f6f9d0ab",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 3.2582,
+   "tx_count_bs": "269",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036963.0,
+   "nonce_at_deposit": 200,
+   "pf_gwei": 2.0,
+   "gas_limit": 113329,
+   "funder": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+   "ens_cache": "niconiconi.eth",
+   "page_out": 26,
+   "page_in": 24,
+   "distinct_to_contracts": 17,
+   "non_curator_out_before_launch": 22,
+   "oldest_page_days_before_launch": 929.4,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0x4976a4a02f",
+    "from_name": null,
+    "minutes_before": 1.0,
+    "value_eth": 5.2555
+   },
+   "class": "human-like",
+   "why": [
+    "ens",
+    "nonce=200",
+    "other_contracts=17",
+    "aged 929.4d"
+   ]
+  },
+  {
+   "addr": "0x068840e61ee83012108c04b8bcfa777edbbe1c30",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0885,
+   "tx_count_bs": "0",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036939.0,
+   "nonce_at_deposit": 197,
+   "pf_gwei": 0.157,
+   "gas_limit": 114328,
+   "funder": "0x7f9e7871d780af295274fb20c7c2a775e7453c35",
+   "ens_cache": null,
+   "page_out": 50,
+   "page_in": 0,
+   "distinct_to_contracts": 20,
+   "non_curator_out_before_launch": 48,
+   "oldest_page_days_before_launch": 434.7,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "class": "human-like",
+   "why": [
+    "nonce=197",
+    "other_contracts=20",
+    "aged 434.7d"
+   ]
+  },
+  {
+   "addr": "0xab0054e6d91e5be4b69c11ff7ce77c4571ff7c7c",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": "puplabs.eth",
+   "is_contract_now": false,
+   "balance_eth": 3.9686,
+   "tx_count_bs": "3570",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787035223.0,
+   "nonce_at_deposit": 3514,
+   "pf_gwei": 2.0,
+   "gas_limit": 113329,
+   "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+   "ens_cache": "puplabs.eth",
+   "page_out": 48,
+   "page_in": 2,
+   "distinct_to_contracts": 14,
+   "non_curator_out_before_launch": 35,
+   "oldest_page_days_before_launch": 55.0,
+   "post_settle_out_n": 12,
+   "post_settle_out_eth": 1.69,
+   "post_settle_out_to_names": [
+    "ProofOfNothing",
+    "0x04d69803",
+    "EJungleToken",
+    "Popcat"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x370a7e2d30",
+    "from_name": null,
+    "minutes_before": 31290.0,
+    "value_eth": 0.9998
+   },
+   "class": "human-like",
+   "why": [
+    "ens",
+    "nonce=3514",
+    "other_contracts=14",
+    "aged 55.0d"
+   ]
+  },
+  {
+   "addr": "0x4a0b8647e8d3bccf07458d87bfcee822cfe55be6",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": "zhangce.eth",
+   "is_contract_now": false,
+   "balance_eth": 0.0354,
+   "tx_count_bs": "524",
+   "page_txs": 50,
+   "has_more": true,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787035835.0,
+   "nonce_at_deposit": 488,
+   "pf_gwei": 0.056,
+   "gas_limit": 113329,
+   "funder": "0x5f1a7d81347a2858a7e26f9f8965cb856bc764af",
+   "ens_cache": "zhangce.eth",
+   "page_out": 48,
+   "page_in": 2,
+   "distinct_to_contracts": 28,
+   "non_curator_out_before_launch": 43,
+   "oldest_page_days_before_launch": 432.3,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0xa9ac43f5b5",
+    "from_name": null,
+    "minutes_before": 5.0,
+    "value_eth": 0.9997
+   },
+   "class": "human-like",
+   "why": [
+    "ens",
+    "nonce=488",
+    "other_contracts=28",
+    "aged 432.3d"
+   ]
+  },
+  {
+   "addr": "0x03054889bb871ef4f1d46c3d6fdb09c6970b1004",
+   "stratum": "burst_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0001,
+   "tx_count_bs": "0",
+   "page_txs": 37,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036639.0,
+   "nonce_at_deposit": 12,
+   "pf_gwei": 0.258,
+   "gas_limit": 91463,
+   "funder": "0xaf7041de56c081344078e9bc3093bdb0ad922a56",
+   "ens_cache": null,
+   "page_out": 29,
+   "page_in": 8,
+   "distinct_to_contracts": 13,
+   "non_curator_out_before_launch": 11,
+   "oldest_page_days_before_launch": 114.2,
+   "post_settle_out_n": 4,
+   "post_settle_out_eth": 0.0779,
+   "post_settle_out_to_names": [
+    "MEEKO",
+    "MayanForwarder2",
+    "DexRouter"
+   ],
+   "last_fund_before_dep": {
+    "from": "0xf70da97812",
+    "from_name": null,
+    "minutes_before": 10286.8,
+    "value_eth": 1.6583
+   },
+   "class": "human-like",
+   "why": [
+    "other_contracts=13",
+    "aged 114.2d"
+   ]
+  },
+  {
+   "addr": "0x09e1093d107f723c4a25f0d3810cd728606f2335",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0,
+   "tx_count_bs": "0",
+   "page_txs": 3,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036507.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 2.0,
+   "gas_limit": 113329,
+   "funder": "0x4812311f2cdcc495ec40fb366be3fb0ef079dbf9",
+   "ens_cache": null,
+   "page_out": 2,
+   "page_in": 1,
+   "distinct_to_contracts": 1,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0x4812311f2c",
+    "from_name": null,
+    "minutes_before": 0.4,
+    "value_eth": 0.0898
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "<=3 lifetime txs"
+   ]
+  },
+  {
+   "addr": "0xc963d278365f4b0a159a78b0c6abb85a7ba18ce9",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0002,
+   "tx_count_bs": "0",
+   "page_txs": 16,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787036123.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.6,
+   "gas_limit": 114329,
+   "funder": "0xafde7b926b26c1bb849da55118249fc67a7c02d7",
+   "ens_cache": null,
+   "page_out": 13,
+   "page_in": 3,
+   "distinct_to_contracts": 3,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0xafde7b926b",
+    "from_name": null,
+    "minutes_before": 7.0,
+    "value_eth": 0.0547
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "other_contracts=3",
+    "funded_just_before_with_~0.05"
+   ]
+  },
+  {
+   "addr": "0x9e75e111398fb3288bdb2e96848a70b23573ec11",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0116,
+   "tx_count_bs": "0",
+   "page_txs": 19,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036531.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.057,
+   "gas_limit": 114328,
+   "funder": "0x331d9a049d496385998067abf6cbb6371c8d2466",
+   "ens_cache": null,
+   "page_out": 13,
+   "page_in": 6,
+   "distinct_to_contracts": 8,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 3,
+   "post_settle_out_eth": 0.0355,
+   "post_settle_out_to_names": [
+    "RelayDepository",
+    "LabratClaim"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x331d9a049d",
+    "from_name": null,
+    "minutes_before": 2.2,
+    "value_eth": 0.0529
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "other_contracts=8",
+    "funded_just_before_with_~0.05",
+    "swept_after"
+   ]
+  },
+  {
+   "addr": "0xc70a8ba0768843efb918cb3c52ce8275eddbc543",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0,
+   "tx_count_bs": "0",
+   "page_txs": 5,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787035643.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.08,
+   "gas_limit": 113329,
+   "funder": "0xc1d13492285eb664951e201bf7c80c7c6318a1b5",
+   "ens_cache": null,
+   "page_out": 5,
+   "page_in": 0,
+   "distinct_to_contracts": 4,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "class": "unknown",
+   "why": [
+    "nonce0",
+    "other_contracts=4"
+   ]
+  },
+  {
+   "addr": "0x4cb9bb30f56bb5215af2ae9fef679708b235bffd",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0086,
+   "tx_count_bs": "0",
+   "page_txs": 5,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787037443.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.6,
+   "gas_limit": 113330,
+   "funder": "0x0ac1c1c174c0177bd7ec4b1067a2fc4563d39854",
+   "ens_cache": null,
+   "page_out": 4,
+   "page_in": 1,
+   "distinct_to_contracts": 2,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0x0ac1c1c174",
+    "from_name": null,
+    "minutes_before": 1.4,
+    "value_eth": 0.069
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "funded_just_before_with_~0.05"
+   ]
+  },
+  {
+   "addr": "0x2e0f8e8015b881a6b01d5c642754f57fd29b99a4",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0004,
+   "tx_count_bs": "7",
+   "page_txs": 16,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787035667.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.057,
+   "gas_limit": 90663,
+   "funder": "0x2cff890f0378a11913b6129b2e97417a2c302680",
+   "ens_cache": null,
+   "page_out": 13,
+   "page_in": 3,
+   "distinct_to_contracts": 3,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.4,
+   "post_settle_out_n": 1,
+   "post_settle_out_eth": 0.1273,
+   "post_settle_out_to_names": [
+    "Diamond"
+   ],
+   "last_fund_before_dep": {
+    "from": "0x2cff890f03",
+    "from_name": null,
+    "minutes_before": 4.6,
+    "value_eth": 0.1054
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "other_contracts=3",
+    "swept_after"
+   ]
+  },
+  {
+   "addr": "0xc878af3645cb2b04cdfaf2ba9914d412b61d74d1",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0009,
+   "tx_count_bs": "0",
+   "page_txs": 3,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 35,
+   "dep_ts": 1787036519.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 0.005,
+   "gas_limit": 75553,
+   "funder": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+   "ens_cache": null,
+   "page_out": 3,
+   "page_in": 0,
+   "distinct_to_contracts": 2,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.5,
+   "post_settle_out_n": 1,
+   "post_settle_out_eth": 0.0536,
+   "post_settle_out_to_names": [
+    "0xbc1d9760"
+   ],
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "swept_after",
+    "<=3 lifetime txs"
+   ]
+  },
+  {
+   "addr": "0xb38ca2f4364bcefa5ceb45862d9d04e75ca16477",
+   "stratum": "nonce0_min_h34_35",
+   "ens_bs": null,
+   "is_contract_now": true,
+   "balance_eth": 0.0,
+   "tx_count_bs": "0",
+   "page_txs": 13,
+   "has_more": false,
+   "n_deposits": 1,
+   "dep_amount_eth": 0.05,
+   "dep_hour": 34,
+   "dep_ts": 1787035211.0,
+   "nonce_at_deposit": 0,
+   "pf_gwei": 2.0,
+   "gas_limit": 114328,
+   "funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+   "ens_cache": null,
+   "page_out": 10,
+   "page_in": 3,
+   "distinct_to_contracts": 6,
+   "non_curator_out_before_launch": 0,
+   "oldest_page_days_before_launch": -1.4,
+   "post_settle_out_n": 0,
+   "post_settle_out_eth": 0,
+   "post_settle_out_to_names": [],
+   "last_fund_before_dep": {
+    "from": "0xdfd5293d8e",
+    "from_name": null,
+    "minutes_before": 0.6,
+    "value_eth": 0.0575
+   },
+   "class": "farm-like",
+   "why": [
+    "nonce0",
+    "other_contracts=6",
+    "funded_just_before_with_~0.05"
+   ]
+  },
+  {
+   "addr": "0xc1d13492285eb664951e201bf7c80c7c6318a1b5",
+   "stratum": "funders_of_nonce0",
+   "ens_bs": null,
+   "is_contract_now": true,
+   "balance_eth": 77.8283,
+   "tx_count_bs": "68884",
+   "page_txs": 50,
+   "has_more": true,
+   "name": null,
+   "methods_top": [
+    [
+     "0xd9caed12",
+     21
+    ],
+    [
+     "0x9ddf93bb",
+     12
+    ],
+    [
+     "0x16b3b4c2",
+     10
+    ],
+    [
+     "transfer",
+     4
+    ],
+    [
+     "0x4782f779",
+     3
+    ]
+   ],
+   "from_self_frac": 0.0
+  },
+  {
+   "addr": "0x2e0db3f849b19b8d23993c4434ed02bf930d94f2",
+   "stratum": "funders_of_nonce0",
+   "ens_bs": null,
+   "is_contract_now": false,
+   "balance_eth": 0.0077,
+   "tx_count_bs": "359",
+   "page_txs": 50,
+   "has_more": true,
+   "name": null,
+   "methods_top": [
+    [
+     "transfer",
+     43
+    ],
+    [
+     "0x810c705b",
+     5
+    ],
+    [
+     "0xf92970eb",
+     2
+    ]
+   ],
+   "from_self_frac": 0.4
+  },
+  {
+   "addr": "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f",
+   "stratum": "funders_of_nonce0",
+   "ens_bs": null,
+   "is_contract_now": true,
+   "balance_eth": 0.0,
+   "tx_count_bs": "509567",
+   "page_txs": 50,
+   "has_more": true,
+   "name": "RelayRouterV3",
+   "methods_top": [
+    [
+     "multicall",
+     50
+    ]
+   ],
+   "from_self_frac": 0.0
+  }
+ ],
+ "onchain_sample_summary": {
+  "run16270": {
+   "n": 8,
+   "human_like": 6,
+   "ambiguous": 2,
+   "note": "0xea57f8b0 nonce0 but 46 post-game txs/3.09 ETH out (active new wallet); 0x1c4d1b47 nonce16, 10 contracts, funded 0.6 min before by 0x331d9a04 (423k-tx exchange hot wallet)"
+  },
+  "burst_min_h34_35": {
+   "n": 6,
+   "human_like": 6,
+   "ens": [
+    "niconiconi.eth nonce200 aged929d",
+    "puplabs.eth nonce3514",
+    "zhangce.eth nonce488 aged432d"
+   ]
+  },
+  "nonce0_min_h34_35": {
+   "n": 8,
+   "fresh_funded_minutes_before": 7,
+   "unknown": 1,
+   "distinct_funders": 7,
+   "note": "farm-like OR new-user-like; no shared funder/gas fingerprint across them; funders include Binance16, exchange withdrawal contract 0xc1d13492 (68.9k txs), RelayRouterV3 bridge, personal EOA 0x2e0db3f8 (359 txs, funded 3 = small human multi-wallet)"
+  },
+  "recurring_funders": {
+   "0x331d9a049d496385998067abf6cbb6371c8d2466": "EOA 423,149 txs, exchange-scale; 25 population wallets, 20 flagged, 10 in c7, mostly h34/35",
+   "0x56eddb7aa87536c09ccc2793473599fd21a8b17f": "EOA 10.1M txs, 13,145 ETH (Binance hot wallet); 69 population wallets, 55 flagged",
+   "0xc1d13492285eb664951e201bf7c80c7c6318a1b5": "contract 68,884 txs 77.8 ETH, withdraw-style methods (exchange withdrawal contract)",
+   "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f": "RelayRouterV3 (bridge)"
+  }
+ },
+ "feed_check": "aidude feed cache has no announce-channel post in the h33-35 window; trigger of the rush not established from onchain channel (hour_saved shows h28-33 were each rescued by a single wallet, volume h32=15.9 ETH, then h34=826 ETH / 701 first deposits)",
+ "rate_limits": "27 address lookups (25 sampled + 2 funders), bs.py 1.1s sleep, 429 backoff 15s"
+}

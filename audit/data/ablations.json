@@ -1,0 +1,101 @@
+{
+ "amount:near_same_block": {
+  "clusters": 278,
+  "members": 11460,
+  "points_pct": 57.44,
+  "members_lost": 113,
+  "members_gained": 0,
+  "controls_flagged": 29,
+  "ens_flagged": 343
+ },
+ "amount:exact_round_wave": {
+  "clusters": 227,
+  "members": 10959,
+  "points_pct": 55.88,
+  "members_lost": 614,
+  "members_gained": 0,
+  "controls_flagged": 25,
+  "ens_flagged": 263
+ },
+ "amount:split": {
+  "clusters": 263,
+  "members": 11573,
+  "points_pct": 57.63,
+  "members_lost": 0,
+  "members_gained": 0,
+  "controls_flagged": 30,
+  "ens_flagged": 360
+ },
+ "amount:exact_odd": {
+  "clusters": 285,
+  "members": 10951,
+  "points_pct": 56.94,
+  "members_lost": 622,
+  "members_gained": 0,
+  "controls_flagged": 26,
+  "ens_flagged": 240
+ },
+ "sequence": {
+  "clusters": 264,
+  "members": 10766,
+  "points_pct": 56.86,
+  "members_lost": 807,
+  "members_gained": 0,
+  "controls_flagged": 29,
+  "ens_flagged": 286
+ },
+ "cadence:burst": {
+  "clusters": 257,
+  "members": 11486,
+  "points_pct": 57.55,
+  "members_lost": 87,
+  "members_gained": 0,
+  "controls_flagged": 30,
+  "ens_flagged": 357
+ },
+ "cadence:drip": {
+  "clusters": 251,
+  "members": 11376,
+  "points_pct": 57.46,
+  "members_lost": 197,
+  "members_gained": 0,
+  "controls_flagged": 30,
+  "ens_flagged": 342
+ },
+ "gas:two_axes": {
+  "clusters": 260,
+  "members": 11550,
+  "points_pct": 57.55,
+  "members_lost": 23,
+  "members_gained": 0,
+  "controls_flagged": 30,
+  "ens_flagged": 360
+ },
+ "gas:limit+fee": {
+  "clusters": 262,
+  "members": 11568,
+  "points_pct": 57.61,
+  "members_lost": 5,
+  "members_gained": 0,
+  "controls_flagged": 30,
+  "ens_flagged": 357
+ },
+ "funding:shared_hub": {
+  "clusters": 226,
+  "members": 11022,
+  "points_pct": 56.07,
+  "members_lost": 551,
+  "members_gained": 0,
+  "controls_flagged": 29,
+  "ens_flagged": 314
+ },
+ "funding:peel_chain": {
+  "clusters": 237,
+  "members": 10928,
+  "points_pct": 52.27,
+  "members_lost": 645,
+  "members_gained": 0,
+  "controls_flagged": 28,
+  "ens_flagged": 343
+ }
+}

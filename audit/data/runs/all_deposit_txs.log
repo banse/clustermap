@@ -1,0 +1,18 @@
+targets: 0 funding, 16150 txs | 6 workers, 8.0 req/s ceiling
+[txs] resuming: 6940 already on disk, 9210 to go
+[txs] 10/93 batches, 7933 rows
+[txs] 20/93 batches, 8933 rows
+[txs] 30/93 batches, 9932 rows
+[txs] 40/93 batches, 10927 rows
+[txs] 50/93 batches, 11927 rows
+[txs] 60/93 batches, 12926 rows
+[txs] 70/93 batches, 13920 rows
+[txs] 80/93 batches, 14918 rows
+[txs] 90/93 batches, 15918 rows
+[txs] 93/93 batches, 16128 rows
+[txs] batch pass: 16128 rows, 22 unresolved
+[txs] retry 22 in lots of 10
+[txs] retry 10 in lots of 1
+[txs] 100/93 batches, 16144 rows
+[txs] done: 16149 rows, 1 unresolved
+merged -> /Library/Vibes/aidude/tools/sybil/../../data/sybil/enrichment/full_enrich.json: funding 2186, txs 16149

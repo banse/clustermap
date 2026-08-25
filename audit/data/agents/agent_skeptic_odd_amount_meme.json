@@ -1,0 +1,1014 @@
+{
+ "finding_reviewed": "odd_amount_meme: 'Odd-amount definition treats 2-4 digit human numbers as global machine fingerprints' (critical, 482 affected, conf 0.9)",
+ "note_on_cited_evidence_file": "agent_odd_amount_meme.json does not exist in the scratchpad; the finding's numbers trace to agent_exact_odd.json + odd_groups.json + odd_variants*.json + onchain_sample_verdicts.json (all read).",
+ "rederived_from_cache": {
+  "rule_facts_confirmed": "signals/amounts.py + signals/__init__.py: amount % 1e16 != 0 is the only odd test; odd groups are one global chain over (hour,block,addr) at STRENGTH_EXACT_ODD=0.9; protocol min 0.05 exempt from odd/round/split/near; single-deposit wallets only",
+  "shared_odd_groups": {
+   "n_groups": 122,
+   "n_wallets": 1251,
+   "by_class_groups": {
+    "human": 95,
+    "machine": 15,
+    "ambiguous": 12
+   },
+   "by_class_wallets": {
+    "human": 1188,
+    "machine": 39,
+    "ambiguous": 24
+   }
+  },
+  "only_odd_tierA_attachment_total": 482,
+  "only_odd_by_cluster": {
+   "203": 8,
+   "7": 310,
+   "208": 13,
+   "200": 9,
+   "195": 9,
+   "213": 5,
+   "160": 34,
+   "252": 5,
+   "6": 13,
+   "245": 7,
+   "164": 8,
+   "230": 9,
+   "222": 7,
+   "214": 6,
+   "178": 1,
+   "187": 3,
+   "183": 14,
+   "180": 5,
+   "244": 8,
+   "199": 2,
+   "209": 1,
+   "246": 2,
+   "221": 2,
+   "189": 1
+  },
+  "only_odd_tierB_corroboration": {
+   "peel": 89,
+   "hub": 194,
+   "gas": 21,
+   "none": 178
+  },
+  "le4_sig_wallets": {
+   "wallets": 1188,
+   "flagged": 1047,
+   "strong_nonodd": 648
+  },
+  "profiles": {
+   "only_odd_all": {
+    "label": "only-odd all",
+    "n": 482,
+    "nonce_cov": 482,
+    "nonce0": 123,
+    "nonce_le3": 151,
+    "nonce_ge20": 256,
+    "nonce_median": 29.5,
+    "ens": 98,
+    "funded_by_disperse": 6,
+    "funded_by_contributor": 149,
+    "funded_by_same_cluster_member": 67,
+    "is_funder_of_contributor": 101,
+    "infra_funded": 20,
+    "top_funders": [
+     [
+      "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+      15
+     ],
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      14
+     ],
+     [
+      "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+      14
+     ],
+     [
+      "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+      12
+     ],
+     [
+      "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+      12
+     ],
+     [
+      "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+      11
+     ]
+    ],
+    "distinct_funders": 279
+   },
+   "only_odd_c7": {
+    "label": "only-odd c7",
+    "n": 310,
+    "nonce_cov": 310,
+    "nonce0": 38,
+    "nonce_le3": 55,
+    "nonce_ge20": 204,
+    "nonce_median": 49.5,
+    "ens": 78,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 79,
+    "funded_by_same_cluster_member": 44,
+    "is_funder_of_contributor": 37,
+    "infra_funded": 15,
+    "top_funders": [
+     [
+      "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+      14
+     ],
+     [
+      "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+      11
+     ],
+     [
+      "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+      11
+     ],
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      10
+     ],
+     [
+      "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+      9
+     ],
+     [
+      "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+      9
+     ]
+    ],
+    "distinct_funders": 182
+   },
+   "only_odd_c6": {
+    "label": "only-odd c6",
+    "n": 13,
+    "nonce_cov": 13,
+    "nonce0": 5,
+    "nonce_le3": 5,
+    "nonce_ge20": 6,
+    "nonce_median": 19,
+    "ens": 4,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 0,
+    "funded_by_same_cluster_member": 0,
+    "is_funder_of_contributor": 0,
+    "infra_funded": 1,
+    "top_funders": [
+     [
+      "0xa1abfa21f80ecf401bd41365adbb6fef6fefdf09",
+      2
+     ],
+     [
+      "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+      1
+     ],
+     [
+      "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      1
+     ],
+     [
+      "0x4b4e14a3773ee558b6597070797fd51eb48606e5",
+      1
+     ],
+     [
+      "0x5b92d2b38ab372bff63f55113b98253adff62a74",
+      1
+     ],
+     [
+      "0x18dd3c14e34c1bc379f7538068c59160d9f68e25",
+      1
+     ]
+    ],
+    "distinct_funders": 12
+   },
+   "only_odd_small_clusters": {
+    "label": "only-odd not c6/c7",
+    "n": 159,
+    "nonce_cov": 159,
+    "nonce0": 80,
+    "nonce_le3": 91,
+    "nonce_ge20": 46,
+    "nonce_median": 0,
+    "ens": 16,
+    "funded_by_disperse": 6,
+    "funded_by_contributor": 70,
+    "funded_by_same_cluster_member": 23,
+    "is_funder_of_contributor": 64,
+    "infra_funded": 4,
+    "top_funders": [
+     [
+      "0xd152f549545093347a162dce210e7293f1452150",
+      6
+     ],
+     [
+      "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+      6
+     ],
+     [
+      "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+      5
+     ],
+     [
+      "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      5
+     ],
+     [
+      "0x0cfdf329081e8cde910869ef4ed85739a5e495d7",
+      4
+     ],
+     [
+      "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+      4
+     ]
+    ],
+    "distinct_funders": 116
+   },
+   "baseline_unique_odd_singles": {
+    "label": "unique odd singles (no shared amount)",
+    "n": 5887,
+    "nonce_cov": 3316,
+    "nonce0": 2650,
+    "nonce_le3": 2660,
+    "nonce_ge20": 230,
+    "nonce_median": 0.0,
+    "ens": 49,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 3305,
+    "funded_by_same_cluster_member": 2712,
+    "is_funder_of_contributor": 3287,
+    "infra_funded": 1,
+    "top_funders": [
+     [
+      "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      8
+     ],
+     [
+      "0xf7a429d237592b86bada7dcad25707714e18c5c8",
+      8
+     ],
+     [
+      "0x52257e4e402dc182494f32b98fee204dbd1b061e",
+      8
+     ],
+     [
+      "0x6e3b79992705fb88a24296b7a9873967479a27e8",
+      7
+     ],
+     [
+      "0x6729b0a85c81a0a3ac92d891791b61c4917884b2",
+      6
+     ],
+     [
+      "0x2a32d8d357a5caa5a5479384a86eefb85b2fd75b",
+      4
+     ]
+    ],
+    "distinct_funders": 3307
+   },
+   "baseline_unique_odd_singles_unflagged": {
+    "label": "unique odd singles unflagged",
+    "n": 2573,
+    "nonce_cov": 2,
+    "nonce0": 2,
+    "nonce_le3": 2,
+    "nonce_ge20": 0,
+    "nonce_median": 0.0,
+    "ens": 45,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 25,
+    "funded_by_same_cluster_member": 37,
+    "is_funder_of_contributor": 44,
+    "infra_funded": 0,
+    "top_funders": [
+     [
+      "0x52257e4e402dc182494f32b98fee204dbd1b061e",
+      8
+     ],
+     [
+      "0xf7a429d237592b86bada7dcad25707714e18c5c8",
+      7
+     ],
+     [
+      "0xa7efae728d2936e78bda97dc267687568dd593f3",
+      2
+     ],
+     [
+      "0xbebcf96eeed98d495f45407ce7017179738e3552",
+      1
+     ],
+     [
+      "0xb5d85cbf7cb3ee0d56b3bb207d5fc4b82f43f511",
+      1
+     ],
+     [
+      "0xb01cb49fe0d6d6e47edf3a072d15dfe73155331c",
+      1
+     ]
+    ],
+    "distinct_funders": 23
+   },
+   "baseline_unflagged_singles": {
+    "label": "all unflagged singles",
+    "n": 5991,
+    "nonce_cov": 578,
+    "nonce0": 199,
+    "nonce_le3": 210,
+    "nonce_ge20": 200,
+    "nonce_median": 8.0,
+    "ens": 641,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 372,
+    "funded_by_same_cluster_member": 695,
+    "is_funder_of_contributor": 430,
+    "infra_funded": 39,
+    "top_funders": [
+     [
+      "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+      15
+     ],
+     [
+      "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+      15
+     ],
+     [
+      "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+      13
+     ],
+     [
+      "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+      11
+     ],
+     [
+      "0xa7efae728d2936e78bda97dc267687568dd593f3",
+      11
+     ],
+     [
+      "0x28c6c06298d514db089934071355e5743bf21d60",
+      10
+     ]
+    ],
+    "distinct_funders": 590
+   },
+   "baseline_undisputed_c0_c1": {
+    "label": "clusters 0+1 (audit farms)",
+    "n": 1874,
+    "nonce_cov": 1874,
+    "nonce0": 1869,
+    "nonce_le3": 1869,
+    "nonce_ge20": 4,
+    "nonce_median": 0.0,
+    "ens": 0,
+    "funded_by_disperse": 0,
+    "funded_by_contributor": 1871,
+    "funded_by_same_cluster_member": 1867,
+    "is_funder_of_contributor": 1867,
+    "infra_funded": 0,
+    "top_funders": [
+     [
+      "0x177d2c9f2241632849b59b1bb49e604e20098ccd",
+      1
+     ],
+     [
+      "0x99191c08fecda400100dff0a6ab4e4450b2ffd0e",
+      1
+     ],
+     [
+      "0x38977cec34a63756a1ba188f40581ad980b3fe4c",
+      1
+     ],
+     [
+      "0x17ff12eea536299b245c8352a093824a7fee83f9",
+      1
+     ],
+     [
+      "0x85186337da4342a1af87bfa70d0dd4da06e3b6d3",
+      1
+     ],
+     [
+      "0x7fa3502f69262bf8c2a7af5533d8537e95d06eb4",
+      1
+     ]
+    ],
+    "distinct_funders": 1874
+   }
+  },
+  "cited_amount_reach": {
+   "0.051": "n194 h1-41 (6 contiguous windows) nonce0=55 Disperse=40 funder_in_group=15 ENS=39",
+   "0.055": "n58 h0-47 (12 windows) nonce0=3 ENS=15",
+   "0.069": "n9 h1-22 (3 windows) nonce0=0",
+   "0.125": "n7 h1-23 (5 windows)",
+   "0.063": "n41 h6-35 nonce0=35 funder_in_group=27 (peel chain) ENS=1",
+   "2.067": "n324 h13-20 funder_in_group=318"
+  },
+  "top_le4_sig_groups_with_farm_signatures": [
+   {
+    "amount": "2.067",
+    "sig": 4,
+    "n": 324,
+    "nonce_cov": 324,
+    "nonce0": 0,
+    "nonce_ge20": 93,
+    "funder_in_group": 318,
+    "disperse": 0,
+    "funder_other_contributor": 0,
+    "max_same_block": 1,
+    "h_min": 13,
+    "h_max": 20,
+    "n_hour_windows": 2,
+    "ens": 2,
+    "flagged": 324,
+    "clusters": {
+     "3": 324
+    }
+   },
+   {
+    "amount": "0.051",
+    "sig": 2,
+    "n": 194,
+    "nonce_cov": 194,
+    "nonce0": 55,
+    "nonce_ge20": 108,
+    "funder_in_group": 15,
+    "disperse": 40,
+    "funder_other_contributor": 18,
+    "max_same_block": 10,
+    "h_min": 1,
+    "h_max": 41,
+    "n_hour_windows": 6,
+    "ens": 39,
+    "flagged": 194,
+    "clusters": {
+     "7": 194
+    }
+   },
+   {
+    "amount": "0.055",
+    "sig": 2,
+    "n": 58,
+    "nonce_cov": 58,
+    "nonce0": 3,
+    "nonce_ge20": 43,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 9,
+    "max_same_block": 1,
+    "h_min": 0,
+    "h_max": 47,
+    "n_hour_windows": 12,
+    "ens": 15,
+    "flagged": 58,
+    "clusters": {
+     "7": 58
+    }
+   },
+   {
+    "amount": "0.052",
+    "sig": 2,
+    "n": 54,
+    "nonce_cov": 54,
+    "nonce0": 16,
+    "nonce_ge20": 30,
+    "funder_in_group": 6,
+    "disperse": 0,
+    "funder_other_contributor": 13,
+    "max_same_block": 1,
+    "h_min": 1,
+    "h_max": 41,
+    "n_hour_windows": 9,
+    "ens": 11,
+    "flagged": 54,
+    "clusters": {
+     "7": 54
+    }
+   },
+   {
+    "amount": "0.063",
+    "sig": 2,
+    "n": 41,
+    "nonce_cov": 41,
+    "nonce0": 35,
+    "nonce_ge20": 3,
+    "funder_in_group": 27,
+    "disperse": 0,
+    "funder_other_contributor": 9,
+    "max_same_block": 1,
+    "h_min": 6,
+    "h_max": 35,
+    "n_hour_windows": 4,
+    "ens": 1,
+    "flagged": 41,
+    "clusters": {
+     "160": 41
+    }
+   },
+   {
+    "amount": "0.053",
+    "sig": 2,
+    "n": 22,
+    "nonce_cov": 22,
+    "nonce0": 3,
+    "nonce_ge20": 16,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 3,
+    "max_same_block": 1,
+    "h_min": 2,
+    "h_max": 59,
+    "n_hour_windows": 10,
+    "ens": 10,
+    "flagged": 22,
+    "clusters": {
+     "7": 22
+    }
+   },
+   {
+    "amount": "0.057",
+    "sig": 2,
+    "n": 22,
+    "nonce_cov": 22,
+    "nonce0": 0,
+    "nonce_ge20": 8,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 9,
+    "max_same_block": 1,
+    "h_min": 5,
+    "h_max": 35,
+    "n_hour_windows": 4,
+    "ens": 0,
+    "flagged": 22,
+    "clusters": {
+     "7": 22
+    }
+   },
+   {
+    "amount": "0.091",
+    "sig": 2,
+    "n": 21,
+    "nonce_cov": 21,
+    "nonce0": 20,
+    "nonce_ge20": 1,
+    "funder_in_group": 0,
+    "disperse": 20,
+    "funder_other_contributor": 0,
+    "max_same_block": 10,
+    "h_min": 9,
+    "h_max": 17,
+    "n_hour_windows": 2,
+    "ens": 0,
+    "flagged": 21,
+    "clusters": {
+     "178": 21
+    }
+   },
+   {
+    "amount": "0.0505",
+    "sig": 3,
+    "n": 19,
+    "nonce_cov": 19,
+    "nonce0": 9,
+    "nonce_ge20": 5,
+    "funder_in_group": 1,
+    "disperse": 9,
+    "funder_other_contributor": 2,
+    "max_same_block": 6,
+    "h_min": 1,
+    "h_max": 37,
+    "n_hour_windows": 7,
+    "ens": 2,
+    "flagged": 19,
+    "clusters": {
+     "195": 19
+    }
+   },
+   {
+    "amount": "0.058",
+    "sig": 2,
+    "n": 17,
+    "nonce_cov": 17,
+    "nonce0": 2,
+    "nonce_ge20": 8,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 5,
+    "max_same_block": 1,
+    "h_min": 5,
+    "h_max": 36,
+    "n_hour_windows": 6,
+    "ens": 3,
+    "flagged": 17,
+    "clusters": {
+     "7": 17
+    }
+   },
+   {
+    "amount": "0.056",
+    "sig": 2,
+    "n": 16,
+    "nonce_cov": 16,
+    "nonce0": 0,
+    "nonce_ge20": 11,
+    "funder_in_group": 1,
+    "disperse": 0,
+    "funder_other_contributor": 1,
+    "max_same_block": 1,
+    "h_min": 2,
+    "h_max": 34,
+    "n_hour_windows": 5,
+    "ens": 2,
+    "flagged": 16,
+    "clusters": {
+     "7": 16
+    }
+   },
+   {
+    "amount": "0.061",
+    "sig": 2,
+    "n": 16,
+    "nonce_cov": 16,
+    "nonce0": 1,
+    "nonce_ge20": 11,
+    "funder_in_group": 2,
+    "disperse": 0,
+    "funder_other_contributor": 4,
+    "max_same_block": 1,
+    "h_min": 6,
+    "h_max": 20,
+    "n_hour_windows": 5,
+    "ens": 1,
+    "flagged": 16,
+    "clusters": {
+     "7": 16
+    }
+   },
+   {
+    "amount": "0.124",
+    "sig": 3,
+    "n": 16,
+    "nonce_cov": 16,
+    "nonce0": 15,
+    "nonce_ge20": 0,
+    "funder_in_group": 0,
+    "disperse": 15,
+    "funder_other_contributor": 0,
+    "max_same_block": 15,
+    "h_min": 17,
+    "h_max": 23,
+    "n_hour_windows": 2,
+    "ens": 0,
+    "flagged": 16,
+    "clusters": {
+     "189": 16
+    }
+   },
+   {
+    "amount": "0.0501",
+    "sig": 3,
+    "n": 15,
+    "nonce_cov": 15,
+    "nonce0": 0,
+    "nonce_ge20": 11,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 0,
+    "max_same_block": 1,
+    "h_min": 1,
+    "h_max": 37,
+    "n_hour_windows": 6,
+    "ens": 5,
+    "flagged": 15,
+    "clusters": {
+     "183": 15
+    }
+   },
+   {
+    "amount": "0.1245",
+    "sig": 4,
+    "n": 15,
+    "nonce_cov": 15,
+    "nonce0": 15,
+    "nonce_ge20": 0,
+    "funder_in_group": 0,
+    "disperse": 15,
+    "funder_other_contributor": 0,
+    "max_same_block": 10,
+    "h_min": 17,
+    "h_max": 17,
+    "n_hour_windows": 1,
+    "ens": 0,
+    "flagged": 15,
+    "clusters": {
+     "193": 15
+    }
+   },
+   {
+    "amount": "0.064",
+    "sig": 2,
+    "n": 13,
+    "nonce_cov": 13,
+    "nonce0": 8,
+    "nonce_ge20": 4,
+    "funder_in_group": 2,
+    "disperse": 0,
+    "funder_other_contributor": 8,
+    "max_same_block": 1,
+    "h_min": 8,
+    "h_max": 47,
+    "n_hour_windows": 5,
+    "ens": 2,
+    "flagged": 13,
+    "clusters": {
+     "208": 13
+    }
+   },
+   {
+    "amount": "0.185",
+    "sig": 3,
+    "n": 13,
+    "nonce_cov": 13,
+    "nonce0": 10,
+    "nonce_ge20": 2,
+    "funder_in_group": 1,
+    "disperse": 10,
+    "funder_other_contributor": 0,
+    "max_same_block": 10,
+    "h_min": 8,
+    "h_max": 17,
+    "n_hour_windows": 2,
+    "ens": 1,
+    "flagged": 13,
+    "clusters": {
+     "187": 13
+    }
+   },
+   {
+    "amount": "0.054",
+    "sig": 2,
+    "n": 12,
+    "nonce_cov": 12,
+    "nonce0": 1,
+    "nonce_ge20": 10,
+    "funder_in_group": 2,
+    "disperse": 0,
+    "funder_other_contributor": 1,
+    "max_same_block": 1,
+    "h_min": 2,
+    "h_max": 45,
+    "n_hour_windows": 7,
+    "ens": 5,
+    "flagged": 12,
+    "clusters": {
+     "7": 12
+    }
+   },
+   {
+    "amount": "0.059",
+    "sig": 2,
+    "n": 11,
+    "nonce_cov": 11,
+    "nonce0": 1,
+    "nonce_ge20": 7,
+    "funder_in_group": 0,
+    "disperse": 0,
+    "funder_other_contributor": 2,
+    "max_same_block": 1,
+    "h_min": 4,
+    "h_max": 36,
+    "n_hour_windows": 4,
+    "ens": 3,
+    "flagged": 11,
+    "clusters": {
+     "7": 11
+    }
+   },
+   {
+    "amount": "0.088",
+    "sig": 2,
+    "n": 11,
+    "nonce_cov": 11,
+    "nonce0": 10,
+    "nonce_ge20": 1,
+    "funder_in_group": 0,
+    "disperse": 10,
+    "funder_other_contributor": 0,
+    "max_same_block": 9,
+    "h_min": 17,
+    "h_max": 25,
+    "n_hour_windows": 2,
+    "ens": 0,
+    "flagged": 11,
+    "clusters": {
+     "209": 11
+    }
+   }
+  ]
+ },
+ "verdict_file_recount": {
+  "c6_c7_rows_in_onchain_sample_verdicts": 12,
+  "human_like": 9,
+  "farm_like": 3,
+  "finding_claims": "12 of 14 human-like",
+  "after_onchain_recheck_human_like_holds_for": "<=5 of 12 (thufuong.eth, jasongray.eth, galstar.eth, 0xe463b750 weak, 0xcfea98c1 ambiguous)",
+  "reclassified": {
+   "0x5efd8e49bedd04622543bd39081f0718f4b9c388": "farm-like: hour-8 aged batch member (first tx 2023-03-18; identical 32-contract set with 0x401b77a4; JIT top-up 0.0320 ETH 5 min before deposit from hot wallet 0x56c26202; deposit block 25772439, twin at 25772441)",
+   "0x401b77a4df172191131008d3fc4d25cd3f73c7f9": "farm-like: hour-8 aged batch member (first tx 2023-03-18; JIT top-up 0.0325 ETH 5 min before from hot wallet 0xa5a5491b)",
+   "0x2b69cb6005a83c8647d68ceb67fd4c057cc47bbe": "farm-like: hour-8 aged batch member (first tx 2023-03-19; JIT top-up 0.0260 ETH 2 min before from hot wallet 0xca7ded7e)",
+   "0x977bd4208dee996f27b1803786893843518fd90b": "farm-like: peel-chain relay node \u2014 deposit 0.061 @blk25773123, 0.03h later sends 0.068982 to 0x05c24d68 (c160, deposits 0.063 @25773142), which 0.02h later sends 0.068788 to 0x20d40a8c (c7, deposits 0.061 @25773158), which 0.03h later sends 0.068587 to 0x4734e3f8 (c7, 0.061); the same chain carried 5/9/11 earlier transfers; all four are 2022-era wallets with identical Beg/XENCrypto/0xa9ce0013 histories",
+   "0xcfea98c1f18196682d2ac80c653db2b5a287942b": "ambiguous: funded 0.056 one minute before by 17000.eth (EIP-7702 delegated personal EOA), swept 0.056 back 0.0h after",
+   "0xe463b750c0d09ee2d9f8c84cbea21918ed50f9c5": "human-like (weak): aged 2024, 23 contracts, 5 post-settlement txs, keeps 0.099"
+  }
+ },
+ "hour8_aged_batch": {
+  "members_13": [
+   "0x02eb316cf1787756903cdc3aca9d3e01c5540498",
+   "0xb70b29f782813f056460aef60f4d89b42b678b14",
+   "0x5efd8e49bedd04622543bd39081f0718f4b9c388",
+   "0x401b77a4df172191131008d3fc4d25cd3f73c7f9",
+   "0x92b99fb3fe8399b39e56bcbb27a4a8f7e093c5de",
+   "0x961a42812eb50502742cd03bab7dc21a69dc0368",
+   "0x39992c9400840465c757072888ff13e7b4e40a83",
+   "0xf5dc33382dc3b45c0476676cec2f5dc66da252b8",
+   "0x7baa08736073dceb51cd80d95afb8628732236a5",
+   "0x2b69cb6005a83c8647d68ceb67fd4c057cc47bbe",
+   "0x3a398769005f0d8ef5199faafea3dc4e9a04c3be",
+   "0x943147dab788b03a7ee365bc9d8770cd6aa27394",
+   "0x5d1808af0d21b3e71fd681bc31f4dfc212db49e1"
+  ],
+  "signature": "blocks 25772321-25772549 (hour 8); nonces 32-54; amounts rotate 0.052/0.054/0.055/0.056/0.057/0.058 (each amount 1-3x so no per-amount window forms); five deposits at exactly 2-block intervals (25772439/441/443/445/447, nonces 42/44/47/50/54); all gas_limit 113508 type-2; all 9 on-chain-checked members first funded 2023-03-18/19, identical TransparentUpgradeableProxy/ERC1967Proxy/ERC721DropProxy/Seaport contract set, JIT top-up of 0.026-0.037 ETH 1-9 min before deposit from a pool of 8 unlabeled exchange-scale hot wallets (0x56c26202 337k txs, 0xa5a5491b 339k, 0xabb2acd3 338k, 0xada5bb90 339k, 0xca7ded7e 424k, 0x18dd3c14 427k, 0x331d9a04 423k, 0x370a7e2d 424k), no outgoing tx since, 0 post-settlement txs; all 13 carry only exact_odd tier-A + shared_hub tier-B edges",
+  "fresh_sample_also_in_batch": [
+   "0x4f3afd86fcbb870077520141066276fb8551e16b (0.059 h10 nonce 73: first tx 2023-03-25, same contract set, 5 JIT top-ups 1-11 min before from 0xa5a5491b/0x56c26202/0x18dd3c14/0x331d9a04)",
+   "0x51a1261ba163a6c9f13f8929f2239eb2809cee42 (0.058 h16 nonce 52: first tx 2023-04-05, JIT 0.0399 from 0x56c26202 2 min before, 0.04 to RelayDepository 8 min after) \u2014 probable"
+  ],
+  "released_by_finding_style_fixes": {
+   "V7_band<0.06_exempt_from_odd_else_windowed": "13/13",
+   "V8_sig<6_tight<=10blocks_min3": "13/13",
+   "V9_sig<6_tight<=50blocks_min3": "12/13",
+   "V11": "13/13",
+   "V12": "13/13",
+   "V10_sig<6_tight<=300blocks": "3/13"
+  }
+ },
+ "other_scripted_batches_hanging_on_low_digit_odd_chains": {
+  "nonce9_batch": "blocks 25771956-25771963: 8 wallets, amounts 0.056/0.06/0.057/0.061/0.059/0.061/0.057/0.058, nonces 9,9,9,9,9,5,9,2 (4 only-odd)",
+  "nonce5_batches": "blocks 25772018-25772022: 5 wallets 0.056/0.055/0.057/0.058/0.056 all nonce 5; blocks 25773490-25773491: 4 wallets 0.056/0.057/0.055/0.058 all nonce 5",
+  "dc4931c3_relay_farm": "14 only-odd c7 members first-funded by 0xdc4931c3 (rotating 0.057/0.055/0.052/0.053, prior skeptic verified relay chain, SeaDrop same-block history)",
+  "relay_chain_977bd420": "0x977bd420 -> 0x05c24d68 -> 0x20d40a8c -> 0x4734e3f8 (verified above)",
+  "only_odd_in_tight_block_runs_c7": 63,
+  "only_odd_in_same_nonce_batches": 18,
+  "only_odd_in_aged_rotating_amount_batches": 49
+ },
+ "cache_partition_of_482": {
+  "criteria": "farm-like if nonce<=3 OR first funder is a contributor OR wallet is first funder of a contributor OR funded by 0xdc4931c3 OR in tight-run same-nonce/aged-rotating batch",
+  "c7_310": {
+   "farm_like_union": 154,
+   "remaining": 156,
+   "remaining_ens": 70,
+   "remaining_nonce_ge20": 135
+  },
+  "c6_13": {
+   "farm_like_union": 5,
+   "remaining": 8
+  },
+  "other_159": {
+   "farm_like_union": 114,
+   "remaining": 45
+  },
+  "all_482": {
+   "farm_like_union": 273,
+   "remaining": 209,
+   "remaining_ens": 88
+  },
+  "fix_V9_released_465": {
+   "only_odd": 367,
+   "farm_like_by_cache": 186,
+   "remaining": 181
+  },
+  "fix_V7_released_527": {
+   "only_odd": 394,
+   "farm_like_by_cache": 195,
+   "remaining": 199
+  }
+ },
+ "fresh_random_sample_of_cache_human_like_c7_only_odd": {
+  "seed": 20260825,
+  "pool": "70 unsampled c7 only-odd with nonce>=20 and no tier-B edge",
+  "n": 8,
+  "human_like": [
+   "0xf7aa8e825cab241625513417a8726195d61bd8cb (0.055 h19, created 2025-09, Flow OFT/UniversalRouter/Seaport, no JIT, keeps 0.058)",
+   "0xb61bb03cdc0b6a4134338f875cd527d4a4aa2bdb (0.051 h12, 42 SeaDrop mints, 15 post-settlement txs, bridged in via 0x370a7e2d, out via RelayDepository)",
+   "0x2e50176d2adb6926db1ad7ce7899f588b7514ffd (20110523.eth, 0.055 h15, created 2020, EigenLayer/USDC user, CEX 0x18dd3c14 in 10 min before, 0.05 to RelayDepository 1 min after)",
+   "0xb01c115844073dba228f20d7a100b0f83c1c1e14 (tenmon.eth, 0.055 h41, ENS registrar x6, NFTs, keeps 0.061)",
+   "0x2de725818e427319ef0bc49dfa19bc2010ca424d (artxp.eth, 0.055 h29, created 2022, Ethereal/USDe, keeps 0.060)"
+  ],
+  "farm_like": [
+   "0x4f3afd86fcbb870077520141066276fb8551e16b (hour-8/10 aged batch member, see above)"
+  ],
+  "probable_farm_like": [
+   "0x51a1261ba163a6c9f13f8929f2239eb2809cee42 (batch-funder JIT, Relay out 8 min later; ENS ehsan0023.eth in cache)"
+  ],
+  "ambiguous": [
+   "0x1ff40bbefb23d433c9247164e69d0765c48ef381 (0.051 h36 nonce 38, created 2024-02, JIT from 0x370a7e2d/0xca7ded7e hot wallets, DexRouter swaps after, BAYC/Seaport)"
+  ],
+  "tally": "5 human / 2 farm-like / 1 ambiguous among the cache-'human-like' remainder"
+ },
+ "counterparty_identifications": {
+  "0x4cd00e387622c35bddb9b4c962c136462338bc31": "RelayDepository (Relay.link bridge contract, 9.1 ETH) \u2014 outflows to it after deposit = bridging out, human-like",
+  "0xf70da97812cb96acdf810712aa562db8dfa3dbef": "EOA 2012 ETH, no name = Relay solver; 11 c7 only-odd members first-funded by it = bridged in via Relay, human-like",
+  "0x4361b66fa886c89c2778f5cdcfa36582c1c2631c": "17000.eth, EIP-7702 delegated EOA (EIP7702StatelessDeleGator), balance 0.058 \u2014 personal wallet",
+  "hot_wallet_pool": {
+   "0x56c262027e0de4aea31d2489529cb25d23e58a8b": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 1.4110660060760962,
+    "tags": [],
+    "tx_count": "337176",
+    "token_transfers": "2554"
+   },
+   "0xa5a5491bca93dd4c076e4906e79e7673f4a5a142": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 1.1457343433316738,
+    "tags": [],
+    "tx_count": "338878",
+    "token_transfers": "2494"
+   },
+   "0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 9.790763488428516,
+    "tags": [],
+    "tx_count": "424235",
+    "token_transfers": "8275"
+   },
+   "0x18dd3c14e34c1bc379f7538068c59160d9f68e25": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 8.731445575406754,
+    "tags": [],
+    "tx_count": "427329",
+    "token_transfers": "14161"
+   },
+   "0x331d9a049d496385998067abf6cbb6371c8d2466": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 9.702464706411812,
+    "tags": [],
+    "tx_count": "423149",
+    "token_transfers": "8303"
+   },
+   "0xabb2acd3be814a80e502575d6c1dc5f789e9cd10": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 1.6401700443022706,
+    "tags": [],
+    "tx_count": "337529",
+    "token_transfers": "2382"
+   },
+   "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 3.00111683854396,
+    "tags": [],
+    "tx_count": "338963",
+    "token_transfers": "2545"
+   },
+   "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf": {
+    "name": null,
+    "ens": null,
+    "is_contract": false,
+    "balance_eth": 9.332714997776296,
+    "tags": [],
+    "tx_count": "424221",
+    "token_transfers": "8370"
+   }
+  }
+ },
+ "honest_estimate_among_482": {
+  "c7": "~100-130 of 310 (156 cache-remaining x ~0.65 + ~10% of the 154 farm-like)",
+  "c6": "~8 of 13",
+  "other": "~25-35 of 159",
+  "total": "~130-170 (range 110-200)",
+  "finding_claims": 482
+ },
+ "calls": {
+  "blockscout": 61,
+  "addresses_looked_up": 31,
+  "of_which_cited_or_sampled_wallets": 20
+ },
+ "files": [
+  "skeptic_oddmeme_rederive.json",
+  "skeptic_oddmeme_partition.json",
+  "skeptic_oddmeme_onchain.json",
+  "skeptic_oddmeme_onchain_summary.json",
+  "skeptic_oddmeme_funders_out.json",
+  "skeptic_oddmeme_bs/"
+ ]
+}

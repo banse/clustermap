@@ -1,19 +1,28 @@
 # CLUSTERMAP
 
-CLUSTERMAP visualisiert die originale MaxPane-`CuratorWhitelist` als
-interaktives SybilKit-Beziehungsfeld. Die globale Karte zeigt alle Wallets,
-ordnet Wallets mit vielen Punkten im Zentrum an und lässt unabhängige Wallets
-grün und unverbunden. Erkannte Gruppen sind anhand ihrer Evidenzstärke gelb,
-orange oder rot verbunden. Die aktuelle Oberfläche verwendet ausschließlich
-den MaxPane-Matrix-Look; sie ist browsernativ, responsiv und read-only.
+CLUSTERMAP visualises the original MaxPane `CuratorWhitelist` as an interactive
+SybilKit relationship field. The global map shows every wallet, places
+high-scoring wallets at the centre and leaves independent wallets green and
+unconnected. Detected groups are joined in yellow, orange or red according to
+the strength of their evidence. The current interface uses the MaxPane matrix
+look exclusively; it is browser-native, responsive and read-only.
 
-Der mitgelieferte Snapshot umfasst 19.522 Wallets, 28.353 Deposits und 263 von
-SybilKit erkannte Gruppen. Er stammt aus dem finalen MaxPane-Cache und endet bei
-Ethereum-Block 25.807.057.
+The bundled snapshot covers 19,522 wallets, 28,353 deposits and 263 groups
+detected by SybilKit. It comes from the final MaxPane cache and ends at Ethereum
+block 25,807,057.
 
-## Schnellstart
+> **Audit — please read before interpreting the map.** The groups shown here come
+> from SybilKit 0.1.1, and its rules have been audited: they flag 11,573 of the
+> 19,522 wallets, but also 45.8% of a synthetic population that by construction
+> contains **no** sybils — and they miss an operator holding 419 wallets and
+> 15.6% of all points. The full audit report, the dataset (a first funder for all
+> 19,522 wallets) and the scripts are in [`audit/`](audit/README.md) and are
+> reproducible from this repository. A group on the map is a **question**, not a
+> verdict about an individual wallet.
 
-Voraussetzungen: Python 3.11+, `uv`, Node.js und npm.
+## Quick start
+
+Requirements: Python 3.11+, `uv`, Node.js and npm.
 
 ```bash
 make install
@@ -21,118 +30,115 @@ make build
 make run
 ```
 
-Danach ist die App unter <http://127.0.0.1:8766> erreichbar. Port `8766` ist
-absichtlich gewählt, damit das PAWAI-Referenzdashboard auf `8765` parallel
-laufen kann. Die FastAPI-Dokumentation liegt unter
-<http://127.0.0.1:8766/docs>.
+The app is then reachable at <http://127.0.0.1:8766>. Port `8766` is chosen
+deliberately so the PAWAI reference dashboard can keep running alongside it on
+`8765`. The FastAPI documentation lives at <http://127.0.0.1:8766/docs>.
 
-Für die Frontend-Entwicklung können Backend und Vite getrennt gestartet werden:
+For frontend development, the backend and Vite can be started separately:
 
 ```bash
 uv run clustermap
 npm --prefix dashboard run dev
 ```
 
-Vite läuft dann auf `5173` und leitet `/api` an das lokale Backend weiter.
+Vite then runs on `5173` and forwards `/api` to the local backend.
 
-## Funktionen
+## Features
 
-- globale Canvas-Karte mit allen 19.522 Wallets und 11.310 echten,
-  evidenzbasierten Verbindungen
-- standardmäßiger, zur Wallet-Karte umschaltbarer Cluster-Evidence-Atlas:
-  X-Achse Evidenzsicherheit, Y-Achse logarithmischer Punkteanteil und
-  Bubble-Fläche als Wallet-Anzahl
-- unabhängige Wallets grün und unverbunden; höchste Punktzahlen im Zentrum
-- Evidenzstufen Gelb (Review), Orange (erhöht) und Rot (starkes Sybil-Signal)
-- zusätzliche gestrichelte Kennzeichnung für mögliche False Positives samt
-  konkreter Review-Begründung
-- Cluster-Drill-down mit allen projizierten SybilKit-Kanten, Pan, Zoom, Drag
-  und Wallet-Auswahl
-- Inline-Gruppenbegründung direkt unter der Clusterkarte mit Evidenzfamilien,
-  Confidence, Kennzahlen und False-Positive-Hinweisen
-- vollständiges Wallet-Dossier im selben Inline-Bereich; Schließen kehrt ohne
-  Kontextverlust zur Gruppenbegründung zurück
-- typisierte Evidenzkanten für Funding, Betrag, Sequenz, Kadenz und Gas
-- fokussierter MaxPane-Matrix-Look; der vorhandene Drei-Theme-Schalter bleibt
-  für eine spätere Reaktivierung im Code deaktiviert
-- responsive Desktop-/Mobile-Oberfläche und Reduced-Motion-Unterstützung
-- vollständig nutzbarer lokaler Snapshot ohne API-Key oder laufenden RPC
+- global canvas map with all 19,522 wallets and 11,310 real, evidence-based
+  connections
+- cluster evidence atlas by default, switchable to the wallet map: confidence on
+  the x-axis, logarithmic share of points on the y-axis, bubble area as wallet
+  count
+- independent wallets green and unconnected; the highest scores at the centre
+- evidence tiers yellow (weak group evidence), orange (moderate) and red
+  (strong) — these describe how strongly a *group* is linked, never a verdict
+  about an individual wallet
+- an additional dashed marking for possible false positives, with a concrete
+  reason for review
+- cluster drill-down with every projected SybilKit edge, pan, zoom, drag and
+  wallet selection
+- inline group rationale directly beneath the cluster map, with evidence
+  families, confidence, key figures and false-positive notes
+- a complete wallet dossier in the same inline area; closing it returns to the
+  group rationale without losing context
+- typed evidence edges for funding, amount, sequence, cadence and gas
+- focused MaxPane matrix look; the existing three-theme switch stays disabled in
+  the code for later reactivation
+- responsive desktop/mobile interface and reduced-motion support
+- a fully usable local snapshot without an API key or a running RPC
 
-Die früheren MaxPane-Screens bleiben im Quellcode erhalten, sind momentan aber
-ausgeblendet, damit die Clustermap die zentrale Arbeitsfläche ist.
+The earlier MaxPane screens are still in the source but are hidden for now, so
+that the clustermap is the central work surface.
 
-## Warum kein gestreamtes Terminal?
+## Why not a streamed terminal?
 
-Für das unveränderte Veröffentlichen der kompletten Textual-App wäre
-`textual-serve` die kürzeste Route. Die Beziehungskarte benötigt jedoch
-performantes Canvas-Rendering für 19.522 Wallets, Touch-Bedienung und
-browsernative Overlays. Deshalb läuft die Karte als React-Anwendung über dem
-FastAPI/SybilKit-Read-Model. Ein Shell-Emulator oder pro Browser gestarteter
-TUI-Prozess ist nicht erforderlich.
+To publish the complete Textual app unchanged, `textual-serve` would be the
+shortest route. The relationship map, however, needs performant canvas rendering
+for 19,522 wallets, touch operation and browser-native overlays. The map
+therefore runs as a React application on top of the FastAPI/SybilKit read model.
+No shell emulator or per-browser TUI process is required.
 
-Die globale Ansicht verwendet aus Performancegründen einen deterministischen
-Punkte- und Gruppen-Layoutalgorithmus sowie einen stärksten evidenzbasierten
-Spannwald. Nach dem Öffnen einer Gruppe zeigt die Clusteransicht weiterhin alle
-projizierten SybilKit-Kanten. Der standardmäßige Cluster-Atlas verwendet keine
-erfundenen Verbindungen zwischen Gruppen, sondern ordnet alle 263 Gruppen nach
-Confidence, Punkteanteil und Größe.
+For performance reasons the global view uses a deterministic point and group
+layout algorithm together with a strongest-evidence spanning forest. Once a
+group is opened, the cluster view still shows every projected SybilKit edge. The
+default cluster atlas invents no connections between groups; it arranges all 263
+groups by confidence, share of points and size.
 
-Funding-Kanten sind tatsächliche Transfers und werden durchgezogen dargestellt.
-Gestrichelte Kanten sind Verhaltensähnlichkeiten. Eine Gruppierung ist ein
-Analysesignal und **kein Beweis gemeinsamer Eigentümerschaft**.
+Funding edges are actual transfers and are drawn as solid lines. Dashed edges
+are behavioural similarities. A grouping is an analysis signal and **not proof
+of common ownership**.
 
-## Daten und Herkunft
+## Data and provenance
 
 - Contract: `0xcB0b0531e86A9aC36Fa865cA8e3dbccF047FDA91`
-- Chain: Ethereum Mainnet
-- Deployment-Block: `25.769.870`
+- Chain: Ethereum mainnet
+- Deployment block: `25,769,870`
 - Snapshot: `data/curator_snapshot.json.gz`
-- Analyse: das aus `github.com/banse/maxpane` geklonte und in
-  `vendor/sybilkit` gepinnte SybilKit
+- Analysis: SybilKit, cloned from `github.com/banse/maxpane` and pinned in
+  `vendor/sybilkit`
 
-Die App führt SybilKit beim Start über den Snapshot aus; die im UI gezeigten
-Gruppen sind daher reproduzierbar und nicht als fertiges Graph-Ergebnis
-eingebacken. Der genaue Upstream-Commit steht in
-`vendor/sybilkit/UPSTREAM_COMMIT`.
+The app runs SybilKit over the snapshot at startup, so the groups shown in the
+UI are reproducible rather than baked in as a finished graph result. The exact
+upstream commit is recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
 
-Ein aktueller lokaler MaxPane-Stand kann so exportiert werden:
+A current local MaxPane state can be exported like this:
 
 ```bash
 make snapshot
 ```
 
-Der Export erwartet standardmäßig `~/.maxpane/curator_cache.json` und
-`~/.maxpane/curator_raw_list.json`. Abweichende Pfade lassen sich direkt an
-`scripts/export_snapshot.py` übergeben. Der Export speichert keine API-Keys.
+By default the export expects `~/.maxpane/curator_cache.json` and
+`~/.maxpane/curator_raw_list.json`. Different paths can be passed directly to
+`scripts/export_snapshot.py`. The export stores no API keys.
 
-## Architektur
+## Architecture
 
-Frontend und Backend halten die MVC-Grenzen bewusst klein:
+Frontend and backend keep the MVC boundaries deliberately small:
 
-- `src/clustermap/models`: Snapshot, SybilKit-Analyse und Graphprojektion
-- `src/clustermap/controllers`: HTTP-Validierung und API-Routen
-- `dashboard/src/models`: Typen, API-Client und reine Darstellungshilfen
-- `dashboard/src/controllers`: UI-Zustand und asynchrone Abläufe
-- `dashboard/src/views`: React-Ansichten ohne direkte API-Zugriffe
+- `src/clustermap/models`: snapshot, SybilKit analysis and graph projection
+- `src/clustermap/controllers`: HTTP validation and API routes
+- `dashboard/src/models`: types, API client and pure presentation helpers
+- `dashboard/src/controllers`: UI state and asynchronous flows
+- `dashboard/src/views`: React views with no direct API access
 
-Die ursprüngliche Daten- und Graphherleitung steht in
-`.claude/designs/clustermap.md`. Die Entscheidung zwischen `textual-serve`,
-xterm.js und dem browsernativen MaxPane-Rebuild ist in
-`.claude/designs/maxpane-the-list-web.md` dokumentiert. Layout, Risikostufen und
-der aktuelle Map-Fokus stehen in
-`.claude/designs/global-wallet-map-and-themes.md`.
+The original data and graph derivation is written up in
+`.claude/designs/clustermap.md`. The decision between `textual-serve`, xterm.js
+and the browser-native MaxPane rebuild is documented in
+`.claude/designs/maxpane-the-list-web.md`. Layout, risk tiers and the current map
+focus are in `.claude/designs/global-wallet-map-and-themes.md`.
 
-## Qualitätssicherung
+## Quality assurance
 
 ```bash
 make test
 ```
 
-Der Befehl führt Python-Tests, Ruff, Frontend-Tests, TypeScript-Prüfung und den
-Produktionsbuild aus.
+The command runs the Python tests, Ruff, the frontend tests, the TypeScript
+check and the production build.
 
-Konfiguration erfolgt über Umgebungsvariablen; `.env.example` dient als Vorlage.
-Eine lokale `.env` kann vor dem Start mit
-`set -a; source .env; set +a` geladen werden und wird nicht eingecheckt. Ein
-optionaler `CLUSTERMAP_ETH_USD`-Wert dient ausschließlich der Anzeige; ohne ihn
-zeigt die App bewusst „USD unavailable“.
+Configuration happens through environment variables; `.env.example` serves as a
+template. A local `.env` can be loaded before startup with
+`set -a; source .env; set +a` and is not checked in. An optional
+`CLUSTERMAP_ETH_USD` value is for display only; without it the app deliberately
+shows “USD unavailable”.

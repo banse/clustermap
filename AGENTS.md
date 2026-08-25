@@ -1,6 +1,6 @@
-# Projektregeln
+# Project rules
 
-- Immer nach dem KISS-Prinzip programmieren.
-- Frontend-Code nach dem MVC-Pattern strukturieren.
-- API-Keys und andere Secrets niemals in Git speichern.
-- Vor Änderungen zuerst `MEMORY.md` lesen und nach größeren Produktentscheidungen aktualisieren.
+- Always code by the KISS principle.
+- Structure frontend code following the MVC pattern.
+- Never store API keys or other secrets in Git.
+- Read `MEMORY.md` before making changes, and update it after larger product decisions.

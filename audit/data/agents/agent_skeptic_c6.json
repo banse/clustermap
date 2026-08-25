@@ -1,0 +1,577 @@
+{
+ "agent": "skeptic_c6 (refute cluster6_01_crowd finding)",
+ "finding_under_test": "Aged/ENS bystanders inside the farm block window get spurious cadence corroboration (29 = 21 core + 8 h20-21)",
+ "rederived_from_cache": {
+  "cluster6_reproduced": 896,
+  "core_v1_amt01_h17": 321,
+  "core_nonfingerprint": 21,
+  "h2021_01_singles_noncore": 108,
+  "h2021_nonfingerprint": 8,
+  "fingerprint_def": "nonce==0 AND gas_limit==91600 AND legacy type-0 (max_priority_fee None)",
+  "ens_among_29": 9,
+  "type2_among_29": 28,
+  "core_nonfp_nonces": [
+   0,
+   0,
+   0,
+   1,
+   2,
+   26,
+   31,
+   35,
+   120,
+   175,
+   175,
+   282,
+   315,
+   354,
+   497,
+   706,
+   849,
+   1026,
+   1722,
+   4225,
+   4532
+  ],
+  "h2021_nonfp_nonces": [
+   26,
+   31,
+   107,
+   146,
+   197,
+   203,
+   428,
+   1771
+  ],
+  "core_nonfp_with_nonce_le2": [
+   "0x021f01b509ee3952917fd5590f485b7099576acf",
+   "0x0ec1a555b4302cea56e0aa8032e9c7368a0b421d",
+   "0x39292957f2a39143752cdb363ceeabed0ff1bbaf",
+   "0x72c8ddf9242d9868e50fd12fbddb710ab0ca66e2",
+   "0xadb1bdb9dc3fe58293f414f3cd331ba9246f7e91"
+  ],
+  "core_nonfp_with_peel_edge": [
+   "0xec4798482236015238a97cb4735f70ebda1a796c"
+  ],
+  "drip_edge_carriers": {
+   "core_nonfp": 15,
+   "h2021_nonfp": 0,
+   "total_of_29": 15
+  },
+  "drip_runs_0.1": [
+   {
+    "len": 18,
+    "blocks": [
+     25775054,
+     25775092
+    ],
+    "fp_frac": 0.944,
+    "nonfp_n": 1,
+    "core_n": 18
+   },
+   {
+    "len": 10,
+    "blocks": [
+     25775092,
+     25775113
+    ],
+    "fp_frac": 0.9,
+    "nonfp_n": 1,
+    "core_n": 10
+   },
+   {
+    "len": 46,
+    "blocks": [
+     25775195,
+     25775294
+    ],
+    "fp_frac": 0.913,
+    "nonfp_n": 4,
+    "core_n": 46
+   },
+   {
+    "len": 9,
+    "blocks": [
+     25775359,
+     25775380
+    ],
+    "fp_frac": 1.0,
+    "nonfp_n": 0,
+    "core_n": 9
+   },
+   {
+    "len": 22,
+    "blocks": [
+     25775380,
+     25775431
+    ],
+    "fp_frac": 0.909,
+    "nonfp_n": 2,
+    "core_n": 22
+   },
+   {
+    "len": 27,
+    "blocks": [
+     25775431,
+     25775484
+    ],
+    "fp_frac": 0.926,
+    "nonfp_n": 2,
+    "core_n": 27
+   },
+   {
+    "len": 17,
+    "blocks": [
+     25775521,
+     25775561
+    ],
+    "fp_frac": 0.882,
+    "nonfp_n": 2,
+    "core_n": 17
+   },
+   {
+    "len": 18,
+    "blocks": [
+     25775561,
+     25775603
+    ],
+    "fp_frac": 1.0,
+    "nonfp_n": 0,
+    "core_n": 18
+   },
+   {
+    "len": 67,
+    "blocks": [
+     25775635,
+     25775775
+    ],
+    "fp_frac": 0.985,
+    "nonfp_n": 1,
+    "core_n": 67
+   },
+   {
+    "len": 11,
+    "blocks": [
+     25775775,
+     25775798
+    ],
+    "fp_frac": 1.0,
+    "nonfp_n": 0,
+    "core_n": 11
+   },
+   {
+    "len": 23,
+    "blocks": [
+     25775807,
+     25775861
+    ],
+    "fp_frac": 0.913,
+    "nonfp_n": 2,
+    "core_n": 23
+   },
+   {
+    "len": 31,
+    "blocks": [
+     25776013,
+     25776088
+    ],
+    "fp_frac": 1.0,
+    "nonfp_n": 0,
+    "core_n": 0
+   }
+  ],
+  "drip_run_neighbours_of_the_15": "every run-neighbour of the 15 drip-carrying bystanders is a nonce-0 legacy-fingerprint core wallet (gap 1-5 blocks); run fingerprint fraction 0.88-0.985 -> drip edges are inherited by block adjacency (cadence.py has no per-wallet check; gap==0 same-block actually breaks a run)",
+  "drip_is_not_load_bearing": [
+   {
+    "size": 896,
+    "families": [
+     "amount",
+     "funding",
+     "sequence"
+    ],
+    "core_in": 321,
+    "nonfp29_in": 29
+   }
+  ],
+  "h2021_nonfp_edge_kinds": "round_wave+split only (3 also shared_hub); ZERO drip edges"
+ },
+ "investigator_prune_b_check": {
+  "released": 129,
+  "core_nonfp_released": 5,
+  "h2021_nonfp_released": 8,
+  "core_nonfp_with_drip_released": []
+ },
+ "variants_population": [
+  {
+   "name": "baseline",
+   "flagged": 11573,
+   "released": 0,
+   "points_pct": 57.63,
+   "C6_released": 0,
+   "core_kept": 321,
+   "bystanders29_released": 0,
+   "core_nonfp_released": 0,
+   "h2021_nonfp_released": 0,
+   "C6_fp_legacy_released": 0,
+   "pop_nonce0_released": 0,
+   "pop_nonce_ge20_released": 0,
+   "ens_released": 0,
+   "v1_ge100_kept": "5099/5997",
+   "labeled_members_kept": "141/160",
+   "controls_flagged": 30
+  },
+  {
+   "name": "prune weak-only (drip strong) = investigator (b)",
+   "flagged": 10767,
+   "released": 806,
+   "points_pct": 53.04,
+   "C6_released": 129,
+   "core_kept": 313,
+   "bystanders29_released": 13,
+   "core_nonfp_released": 5,
+   "h2021_nonfp_released": 8,
+   "C6_fp_legacy_released": 3,
+   "pop_nonce0_released": 341,
+   "pop_nonce_ge20_released": 352,
+   "ens_released": 121,
+   "v1_ge100_kept": "5086/5997",
+   "labeled_members_kept": "141/160",
+   "controls_flagged": 26
+  },
+  {
+   "name": "prune weak-only incl. drip as weak = finding fix#1",
+   "flagged": 10605,
+   "released": 968,
+   "points_pct": 52.11,
+   "C6_released": 146,
+   "core_kept": 297,
+   "bystanders29_released": 27,
+   "core_nonfp_released": 19,
+   "h2021_nonfp_released": 8,
+   "C6_fp_legacy_released": 6,
+   "pop_nonce0_released": 384,
+   "pop_nonce_ge20_released": 446,
+   "ens_released": 141,
+   "v1_ge100_kept": "4996/5997",
+   "labeled_members_kept": "128/160",
+   "controls_flagged": 26
+  },
+  {
+   "name": "fix#1 but keep nonce0 wallets (fingerprint gate)",
+   "flagged": 10989,
+   "released": 584,
+   "points_pct": 54.78,
+   "C6_released": 131,
+   "core_kept": 305,
+   "bystanders29_released": 24,
+   "core_nonfp_released": 16,
+   "h2021_nonfp_released": 8,
+   "C6_fp_legacy_released": 0,
+   "pop_nonce0_released": 0,
+   "pop_nonce_ge20_released": 446,
+   "ens_released": 141,
+   "v1_ge100_kept": "5023/5997",
+   "labeled_members_kept": "129/160",
+   "controls_flagged": 28
+  },
+  {
+   "name": "fix#3 release weak+drip-only members with nonce>=20",
+   "flagged": 11127,
+   "released": 446,
+   "points_pct": 55.92,
+   "C6_released": 102,
+   "core_kept": 307,
+   "bystanders29_released": 22,
+   "core_nonfp_released": 14,
+   "h2021_nonfp_released": 8,
+   "C6_fp_legacy_released": 0,
+   "pop_nonce0_released": 0,
+   "pop_nonce_ge20_released": 446,
+   "ens_released": 139,
+   "v1_ge100_kept": "5039/5997",
+   "labeled_members_kept": "130/160",
+   "controls_flagged": 28
+  },
+  {
+   "name": "drip strong, release weak-only with nonce>=20",
+   "flagged": 11221,
+   "released": 352,
+   "points_pct": 56.79,
+   "C6_released": 92,
+   "core_kept": 317,
+   "bystanders29_released": 12,
+   "core_nonfp_released": 4,
+   "h2021_nonfp_released": 8,
+   "C6_fp_legacy_released": 0,
+   "pop_nonce0_released": 0,
+   "pop_nonce_ge20_released": 352,
+   "ens_released": 119,
+   "v1_ge100_kept": "5090/5997",
+   "labeled_members_kept": "141/160",
+   "controls_flagged": 28
+  }
+ ],
+ "C6_legacy_fingerprint_farm_wallets_lost_if_drip_weak": [
+  "0x8bb397692d8cb7f8ddc05fcd2aa39e5f45c47db9",
+  "0x7bc355ac75119c0e384c848ccddeb2ca695f9d2a",
+  "0x971e187a913ec2dc1c9d5d62ca3e3fbdf4a29ffa",
+  "0x2c4cccea7ba8ae924199ec9178b9713928e7dd32",
+  "0xe25f0d748459d0d11fe80b1af836e91629146b22",
+  "0x686535698a3be28ac787a3e8df1e2dc06b30b1ab"
+ ],
+ "block_bounded_gap32_releases_of_29": [
+  "0x2adc9aa73493a2dd76953145621b531487b184da",
+  "0x3c70120a4496526bd4d3f3c8b3904e9cb1d21a42",
+  "0x9893cfe8e458ed58a84cc90d6a4536dd71f9c9dd",
+  "0xc62173ace39382d1e8b9f0f8c9f689806beb6626",
+  "0xfd8dbe32c1402fc5a25c2bd83208b3613b014619"
+ ],
+ "onchain": {
+  "blockscout_calls_total": 91,
+  "addresses_looked_up": 29,
+  "rate": ">=1.1s between calls, no 429",
+  "per_wallet": {
+   "0x0ec1a555b4302cea56e0aa8032e9c7368a0b421d": {
+    "verdict": "fresh_single_purpose",
+    "why": "nonce0; funded 0.10444 by KuCoin-family hub 0x331d9a04 96s before deposit; bridged 0.1042 out via RelayDepository 6 min after; 2 lifetime txs; bal 0.0002",
+    "cat": "core_lownonce",
+    "balance_eth_now": 0.0002,
+    "cached_first_funder": "0x331d9a049d496385998067abf6cbb6371c8d2466",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x39292957f2a39143752cdb363ceeabed0ff1bbaf": {
+    "verdict": "fresh_single_purpose",
+    "why": "nonce0; funded 0.11905 by same hub 0x331d9a04 216s before deposit; 1 lifetime tx; 0.1189 still sitting",
+    "cat": "core_lownonce",
+    "balance_eth_now": 0.1189,
+    "cached_first_funder": "0x331d9a049d496385998067abf6cbb6371c8d2466",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x72c8ddf9242d9868e50fd12fbddb710ab0ca66e2": {
+    "verdict": "fresh_single_purpose",
+    "why": "nonce0, gas limit 91601 (farm uses 91600 but type-0); funded 0.0109 (0x9696f59e) + 0.0899 (Binance14) 4-7 min before; 1 lifetime tx",
+    "cat": "core_lownonce",
+    "balance_eth_now": 0.1008,
+    "cached_first_funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xadb1bdb9dc3fe58293f414f3cd331ba9246f7e91": {
+    "verdict": "human_like_fresh",
+    "why": "nonce1; funded 0.1295 by MEXC16 8.7h before; Relay bridge, LiFi, Seaport, NFT mints; 27 post-game txs",
+    "cat": "core_lownonce",
+    "balance_eth_now": 0.0003,
+    "cached_first_funder": "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x021f01b509ee3952917fd5590f485b7099576acf": {
+    "verdict": "unknown_dormant_reactivated",
+    "why": "nonce2; created 2021-10 (2 ALD token txs), dormant; Binance15 withdrawal 0.10993 648s before deposit; forwarded 0.11 to fresh EOA 0x64d613e17a (non-contributor, holds 0.1239) 9 min later",
+    "cat": "core_lownonce",
+    "balance_eth_now": 0.0011,
+    "cached_first_funder": "0xdbf07416bb3c1a96b68c58d6bdcb9fd6963f0057",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xec4798482236015238a97cb4735f70ebda1a796c": {
+    "verdict": "aged_human_with_C6_sibling",
+    "why": "nonce120; 2022 NFT wallet (Seaport/SeaDrop/mints); first-funded 2022-06 by 0x6971f92d which is in C6 and sent it 15 txs 2022-2026 -> same owner/friend; peel edge is a real 2-wallet link, not the 0.1 operator",
+    "cat": "core_peel",
+    "balance_eth_now": 0.0015,
+    "cached_first_funder": "0x6971f92d9f9ce24d5755c2b9516767440cc03310",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 15
+   },
+   "0x1512bb3b85696fa4d85cb4bbf78e9c4fe95db90f": {
+    "verdict": "aged_human",
+    "why": "nonce706; DeFi (Bebop/Enso/airdrops), 16 post-game txs, no ETH out",
+    "cat": "core_aged",
+    "balance_eth_now": 0.128,
+    "cached_first_funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xab3246f849066b7fbb8ba59ab538f2aa4620e9f0": {
+    "verdict": "aged_human",
+    "why": "nonce4225; NFT heavy; 5 post-game txs",
+    "cat": "core_aged",
+    "balance_eth_now": 0.0933,
+    "cached_first_funder": "0x077d360f11d220e4d5d831430c81c26c9be7c4a4",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xb720241781cf64e99b39804970f9276ee7520a23": {
+    "verdict": "aged_human",
+    "why": "nonce1026; NFT mints; 12 post; sent 0.1 to another (non-C6) contributor on 08-12 -> may own a 2nd wallet",
+    "cat": "core_aged",
+    "balance_eth_now": 0.118,
+    "cached_first_funder": "0x32f430bf55ef1823e918db413e9dde77521bdc99",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xe22252860ecb290a00cb012acb756ff9117f8f4c": {
+    "verdict": "aged_human_drained",
+    "why": "nonce175; NFT wallet; after deposit sent 0.1045+0.0429 to 0x1926e8b886 (non-contributor), bal 0",
+    "cat": "core_aged",
+    "balance_eth_now": 0.0,
+    "cached_first_funder": "0x72ebf83ef1500d0b3e3a2de16e3a25257d029231",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xfb07b2db89d83875cda17183bd8c284e644f972e": {
+    "verdict": "aged_human",
+    "why": "nonce31; funded 07-31 by Binance16+KuCoin-family; Uniswap v4 positions, trades BridgedFP (IMD); 50 post txs; 0.4 to fresh EOA 08-24",
+    "cat": "core_aged",
+    "balance_eth_now": 0.05,
+    "cached_first_funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xd1d4e717fa8f34b9db07a0494b2edab5488049db": {
+    "verdict": "aged_human_reactivated",
+    "why": "nonce26; 2023 NFT/Safe wallet, dormant; Binance16 0.09993 156s before deposit; 4 days later 0.1014 -> Relay bridge",
+    "cat": "core_aged",
+    "balance_eth_now": 0.0001,
+    "cached_first_funder": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x091fa029f0fc49a9945c91a8a1759057efe7cae8": {
+    "verdict": "aged_human",
+    "why": "nonce35, legacy type-0 tx; 2024 airdrop claimer (AltLayer/Polyhedra/BounceBit); no post txs; bal 0.166",
+    "cat": "core_aged",
+    "balance_eth_now": 0.1661,
+    "cached_first_funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xd14ede4b61195bed37af792dd0e312ab1c9fb2a8": {
+    "verdict": "aged_human",
+    "why": "nonce497; DeFi/NFT heavy; no post txs",
+    "cat": "core_aged",
+    "balance_eth_now": 0.1045,
+    "cached_first_funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x1fff8cff8c8a72b846819bb77cf7e0a8ff6d8881": {
+    "verdict": "aged_human",
+    "why": "nonce428; memecoin trader; 0.0923 -> Relay after",
+    "cat": "h2021",
+    "balance_eth_now": 0.0027,
+    "cached_first_funder": "0x079961be58c19c65aecb8aff5756c29f9a511de9",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x2adc9aa73493a2dd76953145621b531487b184da": {
+    "verdict": "aged_human",
+    "why": "sg1998.eth nonce107; airdrops/DeFi; no post txs",
+    "cat": "h2021",
+    "balance_eth_now": 0.1155,
+    "cached_first_funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x3c70120a4496526bd4d3f3c8b3904e9cb1d21a42": {
+    "verdict": "aged_human",
+    "why": "milkydrinker.eth nonce203; NFT/DeFi; 0.1 self-transfer + 0.4 to EOA 0x16b54ca3 (non-contributor)",
+    "cat": "h2021",
+    "balance_eth_now": 0.0146,
+    "cached_first_funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0x9893cfe8e458ed58a84cc90d6a4536dd71f9c9dd": {
+    "verdict": "aged_human",
+    "why": "nakax.eth nonce197; EigenLayer/staking",
+    "cat": "h2021",
+    "balance_eth_now": 0.1152,
+    "cached_first_funder": "0xa60efe89e07cfcf83eb30f3b063834f0f8b30466",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xc62173ace39382d1e8b9f0f8c9f689806beb6626": {
+    "verdict": "aged_human",
+    "why": "nonce31; created 07-15 via Relay; Aztec/FWA/Uniswap; 1.83 ETH inflow; 0.3522 -> Relay after",
+    "cat": "h2021",
+    "balance_eth_now": 0.0023,
+    "cached_first_funder": "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xe2f184241cddd9f2235d861eff25c37b7529746e": {
+    "verdict": "aged_human",
+    "why": "isanoxel.eth nonce1771; heavy DeFi",
+    "cat": "h2021",
+    "balance_eth_now": 0.1412,
+    "cached_first_funder": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xe38062e0fbb64d06a721eee300356388f20b66be": {
+    "verdict": "aged_human",
+    "why": "nonce26; created 2025-10 (1inch swaps); funded 0.11435 by KuCoin-family 0xca7ded7e 72s before deposit; 0.1067 -> Relay 08-24",
+    "cat": "h2021",
+    "balance_eth_now": 0.0011,
+    "cached_first_funder": "0x5babe600b9fcd5fb7b66c0611bf4896d967b23a1",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   },
+   "0xfd8dbe32c1402fc5a25c2bd83208b3613b014619": {
+    "verdict": "aged_human",
+    "why": "nonce146; NFT/DeFi; 21 post txs",
+    "cat": "h2021",
+    "balance_eth_now": 0.0136,
+    "cached_first_funder": "0x802e3c87f6c3305da3dba923df7f52eab56df912",
+    "out_to_C6_members": 0,
+    "in_from_C6_members": 0
+   }
+  },
+  "tally_22": {
+   "fresh_single_purpose": 3,
+   "human_like_fresh": 1,
+   "unknown_dormant_reactivated": 1,
+   "aged_human_with_C6_sibling": 1,
+   "aged_human": 14,
+   "aged_human_drained": 1,
+   "aged_human_reactivated": 1
+  },
+  "investigator_sampled_7_not_rechecked": [
+   "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+   "0x6880c355c73e9538313c5203c7783cc56609f044",
+   "0x1c1c1538f375eef2ef73abaa54c2af884ca6bb9d",
+   "0x2df49b9d241b36abd7ea8496ba07f6d01caf166c",
+   "0xaaeae99cda50a53aae159e6fa8793514b08f18d4",
+   "0xc2ead026cb1876291c8b0582fc1e72f83103ea16",
+   "0x73493ae0f2989efcab0efb3ab2c5224c57cb181a"
+  ],
+  "overall_29": {
+   "human_like": 24,
+   "aged_human_with_real_C6_sibling_link": 1,
+   "fresh_single_purpose": 3,
+   "unknown": 1
+  },
+  "sybil_links_checked": "0 of 22 sent ETH to any other C6 member; only 0xec479848 received from a C6 member (its 2022 funder/sibling 0x6971f92d); no shared sweep sink (recurring destination 0x4cd00e387622c35bddb9b4c962c136462338bc31 = RelayDepository bridge)",
+  "shared_funders_all_exchange_scale": {
+   "0x331d9a04": "KuCoin-family hot wallet ~423k txs (funds 25 pop wallets, 2 in C6: 0x0ec1a555, 0x39292957)",
+   "0x370a7e2d/0xca7ded7e/0x18dd3c14": "same family ~424k txs",
+   "0x5babe600": "1.1M-tx EOA",
+   "0x9642b23e": "MEXC 16",
+   "0x21a31ee1/0x28c6c062/0x56eddb7a/0xdfd5293d": "Binance 15/14/17/16"
+  }
+ },
+ "files": {
+  "rederive": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_rederive.json",
+  "onchain": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_onchain.json",
+  "variants": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_variants.json",
+  "bs_cache": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skc6_bs/",
+  "scripts": [
+   "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_rederive.py",
+   "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_onchain.py",
+   "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/skeptic_c6_variants.py"
+  ]
+ }
+}

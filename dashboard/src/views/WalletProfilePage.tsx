@@ -1,5 +1,5 @@
 import type { WalletDetail } from "../models/domain";
-import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent } from "../models/presentation";
+import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, walletGroupLabel } from "../models/presentation";
 import type { WalletProfileStatus } from "../models/walletProfile";
 import { AddressLink } from "./AddressLink";
 
@@ -18,10 +18,7 @@ interface WalletProfilePageProps {
 }
 
 function clusterState(detail: WalletDetail): string {
-  if (detail.cluster === null) return "NO KEPT GROUP";
-  if (detail.cluster.risk === "critical") return "STRONG SYBIL SIGNAL";
-  if (detail.cluster.risk === "elevated") return "ELEVATED EVIDENCE";
-  return "REVIEW SIGNAL";
+  return walletGroupLabel(detail.cluster === null ? null : detail.cluster.risk).toUpperCase();
 }
 
 export function WalletProfilePage({

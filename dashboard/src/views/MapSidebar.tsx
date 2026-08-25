@@ -13,9 +13,9 @@ interface MapSidebarProps {
 
 const riskLegend: readonly { risk: RiskTier; label: string; detail: string }[] = [
   { risk: "independent", label: "No group link", detail: "Disconnected wallet" },
-  { risk: "review", label: "Uncertain signal", detail: "Yellow · manual review" },
-  { risk: "elevated", label: "Elevated evidence", detail: "Orange · stronger overlap" },
-  { risk: "critical", label: "Strong sybil signal", detail: "Red · highest evidence tier" },
+  { risk: "review", label: "Weak group evidence", detail: "Yellow · manual review" },
+  { risk: "elevated", label: "Moderate group evidence", detail: "Orange · more families agree" },
+  { risk: "critical", label: "Strong group evidence", detail: "Red · highest evidence tier · not proof of ownership" },
 ];
 
 export function MapSidebar({ overview, globalMap, detail, globalView, onGlobal, onCluster }: MapSidebarProps) {

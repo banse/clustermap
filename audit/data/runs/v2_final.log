@@ -1,0 +1,76 @@
+enrichment extended: txs 12203→12599 funding 12498→12893
+infra_extra: 25 funders
+baseline(shipped)                          clusters= 236 flagged= 11111 periph=    0 pts= 56.1% lab=141/160 whole=13/16 ens= 321 ctrl=29 resc= 3 idmd=29 ladder= 66
+      farm windows: 0.45@h3-4=1996/1996 14.0@h3-15=1003/1003 10.0@h5=770/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=367/367 ring99(any dep 90-110Ξ h16-19)=81/419 ladder10.x(5-step h37-45)=0/176 jitter1.10-1.14(h36-55)=2/541 jitter1.00-1.05(h56-64)=0/300 ladder0.05→0.45(h35-37)=6/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+v2e (v2d + jitter band + residual)         clusters= 104 flagged= 10492 periph=  208 pts= 69.2% lab=138/160 whole=13/16 ens=  19 ctrl=24 resc=16 idmd= 2 ladder=314
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=366/367 ring99(any dep 90-110Ξ h16-19)=397/419 ladder10.x(5-step h37-45)=176/176 jitter1.10-1.14(h36-55)=329/541 jitter1.00-1.05(h56-64)=121/300 ladder0.05→0.45(h35-37)=85/111 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+  newly flagged: 1273 (ladderers 302, ENS 2, nonce>=20 5, funder-is-contributor 503)
+    0x0002b4e7fe ens=None nonce=None h4 deps=['0.067208788518676258'] funder∈pop=False resc=False idmd=False
+    0x00bcda3b76 ens=None nonce=0 h38 deps=['0.05', '0.15', '0.25', '0.35', '0.45'] funder∈pop=False resc=False idmd=False
+    0x0100271889 ens=None nonce=0 h43 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x0117aea34e ens=None nonce=None h44 deps=['1.122953354077791212'] funder∈pop=False resc=False idmd=False
+    0x011fa4b4c7 ens=None nonce=0 h42 deps=['10.0', '10.1', '10.2', '10.3', '10.4'] funder∈pop=True resc=False idmd=False
+    0x012430b6df ens=None nonce=None h5 deps=['0.066474939683167496'] funder∈pop=False resc=False idmd=False
+    0x0127d0f876 ens=None nonce=0 h44 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x01887660eb ens=None nonce=10 h16 deps=['99.3'] funder∈pop=True resc=False idmd=False
+    0x01891af6c7 ens=None nonce=None h44 deps=['1.120874097487112604'] funder∈pop=False resc=False idmd=False
+    0x01a3f215fe ens=None nonce=0 h37 deps=['10.0', '10.1', '10.2', '10.3', '10.4'] funder∈pop=True resc=False idmd=False
+    0x01d0f79c84 ens=None nonce=5 h17 deps=['99.0'] funder∈pop=True resc=False idmd=False
+    0x01d1b98b7d ens=None nonce=0 h44 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x02eae83786 ens=None nonce=11 h15 deps=['1.6', '98.3'] funder∈pop=True resc=False idmd=False
+    0x02ecfbc2c9 ens=None nonce=None h4 deps=['0.0669110373220152'] funder∈pop=False resc=False idmd=False
+    0x0314f00234 ens=None nonce=None h63 deps=['1.018451206530730563'] funder∈pop=False resc=False idmd=False
+    0x0317b25a60 ens=None nonce=None h51 deps=['1.108501211901008509'] funder∈pop=False resc=False idmd=False
+    0x033b775f51 ens=None nonce=5 h17 deps=['98.7'] funder∈pop=True resc=False idmd=False
+    0x039ec1bde1 ens=None nonce=None h44 deps=['1.12491040139121265'] funder∈pop=False resc=False idmd=False
+    0x03fca4683e ens=None nonce=None h53 deps=['1.113004876453246918'] funder∈pop=False resc=False idmd=False
+    0x042720aa6a ens=None nonce=0 h18 deps=['97.9'] funder∈pop=True resc=False idmd=False
+    0x0476952b81 ens=None nonce=0 h18 deps=['97.0'] funder∈pop=True resc=False idmd=False
+    0x04c4674dc4 ens=None nonce=None h43 deps=['1.127717131237881633'] funder∈pop=False resc=False idmd=False
+    0x04eee38ff1 ens=None nonce=0 h41 deps=['10.0', '10.1', '10.2', '10.3', '10.4'] funder∈pop=True resc=False idmd=False
+    0x0528ea2b03 ens=None nonce=None h4 deps=['0.067079259839668589'] funder∈pop=False resc=False idmd=False
+    0x053102d559 ens=None nonce=None h50 deps=['1.11941377074967914'] funder∈pop=False resc=False idmd=False
+    0x053595b5d2 ens=None nonce=None h47 deps=['1.105977772274068598'] funder∈pop=False resc=False idmd=False
+    0x05600a833f ens=None nonce=0 h43 deps=['9.9', '10.0', '10.1', '10.2', '10.3'] funder∈pop=True resc=False idmd=False
+    0x05633a39dc ens=None nonce=0 h19 deps=['95.4'] funder∈pop=True resc=False idmd=False
+    0x059e3a4374 ens=None nonce=None h49 deps=['1.111422853165925083'] funder∈pop=False resc=False idmd=False
+    0x05f4e6f9da ens=None nonce=0 h19 deps=['98.9'] funder∈pop=True resc=False idmd=False
+    0x05fd72602c ens=None nonce=25 h15 deps=['0.065', '1.6', '98.8'] funder∈pop=True resc=False idmd=False
+    0x0615a2fe56 ens=None nonce=9 h17 deps=['95.2'] funder∈pop=True resc=False idmd=False
+    0x0695ab677e ens=None nonce=None h46 deps=['1.104097560384897601'] funder∈pop=False resc=False idmd=False
+    0x06d1b71072 ens=None nonce=0 h35 deps=['0.05', '0.15', '0.25', '0.35', '0.45'] funder∈pop=False resc=False idmd=False
+    0x06f1e50c32 ens=None nonce=None h5 deps=['0.066494032340566016'] funder∈pop=False resc=False idmd=False
+    0x072ad34300 ens=None nonce=None h51 deps=['1.11113462549111238'] funder∈pop=False resc=False idmd=False
+    0x07a11bfaf1 ens=None nonce=None h58 deps=['1.02864711954224518'] funder∈pop=False resc=False idmd=False
+    0x07b4f247b6 ens=None nonce=0 h18 deps=['98.3'] funder∈pop=True resc=False idmd=False
+    0x07f3732a4a ens=None nonce=None h6 deps=['0.065662469199506786'] funder∈pop=False resc=False idmd=False
+    0x07fbecfc6d ens=None nonce=10 h16 deps=['99.6'] funder∈pop=True resc=False idmd=False
+
+=== diff v2e (v2d + jitter band + residual): released=2354 newly_flagged=1273 periphery=208 ===
+  c7    size=  998 released=  921 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c6    size=  896 released=  173 fam=amount,cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c14   size=   84 released=   84 fam=amount,funding :: ≈ W/k equal split: 65.56Ξ across ×44 of 1.49Ξ
+  c19   size=   74 released=   74 fam=amount,funding :: identical 1.29Ξ send ×35 in one wave
+  c24   size=   47 released=   47 fam=amount,funding :: ≈ W/k equal split: 79.43Ξ across ×47 of 1.69Ξ
+  c164  size=   39 released=   37 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c170  size=   37 released=   37 fam=cadence,funding,sequence :: consecutive join indices 16,408–16,444 · 17-block span
+  c181  size=   31 released=   31 fam=cadence,funding,sequence :: consecutive join indices 16,468–16,498 · 10-block span
+  c177  size=   33 released=   29 fam=cadence,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c175  size=   26 released=   26 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c49   size=   24 released=   24 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c162  size=   23 released=   23 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c183  size=   22 released=   22 fam=amount,funding,sequence :: identical odd 0.0501Ξ send ×15
+  c192  size=   22 released=   22 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c195  size=   20 released=   20 fam=amount,funding,sequence :: first funder is a member of the same cluster (peel chain)
+  c182  size=   23 released=   20 fam=funding,sequence :: consecutive join indices 17,076–17,098 · 13-block span
+  c53   size=   20 released=   20 fam=amount,funding :: first funder is a member of the same cluster (peel chain)
+  c51   size=   18 released=   18 fam=amount,funding :: identical 1.0Ξ send ×16 in one wave
+  c58   size=   17 released=   17 fam=amount,funding :: identical 1.19Ξ send ×17 in one wave
+  c204  size=   16 released=   16 fam=funding,sequence :: consecutive join indices 16,166–16,181 · 10-block span
+  c212  size=   16 released=   15 fam=cadence,funding,sequence :: consecutive join indices 16,627–16,642 · 4-block span
+  c215  size=   15 released=   15 fam=cadence,funding :: metronomic drip ×15 of 0.05Ξ every ~1 blocks
+  c216  size=   15 released=   15 fam=funding,sequence :: consecutive join indices 16,364–16,378 · 8-block span
+  c80   size=   15 released=   15 fam=amount,funding,gas :: one fee fingerprint across ×15 (controls spread over dozens)
+  c184  size=   14 released=   14 fam=amount,funding :: identical 0.15Ξ send ×14 in one wave
+  released by amount: [('0.05', 917), ('0.051', 155), ('0.1', 148), ('0.06', 80), ('1.0', 71), ('0.055', 58), ('0.07', 47), ('1.69', 47), ('1.49', 44), ('0.052', 43), ('1.59', 40), ('0.2', 35), ('1.29', 35), ('1.39', 35), ('1.19', 32)]
+  released by hour: [(0, 8), (1, 52), (2, 39), (3, 28), (4, 59), (5, 66), (6, 44), (7, 59), (8, 110), (9, 28), (10, 87), (11, 88), (12, 81), (13, 49), (14, 58), (15, 34), (16, 63), (17, 24), (18, 57), (19, 52), (20, 58), (21, 57), (22, 52), (23, 38), (24, 16), (25, 22), (26, 26), (27, 26), (28, 20), (29, 23), (30, 19), (31, 9), (32, 15), (33, 71), (34, 514), (35, 244), (36, 14), (37, 13), (38, 3), (39, 2), (40, 2), (41, 7), (42, 7), (43, 3), (45, 3), (46, 1), (47, 2), (59, 1)]

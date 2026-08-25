@@ -1,0 +1,1558 @@
+{
+ "finding": "ENS-rate separates real farms from disputed clusters cleanly",
+ "verdict": "PARTIALLY REFUTED as stated: farm side holds; \"every disputed class >= population\" and \"disputed clusters are demographically the population\" fail for c6, other_0.05 and exchange-hub ladders; affected estimate overstated >30%",
+ "reproduction": {
+  "population": 19522,
+  "ens_named": 1387,
+  "ens_rate_population": 0.071,
+  "flagged": 11573,
+  "flagged_named": 360,
+  "ens_rate_flagged": 0.0311,
+  "unflagged": 7949,
+  "unflagged_named": 1027,
+  "ens_rate_unflagged": 0.1292,
+  "ens_lookup_coverage": "names 1387 + misses 18136 = whole population; no lookup bias",
+  "per_cluster_cited": {
+   "c2": [
+    0,
+    1996,
+    0.0
+   ],
+   "c0": [
+    0,
+    1104,
+    0.0
+   ],
+   "c1": [
+    0,
+    770,
+    0.0
+   ],
+   "c4": [
+    0,
+    300,
+    0.0
+   ],
+   "c29-33": [
+    0,
+    500,
+    0.0
+   ],
+   "c55-87": [
+    1,
+    1377,
+    0.0007
+   ],
+   "c7": [
+    156,
+    998,
+    0.1563
+   ],
+   "c6": [
+    57,
+    896,
+    0.0636
+   ],
+   "c164": [
+    9,
+    39,
+    0.2308
+   ],
+   "c49": [
+    8,
+    24,
+    0.3333
+   ],
+   "c162": [
+    9,
+    23,
+    0.3913
+   ],
+   "c183": [
+    7,
+    22,
+    0.3182
+   ],
+   "c51": [
+    5,
+    18,
+    0.2778
+   ],
+   "c3": [
+    2,
+    327,
+    0.0061
+   ],
+   "c5": [
+    0,
+    33,
+    0.0
+   ],
+   "c8": [
+    1,
+    367,
+    0.0027
+   ]
+  },
+  "note_c55_87": "finding says 0/1600; actual c55-c87 = 1/1377; the investigator undisputed set is a hand-picked list of 129 cluster ids, total 7828, 4 named -> 0.05% reproduces",
+  "categories_named_over_total": {
+   "undisputed_farm": "4/7828",
+   "c6_0.1_crowd": "57/896",
+   "c7_0.05_crowd": "156/998",
+   "small_round_or_other": "97/969",
+   "exchange_hub_1.x_ladder": "1/248",
+   "late_0.05_wave": "27/362",
+   "other_0.05": "18/272"
+  }
+ },
+ "confound_amount_and_hour": {
+  "ens_rate_unflagged_by_first_amount": {
+   "0.45-1": "37/447=0.083",
+   "1-2": "55/1373=0.040",
+   "=0.05": "573/2955=0.194",
+   "0.05-0.1": "106/1075=0.099",
+   ">=20": "6/352=0.017",
+   "10-20": "3/238=0.013",
+   "0.1-0.45": "141/561=0.251",
+   "2-10": "61/740=0.082",
+   "=0.1": "40/118=0.339",
+   "=10": "3/82=0.037",
+   "=0.45": "2/8=0.250",
+   "=14": "0/0=0.000"
+  },
+  "ens_rate_unflagged_by_hour": {
+   "6-12": "264/1758=0.150",
+   "13-23": "439/2939=0.149",
+   "34-37": "66/692=0.095",
+   "38+": "61/1413=0.043",
+   "3-5": "71/463=0.153",
+   "0-2": "86/375=0.229",
+   "24-33": "40/309=0.129"
+  },
+  "implication": "the 7.1% population rate is the wrong baseline: honest 0.05-ETH senders are ENS-named at ~16-19%, honest 0.1-ETH senders at ~13-34%, while >=1 ETH senders are at 1-4% even when unflagged"
+ },
+ "matched_expectation": {
+  "method": "expected ENS count per category = sum over members of the unflagged (upper bound of honest rate) or all-population (lower bound) ENS rate in the same (amount band, hour band, multi-deposit) cell",
+  "results": {
+   "undisputed_farm": {
+    "n": 7828,
+    "obs": 4,
+    "exp_unf_matched": 1307.6,
+    "ratio_unf": 0.0,
+    "exp_all_matched": 139.8,
+    "ratio_all": 0.03
+   },
+   "c7_0.05_crowd": {
+    "n": 998,
+    "obs": 156,
+    "exp_unf_matched": 97.3,
+    "ratio_unf": 1.6,
+    "exp_all_matched": 106.8,
+    "ratio_all": 1.46
+   },
+   "small_round_or_other": {
+    "n": 969,
+    "obs": 97,
+    "exp_unf_matched": 132.9,
+    "ratio_unf": 0.73,
+    "exp_all_matched": 59.6,
+    "ratio_all": 1.63
+   },
+   "c6_0.1_crowd": {
+    "n": 896,
+    "obs": 57,
+    "exp_unf_matched": 120.9,
+    "ratio_unf": 0.47,
+    "exp_all_matched": 67.9,
+    "ratio_all": 0.84
+   },
+   "late_0.05_wave": {
+    "n": 362,
+    "obs": 27,
+    "exp_unf_matched": 39.8,
+    "ratio_unf": 0.68,
+    "exp_all_matched": 34.4,
+    "ratio_all": 0.78
+   },
+   "other_0.05": {
+    "n": 272,
+    "obs": 18,
+    "exp_unf_matched": 59.8,
+    "ratio_unf": 0.3,
+    "exp_all_matched": 51.1,
+    "ratio_all": 0.35
+   },
+   "exchange_hub_1.x_ladder": {
+    "n": 248,
+    "obs": 1,
+    "exp_unf_matched": 30.5,
+    "ratio_unf": 0.03,
+    "exp_all_matched": 12.3,
+    "ratio_all": 0.08
+   },
+   "c7": {
+    "n": 998,
+    "obs": 156,
+    "exp_unf_matched": 97.3,
+    "ratio_unf": 1.6,
+    "exp_all_matched": 106.8,
+    "ratio_all": 1.46
+   },
+   "c6": {
+    "n": 896,
+    "obs": 57,
+    "exp_unf_matched": 120.9,
+    "ratio_unf": 0.47,
+    "exp_all_matched": 67.9,
+    "ratio_all": 0.84
+   },
+   "c164": {
+    "n": 39,
+    "obs": 9,
+    "exp_unf_matched": 1.9,
+    "ratio_unf": 4.65,
+    "exp_all_matched": 2.4,
+    "ratio_all": 3.68
+   },
+   "c49": {
+    "n": 24,
+    "obs": 8,
+    "exp_unf_matched": 2.7,
+    "ratio_unf": 2.99,
+    "exp_all_matched": 2.8,
+    "ratio_all": 2.91
+   },
+   "c162": {
+    "n": 23,
+    "obs": 9,
+    "exp_unf_matched": 4.7,
+    "ratio_unf": 1.92,
+    "exp_all_matched": 1.9,
+    "ratio_all": 4.77
+   },
+   "c183": {
+    "n": 22,
+    "obs": 7,
+    "exp_unf_matched": 2.1,
+    "ratio_unf": 3.29,
+    "exp_all_matched": 2.2,
+    "ratio_all": 3.16
+   },
+   "c51": {
+    "n": 18,
+    "obs": 5,
+    "exp_unf_matched": 2.0,
+    "ratio_unf": 2.51,
+    "exp_all_matched": 2.0,
+    "ratio_all": 2.44
+   },
+   "c3": {
+    "n": 327,
+    "obs": 2,
+    "exp_unf_matched": 38.5,
+    "ratio_unf": 0.05,
+    "exp_all_matched": 20.4,
+    "ratio_all": 0.1
+   },
+   "c8": {
+    "n": 367,
+    "obs": 1,
+    "exp_unf_matched": 47.4,
+    "ratio_unf": 0.02,
+    "exp_all_matched": 1.0,
+    "ratio_all": 1.0
+   }
+  }
+ },
+ "ens_given_nonce_ge20": {
+  "undisputed_farm": "4/369=0.011",
+  "unflagged_with_nonce_enrichment": "61/221=0.276",
+  "c7": "154/597=0.258",
+  "small_round_or_other": "95/327=0.291",
+  "c6": "56/132=0.424",
+  "late_0.05": "27/202=0.134",
+  "other_0.05": "18/83=0.217",
+  "exchange_hub": "1/4",
+  "implication": "farm aged wallets are a different population (reused/bought, no primary name); aged members of c7/small clusters match unflagged aged wallets"
+ },
+ "c6_anatomy": {
+  "(None, None, 91600)": {
+   "n": 400,
+   "nonce0": 400,
+   "named": 0,
+   "hours": {
+    "17": 69,
+    "18": 111,
+    "19": 116,
+    "20": 62,
+    "21": 42
+   },
+   "tx_type": {
+    "0": 400
+   },
+   "amounts": "1 distinct, min 0.1000 max 0.1000",
+   "top_funders": [
+    [
+     "0xfeb99e2c46b9a5fda836e6d4374a59fc61a5e221",
+     14
+    ],
+    [
+     "0xdf5386dc5091ffd35b74b06de1724e1ab905cba5",
+     1
+    ],
+    [
+     "0x02fd524095ff27838bf143e65b1d5f287f36b4dc",
+     1
+    ]
+   ]
+  },
+  "(10000000, 269341678, 90000)": {
+   "n": 300,
+   "nonce0": 300,
+   "named": 0,
+   "hours": {
+    "19": 300
+   },
+   "tx_type": {
+    "2": 300
+   },
+   "amounts": "300 distinct, min 0.0940 max 0.1117",
+   "top_funders": [
+    [
+     "0x0945fcedba54be93b6c92d4151476e73ea54acdd",
+     1
+    ],
+    [
+     "0xa04ccd850c7dc32b951125a089d5b5745190387f",
+     1
+    ],
+    [
+     "0x504386e323d23c20db8d38d03c604f038119fc6a",
+     1
+    ]
+   ]
+  },
+  "c6_remainder": {
+   "n": 196,
+   "named": 57,
+   "nonce0": 21
+  }
+ },
+ "c6_gas_overlap": "named members sharing a (priority,maxFee,gasLimit) triple with >=5 c6 members: 0/57; unnamed: 83.4% (700/839); c6 = 700 nonce-0 scripted wallets in 2 batches + 196 population-like tail (57 named = 29%, 132 nonce>=20)",
+ "c7_anatomy": "867 distinct gas triples / 998 members; unnamed sharing a triple with >=5: 6.1%; shared first funder named 56.4% vs unnamed 53.0% (mostly exchange hubs) -> named and unnamed c7 members look alike",
+ "onchain_spot_check": {
+  "n_addresses": 24,
+  "blockscout_calls": 48,
+  "tally": {
+   "ens_in_undisputed": {
+    "farm-like": 3,
+    "ambiguous": 1
+   },
+   "c6_named_random": {
+    "human-like": 6,
+    "farm-like": 2
+   },
+   "c7_unnamed_nonce20_random": {
+    "ambiguous": 2,
+    "human-like": 6
+   },
+   "c6_unnamed_nonce20_random": {
+    "ambiguous": 2,
+    "human-like": 2
+   }
+  },
+  "wallets": [
+   {
+    "address": "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+    "group": "ens_in_undisputed",
+    "ens": "basebuilder.eth",
+    "cluster": 3,
+    "amount_eth": 2.067,
+    "hour": 13,
+    "nonce_at_deposit": 1214,
+    "deposits": 1,
+    "funder": "0x00000b7a7a859f1b7ab55579fd4e7b0b22064f3d",
+    "tx": "0xe458ec7e8c6c4cb3de265c00c6599245d196d06d11d98adf05a72c1b83255d20",
+    "tx_count": "1166",
+    "token_transfers": "287",
+    "last50_oldest": "2026-05-04",
+    "last50_span_days": 104.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": {
+     "from": "0x9b150de62169042c996e763b0f914a17fb9004b5",
+     "eth": 2.067,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "SeaDrop",
+      13
+     ],
+     [
+      "0xb0383f59",
+      6
+     ],
+     [
+      "0xe083c50b",
+      4
+     ],
+     [
+      "0x391222b6",
+      3
+     ],
+     [
+      "Aura",
+      2
+     ]
+    ],
+    "skeptic_verdict": "farm-like: c3 2.067 farm, funded exactly 2.067 ETH 0.0h before deposit by 0x9b150de6, then funds viair.eth 2.067 (ENS+nonce 1214 did not mean honest)"
+   },
+   {
+    "address": "0x52be3580601524652978648e872d0aa448afc928",
+    "group": "ens_in_undisputed",
+    "ens": "0xmrdq.eth",
+    "cluster": 8,
+    "amount_eth": 0.45,
+    "hour": 34,
+    "nonce_at_deposit": 1628,
+    "deposits": 1,
+    "funder": "0x708396f17127c42383e3b9014072679b2f60b82f",
+    "tx": "0x8a2291c91b96a11f42fc38efc844e3dd1aaf9a50d3ee89a9246d67280bd24974",
+    "tx_count": "1821",
+    "token_transfers": "2400",
+    "last50_oldest": "2026-06-02",
+    "last50_span_days": 78.3,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 37,
+    "last_funding_before_deposit": {
+     "from": "0x755b795cc6d2565f9083b8c55d5e414e6089a484",
+     "eth": 0.403,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 6,
+    "post_out_values_eth": [
+     1.1
+    ],
+    "counterparties": [
+     [
+      "DexRouter",
+      32
+     ],
+     [
+      "0x755b795c",
+      2
+     ],
+     [
+      "WETH9",
+      2
+     ],
+     [
+      "ArgonotToken",
+      2
+     ],
+     [
+      "Seaport",
+      1
+     ]
+    ],
+    "skeptic_verdict": "ambiguous: c8 0.45 h34, funded 0.403 ETH 0.0h before, 1.1 ETH swept out post-settlement, nonce 1628"
+   },
+   {
+    "address": "0x6e3b79992705fb88a24296b7a9873967479a27e8",
+    "group": "ens_in_undisputed",
+    "ens": "concordclub.eth",
+    "cluster": 85,
+    "amount_eth": 1.198786,
+    "hour": 2,
+    "nonce_at_deposit": 415,
+    "deposits": 1,
+    "funder": "0x11a77364f2ca798baeebebb915c26fe46094b723",
+    "tx": "0x8b75a73889aa3f706f5ebee762bfa6e217e25511472c7cc8482a5030f7392200",
+    "tx_count": "1263",
+    "token_transfers": "1735",
+    "last50_oldest": "2026-03-26",
+    "last50_span_days": 143.6,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 33,
+    "last_funding_before_deposit": {
+     "from": "0x59d8c6d20f6a62c240bcfab40bddaf2c72fe0be7",
+     "eth": 1.301,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "ERC721SeaDrop",
+      9
+     ],
+     [
+      "Seaport",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0x5a854676",
+      2
+     ],
+     [
+      "0x1cdce382",
+      2
+     ]
+    ],
+    "skeptic_verdict": "farm-like: c85 jitter batch, 1.198786 ETH funded 1.301 ETH 0.0h before, nonce 415"
+   },
+   {
+    "address": "0xa8a880454a260cbc010b19fa2c2cc0240639c75b",
+    "group": "ens_in_undisputed",
+    "ens": "viair.eth",
+    "cluster": 3,
+    "amount_eth": 2.067,
+    "hour": 13,
+    "nonce_at_deposit": 3337,
+    "deposits": 1,
+    "funder": "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+    "tx": "0xe3bf0bd8389506307361d86539b3ad9b2e5aeb1c14704c21862acb0ae98808e2",
+    "tx_count": "3295",
+    "token_transfers": "372",
+    "last50_oldest": "2026-05-04",
+    "last50_span_days": 104.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": {
+     "from": "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+     "eth": 2.067,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "SeaDrop",
+      13
+     ],
+     [
+      "HASH98",
+      6
+     ],
+     [
+      "0xe083c50b",
+      4
+     ],
+     [
+      "0x391222b6",
+      4
+     ],
+     [
+      "0xb0383f59",
+      3
+     ]
+    ],
+    "skeptic_verdict": "farm-like: funded 2.067 ETH 0.0h before by basebuilder.eth (in-cluster peel), nonce 3337"
+   },
+   {
+    "address": "0x6f1eb522696b1c7e842bf32cb0bf0d4084b9cea2",
+    "group": "c6_named_random",
+    "ens": "jdapp.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 9,
+    "nonce_at_deposit": 333,
+    "deposits": 1,
+    "funder": "0xaeec6f5aca72f3a005af1b3420ab8c8c7009bac8",
+    "tx": "0x5181405df99e23aa1d93d84bf216606093bc81ebab9332ece3507d1531cb3366",
+    "tx_count": "346",
+    "token_transfers": "270",
+    "last50_oldest": "2025-03-29",
+    "last50_span_days": 506.1,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 46,
+    "last_funding_before_deposit": {
+     "from": "0xa67d7eb4dc68fa6ce8e34ef8cadaf075b9893fbb",
+     "eth": 0.0438,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "Seaport",
+      6
+     ],
+     [
+      "DexRouter",
+      4
+     ],
+     [
+      "0x467d66b9",
+      4
+     ],
+     [
+      "USDC",
+      3
+     ],
+     [
+      "ERC1967Proxy",
+      3
+     ]
+    ],
+    "skeptic_verdict": "human-like: 506d span, nonce 333, Seaport/DexRouter"
+   },
+   {
+    "address": "0x31434972e45667dee9bcf05796ca80768b1c5aab",
+    "group": "c6_named_random",
+    "ens": "zlwzlw.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 11,
+    "nonce_at_deposit": 620,
+    "deposits": 1,
+    "funder": "0x8beea9abba75a1977fb4e12cc905943eb33105dc",
+    "tx": "0x7fde3a4152713cdc2467aed61a3e92f43aebf4b52f2454b6b0a1e2a5db86c5b0",
+    "tx_count": "664",
+    "token_transfers": "621",
+    "last50_oldest": "2026-05-20",
+    "last50_span_days": 95.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": null,
+    "post_settlement_txs": 4,
+    "post_out_values_eth": [
+     0.0069,
+     0.005,
+     0.0007,
+     0.1
+    ],
+    "counterparties": [
+     [
+      "Seaport",
+      13
+     ],
+     [
+      "RelayDepository",
+      6
+     ],
+     [
+      "SeaDrop",
+      6
+     ],
+     [
+      "DexRouter",
+      6
+     ],
+     [
+      "0x31434972",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 620, Seaport/Relay/SeaDrop, small post-settlement outflows"
+   },
+   {
+    "address": "0x7f19a3b92ce16309ccf405241a4ad782dd50d0de",
+    "group": "c6_named_random",
+    "ens": "lzy1060701734.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 7,
+    "nonce_at_deposit": 89,
+    "deposits": 1,
+    "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "tx": "0xbff3f0fa6cae14a31b1014d9598aacc8191a6cdab470153a1425fbfb8f19e9d3",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2025-11-07",
+    "last50_span_days": 287.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 27,
+    "last_funding_before_deposit": {
+     "from": "0x56c262027e0de4aea31d2489529cb25d23e58a8b",
+     "eth": 0.05,
+     "hours_before": 0.2
+    },
+    "post_settlement_txs": 4,
+    "post_out_values_eth": [
+     0.01,
+     0.001
+    ],
+    "counterparties": [
+     [
+      "DexRouter",
+      6
+     ],
+     [
+      "HASH98",
+      6
+     ],
+     [
+      "UniversalRouter",
+      3
+     ],
+     [
+      "Skraps Club",
+      3
+     ],
+     [
+      "RelayDepository",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 89, 287d span, NFT/DEX; funded 0.05 0.2h before"
+   },
+   {
+    "address": "0xe2d9942b99db16f3bcac5787babdf5ef1c415fff",
+    "group": "c6_named_random",
+    "ens": "02861.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 11,
+    "nonce_at_deposit": 80,
+    "deposits": 1,
+    "funder": "0x29a303c3d62afa14903b182c1c0d9e5ae9138851",
+    "tx": "0x683499ea6b68ff4e86feaffb2fade17cc4ce6ae78486f4ba430fd9ff4a54f6b5",
+    "tx_count": "99",
+    "token_transfers": "48",
+    "last50_oldest": "2024-02-13",
+    "last50_span_days": 916.3,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 39,
+    "last_funding_before_deposit": {
+     "from": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     "eth": 0.0999,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "UniversalRouter",
+      15
+     ],
+     [
+      "WETH9",
+      3
+     ],
+     [
+      "Token",
+      3
+     ],
+     [
+      "SafeProxy",
+      2
+     ],
+     [
+      "Asterix",
+      2
+     ]
+    ],
+    "skeptic_verdict": "farm-like: investigator 5-digit peel group 02861.eth; 0.0999 ETH JIT 0.0h from exchange 0x9696f59e; aged 2024 wallet"
+   },
+   {
+    "address": "0x1c1c1538f375eef2ef73abaa54c2af884ca6bb9d",
+    "group": "c6_named_random",
+    "ens": "0xair.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 18,
+    "nonce_at_deposit": 282,
+    "deposits": 1,
+    "funder": "0x4fb632f8687d513683b5bec194919981eadd563d",
+    "tx": "0x7e06577050b69b32a1dfce8cc284f8daeb4c9accf5f23720db7db286d0d26124",
+    "tx_count": "278",
+    "token_transfers": "226",
+    "last50_oldest": "2025-08-30",
+    "last50_span_days": 352.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 49,
+    "last_funding_before_deposit": null,
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "USDC",
+      11
+     ],
+     [
+      "Seaport",
+      7
+     ],
+     [
+      "WETH9",
+      4
+     ],
+     [
+      "AirdropToken",
+      4
+     ],
+     [
+      "RelayDepository",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 282, 352d span, USDC/Seaport"
+   },
+   {
+    "address": "0x266c97351c81eadb56d0a291b2f7feb961922e67",
+    "group": "c6_named_random",
+    "ens": "sneakymosquito.eth",
+    "cluster": 6,
+    "amount_eth": 0.09,
+    "hour": 19,
+    "nonce_at_deposit": 64,
+    "deposits": 1,
+    "funder": "0xe34d4d7396d8eb5adb86c2321d2a85e98b6fdfe3",
+    "tx": "0x6954c600c468e0edc95ac0d1187e30f182458f9c2da7c1958698d4740bca30c6",
+    "tx_count": "75",
+    "token_transfers": "41",
+    "last50_oldest": "2022-05-30",
+    "last50_span_days": 1539.7,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": {
+     "from": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+     "eth": 0.0954,
+     "hours_before": 29629.4
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "TransparentUpgradeableProxy",
+      6
+     ],
+     [
+      "0xddcafb45",
+      3
+     ],
+     [
+      "RareApepeGrlzYC",
+      2
+     ],
+     [
+      "Cards",
+      2
+     ],
+     [
+      "CovalentQueryToken",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: 2022 wallet, 0.09 ETH (off-dominant), no funding for years"
+   },
+   {
+    "address": "0xb38c1d53947ef18798a938c97f8138e341a475db",
+    "group": "c6_named_random",
+    "ens": "05605.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 11,
+    "nonce_at_deposit": 133,
+    "deposits": 1,
+    "funder": "0xa4e2d2b4e9c51d6fba0644338e3cec8a0c80640f",
+    "tx": "0xe9942b823309d53d4566bd7224eadfe10cee619127b1a4e4c46dce0e045980c8",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2024-01-20",
+    "last50_span_days": 939.9,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 44,
+    "last_funding_before_deposit": {
+     "from": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+     "eth": 0.0999,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "ETHRegistrarController",
+      16
+     ],
+     [
+      "NameWrapper",
+      10
+     ],
+     [
+      "0x00000000",
+      7
+     ],
+     [
+      "PublicResolver",
+      4
+     ],
+     [
+      "SafeProxy",
+      1
+     ]
+    ],
+    "skeptic_verdict": "farm-like: investigator 5-digit peel group 05605.eth; 0.0999 ETH JIT 0.0h from exchange 0x56eddb7a; ENS registrar activity"
+   },
+   {
+    "address": "0x2c824314e163a7d392bcca543701050a689adc29",
+    "group": "c6_named_random",
+    "ens": "ppxxqq.eth",
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 23,
+    "nonce_at_deposit": 187,
+    "deposits": 1,
+    "funder": "0xbb8569b8ae11b8d9f07a688c17430c9c94d98d56",
+    "tx": "0x4dfaa034b5ee0075afc28ce17aceffe127ee1d80dcbf4eb98fb025a4f50355ee",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2025-02-16",
+    "last50_span_days": 547.2,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 48,
+    "last_funding_before_deposit": {
+     "from": "0xda5c77dffaba36612a694145376aa6d74975732a",
+     "eth": 0.0011,
+     "hours_before": 13132.5
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "MetaSwap",
+      13
+     ],
+     [
+      "Permit2Proxy",
+      7
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      6
+     ],
+     [
+      "ERC1967Proxy",
+      4
+     ],
+     [
+      "swEXIT",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 187, 547d span, MetaSwap/Permit2"
+   },
+   {
+    "address": "0x68692f7422d73ce4c300468e5c1e0f80587bf8a7",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.051,
+    "hour": 16,
+    "nonce_at_deposit": 48,
+    "deposits": 1,
+    "funder": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+    "tx": "0x28ffd1d0aa59f0d1bb61a8ec7cf76318a9adb2cbec2c4ddf9ae7d0409793963a",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-05-17",
+    "last50_span_days": 92.0,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 39,
+    "last_funding_before_deposit": {
+     "from": "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+     "eth": 0.0591,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "0xf9280799",
+      17
+     ],
+     [
+      "RelayDepository",
+      7
+     ],
+     [
+      "0xef6fc636",
+      6
+     ],
+     [
+      "UERC20",
+      5
+     ],
+     [
+      "The White Bull",
+      2
+     ]
+    ],
+    "skeptic_verdict": "ambiguous: nonce 48, 92d span, funded 0.0591 JIT 0.0h for a 0.051 deposit (Relay/UERC20)"
+   },
+   {
+    "address": "0xa5d561a91c3d4bffa6593673cce9e30075866b4f",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.05,
+    "hour": 34,
+    "nonce_at_deposit": 57,
+    "deposits": 1,
+    "funder": "0xf87e931acb11ad20756bc628e54631fb82649dbf",
+    "tx": "0x6b3ccbdaed31622271db0a463aff3688e31a62abb7ef2bdee1a90a8a0b3d2072",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-04-26",
+    "last50_span_days": 113.8,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": {
+     "from": "0x28c6c06298d514db089934071355e5743bf21d60",
+     "eth": 0.2599,
+     "hours_before": 571.7
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "0xa5d561a9",
+      31
+     ],
+     [
+      "0xbf7fe109",
+      3
+     ],
+     [
+      "AuctionEscrow",
+      3
+     ],
+     [
+      "0x9394db62",
+      2
+     ],
+     [
+      "0x342bf884",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 57, funded 0.26 from Binance 572h before"
+   },
+   {
+    "address": "0x1128b0eb317e43fb1c63c32fab1b4b08bc425375",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.05,
+    "hour": 21,
+    "nonce_at_deposit": 37,
+    "deposits": 1,
+    "funder": "0x09600a01f7a5d72fd29565793365b98d0e5e8d34",
+    "tx": "0x51819a68a99f97fa8c091c309ee499f9d9046df5f41de42fce522aca0e5df271",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-07-01",
+    "last50_span_days": 47.5,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 16,
+    "last_funding_before_deposit": {
+     "from": "0xa871f658a147a6b27e13e878e7091374354e495e",
+     "eth": 0.0,
+     "hours_before": 138.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "0x09600a01",
+      5
+     ],
+     [
+      "USDC",
+      5
+     ],
+     [
+      "MayanForwarder2",
+      1
+     ],
+     [
+      "0xa871719f",
+      1
+     ],
+     [
+      "0xebba1704",
+      1
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 37, Mayan/USDC bridging"
+   },
+   {
+    "address": "0x8cb79b09f07c3f378dbcdac0f5bb67461329e2b0",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.05,
+    "hour": 35,
+    "nonce_at_deposit": 91,
+    "deposits": 1,
+    "funder": "0x4696b51dc43f5a6c1f3d08c5e232052517c66bd6",
+    "tx": "0xa1c7059a1763b8f1b2cc78f0d447f86d8c76877f7ee84200454ff96c9d1d73d3",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-08-13",
+    "last50_span_days": 10.1,
+    "has_more": true,
+    "curator_txs_in_last50": 2,
+    "pre_deposit_out_in_window": 20,
+    "last_funding_before_deposit": {
+     "from": "0x7e1d726dd28f65e8f50f109b209f2f6321660d10",
+     "eth": 0.0153,
+     "hours_before": 0.1
+    },
+    "post_settlement_txs": 16,
+    "post_out_values_eth": [
+     0.0075,
+     0.003,
+     0.0043,
+     0.002
+    ],
+    "counterparties": [
+     [
+      "RelayDepository",
+      6
+     ],
+     [
+      "ProofOfNothing",
+      4
+     ],
+     [
+      "0x8cb79b09",
+      4
+     ],
+     [
+      "AllowanceHolder",
+      4
+     ],
+     [
+      "0x5d0bbff6",
+      3
+     ]
+    ],
+    "skeptic_verdict": "ambiguous: 91 txs in 10 days, funded 0.0153 0.1h before, 16 post-settlement txs (degen/bot)"
+   },
+   {
+    "address": "0x4051ba2062d725dcb057ee1e576866fa962efaf4",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.05,
+    "hour": 34,
+    "nonce_at_deposit": 235,
+    "deposits": 1,
+    "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "tx": "0x5f1ebd00ce99248771e61d1ad728470216e2262be71c9a8fe9dc218627ee0e95",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-05-17",
+    "last50_span_days": 93.4,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 32,
+    "last_funding_before_deposit": {
+     "from": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     "eth": 0.1997,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "Diamond",
+      18
+     ],
+     [
+      "TetherToken",
+      3
+     ],
+     [
+      "0x28382b1f",
+      2
+     ],
+     [
+      "Spark Savings USDT",
+      2
+     ],
+     [
+      "0x92016640",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 235, 93d span, Spark/USDT, exchange top-up 0.1997 JIT"
+   },
+   {
+    "address": "0x0976b0cf2103e07c35f3f7cbccd9136e1b795090",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.051,
+    "hour": 11,
+    "nonce_at_deposit": 116,
+    "deposits": 1,
+    "funder": "0x28added038b8d00b8b496e67e2e5ff07dfe0b74a",
+    "tx": "0x3d780e80cbe54ede8f2f96b01e91822e65c064cd9c86fea15502c6d0a0f331b1",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2025-06-05",
+    "last50_span_days": 437.6,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 46,
+    "last_funding_before_deposit": {
+     "from": "0xe7e6f680fafc6e56e2e69055a0dd58c7092b08a3",
+     "eth": 0.145,
+     "hours_before": 3635.9
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "SeaDrop",
+      6
+     ],
+     [
+      "USDC",
+      6
+     ],
+     [
+      "Ethena",
+      5
+     ],
+     [
+      "USDe",
+      4
+     ],
+     [
+      "SpokePoolPeriphery",
+      3
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 116, 437d span, funded 3636h before, Ethena/SeaDrop"
+   },
+   {
+    "address": "0x18f79308c04a964d4a96362d161d636b853297b2",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.05,
+    "hour": 34,
+    "nonce_at_deposit": 533,
+    "deposits": 2,
+    "funder": "0xa7efae728d2936e78bda97dc267687568dd593f3",
+    "tx": "0x28ced6f18fb2a21a78f96223dc6a86d638e68f0114ffc16447526364034c070c",
+    "tx_count": "505",
+    "token_transfers": "351",
+    "last50_oldest": "2026-05-07",
+    "last50_span_days": 102.9,
+    "has_more": true,
+    "curator_txs_in_last50": 2,
+    "pre_deposit_out_in_window": 28,
+    "last_funding_before_deposit": {
+     "from": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     "eth": 0.2001,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "TransparentUpgradeableProxy",
+      8
+     ],
+     [
+      "0x3436cf21",
+      6
+     ],
+     [
+      "RelayDepository",
+      5
+     ],
+     [
+      "TetherToken",
+      4
+     ],
+     [
+      "MetaSwap",
+      4
+     ]
+    ],
+    "skeptic_verdict": "human-like: 505 txs, 2 deposits, exchange top-up 0.2001"
+   },
+   {
+    "address": "0x7a83e6c401c5237863104cdfa1fe2a5730e1bee9",
+    "group": "c7_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 7,
+    "amount_eth": 0.06,
+    "hour": 3,
+    "nonce_at_deposit": 112,
+    "deposits": 1,
+    "funder": "0xcb351cb2be5b99f54d0d966fb1cd176e7b329cb2",
+    "tx": "0x47c28d0dcd6506ff33906ede8addd4ae013a6e6f7e2296b025817cb961595bc7",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2020-05-08",
+    "last50_span_days": 2295.6,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 45,
+    "last_funding_before_deposit": {
+     "from": "0xcb351cb2be5b99f54d0d966fb1cd176e7b329cb2",
+     "eth": 0.2,
+     "hours_before": 51833.5
+    },
+    "post_settlement_txs": 3,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "UniswapV2Router02",
+      9
+     ],
+     [
+      "0xad1eef4e",
+      3
+     ],
+     [
+      "TidyVault",
+      2
+     ],
+     [
+      "Token",
+      2
+     ],
+     [
+      "KickToken",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: 2020 wallet, nonce 112, UniswapV2"
+   },
+   {
+    "address": "0xb8dd8c943150fabd83ebe187212fdd61bda02272",
+    "group": "c6_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 1,
+    "nonce_at_deposit": 139,
+    "deposits": 1,
+    "funder": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+    "tx": "0x6ba2857d0c9dfe978c3e9ced6ab081c65726a6dfc549f1c068a02e31f3382897",
+    "tx_count": "25",
+    "token_transfers": "20",
+    "last50_oldest": "2026-06-24",
+    "last50_span_days": 58.1,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 37,
+    "last_funding_before_deposit": {
+     "from": "0x0c708fb3558f80b040634853e43013d12206d932",
+     "eth": 0.1,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 1,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "SeaDrop",
+      17
+     ],
+     [
+      "ERC721SeaDrop",
+      13
+     ],
+     [
+      "0x0c708fb3",
+      3
+     ],
+     [
+      "TLStacks721",
+      2
+     ],
+     [
+      "FragmentsOfGrowth",
+      2
+     ]
+    ],
+    "skeptic_verdict": "ambiguous: nonce 139, 58d span, 0.1 JIT 0.0h, SeaDrop minter"
+   },
+   {
+    "address": "0x18dc60cf50932cdb1be5c75cdbd2543533d30768",
+    "group": "c6_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 15,
+    "nonce_at_deposit": 45,
+    "deposits": 1,
+    "funder": "0x814aa44e27e1978297c1e387a7c70cbb3405ed0c",
+    "tx": "0xef84ccea90460a2e6065221f8bb5eabd170b38e3a3c0fb497e1f56da1e585afd",
+    "tx_count": "64",
+    "token_transfers": "48",
+    "last50_oldest": "2025-12-03",
+    "last50_span_days": 256.9,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 25,
+    "last_funding_before_deposit": {
+     "from": "0x590b91d7f1d674b2a370a14ba5d40ffc06380b2a",
+     "eth": 0.02,
+     "hours_before": 1.3
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "USDC",
+      6
+     ],
+     [
+      "RelayDepository",
+      5
+     ],
+     [
+      "Yokai Syndicate",
+      4
+     ],
+     [
+      "0x77a66178",
+      3
+     ],
+     [
+      "0xb0990fcb",
+      1
+     ]
+    ],
+    "skeptic_verdict": "human-like: nonce 45, 257d span, USDC/Relay/NFT"
+   },
+   {
+    "address": "0x657c4df51be4d0c64232e82457cc6d43f0611f4a",
+    "group": "c6_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 6,
+    "amount_eth": 0.11,
+    "hour": 10,
+    "nonce_at_deposit": 67,
+    "deposits": 1,
+    "funder": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "tx": "0x820bd37f540c74eed64ef68aa6d505d00a23cb12ad157b0e6912667dec7155fa",
+    "tx_count": "0",
+    "token_transfers": "0",
+    "last50_oldest": "2026-04-21",
+    "last50_span_days": 122.6,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 46,
+    "last_funding_before_deposit": {
+     "from": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+     "eth": 0.1108,
+     "hours_before": 0.2
+    },
+    "post_settlement_txs": 1,
+    "post_out_values_eth": [
+     0.1122
+    ],
+    "counterparties": [
+     [
+      "0xb229805c",
+      2
+     ],
+     [
+      "RelayDepository",
+      1
+     ],
+     [
+      "SafeProxy",
+      1
+     ],
+     [
+      "0xfbd639a1",
+      1
+     ],
+     [
+      "0xf991be92",
+      1
+     ]
+    ],
+    "skeptic_verdict": "ambiguous: funded 0.1108 JIT 0.2h from exchange, 0.1122 swept out post-settlement; but Relay/Safe history nonce 67"
+   },
+   {
+    "address": "0x1fff8cff8c8a72b846819bb77cf7e0a8ff6d8881",
+    "group": "c6_unnamed_nonce20_random",
+    "ens": null,
+    "cluster": 6,
+    "amount_eth": 0.1,
+    "hour": 21,
+    "nonce_at_deposit": 428,
+    "deposits": 1,
+    "funder": "0x079961be58c19c65aecb8aff5756c29f9a511de9",
+    "tx": "0xc4bbf813a6bb1e18abc4ae95d0743a7b1ea1b46309b5da2d702b1786adecd196",
+    "tx_count": "450",
+    "token_transfers": "391",
+    "last50_oldest": "2026-06-23",
+    "last50_span_days": 55.7,
+    "has_more": true,
+    "curator_txs_in_last50": 1,
+    "pre_deposit_out_in_window": 34,
+    "last_funding_before_deposit": {
+     "from": "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+     "eth": 0.1099,
+     "hours_before": 0.0
+    },
+    "post_settlement_txs": 0,
+    "post_out_values_eth": [],
+    "counterparties": [
+     [
+      "0xf9280799",
+      10
+     ],
+     [
+      "0xef6fc636",
+      9
+     ],
+     [
+      "RelayDepository",
+      6
+     ],
+     [
+      "Contract",
+      4
+     ],
+     [
+      "Token",
+      2
+     ]
+    ],
+    "skeptic_verdict": "human-like: 450 txs, nonce 428"
+   }
+  ]
+ },
+ "ens_is_not_per_wallet_honesty": "3/4 ENS-named wallets inside undisputed farms are JIT-funded farm members (basebuilder.eth/viair.eth 2.067 ETH 0.0h, concordclub.eth 1.301 ETH 0.0h), the 4th (0xmrdq.eth) 0.403 ETH 0.0h + 1.1 ETH sweep; 2/8 random ENS-named c6 members are the investigator own 5-digit peel farm",
+ "affected_estimate": {
+  "finding": 3749,
+  "supportable": "~2000-2300 = c7 998 + small_round_or_other 969 + ~70% of late_0.05 (~250) + c6 remainder 196; NOT c6 batches (700), other_0.05 (272, 0.3x expected), exchange-hub ladders (248, 0.4% ENS, 97% nonce-0)"
+ },
+ "strongest_supported_claim": "Per-cluster ENS-rate against an amount x hour matched unflagged baseline is a cluster-level MIXTURE indicator, not a farm/not-farm switch: undisputed farms 0-3% of expected (aged members 1.1% vs 27.6%); c7 1.5-1.6x and small-round/other 0.7-1.6x are population-like; c6 0.47-0.84x, late_0.05 0.7-0.8x, other_0.05 0.3x, exchange-hub 0.03-0.08x are majority-farm with a human tail. Use it to demand per-member strong rules in population-like components, never to clear a component wholesale."
+}

@@ -1,0 +1,2067 @@
+{
+ "agent": "skeptic_bridges",
+ "finding": "Union-find over spanning chains is single-linkage clustering: 4,157 bridges / 1,954 weak-only; strong-only components fix",
+ "generated": "2026-08-25",
+ "investigator_files_checked": [
+  "agent_priorart.json (agent_prior_art_fp_control.json does not exist at the cited path)",
+  "pernode.py / pernode_out.json",
+  "policies.py / policies_out.json",
+  "v2_run1.log / sk_v2.py variant A"
+ ],
+ "reproduction": {
+  "clusters": 263,
+  "flagged": 11573,
+  "equals_live": true
+ },
+ "bridge_numbers": {
+  "flagged_nodes": 11573,
+  "distinct_tierA_edges_among_flagged": 17071,
+  "raw_tierA_edge_records_among_flagged": 27623,
+  "bridges": 4157,
+  "bridge_fraction_of_distinct_edges": 0.244,
+  "bridge_kinds": [
+   [
+    "amount:exact_round_wave",
+    2647
+   ],
+   [
+    "amount:split",
+    2448
+   ],
+   [
+    "cadence:drip",
+    1102
+   ],
+   [
+    "amount:exact_odd",
+    674
+   ],
+   [
+    "sequence",
+    613
+   ],
+   [
+    "amount:near_same_block",
+    67
+   ],
+   [
+    "cadence:burst",
+    49
+   ]
+  ],
+  "weak_only_bridges": 1954,
+  "bridge_min_side_hist": {
+   "1": 385,
+   "2-4": 747,
+   "5-19": 864,
+   "20+": 2161
+  },
+  "weak_only_bridge_min_side_hist": {
+   "1": 170,
+   "2-4": 322,
+   "5-19": 418,
+   "20+": 1044
+  },
+  "weak_only_bridges_both_sides_ge5": 1462,
+  "of_which_same_amount_and_hours(chain-internal)": 1310,
+  "of_which_different_wave(true weld candidates)": 152
+ },
+ "bridge_verdict": {
+  "claim": "nearly every edge is a bridge",
+  "measured": "4,157 bridges of 17,071 distinct tier-A edges among flagged nodes = 24.4% (27,623 raw edge records incl. duplicate pairs)",
+  "holds": false
+ },
+ "weld_verdict": {
+  "claim": "one weak edge welds unrelated groups",
+  "measured": {
+   "weak_only_bridges": 1954,
+   "weak_only_bridges_both_sides_ge5": 1462,
+   "same_dominant_amount_and_overlapping_hours(chain-internal, cutting splits ONE wave)": 1310,
+   "different_dominant_amount": 152,
+   "different_dominant_examples_first60_by_live_cluster": {
+    "7": 13,
+    "6": 10,
+    "14": 37
+   },
+   "note": "the 152 different-amount bridges are chain tail edges inside c7 (0.05 wave vs 5-12 member 0.06 sub-windows), c6 (0.1 wave vs 0.09/0.098/0.11 or the audited 100-jitter batches) and c14 (1.49 vs 1.59 Bitget ladder, same funder 0x1ab4973a) - not welds of unrelated operators"
+  },
+  "cluster_level": {
+   "n_clusters_with_ge2_strong_subcomps_ge5": 8,
+   "members_in_those": 3175,
+   "n_with_different_dominant_amounts": 4,
+   "rows": [
+    {
+     "cluster": 0,
+     "size": 1104,
+     "families": [
+      "amount",
+      "cadence",
+      "funding"
+     ],
+     "sub_ge5_sizes": [
+      1001,
+      100
+     ],
+     "sub_doms": [
+      [
+       "14.0",
+       1.0,
+       3,
+       13
+      ],
+      [
+       "14.3",
+       1.0,
+       12,
+       14
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 2
+    },
+    {
+     "cluster": 12,
+     "size": 998,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "sub_ge5_sizes": [
+      899,
+      22
+     ],
+     "sub_doms": [
+      [
+       "0.05",
+       0.53,
+       0,
+       59
+      ],
+      [
+       "0.057",
+       1.0,
+       5,
+       35
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 2
+    },
+    {
+     "cluster": 2,
+     "size": 896,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "sub_ge5_sizes": [
+      301,
+      65,
+      65,
+      64,
+      50,
+      50,
+      41,
+      41,
+      35,
+      8
+     ],
+     "sub_doms": [
+      [
+       "0.1",
+       0.34,
+       19,
+       20
+      ],
+      [
+       "0.1",
+       1.0,
+       20,
+       21
+      ],
+      [
+       "0.1",
+       1.0,
+       18,
+       18
+      ],
+      [
+       "0.1",
+       1.0,
+       17,
+       18
+      ],
+      [
+       "0.109767456188764008",
+       0.02,
+       19,
+       19
+      ],
+      [
+       "0.095728637713827608",
+       0.02,
+       19,
+       19
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 6
+    },
+    {
+     "cluster": 10,
+     "size": 60,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "sub_ge5_sizes": [
+      19,
+      9,
+      8,
+      6
+     ],
+     "sub_doms": [
+      [
+       "1.0",
+       1.0,
+       3,
+       4
+      ],
+      [
+       "1.0",
+       1.0,
+       3,
+       3
+      ],
+      [
+       "1.0",
+       1.0,
+       4,
+       4
+      ],
+      [
+       "1.0",
+       1.0,
+       3,
+       3
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 1
+    },
+    {
+     "cluster": 35,
+     "size": 47,
+     "families": [
+      "amount",
+      "cadence",
+      "funding"
+     ],
+     "sub_ge5_sizes": [
+      41,
+      5
+     ],
+     "sub_doms": [
+      [
+       "0.063",
+       1.0,
+       6,
+       35
+      ],
+      [
+       "0.066",
+       1.0,
+       6,
+       43
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 2
+    },
+    {
+     "cluster": 116,
+     "size": 26,
+     "families": [
+      "amount",
+      "funding"
+     ],
+     "sub_ge5_sizes": [
+      15,
+      9
+     ],
+     "sub_doms": [
+      [
+       "0.2",
+       1.0,
+       20,
+       20
+      ],
+      [
+       "0.2",
+       1.0,
+       20,
+       20
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 1
+    },
+    {
+     "cluster": 142,
+     "size": 24,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "sequence"
+     ],
+     "sub_ge5_sizes": [
+      10,
+      5
+     ],
+     "sub_doms": [
+      [
+       "0.13",
+       1.0,
+       17,
+       17
+      ],
+      [
+       "0.13",
+       1.0,
+       17,
+       17
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 1
+    },
+    {
+     "cluster": 63,
+     "size": 20,
+     "families": [
+      "amount",
+      "cadence",
+      "funding",
+      "gas",
+      "sequence"
+     ],
+     "sub_ge5_sizes": [
+      14,
+      6
+     ],
+     "sub_doms": [
+      [
+       "0.08",
+       1.0,
+       16,
+       16
+      ],
+      [
+       "0.08",
+       1.0,
+       16,
+       16
+      ]
+     ],
+     "distinct_dom_amounts_among_sub_ge5": 1
+    }
+   ],
+   "note": "only 8 of 263 clusters contain >=2 strong-edge sub-components of size >=5; 4 of them have different dominant amounts: 14.0|14.3 (both audited farm waves h3-15/h12-14), 0.05|0.057, 0.1|jitter batches, 0.063|0.066"
+  },
+  "holds": "rarely (<=4 clusters); not a population-wide mechanism"
+ },
+ "affected_estimate_verdict": {
+  "claim": 1881,
+  "what_the_1881_are": {
+   "name": "fall_below_5_after_weak_bridge_cut",
+   "n": 1881,
+   "points_pct": 14.16,
+   "ens": 133,
+   "controls": 7,
+   "rescuers": 2,
+   "ladderers": 0,
+   "nonce_known": 1881,
+   "nonce0": 1306,
+   "nonce_ge20": 411,
+   "funder_known": 1876,
+   "funder_in_same_live_cluster(peel)": 988,
+   "funder_flagged_anywhere": 1018,
+   "in_any_audited_farm_window": 1064,
+   "farm_window_hits": [
+    [
+     "0.45@h34-37",
+     367
+    ],
+    [
+     "14.0@h3-15",
+     365
+    ],
+    [
+     "bitget-ladder(1.19-1.69 h17-31)",
+     232
+    ],
+    [
+     "ring99(any dep 90-110\u039e h16-19)",
+     81
+    ],
+    [
+     "0.45@h3-4",
+     10
+    ],
+    [
+     "1.2@h1-2",
+     5
+    ],
+    [
+     "10.0@h5",
+     2
+    ],
+    [
+     "jitter1.10-1.14(h36-55)",
+     2
+    ]
+   ],
+   "kinds_incident": [
+    [
+     "amount:exact_round_wave",
+     1820
+    ],
+    [
+     "amount:split",
+     1258
+    ],
+    [
+     "funding:peel_chain",
+     1037
+    ],
+    [
+     "funding:shared_hub",
+     427
+    ],
+    [
+     "amount:near_same_block",
+     76
+    ],
+    [
+     "gas:two_axes",
+     42
+    ],
+    [
+     "amount:exact_odd",
+     22
+    ],
+    [
+     "gas:limit+fee",
+     15
+    ]
+   ],
+   "top_live_clusters(cluster,n,dom_amt,size)": [
+    [
+     0,
+     369,
+     "14.0",
+     1104
+    ],
+    [
+     9,
+     367,
+     "0.45",
+     367
+    ],
+    [
+     2,
+     266,
+     "0.1",
+     896
+    ],
+    [
+     7,
+     84,
+     "1.49",
+     84
+    ],
+    [
+     138,
+     74,
+     "1.39",
+     74
+    ],
+    [
+     12,
+     48,
+     "0.05",
+     998
+    ],
+    [
+     160,
+     47,
+     "1.69",
+     47
+    ],
+    [
+     58,
+     33,
+     "70.0",
+     33
+    ]
+   ],
+   "top_amounts": [
+    [
+     "0.45",
+     377
+    ],
+    [
+     "14.0",
+     365
+    ],
+    [
+     "0.1",
+     256
+    ],
+    [
+     "1.0",
+     87
+    ],
+    [
+     "0.2",
+     66
+    ],
+    [
+     "0.07",
+     47
+    ],
+    [
+     "1.69",
+     47
+    ],
+    [
+     "1.49",
+     44
+    ],
+    [
+     "1.59",
+     40
+    ],
+    [
+     "0.06",
+     36
+    ]
+   ]
+  },
+  "holds": false,
+  "note": "the 1,881 that fall below 5 after cutting weak-only bridges are 69% nonce-0 (1,306), 988 peel-chain funded, 1,064 inside audited farm windows (all 367 of the 0.45@h34-37 peel-chain wave, 365 of the 14.0 wave, 232 Bitget ladder, 81 ring99). Cutting every chain-internal weak edge shatters farm waves; this is recall loss, not an FP count. The suggested fix itself un-flags 936 (S1), not 1,881."
+ },
+ "P5_verdict": {
+  "P5_flagged": 10854,
+  "P5_and_base": 10613,
+  "P5_not_in_base(newly flagged)": 241,
+  "base_not_in_P5(lost)": 960,
+  "lost_profile": {
+   "name": "base_minus_P5",
+   "n": 960,
+   "points_pct": 5.59,
+   "ens": 138,
+   "controls": 7,
+   "rescuers": 0,
+   "ladderers": 0,
+   "nonce_known": 960,
+   "nonce0": 403,
+   "nonce_ge20": 415,
+   "funder_known": 955,
+   "funder_in_same_live_cluster(peel)": 43,
+   "funder_flagged_anywhere": 71,
+   "in_any_audited_farm_window": 322,
+   "farm_window_hits": [
+    [
+     "bitget-ladder(1.19-1.69 h17-31)",
+     232
+    ],
+    [
+     "ring99(any dep 90-110\u039e h16-19)",
+     81
+    ],
+    [
+     "0.45@h3-4",
+     2
+    ],
+    [
+     "14.0@h3-15",
+     2
+    ],
+    [
+     "0.45@h34-37",
+     2
+    ],
+    [
+     "jitter1.10-1.14(h36-55)",
+     2
+    ],
+    [
+     "10.0@h5",
+     1
+    ]
+   ],
+   "kinds_incident": [
+    [
+     "amount:exact_round_wave",
+     909
+    ],
+    [
+     "funding:shared_hub",
+     418
+    ],
+    [
+     "amount:split",
+     363
+    ],
+    [
+     "funding:peel_chain",
+     76
+    ],
+    [
+     "amount:near_same_block",
+     73
+    ],
+    [
+     "gas:two_axes",
+     24
+    ],
+    [
+     "amount:exact_odd",
+     16
+    ],
+    [
+     "gas:limit+fee",
+     15
+    ]
+   ],
+   "top_live_clusters(cluster,n,dom_amt,size)": [
+    [
+     2,
+     161,
+     "0.1",
+     896
+    ],
+    [
+     7,
+     84,
+     "1.49",
+     84
+    ],
+    [
+     12,
+     77,
+     "0.05",
+     998
+    ],
+    [
+     138,
+     74,
+     "1.39",
+     74
+    ],
+    [
+     160,
+     47,
+     "1.69",
+     47
+    ],
+    [
+     51,
+     30,
+     "0.07",
+     39
+    ],
+    [
+     85,
+     26,
+     "0.1",
+     26
+    ],
+    [
+     11,
+     24,
+     "1.0",
+     24
+    ]
+   ],
+   "top_amounts": [
+    [
+     "0.1",
+     151
+    ],
+    [
+     "1.0",
+     75
+    ],
+    [
+     "0.06",
+     71
+    ],
+    [
+     "0.07",
+     47
+    ],
+    [
+     "1.69",
+     47
+    ],
+    [
+     "1.49",
+     44
+    ],
+    [
+     "0.2",
+     42
+    ],
+    [
+     "1.59",
+     40
+    ],
+    [
+     "1.29",
+     35
+    ],
+    [
+     "1.39",
+     35
+    ]
+   ]
+  },
+  "new_profile": {
+   "name": "P5_minus_base",
+   "n": 241,
+   "points_pct": 0.26,
+   "ens": 33,
+   "controls": 0,
+   "rescuers": 1,
+   "ladderers": 34,
+   "nonce_known": 241,
+   "nonce0": 43,
+   "nonce_ge20": 155,
+   "funder_known": 241,
+   "funder_in_same_live_cluster(peel)": 0,
+   "funder_flagged_anywhere": 6,
+   "in_any_audited_farm_window": 6,
+   "farm_window_hits": [
+    [
+     "ladder0.05\u21920.45(h35-37)",
+     4
+    ],
+    [
+     "0.05 recyclers(3 small hubs)",
+     2
+    ]
+   ],
+   "kinds_incident": [
+    [
+     "sequence",
+     185
+    ],
+    [
+     "cadence:drip",
+     39
+    ],
+    [
+     "amount:exact_odd",
+     17
+    ]
+   ],
+   "top_live_clusters(cluster,n,dom_amt,size)": [],
+   "top_amounts": [
+    [
+     "0.05",
+     221
+    ],
+    [
+     "0.095",
+     7
+    ],
+    [
+     "0.085",
+     5
+    ],
+    [
+     "0.075",
+     5
+    ],
+    [
+     "0.051",
+     1
+    ],
+    [
+     "0.0513",
+     1
+    ],
+    [
+     "0.055",
+     1
+    ]
+   ]
+  },
+  "note": "P5 \"10,854 kept\" = 10,613 base members + 241 wallets NOT flagged by the shipped run (221 at the 0.05 minimum joined only by sequence edges; 155/241 nonce>=20; 33 ENS; 34 ladderers) because P5 drops the >=2-family gate. P5 is also circular: its strong edge set includes funding:peel_chain edges that exist only because weak edges had already built the component (funding.py folds peel onto tier-A components)."
+ },
+ "wave_0_45_h34_37_verdict": {
+  "claim": "held by round-wave+hub only",
+  "measured": {
+   "members": 367,
+   "edge_kinds": {
+    "amount:exact_round_wave": 367,
+    "amount:split": 367,
+    "funding:peel_chain": 365,
+    "funding:shared_hub": 0
+   },
+   "nonce0": 366,
+   "funder_in_same_cluster": 364,
+   "onchain_3_of_3": "funded 0.496-0.4995 ETH by the previous member 0.2 min before deposit, swept to the next member 0.2 min after"
+  },
+  "holds": false,
+  "note": "P5b loses it because it has exactly ONE strong family (funding/peel), not because it lacks a strong rule"
+ },
+ "faithful_fix_simulation": {
+  "method": "step 1 unions only the listed edge kinds over the whole population; step 2 gas_edges/funding_edges are recomputed on THOSE components (peel/hub fold), weak tier-A edges count only inside a component; gate = shipped (>=5 members, >=2 families)",
+  "rows": [
+   {
+    "policy": "S0 faithful strong-only step1 (exact_odd+sequence+burst+drip), weak+peel+hub+gas corroborate",
+    "clusters": 357,
+    "flagged": 9388,
+    "points_pct": 40.16,
+    "ens": 205,
+    "controls": 22,
+    "rescuers": 1,
+    "ladderers": 79,
+    "lost_vs_base": 2185,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1986/1996",
+     "14.0@h3-15": "527/1003",
+     "10.0@h5": "768/770",
+     "1.2@h1-2": "295/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "0/367",
+     "ring99(any dep 90-110\u039e h16-19)": "0/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "0/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "0/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "S1 = suggested fix: S0 + block-tight(<=32) round-wave windows component-forming",
+    "clusters": 240,
+    "flagged": 10637,
+    "points_pct": 52.08,
+    "ens": 227,
+    "controls": 24,
+    "rescuers": 3,
+    "ladderers": 79,
+    "lost_vs_base": 936,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1995/1996",
+     "14.0@h3-15": "997/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "366/367",
+     "ring99(any dep 90-110\u039e h16-19)": "0/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "0/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "0/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "S2 = S1 + block-tight split edges component-forming",
+    "clusters": 240,
+    "flagged": 10637,
+    "points_pct": 52.08,
+    "ens": 227,
+    "controls": 24,
+    "rescuers": 3,
+    "ladderers": 79,
+    "lost_vs_base": 936,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1995/1996",
+     "14.0@h3-15": "997/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "366/367",
+     "ring99(any dep 90-110\u039e h16-19)": "0/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "0/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "0/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "S3 = S0 + shipped hour-contiguous round-wave windows component-forming",
+    "clusters": 278,
+    "flagged": 11460,
+    "points_pct": 57.44,
+    "ens": 343,
+    "controls": 29,
+    "rescuers": 3,
+    "ladderers": 79,
+    "lost_vs_base": 113,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "ring99(any dep 90-110\u039e h16-19)": "81/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "232/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "0/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "S1b = S1 + require >=1 strong family in component",
+    "clusters": 236,
+    "flagged": 10613,
+    "points_pct": 51.9,
+    "ens": 221,
+    "controls": 24,
+    "rescuers": 3,
+    "ladderers": 79,
+    "lost_vs_base": 960,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1995/1996",
+     "14.0@h3-15": "997/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "366/367",
+     "ring99(any dep 90-110\u039e h16-19)": "0/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "0/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "0/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "S4 = shipped step1 (all tier-A) re-simulated (control)",
+    "clusters": 263,
+    "flagged": 11573,
+    "points_pct": 57.63,
+    "ens": 360,
+    "controls": 30,
+    "rescuers": 3,
+    "ladderers": 79,
+    "lost_vs_base": 0,
+    "gained_vs_base": 0,
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "ring99(any dep 90-110\u039e h16-19)": "81/419",
+     "ladder10.x(5-step h37-45)": "0/176",
+     "bitget-ladder(1.19-1.69 h17-31)": "232/232",
+     "0.05 recyclers(3 small hubs)": "43/48",
+     "jitter1.10-1.14(h36-55)": "2/541",
+     "jitter1.00-1.05(h56-64)": "0/300",
+     "ladder0.05\u21920.45(h35-37)": "9/111",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   }
+  ],
+  "sk_v2_sanity": {
+   "shipped_round_wave_edges": 6574,
+   "sk_v2_baseline_round_wave_edges": 6574,
+   "sk_v2_bt32_round_wave_edges": 5546,
+   "sk_v2_bt32_split_edges": 4949
+  },
+  "reading": "S0 (true strong-only): 9,388 flagged, 0.45@h34-37 0/367, 14.0 527/1003, Bitget 0/232, ring99 0/419. S1 (= suggested fix, block-tight round windows component-forming): 10,637 (-936, +0), 0.45 wave 366/367 and 14.0 997/1003 recovered, but Bitget 0/232 and ring99 0/419 lost. S3 (strong + shipped round windows, i.e. only split/near dropped from step 1): 11,460 (-113). So the strong/weak tiering itself moves ~113 wallets; the -936 of the fix comes from the <=32-block window tightening, which is a temporal rule change, not a graph-structure fix."
+ },
+ "S1_lost_profile": {
+  "name": "base_minus_S1(fix)",
+  "n": 960,
+  "points_pct": 5.73,
+  "ens": 139,
+  "controls": 6,
+  "rescuers": 0,
+  "ladderers": 0,
+  "nonce_known": 960,
+  "nonce0": 402,
+  "nonce_ge20": 394,
+  "funder_known": 960,
+  "funder_in_same_live_cluster(peel)": 62,
+  "funder_flagged_anywhere": 88,
+  "in_any_audited_farm_window": 324,
+  "farm_window_hits": [
+   [
+    "bitget-ladder(1.19-1.69 h17-31)",
+    232
+   ],
+   [
+    "ring99(any dep 90-110\u039e h16-19)",
+    81
+   ],
+   [
+    "14.0@h3-15",
+    6
+   ],
+   [
+    "jitter1.10-1.14(h36-55)",
+    2
+   ],
+   [
+    "10.0@h5",
+    1
+   ],
+   [
+    "0.45@h3-4",
+    1
+   ],
+   [
+    "0.45@h34-37",
+    1
+   ]
+  ],
+  "kinds_incident": [
+   [
+    "amount:exact_round_wave",
+    867
+   ],
+   [
+    "funding:shared_hub",
+    428
+   ],
+   [
+    "amount:split",
+    334
+   ],
+   [
+    "funding:peel_chain",
+    96
+   ],
+   [
+    "amount:near_same_block",
+    87
+   ],
+   [
+    "amount:exact_odd",
+    54
+   ],
+   [
+    "gas:two_axes",
+    29
+   ],
+   [
+    "gas:limit+fee",
+    15
+   ]
+  ],
+  "top_live_clusters(cluster,n,dom_amt,size)": [
+   [
+    2,
+    147,
+    "0.1",
+    896
+   ],
+   [
+    12,
+    107,
+    "0.05",
+    998
+   ],
+   [
+    7,
+    84,
+    "1.49",
+    84
+   ],
+   [
+    138,
+    74,
+    "1.39",
+    74
+   ],
+   [
+    160,
+    47,
+    "1.69",
+    47
+   ],
+   [
+    51,
+    30,
+    "0.07",
+    39
+   ],
+   [
+    85,
+    26,
+    "0.1",
+    26
+   ],
+   [
+    11,
+    24,
+    "1.0",
+    24
+   ]
+  ],
+  "top_amounts": [
+   [
+    "0.1",
+    122
+   ],
+   [
+    "0.06",
+    78
+   ],
+   [
+    "1.0",
+    67
+   ],
+   [
+    "0.07",
+    47
+   ],
+   [
+    "1.69",
+    47
+   ],
+   [
+    "1.49",
+    44
+   ],
+   [
+    "1.59",
+    40
+   ],
+   [
+    "1.29",
+    35
+   ],
+   [
+    "1.39",
+    35
+   ],
+   [
+    "0.2",
+    34
+   ]
+  ]
+ },
+ "S1_lost_not_in_farm_window_profile": {
+  "n": 636,
+  "nonce0": 117,
+  "nonce_ge20": 388,
+  "ens": 138,
+  "funder_fanout_ge20": 249,
+  "funder_flagged": 65,
+  "funder_same_cluster": 50,
+  "top_amounts": [
+   [
+    "0.1",
+    122
+   ],
+   [
+    "0.06",
+    78
+   ],
+   [
+    "1.0",
+    67
+   ],
+   [
+    "0.07",
+    47
+   ],
+   [
+    "0.2",
+    34
+   ],
+   [
+    "0.5",
+    20
+   ],
+   [
+    "0.15",
+    19
+   ],
+   [
+    "0.058",
+    17
+   ],
+   [
+    "5.0",
+    15
+   ],
+   [
+    "0.09",
+    15
+   ]
+  ],
+  "kinds": {
+   "amount:exact_round_wave": 545,
+   "funding:shared_hub": 196,
+   "amount:split": 113,
+   "amount:near_same_block": 80,
+   "funding:peel_chain": 73,
+   "amount:exact_odd": 54,
+   "gas:limit+fee": 15,
+   "gas:two_axes": 14
+  }
+ },
+ "onchain_spot_check": {
+  "lookups": 69,
+  "addresses": 23,
+  "by_stratum_class": {
+   "S1_lost_nonfarm": {
+    "ambiguous": 4,
+    "farm-like": 8,
+    "human-like": 5,
+    "human-like(lean)": 1
+   },
+   "bitget": {
+    "farm-like": 2
+   },
+   "wave045": {
+    "farm-like": 3
+   }
+  },
+  "sampling_note": "S1_lost_nonfarm stratum deliberately over-samples nonce-0 wallets (11 of 18) vs 18% in the 636 population; population-weighted estimate ~55-65% aged/human-like, ~15-25% farm-like, rest ambiguous",
+  "rows": [
+   {
+    "address": "0x5f3894ee8339294ac6031cb0e46637b89df5653e",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.1",
+    "hour": 34,
+    "nonce_at_deposit": 0,
+    "live_cluster": 85,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x62425cd6bdcb6bfe51558ea465b063486b70dc9f",
+    "funder_fanout": 1,
+    "txs_on_first_page": 14,
+    "more_pages": false,
+    "token_transfers": 25,
+    "balance_eth": 0.000601239325291983,
+    "first_in_from": "0x62425cd6bdcb6bfe51558ea465b063486b70dc9f",
+    "first_in_eth": 0.1,
+    "first_in_minutes_before_deposit": 25.2,
+    "sweep_after": [
+     {
+      "to": "0x9be1706d86c7cec7a53eab72bf49237216179edb",
+      "eth": 0.108,
+      "minutes_after": 120.6
+     },
+     {
+      "to": "0xa322e366ca6e9d98d034fab7486e333665457ea1",
+      "eth": 0.012,
+      "minutes_after": 508.4
+     },
+     {
+      "to": "0x1231deb6f5749ef6ce6943a275a1d3e7486f4eae",
+      "eth": 0.01,
+      "minutes_after": 1811.0
+     }
+    ],
+    "bs_ens": null,
+    "class": "ambiguous",
+    "basis": "nonce0 but 14 txs & 25 token transfers after; funded 0.1 25min before; 0.108 out 2h later"
+   },
+   {
+    "address": "0xdc59b23856c1faf243029460cd8d5caf74833333",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.1",
+    "hour": 35,
+    "nonce_at_deposit": 0,
+    "live_cluster": 85,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x331d9a049d496385998067abf6cbb6371c8d2466",
+    "funder_fanout": 25,
+    "txs_on_first_page": 11,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.000485743942525413,
+    "first_in_from": null,
+    "first_in_eth": null,
+    "first_in_minutes_before_deposit": null,
+    "sweep_after": [
+     {
+      "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      "eth": 0.1567,
+      "minutes_after": 79.6
+     },
+     {
+      "to": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af",
+      "eth": 0.15,
+      "minutes_after": 450.4
+     },
+     {
+      "to": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af",
+      "eth": 0.15,
+      "minutes_after": 451.0
+     }
+    ],
+    "bs_ens": null,
+    "class": "ambiguous",
+    "basis": "nonce0, 11 txs, no plain-ETH funding tx (internal?), later 0.15 x2 to 0x66a9893c router; holds tokens"
+   },
+   {
+    "address": "0xe3d42ac5c685fc73288f6810f5f148cde5da0d10",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.1",
+    "hour": 12,
+    "nonce_at_deposit": 5,
+    "live_cluster": 2,
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split"
+    ],
+    "funder": "0x28f1101fa1faa8f37363099ee33dac15d9dc02e0",
+    "funder_fanout": 1,
+    "txs_on_first_page": 9,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 2.22689805345e-05,
+    "first_in_from": "0x28f1101fa1faa8f37363099ee33dac15d9dc02e0",
+    "first_in_eth": 0.00719,
+    "first_in_minutes_before_deposit": 1077463.8,
+    "sweep_after": [
+     {
+      "to": "0x79558d92ea5105dd726dfc138b8c793781de7552",
+      "eth": 0.10972,
+      "minutes_after": 1312.4
+     }
+    ],
+    "bs_ens": null,
+    "class": "ambiguous",
+    "basis": "nonce5, 9 txs, 748d old, 0.10972 out 22h later, 3 other contracts"
+   },
+   {
+    "address": "0x6f08ee37061a3fd71db2583fd34aeaed811a8457",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.06",
+    "hour": 5,
+    "nonce_at_deposit": 0,
+    "live_cluster": 12,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:peel_chain"
+    ],
+    "funder": "0x776da15f6a54a72fe8a34ce4126de3994904a347",
+    "funder_fanout": 1,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 8.8469061902548e-05,
+    "first_in_from": "0x776da15f6a54a72fe8a34ce4126de3994904a347",
+    "first_in_eth": 0.0631,
+    "first_in_minutes_before_deposit": 0.4,
+    "sweep_after": [
+     {
+      "to": "0xf60326f26d028ff4d9b34215865eb26c154f484e",
+      "eth": 0.063,
+      "minutes_after": 17.4
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, funded 0.0631 by 0x776da15f 0.4min before, swept 17min after; peel hop"
+   },
+   {
+    "address": "0x776da15f6a54a72fe8a34ce4126de3994904a347",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.06",
+    "hour": 5,
+    "nonce_at_deposit": 0,
+    "live_cluster": 12,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:peel_chain"
+    ],
+    "funder": "0xb73741f6a554fe6548ccdc91f155bced3ee0ad1a",
+    "funder_fanout": 1,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 6.8672477022356e-05,
+    "first_in_from": "0xb73741f6a554fe6548ccdc91f155bced3ee0ad1a",
+    "first_in_eth": 0.06318,
+    "first_in_minutes_before_deposit": 0.8,
+    "sweep_after": [
+     {
+      "to": "0x6f08ee37061a3fd71db2583fd34aeaed811a8457",
+      "eth": 0.0631,
+      "minutes_after": 9.6
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, funded 0.06318 by 0xb73741f6 0.8min before, swept TO 0x6f08ee37 9.6min after (3-hop peel chain 0xb737->0x776d->0x6f08)"
+   },
+   {
+    "address": "0x1921fe43d0d6990944f75e1e94317e1fbd32b4d4",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.06",
+    "hour": 7,
+    "nonce_at_deposit": 228,
+    "live_cluster": 12,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "funder": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+    "funder_fanout": 30,
+    "txs_on_first_page": 50,
+    "more_pages": true,
+    "token_transfers": 0,
+    "balance_eth": 9.531345201e-06,
+    "first_in_from": "0xf2cfc8e81b3e1c5dd1b0802009137eb5b019fa1b",
+    "first_in_eth": 0.05341,
+    "first_in_minutes_before_deposit": 113417.6,
+    "sweep_after": [
+     {
+      "to": "0x4c82d1fbfe28c977cbb58d8c7ff8fcf9f70a2cca",
+      "eth": 0.07079,
+      "minutes_after": 5.4
+     },
+     {
+      "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      "eth": 0.00583,
+      "minutes_after": 1043.4
+     },
+     {
+      "to": "0xafceb88686048d3d710f751200383977fc7ae02e",
+      "eth": 0.02918,
+      "minutes_after": 1056.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "human-like",
+    "basis": "nonce228, >50 txs, 114d old, many contract calls"
+   },
+   {
+    "address": "0x61a903139cf8fca7af754366ac20b0ce18f8df6b",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "1.0",
+    "hour": 40,
+    "nonce_at_deposit": 0,
+    "live_cluster": 172,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "funder_fanout": 77,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 1,
+    "balance_eth": 1.088027199e-06,
+    "first_in_from": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_eth": 1.00928,
+    "first_in_minutes_before_deposit": 0.6,
+    "sweep_after": [
+     {
+      "to": "0x9eec626b8b45b8ff4f093f3151c04b5516b211b6",
+      "eth": 1.00918,
+      "minutes_after": 0.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, 1.00928 from exchange-scale 0x9696f59e 0.6min before, swept 1.00918 0.8min after"
+   },
+   {
+    "address": "0xbb7e1c5b737526a12c3f5ca56f75f0e81c0acd93",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "1.0",
+    "hour": 13,
+    "nonce_at_deposit": 0,
+    "live_cluster": 129,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x28c6c06298d514db089934071355e5743bf21d60",
+    "funder_fanout": 71,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.003742331691766104,
+    "first_in_from": "0x28c6c06298d514db089934071355e5743bf21d60",
+    "first_in_eth": 1.00393,
+    "first_in_minutes_before_deposit": 2.2,
+    "sweep_after": [
+     {
+      "to": "0xa098027645adaaf5392360ad8c9192237d700fec",
+      "eth": 1.0,
+      "minutes_after": 1.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, 1.00393 from 0x28c6c062 (Binance hot wallet) 2.2min before, swept 1.0 1.8min after"
+   },
+   {
+    "address": "0x7d0a62fb1ed5747432f22da2811a940903eca2f1",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "1.0",
+    "hour": 2,
+    "nonce_at_deposit": 3,
+    "live_cluster": 10,
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split"
+    ],
+    "funder": "0xb739d0895772dbb71a89a3754a160269068f0d45",
+    "funder_fanout": 1,
+    "txs_on_first_page": 8,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.008532643490278966,
+    "first_in_from": "0xb739d0895772dbb71a89a3754a160269068f0d45",
+    "first_in_eth": 0.00337,
+    "first_in_minutes_before_deposit": 1583886.8,
+    "sweep_after": [
+     {
+      "to": "0x881d40237659c251811cec9c364ef91dc08d300c",
+      "eth": 4.49,
+      "minutes_after": 3.2
+     },
+     {
+      "to": "0x0439e60f02a8900a951603950d8d4527f400c3f1",
+      "eth": 3.99979,
+      "minutes_after": 13.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "human-like(lean)",
+    "basis": "nonce3, 8 txs, 1100d old, later 4.49 to MetaMask swap router; holds tokens"
+   },
+   {
+    "address": "0x8dcd95c16fec5887154843b91dc9eab22c9422d0",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.07",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "live_cluster": 13,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+    "funder_fanout": 10,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.000166836069221888,
+    "first_in_from": "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+    "first_in_eth": 0.074,
+    "first_in_minutes_before_deposit": 0.6,
+    "sweep_after": [
+     {
+      "to": "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+      "eth": 0.0738,
+      "minutes_after": 0.6
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, 0.074 in 0.6min before, 0.0738 back to the SAME funder 0.6min after (round trip)"
+   },
+   {
+    "address": "0x6d0fd0499ca1432f1cf3cd997a97b86231788bb9",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.07",
+    "hour": 19,
+    "nonce_at_deposit": 7,
+    "live_cluster": 13,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+    "funder_fanout": 31,
+    "txs_on_first_page": 16,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.07303871950847697,
+    "first_in_from": "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf",
+    "first_in_eth": 0.00686,
+    "first_in_minutes_before_deposit": 25548.0,
+    "sweep_after": [
+     {
+      "to": "0x50c4e75a512f2a14a7b304787adf79c4531a5909",
+      "eth": 1.7,
+      "minutes_after": 1512.8
+     },
+     {
+      "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      "eth": 0.02,
+      "minutes_after": 1513.6
+     },
+     {
+      "to": "0x66a9893cc07d91d95644aedd05d03f95e1dba8af",
+      "eth": 0.01,
+      "minutes_after": 5429.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "ambiguous",
+    "basis": "nonce7, 16 txs, 17d old, USDC/USDT calls, 1.7 out 25h later, keeps 0.073"
+   },
+   {
+    "address": "0x6289c57f04d2910cbededd68e564d7dc9682cd3e",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.2",
+    "hour": 5,
+    "nonce_at_deposit": 0,
+    "live_cluster": 88,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0xfe8405f7c2b7fdd6c1db335d4351481b979f6bb0",
+    "funder_fanout": 1,
+    "txs_on_first_page": 4,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.2,
+    "first_in_from": "0xfe8405f7c2b7fdd6c1db335d4351481b979f6bb0",
+    "first_in_eth": 0.2,
+    "first_in_minutes_before_deposit": 2.8,
+    "sweep_after": [
+     {
+      "to": "0xfe8405f7c2b7fdd6c1db335d4351481b979f6bb0",
+      "eth": 0.20143,
+      "minutes_after": 2.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 4 txs, 0.2 in 2.8min before, 0.20143 back to same funder 2.8min after"
+   },
+   {
+    "address": "0xc950d0abb222ec4df94ad1b0b33fc17b66666666",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.2",
+    "hour": 33,
+    "nonce_at_deposit": 161,
+    "live_cluster": 150,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589",
+    "funder_fanout": 28,
+    "txs_on_first_page": 50,
+    "more_pages": true,
+    "token_transfers": 210,
+    "balance_eth": 0.010104826309460309,
+    "first_in_from": "0xcbed2f486d2cf125bfad1cefe4f03b63678a6666",
+    "first_in_eth": 0.0,
+    "first_in_minutes_before_deposit": null,
+    "sweep_after": [],
+    "bs_ens": null,
+    "class": "human-like",
+    "basis": "nonce161, >50 txs, 210 token transfers, many DeFi calls, keeps balance"
+   },
+   {
+    "address": "0x5a80635072b6496f51555bab2ac9c53ce7654c67",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.5",
+    "hour": 11,
+    "nonce_at_deposit": 0,
+    "live_cluster": 225,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x99d06615d7b4d93cdfff30e3b50adab9f0e228d3",
+    "funder_fanout": 1,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 2.220245013e-05,
+    "first_in_from": "0x99d06615d7b4d93cdfff30e3b50adab9f0e228d3",
+    "first_in_eth": 1.0,
+    "first_in_minutes_before_deposit": 0.4,
+    "sweep_after": [
+     {
+      "to": "0x99d06615d7b4d93cdfff30e3b50adab9f0e228d3",
+      "eth": 0.99979,
+      "minutes_after": 4.0
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, 1.0 in 0.4min before, 0.99979 back to same funder 4min after"
+   },
+   {
+    "address": "0x5e1d8c434f166491cbcec8db52456fddffe781c4",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.5",
+    "hour": 13,
+    "nonce_at_deposit": 50,
+    "live_cluster": 225,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "funder": "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+    "funder_fanout": 32,
+    "txs_on_first_page": 50,
+    "more_pages": true,
+    "token_transfers": 53,
+    "balance_eth": 2.909720184e-06,
+    "first_in_from": "0xada977a8a46069943c533ccfca94831423827547",
+    "first_in_eth": 0.01128,
+    "first_in_minutes_before_deposit": 435121.6,
+    "sweep_after": [
+     {
+      "to": "0xada977a8a46069943c533ccfca94831423827547",
+      "eth": 0.6062,
+      "minutes_after": 1.2
+     },
+     {
+      "to": "0xada977a8a46069943c533ccfca94831423827547",
+      "eth": 0.01,
+      "minutes_after": 5669.4
+     },
+     {
+      "to": "0x64a18f756022c35b001bfbcc9fc7924b52d5e46c",
+      "eth": 0.01,
+      "minutes_after": 5669.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "human-like",
+    "basis": "nonce50, >50 txs, 53 token transfers, 308d old, funded by & sweeps to 0xada977a8 (its own other contributor wallet) = 2-wallet human"
+   },
+   {
+    "address": "0xcfaaf5bf40e2310a405c8e2e2d5798ea51a48974",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.15",
+    "hour": 8,
+    "nonce_at_deposit": 0,
+    "live_cluster": 115,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "funder_fanout": 84,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.0,
+    "first_in_from": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "first_in_eth": 0.15993,
+    "first_in_minutes_before_deposit": 2.6,
+    "sweep_after": [
+     {
+      "to": "0xbaa178c2bf5dcf55363253048e74181e2a526812",
+      "eth": 0.15986,
+      "minutes_after": 3.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "nonce0, 3 txs, 0.15993 from fan-out-84 funder 0xdfd5293d 2.6min before, swept 3.2min after"
+   },
+   {
+    "address": "0x7af1a2e90700511f85e6c1a1b3ebb53ebcd82dba",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.15",
+    "hour": 22,
+    "nonce_at_deposit": 16,
+    "live_cluster": 182,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub",
+     "gas:limit+fee"
+    ],
+    "funder": "0x4b4e14a3773ee558b6597070797fd51eb48606e5",
+    "funder_fanout": 16,
+    "txs_on_first_page": 21,
+    "more_pages": false,
+    "token_transfers": 10,
+    "balance_eth": 0.001128650698295409,
+    "first_in_from": "0x4b4e14a3773ee558b6597070797fd51eb48606e5",
+    "first_in_eth": 0.01,
+    "first_in_minutes_before_deposit": 1864944.6,
+    "sweep_after": [
+     {
+      "to": "0xb89c10d14cc401d1976d8182ef6c94751b3adea2",
+      "eth": 0.1507,
+      "minutes_after": 0.6
+     }
+    ],
+    "bs_ens": null,
+    "class": "human-like",
+    "basis": "nonce16, 21 txs, 10 token transfers, first tx 1294d before launch (swept 0.1507 right after deposit though)"
+   },
+   {
+    "address": "0x6f5d8ba12af7681206be37cee36d2fbd4ebff3f4",
+    "stratum": "S1_lost_nonfarm",
+    "amount_eth": "0.2",
+    "hour": 12,
+    "nonce_at_deposit": 432,
+    "live_cluster": 88,
+    "kinds": [
+     "amount:exact_round_wave"
+    ],
+    "funder": "0x11c7f8beddaa009ee33709f6a957467e2825b0ad",
+    "funder_fanout": 1,
+    "txs_on_first_page": 50,
+    "more_pages": true,
+    "token_transfers": 504,
+    "balance_eth": 0.001504464682368419,
+    "first_in_from": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "first_in_eth": 0.24993,
+    "first_in_minutes_before_deposit": 2.6,
+    "sweep_after": [
+     {
+      "to": "0xb4b4fd140b57abe22dba739e479cfe7e0ec033d9",
+      "eth": 0.25,
+      "minutes_after": 15.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "human-like",
+    "basis": "mashiro.eth, nonce432, 504 token transfers, 790d old; JIT top-up 0.24993 from exchange-scale 0x4976a4a0 then 0.25 out 15min later"
+   },
+   {
+    "address": "0x4dd0c20ae177099b80577392e1651a71e3b408ed",
+    "stratum": "bitget",
+    "amount_eth": "1.39",
+    "hour": 25,
+    "nonce_at_deposit": 0,
+    "live_cluster": 138,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funder_fanout": 242,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.000274471882028276,
+    "first_in_from": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "first_in_eth": 1.3998,
+    "first_in_minutes_before_deposit": 0.8,
+    "sweep_after": [
+     {
+      "to": "0x223d1113d684d766cdf064aef38befa4b21031ae",
+      "eth": 1.39952,
+      "minutes_after": 0.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "Bitget ladder: nonce0, 3 txs, 1.3998 from 0x1ab4973a 0.8min before, 1.39952 swept 0.2min after"
+   },
+   {
+    "address": "0x49643cfe458050ab7a456c27bca348dfad0b8324",
+    "stratum": "bitget",
+    "amount_eth": "1.39",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "live_cluster": 138,
+    "kinds": [
+     "amount:exact_round_wave",
+     "funding:shared_hub"
+    ],
+    "funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funder_fanout": 242,
+    "txs_on_first_page": 3,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.000306748302424014,
+    "first_in_from": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "first_in_eth": 1.3998,
+    "first_in_minutes_before_deposit": 1.2,
+    "sweep_after": [
+     {
+      "to": "0x2f5fe01569491b34fc0a4e022b9eb5936cb91bd6",
+      "eth": 1.39948,
+      "minutes_after": 0.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "Bitget ladder: nonce0, 3 txs, 1.3998 from 0x1ab4973a 1.2min before, 1.39948 swept 0.2min after"
+   },
+   {
+    "address": "0x63fb3857435162e84afa969884b808d30baedba4",
+    "stratum": "wave045",
+    "amount_eth": "0.45",
+    "hour": 35,
+    "nonce_at_deposit": 0,
+    "live_cluster": 9,
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:peel_chain"
+    ],
+    "funder": "0x2170b205e754b1a7f851d2fdc411b1305e8b81b4",
+    "funder_fanout": 1,
+    "txs_on_first_page": 4,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.0,
+    "first_in_from": "0x2170b205e754b1a7f851d2fdc411b1305e8b81b4",
+    "first_in_eth": 0.49949,
+    "first_in_minutes_before_deposit": 0.2,
+    "sweep_after": [
+     {
+      "to": "0xc1073ad3d343ca45f8b6a9a243f466e8dcdb0781",
+      "eth": 0.49948,
+      "minutes_after": 0.2
+     },
+     {
+      "to": "0xe43f86c7a10c753aba5767a41d2f9899665862d3",
+      "eth": 0.0,
+      "minutes_after": 6899.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "0.45 wave: nonce0, 4 txs, 0.49949 from previous member 0.2min before, 0.49948 to next member 0.2min after = peel chain"
+   },
+   {
+    "address": "0x67c3965de7ac104a9199634ef978e35561de494f",
+    "stratum": "wave045",
+    "amount_eth": "0.45",
+    "hour": 37,
+    "nonce_at_deposit": 0,
+    "live_cluster": 9,
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:peel_chain"
+    ],
+    "funder": "0x708e8c727ae041be9e1885a6fed98e13c8dfa79e",
+    "funder_fanout": 1,
+    "txs_on_first_page": 4,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.0,
+    "first_in_from": "0x708e8c727ae041be9e1885a6fed98e13c8dfa79e",
+    "first_in_eth": 0.49596,
+    "first_in_minutes_before_deposit": 0.2,
+    "sweep_after": [
+     {
+      "to": "0xd16dfb9462b795890c1ed236a9b5abad23f3f5f5",
+      "eth": 0.49595,
+      "minutes_after": 0.2
+     },
+     {
+      "to": "0xe43f86c7a10c753aba5767a41d2f9899665862d3",
+      "eth": 0.0,
+      "minutes_after": 6778.2
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "0.45 wave: nonce0, 4 txs, 0.49596 from previous member 0.2min before, 0.49595 to next 0.2min after = peel chain"
+   },
+   {
+    "address": "0xeedf1ceab40bd3f1f92168af0b44ee8faf8aad17",
+    "stratum": "wave045",
+    "amount_eth": "0.45",
+    "hour": 36,
+    "nonce_at_deposit": 0,
+    "live_cluster": 9,
+    "kinds": [
+     "amount:exact_round_wave",
+     "amount:split",
+     "funding:peel_chain"
+    ],
+    "funder": "0xb1e48e74905b2f22569258f186d16407bb6f81fa",
+    "funder_fanout": 1,
+    "txs_on_first_page": 4,
+    "more_pages": false,
+    "token_transfers": 0,
+    "balance_eth": 0.0,
+    "first_in_from": "0xb1e48e74905b2f22569258f186d16407bb6f81fa",
+    "first_in_eth": 0.49864,
+    "first_in_minutes_before_deposit": 0.2,
+    "sweep_after": [
+     {
+      "to": "0x2ceaa753d02a759b7d0b99fe228eb39f3a166f47",
+      "eth": 0.49863,
+      "minutes_after": 0.2
+     },
+     {
+      "to": "0xe43f86c7a10c753aba5767a41d2f9899665862d3",
+      "eth": 0.0,
+      "minutes_after": 6868.8
+     }
+    ],
+    "bs_ens": null,
+    "class": "farm-like",
+    "basis": "0.45 wave: nonce0, 4 txs, 0.49864 from previous member 0.2min before, 0.49863 to next 0.2min after = peel chain"
+   }
+  ]
+ },
+ "bitget_ladder_prior_onchain(xhub_ladder_analysis.json)": {
+  "rows": 42,
+  "funded_by_0x1ab4973a": 40,
+  "fund_to_deposit_le5min": 41,
+  "swept": 41,
+  "distinct_sweep_targets": 41,
+  "note": "the fix releases all 232 of these"
+ },
+ "strongest_supportable_version": "sybilkit's combiner is single-linkage by construction and 24% of distinct tier-A edges among flagged nodes are bridges, 1,954 carrying only weak kinds; but 90% of the weak-only bridges with >=5 nodes on both sides are internal edges of one same-amount wave, and only 8 clusters (4 with different dominant amounts, all plausibly one operator) are genuine welds of two strong sub-groups. Weak-only attachment is a real periphery problem (868 weak-only members; aged round-amount wallets like mashiro.eth and 0xc950d0ab attached by round-wave-only edges), best handled per node (P4) or by window tightening, not by re-tiering the union-find. Any strong-only step 1 must keep some amount rule component-forming because peel chain (the strongest signal) is folded onto components and cannot build them.",
+ "files": {
+  "rederive_script": "skeptic_bridges_rederive.py",
+  "rederive_json": "skeptic_bridges_rederive.json",
+  "members": "skeptic_bridges_members.json",
+  "sample": "skeptic_bridges_sample2.json",
+  "onchain_script": "skeptic_bridges_onchain.py",
+  "onchain_json": "skeptic_bridges_onchain.json"
+ }
+}

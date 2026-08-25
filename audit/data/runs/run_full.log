@@ -1,0 +1,8 @@
+== merge checkpoints ==
+merged -> /Library/Vibes/aidude/tools/sybil/../../data/sybil/enrichment/full_enrich.json: funding 6629, txs 16150
+== classify every funder ==
+funding rows: 19522 / 19522 contributors
+distinct funders: 14624
+[funders] 25/366 batches, 1000 profiled
+[funders] 50/366 batches, 2000 profiled
+[funders] 75/366 batches, 3000 profiled

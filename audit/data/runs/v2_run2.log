@@ -1,0 +1,13 @@
+infra_extra: 6 funders
+ABCDE + local2                             clusters= 175 flagged=  9017 periph=  225 pts= 50.5% lab=130/160 whole=13/16 ens=  18 ctrl=21 resc= 2 ladder=  0
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+ABCDE2 + local2                            clusters= 172 flagged=  8986 periph=   50 pts= 50.4% lab=130/160 whole=13/16 ens=  16 ctrl=21 resc= 2 ladder=  0
+      farm windows: 0.45@h3-4=1995/1996 14.0@h3-15=997/1003 10.0@h5=769/770 1.2@h1-2=300/300 2.067=324/324 0.45@h34-37=365/367 idxrun_12058=100/100 idxrun_13326=100/100 idxrun_13795=100/100 idxrun_13897=100/100 idxrun_14001=100/100
+Traceback (most recent call last):
+  File "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/sk_v2.py", line 458, in <module>
+    main(sys.argv)
+    ~~~~^^^^^^^^^^
+  File "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/sk_v2.py", line 443, in main
+    rules = replace(VARIANTS[name], infra_extra=infra_extra) if infra_extra else VARIANTS[name]
+                    ~~~~~~~~^^^^^^
+KeyError: 'ABCDE2 (seq: min-zone exempt'

@@ -1,0 +1,2093 @@
+{
+ "A_edge_inventory": {
+  "kinds": {
+   "amount:exact_odd": 1129,
+   "amount:exact_round_wave": 6574,
+   "amount:near_same_block": 3332,
+   "amount:split": 5957,
+   "sequence": 7301,
+   "cadence:burst": 3252,
+   "cadence:drip": 1263,
+   "gas:two_axes": 2954,
+   "gas:limit+fee": 27,
+   "funding:peel_chain": 8226,
+   "funding:shared_hub": 1132
+  },
+  "edges_between_two_0.05_wallets": {
+   "sequence": 956,
+   "cadence:burst": 261,
+   "cadence:drip": 221,
+   "gas:two_axes": 47,
+   "gas:limit+fee": 8,
+   "funding:peel_chain": 82,
+   "funding:shared_hub": 245
+  },
+  "wallets_first_amount_0.05": 4066,
+  "of_which_flagged": 1111
+ },
+ "B_welded_clusters": {
+  "count": 10,
+  "members_in_welded": 6215,
+  "top": [
+   {
+    "cluster_id": 2,
+    "size": 1996,
+    "strong_blobs": 50,
+    "blob_sizes": [
+     180,
+     100,
+     90,
+     90,
+     90,
+     80,
+     80,
+     60
+    ],
+    "blob_dominant_amounts": [
+     "0.45x180",
+     "0.45x100",
+     "0.45x90",
+     "0.45x90",
+     "0.45x90",
+     "0.45x80",
+     "0.45x80",
+     "0.45x60"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 48,
+     "amount:split": 48
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 4,
+    "size": 300,
+    "strong_blobs": 47,
+    "blob_sizes": [
+     15,
+     15,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10
+    ],
+    "blob_dominant_amounts": [
+     "1.2x15",
+     "1.2x15",
+     "1.2x10",
+     "1.2x10",
+     "1.2x10",
+     "1.2x10",
+     "1.2x10",
+     "1.2x10"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 46,
+     "amount:split": 46
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 1,
+    "size": 770,
+    "strong_blobs": 25,
+    "blob_sizes": [
+     60,
+     30,
+     30,
+     30,
+     30,
+     30,
+     30,
+     30
+    ],
+    "blob_dominant_amounts": [
+     "10.0x60",
+     "10.0x30",
+     "10.0x30",
+     "10.0x30",
+     "10.0x30",
+     "10.0x30",
+     "10.0x30",
+     "10.0x30"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 24,
+     "amount:split": 24
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 6,
+    "size": 896,
+    "strong_blobs": 16,
+    "blob_sizes": [
+     267,
+     50,
+     50,
+     46,
+     31,
+     27,
+     23,
+     22
+    ],
+    "blob_dominant_amounts": [
+     "0.1x67",
+     "0.1x46",
+     "0.1x31",
+     "0.1x27",
+     "0.1x23",
+     "0.1x22",
+     "0.1x18",
+     "0.1x18"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 6,
+     "amount:near_same_block": 3,
+     "amount:split": 6
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 7,
+    "size": 998,
+    "strong_blobs": 9,
+    "blob_sizes": [
+     628,
+     124,
+     61,
+     22,
+     17,
+     16,
+     16,
+     12
+    ],
+    "blob_dominant_amounts": [
+     "0.05x371",
+     "0.05x68",
+     "0.05x39",
+     "0.057x22",
+     "0.058x17",
+     "0.061x16",
+     "0.056x16",
+     "0.054x12"
+    ],
+    "bridging_edge_kinds": {
+     "amount:near_same_block": 15
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 21,
+    "size": 60,
+    "strong_blobs": 5,
+    "blob_sizes": [
+     10,
+     9,
+     8,
+     8,
+     6
+    ],
+    "blob_dominant_amounts": [
+     "1.0x10",
+     "1.0x9",
+     "1.0x8",
+     "1.0x8",
+     "1.0x6"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 1,
+     "amount:split": 1
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 0,
+    "size": 1104,
+    "strong_blobs": 2,
+    "blob_sizes": [
+     478,
+     49
+    ],
+    "blob_dominant_amounts": [
+     "14.0x478",
+     "14.0x49"
+    ],
+    "bridging_edge_kinds": {},
+    "families": [
+     "amount",
+     "cadence",
+     "funding"
+    ]
+   },
+   {
+    "cluster_id": 160,
+    "size": 47,
+    "strong_blobs": 2,
+    "blob_sizes": [
+     41,
+     5
+    ],
+    "blob_dominant_amounts": [
+     "0.063x41",
+     "0.066x5"
+    ],
+    "bridging_edge_kinds": {
+     "amount:near_same_block": 1
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding"
+    ]
+   },
+   {
+    "cluster_id": 169,
+    "size": 24,
+    "strong_blobs": 2,
+    "blob_sizes": [
+     10,
+     5
+    ],
+    "blob_dominant_amounts": [
+     "0.13x10",
+     "0.13x5"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 1
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ]
+   },
+   {
+    "cluster_id": 188,
+    "size": 20,
+    "strong_blobs": 2,
+    "blob_sizes": [
+     14,
+     6
+    ],
+    "blob_dominant_amounts": [
+     "0.08x14",
+     "0.08x6"
+    ],
+    "bridging_edge_kinds": {
+     "amount:exact_round_wave": 1
+    },
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "gas",
+     "sequence"
+    ]
+   }
+  ]
+ },
+ "B_members_no_strong_rule": {
+  "count": 868,
+  "by_attach": {
+   "amount:exact_round_wave+amount:split": 330,
+   "amount:exact_round_wave": 476,
+   "amount:near_same_block": 33,
+   "amount:exact_round_wave+amount:near_same_block": 22,
+   "amount:exact_round_wave+amount:near_same_block+amount:split": 7
+  },
+  "ens_named": 128,
+  "multi_deposit": 0,
+  "nonce_ge20": 373
+ },
+ "C1_round_windows_ge20": [
+  {
+   "amount": "0.1",
+   "n": 545,
+   "hour_min": 0,
+   "hour_max": 23,
+   "hours_spanned": 24,
+   "cluster_ids": {
+    "6": 545
+   },
+   "ens_in_window": 47,
+   "flagged": 545
+  },
+  {
+   "amount": "1.49",
+   "n": 44,
+   "hour_min": 17,
+   "hour_max": 31,
+   "hours_spanned": 15,
+   "cluster_ids": {
+    "14": 44
+   },
+   "ens_in_window": 0,
+   "flagged": 44
+  },
+  {
+   "amount": "0.07",
+   "n": 27,
+   "hour_min": 1,
+   "hour_max": 14,
+   "hours_spanned": 14,
+   "cluster_ids": {
+    "164": 27
+   },
+   "ens_in_window": 7,
+   "flagged": 27
+  },
+  {
+   "amount": "0.06",
+   "n": 50,
+   "hour_min": 2,
+   "hour_max": 14,
+   "hours_spanned": 13,
+   "cluster_ids": {
+    "7": 50
+   },
+   "ens_in_window": 14,
+   "flagged": 50
+  },
+  {
+   "amount": "1.29",
+   "n": 35,
+   "hour_min": 18,
+   "hour_max": 30,
+   "hours_spanned": 13,
+   "cluster_ids": {
+    "19": 35
+   },
+   "ens_in_window": 0,
+   "flagged": 35
+  },
+  {
+   "amount": "1.59",
+   "n": 40,
+   "hour_min": 18,
+   "hour_max": 30,
+   "hours_spanned": 13,
+   "cluster_ids": {
+    "14": 40
+   },
+   "ens_in_window": 0,
+   "flagged": 40
+  },
+  {
+   "amount": "14.0",
+   "n": 1003,
+   "hour_min": 3,
+   "hour_max": 15,
+   "hours_spanned": 13,
+   "cluster_ids": {
+    "0": 1003
+   },
+   "ens_in_window": 0,
+   "flagged": 1003
+  },
+  {
+   "amount": "1.39",
+   "n": 35,
+   "hour_min": 19,
+   "hour_max": 30,
+   "hours_spanned": 12,
+   "cluster_ids": {
+    "19": 35
+   },
+   "ens_in_window": 0,
+   "flagged": 35
+  },
+  {
+   "amount": "0.2",
+   "n": 23,
+   "hour_min": 3,
+   "hour_max": 12,
+   "hours_spanned": 10,
+   "cluster_ids": {
+    "162": 23
+   },
+   "ens_in_window": 9,
+   "flagged": 23
+  },
+  {
+   "amount": "1.69",
+   "n": 47,
+   "hour_min": 21,
+   "hour_max": 30,
+   "hours_spanned": 10,
+   "cluster_ids": {
+    "24": 47
+   },
+   "ens_in_window": 0,
+   "flagged": 47
+  },
+  {
+   "amount": "1.0",
+   "n": 23,
+   "hour_min": 16,
+   "hour_max": 23,
+   "hours_spanned": 8,
+   "cluster_ids": {
+    "49": 23
+   },
+   "ens_in_window": 8,
+   "flagged": 23
+  },
+  {
+   "amount": "1.0",
+   "n": 20,
+   "hour_min": 34,
+   "hour_max": 41,
+   "hours_spanned": 8,
+   "cluster_ids": {
+    "53": 20
+   },
+   "ens_in_window": 2,
+   "flagged": 20
+  },
+  {
+   "amount": "0.06",
+   "n": 20,
+   "hour_min": 31,
+   "hour_max": 37,
+   "hours_spanned": 7,
+   "cluster_ids": {
+    "7": 20
+   },
+   "ens_in_window": 3,
+   "flagged": 20
+  },
+  {
+   "amount": "0.13",
+   "n": 24,
+   "hour_min": 12,
+   "hour_max": 18,
+   "hours_spanned": 7,
+   "cluster_ids": {
+    "169": 24
+   },
+   "ens_in_window": 3,
+   "flagged": 24
+  },
+  {
+   "amount": "0.07",
+   "n": 20,
+   "hour_min": 18,
+   "hour_max": 23,
+   "hours_spanned": 6,
+   "cluster_ids": {
+    "192": 20
+   },
+   "ens_in_window": 3,
+   "flagged": 20
+  },
+  {
+   "amount": "0.1",
+   "n": 26,
+   "hour_min": 31,
+   "hour_max": 36,
+   "hours_spanned": 6,
+   "cluster_ids": {
+    "175": 26
+   },
+   "ens_in_window": 3,
+   "flagged": 26
+  },
+  {
+   "amount": "1.0",
+   "n": 58,
+   "hour_min": 0,
+   "hour_max": 4,
+   "hours_spanned": 5,
+   "cluster_ids": {
+    "21": 58
+   },
+   "ens_in_window": 0,
+   "flagged": 58
+  },
+  {
+   "amount": "0.45",
+   "n": 367,
+   "hour_min": 34,
+   "hour_max": 37,
+   "hours_spanned": 4,
+   "cluster_ids": {
+    "8": 367
+   },
+   "ens_in_window": 1,
+   "flagged": 367
+  },
+  {
+   "amount": "14.3",
+   "n": 100,
+   "hour_min": 12,
+   "hour_max": 14,
+   "hours_spanned": 3,
+   "cluster_ids": {
+    "0": 100
+   },
+   "ens_in_window": 0,
+   "flagged": 100
+  },
+  {
+   "amount": "0.2",
+   "n": 26,
+   "hour_min": 20,
+   "hour_max": 21,
+   "hours_spanned": 2,
+   "cluster_ids": {
+    "165": 26
+   },
+   "ens_in_window": 1,
+   "flagged": 26
+  },
+  {
+   "amount": "0.45",
+   "n": 1996,
+   "hour_min": 3,
+   "hour_max": 4,
+   "hours_spanned": 2,
+   "cluster_ids": {
+    "2": 1996
+   },
+   "ens_in_window": 0,
+   "flagged": 1996
+  },
+  {
+   "amount": "1.2",
+   "n": 300,
+   "hour_min": 1,
+   "hour_max": 2,
+   "hours_spanned": 2,
+   "cluster_ids": {
+    "4": 300
+   },
+   "ens_in_window": 0,
+   "flagged": 300
+  },
+  {
+   "amount": "70.0",
+   "n": 33,
+   "hour_min": 2,
+   "hour_max": 3,
+   "hours_spanned": 2,
+   "cluster_ids": {
+    "5": 33
+   },
+   "ens_in_window": 0,
+   "flagged": 33
+  },
+  {
+   "amount": "0.08",
+   "n": 20,
+   "hour_min": 16,
+   "hour_max": 16,
+   "hours_spanned": 1,
+   "cluster_ids": {
+    "188": 20
+   },
+   "ens_in_window": 0,
+   "flagged": 20
+  },
+  {
+   "amount": "10.0",
+   "n": 770,
+   "hour_min": 5,
+   "hour_max": 5,
+   "hours_spanned": 1,
+   "cluster_ids": {
+    "1": 770
+   },
+   "ens_in_window": 0,
+   "flagged": 770
+  }
+ ],
+ "C2_split_groups": {
+  "count": 59,
+  "smallest_k": [
+   {
+    "amount": "95.6",
+    "k": 5,
+    "pot_eth": "478.0",
+    "hours": "17-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.0",
+    "k": 5,
+    "pot_eth": "485.0",
+    "hours": "16-18",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.4",
+    "k": 5,
+    "pot_eth": "487.0",
+    "hours": "17-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "98.4",
+    "k": 5,
+    "pot_eth": "492.0",
+    "hours": "16-16",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "99.2",
+    "k": 5,
+    "pot_eth": "496.0",
+    "hours": "16-18",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "95.9",
+    "k": 6,
+    "pot_eth": "575.4",
+    "hours": "16-18",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "96.2",
+    "k": 6,
+    "pot_eth": "577.2",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "96.7",
+    "k": 6,
+    "pot_eth": "580.2",
+    "hours": "18-19",
+    "ens": 0,
+    "flagged": 6,
+    "round": true
+   },
+   {
+    "amount": "97.7",
+    "k": 6,
+    "pot_eth": "586.2",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.9",
+    "k": 6,
+    "pot_eth": "587.4",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "98.1",
+    "k": 6,
+    "pot_eth": "588.6",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "99.1",
+    "k": 6,
+    "pot_eth": "594.6",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "100.0",
+    "k": 6,
+    "pot_eth": "600.0",
+    "hours": "17-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "96.4",
+    "k": 7,
+    "pot_eth": "674.8",
+    "hours": "17-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.1",
+    "k": 7,
+    "pot_eth": "679.7",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.3",
+    "k": 7,
+    "pot_eth": "681.1",
+    "hours": "18-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "97.5",
+    "k": 7,
+    "pot_eth": "682.5",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "98.7",
+    "k": 7,
+    "pot_eth": "690.9",
+    "hours": "17-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "99.0",
+    "k": 7,
+    "pot_eth": "693.0",
+    "hours": "16-19",
+    "ens": 0,
+    "flagged": 0,
+    "round": true
+   },
+   {
+    "amount": "99.5",
+    "k": 7,
+    "pot_eth": "696.5",
+    "hours": "18-19",
+    "ens": 0,
+    "flagged": 7,
+    "round": true
+   }
+  ],
+  "note": "split adds no members (ablation 0) because every split window is already welded by exact_round_wave/exact_odd edges over the same window \u2014 it only raises strength"
+ },
+ "C3_hub": {
+  "distinct_hub_reasons": 153,
+  "by_N": {
+   "2": 56,
+   "3": 24,
+   "4": 15,
+   "5": 13,
+   "6": 2,
+   "7": 6,
+   "8": 3,
+   "9": 2,
+   "10": 7,
+   "11": 2,
+   "12": 2,
+   "13": 1,
+   "14": 1,
+   "15": 3,
+   "17": 1,
+   "18": 1,
+   "19": 1,
+   "20": 2,
+   "21": 2,
+   "22": 1,
+   "23": 2,
+   "25": 1,
+   "33": 1,
+   "40": 1,
+   "47": 1,
+   "69": 1,
+   "84": 1
+  },
+  "clusters_funding_only_via_hub": 69,
+  "of_which_gate_depends_on_hub": 37,
+  "members_in_gate_dependent": 551,
+  "gate_dependent_with_max_hub_le3": 27,
+  "members_gate_dependent_max_hub_le3": 259,
+  "examples": [
+   {
+    "cluster_id": 14,
+    "size": 84,
+    "max_hub_n": 84,
+    "hubs": 1,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "1.49",
+    "ens": 0
+   },
+   {
+    "cluster_id": 19,
+    "size": 74,
+    "max_hub_n": 69,
+    "hubs": 1,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "1.39",
+    "ens": 1
+   },
+   {
+    "cluster_id": 24,
+    "size": 47,
+    "max_hub_n": 47,
+    "hubs": 1,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "1.69",
+    "ens": 0
+   },
+   {
+    "cluster_id": 182,
+    "size": 23,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "sequence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 2
+   },
+   {
+    "cluster_id": 197,
+    "size": 19,
+    "max_hub_n": 12,
+    "hubs": 1,
+    "other_families": [
+     "cadence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 4
+   },
+   {
+    "cluster_id": 51,
+    "size": 18,
+    "max_hub_n": 4,
+    "hubs": 1,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "1.0",
+    "ens": 5
+   },
+   {
+    "cluster_id": 58,
+    "size": 17,
+    "max_hub_n": 17,
+    "hubs": 1,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "1.19",
+    "ens": 0
+   },
+   {
+    "cluster_id": 204,
+    "size": 16,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "sequence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 1
+   },
+   {
+    "cluster_id": 215,
+    "size": 15,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "cadence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 1
+   },
+   {
+    "cluster_id": 216,
+    "size": 15,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "sequence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 3
+   },
+   {
+    "cluster_id": 184,
+    "size": 14,
+    "max_hub_n": 3,
+    "hubs": 2,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.15",
+    "ens": 4
+   },
+   {
+    "cluster_id": 176,
+    "size": 12,
+    "max_hub_n": 3,
+    "hubs": 2,
+    "other_families": [
+     "amount"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.3",
+    "ens": 1
+   },
+   {
+    "cluster_id": 218,
+    "size": 12,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "sequence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 2
+   },
+   {
+    "cluster_id": 231,
+    "size": 12,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "cadence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 3
+   },
+   {
+    "cluster_id": 232,
+    "size": 12,
+    "max_hub_n": 2,
+    "hubs": 1,
+    "other_families": [
+     "sequence"
+    ],
+    "would_fail_gate_without_hub": true,
+    "dominant": "0.05",
+    "ens": 2
+   }
+  ]
+ },
+ "C4_min_amount_clusters": {
+  "count": 52,
+  "members": 1632,
+  "ens_members": 201,
+  "top": [
+   {
+    "cluster_id": 7,
+    "size": 998,
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 156,
+    "nonce0_frac": 0.2,
+    "nonce_ge20_frac": 0.6,
+    "hours": "0-59",
+    "reasons": [
+     "first funder is a member of the same cluster (peel chain)",
+     "identical odd 0.0502\u039e send \u00d73",
+     "consecutive join indices 714\u2013718 \u00b7 5-block span"
+    ]
+   },
+   {
+    "cluster_id": 170,
+    "size": 37,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 6,
+    "nonce0_frac": 0.11,
+    "nonce_ge20_frac": 0.62,
+    "hours": "34-34",
+    "reasons": [
+     "consecutive join indices 16,408\u201316,444 \u00b7 17-block span",
+     "burst \u00d75 of 0.05\u039e in one block, repeated over 47 blocks",
+     "shared first funder 0x370a7e2d\u2026 \u00d72 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 177,
+    "size": 33,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 2,
+    "nonce0_frac": 0.24,
+    "nonce_ge20_frac": 0.64,
+    "hours": "34-35",
+    "reasons": [
+     "first funder is a member of the same cluster (peel chain)",
+     "consecutive join indices 16,863\u201316,895 \u00b7 7-block span",
+     "burst \u00d75 of 0.05\u039e in one block, repeated over 47 blocks"
+    ]
+   },
+   {
+    "cluster_id": 181,
+    "size": 31,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 1,
+    "nonce0_frac": 0.16,
+    "nonce_ge20_frac": 0.52,
+    "hours": "34-34",
+    "reasons": [
+     "consecutive join indices 16,468\u201316,498 \u00b7 10-block span",
+     "burst \u00d76 of 0.05\u039e in one block, repeated over 47 blocks",
+     "shared first funder 0x2e0db3f8\u2026 \u00d73 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 179,
+    "size": 23,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 0,
+    "nonce0_frac": 0.65,
+    "nonce_ge20_frac": 0.35,
+    "hours": "16-16",
+    "reasons": [
+     "first funder is a member of the same cluster (peel chain)",
+     "consecutive join indices 9,749\u20139,753 \u00b7 4-block span",
+     "metronomic drip \u00d719 of 0.05\u039e every ~1 blocks"
+    ]
+   },
+   {
+    "cluster_id": 182,
+    "size": 23,
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "ens": 2,
+    "nonce0_frac": 0.3,
+    "nonce_ge20_frac": 0.43,
+    "hours": "35-35",
+    "reasons": [
+     "consecutive join indices 17,076\u201317,098 \u00b7 13-block span",
+     "shared first funder 0xbf94f0ac\u2026 \u00d72 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 191,
+    "size": 23,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 3,
+    "nonce0_frac": 0.57,
+    "nonce_ge20_frac": 0.43,
+    "hours": "11-11",
+    "reasons": [
+     "consecutive join indices 8,189\u20138,200 \u00b7 1-block span",
+     "burst \u00d75 of 0.05\u039e in one block, repeated over 47 blocks",
+     "shared first funder 0x4976a4a0\u2026 \u00d72 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 198,
+    "size": 21,
+    "families": [
+     "cadence",
+     "funding",
+     "gas",
+     "sequence"
+    ],
+    "ens": 0,
+    "nonce0_frac": 0.0,
+    "nonce_ge20_frac": 1.0,
+    "hours": "17-17",
+    "reasons": [
+     "first funder is a member of the same cluster (peel chain)",
+     "consecutive join indices 10,540\u201310,560 \u00b7 0-block span",
+     "burst \u00d721 of 0.05\u039e in one block, repeated over 47 blocks"
+    ]
+   },
+   {
+    "cluster_id": 186,
+    "size": 20,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 4,
+    "nonce0_frac": 0.55,
+    "nonce_ge20_frac": 0.4,
+    "hours": "8-8",
+    "reasons": [
+     "first funder is a member of the same cluster (peel chain)",
+     "consecutive join indices 6,688\u20136,692 \u00b7 3-block span",
+     "metronomic drip \u00d716 of 0.05\u039e every ~2 blocks"
+    ]
+   },
+   {
+    "cluster_id": 197,
+    "size": 19,
+    "families": [
+     "cadence",
+     "funding"
+    ],
+    "ens": 4,
+    "nonce0_frac": 0.63,
+    "nonce_ge20_frac": 0.26,
+    "hours": "10-10",
+    "reasons": [
+     "metronomic drip \u00d719 of 0.05\u039e every ~2 blocks",
+     "shared first funder 0x2fc92dde\u2026 \u00d712 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 204,
+    "size": 16,
+    "families": [
+     "funding",
+     "sequence"
+    ],
+    "ens": 1,
+    "nonce0_frac": 0.12,
+    "nonce_ge20_frac": 0.69,
+    "hours": "33-33",
+    "reasons": [
+     "consecutive join indices 16,166\u201316,181 \u00b7 10-block span",
+     "shared first funder 0xe7351fd7\u2026 \u00d72 inside one cluster"
+    ]
+   },
+   {
+    "cluster_id": 212,
+    "size": 16,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "ens": 0,
+    "nonce0_frac": 0.19,
+    "nonce_ge20_frac": 0.69,
+    "hours": "34-34",
+    "reasons": [
+     "consecutive join indices 16,627\u201316,642 \u00b7 4-block span",
+     "burst \u00d75 of 0.05\u039e in one block, repeated over 47 blocks",
+     "shared first funder 0xca7ded7e\u2026 \u00d72 inside one cluster"
+    ]
+   }
+  ]
+ },
+ "C4_sequence_runs_all_0.05": {
+  "runs": 60,
+  "members": 638,
+  "total_runs": 381
+ },
+ "C4_joiners_per_block_by_hour": {
+  "0": {
+   "blocks": 73,
+   "mean_joiners_per_block": 1.32,
+   "joiners": 96
+  },
+  "1": {
+   "blocks": 164,
+   "mean_joiners_per_block": 2.56,
+   "joiners": 420
+  },
+  "2": {
+   "blocks": 125,
+   "mean_joiners_per_block": 2.4,
+   "joiners": 300
+  },
+  "3": {
+   "blocks": 147,
+   "mean_joiners_per_block": 8.79,
+   "joiners": 1292
+  },
+  "4": {
+   "blocks": 175,
+   "mean_joiners_per_block": 8.92,
+   "joiners": 1561
+  },
+  "5": {
+   "blocks": 216,
+   "mean_joiners_per_block": 8.45,
+   "joiners": 1826
+  },
+  "6": {
+   "blocks": 220,
+   "mean_joiners_per_block": 2.05,
+   "joiners": 452
+  },
+  "7": {
+   "blocks": 214,
+   "mean_joiners_per_block": 1.72,
+   "joiners": 368
+  },
+  "8": {
+   "blocks": 246,
+   "mean_joiners_per_block": 2.24,
+   "joiners": 551
+  },
+  "9": {
+   "blocks": 227,
+   "mean_joiners_per_block": 1.83,
+   "joiners": 416
+  },
+  "10": {
+   "blocks": 241,
+   "mean_joiners_per_block": 2.02,
+   "joiners": 487
+  },
+  "11": {
+   "blocks": 232,
+   "mean_joiners_per_block": 1.94,
+   "joiners": 450
+  },
+  "12": {
+   "blocks": 235,
+   "mean_joiners_per_block": 2.57,
+   "joiners": 604
+  },
+  "13": {
+   "blocks": 218,
+   "mean_joiners_per_block": 1.76,
+   "joiners": 383
+  },
+  "14": {
+   "blocks": 160,
+   "mean_joiners_per_block": 1.51,
+   "joiners": 241
+  },
+  "15": {
+   "blocks": 158,
+   "mean_joiners_per_block": 1.5,
+   "joiners": 237
+  },
+  "16": {
+   "blocks": 243,
+   "mean_joiners_per_block": 1.98,
+   "joiners": 480
+  },
+  "17": {
+   "blocks": 228,
+   "mean_joiners_per_block": 2.4,
+   "joiners": 547
+  },
+  "18": {
+   "blocks": 251,
+   "mean_joiners_per_block": 2.49,
+   "joiners": 626
+  },
+  "19": {
+   "blocks": 253,
+   "mean_joiners_per_block": 6.95,
+   "joiners": 1758
+  },
+  "20": {
+   "blocks": 226,
+   "mean_joiners_per_block": 6.23,
+   "joiners": 1409
+  },
+  "21": {
+   "blocks": 185,
+   "mean_joiners_per_block": 1.78,
+   "joiners": 330
+  },
+  "22": {
+   "blocks": 205,
+   "mean_joiners_per_block": 2.38,
+   "joiners": 487
+  },
+  "23": {
+   "blocks": 156,
+   "mean_joiners_per_block": 1.92,
+   "joiners": 299
+  },
+  "24": {
+   "blocks": 38,
+   "mean_joiners_per_block": 1.05,
+   "joiners": 40
+  },
+  "25": {
+   "blocks": 36,
+   "mean_joiners_per_block": 1.06,
+   "joiners": 38
+  },
+  "26": {
+   "blocks": 31,
+   "mean_joiners_per_block": 1.1,
+   "joiners": 34
+  },
+  "27": {
+   "blocks": 39,
+   "mean_joiners_per_block": 1.13,
+   "joiners": 44
+  },
+  "28": {
+   "blocks": 28,
+   "mean_joiners_per_block": 1.07,
+   "joiners": 30
+  },
+  "29": {
+   "blocks": 36,
+   "mean_joiners_per_block": 1.03,
+   "joiners": 37
+  },
+  "30": {
+   "blocks": 31,
+   "mean_joiners_per_block": 1.03,
+   "joiners": 32
+  }
+ },
+ "C5_near_chains": {
+  "chains_ge3": 167,
+  "ratio_gt_1.1": 3,
+  "ratio_gt_1.5": 0,
+  "members_in_ratio_gt_1.1": 60,
+  "top": [
+   {
+    "block": 25776694,
+    "len": 5,
+    "min": "0.103",
+    "max": "0.129",
+    "ratio": 1.25,
+    "distinct_amounts": 5,
+    "flagged": 5,
+    "ens": 0
+   },
+   {
+    "block": 25775763,
+    "len": 52,
+    "min": "0.09066",
+    "max": "0.11174096664418663",
+    "ratio": 1.23,
+    "distinct_amounts": 52,
+    "flagged": 52,
+    "ens": 0
+   },
+   {
+    "block": 25776514,
+    "len": 3,
+    "min": "0.077198801523190687",
+    "max": "0.088462254729234133",
+    "ratio": 1.15,
+    "distinct_amounts": 3,
+    "flagged": 0,
+    "ens": 0
+   },
+   {
+    "block": 25776685,
+    "len": 3,
+    "min": "0.06924981948440465",
+    "max": "0.07615494390790279",
+    "ratio": 1.1,
+    "distinct_amounts": 3,
+    "flagged": 0,
+    "ens": 0
+   },
+   {
+    "block": 25775765,
+    "len": 51,
+    "min": "0.1",
+    "max": "0.109022513373613134",
+    "ratio": 1.09,
+    "distinct_amounts": 51,
+    "flagged": 51,
+    "ens": 0
+   },
+   {
+    "block": 25771958,
+    "len": 3,
+    "min": "0.057",
+    "max": "0.061",
+    "ratio": 1.07,
+    "distinct_amounts": 3,
+    "flagged": 3,
+    "ens": 0
+   },
+   {
+    "block": 25775769,
+    "len": 51,
+    "min": "0.1",
+    "max": "0.105694529871059586",
+    "ratio": 1.06,
+    "distinct_amounts": 51,
+    "flagged": 51,
+    "ens": 0
+   },
+   {
+    "block": 25775784,
+    "len": 51,
+    "min": "0.094011386605203531",
+    "max": "0.1",
+    "ratio": 1.06,
+    "distinct_amounts": 51,
+    "flagged": 51,
+    "ens": 0
+   },
+   {
+    "block": 25770778,
+    "len": 10,
+    "min": "1.173231",
+    "max": "1.229205",
+    "ratio": 1.05,
+    "distinct_amounts": 10,
+    "flagged": 10,
+    "ens": 0
+   },
+   {
+    "block": 25770781,
+    "len": 10,
+    "min": "1.172814",
+    "max": "1.225977",
+    "ratio": 1.05,
+    "distinct_amounts": 10,
+    "flagged": 10,
+    "ens": 0
+   },
+   {
+    "block": 25770829,
+    "len": 10,
+    "min": "1.173041",
+    "max": "1.229592",
+    "ratio": 1.05,
+    "distinct_amounts": 10,
+    "flagged": 10,
+    "ens": 0
+   },
+   {
+    "block": 25771270,
+    "len": 10,
+    "min": "1.176695",
+    "max": "1.229772",
+    "ratio": 1.05,
+    "distinct_amounts": 10,
+    "flagged": 10,
+    "ens": 0
+   }
+  ]
+ },
+ "C5_sequence_drift": {
+  "runs_drifting_gt_10pct": 1,
+  "members": 16,
+  "top": [
+   {
+    "run": "consecutive join indices 16,187\u201316,202 \u00b7 10-block span",
+    "members": 16,
+    "min": "0.05",
+    "max": "0.06",
+    "ratio": 1.2,
+    "distinct": 4,
+    "ens": 2
+   }
+  ]
+ },
+ "C6_gas_fingerprints": {
+  "unflagged_with_tx_row": 613,
+  "rows": [
+   {
+    "priority_fee_gwei": 0.035,
+    "gas_limit": 83967,
+    "clusters": 91,
+    "members": 1130,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.01,
+    "gas_limit": 90000,
+    "clusters": 16,
+    "members": 835,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.03,
+    "gas_limit": 87784,
+    "clusters": 15,
+    "members": 950,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.6,
+    "gas_limit": 114501,
+    "clusters": 4,
+    "members": 32,
+    "clusters_where_gas_is_2nd_family": 2,
+    "unflagged_wallets_with_same_pf_gl": 18
+   },
+   {
+    "priority_fee_gwei": 0.1,
+    "gas_limit": 114501,
+    "clusters": 3,
+    "members": 23,
+    "clusters_where_gas_is_2nd_family": 2,
+    "unflagged_wallets_with_same_pf_gl": 2
+   },
+   {
+    "priority_fee_gwei": 0.055,
+    "gas_limit": 76334,
+    "clusters": 3,
+    "members": 30,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.01,
+    "gas_limit": 114501,
+    "clusters": 2,
+    "members": 10,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 2.0,
+    "gas_limit": 76334,
+    "clusters": 1,
+    "members": 10,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.01,
+    "gas_limit": 91462,
+    "clusters": 1,
+    "members": 15,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 1
+   },
+   {
+    "priority_fee_gwei": 0.05,
+    "gas_limit": 76219,
+    "clusters": 1,
+    "members": 5,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.001583134,
+    "gas_limit": 76334,
+    "clusters": 1,
+    "members": 20,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.001341986,
+    "gas_limit": 76334,
+    "clusters": 1,
+    "members": 15,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.1,
+    "gas_limit": 120000,
+    "clusters": 1,
+    "members": 21,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.00147421,
+    "gas_limit": 76334,
+    "clusters": 1,
+    "members": 10,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   },
+   {
+    "priority_fee_gwei": 0.001589489,
+    "gas_limit": 76334,
+    "clusters": 1,
+    "members": 5,
+    "clusters_where_gas_is_2nd_family": 0,
+    "unflagged_wallets_with_same_pf_gl": 0
+   }
+  ],
+  "gas_only_second_family_clusters": [
+   {
+    "cluster_id": 200,
+    "size": 9,
+    "dominant": "0.302",
+    "reasons": [
+     "identical odd 0.302\u039e send \u00d79",
+     "one fee fingerprint across \u00d79 (controls spread over dozens)"
+    ]
+   },
+   {
+    "cluster_id": 82,
+    "size": 8,
+    "dominant": "2.95",
+    "reasons": [
+     "one fee fingerprint across \u00d78 (controls spread over dozens)",
+     "identical 2.95\u039e send \u00d78 in one wave"
+    ]
+   },
+   {
+    "cluster_id": 214,
+    "size": 6,
+    "dominant": "0.303",
+    "reasons": [
+     "identical odd 0.303\u039e send \u00d76",
+     "one fee fingerprint across \u00d76 (controls spread over dozens)"
+    ]
+   },
+   {
+    "cluster_id": 196,
+    "size": 5,
+    "dominant": "1.11",
+    "reasons": [
+     "identical 1.11\u039e send \u00d75 in one wave",
+     "one gas limit + \u22642 priority fees across \u00d75"
+    ]
+   }
+  ]
+ },
+ "C7_confidence": {
+  "min": 0.786,
+  "p10": 0.846,
+  "median": 0.925,
+  "lt_0.9": 121,
+  "lt_0.5": 0,
+  "theoretical_min_two_weakest_families_all_aged": 0.773,
+  "note": "threshold 0.5 can never be missed: weakest possible 2-family noisy-OR = 1-(0.3*0.3)=0.91, times floor 0.85 = 0.774 > 0.5"
+ },
+ "C8_evidence_classes": {
+  "clusters_by_class_combo": {
+   "amount_time+gas+peel": 76,
+   "amount_time+hub": 43,
+   "amount_time+gas": 39,
+   "amount_time+peel": 34,
+   "amount_time+hub+peel": 15,
+   "amount_time+gas+hub": 10,
+   "amount_time+hub+odd_fingerprint+peel": 7,
+   "amount_time+hub+odd_fingerprint": 7,
+   "amount_time+gas+hub+peel": 6,
+   "amount_time": 6,
+   "hub+odd_fingerprint": 5,
+   "amount_time+gas+odd_fingerprint+peel": 4,
+   "amount_time+gas+odd_fingerprint": 3,
+   "gas+hub+odd_fingerprint": 2,
+   "amount_time+gas+hub+odd_fingerprint": 2,
+   "gas+odd_fingerprint": 2,
+   "gas+odd_fingerprint+peel": 1,
+   "odd_fingerprint+peel": 1
+  },
+  "members_by_class_combo": {
+   "amount_time+peel": 2937,
+   "amount_time+hub+peel": 2262,
+   "amount_time+hub+odd_fingerprint+peel": 2340,
+   "amount_time+gas+hub": 95,
+   "amount_time+hub": 713,
+   "amount_time+gas+hub+peel": 68,
+   "amount_time+gas+odd_fingerprint": 70,
+   "amount_time+gas+peel": 2332,
+   "amount_time+gas+odd_fingerprint+peel": 100,
+   "amount_time+gas": 403,
+   "amount_time+hub+odd_fingerprint": 96,
+   "gas+hub+odd_fingerprint": 10,
+   "amount_time+gas+hub+odd_fingerprint": 25,
+   "gas+odd_fingerprint": 15,
+   "gas+odd_fingerprint+peel": 8,
+   "odd_fingerprint+peel": 13,
+   "amount_time": 50,
+   "hub+odd_fingerprint": 36
+  },
+  "clusters_with_no_independent_class_(only amount_time [+hub/gas])": 98,
+  "members_thereof": 1261,
+  "clusters_only_amount_time": 6,
+  "peel_thin_clusters(size>=30, <=3 peel edges)": [
+   {
+    "cluster_id": 21,
+    "size": 60,
+    "peel_edges": 3,
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "dominant": "1.0"
+   },
+   {
+    "cluster_id": 164,
+    "size": 39,
+    "peel_edges": 1,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "dominant": "0.07"
+   },
+   {
+    "cluster_id": 177,
+    "size": 33,
+    "peel_edges": 1,
+    "families": [
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "dominant": "0.05"
+   }
+  ],
+  "peel_thin_count": 3,
+  "peel_thin_members": 132
+ },
+ "D_per_member": {
+  "distinct_strong_kinds_incident": {
+   "0": 868,
+   "1": 2986,
+   "2": 4361,
+   "3": 3358
+  },
+  "distinct_families_incident_excl_gas": {
+   "1": 1187,
+   "2": 3116,
+   "3": 4111,
+   "4": 3159
+  },
+  "proposed_core (>=1 strong edge AND (>=2 member-level families OR strength-degree>=1.7))": 10523,
+  "proposed_periphery": 1050,
+  "core_points_pct": 52.69,
+  "flagged_points_pct": 57.63,
+  "periphery_ens": 152,
+  "core_ens": 208,
+  "periphery_nonce_ge20": 487,
+  "core_nonce_ge20": 1227,
+  "periphery_nonce0": 401,
+  "core_nonce0": 8231
+ },
+ "E1_identical_ladders": {
+  "multi_deposit_wallets": 2037,
+  "flagged_multi": 79,
+  "groups_ge5": 27,
+  "time_tight_groups (span<=6h)": [
+   {
+    "ladder": [
+     "9.9",
+     "10.0",
+     "10.1",
+     "10.2",
+     "10.3"
+    ],
+    "n": 107,
+    "hour_min": 42,
+    "hour_max": 45,
+    "block_span": 787,
+    "flagged": 0,
+    "ens": 0,
+    "nonce0": 0,
+    "tx_rows": 0
+   },
+   {
+    "ladder": [
+     "1.5",
+     "3.0",
+     "6.0"
+    ],
+    "n": 5,
+    "hour_min": 18,
+    "hour_max": 19,
+    "block_span": 301,
+    "flagged": 0,
+    "ens": 0,
+    "nonce0": 0,
+    "tx_rows": 0
+   }
+  ],
+  "all_top": [
+   {
+    "ladder": [
+     "0.05",
+     "0.15"
+    ],
+    "n": 206,
+    "hour_min": 1,
+    "hour_max": 59,
+    "block_span": 17375,
+    "flagged": 22,
+    "ens": 39,
+    "nonce0": 8,
+    "tx_rows": 28
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45"
+    ],
+    "n": 169,
+    "hour_min": 1,
+    "hour_max": 40,
+    "block_span": 11644,
+    "flagged": 12,
+    "ens": 10,
+    "nonce0": 14,
+    "tx_rows": 19
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25"
+    ],
+    "n": 126,
+    "hour_min": 2,
+    "hour_max": 54,
+    "block_span": 15712,
+    "flagged": 10,
+    "ens": 13,
+    "nonce0": 4,
+    "tx_rows": 15
+   },
+   {
+    "ladder": [
+     "9.9",
+     "10.0",
+     "10.1",
+     "10.2",
+     "10.3"
+    ],
+    "n": 107,
+    "hour_min": 42,
+    "hour_max": 45,
+    "block_span": 787,
+    "flagged": 0,
+    "ens": 0,
+    "nonce0": 0,
+    "tx_rows": 0
+   },
+   {
+    "ladder": [
+     "10.0",
+     "10.1",
+     "10.2",
+     "10.3",
+     "10.4"
+    ],
+    "n": 69,
+    "hour_min": 37,
+    "hour_max": 46,
+    "block_span": 2564,
+    "flagged": 0,
+    "ens": 0,
+    "nonce0": 0,
+    "tx_rows": 0
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35"
+    ],
+    "n": 56,
+    "hour_min": 1,
+    "hour_max": 42,
+    "block_span": 12227,
+    "flagged": 3,
+    "ens": 25,
+    "nonce0": 2,
+    "tx_rows": 4
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45",
+     "0.55"
+    ],
+    "n": 30,
+    "hour_min": 0,
+    "hour_max": 34,
+    "block_span": 10005,
+    "flagged": 2,
+    "ens": 8,
+    "nonce0": 0,
+    "tx_rows": 2
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45",
+     "0.55",
+     "0.65",
+     "0.75",
+     "0.85",
+     "0.95"
+    ],
+    "n": 28,
+    "hour_min": 3,
+    "hour_max": 44,
+    "block_span": 12299,
+    "flagged": 0,
+    "ens": 5,
+    "nonce0": 0,
+    "tx_rows": 0
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.2"
+    ],
+    "n": 24,
+    "hour_min": 6,
+    "hour_max": 42,
+    "block_span": 10867,
+    "flagged": 2,
+    "ens": 5,
+    "nonce0": 0,
+    "tx_rows": 2
+   },
+   {
+    "ladder": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45",
+     "0.55",
+     "0.65",
+     "0.75",
+     "0.85",
+     "0.95",
+     "1.05"
+    ],
+    "n": 21,
+    "hour_min": 7,
+    "hour_max": 36,
+    "block_span": 8722,
+    "flagged": 1,
+    "ens": 5,
+    "nonce0": 0,
+    "tx_rows": 1
+   }
+  ]
+ },
+ "E2_unique_odd_amounts": {
+  "single_deposit_unique_odd_amount_wallets": 5751,
+  "unflagged": 2438,
+  "unflagged_with_tx_row_and_nonce0": 2,
+  "note": "tx rows exist only for candidates, so nonce0 count is a lower bound",
+  "same_hour_pockets_ge5_within_10pct": [],
+  "pockets_count": 0,
+  "pocket_members": 0
+ },
+ "E3_multi_deposit_exemption": {
+  "unflagged_multi_touching_farm_amount": 1396,
+  "farm_amounts": [
+   "0.05",
+   "0.077998030032177552",
+   "0.080430442180802592",
+   "0.0804369681883804",
+   "0.083380225889860752",
+   "0.087013674842233872",
+   "0.09005640722670104",
+   "0.091010974146168912",
+   "0.092713497517677568",
+   "0.094212470285084864",
+   "0.094633045583348112",
+   "0.096354209267850896",
+   "0.096524420239846368",
+   "0.096835236046167952",
+   "0.097571710814226464",
+   "0.098113688978186304",
+   "0.1",
+   "0.100073171831789664",
+   "0.101245524464791232",
+   "0.101399198748070656"
+  ]
+ }
+}

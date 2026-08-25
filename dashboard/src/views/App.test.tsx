@@ -268,7 +268,10 @@ describe("App", () => {
     fireEvent.click(screen.getByRole("button", { name: /PROFILE/ }));
     expect(screen.getByText("IN THE LIST · RANK #24")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "ORIGINAL ALLOWLIST RECORD" })).toBeInTheDocument();
-    expect(screen.getByText("STRONG SYBIL SIGNAL")).toBeInTheDocument();
+    // A wallet page states MEMBERSHIP of a group, not a verdict about the
+    // wallet: the tier is a property of the cluster, and a member may be held
+    // there by a single rule. See `audit/`.
+    expect(screen.getByText("IN A STRONG-EVIDENCE GROUP")).toBeInTheDocument();
     expect(screen.getByText(/GROUP 001 · 99.00% confidence/)).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "SHOW ON MAP" }));

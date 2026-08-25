@@ -1,0 +1,490 @@
+{
+ "agent": "skeptic_ladder_evasion",
+ "finding_under_test": "Multi-deposit evasion: a tiny first deposit exempts a wallet from every amount rule (143 wallets, 2.97% pts, 47 ring members, 5 treasury wallets, 3 flagged)",
+ "verdict": "partially right; core numbers reproduce but ring attribution is overstated, treasury list is mislabeled and mostly outside the finding definition, and the 143 set is dominated by human test-then-real depositors; the real exemption exploit (176-wallet 9.9-10.4 ladder bot, 1.9% pts, 0 flagged) is outside the finding entirely",
+ "lookups_used": 31,
+ "code_check": {
+  "amount_edges": "single_first_rows gate (signals/amounts.py)",
+  "split_edges": "single_first_rows gate (signals/split.py)",
+  "cadence_edges": "single_first_rows gate (signals/cadence.py:46)",
+  "sequence_edges": "first_rows, all wallets",
+  "funding/gas": "corroboration only on tier-A components",
+  "conclusion": "exemption is real for amount/split/cadence; any multi-deposit wallet (not just tiny-first) is exempt"
+ },
+ "rederived": {
+  "S143_def": "first deposit < 0.5 ETH and any later deposit >= 5 ETH",
+  "S143_n": 143,
+  "S143_flagged": 3,
+  "S143_points_pct": 2.97,
+  "S143_first_amount_top": {
+   "0.05 (protocol minimum)": 82,
+   "0.1": 18
+  },
+  "S143_ndep_dist": {
+   "8": 1,
+   "4": 7,
+   "3": 19,
+   "9": 3,
+   "5": 4,
+   "2": 60,
+   "14": 2,
+   "30": 2,
+   "21": 1,
+   "55": 2,
+   "10": 3,
+   "7": 3,
+   "12": 2,
+   "6": 2,
+   "13": 3,
+   "120": 1,
+   "22": 3,
+   "99": 2,
+   "15": 3,
+   "29": 1,
+   "54": 1,
+   "58": 4,
+   "49": 1,
+   "52": 9,
+   "53": 1,
+   "24": 1,
+   "62": 1,
+   "50": 1
+  },
+  "S143_ENS": 29,
+  "ENS_base_rate_multi_deposit": "398/2037=19.5%",
+  "ENS_base_rate_single_deposit": "989/17485=5.7%",
+  "S143_tx_enrichment_coverage": "4/143 nonce known; 14/143 funder known (candidates only)",
+  "S143_in_ring_ext(any 90-110 ETH deposit)": 35,
+  "S143_in_ring_core_h16-19": 22,
+  "S143_ring_points_pct": 1.31,
+  "S143_nonring_n": 108,
+  "S143_nonring_points_pct": 1.66,
+  "ring_ext_multi_total": 47,
+  "ring_ext_multi_flagged": 0,
+  "ring_ext_multi_big_in_h16-19": 32,
+  "ring_ext_multi_first_amounts": "0.05x9, 1.6x5, 1.7x4, 1.0, 1.5, 5.0, 0.25, 0.05-0.09 x24",
+  "claim_47_of_143_is_wrong": "47 = all multi-deposit wallets with any 90-110 deposit; only 35 are in the 143 (the 1.6/1.7/1.0/1.5/5.0-first wallets are not <0.5), and only 22 of the 143 have their big deposit in the ring wave h16-19; 13 in-143 ring-ext wallets are stragglers at h1/7/10/11/20-24/34 (100.0, 109.54, 99.33, 114, 111...) with exchange-withdrawal signatures",
+  "treasury_wallets": {
+   "0xbc214bc9": {
+    "deposits": "0.05 h12 + 0.3 h12",
+    "points_pct": 0.002,
+    "in_S143": false,
+    "onchain": "1238 txs, 2231 token transfers, 9.05 ETH, FWARewards claimEpochTokens 08-25; received 0.3 ETH from ring wallet 0xf6e8a085 on 08-13 (pre-game) and 1.0038 from ring consolidator 0x2135c4c6 on 08-25 -> plausible operator main wallet",
+    "exemption_relevant": "no: no tier-A rule can link a 0.3 ETH deposit to a ~97 ETH ring even if single-deposit; funding is corroboration-only"
+   },
+   "0x3a69b466": {
+    "deposits": "0.05 h20 + 0.2 h20",
+    "points_pct": 0.002,
+    "in_S143": false,
+    "onchain": "exactly 1 incoming (0.2039 from 0x06d0eced at 16:01:23), deposits 16:01:47/16:02:11, balance 0 -> a link of the c1 0.2 ETH peel chain, not a treasury; its successor 0xeee61f3e (single 0.2) is flagged in cluster 165, its predecessor 0x06d0eced (0.05+0.2) is also unflagged",
+    "exemption_relevant": "yes (would join the 0.2 h20 wave if single) but 0.002% pts"
+   },
+   "0xdad06928": {
+    "deposits": "1.7 h15 + 96.9 h16",
+    "points_pct": 0.038,
+    "in_S143": false,
+    "onchain": "ring hop wallet (100.1758 in, 96.9 deposit, 101.8998 out within 24 s; scripted warm-up May) -> ring member, not treasury"
+   },
+   "0xf6e8a085": {
+    "deposits": "0.069 h15 + 97.2 h16",
+    "points_pct": 0.038,
+    "in_S143": true,
+    "onchain": "self-sends 0.0 on 05-10 (scripted warm-up), 100.1763 from ring wallet 0x1c85cc7a at 11:59:11, deposit 97.2 at 11:59:35, balance 0.01 -> ring member"
+   },
+   "0x8046cf26": {
+    "deposits": "1.0 h3 + 10.0 h4",
+    "points_pct": 0.014,
+    "in_S143": false,
+    "onchain": "10.1 in from 0xb4a22d79 23:42:35, deposit 1.0 23:46:11, 10x 1.0099 back from the c21 wallets 23:47:23, 10.0975 from second collector 0xfa53ca3d 00:08:35, deposit 10.0 00:09:11, 10.0972 out to 0xb4a22d79 00:09:47; 18 lifetime txs -> c21 collector",
+    "exemption_relevant": "yes: single 1.0 at h3 would sit in the c21 1.0 h3-4 window; 0.014% pts"
+   },
+   "summary": "all 5 are multi-deposit and unflagged (true) but only 1 of 5 is inside the 143 definition, only 2 of 5 (3a69b466, 8046cf26) escape BECAUSE of the exemption, together 0.016% of points; treasury label fits only 0xbc214bc9"
+  }
+ },
+ "onchain_sample_S143": {
+  "ring_core_4": {
+   "addrs": [
+    "0xf6e8a085",
+    "0xc7e77f00",
+    "0xab0bc203",
+    "0x15d76756"
+   ],
+   "verdict": "all farm: 0.0-value self-sends on 2026-05-10 (warm-up), pre-fund 0.58-0.86 ETH by previous ring wallet, tiny deposit, then 100.176 ETH hop from previous ring wallet and ~97-99 deposit within 12-24 s, balance 0"
+  },
+  "ring_stragglers_3": {
+   "0x5439a236": "1.0999 from Binance15 03:31, deposits 0.05/1.0, 108.449 from 0x4976a4a0 (Binance-fed hot wallet: 5.9M txs, 13,250 ETH, 10-20k ETH inflows from Binance14) at 03:48:59, deposit 109.54 03:49:47; 1.99993 from Binance14 on 08-18 -> exchange-funded, unknown",
+   "0x0ce4aded": "exchange dust since April (0x9696f59e, 0xbf94f0ac), 1.99993 from 0x9696f59e and 112.049 from 0x4976a4a0 seconds before 0.06/114.0 -> exchange-funded, unknown",
+   "0x63734ccb": "exchange dust since April, 110.9999 from Binance16 20:22:11, deposits 0.056/111.0 at 20:22:47/59 -> exchange-funded, unknown",
+   "note": "0x4976a4a0 funds 2 of these 3 but is an exchange-scale wallet -> not evidence"
+  },
+  "nonring_no_ens_8": {
+   "human_like": [
+    "0x27ba37d6 (aged since 04-16, 9-step ladder 0.05..10.3..99.33 funded stepwise by 0x1ab4973a/Binance16/0x9696f59e)",
+    "0xea206a51 (302 txs, 386 token tx, holds 101.4 ETH, ladder 0.05/5/25/50/100 in 6 min)",
+    "0x82c4426b (266 txs, 449 token tx, 8-step ladder, funded 10 ETH by theneetguy.eth in March)",
+    "0x85e3f17c (295 txs, holds 169.7 ETH, 360 ETH inflows since Nov 2025)",
+    "0x9c8ff2cb (2440 txs, 1679 token tx)",
+    "0xfb0d8b94 (2566 txs, 899 token tx)",
+    "0xdbd62b81 (2881 txs, 4092 token tx, aged since June)"
+   ],
+   "farm_like": [
+    "0x6c5d323a (pre-funded 0.0994+0.0993 by two wallets minutes before, 54.658 from Gate-like 0x0d070796 at 03:49:23, deposited whole balance 54.7574 at 03:51:23, balance 0)"
+   ],
+   "unknown": [
+    "0x0ce4aded",
+    "0x63734ccb (counted under stragglers)"
+   ]
+  },
+  "nonring_ens_4": {
+   "theneetguy.eth": "2632 txs, 30 deposits, 53.07 from 0xf70da978",
+   "0xphoenix.eth": "7409 txs, 21 deposits",
+   "0xrdev.eth": "1076 txs, 12 deposits",
+   "camash.eth": "356 txs, 0.05 then 15.15"
+  },
+  "shared_funder_0xf70da978": {
+   "ens": null,
+   "name": null,
+   "is_contract": false,
+   "balance_eth": 2010.59,
+   "tx_count": "5108890",
+   "token_transfers": "3545401",
+   "incoming_sample": [
+    [
+     25830657,
+     "0xf2070829",
+     null,
+     0.0,
+     "08-25T07:16:23"
+    ],
+    [
+     25830670,
+     "0xf2070829",
+     null,
+     0.0,
+     "08-25T07:18:59"
+    ],
+    [
+     25830728,
+     "0xC69c42Ca",
+     null,
+     7.014,
+     "08-25T07:30:35"
+    ],
+    [
+     25830736,
+     "0xf2070829",
+     null,
+     0.0,
+     "08-25T07:32:11"
+    ],
+    [
+     25830743,
+     "0xf2079b93",
+     null,
+     0.0,
+     "08-25T07:33:35"
+    ],
+    [
+     25830763,
+     "0xf2070829",
+     null,
+     0.0,
+     "08-25T07:37:35"
+    ]
+   ],
+   "distinct_senders_on_page": 3
+  },
+  "tally": "of 12 non-ring S143 wallets checked: 9 human-like, 1 farm-like, 2 unknown (exchange-funded); of 7 ring-ext wallets: 4 confirmed farm (core wave), 3 unknown exchange-funded stragglers; Blockscout counters endpoint returns 0 for many addresses -> tx_count unreliable when 0"
+ },
+ "suggested_fix_evaluation": {
+  "method": "full detect() re-run with each multi-deposit wallet collapsed to its largest deposit (variant largest) or only when largest >= 5 ETH (variant largest_ge5); points from the original run",
+  "largest": {
+   "variant": "largest",
+   "clusters": 263,
+   "flagged": 12201,
+   "newly_flagged": 889,
+   "newly_flagged_points_pct": 3.93,
+   "newly_flagged_ens": 129,
+   "newly_flagged_ndep_ge5": 351,
+   "newly_flagged_ring": 6,
+   "newly_flagged_ring_points_pct": 0.23,
+   "newly_flagged_nonring_points_pct": 3.7,
+   "lost": 261,
+   "newly_flagged_amount_top": [
+    [
+     "0.15",
+     200
+    ],
+    [
+     "0.45",
+     167
+    ],
+    [
+     "0.25",
+     128
+    ],
+    [
+     "10.3",
+     107
+    ],
+    [
+     "10.4",
+     70
+    ],
+    [
+     "0.2",
+     52
+    ],
+    [
+     "1.0",
+     50
+    ],
+    [
+     "0.5",
+     22
+    ],
+    [
+     "0.35",
+     19
+    ],
+    [
+     "5.0",
+     15
+    ],
+    [
+     "0.3",
+     10
+    ],
+    [
+     "1.1",
+     7
+    ]
+   ]
+  },
+  "largest_ge5": {
+   "variant": "largest_ge5",
+   "clusters": 264,
+   "flagged": 11766,
+   "newly_flagged": 204,
+   "newly_flagged_points_pct": 2.36,
+   "newly_flagged_ens": 5,
+   "newly_flagged_ndep_ge5": 180,
+   "newly_flagged_ring": 6,
+   "newly_flagged_ring_points_pct": 0.23,
+   "newly_flagged_nonring_points_pct": 2.14,
+   "lost": 11,
+   "newly_flagged_amount_top": [
+    [
+     "10.3",
+     107
+    ],
+    [
+     "10.4",
+     70
+    ],
+    [
+     "5.0",
+     15
+    ],
+    [
+     "96.9",
+     4
+    ],
+    [
+     "10.0",
+     2
+    ],
+    [
+     "5.2",
+     1
+    ],
+    [
+     "14.3",
+     1
+    ],
+    [
+     "96.8",
+     1
+    ],
+    [
+     "14.9",
+     1
+    ],
+    [
+     "13.6",
+     1
+    ],
+    [
+     "96.3",
+     1
+    ]
+   ]
+  },
+  "largest_ens_sample": [
+   [
+    "0x301392a1d8c68bb21a91ecbd3f67237d87d8bfac",
+    "i6969.eth",
+    [
+     "0.05",
+     "0.15",
+     "0.25"
+    ]
+   ],
+   [
+    "0x124ee858516114b5bc10e15a7da832fb87287af3",
+    "apecoinup.eth",
+    [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35"
+    ]
+   ],
+   [
+    "0x5d9531fb853e28ef034af3d2ce01e14011a73129",
+    "yodefi.eth",
+    [
+     "0.25"
+    ]
+   ],
+   [
+    "0xb0946ca49309c1aff5ed8357a94d314ccb47afe9",
+    "iiberzerkk.eth",
+    [
+     "0.1",
+     "1.0"
+    ]
+   ],
+   [
+    "0xafcecb88d5518d472d660d39ca36dd7d7d4639bc",
+    "36555.eth",
+    [
+     "0.05",
+     "0.15"
+    ]
+   ],
+   [
+    "0x69aca10fe1394d535f11a45e59a93a9d3f268b78",
+    "160131.eth",
+    [
+     "0.1",
+     "1.0"
+    ]
+   ],
+   [
+    "0x532603cb9376b607f1a9c60e085c891c6ac25dbd",
+    "888sp.eth",
+    [
+     "0.05",
+     "0.2"
+    ]
+   ],
+   [
+    "0x8e673100b9c1883b2c503d0d8ab718823357f5dd",
+    "ammnnz.eth",
+    [
+     "0.05",
+     "0.15"
+    ]
+   ],
+   [
+    "0xc8ddbf0ed5c19f0f40b8276f9905608775a1bd03",
+    "hermzzyt.eth",
+    [
+     "0.15",
+     "0.25"
+    ]
+   ],
+   [
+    "0xff1882511a5673194b252c35f2530562f74f47e4",
+    "akira-c.eth",
+    [
+     "0.05",
+     "1.0"
+    ]
+   ],
+   [
+    "0x57e6adb5f6368b9946fe1f41254d9d54b7b7575e",
+    "headboy.eth",
+    [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45"
+    ]
+   ],
+   [
+    "0x2d8ea29925cf68859bcc49b5f351437f2617f7eb",
+    "dozerokz.eth",
+    [
+     "0.05",
+     "0.15"
+    ]
+   ]
+  ],
+  "ring_reach": "largest-deposit byte-identical partner within +-1h exists for 31/47 ring multi wallets (all 31 partners are ring wallets) but the full re-run flags only 6 ring wallets (0.23% pts): windows of 1-8 do not clear the >=5-member/2-family gate on their own",
+  "signal_first_lt_0.1_and_ge5_within_2h": {
+   "n": 109,
+   "ring": 33,
+   "non_ring": 76,
+   "non_ring_ENS": 19,
+   "non_ring_ndep_ge5": 44,
+   "already_flagged": 3,
+   "points_pct": 2.35
+  },
+  "window_landing_counts": {
+   "largest_deposit_lands_in_existing_single_window": 726,
+   "of_which_ENS": 132,
+   "of_which_ndep_ge5": 210,
+   "any_deposit_lands": 1394,
+   "any_ENS": 330
+  },
+  "conclusion": "as suggested (largest or every deposit) the fix is a false-positive generator: +889 wallets/+129 ENS for +6 ring wallets; the <0.1->>=5-in-2h signal fires on 76 non-ring wallets (19 ENS, 44 hour-saver ladderers) for 33 ring wallets"
+ },
+ "what_the_exemption_actually_hides": {
+  "ladder_bot": {
+   "seq_9.9_10.0_10.1_10.2_10.3": {
+    "n": 107,
+    "hours": "42-45",
+    "flagged": 0,
+    "ENS": 0,
+    "points_pct": 1.16,
+    "hour_saved_wallets": 3
+   },
+   "seq_10.0_10.1_10.2_10.3_10.4": {
+    "n": 69,
+    "hours": "37-46",
+    "flagged": 0,
+    "ENS": 0,
+    "points_pct": 0.75,
+    "hour_saved_wallets": 3
+   },
+   "all_0.1-step_ladders_start_ge5": {
+    "n": 183,
+    "flagged": 0,
+    "points_pct": 2.04
+   },
+   "mechanics": "strictly serial single process: 5 deposits in 4-6 consecutive blocks (one per block), next wallet starts 6-9 blocks later, 0 overlapping pairs of 106; enrichment coverage 0 (never candidates)",
+   "onchain_6_of_176": "each funded 10.374-10.379 (9.9 ladder) or 10.796-10.800 (10.0 ladder) ETH by a distinct fresh wallet 12-30 s before the first deposit, 5 deposits in consecutive 12-s blocks, balance 0 now, address-poisoning dust afterwards -> farm (peel chain)",
+   "volume_share": "ladder volume / total volume: h41 734/776, h42 953/1027, h43 2683/2743, h44 2041/2134, h45 881/906 ETH -> this bot is what kept the game alive in h37-46",
+   "not_in_finding": "first deposits 9.9/10.0 so outside the <0.5-first definition; the finding frames the hole as tiny-first when it is any-multi-deposit"
+  },
+  "human_ladders_for_contrast": "0.05,0.15,0.25,0.35,0.45 x169 (10 ENS, h1-44, 0.40% pts) and other 0.05-step ladders: the measured false-positive class the exemption was designed for; a naive identical-sequence rule would need a >=5 ETH floor"
+ },
+ "strongest_supported_claim": "The single-deposit gate on amount/split/cadence is a real blind spot, but its cost is misattributed: (a) 32-35 multi-deposit members of the ~97 ETH ring (1.2-1.3% pts) escape, and only 6 of them would be caught even by the suggested fix; (b) two peel-chain/collector wallets escape (0.016% pts); (c) the 9.9-10.3 x107 and 10.0-10.4 x69 serial ladder bot (176 wallets, 1.91% pts, 0 flagged, 0 ENS, kept the game alive h37-46) is the largest exploit and is not tiny-first; (d) the remaining ~108 wallets of the 143 (1.66% pts) are predominantly aged, ENS-dense (27%) humans doing a 0.05 test deposit before a real one and must not be flagged.",
+ "files": {
+  "stage1": "skeptic_ladder_evasion_stage1.json",
+  "stage2": "skeptic_ladder_evasion_stage2.json",
+  "fixrun": "skeptic_le_fixrun.json",
+  "ladders": "skeptic_le_ladders.json",
+  "onchain": [
+   "skeptic_le_onchain.json",
+   "skeptic_le_bs/"
+  ],
+  "targets": [
+   "skeptic_le_targets.txt",
+   "skeptic_le_targets2.txt"
+  ]
+ }
+}

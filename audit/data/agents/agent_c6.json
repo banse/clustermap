@@ -1,0 +1,3474 @@
+{
+ "cluster_id": 6,
+ "size": 896,
+ "points_share_pct": 1.068,
+ "method": "sk_diag mirror combiner reproduces live cluster 6 exactly (896/896). Sub-groups defined from evidence: core = research v1 amt_0.1_h17 list (321, all in cluster 6); seq_jitter = members with a sequence edge; other_0.1 = remaining exact-0.1 senders; other_near = remaining (0.09/0.11/0.098/...).",
+ "subgroups": {
+  "core": {
+   "n": 321,
+   "hours": {
+    "17": 73,
+    "18": 122,
+    "19": 120,
+    "20": 6
+   },
+   "block_range": [
+    25775054,
+    25775890
+   ],
+   "in_h16_18": 195,
+   "in_h17_20": 321,
+   "ens": 5,
+   "hour_saved": [],
+   "nonce0_frac": 0.944,
+   "nonce_ge20_frac": 0.05,
+   "nonce_median": 0,
+   "funding_class": {
+    "peel(in C6)": 290,
+    "other_contributor(unflagged)": 11,
+    "single_funder_eoa/unknown": 7,
+    "cex_infra_list": 5,
+    "exchange_scale_eoa": 3,
+    "hub_25": 2,
+    "hub_69": 1,
+    "hub_11": 1,
+    "hub_8": 1
+   },
+   "peel_funder_subgroup": {
+    "core": 289,
+    "other_0.1": 1
+   },
+   "incident_kinds": {
+    "amount:exact_round_wave": 321,
+    "amount:split": 321,
+    "funding:peel_chain": 296,
+    "cadence:drip": 268,
+    "funding:shared_hub": 18,
+    "amount:near_same_block": 17,
+    "sequence": 4
+   },
+   "with_strong_rule": 313,
+   "no_strong_rule": 8,
+   "top_priority_fees": [
+    [
+     "None",
+     301
+    ],
+    [
+     "150000000",
+     3
+    ],
+    [
+     "30000000",
+     2
+    ],
+    [
+     "600000000",
+     2
+    ]
+   ],
+   "distinct_priority_fees": 17,
+   "top_gas_limits": [
+    [
+     "91600",
+     300
+    ],
+    [
+     "114501",
+     12
+    ],
+    [
+     "120000",
+     3
+    ],
+    [
+     "83967",
+     3
+    ]
+   ],
+   "distinct_gas_limits": 7
+  },
+  "seq_jitter": {
+   "n": 300,
+   "hours": {
+    "19": 300
+   },
+   "block_range": [
+    25775763,
+    25775784
+   ],
+   "in_h16_18": 0,
+   "in_h17_20": 300,
+   "ens": 0,
+   "hour_saved": [],
+   "nonce0_frac": 1.0,
+   "nonce_ge20_frac": 0.0,
+   "nonce_median": 0.0,
+   "funding_class": {
+    "peel(in C6)": 294,
+    "other_contributor(flagged)": 6
+   },
+   "peel_funder_subgroup": {
+    "seq_jitter": 294
+   },
+   "incident_kinds": {
+    "amount:near_same_block": 300,
+    "sequence": 300,
+    "funding:peel_chain": 300
+   },
+   "with_strong_rule": 300,
+   "no_strong_rule": 0,
+   "top_priority_fees": [
+    [
+     "10000000",
+     300
+    ]
+   ],
+   "distinct_priority_fees": 1,
+   "top_gas_limits": [
+    [
+     "90000",
+     300
+    ]
+   ],
+   "distinct_gas_limits": 1
+  },
+  "other_0.1": {
+   "n": 224,
+   "hours": {
+    "0": 4,
+    "1": 11,
+    "2": 2,
+    "3": 2,
+    "4": 3,
+    "5": 6,
+    "6": 5,
+    "7": 10,
+    "8": 7,
+    "9": 4,
+    "10": 6,
+    "11": 21,
+    "12": 7,
+    "13": 6,
+    "14": 4,
+    "15": 8,
+    "16": 6,
+    "17": 1,
+    "20": 60,
+    "21": 48,
+    "22": 1,
+    "23": 2
+   },
+   "block_range": [
+    25770102,
+    25776834
+   ],
+   "in_h16_18": 7,
+   "in_h17_20": 61,
+   "ens": 42,
+   "hour_saved": [],
+   "nonce0_frac": 0.473,
+   "nonce_ge20_frac": 0.424,
+   "nonce_median": 3.5,
+   "funding_class": {
+    "peel(in C6)": 107,
+    "single_funder_eoa/unknown": 48,
+    "exchange_scale_eoa": 14,
+    "other_contributor(unflagged)": 11,
+    "cex_infra_list": 7,
+    "small_hub(2-4)": 6,
+    "hub_9": 5,
+    "hub_5": 3,
+    "hub_69": 3,
+    "hub_65": 3,
+    "hub_37": 2,
+    "hub_72": 2,
+    "hub_31": 2,
+    "hub_28": 2,
+    "hub_6": 1,
+    "hub_8": 1,
+    "hub_26": 1,
+    "hub_27": 1,
+    "other_contributor(flagged)": 1,
+    "hub_20": 1,
+    "hub_32": 1,
+    "hub_30": 1,
+    "hub_7": 1
+   },
+   "peel_funder_subgroup": {
+    "other_0.1": 107
+   },
+   "incident_kinds": {
+    "amount:exact_round_wave": 224,
+    "amount:split": 224,
+    "funding:peel_chain": 112,
+    "funding:shared_hub": 45,
+    "cadence:drip": 31,
+    "amount:near_same_block": 4
+   },
+   "with_strong_rule": 113,
+   "no_strong_rule": 111,
+   "top_priority_fees": [
+    [
+     "None",
+     101
+    ],
+    [
+     "150000000",
+     24
+    ],
+    [
+     "600000000",
+     20
+    ],
+    [
+     "2000000000",
+     11
+    ]
+   ],
+   "distinct_priority_fees": 58,
+   "top_gas_limits": [
+    [
+     "91600",
+     101
+    ],
+    [
+     "114501",
+     89
+    ],
+    [
+     "113508",
+     9
+    ],
+    [
+     "83967",
+     9
+    ]
+   ],
+   "distinct_gas_limits": 11
+  },
+  "other_near": {
+   "n": 51,
+   "hours": {
+    "0": 2,
+    "2": 1,
+    "8": 1,
+    "9": 2,
+    "10": 3,
+    "11": 5,
+    "12": 9,
+    "13": 1,
+    "18": 12,
+    "19": 5,
+    "20": 1,
+    "21": 1,
+    "22": 5,
+    "23": 1,
+    "34": 1,
+    "43": 1
+   },
+   "block_range": [
+    25770128,
+    25782780
+   ],
+   "in_h16_18": 12,
+   "in_h17_20": 18,
+   "ens": 10,
+   "hour_saved": [],
+   "nonce0_frac": 0.235,
+   "nonce_ge20_frac": 0.412,
+   "nonce_median": 6,
+   "funding_class": {
+    "exchange_scale_eoa": 10,
+    "single_funder_eoa/unknown": 9,
+    "other_contributor(unflagged)": 7,
+    "peel(in C6)": 6,
+    "small_hub(2-4)": 3,
+    "hub_9": 3,
+    "cex_infra_list": 2,
+    "hub_37": 2,
+    "hub_16": 2,
+    "hub_27": 2,
+    "hub_20": 1,
+    "hub_72": 1,
+    "hub_31": 1,
+    "hub_30": 1,
+    "hub_28": 1
+   },
+   "peel_funder_subgroup": {
+    "other_near": 6
+   },
+   "incident_kinds": {
+    "funding:shared_hub": 26,
+    "amount:near_same_block": 24,
+    "amount:exact_round_wave": 20,
+    "amount:exact_odd": 19,
+    "funding:peel_chain": 7
+   },
+   "with_strong_rule": 26,
+   "no_strong_rule": 25,
+   "top_priority_fees": [
+    [
+     "2000000000",
+     6
+    ],
+    [
+     "150000000",
+     4
+    ],
+    [
+     "125000",
+     3
+    ],
+    [
+     "600000000",
+     3
+    ]
+   ],
+   "distinct_priority_fees": 31,
+   "top_gas_limits": [
+    [
+     "114501",
+     33
+    ],
+    [
+     "113508",
+     5
+    ],
+    [
+     "91601",
+     5
+    ],
+    [
+     "120000",
+     3
+    ]
+   ],
+   "distinct_gas_limits": 9
+  }
+ },
+ "welding_anatomy": {
+  "edges_touching_cluster6_by_kind": {
+   "funding:peel_chain": 695,
+   "amount:exact_round_wave": 561,
+   "amount:split": 544,
+   "amount:near_same_block": 321,
+   "sequence": 298,
+   "cadence:drip": 287,
+   "funding:shared_hub": 65,
+   "amount:exact_odd": 14
+  },
+  "tierA_edges_bridging_subgroups": {
+   "core<->other_0.1": "exact_round_wave x2 + split x2 (the spanning chain of the single 24-hour 0.1 window, 545 wallets h0-23, enters and leaves the core block-range once each)",
+   "core<->seq_jitter": "near_same_block x6 + sequence x4 (jitter batch landed in the same blocks as core h19 deposits)",
+   "core<->other_near": "near_same_block x13",
+   "other_0.1<->other_near": "near_same_block x4"
+  },
+  "split_rule": "redundant: \"≈ W/k equal split: 54.5Ξ across ×545 of 0.1Ξ\" is the same spanning chain as the round-wave window; dropping split alone changes nothing",
+  "sequence_runs": [
+   "12,327–12,376 (49 edges)",
+   "12,433–12,483",
+   "12,543–12,593",
+   "12,652–12,702",
+   "12,759–12,809 (2-block span)",
+   "12,876–12,925"
+  ],
+  "drip_runs_of_0.1": 11,
+  "drip_note": "drip runs are block-adjacency chains; an honest 0.1 sender landing between two farm sends inherits a drip edge (core non-fingerprint members carry drip edges)",
+  "peel_trees": {
+   "count": 20,
+   "members_in_trees": 715,
+   "max_fanout": 1,
+   "sizes": [
+    98,
+    64,
+    60,
+    50,
+    50,
+    50,
+    50,
+    50,
+    50,
+    39,
+    38,
+    35,
+    33,
+    27,
+    8,
+    5,
+    2,
+    2,
+    2,
+    2
+   ],
+   "note": "pure linear chains (fanout 1): wallet i funds wallet i+1 with ~0.1195-0.11996 ETH 12-24 s before its deposit; 6 chains of exactly 50 = the jitter batch (6 index runs of 50); 98/60/39/38/33/27 rooted in the core; 64/35 rooted in the h20-21 wave; 8-tree rooted at 02861.eth (aged human, h11) = one human funding 7 wallets; 5-tree of ~0.09 jitter at h18 rooted at 0x322318b0"
+  },
+  "self_funder_rows": [
+   "0xef0b2b08e45cf80a4eaec9af1f905c4642ba3d25",
+   "0x701bc4f42b47778f2b6b40bf95fe0ee7259a986b"
+  ],
+  "ablations_cluster6": [
+   {
+    "tag": "baseline",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop amount:exact_round_wave",
+    "core_component_size_within_C6": 880,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 880,
+    "C6_released": 16,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 5,
+     "other": 11
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 5,
+    "C6_fragments_flagged": [
+     880
+    ]
+   },
+   {
+    "tag": "drop amount:split",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop amount:near_same_block",
+    "core_component_size_within_C6": 745,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 857,
+    "C6_released": 39,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 11,
+     "other": 28
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 7,
+    "C6_fragments_flagged": [
+     745,
+     50,
+     50,
+     7,
+     5
+    ]
+   },
+   {
+    "tag": "drop amount:exact_odd",
+    "core_component_size_within_C6": 878,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 878,
+    "C6_released": 18,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 18
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 4,
+    "C6_fragments_flagged": [
+     878
+    ]
+   },
+   {
+    "tag": "drop sequence",
+    "core_component_size_within_C6": 846,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     846,
+     50
+    ]
+   },
+   {
+    "tag": "drop cadence:drip",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop cadence:burst",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop funding:peel_chain",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop funding:shared_hub",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop gas:two_axes",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop gas:limit+fee",
+    "core_component_size_within_C6": 896,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 896,
+    "C6_released": 0,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 0
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 0,
+    "C6_fragments_flagged": [
+     896
+    ]
+   },
+   {
+    "tag": "drop round_wave+split",
+    "core_component_size_within_C6": 322,
+    "core_members_in_core_component": 67,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 627,
+    "C6_released": 269,
+    "core_still_flagged": 268,
+    "released_by_hour_band": {
+     "h17-20": 89,
+     "other": 180
+    },
+    "released_exact_0.1": 245,
+    "released_ens": 48,
+    "C6_fragments_flagged": [
+     322,
+     61,
+     46,
+     31,
+     31,
+     24,
+     23,
+     23,
+     18,
+     18
+    ]
+   },
+   {
+    "tag": "drop round_wave+split+hub",
+    "core_component_size_within_C6": 322,
+    "core_members_in_core_component": 67,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 617,
+    "C6_released": 279,
+    "core_still_flagged": 268,
+    "released_by_hour_band": {
+     "h17-20": 89,
+     "other": 190
+    },
+    "released_exact_0.1": 246,
+    "released_ens": 51,
+    "C6_fragments_flagged": [
+     322,
+     61,
+     46,
+     31,
+     31,
+     24,
+     23,
+     23,
+     18,
+     18
+    ]
+   },
+   {
+    "tag": "round windows block-bounded gap<=32",
+    "core_component_size_within_C6": 642,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 796,
+    "C6_released": 100,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 4,
+     "other": 96
+    },
+    "released_exact_0.1": 81,
+    "released_ens": 27,
+    "C6_fragments_flagged": [
+     642,
+     103,
+     19,
+     11,
+     7,
+     7,
+     7
+    ],
+    "0.1_windows": [
+     [
+      321,
+      17,
+      20
+     ],
+     [
+      103,
+      20,
+      21
+     ],
+     [
+      18,
+      10,
+      11
+     ],
+     [
+      7,
+      34,
+      34
+     ],
+     [
+      7,
+      15,
+      15
+     ],
+     [
+      7,
+      7,
+      7
+     ],
+     [
+      6,
+      12,
+      12
+     ],
+     [
+      6,
+      11,
+      11
+     ]
+    ],
+    "population_flagged_total": 10741,
+    "population_clusters": 233
+   },
+   {
+    "tag": "round windows block-bounded gap<=8",
+    "core_component_size_within_C6": 121,
+    "core_members_in_core_component": 107,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding"
+    ],
+    "C6_still_flagged": 760,
+    "C6_released": 136,
+    "core_still_flagged": 315,
+    "released_by_hour_band": {
+     "h17-20": 13,
+     "other": 123
+    },
+    "released_exact_0.1": 114,
+    "released_ens": 41,
+    "C6_fragments_flagged": [
+     383,
+     121,
+     101,
+     65,
+     28,
+     23,
+     14,
+     10,
+     5,
+     5
+    ],
+    "0.1_windows": [
+     [
+      107,
+      18,
+      19
+     ],
+     [
+      101,
+      20,
+      21
+     ],
+     [
+      78,
+      19,
+      19
+     ],
+     [
+      65,
+      17,
+      18
+     ],
+     [
+      28,
+      17,
+      17
+     ],
+     [
+      23,
+      19,
+      20
+     ],
+     [
+      14,
+      17,
+      17
+     ],
+     [
+      5,
+      11,
+      11
+     ]
+    ],
+    "population_flagged_total": 10603,
+    "population_clusters": 240
+   },
+   {
+    "tag": "round windows block-bounded gap<=64",
+    "core_component_size_within_C6": 646,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 824,
+    "C6_released": 72,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 2,
+     "other": 70
+    },
+    "released_exact_0.1": 63,
+    "released_ens": 22,
+    "C6_fragments_flagged": [
+     646,
+     105,
+     42,
+     11,
+     8,
+     7,
+     5
+    ],
+    "0.1_windows": [
+     [
+      324,
+      16,
+      20
+     ],
+     [
+      105,
+      20,
+      21
+     ],
+     [
+      31,
+      10,
+      12
+     ],
+     [
+      15,
+      0,
+      1
+     ],
+     [
+      12,
+      34,
+      35
+     ],
+     [
+      8,
+      7,
+      7
+     ],
+     [
+      7,
+      15,
+      15
+     ],
+     [
+      6,
+      8,
+      9
+     ]
+    ],
+    "population_flagged_total": 10833,
+    "population_clusters": 240
+   },
+   {
+    "tag": "round windows block-bounded gap<=128",
+    "core_component_size_within_C6": 760,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 857,
+    "C6_released": 39,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 1,
+     "other": 38
+    },
+    "released_exact_0.1": 31,
+    "released_ens": 10,
+    "C6_fragments_flagged": [
+     760,
+     45,
+     19,
+     11,
+     11,
+     11
+    ],
+    "0.1_windows": [
+     [
+      437,
+      15,
+      21
+     ],
+     [
+      34,
+      10,
+      12
+     ],
+     [
+      19,
+      7,
+      9
+     ],
+     [
+      16,
+      34,
+      36
+     ],
+     [
+      15,
+      0,
+      1
+     ],
+     [
+      11,
+      14,
+      15
+     ],
+     [
+      11,
+      5,
+      6
+     ],
+     [
+      6,
+      13,
+      13
+     ]
+    ],
+    "population_flagged_total": 11068,
+    "population_clusters": 258
+   },
+   {
+    "tag": "round windows block-bounded gap<=300",
+    "core_component_size_within_C6": 895,
+    "core_members_in_core_component": 321,
+    "core_component_flagged": true,
+    "core_component_families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "C6_still_flagged": 895,
+    "C6_released": 1,
+    "core_still_flagged": 321,
+    "released_by_hour_band": {
+     "h17-20": 0,
+     "other": 1
+    },
+    "released_exact_0.1": 0,
+    "released_ens": 1,
+    "C6_fragments_flagged": [
+     895
+    ],
+    "0.1_windows": [
+     [
+      545,
+      0,
+      23
+     ],
+     [
+      26,
+      31,
+      36
+     ],
+     [
+      3,
+      41,
+      41
+     ],
+     [
+      2,
+      38,
+      39
+     ]
+    ],
+    "population_flagged_total": 11475,
+    "population_clusters": 267
+   }
+  ],
+  "block_bounded_gap32_fragments": [
+   {
+    "size_in_C6": 642,
+    "cluster_total_size": 642,
+    "families": [
+     "amount",
+     "cadence",
+     "funding",
+     "sequence"
+    ],
+    "subgroups": {
+     "seq_jitter": 300,
+     "other_near": 21,
+     "core": 321
+    },
+    "hours": {
+     "0": 1,
+     "2": 1,
+     "11": 1,
+     "12": 1,
+     "17": 73,
+     "18": 134,
+     "19": 423,
+     "20": 6,
+     "34": 1,
+     "43": 1
+    },
+    "kinds": {
+     "amount:near_same_block": 332,
+     "sequence": 304,
+     "funding:peel_chain": 602,
+     "amount:exact_odd": 8,
+     "funding:shared_hub": 22,
+     "amount:exact_round_wave": 323,
+     "cadence:drip": 268
+    },
+    "ens": 8,
+    "nonce0": 606,
+    "reasons": {
+     "first funder is a member of the same cluster (peel chain)": 588,
+     "identical 0.1Ξ send ×321 in one wave": 320,
+     "metronomic drip ×67 of 0.1Ξ every ~2 blocks": 66,
+     "consecutive join indices 12,433–12,483 · 0-block span": 50,
+     "consecutive join indices 12,543–12,593 · 0-block span": 50,
+     "consecutive join indices 12,652–12,702 · 0-block span": 50
+    }
+   },
+   {
+    "size_in_C6": 103,
+    "cluster_total_size": 103,
+    "families": [
+     "amount",
+     "cadence",
+     "funding"
+    ],
+    "subgroups": {
+     "other_0.1": 103
+    },
+    "hours": {
+     "20": 60,
+     "21": 43
+    },
+    "kinds": {
+     "amount:exact_round_wave": 103,
+     "funding:peel_chain": 99,
+     "cadence:drip": 31,
+     "funding:shared_hub": 3
+    },
+    "ens": 1,
+    "nonce0": 100,
+    "reasons": {
+     "identical 0.1Ξ send ×103 in one wave": 102,
+     "first funder is a member of the same cluster (peel chain)": 97,
+     "metronomic drip ×31 of 0.1Ξ every ~2 blocks": 30,
+     "shared first funder 0xfeb99e2c… ×3 inside one cluster": 2
+    }
+   },
+   {
+    "size_in_C6": 19,
+    "cluster_total_size": 19,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "subgroups": {
+     "other_0.1": 18,
+     "other_near": 1
+    },
+    "hours": {
+     "10": 4,
+     "11": 15
+    },
+    "kinds": {
+     "amount:exact_round_wave": 18,
+     "funding:shared_hub": 4,
+     "amount:near_same_block": 2,
+     "funding:peel_chain": 8
+    },
+    "ens": 11,
+    "nonce0": 0,
+    "reasons": {
+     "identical 0.1Ξ send ×18 in one wave": 17,
+     "first funder is a member of the same cluster (peel chain)": 7,
+     "near-identical 0.1Ξ–0.11Ξ in one block": 1,
+     "shared first funder 0x9696f59e… ×2 inside one cluster": 1,
+     "shared first funder 0xa7efae72… ×2 inside one cluster": 1
+    }
+   },
+   {
+    "size_in_C6": 11,
+    "cluster_total_size": 11,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "subgroups": {
+     "other_near": 9,
+     "other_0.1": 2
+    },
+    "hours": {
+     "8": 1,
+     "9": 3,
+     "21": 1,
+     "22": 5,
+     "23": 1
+    },
+    "kinds": {
+     "amount:exact_odd": 6,
+     "amount:near_same_block": 7,
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 2
+    },
+    "ens": 4,
+    "nonce0": 3,
+    "reasons": {
+     "identical odd 0.103Ξ send ×4": 3,
+     "identical 0.1Ξ send ×2 in one wave": 1,
+     "identical odd 0.129Ξ send ×2": 1,
+     "near-identical 0.1Ξ–0.103Ξ in one block": 1,
+     "near-identical 0.103Ξ–0.110225811625982313Ξ in one block": 1,
+     "near-identical 0.110225811625982313Ξ–0.110312774123370777Ξ in one block": 1
+    }
+   },
+   {
+    "size_in_C6": 7,
+    "cluster_total_size": 7,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "subgroups": {
+     "other_0.1": 6,
+     "other_near": 1
+    },
+    "hours": {
+     "11": 7
+    },
+    "kinds": {
+     "amount:exact_round_wave": 6,
+     "amount:near_same_block": 2,
+     "funding:shared_hub": 2
+    },
+    "ens": 2,
+    "nonce0": 1,
+    "reasons": {
+     "identical 0.1Ξ send ×6 in one wave": 5,
+     "near-identical 0.09Ξ–0.1Ξ in one block": 1,
+     "shared first funder 0xbf94f0ac… ×2 inside one cluster": 1
+    }
+   },
+   {
+    "size_in_C6": 7,
+    "cluster_total_size": 7,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "subgroups": {
+     "other_0.1": 7
+    },
+    "hours": {
+     "15": 7
+    },
+    "kinds": {
+     "amount:exact_round_wave": 7,
+     "funding:shared_hub": 3
+    },
+    "ens": 3,
+    "nonce0": 0,
+    "reasons": {
+     "identical 0.1Ξ send ×7 in one wave": 6,
+     "shared first funder 0x623777cc… ×3 inside one cluster": 2
+    }
+   },
+   {
+    "size_in_C6": 7,
+    "cluster_total_size": 7,
+    "families": [
+     "amount",
+     "funding"
+    ],
+    "subgroups": {
+     "other_0.1": 7
+    },
+    "hours": {
+     "7": 7
+    },
+    "kinds": {
+     "amount:exact_round_wave": 7,
+     "funding:peel_chain": 2
+    },
+    "ens": 1,
+    "nonce0": 0,
+    "reasons": {
+     "identical 0.1Ξ send ×7 in one wave": 6,
+     "first funder is a member of the same cluster (peel chain)": 1
+    }
+   }
+  ],
+  "block_bounded_gap32_released": {
+   "n": 100,
+   "subgroups": {
+    "other_0.1": 81,
+    "other_near": 19
+   },
+   "ens": 27,
+   "nonce0": 11,
+   "nonce_ge20": 71,
+   "peel": 1,
+   "legacy_91600_fingerprint": 0,
+   "points_pct": 0.133
+  },
+  "answer_q1_block_bounded": "642 of 896 remain connected to the hour-17 core under a <=32-block window (321 core + 300 seq_jitter + 21 near-amount wallets via near-same-block/odd/hub edges); the h20-21 0.1 wave (103) becomes its own flagged cluster (amount+cadence+funding); 5 small fragments (19,11,7,7,7) stay flagged on amount+funding(hub) only; 100 released"
+ },
+ "hour_histogram": {
+  "0": 6,
+  "1": 11,
+  "2": 3,
+  "3": 2,
+  "4": 3,
+  "5": 6,
+  "6": 5,
+  "7": 10,
+  "8": 8,
+  "9": 6,
+  "10": 9,
+  "11": 26,
+  "12": 16,
+  "13": 7,
+  "14": 4,
+  "15": 8,
+  "16": 6,
+  "17": 74,
+  "18": 134,
+  "19": 425,
+  "20": 67,
+  "21": 49,
+  "22": 6,
+  "23": 3,
+  "34": 1,
+  "43": 1
+ },
+ "outside_h16_18": 682,
+ "inside_h16_18": 214,
+ "inside_h17_21_farm_band": 749,
+ "funding_breakdown": {
+  "inside_h16_18": {
+   "n": 214,
+   "peel(funder in cluster 6)": [
+    178,
+    0.832
+   ],
+   "single_small_eoa/unknown": [
+    11,
+    0.051
+   ],
+   "another_contributor(main wallet)": [
+    11,
+    0.051
+   ],
+   "shared_funder_hub(2+ funded, unlabeled)": [
+    6,
+    0.028
+   ],
+   "exchange_scale_eoa(not on list)": [
+    5,
+    0.023
+   ],
+   "cex_hot_wallet(list)": [
+    3,
+    0.014
+   ],
+   "nonce0": 183,
+   "nonce_ge20": 21,
+   "ens": 7
+  },
+  "outside_h16_18": {
+   "n": 682,
+   "peel(funder in cluster 6)": [
+    517,
+    0.758
+   ],
+   "single_small_eoa/unknown": [
+    53,
+    0.078
+   ],
+   "shared_funder_hub(2+ funded, unlabeled)": [
+    52,
+    0.076
+   ],
+   "another_contributor(main wallet)": [
+    25,
+    0.037
+   ],
+   "exchange_scale_eoa(not on list)": [
+    22,
+    0.032
+   ],
+   "cex_hot_wallet(list)": [
+    11,
+    0.016
+   ],
+   "unresolved/self": [
+    2,
+    0.003
+   ],
+   "nonce0": 538,
+   "nonce_ge20": 111,
+   "ens": 50
+  },
+  "inside_h17_21_farm_band": {
+   "n": 749,
+   "peel(funder in cluster 6)": [
+    686,
+    0.916
+   ],
+   "another_contributor(main wallet)": [
+    24,
+    0.032
+   ],
+   "single_small_eoa/unknown": [
+    14,
+    0.019
+   ],
+   "shared_funder_hub(2+ funded, unlabeled)": [
+    12,
+    0.016
+   ],
+   "exchange_scale_eoa(not on list)": [
+    7,
+    0.009
+   ],
+   "cex_hot_wallet(list)": [
+    6,
+    0.008
+   ],
+   "nonce0": 704,
+   "nonce_ge20": 34,
+   "ens": 14
+  },
+  "outside_h17_21": {
+   "n": 147,
+   "single_small_eoa/unknown": [
+    50,
+    0.34
+   ],
+   "shared_funder_hub(2+ funded, unlabeled)": [
+    46,
+    0.313
+   ],
+   "exchange_scale_eoa(not on list)": [
+    20,
+    0.136
+   ],
+   "another_contributor(main wallet)": [
+    12,
+    0.082
+   ],
+   "peel(funder in cluster 6)": [
+    9,
+    0.061
+   ],
+   "cex_hot_wallet(list)": [
+    8,
+    0.054
+   ],
+   "unresolved/self": [
+    2,
+    0.014
+   ],
+   "nonce0": 17,
+   "nonce_ge20": 98,
+   "ens": 43
+  },
+  "note": "exchange_scale_eoa = the 6 large EOAs named by the orchestrator (not on the 12-address CEX list); shared_funder_hub = funder with >=2 funded contributors population-wide (hub_candidates.json), identity unknown; \"exchange-funded\" alone is not evidence either way; cached first-funder agreed with Blockscout first incoming tx in 27/27 checkable fresh wallets"
+ },
+ "onchain_sample": {
+  "n_wallets": 51,
+  "blockscout_calls": 56,
+  "verdict_by_category": {
+   "A_ens_core(5)": "human-like 5/5 (aged, 282-4532 txs, DeFi/NFT activity, own funding, still hold ETH)",
+   "A_ens_other(5)": "human-like 5/5",
+   "B_round_only_outside_h16_18(15)": "human-like 9, unknown 5, farm-like 1",
+   "C_core_peel(8)": "farm-like 8/8: nonce 0, funded 0.1195-0.11996 ETH by previous chain member 12-24 s before deposit, forwarded ~0.1195 ETH to next member, 2 lifetime txs, balance 0",
+   "C_core_nonpeel(2)": "human-like 2/2 (nonce 175/849, DeFi activity)",
+   "D_near(10)": "human-like 5, unknown 4, farm-like 1",
+   "E_h20_21_peel(3)": "farm-like 3/3 (identical fingerprint to core chain: legacy tx, 0.1197 ETH funded 12-24 s before, forwarded to next member)",
+   "E_seq_jitter(3)": "farm-like 3/3 (nonce 0, funded same block by previous member, 3 lifetime txs, 1e-05 ETH ping to 0x6688928b01768c92e5f6fafbcf381bee23727395 (EOA, 2282 txs) after deposit)"
+  },
+  "small_operators_found_among_the_rest": [
+   {
+    "wallets": [
+     "0x528763fb27",
+     "0x21785e01a3",
+     "0xa8752abec1"
+    ],
+    "evidence": "all age 748.2 d, nonce 5 at deposit, funded ~0.0072 ETH 64.6M s before, all swept 0.09-0.11 ETH to 0x79558d92ea5105dd726dfc138b8c793781de7552 (EOA, 0 outgoing txs) after the game",
+    "size_estimate": ">=3 wallets, unrelated to the 0.1 operator"
+   },
+   {
+    "wallets": [
+     "0x322318b0141716a2bc1c13e7c9c107a2336420be -> 0xe31aa127 -> ... (5-tree)"
+    ],
+    "evidence": "linear 5-wallet peel chain at 0.09-0.0902 ETH at h18, aged root (1076 d, nonce 4)",
+    "size_estimate": "5"
+   },
+   {
+    "wallets": [
+     "0xe2d9942b99 (02861.eth) + 7 funded wallets at h11"
+    ],
+    "evidence": "one aged ENS wallet first-funded 7 members that sent 0.1 at h11",
+    "size_estimate": "8 (one human, several wallets)"
+   }
+  ],
+  "rows": [
+   {
+    "address": "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+    "cat": "A_ens_core",
+    "sub": "core",
+    "ens": "tonybearbrick.eth",
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 4532,
+    "nonce_now": 4540,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 600000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+    "first_funder_cached": "0xfe92a3cf1843b5ec7ccf27b2ae753fac1289fa9d",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.079,
+    "fund_to_deposit_sec": 5522568.0,
+    "other_contracts": {
+     "AllowanceHolder": 12,
+     "0x17e566d9": 4,
+     "Rekt": 3,
+     "USDC": 3,
+     "eNear": 2
+    },
+    "n_other_out": 49,
+    "post_deposit_out_txs": 7,
+    "sweep": {
+     "to": "0x0000000000000068f116a894984e2db1123eb395",
+     "to_in_C6": false,
+     "value_eth": 0.013,
+     "ts": "2026-08-17T14:19:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 2.151842997282013,
+    "deposit_tx": "0x5e03a15fbd15a7b514e96177dfbe29313dc12233dcfbcba0ee8c168a48797781",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x1c1c1538f375eef2ef73abaa54c2af884ca6bb9d",
+    "cat": "A_ens_core",
+    "sub": "core",
+    "ens": "0xair.eth",
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 282,
+    "nonce_now": 283,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": null,
+    "first_funder_cached": "0x4fb632f8687d513683b5bec194919981eadd563d",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": null,
+    "fund_to_deposit_sec": null,
+    "other_contracts": {
+     "USDC": 11,
+     "Seaport": 7,
+     "AirdropToken": 4,
+     "WETH9": 4,
+     "DexRouter": 2
+    },
+    "n_other_out": 49,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.11893947635768237,
+    "deposit_tx": "0x7e06577050b69b32a1dfce8cc284f8daeb4c9accf5f23720db7db286d0d26124",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x2df49b9d241b36abd7ea8496ba07f6d01caf166c",
+    "cat": "A_ens_core",
+    "sub": "core",
+    "ens": "800090000.eth",
+    "amount_eth": "0.1",
+    "hour": 19,
+    "nonce_at_deposit": 354,
+    "nonce_now": 359,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 491123797,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x4531641bc673d87f79ab788148c27a78c4c8cd4e",
+    "first_funder_cached": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 0.0,
+    "fund_to_deposit_sec": 17112720.0,
+    "other_contracts": {
+     "ERC1967Proxy": 9,
+     "SeaDrop": 9,
+     "USDC": 6,
+     "Seaport": 3,
+     "RelayDepository": 2
+    },
+    "n_other_out": 46,
+    "post_deposit_out_txs": 4,
+    "sweep": null,
+    "balance_eth_now": 0.11791010941110722,
+    "deposit_tx": "0xf63ed1d78d24156cf9ea698db64678e28b87d03b31d539206d1fef372b8fd1d0",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x6880c355c73e9538313c5203c7783cc56609f044",
+    "cat": "A_ens_core",
+    "sub": "core",
+    "ens": "prufboogie.eth",
+    "amount_eth": "0.1",
+    "hour": 17,
+    "nonce_at_deposit": 1722,
+    "nonce_now": 1754,
+    "tx_type": 2,
+    "gas_limit": 83967,
+    "prio_fee": 100100000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xa5a5491bca93dd4c076e4906e79e7673f4a5a142",
+    "first_funder_cached": "0x7f6f613f66997b79a52a3064d54a0e5508cd9ff7",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00198,
+    "fund_to_deposit_sec": 64824.0,
+    "other_contracts": {
+     "0xa1858144": 11,
+     "TetherToken": 9,
+     "RelayDepository": 5,
+     "0xe934e36a": 3,
+     "RelayApprovalProxyV3": 3
+    },
+    "n_other_out": 42,
+    "post_deposit_out_txs": 31,
+    "sweep": {
+     "to": "0x111111125421ca6dc452d289314280a0f8842a65",
+     "to_in_C6": false,
+     "value_eth": 0.1063,
+     "ts": "2026-08-17T13:21:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.001432573877893831,
+    "deposit_tx": "0xc98caaa5cf4f1d4a809572d5fd048c447725f3b9ed369a2f19f4fe3a61563676",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xaaeae99cda50a53aae159e6fa8793514b08f18d4",
+    "cat": "A_ens_core",
+    "sub": "core",
+    "ens": "heisenbergknocks.eth",
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 315,
+    "nonce_now": 320,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 600000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+    "first_funder_cached": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+    "funder_class": "hub_69",
+    "fund_value_eth": 0.20625,
+    "fund_to_deposit_sec": 33230064.0,
+    "other_contracts": {
+     "WETH9": 9,
+     "TransparentUpgradeableProxy": 3,
+     "RelayDepository": 3,
+     "0xb3101ec4": 2,
+     "RelayReceiver": 2
+    },
+    "n_other_out": 41,
+    "post_deposit_out_txs": 4,
+    "sweep": {
+     "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+     "to_in_C6": false,
+     "value_eth": 0.061,
+     "ts": "2026-08-17T15:22:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 1.00007654355e-05,
+    "deposit_tx": "0x8e3538faa1d54047f17e0df78e151066401aea625d80089b23ce8f7d729f27e2",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xd0de9994f751dd5f759a8e72fe5ed59c9972ab0f",
+    "cat": "A_ens_other",
+    "sub": "other_0.1",
+    "ens": "marsearth.eth",
+    "amount_eth": "0.1",
+    "hour": 11,
+    "nonce_at_deposit": 84,
+    "nonce_now": 87,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 150000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+    "first_funder_cached": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+    "funder_class": "hub_30",
+    "fund_value_eth": 0.02983,
+    "fund_to_deposit_sec": 36111372.0,
+    "other_contracts": {
+     "Seaport": 7,
+     "Permit2Proxy": 5,
+     "ERC1967Proxy": 4,
+     "TetherToken": 3,
+     "Token": 2
+    },
+    "n_other_out": 48,
+    "post_deposit_out_txs": 2,
+    "sweep": null,
+    "balance_eth_now": 0.10831263843565402,
+    "deposit_tx": "0x1fe1658aa1e38631761b005a00ad52fba849bc52c147353a06cddae2b7a414a4",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x4af694afac543c2586feb46a3fd2b3b9f3d94f7f",
+    "cat": "A_ens_other",
+    "sub": "other_0.1",
+    "ens": "xoxonft.eth",
+    "amount_eth": "0.1",
+    "hour": 16,
+    "nonce_at_deposit": 1714,
+    "nonce_now": 1727,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 150000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589",
+    "first_funder_cached": "0xd24400ae8bfebb18ca49be86258a3c749cf46853",
+    "funder_class": "cex_infra_list",
+    "fund_value_eth": 0.31839,
+    "fund_to_deposit_sec": 1636536.0,
+    "other_contracts": {
+     "Seaport": 11,
+     "USDC": 6,
+     "SeaDrop": 4,
+     "UniversalRouter": 3,
+     "ERC1967Proxy": 3
+    },
+    "n_other_out": 44,
+    "post_deposit_out_txs": 12,
+    "sweep": {
+     "to": "0xb2ecfe4e4d61f8790bbb9de2d1259b9e2410cea5",
+     "to_in_C6": false,
+     "value_eth": 0.0562,
+     "ts": "2026-08-17T13:10:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.6571715998250887,
+    "deposit_tx": "0xe9d86c529dca57b5fb1b2ca1b95bff3b38a8e72061e041327cffff12100fa0b1",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xd7bddad38b32fd473a14718e0528c9a3ce55e875",
+    "cat": "A_ens_other",
+    "sub": "other_near",
+    "ens": "pve4849.eth",
+    "amount_eth": "0.103",
+    "hour": 21,
+    "nonce_at_deposit": 205,
+    "nonce_now": 206,
+    "tx_type": 2,
+    "gas_limit": 113508,
+    "prio_fee": 600000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x91604f590d66ace8975eed6bd16cf55647d1c499",
+    "first_funder_cached": "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+    "funder_class": "hub_30",
+    "fund_value_eth": 0.00152,
+    "fund_to_deposit_sec": 55848348.0,
+    "other_contracts": {
+     "TransparentUpgradeableProxy": 8,
+     "ERC1967Proxy": 5,
+     "USDC": 4,
+     "LevelStakingPool": 2,
+     "0x669f220e": 2
+    },
+    "n_other_out": 47,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.10550574594596066,
+    "deposit_tx": "0x03f62f84ad1dc80c81844adf0ff1e0d9b37a03e7994fbf392f95e18a98e71469",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xe2d9942b99db16f3bcac5787babdf5ef1c415fff",
+    "cat": "A_ens_other",
+    "sub": "other_0.1",
+    "ens": "02861.eth",
+    "amount_eth": "0.1",
+    "hour": 11,
+    "nonce_at_deposit": 80,
+    "nonce_now": 81,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 80000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "first_funder_cached": "0x29a303c3d62afa14903b182c1c0d9e5ae9138851",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.55723,
+    "fund_to_deposit_sec": 50375112.0,
+    "other_contracts": {
+     "UniversalRouter": 15,
+     "WETH9": 3,
+     "Token": 3,
+     "Asterix": 2,
+     "ETHRegistrarController": 2
+    },
+    "n_other_out": 39,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.10202965041622454,
+    "deposit_tx": "0x683499ea6b68ff4e86feaffb2fade17cc4ce6ae78486f4ba430fd9ff4a54f6b5",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x778c1c5bfde9468c0edeee03b4c06a2667d76bb6",
+    "cat": "A_ens_other",
+    "sub": "other_0.1",
+    "ens": "xcplkys.eth",
+    "amount_eth": "0.1",
+    "hour": 15,
+    "nonce_at_deposit": 51,
+    "nonce_now": 52,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 71408560,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xa7efae728d2936e78bda97dc267687568dd593f3",
+    "first_funder_cached": "0xa7efae728d2936e78bda97dc267687568dd593f3",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 0.7977,
+    "fund_to_deposit_sec": 80531388.0,
+    "other_contracts": {
+     "TransparentUpgradeableProxy": 4,
+     "ERC1967Proxy": 3,
+     "TetherToken": 3,
+     "ETHRegistrarController": 2,
+     "WETH9": 2
+    },
+    "n_other_out": 47,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.10830740339213249,
+    "deposit_tx": "0xe5899deabec8d004cca6254f91aadd5c58636cdf6f23eee11165dc68627d6b0f",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xb966968d6c58a04cae205cdd18c3800c46caa87a",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 0,
+    "nonce_at_deposit": 393,
+    "nonce_now": 395,
+    "tx_type": 2,
+    "gas_limit": 114171,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x4d97e397cf139f57f78d4641e75e8d536cb83ec8",
+    "first_funder_cached": "0xd24400ae8bfebb18ca49be86258a3c749cf46853",
+    "funder_class": "cex_infra_list",
+    "fund_value_eth": 0.0,
+    "fund_to_deposit_sec": 37637364.0,
+    "other_contracts": {
+     "TransparentUpgradeableProxy": 13,
+     "USDC": 5,
+     "0x4d976715": 5,
+     "InitializableImmutableAdminUpgradeabilityProxy": 5,
+     "UmbrellaBatchHelper": 2
+    },
+    "n_other_out": 40,
+    "post_deposit_out_txs": 1,
+    "sweep": null,
+    "balance_eth_now": 0.12056060897071526,
+    "deposit_tx": "0xc052a25be268b7e6ac5bc7ad9643355cc167db4aca406a217fa47567df79f937",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x3114b610c4521af0405f3bcd48f595dad3742484",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 1,
+    "nonce_at_deposit": 4,
+    "nonce_now": 6,
+    "tx_type": 2,
+    "gas_limit": 105940,
+    "prio_fee": 100100000,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 111.4,
+    "first_funder": "0xa99cc67d28efe1381d71d51c6957e48e9c3bc3b0",
+    "first_funder_cached": "0xa99cc67d28efe1381d71d51c6957e48e9c3bc3b0",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00026,
+    "fund_to_deposit_sec": 9624972.0,
+    "other_contracts": {
+     "UniversalRouter": 1,
+     "Token2027": 1,
+     "AggregationRouterV6": 1,
+     "0xe4978ced": 1,
+     "0xde6da220": 1
+    },
+    "n_other_out": 5,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xde6da22019410cb4a4072f45b529c7e3c8a88b1e",
+     "to_in_C6": false,
+     "value_eth": 0.1,
+     "ts": "2026-08-16T21:17:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.006088691944765483,
+    "deposit_tx": "0xc9549cfc6ac08c9be08562b17e5c9e07b39262379a864ea9913bdcc7e18d3fb5",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x853afddb78723bb1de2a716021e27d8328d23004",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 2,
+    "nonce_at_deposit": 1,
+    "nonce_now": 5,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 150000000,
+    "n_txs_seen": 8,
+    "list_complete": true,
+    "age_days_at_deposit": 2.3,
+    "first_funder": "0xa5a5491bca93dd4c076e4906e79e7673f4a5a142",
+    "first_funder_cached": "0xa5a5491bca93dd4c076e4906e79e7673f4a5a142",
+    "funder_class": "small_hub(2-4)",
+    "fund_value_eth": 0.00895,
+    "fund_to_deposit_sec": 198864.0,
+    "other_contracts": {
+     "RelayDepository": 1,
+     "0x753ac33e": 1
+    },
+    "n_other_out": 2,
+    "post_deposit_out_txs": 3,
+    "sweep": {
+     "to": "0x753ac33e53a1c56c68668487e45b09488fd0fb26",
+     "to_in_C6": false,
+     "value_eth": 0.11,
+     "ts": "2026-08-16T22:46:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.000723707872121885,
+    "deposit_tx": "0x865f4d2dd22320a257c34cd24056637276b67ce5a8ba2e3b502f3132e2b27594",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x00000097d54ae973fad909ec4da059a9be5d5597",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 3,
+    "nonce_at_deposit": 2,
+    "nonce_now": 4,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 150000000,
+    "n_txs_seen": 6,
+    "list_complete": true,
+    "age_days_at_deposit": 10.3,
+    "first_funder": "0xabb2acd3be814a80e502575d6c1dc5f789e9cd10",
+    "first_funder_cached": "0xabb2acd3be814a80e502575d6c1dc5f789e9cd10",
+    "funder_class": "hub_7",
+    "fund_value_eth": 0.01998,
+    "fund_to_deposit_sec": 888096.0,
+    "other_contracts": {
+     "ETHRegistrarController": 2,
+     "0x91f381c0": 1
+    },
+    "n_other_out": 3,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x91f381c0c85cb50bf21eb089337cb1650aca9029",
+     "to_in_C6": false,
+     "value_eth": 0.11,
+     "ts": "2026-08-21T12:10:23.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 0.001983982474262508,
+    "deposit_tx": "0x569eb15698fcec7cd0bb34e37cc1897aac5cc29bc03dc9d978012773a88982ad",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0xf1eabc4c5510301b19e52b03ace4f538b035592d",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 4,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 2,
+    "gas_limit": 91601,
+    "prio_fee": 130011780,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x3e405998e20f22136ea052cb7936868a1fb15971",
+    "first_funder_cached": "0x3e405998e20f22136ea052cb7936868a1fb15971",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.12,
+    "fund_to_deposit_sec": 60.0,
+    "other_contracts": {
+     "0x3e405998": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x3e405998e20f22136ea052cb7936868a1fb15971",
+     "to_in_C6": false,
+     "value_eth": 0.11999,
+     "ts": "2026-08-17T00:46:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 2.98165623e-07,
+    "deposit_tx": "0x17dd14bad7228b6e5188089f707e06965be5f48d88609a97a304e16f1eb7d232",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x4831bd2e5d6ab2568870f963fef1d96bd8c43546",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 5,
+    "nonce_at_deposit": 1265,
+    "nonce_now": 1286,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x826ac6eedbcb4f7bf4cbb2c4e887b3ebf1fd19ef",
+    "first_funder_cached": "0x78c269ee1f90f93500ddef91b97d6be2f0bf2d14",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00499,
+    "fund_to_deposit_sec": 525540.0,
+    "other_contracts": {
+     "Seaport": 6,
+     "SeaDrop": 3,
+     "MetaBridge": 3,
+     "TetherToken": 2,
+     "WETH9": 2
+    },
+    "n_other_out": 28,
+    "post_deposit_out_txs": 20,
+    "sweep": {
+     "to": "0xf73892a76d50cff31a601e24d603e80eadfb2f25",
+     "to_in_C6": false,
+     "value_eth": 0.01,
+     "ts": "2026-08-19T18:07:23.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 0.000352021506996546,
+    "deposit_tx": "0xf192f0e5a18685fceefbbfec2a9524bb758c9ab485ab7c8864473bc4ff337f90",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xedef3a9467bf5f5dbfd52932fdf87bd53c4d3284",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 6,
+    "nonce_at_deposit": 111,
+    "nonce_now": 113,
+    "tx_type": 2,
+    "gas_limit": 83967,
+    "prio_fee": 100187393,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x79de90b0e6feedea60128b3a7d9d3f772cbe7c0c",
+    "first_funder_cached": "0x79de90b0e6feedea60128b3a7d9d3f772cbe7c0c",
+    "funder_class": "other_contributor(unflagged)",
+    "fund_value_eth": 0.003,
+    "fund_to_deposit_sec": 5629572.0,
+    "other_contracts": {
+     "SeaDrop": 22,
+     "WETH9": 3,
+     "RelayDepository": 3,
+     "ElementalsQuest": 2,
+     "Pic2cells": 2
+    },
+    "n_other_out": 46,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+     "to_in_C6": false,
+     "value_eth": 0.10358,
+     "ts": "2026-08-17T02:28:35.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.001515212481557652,
+    "deposit_tx": "0xb7dbe0a032b96592ea9429067f59da6631626a39fa616019558eec26c931f89f",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x1f8af354854c1f2035477ba062d6ae05c399bdaf",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 7,
+    "nonce_at_deposit": 115,
+    "nonce_now": 119,
+    "tx_type": 2,
+    "gas_limit": 83967,
+    "prio_fee": 900165408,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xc99b8ab14980fe1c393c72afa9a5c95a2bdd98f3",
+    "first_funder_cached": "0x50757c4fb5743fdf2f3e9574d90399dd33bd2ef7",
+    "funder_class": "other_contributor(unflagged)",
+    "fund_value_eth": 0.004,
+    "fund_to_deposit_sec": 5834880.0,
+    "other_contracts": {
+     "0x50757c4f": 7,
+     "SeaDrop": 7,
+     "Seaport": 3,
+     "Disperse": 2,
+     "BLEEPS": 2
+    },
+    "n_other_out": 40,
+    "post_deposit_out_txs": 3,
+    "sweep": {
+     "to": "0x50757c4fb5743fdf2f3e9574d90399dd33bd2ef7",
+     "to_in_C6": false,
+     "value_eth": 0.1,
+     "ts": "2026-08-17T03:30:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.002098908937189467,
+    "deposit_tx": "0x707b0db0e520ce7999767ae46166135b9ea8ef9c00c7fcf5329bb263be7aba1e",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x7bc86de2c391788936e8b73e0da857751d3815a7",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": "916668.eth",
+    "amount_eth": "0.1",
+    "hour": 8,
+    "nonce_at_deposit": 94,
+    "nonce_now": 96,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 29414208,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_funder_cached": "0xbeca3a08cfff0617f2743f953a98b67130e61b0f",
+    "funder_class": "other_contributor(flagged)",
+    "fund_value_eth": 0.1068,
+    "fund_to_deposit_sec": 82335300.0,
+    "other_contracts": {
+     "USDe": 4,
+     "Staked USDe": 4,
+     "TetherToken": 3,
+     "SwapRouter": 3,
+     "EthenaLPStaking": 3
+    },
+    "n_other_out": 44,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x751dceaf7dca5ca424e6e74c9c93745126592023",
+     "to_in_C6": false,
+     "value_eth": 0.001,
+     "ts": "2026-08-21T07:09:47.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 0.10253020603138269,
+    "deposit_tx": "0x5cbb26bd502abdb2ba2ff1a3d44e35b1edd8f1c67098575c8c642f04274877d3",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x5123fa882425fe8b454ba462aa32ba0742198c01",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 9,
+    "nonce_at_deposit": 193,
+    "nonce_now": 194,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 25379717,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x9888693ae71e91865b8a4f8d61c4e803eab1dc3f",
+    "first_funder_cached": "0xd4203e6ffc798765dea121d795b2a56684c1c738",
+    "funder_class": "other_contributor(unflagged)",
+    "fund_value_eth": 0.00781,
+    "fund_to_deposit_sec": 9067860.0,
+    "other_contracts": {
+     "submitPrompt": 7,
+     "DexRouter": 6,
+     "TransparentUpgradeableProxy": 5,
+     "Seaport": 2,
+     "USDC": 2
+    },
+    "n_other_out": 47,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.1064716669534405,
+    "deposit_tx": "0x118847e16cf5b4ff3dc713e8f3d70a336a917be9961a760426db077cbb32e628",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xd5b2bceeaaaccb2bf152207f7e8c4abcaa7d5881",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": "dakpluto.eth",
+    "amount_eth": "0.1",
+    "hour": 10,
+    "nonce_at_deposit": 470,
+    "nonce_now": 472,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 1000000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xc066ac5d385419b1a8c43a0e146fa439837a8b8c",
+    "first_funder_cached": "0x5e809a85aa182a9921edd10a4163745bb3e36284",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00019,
+    "fund_to_deposit_sec": 15025308.0,
+    "other_contracts": {
+     "C1Erc20Bep20": 4,
+     "0xe16f8882": 4,
+     "ERC1967Proxy": 3,
+     "SoulboundSeaDrop": 3,
+     "USDC": 3
+    },
+    "n_other_out": 46,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "to_in_C6": false,
+     "value_eth": 0.0012,
+     "ts": "2026-08-20T14:00:47.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 0.14221297191508442,
+    "deposit_tx": "0xf7d885c79d1d237b236fdab65c39352ef30a8c536c109c85fd034f7ad302520b",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x528763fb27f7bf82eeb1b95ca02762dd4c65be88",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 11,
+    "nonce_at_deposit": 5,
+    "nonce_now": 7,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 748.2,
+    "first_funder": "0x0a5bfce763aa9b7970f2d87d973fd28f781ededd",
+    "first_funder_cached": "0x0a5bfce763aa9b7970f2d87d973fd28f781ededd",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00723,
+    "fund_to_deposit_sec": 64646976.0,
+    "other_contracts": {
+     "Swell Ethereum": 1,
+     "0x0efe6a8b": 1,
+     "gimmieShares": 1,
+     "BeaconProxy": 1,
+     "0xc6533104": 1
+    },
+    "n_other_out": 6,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x79558d92ea5105dd726dfc138b8c793781de7552",
+     "to_in_C6": false,
+     "value_eth": 0.10972,
+     "ts": "2026-08-17T07:47:11.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 2.20897315905e-05,
+    "deposit_tx": "0x06e1210230a3a42ea6e134aaa2c10bc5b76e5a466db3164fcecafa0d61b5d4b3",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x21785e01a3ed42ae1b4003c12b29d81fcf4e803c",
+    "cat": "B_round_only",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.09",
+    "hour": 12,
+    "nonce_at_deposit": 5,
+    "nonce_now": 7,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 748.2,
+    "first_funder": "0xbd1c2706df0c1bb7245589cf9b0efa59fd3e054f",
+    "first_funder_cached": "0xbd1c2706df0c1bb7245589cf9b0efa59fd3e054f",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00718,
+    "fund_to_deposit_sec": 64648200.0,
+    "other_contracts": {
+     "Swell Ethereum": 1,
+     "0x0efe6a8b": 1,
+     "gimmieShares": 1,
+     "BeaconProxy": 1,
+     "0xc6533104": 1
+    },
+    "n_other_out": 6,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x79558d92ea5105dd726dfc138b8c793781de7552",
+     "to_in_C6": false,
+     "value_eth": 0.09472,
+     "ts": "2026-08-18T06:13:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 2.21111558115e-05,
+    "deposit_tx": "0xe4c0b37aa48e79213cde0c3f126d0817f2e5cedbf7c80ba18fe82295db05955d",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x0c792b9bcd47e9b766533733eb325c8fe3207f81",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": "31910.eth",
+    "amount_eth": "0.1",
+    "hour": 13,
+    "nonce_at_deposit": 1153,
+    "nonce_now": 1154,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 32937514,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xa596f7e07f7380ef1dcd66377dc0f0e39378aae6",
+    "first_funder_cached": "0x3a609997fec827e32941dd32de4402c198237671",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.0,
+    "fund_to_deposit_sec": 24973188.0,
+    "other_contracts": {
+     "DexRouter": 8,
+     "0x9871efa4": 4,
+     "0x0d5f0e3b": 3,
+     "BitmapPunks": 2,
+     "ERC1967Proxy": 2
+    },
+    "n_other_out": 45,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.10223303217036754,
+    "deposit_tx": "0xf74a471e4606336cec9ae8035a1f8c6014abc89f6cdf836e98707187d32ededc",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xce52b1426e32dec6a00afc5fc1b9b38c54b05811",
+    "cat": "B_round_only",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 14,
+    "nonce_at_deposit": 277,
+    "nonce_now": 279,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 600000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": null,
+    "first_funder_cached": "0x0235964999eab7a7a2e90613691906e2f17f5484",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": null,
+    "fund_to_deposit_sec": null,
+    "other_contracts": {
+     "FWA": 37,
+     "FWARewards": 5,
+     "UniversalRouter": 1,
+     "FWATokenWrapper": 1,
+     "0x285fb28f": 1
+    },
+    "n_other_out": 49,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x5fb2679205965dbbf2537ac496b23470d7302156",
+     "to_in_C6": false,
+     "value_eth": 0.1,
+     "ts": "2026-08-19T09:11:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.016659454798340273,
+    "deposit_tx": "0xe683cec77990c84b17e7009b4774451df3e30e2b026a3c8327065fda72bcf37b",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x5d5a6ba52d3a80e9cfbf9445d1a3f1ccbf2812b0",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xc0d97abfb70eb20d7d4ba83aa5086567a1f9752b",
+    "first_funder_cached": "0xc0d97abfb70eb20d7d4ba83aa5086567a1f9752b",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11963,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0x60ffa516": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x60ffa5163ff9ed7fdd72a0113f1455df92ac0c86",
+     "to_in_C6": true,
+     "value_eth": 0.11962,
+     "ts": "2026-08-17T14:46:11.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0x0547df47f6addef446f17027bd91398bea4ea9d085568ac8f04cfb7cb8416852",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x979049efcfcf3b69d39dc007d751256cff837b10",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 17,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x57967d00396a319343225af84652d6b7deb8d95a",
+    "first_funder_cached": "0x57967d00396a319343225af84652d6b7deb8d95a",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11995,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0xe1be8146": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xe1be81468b21a7fd34c4263f80ee17176de73e86",
+     "to_in_C6": true,
+     "value_eth": 0.11993,
+     "ts": "2026-08-17T13:47:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xe4bed45c296823ee94ae28331d64d216c9d56fc1178f77e36a72128209fdaddd",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x5e749b8c1b8c56ee9e3210c3f9349fade8cc1785",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x6d1f246f77bee59901a8396d15f4ea2bc4f39280",
+    "first_funder_cached": "0x6d1f246f77bee59901a8396d15f4ea2bc4f39280",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.1195,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0xaf3b80f5": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xaf3b80f54c341c01e1130173e366f4f662105ea6",
+     "to_in_C6": true,
+     "value_eth": 0.11949,
+     "ts": "2026-08-17T14:05:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0x84da00acda8489df51cc2ba15201950bd0326409fc0abbf077a1abc3ea94dd16",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xa880f8b55902decf113c08af73c7f42381f787ef",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x01c1578642140f755413d430c7099701d604c65d",
+    "first_funder_cached": "0x01c1578642140f755413d430c7099701d604c65d",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11994,
+    "fund_to_deposit_sec": 24.0,
+    "other_contracts": {
+     "0x3e8c8db5": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x3e8c8db5b4a4f7294c47972711983e90e222eb17",
+     "to_in_C6": true,
+     "value_eth": 0.11993,
+     "ts": "2026-08-17T14:52:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xb5eec1868de8b4f491ce5cebfe265d78af701ef9b3fdbfaa26e69d5b6ec6ba73",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xdec5a48a3ad21d3f56c93fa71e9109294f0bb0b9",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xaeb0007b317a7969b944e022205b35f56a9eeb12",
+    "first_funder_cached": "0xaeb0007b317a7969b944e022205b35f56a9eeb12",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11953,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0x18504fed": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x18504fed6ce05990264566a9079705552b393ba2",
+     "to_in_C6": true,
+     "value_eth": 0.11951,
+     "ts": "2026-08-17T15:07:35.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0x21c283b957243bd47b2faaf47013627a6c03dd3c6951bcd5903f6a18b01ac96a",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x250eef4bbe638bebdc986db820a3f98aeec6e9c9",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 17,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xe11fa088666495d73601da5d01eb3be010f0cc08",
+    "first_funder_cached": "0xe11fa088666495d73601da5d01eb3be010f0cc08",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11959,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0xc6747660": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xc6747660e9f7a618ab94323ecf96ecd3cd26b835",
+     "to_in_C6": true,
+     "value_eth": 0.11958,
+     "ts": "2026-08-17T13:39:11.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0x3a85f3291a758a244d232d7889dbc2474a4d0956b4859ad550651cbb6498b9ff",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xd19689f8706693c5d36b1ff6cf9de2fdb9cd5207",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x35bfadafc924b0ae06781542dfe4f5df9252652c",
+    "first_funder_cached": "0x35bfadafc924b0ae06781542dfe4f5df9252652c",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11996,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0x01c15786": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x01c1578642140f755413d430c7099701d604c65d",
+     "to_in_C6": true,
+     "value_eth": 0.11995,
+     "ts": "2026-08-17T14:51:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xcdbb143604dcb79f40bbf3c5c60ce6c06505940d4cf60640a48cdc0b21e013b9",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xb046d34bfa888d728b289b5c73ae99fa014bc780",
+    "cat": "C_core_peel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x34418cae309e9b78879f23c5226033e6bcafae8e",
+    "first_funder_cached": "0x34418cae309e9b78879f23c5226033e6bcafae8e",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11971,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0x79baa59d": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x79baa59d1419be57eed35254db80a99dd79ba2ae",
+     "to_in_C6": true,
+     "value_eth": 0.11969,
+     "ts": "2026-08-17T14:43:35.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xbf97bd459a9182acab9bd05d19840d8ecd5b2b9fc2d4af223d20dd76fb1ad114",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xc2ead026cb1876291c8b0582fc1e72f83103ea16",
+    "cat": "C_core_nonpeel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 175,
+    "nonce_now": 176,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 1239000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0xa67d7eb4dc68fa6ce8e34ef8cadaf075b9893fbb",
+    "first_funder_cached": "0x28c6c06298d514db089934071355e5743bf21d60",
+    "funder_class": "cex_infra_list",
+    "fund_value_eth": 0.04054,
+    "fund_to_deposit_sec": -422328.0,
+    "other_contracts": {
+     "FWA": 31,
+     "Seaport": 6,
+     "WETH9": 4,
+     "Meebits": 2,
+     "ERC1967Proxy": 1
+    },
+    "n_other_out": 48,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 1.2667736613619536,
+    "deposit_tx": "0x269bba2305fbd002f20eacc0ef516a684d48119c2c2c7f8f13e27ed926ddeb1b",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x73493ae0f2989efcab0efb3ab2c5224c57cb181a",
+    "cat": "C_core_nonpeel",
+    "sub": "core",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 18,
+    "nonce_at_deposit": 849,
+    "nonce_now": 853,
+    "tx_type": 2,
+    "gas_limit": 120000,
+    "prio_fee": 30000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": null,
+    "first_funder_cached": "0xc79018b71a0ea44819bf261a20d88927be14f193",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": null,
+    "fund_to_deposit_sec": null,
+    "other_contracts": {
+     "SeaDrop": 24,
+     "Metamusex - MEN": 5,
+     "Token": 2,
+     "Seawin": 2,
+     "Veil Eyes": 1
+    },
+    "n_other_out": 49,
+    "post_deposit_out_txs": 3,
+    "sweep": {
+     "to": "0x00005ea00ac477b1030ce78506496e8c2de24bf5",
+     "to_in_C6": false,
+     "value_eth": 0.0012,
+     "ts": "2026-08-20T14:01:23.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 0.11991826059315806,
+    "deposit_tx": "0x515e53619b14c33e1440235da62313b7ab81c7e11e749a2e8017e24d31004fc3",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x266c97351c81eadb56d0a291b2f7feb961922e67",
+    "cat": "D_near_0.09",
+    "sub": "other_near",
+    "ens": "sneakymosquito.eth",
+    "amount_eth": "0.09",
+    "hour": 19,
+    "nonce_at_deposit": 64,
+    "nonce_now": 65,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "first_funder_cached": "0xe34d4d7396d8eb5adb86c2321d2a85e98b6fdfe3",
+    "funder_class": "other_contributor(unflagged)",
+    "fund_value_eth": 0.2544,
+    "fund_to_deposit_sec": 131906662.0,
+    "other_contracts": {
+     "TransparentUpgradeableProxy": 6,
+     "0xddcafb45": 3,
+     "Woobirds": 2,
+     "Project0xD38": 2,
+     "DragonTownWTF": 2
+    },
+    "n_other_out": 45,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.09533845065519063,
+    "deposit_tx": "0x6954c600c468e0edc95ac0d1187e30f182458f9c2da7c1958698d4740bca30c6",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xa8752abec1dfaf21c96f989cca0c780d44a1bc8a",
+    "cat": "D_near_0.09",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.09",
+    "hour": 12,
+    "nonce_at_deposit": 5,
+    "nonce_now": 7,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 2000000000,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 748.2,
+    "first_funder": "0x900e61f8a72af906a0107e555cf5d6dcf8745a43",
+    "first_funder_cached": "0x900e61f8a72af906a0107e555cf5d6dcf8745a43",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.00719,
+    "fund_to_deposit_sec": 64647864.0,
+    "other_contracts": {
+     "Swell Ethereum": 1,
+     "0x0efe6a8b": 1,
+     "0x7fb2a0a1": 1,
+     "BeaconProxy": 1,
+     "0xc6533104": 1
+    },
+    "n_other_out": 6,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x79558d92ea5105dd726dfc138b8c793781de7552",
+     "to_in_C6": false,
+     "value_eth": 0.09372,
+     "ts": "2026-08-18T06:10:35.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 2.2227492357e-05,
+    "deposit_tx": "0x75ea284b8c7667a6cf1d9b126349c84a309c5926542fbfbd1c8ecfdeb44b12bd",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x701bc4f42b47778f2b6b40bf95fe0ee7259a986b",
+    "cat": "D_near_0.09",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.09",
+    "hour": 12,
+    "nonce_at_deposit": 40,
+    "nonce_now": 41,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 125000,
+    "n_txs_seen": 44,
+    "list_complete": true,
+    "age_days_at_deposit": 1267.0,
+    "first_funder": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_funder_cached": "0x701bc4f42b47778f2b6b40bf95fe0ee7259a986b",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 2.68578,
+    "fund_to_deposit_sec": 93660612.0,
+    "other_contracts": {
+     "Proxy": 4,
+     "SeaDrop": 4,
+     "TransparentUpgradeableProxy": 3,
+     "GovernorBravoDelegator": 3,
+     "SpaceStationV2": 2
+    },
+    "n_other_out": 40,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.09351717132803834,
+    "deposit_tx": "0xd5ee40605c13a4fd7a8e8373e113407684ca305eaa993483b96494908ed1a2e7",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xad468aa0cae8caf857464abc3945b8df7226d22b",
+    "cat": "D_near_0.11",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.11",
+    "hour": 11,
+    "nonce_at_deposit": 4,
+    "nonce_now": 6,
+    "tx_type": 2,
+    "gas_limit": 113508,
+    "prio_fee": 64754982,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 1047.8,
+    "first_funder": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_funder_cached": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 2.0051,
+    "fund_to_deposit_sec": 90528372.0,
+    "other_contracts": {
+     "Proxy": 1,
+     "0x45a31827": 1,
+     "SparkRewards": 1,
+     "SDAO": 1,
+     "0x9f1f1bc8": 1
+    },
+    "n_other_out": 5,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x9f1f1bc8799bc8b3bf0e26d05f73334f7b754a50",
+     "to_in_C6": false,
+     "value_eth": 0.11,
+     "ts": "2026-08-17T07:05:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.002072824248960597,
+    "deposit_tx": "0xbd183264f2b183666e9560cef2856868612fd35cda009ded986a6ff6bfc932d7",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x657c4df51be4d0c64232e82457cc6d43f0611f4a",
+    "cat": "D_near_0.11",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.11",
+    "hour": 10,
+    "nonce_at_deposit": 67,
+    "nonce_now": 69,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 45358022,
+    "n_txs_seen": 50,
+    "list_complete": false,
+    "age_days_at_deposit": ">50txs",
+    "first_funder": "0x56c262027e0de4aea31d2489529cb25d23e58a8b",
+    "first_funder_cached": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 0.00147,
+    "fund_to_deposit_sec": 2388252.0,
+    "other_contracts": {
+     "0xb229805c": 2,
+     "0x7d4afa46": 1,
+     "0x79d0cd10": 1,
+     "0x32d34499": 1,
+     "0x369fa276": 1
+    },
+    "n_other_out": 47,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+     "to_in_C6": false,
+     "value_eth": 0.11222,
+     "ts": "2026-08-21T22:33:23.000000Z",
+     "after_game_end": true
+    },
+    "balance_eth_now": 4.852300147124e-05,
+    "deposit_tx": "0x820bd37f540c74eed64ef68aa6d505d00a23cb12ad157b0e6912667dec7155fa",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0xb4acacb96f606bc2b3d990a3bb54002e17853f76",
+    "cat": "D_near_0.098",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.098",
+    "hour": 18,
+    "nonce_at_deposit": 41,
+    "nonce_now": 44,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 600000000,
+    "n_txs_seen": 49,
+    "list_complete": true,
+    "age_days_at_deposit": 639.0,
+    "first_funder": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_funder_cached": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 0.01,
+    "fund_to_deposit_sec": 55213140.0,
+    "other_contracts": {
+     "Seaport": 11,
+     "Henlo  OLD": 3,
+     "RelayReceiver": 3,
+     "SeaDrop": 3,
+     "RegularPunks": 3
+    },
+    "n_other_out": 43,
+    "post_deposit_out_txs": 2,
+    "sweep": {
+     "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+     "to_in_C6": false,
+     "value_eth": 0.06,
+     "ts": "2026-08-17T14:54:11.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.028183755938716887,
+    "deposit_tx": "0xc4a8bd2b255eefbb45cb0e49e7811a886f6e32984828a179e5523ccd1b51480f",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x56289a9680906ea2838cc21fac8e8bf2111d1883",
+    "cat": "D_near_0.098",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.098",
+    "hour": 0,
+    "nonce_at_deposit": 0,
+    "nonce_now": 5,
+    "tx_type": 2,
+    "gas_limit": 114171,
+    "prio_fee": 600000000,
+    "n_txs_seen": 6,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xa1abfa21f80ecf401bd41365adbb6fef6fefdf09",
+    "first_funder_cached": "0xa1abfa21f80ecf401bd41365adbb6fef6fefdf09",
+    "funder_class": "hub_9",
+    "fund_value_eth": 0.1,
+    "fund_to_deposit_sec": 144.0,
+    "other_contracts": {
+     "0x2c69305f": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 4,
+    "sweep": {
+     "to": "0x2c69305f5fea5ed013a38c056fdc3d7e57ec87f0",
+     "to_in_C6": false,
+     "value_eth": 0.09986,
+     "ts": "2026-08-17T07:30:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xe9b9c565827387d2c29f3447d5141b9805f771df0a93675acb2d637da1447768",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x5934300c4ed83af2cb31fa2ed0e076b63043cde5",
+    "cat": "D_near_0.099",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.099",
+    "hour": 12,
+    "nonce_at_deposit": 0,
+    "nonce_now": 1,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 67289330,
+    "n_txs_seen": 2,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_funder_cached": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "funder_class": "exchange_scale_eoa",
+    "fund_value_eth": 0.09998,
+    "fund_to_deposit_sec": 192.0,
+    "other_contracts": {},
+    "n_other_out": 0,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.09997288996711369,
+    "deposit_tx": "0x5a3907d62ed900494408b0b19a4075e0e91e46e6f659e071639a3174c01f9a06",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x29e3f8473d50a0480ee948e2c9f36e1e82a2cc28",
+    "cat": "D_near_0.103",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.103",
+    "hour": 9,
+    "nonce_at_deposit": 30,
+    "nonce_now": 31,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 10458860,
+    "n_txs_seen": 33,
+    "list_complete": true,
+    "age_days_at_deposit": 162.5,
+    "first_funder": "0x2bc12838ee5ed42c0c0c284194129a180cdde431",
+    "first_funder_cached": "0x2bc12838ee5ed42c0c0c284194129a180cdde431",
+    "funder_class": "single_funder_eoa/unknown",
+    "fund_value_eth": 0.002,
+    "fund_to_deposit_sec": 14042208.0,
+    "other_contracts": {
+     "Seaport": 10,
+     "SeaDrop": 8,
+     "RelayDepository": 4,
+     "WETH9": 2,
+     "decay.md": 2
+    },
+    "n_other_out": 30,
+    "post_deposit_out_txs": 0,
+    "sweep": null,
+    "balance_eth_now": 0.10331903323051365,
+    "deposit_tx": "0x8aa680482220449b0a1ff9d81ea62999f417ff2fac745fc9994a654b95f7c0d3",
+    "verdict": "human-like"
+   },
+   {
+    "address": "0x322318b0141716a2bc1c13e7c9c107a2336420be",
+    "cat": "D_near_0.09_peelroot",
+    "sub": "other_near",
+    "ens": null,
+    "amount_eth": "0.09",
+    "hour": 18,
+    "nonce_at_deposit": 4,
+    "nonce_now": 6,
+    "tx_type": 2,
+    "gas_limit": 114501,
+    "prio_fee": 293154,
+    "n_txs_seen": 9,
+    "list_complete": true,
+    "age_days_at_deposit": 1076.2,
+    "first_funder": "0xa5bb38d354d58764ae919041118abd3064c3fcf2",
+    "first_funder_cached": "0xa5bb38d354d58764ae919041118abd3064c3fcf2",
+    "funder_class": "other_contributor(unflagged)",
+    "fund_value_eth": 0.03645,
+    "fund_to_deposit_sec": 92987112.0,
+    "other_contracts": {
+     "0xc3ea35a4": 2,
+     "0x34806cbb": 1,
+     "SocketGateway": 1,
+     "0xe31aa127": 1
+    },
+    "n_other_out": 5,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xe31aa127b15241725cbafaf1e6f30256c48108f8",
+     "to_in_C6": true,
+     "value_eth": 0.09031,
+     "ts": "2026-08-17T14:26:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 3.5511308385e-06,
+    "deposit_tx": "0x2b8447968e4fd05f5f45ecec3e4243b8ac8112cefda2ad621fd0cd0e2674ad1e",
+    "verdict": "unknown"
+   },
+   {
+    "address": "0x5bbc9c4a1748cda06fed1a0e2e98922b97ca9fc8",
+    "cat": "E_seq_jitter",
+    "sub": "seq_jitter",
+    "ens": null,
+    "amount_eth": "0.106213553799934691",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "nonce_now": 3,
+    "tx_type": 2,
+    "gas_limit": 90000,
+    "prio_fee": 10000000,
+    "n_txs_seen": 4,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x6c8fb74826df5e02b105497bab92573ee21e8d3f",
+    "first_funder_cached": "0x6c8fb74826df5e02b105497bab92573ee21e8d3f",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.10792,
+    "fund_to_deposit_sec": 0.0,
+    "other_contracts": {
+     "0xe8ac2175": 1,
+     "0x6688928b": 1
+    },
+    "n_other_out": 2,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+     "to_in_C6": false,
+     "value_eth": 1e-05,
+     "ts": "2026-08-17T15:49:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 3.689958552e-06,
+    "deposit_tx": "0xffe98c42cb2e4db72889a7fd4ef1119cb585d6fd8834872588dbeeee9e65344a",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xd13ba7896e91c7f8f1985ba04fd6dab1b5ee6222",
+    "cat": "E_seq_jitter",
+    "sub": "seq_jitter",
+    "ens": null,
+    "amount_eth": "0.094563150976982144",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "nonce_now": 3,
+    "tx_type": 2,
+    "gas_limit": 90000,
+    "prio_fee": 10000000,
+    "n_txs_seen": 4,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x861322afae5b1ddb9fcc5fb31ce672a68946da26",
+    "first_funder_cached": "0x861322afae5b1ddb9fcc5fb31ce672a68946da26",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.09548,
+    "fund_to_deposit_sec": 0.0,
+    "other_contracts": {
+     "0x3e8946c9": 1,
+     "0x6688928b": 1
+    },
+    "n_other_out": 2,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+     "to_in_C6": false,
+     "value_eth": 1e-05,
+     "ts": "2026-08-17T15:49:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 3.689958552e-06,
+    "deposit_tx": "0x734f6fe70abe2f2520b9bbbaf4acffa245a3e4ad635b7dfef36885b9adfe06a5",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x736dcd29b2a6161dc61d80700ab33c0523e9b8fe",
+    "cat": "E_seq_jitter",
+    "sub": "seq_jitter",
+    "ens": null,
+    "amount_eth": "0.110980392648409282",
+    "hour": 19,
+    "nonce_at_deposit": 0,
+    "nonce_now": 3,
+    "tx_type": 2,
+    "gas_limit": 90000,
+    "prio_fee": 10000000,
+    "n_txs_seen": 4,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0xd62443a18197748e02eea5f960c78368cb22e3c8",
+    "first_funder_cached": "0xd62443a18197748e02eea5f960c78368cb22e3c8",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11172,
+    "fund_to_deposit_sec": 0.0,
+    "other_contracts": {
+     "0xfd0fffe5": 1,
+     "0x6688928b": 1
+    },
+    "n_other_out": 2,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x6688928b01768c92e5f6fafbcf381bee23727395",
+     "to_in_C6": false,
+     "value_eth": 1e-05,
+     "ts": "2026-08-17T15:49:59.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 3.689958552e-06,
+    "deposit_tx": "0xbe027e4ea1c30f93b20980ef85b5ab7656a2c0c7f8a73d30bb2b0b2af2ceaa07",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0xfbeb9f4f0ee83079baa7a9c2d27af5eb52cb73c0",
+    "cat": "E_h20_21_peel",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 21,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x20cbe2b541406f143dce61e08b1dea6a50a7306f",
+    "first_funder_cached": "0x20cbe2b541406f143dce61e08b1dea6a50a7306f",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11974,
+    "fund_to_deposit_sec": 24.0,
+    "other_contracts": {
+     "0xb6c1da6b": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xb6c1da6bd97d39be1b0081a57928d383daedf485",
+     "to_in_C6": true,
+     "value_eth": 0.11972,
+     "ts": "2026-08-17T17:11:47.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xc4f837dd55d3659fb38ab4572874e5d5a39ad7c480878324c1b84d9a30a73958",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x789432e3c983d2f885619550a18b868632ca68e7",
+    "cat": "E_h20_21_peel",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 20,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x9424e653aae8090efc24d7f5e59955a229654487",
+    "first_funder_cached": "0x9424e653aae8090efc24d7f5e59955a229654487",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11999,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0xb61ffe6d": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0xb61ffe6d12d3efc35f026e64456df8dac7ae89a9",
+     "to_in_C6": true,
+     "value_eth": 0.11997,
+     "ts": "2026-08-17T16:33:11.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0x2d24c52860b7193eafe503854d458d3b3a654dc280a69fd71686df4d0fad6560",
+    "verdict": "farm-like"
+   },
+   {
+    "address": "0x9e0b2527c5826c0e3b8bda47d54d91d07301c753",
+    "cat": "E_h20_21_peel",
+    "sub": "other_0.1",
+    "ens": null,
+    "amount_eth": "0.1",
+    "hour": 20,
+    "nonce_at_deposit": 0,
+    "nonce_now": 2,
+    "tx_type": 0,
+    "gas_limit": 91600,
+    "prio_fee": null,
+    "n_txs_seen": 3,
+    "list_complete": true,
+    "age_days_at_deposit": 0.0,
+    "first_funder": "0x5bdad15aea07c82da6bdf5594bfb1e995cbf7815",
+    "first_funder_cached": "0x5bdad15aea07c82da6bdf5594bfb1e995cbf7815",
+    "funder_class": "peel(in C6)",
+    "fund_value_eth": 0.11976,
+    "fund_to_deposit_sec": 12.0,
+    "other_contracts": {
+     "0x4d1c007e": 1
+    },
+    "n_other_out": 1,
+    "post_deposit_out_txs": 1,
+    "sweep": {
+     "to": "0x4d1c007ef894cf65ccc33c8da3c4cbfedb6d767d",
+     "to_in_C6": true,
+     "value_eth": 0.11974,
+     "ts": "2026-08-17T16:41:23.000000Z",
+     "after_game_end": false
+    },
+    "balance_eth_now": 0.0,
+    "deposit_tx": "0xa542d3f67cba0614d183890c6843e433910edd8248d96958dff776977b7c55e0",
+    "verdict": "farm-like"
+   }
+  ]
+ },
+ "estimate": {
+  "farm_evidenced": 732,
+  "farm_evidenced_def": "true peel edge (695) OR sequence (300) OR drip edge OR operator fingerprint (nonce 0 + legacy type-0 + gas limit 91600)",
+  "rest": 164,
+  "rest_profile": {
+   "nonce_ge20": 111,
+   "nonce0": 17,
+   "ens": 45,
+   "type2_txs": 162,
+   "distinct_priority_fees": 75,
+   "gas_limit_114501": 111,
+   "points_pct": 0.213
+  },
+  "honest_estimate": {
+   "rest_honest": "≈125-140 of 164 (sample: 21/30 human-like, 7 unknown incl. one 3-wallet operator, 2 farm-like)",
+   "bystanders_inside_farm_windows": "≈29 (21 core non-fingerprint + 8 h20-21 non-fingerprint; 7/7 sampled human-like, incl. tonybearbrick.eth, prufboogie.eth, 0xair.eth, 800090000.eth, heisenbergknocks.eth)",
+   "total_honest": "≈150-170 of 896 (17-19%)",
+   "farm_fraction": "≈0.81-0.83"
+  },
+  "operators": {
+   "0.1_legacy_peel_operator": "≈400 wallets (300 core fingerprint + 100 h20-21 fingerprint), 0.499 points-%",
+   "jitter_sequence_operator": "300 wallets, 0.351 points-% (distinct fingerprint: type-2, 0.01 gwei, gas 90000, 6x50 consecutive indices in 2-block bursts)",
+   "small_groups": "≈16-20 wallets"
+  }
+ },
+ "rule_change_proposal": {
+  "minimal": "identical_amount_windows: split a ROUND-amount window when consecutive senders are > 32 BLOCKS apart (v1 rule) instead of > 1 HOUR apart (MAX_HOUR_GAP). One-line change in signals/__init__.py; split_edges inherits it.",
+  "effect_cluster6": "releases 100 (81 exact-0.1 stragglers h0-16/h22-23 + 19 near-amount; 27 ENS; 71 nonce>=20); keeps core 321/321, jitter 300/300, h20-21 wave 103/108 (5 non-fingerprint bystanders released); loses 0 fingerprint farm wallets and 1 peel-edge wallet (0x91a784c7, h8, funded by the 02861.eth group)",
+  "effect_population": "flagged 11,573 -> 10,741 (-832), points 57.63% -> 52.21%; ENS flagged 360 -> 244; controls flagged 30 -> 26; labeled farm members kept 141/141; v1 >=100-wallet operator members kept 5,099/5,099; 37 of the 832 have a funder in their old cluster and 75 touch a strong rule; 375 of the 832 are nonce-0 wallets mostly in the 1.19-1.69 staggered exchange-funded groups (unknown, outside this slice)",
+  "complement": "member-level prune (release members whose only incident edges are round-wave/split/hub/gas) additionally frees the ~29 aged bystanders inside the farm windows (cluster 6: -129 total, 3 fingerprint wallets without a resolved funder lost); population -806, v1 members 5,086/5,099",
+  "not_recommended": "dropping the round-wave rule entirely: core splits into drip fragments (322-member core component, 268 core kept), 245 exact-0.1 wallets released incl. farm members"
+ },
+ "files": {
+  "members_table": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/members_table.json",
+  "onchain_raw": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/onchain.jsonl",
+  "sample_eval": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/onchain_eval.json",
+  "ablations": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/ablations_c6.json",
+  "fragments_gap32": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/frag32.json",
+  "subgroups": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/subgroups.json",
+  "scripts": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/c6/"
+ }
+}

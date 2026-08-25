@@ -1,0 +1,1161 @@
+{
+ "agent": "priorart",
+ "slice": "prior art on false-positive control in sybil-cluster hunts, applied to THE LIST / sybilkit",
+ "generated": "2026-08-25",
+ "verification_legend": {
+  "V": "fetched primary source this session",
+  "S": "second-hand (search snippet / news summary), not fetched",
+  "L": "local file",
+  "M": "from memory, not fetched"
+ },
+ "prior_art": [
+  {
+   "program": "Hop Protocol airdrop (2022)",
+   "url": "https://github.com/hop-protocol/hop-airdrop",
+   "verified": "V",
+   "controls": [
+    "crowdsourced reports; 'Reports must contain at least 10 address still in /src/data/eligibleAddresses.txt at the time of review'",
+    "'Methodology that has a non-negligible chance of eliminating legitimate users will not be considered'",
+    "self-report by signing 'HOP_SYBIL_REPORT' with every address (proof of ownership); self-reporters kept 25% (tweet, S)",
+    "community report #192 (V, https://github.com/hop-protocol/hop-airdrop/issues/192): networks built from direct transfers exclusively among airdrop-list addresses; network score = mean of node scores, keep >90%; 'severe filter': an address that transacted with ANY address outside the network is filtered out; only 100%-score nodes reported; 148k addresses screened"
+   ],
+   "numbers": "~10,000 addresses ousted, ~3.5M HOP retained (Decrypt/forum RFC, S). Decrypt says hunters needed >=20 addresses per report while the repo README says >=10 — discrepancy, README is primary",
+   "maps_to_sybilkit": "per-node purity gate (a member with any strong link to an out-of-cluster counterparty is dropped); self-attestation channel; min_size 10"
+  },
+  {
+   "program": "Optimism Airdrop #1 (2022)",
+   "url": "https://raw.githubusercontent.com/ethereum-optimism/community-hub/main/pages/op-token/airdrops/airdrop-1.mdx",
+   "verified": "V",
+   "controls": [
+    "'We filtered our known centralized exchange and fiat on-ramp addresses'",
+    "'Addresses needed to have used Ethereum for more than 1 day (24 hours between their first and last transaction)'",
+    "recency: tx after 2019-01-01",
+    "post-hoc: 17,000 addresses removed, 14M OP recovered; 'we will not be publishing the additional filters used to remove these addresses'"
+   ],
+   "numbers": "17k of ~248k addresses (~7%) removed post-hoc (The Block, S: ~9k flagged by L1 activity, ~11k by L2 activity)",
+   "maps_to_sybilkit": "CEX/on-ramp exclusion list; wallet-age (freshness) as discount not conviction — sybilkit already does FRESHNESS_FLOOR; Airdrops 2-4: no published sybil methodology found (S)"
+  },
+  {
+   "program": "Arbitrum $ARB (2023, Nansen + Offchain Labs)",
+   "url": "https://github.com/ArbitrumFoundation/sybil-detection",
+   "verified": "V",
+   "controls": [
+    "two graphs: every msg.value tx as an edge; funder (first ETH in) + sweep (last ETH out) as edges",
+    "strongly/weakly connected subgraphs; 'Large subgraphs are broken down using the Louvain Community Detection Algorithm'",
+    "'Addresses transferring funds in a cluster of more than 20 addresses'",
+    "entity removal (bridges, exchanges, smart contracts) via Nansen/Hop/Offchain Labs labels",
+    "human check for false positives (Nansen post, V: https://www.nansen.ai/post/how-the-arbitrum-foundation-designed-the-distribution-strategy-for-their-token-airdrop)",
+    "eligibility deductions (V, https://docs.arbitrum.foundation/airdrop-eligibility-distribution): -1 point if all wallet txs within 48h; -1 if balance <0.005 ETH and <=1 contract; disqualified if on Hop sybil list"
+   ],
+   "numbers": "625,143 of ~2.3M bridged wallets eligible (S)",
+   "maps_to_sybilkit": "min_size >20 for funding-graph clusters; community detection (Louvain/Leiden) inside big components instead of raw connected components; label-based hub removal; human review sampling"
+  },
+  {
+   "program": "LayerZero ZRO (2024, Chaos Labs + Nansen)",
+   "url": "https://threadreaderapp.com/thread/1791620500193427647.html",
+   "verified": "V",
+   "controls": [
+    "'Real users should not be hurt; we aim to maximize precision over recall'",
+    "funding source (CEX/DEX/bridge) shared within a 24-hour window, first native transfer = funding tx; THEN similar interaction behaviour required",
+    "'Silhouette Score: Ensure high cluster validity by including only samples with a Silhouette score > 0.7'",
+    "cluster must be 'significantly larger' than other clusters in the same funding period AND exceed 'a minimum size threshold of N users' (N undisclosed)",
+    "self-report window: 15% kept; bounty reports need >=20 addresses + methodology, 10% reward (tweets, S); initial >2M flagged then stricter criteria"
+   ],
+   "numbers": "4.82M users, 2.18M unique funders, ~14.5% (704,041) sybil after refinement; final list 803,093 incl. self-reports (S)",
+   "maps_to_sybilkit": "per-sample cluster-validity score (silhouette-like) => per-node membership strength; two-stage 'origin AND consequence' (funding coincidence alone never convicts); 24h funding window; min_size >=20 for bounty-grade evidence"
+  },
+  {
+   "program": "zkSync ZK airdrop (2024)",
+   "url": "https://docs.zknation.io/zk-token/zk-airdrop",
+   "verified": "V",
+   "controls": [
+    "CEX deposit-address reuse: EOAs that sent to the same CEX deposit address within 1 year = same entity",
+    "common funding: 'funding transfers of similar amounts that occurred within a predefined time window' from the same ultimate funder",
+    "'all the clusters with more than 20 EOAs were filtered'",
+    "'very conservative' to 'avoid accidentally punishing real people'"
+   ],
+   "numbers": "none published for sybil removal",
+   "maps_to_sybilkit": "min_size >20; sweep-target (CEX deposit address) as a NEW strong family (money-out convergence); similar-amount funding within a time window"
+  },
+  {
+   "program": "Starknet Provisions (2024, Trusta Labs)",
+   "url": "https://www.starknet.io/blog/starknet-provisions-program/",
+   "verified": "V",
+   "controls": [
+    "'the Starknet Foundation has partnered with Trusta Labs to provide Sybil-resistant lists of users'",
+    "eligibility: >5 txs, active >=3 months, >=$100 volume, >=0.005 ETH on 2023-11-15",
+    "screen users 'who tend to repeat the same operations over and over again'",
+    "no appeal documented"
+   ],
+   "numbers": "none published",
+   "maps_to_sybilkit": "activity/age floors as pre-filter (not applicable to a 66h game except via L1 wallet age/nonce)"
+  },
+  {
+   "program": "Linea LXP/airdrop (2025, Nansen)",
+   "url": "https://www.theblock.co/post/335979/linea-filters-over-half-a-million-sybil-addresses-from-upcoming-token-airdrop",
+   "verified": "V (The Block + Linea community thread https://community.linea.build/t/design-after-nansens-sybil-filtering-report/9292); Nansen's own report URL now redirects/404s",
+   "controls": [
+    "516,960 of 1,297,203 eligible addresses flagged (39.85%), 780,243 remain",
+    "'lenient' model 'allowing up to 20 wallets per user' (community thread quoting the report)",
+    "precision over recall (S)",
+    "two-week appeal window; community expected 4-5% approval"
+   ],
+   "maps_to_sybilkit": "explicit per-person wallet allowance (~20) => min_size; appeal window with reason strings"
+  },
+  {
+   "program": "Scroll SCR (2024)",
+   "url": "https://scroll.io/blog/introducing-scrolls-first-airdrop-a-celebration-of-the-global-community",
+   "verified": "S",
+   "controls": [
+    "no published sybil methodology found; community noted flat boost rewarded sybils"
+   ],
+   "maps_to_sybilkit": "n/a — could not verify"
+  },
+  {
+   "program": "Gitcoin sybil defense (Legos / Passport / FDD)",
+   "url": "https://github.com/Fraud-Detection-and-Defense/lego-docs",
+   "verified": "V",
+   "controls": [
+    "Legos: Passport score, shared IP, SAD semi-supervised model, DonorDNA (Jaccard vs known rings), GrantDNA, On-chain intersectionality (0-5 credentials)",
+    "combination: 'if sum > 3, squelch' or weighted average across dimensions",
+    "human-in-the-loop ML pipeline (HackMD, V: https://hackmd.io/@jmcook/SJpaeH_3q); 'squelched' = ejected",
+    "GG23: model-based detection reduced flagged addresses ~60% (S); no precision/FP numbers published"
+   ],
+   "maps_to_sybilkit": "multi-dimension score with a summed threshold; humanity credentials (ENS, POAP, NFTs, Snapshot votes) as a negative signal that lowers the score"
+  },
+  {
+   "program": "Trusta Labs (TrustScan / Airdrop-Sybil-Identification)",
+   "url": "https://github.com/TrustaLabs/Airdrop-Sybil-Identification",
+   "verified": "V",
+   "controls": [
+    "phase 1: 'Community detection algorithms like Louvain and K-Core' on asset-transfer graphs (patterns: star divergence, star convergence, tree, chain)",
+    "phase 2: K-means on transactional+profile variables; 'Addresses that are located far from the Centroid, beyond a specified threshold, are excluded from the cluster'",
+    "no numeric thresholds disclosed; zkSync NFT case: 74-account chain-like funding cluster (Medium, S)"
+   ],
+   "maps_to_sybilkit": "community detection + per-member outlier removal (behavioural distance from cluster centroid)"
+  },
+  {
+   "program": "arXiv 2505.09313 (Binance Risk, ICBC 2025)",
+   "url": "https://arxiv.org/abs/2505.09313",
+   "verified": "V (PDF read)",
+   "controls": [
+    "supervised subgraph LightGBM on 2-layer transaction subgraphs; 75 features: 7 time (first gas receipt, first tx, first activity, last tx, intervals), 60 amount, 8 network (degree, neighbour counts)",
+    "labels: manual analysis + 'manual appeal review process. Only addresses that did not appeal or had their appeals rejected after thorough manual review were classified as confirmed sybil addresses'",
+    "cleaning: excluded institutional addresses (hot wallets, contracts) via Arkham labels; RETAINED contract-distributed funding (disperse-style) as a sybil pattern; dropped lifecycles >1 year (2.6%)",
+    "note: 'born together act together' phrase is NOT in this paper (orchestrator paraphrase); the paper's term is 'just-in-time' temporal clustering of first-gas/first-tx/first-activity"
+   ],
+   "numbers": "193,701 addresses (23,240 sybil); Subgraph-LightGBM P=0.9428 R=0.9182 F1=0.9303 AUC=0.9806 vs Trusta clustering P=0.7962 R=0.8159; plain LightGBM P=0.7821; 'The Precision of traditional models is too low for practical requirements, leading to numerous False Positives'",
+   "maps_to_sybilkit": "appeal-validated labels; per-address (node-level) classification; 'first gas receipt -> first deposit' interval as a strong feature; do not exclude Disperse (it is a farm tool)"
+  },
+  {
+   "program": "Kaczynski & Wiacek, IJET 2026 'Airdrop Sybil Attack detection framework supported by ML' (ZKsync)",
+   "url": "https://ijet.ise.pw.edu.pl/index.php/ijet/article/download/10.24425-ijet.2026.157879/3120",
+   "verified": "V (PDF read)",
+   "controls": [
+    "phase 0: GIN topology classifier on maximal connected components of size 10-300 (ETH) / 10-900 (ZKsync); manual labels: chain >10 addresses = sybil; 'normal' needs >=0.01 ETH transfers between accounts",
+    "phase 2: DBSCAN on account-creation timestamps, eps = 14400 s (4 h), minPts = 3 — 'only two accounts created within four hours could be coincidence'; proposes multi-scale eps in {1h,4h,8h,16h,24h} with graded score",
+    "phase 3: avg gas usage < mu - sigma",
+    "score = weighted sum (0.9,0.5,0.6,0.3), threshold 0.6; 'DEX and CEX addresses should be searched and excluded'",
+    "result: 76% of 49,249 EOAs marked sybil — the paper itself warns 'filtering wallets too strictly ... may discourage beneficial, honest users'"
+   ],
+   "numbers": "37,563 of 49,249 flagged; only 342 overlap with zkSync's own eligible list",
+   "maps_to_sybilkit": "time-coincidence with minPts>=3 and eps<=4h; graded (multi-scale) temporal strength; CEX/DEX exclusion; cautionary: topology-only gets 76% FP-prone flags"
+  },
+  {
+   "program": "arXiv 2607.27370 'Compression-Based Behavioral Similarity for Open-World Sybil Discovery on Ethereum'",
+   "url": "https://arxiv.org/html/2607.27370v1",
+   "verified": "V",
+   "controls": [
+    "NCD over transaction 'grammars' (rhythm/structure/intent); kNN retrieval instead of connected components; 'Blind-Spot Protocol' removes high-purity contracts (P>=0.95) that act as label shortcuts; min 10 txs per wallet",
+    "notes CEX/disperser intermediates weaken graph signals; removed ENS controller (human signal) and Uniswap router (MEV signal) as shortcuts"
+   ],
+   "numbers": "14,161 wallets (9,204 organic / 3,202 MEV / 1,755 sybil from Hop list); 1-NN acc 0.696, top-10 purity 0.754, top-10 recall 0.922",
+   "maps_to_sybilkit": "similarity retrieval with a purity cutoff rather than transitive union; gas/rhythm fingerprints as per-node similarity"
+  },
+  {
+   "program": "ChainCred (local, /Library/Vibes/chaincred/docs/SCORING.md)",
+   "url": "file:///Library/Vibes/chaincred/docs/SCORING.md",
+   "verified": "L",
+   "controls": [
+    "'~42% of labeled sybils and ~32% of ordinary wallets share a distributor-range funder (11-1000 outbound) ... statistically identical at every threshold — precision stays at the ~9% base rate ... flagged 34% of ordinary wallets'"
+   ],
+   "maps_to_sybilkit": "funder fan-out is NOT a conviction signal; use it only to EXCLUDE hubs (infra), never to weld"
+  }
+ ],
+ "graph_methods": {
+  "literature": [
+   {
+    "ref": "Traag, Waltman, van Eck 2019 'From Louvain to Leiden' Sci Rep 9:5233",
+    "url": "https://www.nature.com/articles/s41598-019-41695-z",
+    "verified": "S",
+    "point": "Louvain yields up to 25% badly-connected and 16% disconnected communities; Leiden guarantees connected, well-connected communities"
+   },
+   {
+    "ref": "Fortunato & Barthelemy 2007 'Resolution limit in community detection' PNAS 104:36",
+    "url": "https://www.pnas.org/doi/10.1073/pnas.0605965104",
+    "verified": "S",
+    "point": "modularity merges small communities below a size ~sqrt(2m); needs a resolution parameter"
+   },
+   {
+    "ref": "Lancichinetti, Radicchi, Ramasco, Fortunato 2011 'Finding statistically significant communities in networks' PLoS ONE 6:e18961 (OSLOM)",
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0018961",
+    "verified": "S",
+    "point": "cluster significance vs a configuration-model null; only clusters unlikely under random fluctuations are kept"
+   },
+   {
+    "ref": "Cohen 2008 'Trusses: cohesive subgraphs for social network analysis' (NSA tech report)",
+    "url": "https://www.cs.umd.edu/~jcohen/trusses.pdf",
+    "verified": "M",
+    "point": "k-truss: every edge in >=k-2 triangles; immune to single-edge chaining"
+   },
+   {
+    "ref": "Arbitrum sybil-detection README",
+    "url": "https://github.com/ArbitrumFoundation/sybil-detection",
+    "verified": "V",
+    "point": "connected components first, Louvain to break large subgraphs"
+   },
+   {
+    "ref": "Chaos Labs LayerZero",
+    "url": "https://threadreaderapp.com/thread/1791620500193427647.html",
+    "verified": "V",
+    "point": "per-sample silhouette > 0.7 as membership validity"
+   }
+  ],
+  "why_connected_components_over_merge_here": "sybilkit emits SPANNING CHAINS (Edge docstring) so every group is a path; union-find over paths is single-linkage clustering — one weak edge anywhere merges two groups, and there is no notion of density. Measured on the live tier-A graph restricted to the 11,573 flagged nodes: 4,157 bridges and 4,168 articulation points (degree histogram 1:385, 2:4,436, 3:2,132, 4+:4,620); bridge edge kinds: round-wave 2,647, split 2,448, drip 1,102, exact-odd 674, sequence 613, near-block 67, burst 49; 1,954 bridges carry ONLY weak kinds; cutting them leaves 9,692 members in components >=5 and drops 1,881 below min_size.",
+  "measured_structure": {
+   "per_node_families": {
+    "ge2": 10425,
+    "eq1": 1148,
+    "eq0": 0
+   },
+   "per_node_ge2_with_strong": 10007,
+   "per_node_any_strong": 10705,
+   "per_node_ge2_tierA_families": 7944,
+   "per_node_weak_only": 868,
+   "weak_only_ens": 128,
+   "weak_only_kind_combos": [
+    [
+     [
+      "amount:exact_round_wave"
+     ],
+     252
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "funding:shared_hub"
+     ],
+     186
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "amount:split",
+      "funding:shared_hub"
+     ],
+     176
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "amount:split"
+     ],
+     153
+    ],
+    [
+     [
+      "amount:near_same_block"
+     ],
+     27
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "funding:shared_hub",
+      "gas:two_axes"
+     ],
+     15
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "amount:near_same_block"
+     ],
+     14
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "funding:shared_hub",
+      "gas:limit+fee"
+     ],
+     8
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "amount:near_same_block",
+      "funding:shared_hub"
+     ],
+     8
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "gas:two_axes"
+     ],
+     8
+    ],
+    [
+     [
+      "amount:exact_round_wave",
+      "gas:limit+fee"
+     ],
+     7
+    ],
+    [
+     [
+      "amount:near_same_block",
+      "funding:shared_hub"
+     ],
+     6
+    ]
+   ],
+   "points_pct": {
+    "flagged": 57.63,
+    "per_node_ge2": 53.66,
+    "per_node_ge2_with_strong": 52.19,
+    "any_strong": 52.89,
+    "weak_only": 4.74
+   },
+   "tierA_degree_hist": {
+    "4": 4611,
+    "2": 4436,
+    "3": 2132,
+    "1": 385,
+    "5": 9
+   },
+   "tierA_bridges": 4157,
+   "tierA_articulation_points": 4168,
+   "bridge_kinds": [
+    [
+     "amount:exact_round_wave",
+     2647
+    ],
+    [
+     "amount:split",
+     2448
+    ],
+    [
+     "cadence:drip",
+     1102
+    ],
+    [
+     "amount:exact_odd",
+     674
+    ],
+    [
+     "sequence",
+     613
+    ],
+    [
+     "amount:near_same_block",
+     67
+    ],
+    [
+     "cadence:burst",
+     49
+    ]
+   ],
+   "weak_only_bridges": 1954,
+   "after_cut_weak_bridges": {
+    "components": 2217,
+    "members_in_comp_ge5": 9692,
+    "members_in_comp_lt5": 1881,
+    "top": [
+     950,
+     478,
+     372,
+     324,
+     208,
+     180,
+     100,
+     100,
+     100,
+     100,
+     100,
+     100
+    ]
+   },
+   "strong_only_components": {
+    "members_in_comp_ge5": 10613,
+    "members_in_comp_lt5": 960,
+    "isolated": 868,
+    "top": [
+     1994,
+     1001,
+     899,
+     769,
+     365,
+     324,
+     301,
+     300,
+     100,
+     100,
+     100,
+     100
+    ]
+   },
+   "strong_only_points_ge5": 52.05,
+   "clusters_lt50pct_strong": 43,
+   "members_in_clusters_lt50pct_strong": 661,
+   "funder_fanout_hist": {
+    "1": 10276,
+    "50+": 13,
+    "10-19": 12,
+    "5-9": 26,
+    "20-49": 12,
+    "2": 71,
+    "3-4": 30
+   },
+   "funder_fanout_top": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     253
+    ],
+    [
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+     242
+    ],
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     84
+    ],
+    [
+     "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     77
+    ],
+    [
+     "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+     74
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     72
+    ],
+    [
+     "0x28c6c06298d514db089934071355e5743bf21d60",
+     71
+    ],
+    [
+     "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+     69
+    ],
+    [
+     "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+     69
+    ],
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     68
+    ],
+    [
+     "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+     67
+    ],
+    [
+     "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     65
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     58
+    ],
+    [
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+     37
+    ],
+    [
+     "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+     33
+    ]
+   ]
+  }
+ },
+ "policy_simulation_on_this_dataset": {
+  "note": "same edge set as the live run; STRONG={amount:exact_odd, sequence, cadence:burst, cadence:drip, funding:peel_chain}; WEAK={round_wave, split, near_same_block, shared_hub, gas}. controls = the 60 benchmark controls (weakly labeled); farm_windows = the 11 audited operator waves (recall).",
+  "policies": [
+   {
+    "policy": "P0 shipped (min_size 5, >=2 families/component)",
+    "flagged": 11573,
+    "points_pct": 57.63,
+    "ens_flagged": 360,
+    "controls_flagged": 30,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 79,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P1 component min_size 10",
+    "flagged": 11163,
+    "points_pct": 55.01,
+    "ens_flagged": 328,
+    "controls_flagged": 30,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 68,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P2 component min_size 20",
+    "flagged": 9859,
+    "points_pct": 48.2,
+    "ens_flagged": 286,
+    "controls_flagged": 22,
+    "rescuers_flagged": 1,
+    "ladderers_flagged": 59,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P3 per-node: member touches >=1 strong-rule edge",
+    "flagged": 10705,
+    "points_pct": 52.89,
+    "ens_flagged": 232,
+    "controls_flagged": 24,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 79,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P4 per-node: >=2 families at the node AND >=1 strong",
+    "flagged": 10007,
+    "points_pct": 52.19,
+    "ens_flagged": 131,
+    "controls_flagged": 22,
+    "rescuers_flagged": 2,
+    "ladderers_flagged": 20,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P4b per-node: >=2 families at the node (any)",
+    "flagged": 10425,
+    "points_pct": 53.66,
+    "ens_flagged": 178,
+    "controls_flagged": 24,
+    "rescuers_flagged": 2,
+    "ladderers_flagged": 20,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1995/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5 strong-edge-only components, min_size 5 (families not gated)",
+    "flagged": 10854,
+    "points_pct": 52.31,
+    "ens_flagged": 255,
+    "controls_flagged": 23,
+    "rescuers_flagged": 4,
+    "ladderers_flagged": 113,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5b strong-edge-only components, min_size 5, >=2 strong families",
+    "flagged": 9294,
+    "points_pct": 44.88,
+    "ens_flagged": 185,
+    "controls_flagged": 17,
+    "rescuers_flagged": 1,
+    "ladderers_flagged": 65,
+    "farm_windows_ge95pct": "10/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "0/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5 strong-edge-only components, min_size 10 (families not gated)",
+    "flagged": 10357,
+    "points_pct": 51.22,
+    "ens_flagged": 206,
+    "controls_flagged": 22,
+    "rescuers_flagged": 4,
+    "ladderers_flagged": 74,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5b strong-edge-only components, min_size 10, >=2 strong families",
+    "flagged": 9126,
+    "points_pct": 44.57,
+    "ens_flagged": 177,
+    "controls_flagged": 16,
+    "rescuers_flagged": 1,
+    "ladderers_flagged": 59,
+    "farm_windows_ge95pct": "10/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "0/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5 strong-edge-only components, min_size 20 (families not gated)",
+    "flagged": 9090,
+    "points_pct": 46.26,
+    "ens_flagged": 172,
+    "controls_flagged": 14,
+    "rescuers_flagged": 1,
+    "ladderers_flagged": 59,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P5b strong-edge-only components, min_size 20, >=2 strong families",
+    "flagged": 8472,
+    "points_pct": 42.33,
+    "ens_flagged": 170,
+    "controls_flagged": 13,
+    "rescuers_flagged": 0,
+    "ladderers_flagged": 54,
+    "farm_windows_ge95pct": "10/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "0/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P6 infra = 12 CEX + first-funders with fan-out >= 20 (25 funders)",
+    "flagged": 11109,
+    "points_pct": 56.16,
+    "ens_flagged": 324,
+    "controls_flagged": 29,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 68,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P6 infra = 12 CEX + first-funders with fan-out >= 50 (13 funders)",
+    "flagged": 11163,
+    "points_pct": 56.24,
+    "ens_flagged": 330,
+    "controls_flagged": 29,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 69,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P6b infra = 12 CEX + Disperse contract only",
+    "flagged": 11573,
+    "points_pct": 57.63,
+    "ens_flagged": 360,
+    "controls_flagged": 30,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 79,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P6c shared-hub rule removed (peel chain kept)",
+    "flagged": 11022,
+    "points_pct": 56.07,
+    "ens_flagged": 314,
+    "controls_flagged": 29,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 65,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1996/1996",
+     "14.0@h3-15": "1003/1003",
+     "10.0@h5": "770/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "367/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P7 combined: fan-out>=20 infra + min_size 10 + per-node >=1 strong",
+    "flagged": 10322,
+    "points_pct": 51.71,
+    "ens_flagged": 204,
+    "controls_flagged": 24,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 62,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1993/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P7b combined: fan-out>=20 infra + min_size 10 + per-node >=2 families incl. strong",
+    "flagged": 9519,
+    "points_pct": 50.92,
+    "ens_flagged": 63,
+    "controls_flagged": 22,
+    "rescuers_flagged": 2,
+    "ladderers_flagged": 3,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1993/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   },
+   {
+    "policy": "P8 cluster needs >=50% strong-touching members; keep only those members",
+    "flagged": 10643,
+    "points_pct": 52.1,
+    "ens_flagged": 224,
+    "controls_flagged": 24,
+    "rescuers_flagged": 3,
+    "ladderers_flagged": 79,
+    "farm_windows_ge95pct": "11/11",
+    "farm_windows": {
+     "0.45@h3-4": "1994/1996",
+     "14.0@h3-15": "1001/1003",
+     "10.0@h5": "769/770",
+     "1.2@h1-2": "300/300",
+     "2.067": "324/324",
+     "0.45@h34-37": "365/367",
+     "idxrun_12058": "100/100",
+     "idxrun_13326": "100/100",
+     "idxrun_13795": "100/100",
+     "idxrun_13897": "100/100",
+     "idxrun_14001": "100/100"
+    }
+   }
+  ]
+ },
+ "null_model_reference": {
+  "file": "null_model.json (sibling agent, L)",
+  "point": "on a synthetic operator-free population (14,262 wallets, human amount prior from ENS singles, 40% CEX-funded) the SHIPPED rules flag 6,382 wallets (44.7%) across 41 clusters — dominated by amount+funding (110) and cadence+sequence (76) combos; the strictest candidate variant flags 14.6 (0.1%)"
+ },
+ "keyless_label_sources": {
+  "dune_spellbook": {
+   "static_cex_list": "https://github.com/duneanalytics/spellbook/blob/main/dbt_subprojects/hourly_spellbook/models/_sector/cex/addresses/chains/cex_evms_addresses.sql (raw fetchable; the per-chain cex_ethereum_addresses.sql is a dbt macro over it and needs Dune to run)",
+   "labels_view": "dbt_subprojects/daily_spellbook/models/_sector/labels/addresses/institution/identifier/cex/labels_cex_ethereum.sql (SELECT ... FROM source('cex','addresses'))",
+   "bridges": "dbt_subprojects/daily_spellbook/models/_sector/labels/addresses/bridge/identifiers/labels_bridges_ethereum.sql",
+   "cex_deposit_addresses": "dbt_subprojects/hourly_spellbook/models/_sector/cex/deposit_addresses/cex_deposit_addresses.sql (the zkSync 'same CEX deposit address' heuristic, derived — needs Dune)",
+   "infrastructure_identifier_dirs": [
+    "burn_addresses",
+    "cex_tokens",
+    "eth_stakers",
+    "l2_batch_submitters",
+    "l2_fee_vaults",
+    "stablecoins",
+    "system_addresses",
+    "validators"
+   ],
+   "not_found": "no disperse/multisend/relayer label model in labels/addresses (verified listing)"
+  },
+  "brianleect_etherscan_labels": {
+   "repo": "https://github.com/brianleect/etherscan-labels",
+   "files_verified": [
+    "data/etherscan/combined/combinedAccountLabels.json (2.49 MB)",
+    "data/etherscan/combined/combinedAllLabels.json (3.18 MB)",
+    "data/etherscan/accounts/{binance,coinbase,okx,kraken,kucoin,gate-io,crypto-com,hot-wallet,bridge,fiat-gateway,binance-deposit,safe-formerly-gnosis-safe,sybil-delegate}.json"
+   ],
+   "not_found": "accounts/exchange.json and accounts/cex.json return 404 — the 'exchange' label is per-entity files",
+   "raw": "https://raw.githubusercontent.com/brianleect/etherscan-labels/main/data/etherscan/accounts/bridge.json (200, 12,225 bytes)"
+  },
+  "dawsbot_eth_labels": {
+   "repo": "https://github.com/dawsbot/eth-labels",
+   "files_verified": [
+    "data/json/accounts.json",
+    "data/csv/accounts.csv",
+    "data/db.sqlite3"
+   ],
+   "note": "claims 169k+ labels; content not inspected"
+  },
+  "blockscout_v2": {
+   "probe": "eth.blockscout.com/api/v2/addresses/{addr}: Binance 14 (0x28c6…) -> name None, public_tags [], metadata None; Bitget 6 (0x1ab4…) -> same; Disperse (0xd152…) -> name 'Disperse' only because the contract is verified. /search?q=Binance returns tokens only.",
+   "verdict": "NOT a CEX-label source on mainnet, keyless or otherwise"
+  },
+  "arkham": {
+   "verdict": "API key required (docs.intel.arkm.com / intel.arkm.com/api); 2505.09313 used it under key",
+   "verified": "S"
+  },
+  "nansen": {
+   "verdict": "API key + credits ($10/1,000; free tier 100 credits) — not keyless",
+   "verified": "S"
+  },
+  "opensea": {
+   "verdict": "v2 API requires key (M, not verified this session); NFT holdings are reachable keyless via Blockscout /addresses/{addr}/nft/collections"
+  },
+  "ens": {
+   "verdict": "keyless via RPC reverse resolution (already used: 1,387 names)"
+  },
+  "etherscan_free_api": {
+   "verdict": "no nametag endpoint on free tier (M, not verified)"
+  },
+  "cheap_onchain_infra_heuristics": {
+   "this_dataset": "6 exchange-scale first funders: 1.7M-9.9M txs, up to 18,330 ETH (agent_xhub.json labels: Bitget 6, Binance 18, OKX Hot Wallet 3, FTX 2 (stale), OKX 24, OKX 3); farm distributors are tiny by comparison (0x3c15… 5,725 txs; 0x2fc9… 38 txs). First-funder fan-out inside the population: 10,276 funders fund 1 wallet, 71 fund 2, 30 fund 3-4, 26 fund 5-9, 12 fund 10-19, 12 fund 20-49, 13 fund >=50.",
+   "thresholds_used_elsewhere": "Chaos Labs: label-based (CEX/DEX/bridge) + first native transfer; Arbitrum: label-based entity removal; ijet: 'DEX and CEX addresses should be searched and excluded'; 2505.09313: excluded hot wallets + contracts via labels, kept contract-distributed funding; ChainCred: fan-out 11-1000 has no discriminative power",
+   "recommended_rule": "infra = label list (Dune cex_evms_addresses + brianleect per-entity + ChainCred 12) OR (tx_count >= 100k AND balance >= 100 ETH) OR (population fan-out >= 20 AND tx_count >= 10k). Do NOT add Disperse to infra (P6b: zero change; it is a farm tool)."
+  }
+ },
+ "honest_multi_wallet_human": {
+  "prior_art_min_sizes": {
+   "Hop": "10 per report (README) / 20 (Decrypt)",
+   "Arbitrum": ">20 addresses",
+   "zkSync": ">20 EOAs",
+   "Linea": "~20 wallets per user tolerated",
+   "LayerZero": "min N undisclosed; >=20 for bounty reports",
+   "ijet_2026": "chain >10 = sybil; MCC 10-300",
+   "sybilkit": "5"
+  },
+  "this_dataset": {
+   "size_5_9": {
+    "clusters": 59,
+    "members": 410,
+    "points_pct": 2.62,
+    "ens_members": 32,
+    "cex_funded": 19,
+    "no_strong_rule_members": 128,
+    "mean_nonce0_frac": 0.43,
+    "clusters_with_zero_nonce0": 19,
+    "second_family_is_hub_only": "29 of 59 small clusters carry a 'shared first funder' reason"
+   },
+   "size_10_19": {
+    "clusters": 119,
+    "members": 1304,
+    "points_pct": 6.8,
+    "ens_members": 42
+   },
+   "min_size_10": "11,163 flagged / 55.0% pts / ENS 328 / farm recall 11/11",
+   "min_size_20": "9,859 / 48.2% / ENS 286 / farm 11/11",
+   "hub_only_second_family": "76 clusters (1,408 members) have exactly one tier-A family and funding as the only second family; 37 of them (551 members) depend on the shared-hub rule alone"
+  }
+ },
+ "recommendations_prioritized": [
+  {
+   "rank": 1,
+   "rule": "Gate membership PER NODE: a member stays flagged only if >=2 distinct families touch it AND >=1 of them is a strong rule (exact_odd, sequence, burst, drip, peel). Component-level >=2 families becomes necessary, not sufficient.",
+   "knob": "cluster.py detect(): add member_min_families=2, member_needs_strong=True; emit 'periphery' members separately with confidence discounted",
+   "measured": "P4: 11,573 -> 10,007 flagged; points 57.63 -> 52.19%; ENS 360 -> 131; ladderers 79 -> 20; controls 30 -> 22; all 11 farm windows keep >=99.5% recall",
+   "sources": [
+    "Hop #192 100%-individual-score rule",
+    "Chaos Labs silhouette > 0.7 per sample",
+    "Trusta K-means centroid outlier removal",
+    "2505.09313 node-level classification"
+   ]
+  },
+  {
+   "rank": 2,
+   "rule": "Strong/weak edge tiers: only STRONG edges build components (union-find); WEAK edges (round-wave, split, near-block, hub, gas) may only corroborate a component they land inside and may never be a component's sole bridge.",
+   "knob": "signals/__init__.tier_a_components + cluster.detect step 1: union only STRONG kinds; step 2 corroborate with WEAK; expose Edge.tier",
+   "measured": "P5 (strong-only, min 5): 10,854 / 52.31%; P5b (+>=2 strong families): 9,294 / 44.88% but LOSES the 0.45x367 h34-37 wave (round-wave+hub only) -> keep round-wave as component-forming ONLY when the window is block-tight (v2 variant 'round windows <=32 blocks' kept 366/367)",
+   "sources": [
+    "Arbitrum: Louvain to break large components",
+    "Traag 2019 well-connectedness",
+    "bridge analysis here: 1,954 weak-only bridges"
+   ]
+  },
+  {
+   "rank": 3,
+   "rule": "Infra exclusion for the funding family: label lists + exchange-scale heuristic; hub edges from any excluded funder vanish; hub may never be the second family of a cluster < 10.",
+   "knob": "labels.py: load Dune cex_evms_addresses + brianleect per-entity JSON at build time; add is_exchange_scale(addr) (tx_count>=100k & balance>=100 ETH or fan-out>=20 & tx_count>=10k); funding.py STRENGTH_SHARED counts toward min_families only if len(component)>=10",
+   "measured": "P6 (fan-out>=20, 25 funders): 11,573 -> 11,109, ENS 360 -> 324, farm 11/11; hub rule removed entirely: 11,022 (-551)",
+   "sources": [
+    "Optimism CEX/on-ramp filter",
+    "Arbitrum entity removal",
+    "Chaos Labs funding labels",
+    "ChainCred fan-out non-separation"
+   ]
+  },
+  {
+   "rank": 4,
+   "rule": "min_size 10 by default; 5 allowed only when the component has >=2 STRONG families; 20 when the only evidence is round-wave + hub.",
+   "knob": "DetectConfig.min_size=10, min_size_strong=5, min_size_weak=20",
+   "measured": "P1: -410 members, -2.6 pts%, ENS -32, farm 11/11; P2: -1,714, -9.4 pts%, farm 11/11",
+   "sources": [
+    "Arbitrum >20",
+    "zkSync >20",
+    "Linea ~20/user",
+    "Hop 10/20",
+    "LayerZero 20"
+   ]
+  },
+  {
+   "rank": 5,
+   "rule": "Temporal tightness with graded strength: round-amount windows capped at <=2 hours or <=32 blocks (not 'consecutive hours'); strength decays with window span (multi-scale like DBSCAN eps in {1h,4h,8h,24h}).",
+   "knob": "signals/__init__.MAX_HOUR_GAP -> MAX_WINDOW_BLOCKS=32 and strength = f(span); split the 0.1x545 h0-23 window (it currently welds 545 wallets over 24 h)",
+   "measured": "v2 variant A: 10,741 flagged / 52.21%, ENS 244, all farms >=99.7%",
+   "sources": [
+    "Chaos Labs 24h funding window",
+    "ijet eps=4h minPts=3",
+    "2505.09313 'just-in-time' clustering"
+   ]
+  },
+  {
+   "rank": 6,
+   "rule": "Null-model gate in the benchmark: every rule set must flag <1% of a synthetic operator-free population; publish the FP rate with each release.",
+   "knob": "bench.py: add null_population() (as in null_model.py) and assert null_fp_rate < 0.01",
+   "measured": "shipped rules: 44.7% null FP; strictest variant 0.1%",
+   "sources": [
+    "OSLOM significance vs configuration model",
+    "Chaos Labs precision-over-recall"
+   ]
+  },
+  {
+   "rank": 7,
+   "rule": "Publish per-member reason strings and open a signed self-attestation / appeal window; treat an ENS-holder's signed declaration of <=k wallets as an honest multi-wallet group.",
+   "knob": "report.py: per-member reasons (not per-cluster); cli: 'attest' subcommand verifying EIP-191 signatures over 'LIST_SYBIL_ATTEST:<addr list>'",
+   "measured": "review queue here = 360 ENS-flagged + 868 weak-only members",
+   "sources": [
+    "Hop HOP_SYBIL_REPORT signatures",
+    "LayerZero self-report 15%",
+    "Linea two-week appeal (4-5% expected approval)",
+    "2505.09313 appeal-validated labels"
+   ]
+  },
+  {
+   "rank": 8,
+   "rule": "Human-review sampling and label hygiene: controls must be verified-honest (aged, ENS/NFT history, laddered, funded from own main long before), sybils must be appeal-validated; benchmark precision computed on the FULL population run.",
+   "knob": "tests/fixtures/labeled_subset.json rebuild; bench.py runs detect over the full population then scores the labeled subset",
+   "measured": "current gate: precision 1.0 in isolation vs 30/60 controls flagged in situ",
+   "sources": [
+    "Arbitrum human check",
+    "Gitcoin human-in-the-loop",
+    "2505.09313 label protocol"
+   ]
+  },
+  {
+   "rank": 9,
+   "rule": "Add money-OUT convergence as a strong family (sweep target / same CEX deposit address after the game), and 'first gas receipt -> first deposit' interval as a per-node strength.",
+   "knob": "new signals/sweep.py using Blockscout outgoing txs (cached), Dune cex_deposit_addresses pattern",
+   "measured": "not simulated (needs post-game outgoing-tx sweep)",
+   "sources": [
+    "zkSync CEX deposit-address reuse",
+    "Arbitrum sweep-tx edges",
+    "Trusta star convergence",
+    "2505.09313 top features"
+   ]
+  },
+  {
+   "rank": 10,
+   "rule": "Do not exclude Disperse; do not let gas be a family on its own (already the case); keep freshness as a discount.",
+   "knob": "no change",
+   "measured": "P6b Disperse-exclusion: zero change",
+   "sources": [
+    "2505.09313 retains contract-distributed funding as sybil pattern"
+   ]
+  }
+ ],
+ "could_not_verify": [
+  "Scroll SCR sybil methodology (none published found)",
+  "Optimism Airdrops 2-4 sybil filters (not published)",
+  "LayerZero minimum cluster size N (undisclosed)",
+  "Trusta numeric thresholds (undisclosed; gitbook Q&A pages not fetchable)",
+  "Nansen Linea original report page (redirects/404)",
+  "Hop 10 vs 20 addresses per report (README=10, Decrypt=20)",
+  "'born together act together' — phrase not found in 2505.09313",
+  "k-truss URL and OpenSea/Etherscan key requirements (from memory)"
+ ],
+ "files": {
+  "pernode": "pernode_out.json",
+  "policies": "policies_out.json",
+  "scripts": [
+   "pernode.py",
+   "policies.py"
+  ]
+ }
+}

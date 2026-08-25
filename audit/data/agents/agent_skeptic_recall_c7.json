@@ -1,0 +1,538 @@
+{
+ "finding": "recall_full_population: c7 (998) is a 0.05-0.06 crowd held together by near-minimum odd amounts reaching across all 66 hours",
+ "verdict": {
+  "refuted": false,
+  "confidence": 0.7,
+  "one_line": "Descriptive numbers reproduce exactly; the 'natural human choice' interpretation and the 600-wallet estimate are overstated (fix-attributable honest-looking releases = ~255); the suggested band exemption releases >=25 demonstrably organized wallets (dc49 x18, 0x5b6c16a9 x7 + h1 peel chain) and does not touch the finding's own two cited examples (0.06 round-wave)."
+ },
+ "rederived_from_cache": {
+  "c7_size": 998,
+  "mirror_component_equals_live": true,
+  "audited_16_operator_definition": {
+   "amt_0.05_h7": 26,
+   "amt_0.05_h15": 16,
+   "total": 42,
+   "matches_claim": true
+  },
+  "audited_v1_grid_definition": {
+   "total_in_v1_same_amount_clusters": 226,
+   "by_amount": {
+    "0.051": 117,
+    "0.05": 52,
+    "0.06": 16,
+    "0.057": 15,
+    "0.052": 14,
+    "0.055": 6,
+    "0.0567": 3,
+    "0.0566": 3
+   },
+   "note": "same_amount_clusters.json v1_clusters already contained a 41-wallet 0.051 h8 cluster (blocks 25772396-25772450) and a 25-wallet 0.051 h1 cluster; the claim's '42 audited' counts only the three 0.05 operators"
+  },
+  "non_audited_956": {
+   "ens": 150,
+   "multi_deposit": 39,
+   "nonce0_frac_all_c7": 0.2,
+   "nonce0_frac_non_audited": 0.17,
+   "post_snapshot": 510,
+   "post_snapshot_in_h34_35": 442,
+   "matches_claim": true
+  },
+  "exact_odd_members_in_c7": 435,
+  "exact_odd_amounts": {
+   "0.051": 194,
+   "0.055": 58,
+   "0.052": 54,
+   "0.053": 22,
+   "0.057": 22,
+   "0.058": 17,
+   "0.061": 16,
+   "0.056": 16,
+   "0.054": 12,
+   "0.059": 11
+  },
+  "every_single_deposit_wallet_at_these_amounts_is_in_c7": true,
+  "components_c7_restricted": {
+   "drop_exact_odd": {
+    "n_comps": 371,
+    "top": [
+     105,
+     93,
+     54,
+     35,
+     35,
+     33,
+     28,
+     22,
+     16,
+     16
+    ],
+    "singletons": 310
+   },
+   "drop_sequence": {
+    "n_comps": 369,
+    "top": [
+     514,
+     11,
+     9,
+     8,
+     7
+    ],
+    "singletons": 345
+   },
+   "drop_both": {
+    "n_comps": 750,
+    "top": [
+     54,
+     21,
+     11,
+     11,
+     9
+    ]
+   }
+  },
+  "full_recombine": {
+   "drop_exact_odd": {
+    "c7_still_flagged": 569,
+    "released": 429
+   },
+   "drop_sequence": {
+    "c7_still_flagged": 548,
+    "released": 450
+   }
+  },
+  "c7_top_first_funders": [
+   [
+    "Disperse 0xd152f549",
+    40
+   ],
+   [
+    "Binance 20 0x4976a4a0",
+    33
+   ],
+   [
+    "Binance 14 0x28c6c062",
+    30
+   ],
+   [
+    "Binance 16 0xdfd5293d",
+    27
+   ],
+   [
+    "Binance 15 0x21a31ee1",
+    25
+   ],
+   [
+    "Binance 17 0x56eddb7a",
+    25
+   ],
+   [
+    "OKX 3 0xa7efae72",
+    23
+   ],
+   [
+    "Relay solver 0xf70da978",
+    23
+   ],
+   [
+    "OKX 24 0xbf94f0ac",
+    21
+   ],
+   [
+    "Binance 18 0x9696f59e",
+    21
+   ],
+   [
+    "OKX hot3 0xa9ac43f5",
+    20
+   ],
+   [
+    "FTX2-stale 0xc098b2a3",
+    19
+   ],
+   [
+    "small EOA 0xdc4931c3 (510 txs)",
+    18
+   ]
+  ],
+  "c7_distinct_first_funders": 528
+ },
+ "decomposition_of_0_051_x195": {
+  "disperse_h8_bots": {
+   "n": 40,
+   "nonce0": 40,
+   "gas_limit": 76334,
+   "priority_fee_wei": [
+    637323,
+    713415,
+    721970,
+    726161
+   ],
+   "blocks": [
+    25772396,
+    25772397,
+    25772421,
+    25772422,
+    25772436,
+    25772437,
+    25772450
+   ],
+   "first_funder": "0xd152f549545093347a162dce210e7293f1452150 (Disperse) hops=1",
+   "class": "farm (provable)",
+   "released_by_band_fix": 0
+  },
+  "h1_batch": {
+   "n": 25,
+   "blocks": "25770283-25770466 (183 blocks)",
+   "nonce_range": "2-2078 median 121",
+   "ens": 6,
+   "first_funder_0x5b6c16a9": 7,
+   "just_before_deposit_peel_chains_observed_onchain": [
+    "0x331d9a04 (exch-scale 423k txs) -1.4min-> 0xecfd8861 (nonce 2078) -0.6min-> 0xf471cbef (nonce 608)",
+    "0x6262a6de (p7 child) -0.4min-> 0x91cc9fe1 (nonce 2) -0.4min-> 0x28427e75 (nonce 28)",
+    "0xc7881c49 (p7 child) -0.8min-> 0x2ffe0351 (nonce 64)"
+   ],
+   "hub_0x5b6c16a9": "EOA 1668 txs, balance 0, member itself (0.051 h1 nonce 1432); still sent 0.0016 ETH to children 0x033c7ff4 and 0x43779780 on 2026-08-24 (post-game refill)",
+   "wallet_histories": "aged NFT-mint wallets (mint/mintSigned/mintPublic/matchAdvancedOrders, RelayDepository bridging), 95-321 days old on page",
+   "class": "one operator with aged wallets; >=12 of 25 demonstrably chained, rest unverified",
+   "released_by_band_fix": "yes (all 25 lose their only tier-A edge)"
+  },
+  "dc49_group": {
+   "n": 18,
+   "funder": "0xdc4931c3217953ba691e1d4681dfb4305c91ebab EOA 510 txs, 0.0017 ETH, funded exactly these 18, itself called curator 2026-08-17 00:56",
+   "hour": 5,
+   "span_minutes": 42,
+   "blocks": "25771386-25771595",
+   "amounts": {
+    "0.057": 10,
+    "0.055": 5,
+    "0.052": 3,
+    "0.053": 1
+   },
+   "nonces": "12-54",
+   "ens": 0,
+   "gas_limit_all": 114501,
+   "internal_peel_onchain": [
+    "0x82af88a9 -1.0min-> 0x7fd1a098 (0.058)",
+    "0xaf867698 -0.2min-> 0xf2495361 (0.057)"
+   ],
+   "class": "farm using four different odd amounts to dodge same-amount rules",
+   "released_by_band_fix": 18
+  },
+  "scattered_not_in_v1_grid": {
+   "n": 78,
+   "nonce0": 5,
+   "nonce_ge20": 57,
+   "nonce_median": 136.5,
+   "ens": 19,
+   "distinct_first_funders": 64,
+   "class": "human-like by nonce/ENS/funder diversity; several funded 1-4 min before deposit by exchange-scale wallets with 0.051-0.06 ETH (ambiguous: human top-up or operator withdrawal)"
+  },
+  "v1_grid_other_hours": {
+   "n": 46,
+   "nonce0": 9,
+   "nonce_ge20": 29,
+   "ens": 12,
+   "distinct_first_funders": 42,
+   "class": "mostly human-like"
+  }
+ },
+ "other_odd_amounts": {
+  "0.055": {
+   "n": 58,
+   "nonce0": 3,
+   "nonce_ge20": 43,
+   "ens": 15,
+   "distinct_hours": 31,
+   "max_per_block": 1,
+   "distinct_funders": 47,
+   "class": "human-like except 5 dc49 + 1 peel"
+  },
+  "0.052": {
+   "n": 54,
+   "nonce0": 16,
+   "ens": 11,
+   "peel_in_c7": 11,
+   "class": "mixed: 11 first-funded by c7 members, 6 just-before-funded by c7 members in other skeptic's sample"
+  },
+  "0.053": {
+   "n": 22,
+   "ens": 10,
+   "nonce_ge20": 16,
+   "class": "human-like"
+  },
+  "0.057": {
+   "n": 22,
+   "ens": 0,
+   "nonce0": 0,
+   "dc49": 10,
+   "hours_5_7": 16,
+   "class": "mostly dc49 farm"
+  },
+  "0.06_round": {
+   "n": 70,
+   "ens": 17,
+   "nonce_ge20": 53,
+   "attached_via": "round-wave/near-block, NOT exact-odd",
+   "released_by_band_fix": 0
+  }
+ },
+ "population_base_rate": {
+  "odd_near_min_band_0.0501_0.0625_first_deposits": 839,
+  "share_pct": 4.3,
+  "ens_share_in_band_pct": 16.1,
+  "ens_share_population_pct": 7.1,
+  "band_nonce0": 0.21,
+  "band_nonce_ge20": 0.57,
+  "band_nonce_median": 38,
+  "compare_0.0626_0.1_band": {
+   "n": 2646,
+   "nonce0": 0.83
+  },
+  "compare_0.06_round": {
+   "n": 125,
+   "ens": 36,
+   "nonce_ge20": 0.76
+  },
+  "reading": "the near-min odd band is 2.3x ENS-enriched and aged -> supports 'human choice' for the majority, but not for the ~83 organized wallets above"
+ },
+ "fix_impact_c7": {
+  "A_band_exempt_0.05_to_0.0625": {
+   "pop_flagged": 11102,
+   "pop_released": 471,
+   "newly_flagged": 0,
+   "c7_released": 429,
+   "released_markers": {
+    "nonce0": 58,
+    "nonce_ge20": 272,
+    "ens": 96,
+    "peel_first_funder_in_c7": 55,
+    "dc49": 18,
+    "p7": 7,
+    "disperse": 0,
+    "honest_looking(ens_or_nonce>=20,not_peel/disperse)": 255
+   },
+   "c7_still": {
+    "n": 569,
+    "0.05": 426,
+    "0.06": 70,
+    "0.051": 53,
+    "disperse": 40,
+    "honest_looking": 317
+   },
+   "labeled_farm_recall_unchanged": 141,
+   "controls_flagged": "30->26"
+  },
+  "B_exact_odd_needs_4_sig_digits": {
+   "pop_released": 580,
+   "c7_released": 426,
+   "honest_looking": 254,
+   "dc49": 18,
+   "p7": 7
+  },
+  "C_drop_exact_odd": {
+   "pop_released": 622,
+   "c7_released": 429
+  },
+  "D_exact_odd_block_span_le_300": {
+   "pop_released": 233,
+   "c7_released": 124,
+   "honest_looking": 77,
+   "dc49_kept": "17/18",
+   "p7_kept": "7/7",
+   "c7_still": 874
+  },
+  "cited_examples_under_fix": {
+   "wmp.eth 0x08ceb8bb": "0.06 round-wave + near-block; NOT released by A/B/C",
+   "ming168.eth 0x0d9447b6": "0.06 round-wave + hub; NOT released by A/B/C"
+  }
+ },
+ "affected_estimate_check": {
+  "claim": 600,
+  "fix_attributable_honest_looking": 255,
+  "whole_c7_honest_looking": 572,
+  "note": "572 includes ~317 members of the 0.05 rush / 0.06 wave that the exact-odd fix does not release; 600 conflates the two mechanisms"
+ },
+ "onchain_spot_checks": {
+  "n_lookups": 23,
+  "cached_reused": 5,
+  "rate": "1.1-1.2 s sleep, no 429",
+  "table": [
+   [
+    "0x0d9447b6 ming168.eth",
+    "0.06 h4 nonce170",
+    "1241d old, 22 contracts, mint history, funded 0.4min before by 0x331d9a04 (0.02)",
+    "human-like"
+   ],
+   [
+    "0x08ceb8bb wmp.eth",
+    "0.06 h9 nonce4907",
+    "funded 2026-08-07 by 0x331d9a04, bal 0.109",
+    "human-like"
+   ],
+   [
+    "0x3a3c6174 crankywakker.eth",
+    "0.051 h30 nonce1496",
+    "334d, 28 contracts, no pre-deposit funding",
+    "human-like"
+   ],
+   [
+    "0x308d4062",
+    "0.055 h46 nonce124",
+    "1356d, 31 contracts, no pre-deposit funding",
+    "human-like"
+   ],
+   [
+    "0x2e50176d 20110523.eth",
+    "0.055 h15 nonce197",
+    "828d, funded 9.4min before by 0x18dd3c14 (exch-scale 427k) 0.06",
+    "human-like"
+   ],
+   [
+    "0x95b533de bitdrake.eth",
+    "0.053 h34 nonce224",
+    "1225d, funded 1.4min before by 0x1ab4973a (exch-scale 5.4M) 0.053",
+    "human-like/ambiguous"
+   ],
+   [
+    "0x7f62fbb8",
+    "0.051 h9 nonce1867",
+    "898d, 34 contracts, funded 1.4min before by contract 0xe4e9e7db (265 txs) 0.051",
+    "ambiguous"
+   ],
+   [
+    "0x7ba51f8d",
+    "0.051 h12 nonce677",
+    "145d, funded 1.8min before by 0x18dd3c14 0.0526",
+    "ambiguous"
+   ],
+   [
+    "0x1db9459a",
+    "0.051 h19 nonce581",
+    "492d, funded 4.0min before by 0x2cff890f (exch-scale 1.6M) 0.0574",
+    "ambiguous"
+   ],
+   [
+    "0xddbca120 (cached)",
+    "0.051 h7 nonce1184",
+    "133d, funded 1.6min before by OKX hot3 0.05",
+    "ambiguous"
+   ],
+   [
+    "0xecfd8861",
+    "0.051 h1 nonce2078",
+    "funded 1.4min before by 0x331d9a04 0.0599, then funds 0xf471cbef 0.6min before its deposit",
+    "peel-chain head"
+   ],
+   [
+    "0xf471cbef",
+    "0.051 h1 nonce608",
+    "funded 0.6min before by c7 member 0xecfd8861 0.0605",
+    "farm-like (aged)"
+   ],
+   [
+    "0x91cc9fe1",
+    "0.051 h1 nonce2",
+    "funded 0.4min before by p7 child 0x6262a6de 0.0549; then funds 0x28427e75",
+    "farm-like"
+   ],
+   [
+    "0x28427e75",
+    "0.051 h1 nonce28",
+    "funded 0.4min before by c7 member 0x91cc9fe1 0.0549; 0 balance now",
+    "farm-like (aged)"
+   ],
+   [
+    "0x2ffe0351",
+    "0.051 h1 nonce64",
+    "funded 0.8min before by p7 child 0xc7881c49 0.0549; 0 balance now",
+    "farm-like (aged)"
+   ],
+   [
+    "0x5b6c16a9 (hub)",
+    "0.051 h1 nonce1432",
+    "1668 txs, bal 0, funded 7 children, refills them 08-24",
+    "operator hub"
+   ],
+   [
+    "0xdc4931c3 (funder)",
+    "-",
+    "510 txs, 0.0017 ETH, funded 18 c7 members, sent 0.055/0.058 to members 08-17 00:58-01:46, called curator 00:56",
+    "operator"
+   ],
+   [
+    "0x7fd1a098",
+    "0.057 h5 nonce54",
+    "78d, NFT mints, funded 1.0min before by dc49 member 0x82af88a9 0.058",
+    "farm-like (aged)"
+   ],
+   [
+    "0xf2495361",
+    "0.057 h5 nonce12",
+    "72d, funded 0.2min before by dc49 member 0xaf867698 0.057, bal 0.0003",
+    "farm-like"
+   ],
+   [
+    "0x4ae9ce00",
+    "0.052 h8 nonce0",
+    "created 0.4d before, funded 0.4min before by c7 member 0x67680821 0.06, 2 txs total",
+    "farm-like"
+   ],
+   [
+    "0x48118098",
+    "0.052 h36 nonce0",
+    "created 1.5d before, funded 9.4min before by Binance 20 0.0619, 2 txs",
+    "fresh; unknown"
+   ],
+   [
+    "0x4966b70f (Disperse bot)",
+    "0.051 h8 nonce0",
+    "2 txs lifetime, 0 balance",
+    "farm"
+   ],
+   [
+    "0x4a86bf18 (cached)",
+    "0.055 h3 nonce182",
+    "funded 0.4min before by 0x18dd3c14 0.0595; 11 post-settle outs 1.09 ETH",
+    "ambiguous"
+   ],
+   [
+    "0xad8dcda3 (cached)",
+    "0.051 h4 nonce533",
+    "9.6d old on page, execute/depositNative bridging, 1.5 ETH out post-settle",
+    "ambiguous"
+   ],
+   [
+    "funders",
+    "-",
+    "0x18dd3c14: EOA 427k txs 8.6 ETH (exch-scale); 0x2cff890f: EOA 1.6M txs 2714 ETH (exch-scale); 0xe4e9e7db: contract 265 txs",
+    "-"
+   ]
+  ]
+ },
+ "other_skeptic_c7odd_sample_reused": {
+  "n": 25,
+  "just_before_funder_is_c7_member": 7,
+  "just_before_funder_exchange_scale": 9,
+  "none_or_other": 9,
+  "file": "skeptic_c7odd_onchain.json -> sk_rfp_c7odd_pre6h.json"
+ },
+ "alternative_explanations_tested": {
+  "aged_wallet_bought_or_reused_by_farm": "CONFIRMED for h1 batch and dc49: aged (nonce 12-2078) NFT-mint wallets chained by funding 0.2-1.4 min before deposit; sybilkit's FIRST-funder peel rule misses them",
+  "exchange_funded_set_is_one_operator": "cannot distinguish for the scattered 0.051/0.055 aged wallets; several funded 1-4 min pre-deposit by exchange-scale wallets with 0.051-0.06 ETH; equally consistent with a human top-up",
+  "0.051_is_a_farm_signature_not_human": "false as a blanket statement: band is ENS-enriched 2.3x and 57% nonce>=20; true for 40 Disperse bots + h1 batch + dc49 (~83 of 195)"
+ },
+ "strongest_supported_claim": "c7 is a heterogeneous weld: 42 audited 0.05 members + 40 provable Disperse 0.051 bots + >=43 aged-wallet peel groups (h1 0.051 batch, dc49 four-amount group) + ~255 honest-looking odd-amount wallets + the h34-35 0.05 rush, joined only because 'identical odd' 0.051/0.052/0.055 amounts reach across all hours and 0.05 index runs chain the rush. A near-min band exemption from exact-odd releases 429 (255 honest-looking, 58 nonce-0, 55 peel-funded incl. dc49 18 + p7 7) and leaves 569 flagged incl. all 40 Disperse bots and both cited ENS examples. Net honest FP attributable to exact-odd reach in c7 ~200-255, not 600.",
+ "recommended_fix_shape": "band exemption (A) or 4-sig-digit rule (B) PLUS a 'funded by another member <=10 min before deposit' tier-A peel rule (would retain h1 batch and dc49 while releasing the exchange/self-funded aged wallets); block-span cap D alone releases too little (124) to fix the weld",
+ "files": [
+  "sk_rfp_c7.py",
+  "sk_rfp_c7.log",
+  "sk_rfp_c7_members.json",
+  "sk_rfp_fix.py",
+  "sk_rfp_fix.log",
+  "sk_rfp_fix_released.json",
+  "skeptic_rfp_bs/",
+  "sk_rfp_onchain_parsed.json",
+  "sk_rfp_pre6h_funders.json",
+  "sk_rfp_c7odd_pre6h.json"
+ ]
+}

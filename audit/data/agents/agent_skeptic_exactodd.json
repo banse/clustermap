@@ -1,0 +1,1683 @@
+{
+ "recount_matches_finding": {
+  "wallets_with_exact_odd_edge_total": 1251,
+  "flagged_with_exact_odd_edge": 1070,
+  "flagged_odd_le3dec": 982,
+  "flagged_odd_le3dec_no_other_strong": 410,
+  "flagged_odd_le3dec_no_other_strong_named": 101,
+  "top_le3_amounts": [
+   [
+    "2.067",
+    324
+   ],
+   [
+    "0.051",
+    194
+   ],
+   [
+    "0.055",
+    58
+   ],
+   [
+    "0.052",
+    54
+   ],
+   [
+    "0.063",
+    41
+   ],
+   [
+    "0.057",
+    22
+   ],
+   [
+    "0.053",
+    22
+   ],
+   [
+    "0.091",
+    21
+   ],
+   [
+    "0.058",
+    17
+   ],
+   [
+    "0.124",
+    16
+   ],
+   [
+    "0.061",
+    16
+   ],
+   [
+    "0.056",
+    16
+   ],
+   [
+    "0.185",
+    13
+   ],
+   [
+    "0.064",
+    13
+   ],
+   [
+    "0.054",
+    12
+   ],
+   [
+    "0.088",
+    11
+   ],
+   [
+    "0.179",
+    11
+   ],
+   [
+    "0.059",
+    11
+   ],
+   [
+    "0.186",
+    10
+   ],
+   [
+    "0.065",
+    9
+   ],
+   [
+    "0.302",
+    9
+   ],
+   [
+    "0.069",
+    9
+   ],
+   [
+    "0.062",
+    8
+   ],
+   [
+    "0.301",
+    8
+   ],
+   [
+    "0.068",
+    7
+   ]
+  ],
+  "flagged_odd_gt3dec": 88,
+  "flagged_odd_gt3dec_amounts_top": [
+   [
+    "0.0505",
+    19
+   ],
+   [
+    "0.1245",
+    15
+   ],
+   [
+    "0.0501",
+    15
+   ],
+   [
+    "2.19997666744",
+    5
+   ],
+   [
+    "0.0567",
+    3
+   ],
+   [
+    "0.0566",
+    3
+   ],
+   [
+    "0.0515",
+    3
+   ],
+   [
+    "0.0502",
+    3
+   ],
+   [
+    "1.191944",
+    2
+   ],
+   [
+    "1.19479",
+    2
+   ],
+   [
+    "0.0521",
+    2
+   ],
+   [
+    "1.212755",
+    2
+   ],
+   [
+    "0.05116822592722",
+    2
+   ],
+   [
+    "0.0508",
+    2
+   ],
+   [
+    "1.176969",
+    2
+   ]
+  ]
+ },
+ "ablation_le3_matches_finding": {
+  "clusters": 277,
+  "members": 10993,
+  "lost": 580,
+  "gained": 0,
+  "lost_named": 112,
+  "lost_by_cat": [
+   [
+    "c7_0.05_crowd",
+    426
+   ],
+   [
+    "small_round_or_other",
+    136
+   ],
+   [
+    "c6_0.1_crowd",
+    18
+   ]
+  ],
+  "lost_by_cluster_top": [
+   [
+    7,
+    426
+   ],
+   [
+    160,
+    38
+   ],
+   [
+    6,
+    18
+   ],
+   [
+    208,
+    13
+   ],
+   [
+    200,
+    9
+   ],
+   [
+    230,
+    9
+   ],
+   [
+    164,
+    8
+   ],
+   [
+    203,
+    8
+   ],
+   [
+    244,
+    8
+   ],
+   [
+    245,
+    7
+   ],
+   [
+    222,
+    7
+   ],
+   [
+    214,
+    6
+   ],
+   [
+    252,
+    5
+   ],
+   [
+    246,
+    5
+   ],
+   [
+    213,
+    5
+   ]
+  ]
+ },
+ "two_point_zero_six_seven_after_ablation": "324 singles remain one flagged component (hours 13-20) via drip/peel edges; 0 lost",
+ "lost_580_partition": {
+  "strict_farm_like": 160,
+  "weak_farm_like": 45,
+  "human_like": 375,
+  "strict_farm_like_nonce0_frac": 0.681,
+  "strict_farm_like_ens": 0,
+  "human_like_nonce_ge20_frac": 0.693,
+  "human_like_nonce0": 32,
+  "human_like_nonce_median": 71,
+  "human_like_ens": 109,
+  "strict_farm_like_by_amount": [
+   [
+    "0.063",
+    26
+   ],
+   [
+    "0.051",
+    24
+   ],
+   [
+    "0.052",
+    17
+   ],
+   [
+    "0.057",
+    11
+   ],
+   [
+    "0.05",
+    11
+   ],
+   [
+    "0.064",
+    8
+   ],
+   [
+    "0.302",
+    7
+   ],
+   [
+    "0.301",
+    6
+   ],
+   [
+    "0.055",
+    6
+   ],
+   [
+    "0.303",
+    5
+   ],
+   [
+    "0.389",
+    5
+   ],
+   [
+    "0.113",
+    5
+   ],
+   [
+    "0.061",
+    4
+   ],
+   [
+    "0.053",
+    3
+   ],
+   [
+    "0.054",
+    2
+   ],
+   [
+    "0.098",
+    2
+   ],
+   [
+    "0.125",
+    2
+   ],
+   [
+    "0.056",
+    2
+   ],
+   [
+    "0.062",
+    2
+   ],
+   [
+    "0.0566",
+    2
+   ],
+   [
+    "0.0567",
+    2
+   ],
+   [
+    "0.068",
+    2
+   ],
+   [
+    "0.179",
+    2
+   ],
+   [
+    "0.099",
+    1
+   ],
+   [
+    "0.059",
+    1
+   ]
+  ],
+  "human_like_by_amount": [
+   [
+    "0.051",
+    107
+   ],
+   [
+    "0.055",
+    42
+   ],
+   [
+    "0.05",
+    38
+   ],
+   [
+    "0.052",
+    31
+   ],
+   [
+    "0.053",
+    16
+   ],
+   [
+    "0.058",
+    13
+   ],
+   [
+    "0.056",
+    12
+   ],
+   [
+    "0.057",
+    10
+   ],
+   [
+    "0.061",
+    9
+   ],
+   [
+    "0.059",
+    9
+   ],
+   [
+    "0.054",
+    8
+   ],
+   [
+    "0.065",
+    7
+   ],
+   [
+    "0.069",
+    6
+   ],
+   [
+    "0.125",
+    5
+   ],
+   [
+    "0.064",
+    5
+   ]
+  ],
+  "weak_farm_like_funders": [
+   [
+    "0xacf34e0bf8193292e22d722851cac7748d05b869",
+    4
+   ],
+   [
+    "0x0cfdf329081e8cde910869ef4ed85739a5e495d7",
+    4
+   ],
+   [
+    "0x4a662531ac19eb5f74c09a9118d5dbc19021a9ef",
+    4
+   ],
+   [
+    "0x331d9a049d496385998067abf6cbb6371c8d2466",
+    3
+   ],
+   [
+    "0xc3ae71fe59f5133ba180cbbd76536a70dec23d40",
+    3
+   ],
+   [
+    "0x5babe600b9fcd5fb7b66c0611bf4896d967b23a1",
+    3
+   ],
+   [
+    "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb",
+    2
+   ],
+   [
+    "0x18dd3c14e34c1bc379f7538068c59160d9f68e25",
+    2
+   ]
+  ]
+ },
+ "per_amount_profiles_le3_odd": [
+  {
+   "label": "odd 2.067 dec=3",
+   "n": 324,
+   "distinct_hours": 5,
+   "hour_span": [
+    13,
+    20
+   ],
+   "max_per_hour": 117,
+   "hour_entropy_norm": 0.234,
+   "distinct_blocks": 324,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.0,
+   "nonce_le3_frac": 0.389,
+   "nonce_ge20_frac": 0.287,
+   "nonce_median": 13.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 320,
+   "top_funder": [
+    [
+     "0x00000b7a7a859f1b7ab55579fd4e7b0b22064f3d",
+     4
+    ],
+    [
+     "0x0d0707963952f2fba59dd06f2b425ace40b492fe",
+     2
+    ],
+    [
+     "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+     1
+    ]
+   ],
+   "funder_in_group": 318,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.679,
+   "ens_n": 2,
+   "ens_rate": 0.006,
+   "flagged": 324
+  },
+  {
+   "label": "odd 0.051 dec=3",
+   "n": 194,
+   "distinct_hours": 34,
+   "hour_span": [
+    1,
+    41
+   ],
+   "max_per_hour": 47,
+   "hour_entropy_norm": 0.555,
+   "distinct_blocks": 155,
+   "max_per_block": 10,
+   "blocks_with_ge2": 13,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.284,
+   "nonce_le3_frac": 0.314,
+   "nonce_ge20_frac": 0.557,
+   "nonce_median": 39.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 112,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     40
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     8
+    ],
+    [
+     "0x5b6c16a960f6e7b1603b3d4c420e0c0a5f6e2afb",
+     7
+    ]
+   ],
+   "funder_in_group": 15,
+   "infra_funded": 9,
+   "distinct_gasfp": 150,
+   "top_gasfp_share": 0.052,
+   "ens_n": 39,
+   "ens_rate": 0.201,
+   "flagged": 194
+  },
+  {
+   "label": "odd 0.055 dec=3",
+   "n": 58,
+   "distinct_hours": 31,
+   "hour_span": [
+    0,
+    47
+   ],
+   "max_per_hour": 5,
+   "hour_entropy_norm": 0.789,
+   "distinct_blocks": 58,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.052,
+   "nonce_le3_frac": 0.086,
+   "nonce_ge20_frac": 0.741,
+   "nonce_median": 82.5,
+   "funding_cov": 1.0,
+   "distinct_funders": 47,
+   "top_funder": [
+    [
+     "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+     5
+    ],
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     3
+    ],
+    [
+     "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+     3
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 3,
+   "distinct_gasfp": 58,
+   "top_gasfp_share": 0.017,
+   "ens_n": 15,
+   "ens_rate": 0.259,
+   "flagged": 58
+  },
+  {
+   "label": "odd 0.052 dec=3",
+   "n": 54,
+   "distinct_hours": 25,
+   "hour_span": [
+    1,
+    41
+   ],
+   "max_per_hour": 10,
+   "hour_entropy_norm": 0.735,
+   "distinct_blocks": 54,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.296,
+   "nonce_le3_frac": 0.352,
+   "nonce_ge20_frac": 0.556,
+   "nonce_median": 35.5,
+   "funding_cov": 1.0,
+   "distinct_funders": 44,
+   "top_funder": [
+    [
+     "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     3
+    ],
+    [
+     "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+     3
+    ],
+    [
+     "0xe95f6604a591f6ba33accb43a8a885c9c272108c",
+     2
+    ]
+   ],
+   "funder_in_group": 6,
+   "infra_funded": 4,
+   "distinct_gasfp": 54,
+   "top_gasfp_share": 0.019,
+   "ens_n": 11,
+   "ens_rate": 0.204,
+   "flagged": 54
+  },
+  {
+   "label": "odd 0.063 dec=3",
+   "n": 41,
+   "distinct_hours": 7,
+   "hour_span": [
+    6,
+    35
+   ],
+   "max_per_hour": 27,
+   "hour_entropy_norm": 0.297,
+   "distinct_blocks": 41,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.854,
+   "nonce_le3_frac": 0.902,
+   "nonce_ge20_frac": 0.073,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 41,
+   "top_funder": [
+    [
+     "0xe95f6604a591f6ba33accb43a8a885c9c272108c",
+     1
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     1
+    ],
+    [
+     "0xfb3edb5533ae8b970dcabe9a55ff2b8a9f1dcc7b",
+     1
+    ]
+   ],
+   "funder_in_group": 27,
+   "infra_funded": 1,
+   "distinct_gasfp": 41,
+   "top_gasfp_share": 0.024,
+   "ens_n": 1,
+   "ens_rate": 0.024,
+   "flagged": 41
+  },
+  {
+   "label": "odd 0.053 dec=3",
+   "n": 22,
+   "distinct_hours": 16,
+   "hour_span": [
+    2,
+    59
+   ],
+   "max_per_hour": 3,
+   "hour_entropy_norm": 0.87,
+   "distinct_blocks": 22,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.136,
+   "nonce_le3_frac": 0.136,
+   "nonce_ge20_frac": 0.727,
+   "nonce_median": 97.5,
+   "funding_cov": 1.0,
+   "distinct_funders": 20,
+   "top_funder": [
+    [
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+     2
+    ],
+    [
+     "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+     2
+    ],
+    [
+     "0xf89d7b9c864f589bbf53a82105107622b35eaa40",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 1,
+   "distinct_gasfp": 22,
+   "top_gasfp_share": 0.045,
+   "ens_n": 10,
+   "ens_rate": 0.455,
+   "flagged": 22
+  },
+  {
+   "label": "odd 0.057 dec=3",
+   "n": 22,
+   "distinct_hours": 9,
+   "hour_span": [
+    5,
+    35
+   ],
+   "max_per_hour": 9,
+   "hour_entropy_norm": 0.579,
+   "distinct_blocks": 22,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.0,
+   "nonce_le3_frac": 0.045,
+   "nonce_ge20_frac": 0.364,
+   "nonce_median": 13.5,
+   "funding_cov": 1.0,
+   "distinct_funders": 13,
+   "top_funder": [
+    [
+     "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+     9
+    ],
+    [
+     "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+     2
+    ],
+    [
+     "0x86338ae205a0009c0d0984492781f7f6e13b1815",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 22,
+   "top_gasfp_share": 0.045,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 22
+  },
+  {
+   "label": "odd 0.091 dec=3",
+   "n": 21,
+   "distinct_hours": 2,
+   "hour_span": [
+    9,
+    17
+   ],
+   "max_per_hour": 20,
+   "hour_entropy_norm": 0.063,
+   "distinct_blocks": 4,
+   "max_per_block": 10,
+   "blocks_with_ge2": 3,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.952,
+   "nonce_le3_frac": 0.952,
+   "nonce_ge20_frac": 0.048,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 2,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     20
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.952,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 21
+  },
+  {
+   "label": "odd 0.058 dec=3",
+   "n": 17,
+   "distinct_hours": 10,
+   "hour_span": [
+    5,
+    36
+   ],
+   "max_per_hour": 4,
+   "hour_entropy_norm": 0.748,
+   "distinct_blocks": 17,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.118,
+   "nonce_le3_frac": 0.294,
+   "nonce_ge20_frac": 0.471,
+   "nonce_median": 16,
+   "funding_cov": 1.0,
+   "distinct_funders": 17,
+   "top_funder": [
+    [
+     "0x6f08ee37061a3fd71db2583fd34aeaed811a8457",
+     1
+    ],
+    [
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+     1
+    ],
+    [
+     "0xc3be447cb867ad734230bc5f1578ada16a8551b8",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 17,
+   "top_gasfp_share": 0.059,
+   "ens_n": 3,
+   "ens_rate": 0.176,
+   "flagged": 17
+  },
+  {
+   "label": "odd 0.056 dec=3",
+   "n": 16,
+   "distinct_hours": 11,
+   "hour_span": [
+    2,
+    34
+   ],
+   "max_per_hour": 3,
+   "hour_entropy_norm": 0.82,
+   "distinct_blocks": 16,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.0,
+   "nonce_le3_frac": 0.0,
+   "nonce_ge20_frac": 0.688,
+   "nonce_median": 41.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 14,
+   "top_funder": [
+    [
+     "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     2
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     2
+    ],
+    [
+     "0xc3ae71fe59f5133ba180cbbd76536a70dec23d40",
+     1
+    ]
+   ],
+   "funder_in_group": 1,
+   "infra_funded": 1,
+   "distinct_gasfp": 16,
+   "top_gasfp_share": 0.062,
+   "ens_n": 2,
+   "ens_rate": 0.125,
+   "flagged": 16
+  },
+  {
+   "label": "odd 0.061 dec=3",
+   "n": 16,
+   "distinct_hours": 8,
+   "hour_span": [
+    6,
+    20
+   ],
+   "max_per_hour": 3,
+   "hour_entropy_norm": 0.738,
+   "distinct_blocks": 16,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.062,
+   "nonce_le3_frac": 0.125,
+   "nonce_ge20_frac": 0.688,
+   "nonce_median": 43.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 13,
+   "top_funder": [
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     2
+    ],
+    [
+     "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+     2
+    ],
+    [
+     "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+     2
+    ]
+   ],
+   "funder_in_group": 2,
+   "infra_funded": 1,
+   "distinct_gasfp": 16,
+   "top_gasfp_share": 0.062,
+   "ens_n": 1,
+   "ens_rate": 0.062,
+   "flagged": 16
+  },
+  {
+   "label": "odd 0.124 dec=3",
+   "n": 16,
+   "distinct_hours": 2,
+   "hour_span": [
+    17,
+    23
+   ],
+   "max_per_hour": 15,
+   "hour_entropy_norm": 0.084,
+   "distinct_blocks": 2,
+   "max_per_block": 15,
+   "blocks_with_ge2": 1,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.938,
+   "nonce_le3_frac": 0.938,
+   "nonce_ge20_frac": 0.0,
+   "nonce_median": 0.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 2,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     15
+    ],
+    [
+     "0x4b4e14a3773ee558b6597070797fd51eb48606e5",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.938,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 16
+  },
+  {
+   "label": "odd 0.185 dec=3",
+   "n": 13,
+   "distinct_hours": 2,
+   "hour_span": [
+    8,
+    17
+   ],
+   "max_per_hour": 10,
+   "hour_entropy_norm": 0.211,
+   "distinct_blocks": 4,
+   "max_per_block": 10,
+   "blocks_with_ge2": 1,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.769,
+   "nonce_le3_frac": 0.846,
+   "nonce_ge20_frac": 0.154,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 4,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     10
+    ],
+    [
+     "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb",
+     1
+    ],
+    [
+     "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+     1
+    ]
+   ],
+   "funder_in_group": 1,
+   "infra_funded": 0,
+   "distinct_gasfp": 4,
+   "top_gasfp_share": 0.769,
+   "ens_n": 1,
+   "ens_rate": 0.077,
+   "flagged": 13
+  },
+  {
+   "label": "odd 0.064 dec=3",
+   "n": 13,
+   "distinct_hours": 6,
+   "hour_span": [
+    8,
+    47
+   ],
+   "max_per_hour": 8,
+   "hour_entropy_norm": 0.501,
+   "distinct_blocks": 13,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.615,
+   "nonce_le3_frac": 0.615,
+   "nonce_ge20_frac": 0.308,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 13,
+   "top_funder": [
+    [
+     "0x1911b79688edb76b6b41c5edc528aa796ff70f89",
+     1
+    ],
+    [
+     "0x44863534973d38f8819618adf15bae879e6fece5",
+     1
+    ],
+    [
+     "0xa3f066285ad422407acbf6765fc1a71505bc610d",
+     1
+    ]
+   ],
+   "funder_in_group": 2,
+   "infra_funded": 0,
+   "distinct_gasfp": 13,
+   "top_gasfp_share": 0.077,
+   "ens_n": 2,
+   "ens_rate": 0.154,
+   "flagged": 13
+  },
+  {
+   "label": "odd 0.054 dec=3",
+   "n": 12,
+   "distinct_hours": 8,
+   "hour_span": [
+    2,
+    45
+   ],
+   "max_per_hour": 3,
+   "hour_entropy_norm": 0.779,
+   "distinct_blocks": 12,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.083,
+   "nonce_le3_frac": 0.083,
+   "nonce_ge20_frac": 0.833,
+   "nonce_median": 71.5,
+   "funding_cov": 1.0,
+   "distinct_funders": 12,
+   "top_funder": [
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     1
+    ],
+    [
+     "0xe95f6604a591f6ba33accb43a8a885c9c272108c",
+     1
+    ],
+    [
+     "0xee7094b0d871b9c86d6205a560e6b7f7f3934eae",
+     1
+    ]
+   ],
+   "funder_in_group": 2,
+   "infra_funded": 0,
+   "distinct_gasfp": 12,
+   "top_gasfp_share": 0.083,
+   "ens_n": 5,
+   "ens_rate": 0.417,
+   "flagged": 12
+  },
+  {
+   "label": "odd 0.059 dec=3",
+   "n": 11,
+   "distinct_hours": 8,
+   "hour_span": [
+    4,
+    36
+   ],
+   "max_per_hour": 3,
+   "hour_entropy_norm": 0.822,
+   "distinct_blocks": 11,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.091,
+   "nonce_le3_frac": 0.273,
+   "nonce_ge20_frac": 0.636,
+   "nonce_median": 40,
+   "funding_cov": 1.0,
+   "distinct_funders": 10,
+   "top_funder": [
+    [
+     "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+     2
+    ],
+    [
+     "0x1f806ad7167cc6e5bbbe049b4af90ffdd64acb7a",
+     1
+    ],
+    [
+     "0xf60326f26d028ff4d9b34215865eb26c154f484e",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 1,
+   "distinct_gasfp": 11,
+   "top_gasfp_share": 0.091,
+   "ens_n": 3,
+   "ens_rate": 0.273,
+   "flagged": 11
+  },
+  {
+   "label": "odd 0.179 dec=3",
+   "n": 11,
+   "distinct_hours": 2,
+   "hour_span": [
+    17,
+    35
+   ],
+   "max_per_hour": 10,
+   "hour_entropy_norm": 0.127,
+   "distinct_blocks": 3,
+   "max_per_block": 9,
+   "blocks_with_ge2": 1,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.909,
+   "nonce_le3_frac": 0.909,
+   "nonce_ge20_frac": 0.0,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 2,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     10
+    ],
+    [
+     "0x9642b23ed1e01df1092b92641051881a322f5d4e",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.909,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 11
+  },
+  {
+   "label": "odd 0.088 dec=3",
+   "n": 11,
+   "distinct_hours": 2,
+   "hour_span": [
+    17,
+    25
+   ],
+   "max_per_hour": 10,
+   "hour_entropy_norm": 0.127,
+   "distinct_blocks": 3,
+   "max_per_block": 9,
+   "blocks_with_ge2": 1,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.909,
+   "nonce_le3_frac": 0.909,
+   "nonce_ge20_frac": 0.091,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 2,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     10
+    ],
+    [
+     "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.909,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 11
+  },
+  {
+   "label": "odd 0.186 dec=3",
+   "n": 10,
+   "distinct_hours": 1,
+   "hour_span": [
+    17,
+    17
+   ],
+   "max_per_hour": 10,
+   "hour_entropy_norm": -0.0,
+   "distinct_blocks": 1,
+   "max_per_block": 10,
+   "blocks_with_ge2": 1,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 1.0,
+   "nonce_le3_frac": 1.0,
+   "nonce_ge20_frac": 0.0,
+   "nonce_median": 0.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 1,
+   "top_funder": [
+    [
+     "0xd152f549545093347a162dce210e7293f1452150",
+     10
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 1,
+   "top_gasfp_share": 1.0,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 10
+  },
+  {
+   "label": "odd 0.069 dec=3",
+   "n": 9,
+   "distinct_hours": 5,
+   "hour_span": [
+    1,
+    22
+   ],
+   "max_per_hour": 4,
+   "hour_entropy_norm": 0.649,
+   "distinct_blocks": 9,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.0,
+   "nonce_le3_frac": 0.111,
+   "nonce_ge20_frac": 0.333,
+   "nonce_median": 13,
+   "funding_cov": 1.0,
+   "distinct_funders": 8,
+   "top_funder": [
+    [
+     "0x0cfdf329081e8cde910869ef4ed85739a5e495d7",
+     2
+    ],
+    [
+     "0xbebcf96eeed98d495f45407ce7017179738e3552",
+     1
+    ],
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 2,
+   "distinct_gasfp": 9,
+   "top_gasfp_share": 0.111,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 9
+  },
+  {
+   "label": "odd 0.065 dec=3",
+   "n": 9,
+   "distinct_hours": 6,
+   "hour_span": [
+    5,
+    22
+   ],
+   "max_per_hour": 2,
+   "hour_entropy_norm": 0.79,
+   "distinct_blocks": 9,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.111,
+   "nonce_le3_frac": 0.222,
+   "nonce_ge20_frac": 0.778,
+   "nonce_median": 34,
+   "funding_cov": 1.0,
+   "distinct_funders": 8,
+   "top_funder": [
+    [
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+     2
+    ],
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     1
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 9,
+   "top_gasfp_share": 0.111,
+   "ens_n": 2,
+   "ens_rate": 0.222,
+   "flagged": 9
+  },
+  {
+   "label": "odd 0.302 dec=3",
+   "n": 9,
+   "distinct_hours": 2,
+   "hour_span": [
+    21,
+    22
+   ],
+   "max_per_hour": 5,
+   "hour_entropy_norm": 0.313,
+   "distinct_blocks": 9,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.889,
+   "nonce_le3_frac": 0.889,
+   "nonce_ge20_frac": 0.0,
+   "nonce_median": 0,
+   "funding_cov": 1.0,
+   "distinct_funders": 9,
+   "top_funder": [
+    [
+     "0x81015f2bc2f680d307be755726aa34bfa2e108c1",
+     1
+    ],
+    [
+     "0xe6f61b8a8c0efc143548fdf6887d036a0496a43c",
+     1
+    ],
+    [
+     "0x78cfb2591ebf8a2261723f26d8dd3721bf2cef78",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 1,
+   "top_gasfp_share": 1.0,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 9
+  },
+  {
+   "label": "odd 0.062 dec=3",
+   "n": 8,
+   "distinct_hours": 7,
+   "hour_span": [
+    6,
+    33
+   ],
+   "max_per_hour": 2,
+   "hour_entropy_norm": 0.917,
+   "distinct_blocks": 8,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.375,
+   "nonce_le3_frac": 0.5,
+   "nonce_ge20_frac": 0.5,
+   "nonce_median": 11.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 7,
+   "top_funder": [
+    [
+     "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+     2
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     1
+    ],
+    [
+     "0x267be1c1d684f78cb4f6a176c4911b741e4ffdc0",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 8,
+   "top_gasfp_share": 0.125,
+   "ens_n": 2,
+   "ens_rate": 0.25,
+   "flagged": 8
+  },
+  {
+   "label": "odd 0.301 dec=3",
+   "n": 8,
+   "distinct_hours": 2,
+   "hour_span": [
+    21,
+    22
+   ],
+   "max_per_hour": 5,
+   "hour_entropy_norm": 0.318,
+   "distinct_blocks": 8,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.875,
+   "nonce_le3_frac": 0.875,
+   "nonce_ge20_frac": 0.125,
+   "nonce_median": 0.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 8,
+   "top_funder": [
+    [
+     "0x331d9a049d496385998067abf6cbb6371c8d2466",
+     1
+    ],
+    [
+     "0x9d8c8092b8c3cea613c77a37e37157a8abe41b0f",
+     1
+    ],
+    [
+     "0xb06bdb8d556935c3cf0fe799c3c648e0587fe2b7",
+     1
+    ]
+   ],
+   "funder_in_group": 1,
+   "infra_funded": 0,
+   "distinct_gasfp": 2,
+   "top_gasfp_share": 0.875,
+   "ens_n": 0,
+   "ens_rate": 0.0,
+   "flagged": 8
+  },
+  {
+   "label": "odd 0.125 dec=3",
+   "n": 7,
+   "distinct_hours": 7,
+   "hour_span": [
+    1,
+    23
+   ],
+   "max_per_hour": 1,
+   "hour_entropy_norm": 1.0,
+   "distinct_blocks": 7,
+   "max_per_block": 1,
+   "blocks_with_ge2": 0,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.286,
+   "nonce_le3_frac": 0.286,
+   "nonce_ge20_frac": 0.571,
+   "nonce_median": 20,
+   "funding_cov": 1.0,
+   "distinct_funders": 5,
+   "top_funder": [
+    [
+     "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+     2
+    ],
+    [
+     "0x4b4e14a3773ee558b6597070797fd51eb48606e5",
+     2
+    ],
+    [
+     "0xa1abfa21f80ecf401bd41365adbb6fef6fefdf09",
+     1
+    ]
+   ],
+   "funder_in_group": 0,
+   "infra_funded": 0,
+   "distinct_gasfp": 7,
+   "top_gasfp_share": 0.143,
+   "ens_n": 2,
+   "ens_rate": 0.286,
+   "flagged": 7
+  }
+ ],
+ "baselines": {
+  "baseline_unique_odd_all": {
+   "label": "unique odd amount singles (no amount edge possible)",
+   "n": 5887,
+   "distinct_hours": 62,
+   "hour_span": [
+    0,
+    64
+   ],
+   "max_per_hour": 1199,
+   "hour_entropy_norm": 0.339,
+   "distinct_blocks": 2370,
+   "max_per_block": 51,
+   "blocks_with_ge2": 405,
+   "nonce_cov": 0.56,
+   "nonce0_frac": 0.799,
+   "nonce_le3_frac": 0.802,
+   "nonce_ge20_frac": 0.069,
+   "nonce_median": 0.0,
+   "funding_cov": 0.57,
+   "distinct_funders": 3307,
+   "top_funder": [
+    [
+     "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+     8
+    ],
+    [
+     "0xf7a429d237592b86bada7dcad25707714e18c5c8",
+     8
+    ],
+    [
+     "0x52257e4e402dc182494f32b98fee204dbd1b061e",
+     8
+    ]
+   ],
+   "funder_in_group": 3296,
+   "infra_funded": 1,
+   "distinct_gasfp": 162,
+   "top_gasfp_share": 0.302,
+   "ens_n": 49,
+   "ens_rate": 0.008,
+   "flagged": 3314
+  },
+  "baseline_undisputed_farms": {
+   "label": "undisputed farm members",
+   "n": 7828,
+   "distinct_hours": 22,
+   "hour_span": [
+    1,
+    37
+   ],
+   "max_per_hour": 1550,
+   "hour_entropy_norm": 0.265,
+   "distinct_blocks": 2037,
+   "max_per_block": 51,
+   "blocks_with_ge2": 372,
+   "nonce_cov": 1.0,
+   "nonce0_frac": 0.86,
+   "nonce_le3_frac": 0.884,
+   "nonce_ge20_frac": 0.047,
+   "nonce_median": 0.0,
+   "funding_cov": 1.0,
+   "distinct_funders": 7760,
+   "top_funder": [
+    [
+     "0x3c15fc1a7cb921459508f139ae0ae963b883c6c4",
+     23
+    ],
+    [
+     "0xac2d7ef56249afbb64321cf987a6e0962817e69d",
+     15
+    ],
+    [
+     "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+     8
+    ]
+   ],
+   "funder_in_group": 7769,
+   "infra_funded": 3,
+   "distinct_gasfp": 1827,
+   "top_gasfp_share": 0.128,
+   "ens_n": 4,
+   "ens_rate": 0.001,
+   "flagged": 7828
+  },
+  "baseline_unflagged_singles": {
+   "label": "all unflagged single-deposit wallets",
+   "n": 5991,
+   "distinct_hours": 65,
+   "hour_span": [
+    0,
+    64
+   ],
+   "max_per_hour": 318,
+   "hour_entropy_norm": 0.441,
+   "distinct_blocks": 4564,
+   "max_per_block": 7,
+   "blocks_with_ge2": 1056,
+   "nonce_cov": 0.1,
+   "nonce0_frac": 0.344,
+   "nonce_le3_frac": 0.363,
+   "nonce_ge20_frac": 0.346,
+   "nonce_median": 8.0,
+   "funding_cov": 0.13,
+   "distinct_funders": 590,
+   "top_funder": [
+    [
+     "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     15
+    ],
+    [
+     "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+     15
+    ],
+    [
+     "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+     13
+    ]
+   ],
+   "funder_in_group": 294,
+   "infra_funded": 39,
+   "distinct_gasfp": 564,
+   "top_gasfp_share": 0.005,
+   "ens_n": 641,
+   "ens_rate": 0.107,
+   "flagged": 0
+  }
+ },
+ "onchain_spot_checks": {
+  "calls": {
+   "blockscout": 25,
+   "cast_nonce_balance": 22
+  },
+  "cited_ens_wallets_confirmed_aged": {
+   "0x070f565dfd13906eba848374c34a4485bd21e876 0xmhd.eth": "cast nonce now 782 (775 at deposit), bal 0.0026 ETH; blockscout counters endpoint returned 0 (cache miss, unreliable)",
+   "0x91508018f75f93af3c8c7c501757f1db57f19804 chessman.eth": "cast nonce 260 (259 at deposit), 269 txs / 171 token transfers on Blockscout, bal 0.0554",
+   "0x1302c055c293d739dc0f25ed1edaff1364806e1b smoorfee.eth": "cast nonce 234 (229 at deposit), bal 0.0003"
+  },
+  "farm_batch_0xdc4931c3_h5": {
+   "funder": "0xdc4931c3217953ba691e1d4681dfb4305c91ebab = EOA, 458 nonce / 510 txs, bal 0.0017 ETH, no name; itself deposited 0.05 at h4.96 (block 25771354) then sent 0.058026 to 0xacd34398 at h5.00",
+   "members": 18,
+   "amounts": "0.057 x9, 0.055 x5, 0.052 x3, 0.053 x1 rotating",
+   "window": "blocks 25771386-25771595 (h5, ~40 min), monotone order, 0 ENS, nonces 12-54 at deposit",
+   "relay_chain_observed": "0xacd34398 -> 0x82af88a9 0.058 @h5.03; 0x82af88a9 deposit 0.057 @h5.07 (blk 25771386); 0x82af88a9 -> 0x7fd1a098 0.058 @h5.10; ... 0xf6e12572 -> 0xaf867698 0.057 @h5.62; 0xaf867698 deposit 0.057 (blk 25771552); 0xaf867698 -> 0xf2495361 0.057 @h5.66",
+   "shared_history": "all sampled members minted SeaDrop in the same block 25660913 (2026-08-01) and sent dust to 0xdc4931c3 in block 25652696 (2026-07-31); 0x82af88a9 re-funded by 0xacd34398 on 2026-08-21 for LabratClaim+swap then sent proceeds to 0xdc4931c3",
+   "lockstep_now": "17/18 nonce advanced exactly +2 since deposit; 15/18 balances 0.000287-0.000292 ETH",
+   "sybilkit_edges": "amount:exact_odd (population-wide 0.057/0.055/0.052/0.053) + funding:shared_hub x18; NOT peel-chain because 0xdc4931c3 deposited the exempt 0.05 and is outside the component",
+   "released_by_le3_ablation": 18
+  },
+  "farm_batch_0.301_0.302_0.303_h21_22": {
+   "members": 23,
+   "nonce0": 20,
+   "ens": 0,
+   "sample_0x2a8aae50": "funded 0.308 by 0xe6f61b8a @h21.79, deposit 0.302 @h21.80, swept 0.3075 to 0xb06bdb8d @h21.82; 0xb06bdb8d is the first funder of a 0.301 member -> chain across the band; re-funded 2026-08-21 by the same funder for LabratClaim",
+   "sample_0x18cf3097": "funded 0.304299 @h22.40 by 0x6076dab4, deposit 0.301 @h22.42, swept 0.304197 to 0xa6b2c893 @h22.43 (3 txs lifetime)",
+   "released_by_le3_ablation": 23
+  },
+  "farm_batch_0.063_0.064_h19_20": {
+   "members": "41 at 0.063 (35 nonce0, 27 funded by another 0.063 member, 35 in h19-20) + 13 at 0.064 (8 in h19, 8 nonce0)",
+   "sample_0x05c24d68 (aged, nonce 50, active since 2023)": "funded 0.068982 by 0x977bd420 @h10.91, deposit 0.063 @h10.95, swept 0.068788 to 0x20d40a8c @h10.96 -> aged wallet reused JIT",
+   "sample_0x0469310b": "funded 0.06426 @h19.22, deposit 0.064 @h19.24, swept 0.064247 @h19.24 (3 txs lifetime)",
+   "released_by_le3_ablation": "32 + 13"
+  },
+  "farm_batch_0.113_h41_45": {
+   "members": 5,
+   "funder": "0x9642b23e x5 (also funds 0.179 wallets)",
+   "sample_0x31c3c7c1": "funded 0.113418 @h41.66, deposit 0.113 @h41.86, WETH wrap/unwrap, swept 0.11333 to 0x81f86167 @h42.09",
+   "released": 5
+  },
+  "farm_batch_0.389_h17": {
+   "members": 5,
+   "funder": "Disperse x5, nonce0 x5, blocks 25775084-87",
+   "sample_0x232a96f2": "deposit 0.389 @h17.44, swept 0.38999 to 0x03f915f6 @h17.48 (2 txs lifetime)",
+   "released": 5
+  },
+  "human_like_aged_nonens_sample": {
+   "0xca40f3e3 (0.055 h7 nonce 85)": "bal 0.033, has_tokens, not swept",
+   "0x021298eb (0.051 h7 nonce 50)": "bal 0.177, has_tokens, not swept",
+   "0x7baa0873 (0.055 h8 nonce 33)": "bal 0.057, has_tokens",
+   "0x5e9415e9 (0.052 h12 nonce 38)": "bal 0.0016, has_tokens",
+   "0xfff516dc (0.051 h12 nonce 149)": "58 txs / 15 token transfers, bal 0",
+   "note": "Blockscout counters returned 0 for 4/5 (endpoint cache miss also seen on 0xmhd.eth with nonce 782) -> nonce-at-deposit from the tx enrichment is the authoritative age signal"
+  },
+  "human_like_fresh_sample_ambiguous": {
+   "0x45cdb14b (0.051 h35 nonce0, funded by exchange-scale 0x4976a4a0)": "after deposit: memecoin swaps via UniversalRouter, Diamond call, sent 0.366 ETH to 0x73ed3c2b @h36.26 -> unknown (fresh trading wallet or farm)",
+   "0x39945675 (0.051 h33 nonce0, funded by exchange-scale 0xa9ac43f5)": "swaps, sent 2.862 ETH to 0x4677ffb9 @h36.15 and receives from 0x46770e82 / 0x4677f939 (three 0x4677 vanity-prefix addresses) -> unknown, vanity-prefix set suggests one operator with generated wallets"
+  }
+ }
+}

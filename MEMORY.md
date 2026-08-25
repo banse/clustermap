@@ -1,6 +1,6 @@
 # CLUSTERMAP Project Memory
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 ## Product
 
@@ -38,6 +38,10 @@ The public, crypto-native framing is a three-step handoff:
 - A group is kept only at 5+ wallets and 2+ independent evidence families.
 - Evidence families are funding, amount, sequence, cadence, and gas. Only
   funding edges are actual transfers; other edges are behavioral patterns.
+- A reproducible independent audit lives under `audit/`. It documents that the
+  shipped rules flag 11,573 wallets, link 45.8% of an operator-free synthetic
+  population, and miss most wallets in a known 419-wallet operator pattern.
+  The audit includes its harness, evidence data, raw run logs, and HTML report.
 
 ## Current product decisions
 
@@ -68,6 +72,9 @@ The public, crypto-native framing is a three-step handoff:
 - Evidence Atlas encoding: X = confidence, Y = logarithmic points share,
   bubble area = wallet count, yellow/orange/red = evidence tier, dashed ring =
   possible false positive.
+- Evidence tiers are described as weak, moderate, or strong *group evidence*.
+  Wallet views describe membership in such a group rather than assigning a
+  Sybil label to an individual wallet. A group is a question, not a verdict.
 - Clicking a group opens its topology. `WHY THIS GROUP EXISTS` is rendered
   inline below the map.
 - Clicking a wallet replaces that inline group explanation with the complete
@@ -108,6 +115,7 @@ Keep the existing small MVC boundary:
 - Frontend models/API/presentation: `dashboard/src/models`
 - Frontend state and async flows: `dashboard/src/controllers`
 - React views without direct network access: `dashboard/src/views`
+- Audit harness and evidence: `audit/harness`, `audit/data`, and `audit/report`
 
 Important current frontend files:
 

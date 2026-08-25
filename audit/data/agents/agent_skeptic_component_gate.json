@@ -1,0 +1,2165 @@
+{
+ "agent": "skeptic_component_gate",
+ "finding": "Component-level gate + spanning-chain edges",
+ "verdict": "partially holds; headline FP estimate ~2x overstated; welded-cluster number ~2x overstated and built on an inconsistent strong-edge definition; proposed fix releases a coherent nonce-0 farm ladder",
+ "launch_utc": "2026-08-16T19:58:47",
+ "code_mechanics_verified": {
+  "root_keyed_families": "cluster.py best_by_family keyed on uf.find(edge.a); gate len(members)>=min_size and len(families)>=min_families per component \u2014 CONFIRMED",
+  "chain_not_clique": "amounts/split chain over (hour,block,address)-sorted window rows; cadence burst / gas / funding hub chain over address-sorted lists; drip and sequence over block/index order \u2014 CONFIRMED (the 'sorted addresses' wording is imprecise for amounts/split/drip/sequence but mechanically equivalent)"
+ },
+ "numbers_rederived": {
+  "repro": {
+   "clusters": 263,
+   "flagged": 11573,
+   "matches_live": true
+  },
+  "no_strong": {
+   "count": 868,
+   "by_attach": {
+    "amount:exact_round_wave": 476,
+    "amount:exact_round_wave+amount:split": 330,
+    "amount:near_same_block": 33,
+    "amount:exact_round_wave+amount:near_same_block": 22,
+    "amount:exact_round_wave+amount:near_same_block+amount:split": 7
+   },
+   "ens": 128,
+   "nonce0": 372,
+   "nonce_1_19": 123,
+   "nonce_ge20": 373,
+   "nonce_unknown": 0
+  },
+  "one_family_member_level": {
+   "count": 1187,
+   "nonce0": 245,
+   "nonce_ge20": 703,
+   "ens": 185
+  },
+  "periphery_under_proposed_fix": {
+   "count": 1050,
+   "core": 10523,
+   "ens": 152,
+   "nonce0": 401,
+   "nonce_1_19": 162,
+   "nonce_ge20": 487,
+   "nonce_unknown": 0,
+   "points_pct_released": 4.94,
+   "controls_flagged_before": 30,
+   "controls_flagged_after": 23,
+   "labeled_members_flagged_before": 141,
+   "labeled_members_flagged_after": 139,
+   "multi_deposit": 8
+  },
+  "ens_nonce_ge20_no_strong": {
+   "count": 126,
+   "by_cluster": {
+    "6": 40,
+    "7": 17,
+    "162": 9,
+    "164": 7,
+    "49": 6,
+    "51": 5,
+    "184": 4,
+    "173": 4,
+    "225": 3,
+    "169": 3,
+    "196": 3,
+    "171": 3
+   }
+  },
+  "audited_farms_retained": {
+   "0.45_h3-4": {
+    "n": 1996,
+    "flagged": 1996,
+    "core": 1994,
+    "periphery": 2
+   },
+   "14.0": {
+    "n": 1003,
+    "flagged": 1003,
+    "core": 1001,
+    "periphery": 2
+   },
+   "10.0": {
+    "n": 778,
+    "flagged": 770,
+    "core": 769,
+    "periphery": 1
+   },
+   "1.2_h1-2": {
+    "n": 300,
+    "flagged": 300,
+    "core": 300,
+    "periphery": 0
+   },
+   "2.067": {
+    "n": 324,
+    "flagged": 324,
+    "core": 324,
+    "periphery": 0
+   },
+   "171.99": {
+    "n": 10,
+    "flagged": 10,
+    "core": 10,
+    "periphery": 0
+   },
+   "labeled_members": {
+    "n": 160,
+    "flagged": 141,
+    "core": 139,
+    "periphery": 2
+   }
+  }
+ },
+ "welded_clusters_check": {
+  "finding_method_excludes_peel_from_blob_graph": {
+   "clusters": 10,
+   "members": 6215,
+   "list": [
+    [
+     2,
+     1996,
+     50
+    ],
+    [
+     0,
+     1104,
+     2
+    ],
+    [
+     7,
+     998,
+     9
+    ],
+    [
+     6,
+     896,
+     16
+    ],
+    [
+     1,
+     770,
+     25
+    ],
+    [
+     4,
+     300,
+     47
+    ],
+    [
+     21,
+     60,
+     5
+    ],
+    [
+     160,
+     47,
+     2
+    ],
+    [
+     169,
+     24,
+     2
+    ],
+    [
+     188,
+     20,
+     2
+    ]
+   ]
+  },
+  "consistent_method_includes_peel(as in finding's own STRONG set)": {
+   "clusters": 8,
+   "members": 3175,
+   "list": [
+    [
+     0,
+     1104,
+     2
+    ],
+    [
+     7,
+     998,
+     2
+    ],
+    [
+     6,
+     896,
+     13
+    ],
+    [
+     21,
+     60,
+     4
+    ],
+    [
+     160,
+     47,
+     2
+    ],
+    [
+     165,
+     26,
+     2
+    ],
+    [
+     169,
+     24,
+     2
+    ],
+    [
+     188,
+     20,
+     2
+    ]
+   ]
+  },
+  "peel_connectivity_of_the_three_largest_'welded'": {
+   "cluster0": {
+    "size": 1104,
+    "peel_edges": 1099,
+    "members_funded_by_member": 1099
+   },
+   "cluster1": {
+    "size": 770,
+    "peel_edges": 768,
+    "members_funded_by_member": 768
+   },
+   "cluster2": {
+    "size": 1996,
+    "peel_edges": 1989,
+    "members_funded_by_member": 1989
+   },
+   "cluster4": {
+    "size": 300,
+    "peel_edges": 299,
+    "members_funded_by_member": 299
+   },
+   "cluster6": {
+    "size": 896,
+    "peel_edges": 695,
+    "members_funded_by_member": 697
+   },
+   "cluster7": {
+    "size": 998,
+    "peel_edges": 76,
+    "members_funded_by_member": 81
+   }
+  },
+  "note": "clusters 2 (0.45x1996), 1 (10.0x770), 4 (1.2x300) are each ONE peel-connected blob (99.6-99.9% of members funded by another member); their 50/25/47 'strong sub-blobs joined only by round-wave/split' exist only because peel edges were dropped from the blob graph while peel counts as strong for member scoring. Same-amount-all-blobs welds (21,165,169,188)=130 members; cluster 0 = 14.0 + 14.3 blobs both 100% nonce-0 peel farms. Heterogeneous welds with aged strangers are essentially clusters 6 and 7 (+160): ~1,940 members, ~235 periphery.",
+  "welded_detail": [
+   {
+    "cluster_id": 0,
+    "size": 1104,
+    "blobs": 2,
+    "in_blobs": 1101,
+    "outside_blobs": 3,
+    "blob_amounts_distinct": [
+     "14.0",
+     "14.3"
+    ],
+    "blob_hours": [
+     [
+      3,
+      13
+     ],
+     [
+      12,
+      14
+     ]
+    ],
+    "same_amount_all_blobs": false,
+    "outside_blob_nonce0": 0,
+    "outside_blob_nonce_ge20": 2,
+    "outside_blob_ens": 0,
+    "outside_blob_periphery": 3
+   },
+   {
+    "cluster_id": 7,
+    "size": 998,
+    "blobs": 2,
+    "in_blobs": 921,
+    "outside_blobs": 77,
+    "blob_amounts_distinct": [
+     "0.05",
+     "0.057"
+    ],
+    "blob_hours": [
+     [
+      0,
+      59
+     ],
+     [
+      5,
+      35
+     ]
+    ],
+    "same_amount_all_blobs": false,
+    "outside_blob_nonce0": 13,
+    "outside_blob_nonce_ge20": 53,
+    "outside_blob_ens": 18,
+    "outside_blob_periphery": 72
+   },
+   {
+    "cluster_id": 6,
+    "size": 896,
+    "blobs": 13,
+    "in_blobs": 735,
+    "outside_blobs": 161,
+    "blob_amounts_distinct": [
+     "0.09",
+     "0.094563150976982144",
+     "0.098",
+     "0.099",
+     "0.1",
+     "0.110296853343293116"
+    ],
+    "blob_hours": [
+     [
+      0,
+      12
+     ],
+     [
+      0,
+      43
+     ],
+     [
+      11,
+      11
+     ],
+     [
+      17,
+      17
+     ],
+     [
+      17,
+      18
+     ],
+     [
+      18,
+      18
+     ],
+     [
+      18,
+      19
+     ],
+     [
+      19,
+      19
+     ]
+    ],
+    "same_amount_all_blobs": false,
+    "outside_blob_nonce0": 15,
+    "outside_blob_nonce_ge20": 110,
+    "outside_blob_ens": 43,
+    "outside_blob_periphery": 146
+   },
+   {
+    "cluster_id": 21,
+    "size": 60,
+    "blobs": 4,
+    "in_blobs": 42,
+    "outside_blobs": 18,
+    "blob_amounts_distinct": [
+     "1.0"
+    ],
+    "blob_hours": [
+     [
+      3,
+      3
+     ],
+     [
+      3,
+      4
+     ],
+     [
+      4,
+      4
+     ]
+    ],
+    "same_amount_all_blobs": true,
+    "outside_blob_nonce0": 6,
+    "outside_blob_nonce_ge20": 8,
+    "outside_blob_ens": 1,
+    "outside_blob_periphery": 16
+   },
+   {
+    "cluster_id": 160,
+    "size": 47,
+    "blobs": 2,
+    "in_blobs": 46,
+    "outside_blobs": 1,
+    "blob_amounts_distinct": [
+     "0.063",
+     "0.066"
+    ],
+    "blob_hours": [
+     [
+      6,
+      35
+     ],
+     [
+      6,
+      43
+     ]
+    ],
+    "same_amount_all_blobs": false,
+    "outside_blob_nonce0": 1,
+    "outside_blob_nonce_ge20": 0,
+    "outside_blob_ens": 0,
+    "outside_blob_periphery": 1
+   },
+   {
+    "cluster_id": 165,
+    "size": 26,
+    "blobs": 2,
+    "in_blobs": 24,
+    "outside_blobs": 2,
+    "blob_amounts_distinct": [
+     "0.2"
+    ],
+    "blob_hours": [
+     [
+      20,
+      20
+     ]
+    ],
+    "same_amount_all_blobs": true,
+    "outside_blob_nonce0": 0,
+    "outside_blob_nonce_ge20": 2,
+    "outside_blob_ens": 0,
+    "outside_blob_periphery": 2
+   },
+   {
+    "cluster_id": 169,
+    "size": 24,
+    "blobs": 2,
+    "in_blobs": 15,
+    "outside_blobs": 9,
+    "blob_amounts_distinct": [
+     "0.13"
+    ],
+    "blob_hours": [
+     [
+      17,
+      17
+     ]
+    ],
+    "same_amount_all_blobs": true,
+    "outside_blob_nonce0": 0,
+    "outside_blob_nonce_ge20": 6,
+    "outside_blob_ens": 3,
+    "outside_blob_periphery": 9
+   },
+   {
+    "cluster_id": 188,
+    "size": 20,
+    "blobs": 2,
+    "in_blobs": 20,
+    "outside_blobs": 0,
+    "blob_amounts_distinct": [
+     "0.08"
+    ],
+    "blob_hours": [
+     [
+      16,
+      16
+     ]
+    ],
+    "same_amount_all_blobs": true,
+    "outside_blob_nonce0": 0,
+    "outside_blob_nonce_ge20": 0,
+    "outside_blob_ens": 0,
+    "outside_blob_periphery": 0
+   }
+  ]
+ },
+ "periphery_composition": {
+  "funder_class": {
+   "other": 490,
+   "cexscale_1ab4": 238,
+   "shared_with_cluster_members(hub)": 97,
+   "cexscale_9696": 17,
+   "cexscale_a7ef": 15,
+   "member_of_other_cluster": 35,
+   "member_of_same_cluster": 4,
+   "cexscale_bf94": 20,
+   "cexscale_c098": 37,
+   "infra_cex_list": 77,
+   "cexscale_a9ac": 15,
+   "disperse": 1,
+   "unknown": 4
+  },
+  "same_dominant_amount": 834,
+  "same_modal_gas_fp": 266,
+  "farmlike_nonce0_and_funded_by_member_hub_disperse_or_1ab4_sibling": 254,
+  "humanlike_ENS_or_nonce_ge20": 489,
+  "neither": 307,
+  "by_cluster_top25": [
+   {
+    "cluster_id": 6,
+    "size": 896,
+    "periphery": 147,
+    "dominant": "0.1",
+    "hours": [
+     0,
+     43
+    ],
+    "periph_nonce0": 15,
+    "periph_nonce_ge20": 101,
+    "periph_ens": 40,
+    "periph_same_amt": 119,
+    "periph_funder": {
+     "other": 74,
+     "shared_with_cluster_members(hub)": 38,
+     "infra_cex_list": 11,
+     "cexscale_bf94": 6
+    },
+    "periph_same_gas": 3
+   },
+   {
+    "cluster_id": 7,
+    "size": 998,
+    "periphery": 107,
+    "dominant": "0.05",
+    "hours": [
+     0,
+     59
+    ],
+    "periph_nonce0": 19,
+    "periph_nonce_ge20": 68,
+    "periph_ens": 22,
+    "periph_same_amt": 28,
+    "periph_funder": {
+     "other": 70,
+     "shared_with_cluster_members(hub)": 20,
+     "infra_cex_list": 11,
+     "member_of_same_cluster": 1
+    },
+    "periph_same_gas": 8
+   },
+   {
+    "cluster_id": 14,
+    "size": 84,
+    "periphery": 84,
+    "dominant": "1.49",
+    "hours": [
+     17,
+     31
+    ],
+    "periph_nonce0": 84,
+    "periph_nonce_ge20": 0,
+    "periph_ens": 0,
+    "periph_same_amt": 44,
+    "periph_funder": {
+     "cexscale_1ab4": 84
+    },
+    "periph_same_gas": 47
+   },
+   {
+    "cluster_id": 19,
+    "size": 74,
+    "periphery": 74,
+    "dominant": "1.29",
+    "hours": [
+     18,
+     30
+    ],
+    "periph_nonce0": 72,
+    "periph_nonce_ge20": 2,
+    "periph_ens": 1,
+    "periph_same_amt": 35,
+    "periph_funder": {
+     "cexscale_1ab4": 69,
+     "other": 3,
+     "member_of_other_cluster": 1,
+     "cexscale_c098": 1
+    },
+    "periph_same_gas": 36
+   },
+   {
+    "cluster_id": 24,
+    "size": 47,
+    "periphery": 47,
+    "dominant": "1.69",
+    "hours": [
+     21,
+     30
+    ],
+    "periph_nonce0": 47,
+    "periph_nonce_ge20": 0,
+    "periph_ens": 0,
+    "periph_same_amt": 47,
+    "periph_funder": {
+     "cexscale_1ab4": 47
+    },
+    "periph_same_gas": 28
+   },
+   {
+    "cluster_id": 164,
+    "size": 39,
+    "periphery": 29,
+    "dominant": "0.07",
+    "hours": [
+     1,
+     22
+    ],
+    "periph_nonce0": 3,
+    "periph_nonce_ge20": 23,
+    "periph_ens": 7,
+    "periph_same_amt": 25,
+    "periph_funder": {
+     "other": 16,
+     "member_of_other_cluster": 4,
+     "shared_with_cluster_members(hub)": 3,
+     "infra_cex_list": 2
+    },
+    "periph_same_gas": 5
+   },
+   {
+    "cluster_id": 175,
+    "size": 26,
+    "periphery": 24,
+    "dominant": "0.1",
+    "hours": [
+     31,
+     36
+    ],
+    "periph_nonce0": 3,
+    "periph_nonce_ge20": 19,
+    "periph_ens": 3,
+    "periph_same_amt": 24,
+    "periph_funder": {
+     "other": 14,
+     "shared_with_cluster_members(hub)": 5,
+     "infra_cex_list": 4,
+     "cexscale_a7ef": 1
+    },
+    "periph_same_gas": 2
+   },
+   {
+    "cluster_id": 192,
+    "size": 22,
+    "periphery": 20,
+    "dominant": "0.07",
+    "hours": [
+     18,
+     23
+    ],
+    "periph_nonce0": 6,
+    "periph_nonce_ge20": 9,
+    "periph_ens": 2,
+    "periph_same_amt": 18,
+    "periph_funder": {
+     "other": 16,
+     "infra_cex_list": 2,
+     "cexscale_bf94": 1,
+     "cexscale_9696": 1
+    },
+    "periph_same_gas": 6
+   },
+   {
+    "cluster_id": 162,
+    "size": 23,
+    "periphery": 20,
+    "dominant": "0.2",
+    "hours": [
+     3,
+     12
+    ],
+    "periph_nonce0": 3,
+    "periph_nonce_ge20": 15,
+    "periph_ens": 9,
+    "periph_same_amt": 20,
+    "periph_funder": {
+     "other": 11,
+     "infra_cex_list": 3,
+     "cexscale_c098": 2,
+     "shared_with_cluster_members(hub)": 2
+    },
+    "periph_same_gas": 5
+   },
+   {
+    "cluster_id": 51,
+    "size": 18,
+    "periphery": 18,
+    "dominant": "1.0",
+    "hours": [
+     10,
+     14
+    ],
+    "periph_nonce0": 4,
+    "periph_nonce_ge20": 11,
+    "periph_ens": 5,
+    "periph_same_amt": 16,
+    "periph_funder": {
+     "other": 12,
+     "cexscale_a9ac": 4,
+     "infra_cex_list": 1,
+     "cexscale_c098": 1
+    },
+    "periph_same_gas": 6
+   },
+   {
+    "cluster_id": 49,
+    "size": 24,
+    "periphery": 18,
+    "dominant": "1.0",
+    "hours": [
+     16,
+     23
+    ],
+    "periph_nonce0": 3,
+    "periph_nonce_ge20": 15,
+    "periph_ens": 6,
+    "periph_same_amt": 17,
+    "periph_funder": {
+     "other": 9,
+     "shared_with_cluster_members(hub)": 4,
+     "cexscale_c098": 2,
+     "infra_cex_list": 1
+    },
+    "periph_same_gas": 4
+   },
+   {
+    "cluster_id": 58,
+    "size": 17,
+    "periphery": 17,
+    "dominant": "1.19",
+    "hours": [
+     20,
+     25
+    ],
+    "periph_nonce0": 17,
+    "periph_nonce_ge20": 0,
+    "periph_ens": 0,
+    "periph_same_amt": 17,
+    "periph_funder": {
+     "cexscale_1ab4": 17
+    },
+    "periph_same_gas": 10
+   },
+   {
+    "cluster_id": 53,
+    "size": 20,
+    "periphery": 16,
+    "dominant": "1.0",
+    "hours": [
+     34,
+     41
+    ],
+    "periph_nonce0": 6,
+    "periph_nonce_ge20": 8,
+    "periph_ens": 2,
+    "periph_same_amt": 16,
+    "periph_funder": {
+     "other": 9,
+     "infra_cex_list": 3,
+     "cexscale_9696": 2,
+     "member_of_other_cluster": 1
+    },
+    "periph_same_gas": 2
+   },
+   {
+    "cluster_id": 21,
+    "size": 60,
+    "periphery": 16,
+    "dominant": "1.0",
+    "hours": [
+     0,
+     4
+    ],
+    "periph_nonce0": 5,
+    "periph_nonce_ge20": 8,
+    "periph_ens": 1,
+    "periph_same_amt": 14,
+    "periph_funder": {
+     "other": 10,
+     "unknown": 4,
+     "disperse": 1,
+     "cexscale_9696": 1
+    },
+    "periph_same_gas": 0
+   },
+   {
+    "cluster_id": 80,
+    "size": 15,
+    "periphery": 15,
+    "dominant": "1.19",
+    "hours": [
+     27,
+     31
+    ],
+    "periph_nonce0": 15,
+    "periph_nonce_ge20": 0,
+    "periph_ens": 0,
+    "periph_same_amt": 15,
+    "periph_funder": {
+     "cexscale_1ab4": 15
+    },
+    "periph_same_gas": 15
+   },
+   {
+    "cluster_id": 184,
+    "size": 14,
+    "periphery": 14,
+    "dominant": "0.15",
+    "hours": [
+     7,
+     12
+    ],
+    "periph_nonce0": 1,
+    "periph_nonce_ge20": 10,
+    "periph_ens": 4,
+    "periph_same_amt": 14,
+    "periph_funder": {
+     "other": 7,
+     "cexscale_bf94": 3,
+     "cexscale_c098": 3,
+     "infra_cex_list": 1
+    },
+    "periph_same_gas": 4
+   },
+   {
+    "cluster_id": 215,
+    "size": 15,
+    "periphery": 13,
+    "dominant": "0.05",
+    "hours": [
+     35,
+     35
+    ],
+    "periph_nonce0": 2,
+    "periph_nonce_ge20": 10,
+    "periph_ens": 1,
+    "periph_same_amt": 13,
+    "periph_funder": {
+     "other": 8,
+     "infra_cex_list": 3,
+     "cexscale_a7ef": 1,
+     "cexscale_a9ac": 1
+    },
+    "periph_same_gas": 2
+   },
+   {
+    "cluster_id": 176,
+    "size": 12,
+    "periphery": 12,
+    "dominant": "0.3",
+    "hours": [
+     10,
+     14
+    ],
+    "periph_nonce0": 4,
+    "periph_nonce_ge20": 8,
+    "periph_ens": 1,
+    "periph_same_amt": 12,
+    "periph_funder": {
+     "shared_with_cluster_members(hub)": 3,
+     "other": 3,
+     "infra_cex_list": 3,
+     "cexscale_a9ac": 3
+    },
+    "periph_same_gas": 3
+   },
+   {
+    "cluster_id": 231,
+    "size": 12,
+    "periphery": 10,
+    "dominant": "0.05",
+    "hours": [
+     35,
+     35
+    ],
+    "periph_nonce0": 0,
+    "periph_nonce_ge20": 7,
+    "periph_ens": 3,
+    "periph_same_amt": 10,
+    "periph_funder": {
+     "other": 7,
+     "infra_cex_list": 3
+    },
+    "periph_same_gas": 2
+   },
+   {
+    "cluster_id": 173,
+    "size": 10,
+    "periphery": 10,
+    "dominant": "0.5",
+    "hours": [
+     9,
+     13
+    ],
+    "periph_nonce0": 1,
+    "periph_nonce_ge20": 9,
+    "periph_ens": 4,
+    "periph_same_amt": 10,
+    "periph_funder": {
+     "other": 6,
+     "shared_with_cluster_members(hub)": 2,
+     "cexscale_c098": 1,
+     "cexscale_a7ef": 1
+    },
+    "periph_same_gas": 2
+   },
+   {
+    "cluster_id": 186,
+    "size": 20,
+    "periphery": 10,
+    "dominant": "0.05",
+    "hours": [
+     8,
+     8
+    ],
+    "periph_nonce0": 2,
+    "periph_nonce_ge20": 7,
+    "periph_ens": 3,
+    "periph_same_amt": 9,
+    "periph_funder": {
+     "other": 9,
+     "cexscale_c098": 1
+    },
+    "periph_same_gas": 4
+   },
+   {
+    "cluster_id": 10,
+    "size": 12,
+    "periphery": 10,
+    "dominant": "98.5",
+    "hours": [
+     16,
+     19
+    ],
+    "periph_nonce0": 7,
+    "periph_nonce_ge20": 0,
+    "periph_ens": 0,
+    "periph_same_amt": 10,
+    "periph_funder": {
+     "other": 7,
+     "member_of_other_cluster": 3
+    },
+    "periph_same_gas": 1
+   },
+   {
+    "cluster_id": 171,
+    "size": 10,
+    "periphery": 10,
+    "dominant": "0.5",
+    "hours": [
+     1,
+     4
+    ],
+    "periph_nonce0": 0,
+    "periph_nonce_ge20": 8,
+    "periph_ens": 3,
+    "periph_same_amt": 10,
+    "periph_funder": {
+     "other": 4,
+     "infra_cex_list": 2,
+     "cexscale_a7ef": 2,
+     "shared_with_cluster_members(hub)": 2
+    },
+    "periph_same_gas": 4
+   },
+   {
+    "cluster_id": 191,
+    "size": 23,
+    "periphery": 9,
+    "dominant": "0.05",
+    "hours": [
+     11,
+     11
+    ],
+    "periph_nonce0": 1,
+    "periph_nonce_ge20": 8,
+    "periph_ens": 1,
+    "periph_same_amt": 9,
+    "periph_funder": {
+     "other": 8,
+     "cexscale_c098": 1
+    },
+    "periph_same_gas": 0
+   },
+   {
+    "cluster_id": 169,
+    "size": 24,
+    "periphery": 9,
+    "dominant": "0.13",
+    "hours": [
+     12,
+     18
+    ],
+    "periph_nonce0": 0,
+    "periph_nonce_ge20": 6,
+    "periph_ens": 3,
+    "periph_same_amt": 9,
+    "periph_funder": {
+     "other": 5,
+     "shared_with_cluster_members(hub)": 2,
+     "infra_cex_list": 2
+    },
+    "periph_same_gas": 0
+   }
+  ]
+ },
+ "fix_releases_nonce0_clusters": {
+  "summary": {
+   "count": 84,
+   "members": 5188,
+   "periphery_released": 244,
+   "top": [
+    {
+     "cluster_id": 14,
+     "size": 84,
+     "nonce0_frac": 1.0,
+     "periphery": 84,
+     "dominant": "1.49",
+     "hours": [
+      17,
+      31
+     ],
+     "top_funder": [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      84
+     ]
+    },
+    {
+     "cluster_id": 19,
+     "size": 74,
+     "nonce0_frac": 0.97,
+     "periphery": 74,
+     "dominant": "1.29",
+     "hours": [
+      18,
+      30
+     ],
+     "top_funder": [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      69
+     ]
+    },
+    {
+     "cluster_id": 24,
+     "size": 47,
+     "nonce0_frac": 1.0,
+     "periphery": 47,
+     "dominant": "1.69",
+     "hours": [
+      21,
+      30
+     ],
+     "top_funder": [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      47
+     ]
+    },
+    {
+     "cluster_id": 58,
+     "size": 17,
+     "nonce0_frac": 1.0,
+     "periphery": 17,
+     "dominant": "1.19",
+     "hours": [
+      20,
+      25
+     ],
+     "top_funder": [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      17
+     ]
+    },
+    {
+     "cluster_id": 80,
+     "size": 15,
+     "nonce0_frac": 1.0,
+     "periphery": 15,
+     "dominant": "1.19",
+     "hours": [
+      27,
+      31
+     ],
+     "top_funder": [
+      "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+      15
+     ]
+    },
+    {
+     "cluster_id": 0,
+     "size": 1104,
+     "nonce0_frac": 1.0,
+     "periphery": 3,
+     "dominant": "14.0",
+     "hours": [
+      3,
+      15
+     ],
+     "top_funder": [
+      "0x30f889d06b5ff47ad7f0367223db793a7108db41",
+      1
+     ]
+    },
+    {
+     "cluster_id": 8,
+     "size": 367,
+     "nonce0_frac": 1.0,
+     "periphery": 2,
+     "dominant": "0.45",
+     "hours": [
+      34,
+      37
+     ],
+     "top_funder": [
+      "0x3495ab97414948c22ec2042244468a7a67929b5b",
+      1
+     ]
+    },
+    {
+     "cluster_id": 1,
+     "size": 770,
+     "nonce0_frac": 1.0,
+     "periphery": 1,
+     "dominant": "10.0",
+     "hours": [
+      5,
+      5
+     ],
+     "top_funder": [
+      "0x9ed9797a3668734e61a61e747621c617f5e38151",
+      1
+     ]
+    },
+    {
+     "cluster_id": 76,
+     "size": 51,
+     "nonce0_frac": 0.98,
+     "periphery": 1,
+     "dominant": "0.091980625339821996",
+     "hours": [
+      20,
+      20
+     ],
+     "top_funder": [
+      "0x2d891d8c27a901f0513d726d4337a4179dc9cb82",
+      1
+     ]
+    },
+    {
+     "cluster_id": 4,
+     "size": 300,
+     "nonce0_frac": 1.0,
+     "periphery": 0,
+     "dominant": "1.2",
+     "hours": [
+      1,
+      2
+     ],
+     "top_funder": [
+      "0x8df881b3b15e7baa0bfc8590fecd19b4a96fdfc8",
+      1
+     ]
+    },
+    {
+     "cluster_id": 5,
+     "size": 33,
+     "nonce0_frac": 0.97,
+     "periphery": 0,
+     "dominant": "70.0",
+     "hours": [
+      2,
+      3
+     ],
+     "top_funder": [
+      "0x266ce43dc53fa0128d1367e9d70867d1b52ed3d3",
+      1
+     ]
+    },
+    {
+     "cluster_id": 26,
+     "size": 30,
+     "nonce0_frac": 1.0,
+     "periphery": 0,
+     "dominant": "1.174538",
+     "hours": [
+      5,
+      5
+     ],
+     "top_funder": [
+      "0x60b338d5d191826fc2ecaaadb40674c51aa5d5b9",
+      1
+     ]
+    },
+    {
+     "cluster_id": 27,
+     "size": 30,
+     "nonce0_frac": 1.0,
+     "periphery": 0,
+     "dominant": "1.203344",
+     "hours": [
+      5,
+      5
+     ],
+     "top_funder": [
+      "0x0349a01e9449297325930a9b8de0ce0d8e0f4681",
+      1
+     ]
+    },
+    {
+     "cluster_id": 29,
+     "size": 100,
+     "nonce0_frac": 1.0,
+     "periphery": 0,
+     "dominant": "0.11619562348084087",
+     "hours": [
+      19,
+      19
+     ],
+     "top_funder": [
+      "0x6f847dfd17027db92d86841af72ed3ab2ee970bd",
+      1
+     ]
+    },
+    {
+     "cluster_id": 30,
+     "size": 100,
+     "nonce0_frac": 1.0,
+     "periphery": 0,
+     "dominant": "0.101909970803803223",
+     "hours": [
+      20,
+      20
+     ],
+     "top_funder": [
+      "0x1d4b70787edccb6f8eeb0b37af3584eb13b2ae63",
+      1
+     ]
+    }
+   ]
+  },
+  "staggered_1ab4_ladder_detail": {
+   "14": {
+    "size": 84,
+    "amounts": {
+     "1.49": 44,
+     "1.59": 40
+    },
+    "hours": {
+     "17": 1,
+     "18": 6,
+     "19": 7,
+     "20": 8,
+     "21": 7,
+     "22": 2,
+     "23": 2,
+     "24": 4,
+     "25": 8,
+     "26": 12,
+     "27": 9,
+     "28": 7,
+     "29": 6,
+     "30": 4,
+     "31": 1
+    },
+    "block_min": 25775017,
+    "block_max": 25779150,
+    "median_gap_blocks": 30,
+    "gas_fp_top": [
+     [
+      [
+       10000000,
+       242433008,
+       91600,
+       2
+      ],
+      2
+     ],
+     [
+      [
+       10000000,
+       219755234,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       225995164,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       189453816,
+       91477,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 83,
+    "nonces": {
+     "0": 84
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 84
+    },
+    "hops": {
+     "1": 84
+    },
+    "ens": 0,
+    "multi_dep": 0
+   },
+   "19": {
+    "size": 74,
+    "amounts": {
+     "1.39": 35,
+     "1.29": 35,
+     "1.45": 4
+    },
+    "hours": {
+     "18": 2,
+     "19": 6,
+     "20": 11,
+     "21": 7,
+     "22": 9,
+     "23": 6,
+     "24": 4,
+     "25": 7,
+     "26": 5,
+     "27": 4,
+     "28": 3,
+     "29": 5,
+     "30": 5
+    },
+    "block_min": 25775507,
+    "block_max": 25779064,
+    "median_gap_blocks": 34,
+    "gas_fp_top": [
+     [
+      [
+       10000000,
+       306967430,
+       91600,
+       2
+      ],
+      2
+     ],
+     [
+      [
+       10000000,
+       233996586,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       93649340,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       159141600,
+       91508,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 73,
+    "nonces": {
+     "0": 72,
+     "245": 1,
+     "1371": 1
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 69,
+     "0xfd247199fe2700408bc64d5c5056baae44344c5e": 1,
+     "0x1b87b6ef6de51d272bd30493d0761d9a8de6b3d0": 1
+    },
+    "hops": {
+     "1": 74
+    },
+    "ens": 1,
+    "multi_dep": 0
+   },
+   "24": {
+    "size": 47,
+    "amounts": {
+     "1.69": 47
+    },
+    "hours": {
+     "21": 2,
+     "22": 8,
+     "23": 5,
+     "24": 4,
+     "25": 1,
+     "26": 4,
+     "27": 4,
+     "28": 6,
+     "29": 7,
+     "30": 6
+    },
+    "block_min": 25776182,
+    "block_max": 25779055,
+    "median_gap_blocks": 42,
+    "gas_fp_top": [
+     [
+      [
+       10000000,
+       109446498,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       101457104,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       206540300,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       215091432,
+       91600,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 47,
+    "nonces": {
+     "0": 47
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 47
+    },
+    "hops": {
+     "1": 47
+    },
+    "ens": 0,
+    "multi_dep": 0
+   },
+   "58": {
+    "size": 17,
+    "amounts": {
+     "1.19": 17
+    },
+    "hours": {
+     "20": 3,
+     "21": 3,
+     "22": 2,
+     "23": 2,
+     "24": 2,
+     "25": 5
+    },
+    "block_min": 25775882,
+    "block_max": 25777643,
+    "median_gap_blocks": 101,
+    "gas_fp_top": [
+     [
+      [
+       10000000,
+       207626974,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       200396952,
+       91600,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       187447520,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       237061754,
+       91600,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 17,
+    "nonces": {
+     "0": 17
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 17
+    },
+    "hops": {
+     "1": 17
+    },
+    "ens": 0,
+    "multi_dep": 0
+   },
+   "80": {
+    "size": 15,
+    "amounts": {
+     "1.19": 15
+    },
+    "hours": {
+     "27": 3,
+     "28": 4,
+     "29": 4,
+     "30": 3,
+     "31": 1
+    },
+    "block_min": 25778003,
+    "block_max": 25779176,
+    "median_gap_blocks": 94,
+    "gas_fp_top": [
+     [
+      [
+       10000000,
+       95884448,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       109893118,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       87219854,
+       91462,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       10000000,
+       97032794,
+       91462,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 15,
+    "nonces": {
+     "0": 15
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 15
+    },
+    "hops": {
+     "1": 15
+    },
+    "ens": 0,
+    "multi_dep": 0
+   },
+   "163": {
+    "size": 5,
+    "amounts": {
+     "5.2": 5
+    },
+    "hours": {
+     "16": 3,
+     "17": 2
+    },
+    "block_min": 25774683,
+    "block_max": 25775064,
+    "median_gap_blocks": 103,
+    "gas_fp_top": [
+     [
+      [
+       78720869,
+       201989585,
+       114501,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       100536704,
+       240932740,
+       114501,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       198075512,
+       311271965,
+       114501,
+       2
+      ],
+      1
+     ],
+     [
+      [
+       107776958,
+       235539977,
+       114501,
+       2
+      ],
+      1
+     ]
+    ],
+    "distinct_gas_fp": 5,
+    "nonces": {
+     "3": 3,
+     "0": 2
+    },
+    "funders": {
+     "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": 2,
+     "0xa7efae728d2936e78bda97dc267687568dd593f3": 1,
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840": 1
+    },
+    "hops": {
+     "1": 5
+    },
+    "ens": 0,
+    "multi_dep": 0
+   }
+  },
+  "audit_never_examined_this_ladder": {
+   "audit_mentions_1.49": false,
+   "audit_mentions_1ab4": false,
+   "econ_mentions_1.49": false
+  },
+  "note": "clusters 14/19/24/58/80 = 237 wallets, 100% nonce 0 (2 exceptions), 232/237 funded 1-hop by 0x1ab4973a (exchange-scale EOA), amounts form a +0.10 ladder 1.19/1.29/1.39/1.49/1.59/1.69 in hours 17-31, 0 ENS, 0 multi-deposit; the proposed fix moves ALL 237 to periphery. 'Exchange-funded alone is not evidence' applies to the funder, but not to the fresh-nonce + identical funding recipe + sweep-out profile."
+ },
+ "onchain_spotchecks": {
+  "rate_limits": "Blockscout v2, 1.1 s sleep, 25 addresses x 2 calls (address + incoming page), 0 x 429",
+  "staggered_ladder_sample": [
+   {
+    "address": "0x529a0a6c1557c0d0ab53703ac5d0e25fb07fb47d",
+    "cluster": 163,
+    "deposit_eth": "5.2",
+    "hour": 17,
+    "nonce": 0,
+    "deposit_tx": "0xf2b0958fb7aafccc975d2825f31ac366b6b4c7fb771d4b0ab8621b9fbdcafadb",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 5.2198,
+    "funding_minus_deposit_eth": 0.0198,
+    "lag_funding_to_deposit_min": 0.8,
+    "incoming_tx_total": 2,
+    "balance_now_eth": 0.0008,
+    "swept_out": true
+   },
+   {
+    "address": "0xf0bef2d6f5679abb3c24462e17f615b55618925f",
+    "cluster": 6,
+    "deposit_eth": "0.1099",
+    "hour": 18,
+    "nonce": 0,
+    "deposit_tx": "0xe4291fed1173ab854bb4df1c8af36e69c0d75b9a04748a96c5dc707b508d8e76",
+    "first_funder": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "funded_eth": 0.1099,
+    "funding_minus_deposit_eth": 0.0,
+    "lag_funding_to_deposit_min": 6.0,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.1099,
+    "swept_out": false
+   },
+   {
+    "address": "0x29dc4b1b29403badf920ebc4a81d8b01dd131b97",
+    "cluster": 14,
+    "deposit_eth": "1.49",
+    "hour": 26,
+    "nonce": 0,
+    "deposit_tx": "0x41e9616d1e5fb1e15e72993dc54122ffb197ad47e66d6028f71a9b3f3c6e1b98",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.4998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 1.2,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 1.4998,
+    "swept_out": false
+   },
+   {
+    "address": "0x627b0420c99628b9df12a638f4f35837b383472b",
+    "cluster": 14,
+    "deposit_eth": "1.59",
+    "hour": 25,
+    "nonce": 0,
+    "deposit_tx": "0x59b9213a12f9c345e4c071c31bf2d253e8fc675d421ccf37983fca242c7d7321",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.5998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 0.8,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.0003,
+    "swept_out": true
+   },
+   {
+    "address": "0x9a20bbe96ad6b1140c068bc95dd6a997d5eccc04",
+    "cluster": 24,
+    "deposit_eth": "1.69",
+    "hour": 29,
+    "nonce": 0,
+    "deposit_tx": "0xd1c83b46c1504059c39316e9f8ffe7bac400f9eb3b46667319046499e6954009",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.6998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 1.6,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.0002,
+    "swept_out": true
+   },
+   {
+    "address": "0x0be8be55083de0ecb69bb3df43cd8420080a4682",
+    "cluster": 19,
+    "deposit_eth": "1.29",
+    "hour": 22,
+    "nonce": 0,
+    "deposit_tx": "0x8e48d51f0e140a675a5f6397e031fe66e810ea7189b4dc3ce13dab1e57bb61e9",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.2998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 1.2,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.0003,
+    "swept_out": true
+   },
+   {
+    "address": "0x14cfc283e0cbbcd35275cde798c54295cdc665cf",
+    "cluster": 14,
+    "deposit_eth": "1.49",
+    "hour": 23,
+    "nonce": 0,
+    "deposit_tx": "0x4aa308ed872d2943bcaaaf2c73f769264379d5236e74b82de50da1bee310b650",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.4998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 1.2,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.0003,
+    "swept_out": true
+   },
+   {
+    "address": "0xce22509747fc39b0734b46133cabbbdc0740b42f",
+    "cluster": 80,
+    "deposit_eth": "1.19",
+    "hour": 29,
+    "nonce": 0,
+    "deposit_tx": "0xbdea0caf3e9b62ea82650016430d2ee85612d4985e5fd5a44a515b01cf40cbee",
+    "first_funder": "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23",
+    "funded_eth": 1.1998,
+    "funding_minus_deposit_eth": 0.0098,
+    "lag_funding_to_deposit_min": 1.0,
+    "incoming_tx_total": 1,
+    "balance_now_eth": 0.0004,
+    "swept_out": true
+   }
+  ],
+  "cited_ens_examples": [
+   {
+    "address": "0x3195c3f94154364e897711e501e104f40d8e23fb",
+    "ens": "mehmethan.eth",
+    "cluster": 6,
+    "amount": "0.1",
+    "hour": 0,
+    "nonce_at_deposit": 34704,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.0289,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-08-02",
+    "distinct_incoming_senders_on_page": 10,
+    "gas_fp": [
+     150000000,
+     114171
+    ],
+    "cluster_modal_gas": [
+     null,
+     91600
+    ]
+   },
+   {
+    "address": "0x952c23f8f067a5e7e165ff0e42491f51d87dbc95",
+    "ens": "maoyan.eth",
+    "cluster": 51,
+    "amount": "1.0",
+    "hour": 12,
+    "nonce_at_deposit": 5159,
+    "incident_edges": {
+     "amount:exact_round_wave": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.0229,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2023-12-04",
+    "distinct_incoming_senders_on_page": 21,
+    "gas_fp": [
+     600000000,
+     114501
+    ],
+    "cluster_modal_gas": [
+     600000000,
+     114501
+    ]
+   },
+   {
+    "address": "0x08ceb8bba685ee708c9c4c65576837cbe19b9dea",
+    "ens": "wmp.eth",
+    "cluster": 7,
+    "amount": "0.06",
+    "hour": 9,
+    "nonce_at_deposit": 4907,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "amount:near_same_block": 1
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.1091,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-06-14",
+    "distinct_incoming_senders_on_page": 11,
+    "gas_fp": [
+     600000000,
+     114501
+    ],
+    "cluster_modal_gas": [
+     2000000000,
+     114501
+    ]
+   },
+   {
+    "address": "0xe3861f980fca04b9b70a9f11f44e0d281dd2ece6",
+    "ens": "haixinchao.eth",
+    "cluster": 171,
+    "amount": "0.5",
+    "hour": 4,
+    "nonce_at_deposit": 4507,
+    "incident_edges": {
+     "amount:exact_round_wave": 1
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.0195,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-07-30",
+    "distinct_incoming_senders_on_page": 39,
+    "gas_fp": [
+     100000000,
+     95417
+    ],
+    "cluster_modal_gas": [
+     600000000,
+     114501
+    ]
+   },
+   {
+    "address": "0x5043144f14a4c726461d38ea862959c72700bc27",
+    "ens": "97nuel.eth",
+    "cluster": 175,
+    "amount": "0.1",
+    "hour": 35,
+    "nonce_at_deposit": 3870,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 1
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.036,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2025-02-19",
+    "distinct_incoming_senders_on_page": 21,
+    "gas_fp": [
+     100125687,
+     83840
+    ],
+    "cluster_modal_gas": [
+     600000000,
+     113330
+    ]
+   },
+   {
+    "address": "0xa0d38fa34e563e69dabf78b29c43652b3f851e34",
+    "ens": "hybecorporation.eth",
+    "cluster": 7,
+    "amount": "0.06",
+    "hour": 7,
+    "nonce_at_deposit": 3682,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": true,
+    "balance_now_eth": 0.0003,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2025-06-02",
+    "distinct_incoming_senders_on_page": 22,
+    "gas_fp": [
+     220544,
+     114501
+    ],
+    "cluster_modal_gas": [
+     2000000000,
+     114501
+    ]
+   },
+   {
+    "address": "0x4e848cb280ba065f44e64f923a78a52141033f09",
+    "ens": "runish.eth",
+    "cluster": 169,
+    "amount": "0.13",
+    "hour": 15,
+    "nonce_at_deposit": 3256,
+    "incident_edges": {
+     "amount:exact_round_wave": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.135,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2023-03-13",
+    "distinct_incoming_senders_on_page": 23,
+    "gas_fp": [
+     600000000,
+     114501
+    ],
+    "cluster_modal_gas": [
+     1625814,
+     76334
+    ]
+   },
+   {
+    "address": "0x48910a64005cff019885bd7b277e0a69a94ae11f",
+    "ens": "aius-.eth",
+    "cluster": 162,
+    "amount": "0.2",
+    "hour": 10,
+    "nonce_at_deposit": 2649,
+    "incident_edges": {
+     "amount:exact_round_wave": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.1899,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2024-02-03",
+    "distinct_incoming_senders_on_page": 38,
+    "gas_fp": [
+     64118536,
+     114501
+    ],
+    "cluster_modal_gas": [
+     150000000,
+     114501
+    ]
+   },
+   {
+    "address": "0x1b0f7946e89b700562062f45da044d0035127ddc",
+    "ens": "mar1.eth",
+    "cluster": 49,
+    "amount": "1.0",
+    "hour": 18,
+    "nonce_at_deposit": 2203,
+    "incident_edges": {
+     "amount:exact_round_wave": 2
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.0086,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2023-08-01",
+    "distinct_incoming_senders_on_page": 23,
+    "gas_fp": [
+     2000000000,
+     114501
+    ],
+    "cluster_modal_gas": [
+     150000000,
+     114501
+    ]
+   },
+   {
+    "address": "0x656870e4af1057110320214d9729ae40815306e9",
+    "ens": "leansgonecold.eth",
+    "cluster": 246,
+    "amount": "0.12",
+    "hour": 18,
+    "nonce_at_deposit": 2085,
+    "incident_edges": {
+     "amount:exact_round_wave": 1
+    },
+    "in_periphery_under_fix": true,
+    "blockscout_is_contract": false,
+    "balance_now_eth": 0.0,
+    "incoming_txs": 24,
+    "oldest_incoming_on_page": "2023-07-19",
+    "distinct_incoming_senders_on_page": 14,
+    "gas_fp": [
+     2000000000,
+     114501
+    ],
+    "cluster_modal_gas": [
+     600000000,
+     114501
+    ]
+   }
+  ],
+  "aged_non_ens_periphery_sample": [
+   {
+    "address": "0xce52b1426e32dec6a00afc5fc1b9b38c54b05811",
+    "cluster": 6,
+    "amount": "0.1",
+    "hour": 14,
+    "nonce": 277,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2
+    },
+    "balance_now_eth": 0.0167,
+    "incoming_txs": 5,
+    "oldest_incoming_on_page": "2024-12-24",
+    "distinct_incoming_senders_on_page": 4
+   },
+   {
+    "address": "0x1c85cc7a91f8d7cf580825090bb958d177953b56",
+    "cluster": 16,
+    "amount": "95.7",
+    "hour": 16,
+    "nonce": 62,
+    "incident_edges": {
+     "amount:exact_round_wave": 1,
+     "amount:split": 1
+    },
+    "balance_now_eth": 0.7096,
+    "incoming_txs": 19,
+    "oldest_incoming_on_page": "2026-05-09",
+    "distinct_incoming_senders_on_page": 9
+   },
+   {
+    "address": "0x8c9c7efa80f03e860f2c8b941d52941b2047ba12",
+    "cluster": 179,
+    "amount": "0.051",
+    "hour": 16,
+    "nonce": 124,
+    "incident_edges": {
+     "sequence": 1
+    },
+    "balance_now_eth": 0.0545,
+    "incoming_txs": 9,
+    "oldest_incoming_on_page": "2026-06-12",
+    "distinct_incoming_senders_on_page": 7
+   },
+   {
+    "address": "0xe2e14fef8d8424cdce11b5fa300e1248dfc59819",
+    "cluster": 54,
+    "amount": "5.0",
+    "hour": 17,
+    "nonce": 63,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 2
+    },
+    "balance_now_eth": 0.0721,
+    "incoming_txs": 24,
+    "oldest_incoming_on_page": "2022-06-08",
+    "distinct_incoming_senders_on_page": 16
+   },
+   {
+    "address": "0x12e5bb3669c82a147f8f57cecd01389f9ca994cc",
+    "cluster": 186,
+    "amount": "0.05",
+    "hour": 8,
+    "nonce": 404,
+    "incident_edges": {
+     "cadence:drip": 2
+    },
+    "balance_now_eth": 0.0001,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-05-15",
+    "distinct_incoming_senders_on_page": 25
+   },
+   {
+    "address": "0xc2f0fec9c0b32dc7e5545fae090c3c4d83112eac",
+    "cluster": 21,
+    "amount": "1.0",
+    "hour": 1,
+    "nonce": 1851,
+    "incident_edges": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2
+    },
+    "balance_now_eth": 0.2165,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-08-08",
+    "distinct_incoming_senders_on_page": 45
+   },
+   {
+    "address": "0x4d3e3aa7467fa78d03734a60f53ec7e68cfa59bf",
+    "cluster": 7,
+    "amount": "0.051",
+    "hour": 41,
+    "nonce": 139,
+    "incident_edges": {
+     "amount:exact_odd": 1
+    },
+    "balance_now_eth": 0.4654,
+    "incoming_txs": "50+",
+    "oldest_incoming_on_page": "2026-05-23",
+    "distinct_incoming_senders_on_page": 4
+   }
+  ]
+ },
+ "alternative_explanations_considered": [
+  "aged ENS wallets could be farm-bought: 10/10 cited examples have multi-year or thousands-of-tx histories with many distinct incoming senders \u2014 implausible at that scale; 1/10 (hybecorporation.eth) is_contract=True (delegation) but aged",
+  "the 0x1ab4973a ladder could be 237 independent CEX customers following a tutorial (withdraw round X, deposit X-0.01): indistinguishable on-chain from one operator; either way it is coordinated fresh-wallet farming, not honest strangers",
+  "periphery 'neither' bucket (307: nonce 1-19, non-ENS, unclassified funder) is unknown"
+ ],
+ "data_file": "/private/tmp/claude-501/-Library-Vibes-aidude/e2f5f0a3-db00-4f9b-9b8f-f2c1a9ec2524/scratchpad/agent_skeptic_component_gate.json"
+}

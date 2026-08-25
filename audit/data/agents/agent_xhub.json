@@ -1,0 +1,2280 @@
+{
+ "agent": "xhub",
+ "slice": "exchange-hub clusters",
+ "n_slice_clusters": 44,
+ "slice_members": 3574,
+ "lookups_used": 99,
+ "funders": {
+  "0x1ab4973a48dc892cd9971ece8e01dcc7688f8f23": {
+   "label": "Bitget 6 (Etherscan/Blockscan label)",
+   "label_confidence": 0.95,
+   "type": "CEX hot wallet",
+   "tx_count": 5406200,
+   "balance_eth": 6005.4,
+   "funded_candidates": 242,
+   "flagged": 241,
+   "clusters_funded": 10
+  },
+  "0x9696f59e4d72e237be84ffd425dcad154bf96976": {
+   "label": "Binance 18 (Etherscan label)",
+   "label_confidence": 0.95,
+   "type": "CEX hot wallet",
+   "tx_count": 9873684,
+   "balance_eth": 18327.6,
+   "funded_candidates": 77,
+   "flagged": 63,
+   "clusters_funded": 12
+  },
+  "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573": {
+   "label": "OKX: Hot Wallet 3 (Etherscan label)",
+   "label_confidence": 0.95,
+   "type": "CEX hot wallet",
+   "tx_count": 1703469,
+   "balance_eth": 8442.0,
+   "funded_candidates": 67,
+   "flagged": 59,
+   "clusters_funded": 12
+  },
+  "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94": {
+   "label": "FTX 2 (Etherscan/BaseScan label; stale brand, still exchange-scale in 2026, current operator unverified)",
+   "label_confidence": 0.7,
+   "type": "CEX hot wallet (label stale)",
+   "tx_count": 4106740,
+   "balance_eth": 0.0,
+   "funded_candidates": 74,
+   "flagged": 65,
+   "clusters_funded": 12
+  },
+  "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b": {
+   "label": "OKX 24 (Etherscan/Blockscan label)",
+   "label_confidence": 0.95,
+   "type": "CEX hot wallet",
+   "tx_count": 2485581,
+   "balance_eth": 1.42,
+   "funded_candidates": 58,
+   "flagged": 52,
+   "clusters_funded": 12
+  },
+  "0xa7efae728d2936e78bda97dc267687568dd593f3": {
+   "label": "OKX 3 (Etherscan/Blockscan label)",
+   "label_confidence": 0.95,
+   "type": "CEX hot wallet",
+   "tx_count": 4344691,
+   "balance_eth": 1.42,
+   "funded_candidates": 68,
+   "flagged": 56,
+   "clusters_funded": 12
+  },
+  "0x3c15fc1a7cb921459508f139ae0ae963b883c6c4": {
+   "label": "unlabeled personal/semi-pro EOA: 5,725 txs, USDC transfers, Roobet (casino) approvals, Uniswap, sends of 0.45/0.4549/1.0/9-10 ETH; funded 22 members of the 0.45x1996 farm (c2)",
+   "label_confidence": 0.8,
+   "type": "personal hot wallet / farm distributor",
+   "tx_count": 5725,
+   "balance_eth": 0.42,
+   "funded_candidates": 23,
+   "flagged": 23,
+   "clusters_funded": 2
+  },
+  "0xfeb99e2c46b9a5fda836e6d4374a59fc61a5e221": {
+   "label": "unlabeled personal EOA: 349 txs (Blockscout counters earlier showed 0 = counter lag/glitch); funded via internal txs from bridge/relay contract 0x503972Ee3A; dev-style activity (bondCiphernodeFor, approve); funded 14 members of c6",
+   "label_confidence": 0.8,
+   "type": "personal wallet, genuine 14-wallet hub",
+   "tx_count": 349,
+   "balance_eth": 0.02,
+   "funded_candidates": 14,
+   "flagged": 14,
+   "clusters_funded": 1
+  },
+  "0x2fc92dde494064724fd371e55172877f86d842e9": {
+   "label": "unlabeled EOA, 38 txs; is itself a contributor (curator refund internal tx 2026-08-17 06:28); then sends 0.05/0.0501 to fresh wallets at 06:30-06:54 which deposit within 12-24 s and return 0.05 to it -> recycler hub for c197",
+   "label_confidence": 0.95,
+   "type": "0.05-ETH recycler hub (farm)",
+   "tx_count": 38,
+   "balance_eth": 0.0,
+   "funded_candidates": 13,
+   "flagged": 12,
+   "clusters_funded": 1
+  },
+  "0x3230466e58bb1019f5695ff55248ece1e753eb79": {
+   "label": "unlabeled EOA, 211 txs; is itself a contributor (curator refund 2026-08-18 03:42); then sends 0.050073 (legacy type-0 txs) to ~25 fresh wallets 04:54-05:53 which deposit and return 0.05 within the same minute -> recycler hub for c241/c247/c261/c223",
+   "label_confidence": 0.95,
+   "type": "0.05-ETH recycler hub (farm)",
+   "tx_count": 211,
+   "balance_eth": 0.0,
+   "funded_candidates": 25,
+   "flagged": 22,
+   "clusters_funded": 5
+  }
+ },
+ "ladder": {
+  "sampled_bitget_funded": 36,
+  "all_3_lifetime_txs": 34,
+  "fund_to_deposit_minutes": [
+   0.8,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.0,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.2,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.4,
+   1.6,
+   1.6,
+   1.6
+  ],
+  "funding_amount_minus_deposit_eth": [
+   0.0098
+  ],
+  "swept_full_balance_within_2min": 36,
+  "distinct_sweep_destinations": 36,
+  "sweep_destinations_checked": 4,
+  "sweep_destinations_forwarding_to_bitget6_within_5min": 4,
+  "sweep_chain_examples": [
+   {
+    "member": "0x8189775b5d93e62b76f24b408c0f208779c49434",
+    "cluster": 14,
+    "sweep_to": "0xedc8eb034060da61feb4cac88348e5d18a25607b",
+    "then": "0xedc8eb -> 0x1ab4973a (Bitget 6) 1.5993 ETH at 2026-08-18T00:19, 4 min after the sweep"
+   },
+   {
+    "member": "0xa804be7664c424827da692a48ce5774f4bb5ad29",
+    "cluster": 24,
+    "sweep_to": "0x8052f1498105108ba66efed12ce94fa4a6ee6b3c",
+    "then": "-> Bitget 6 1.6993 ETH at 02:46 (+5 min)"
+   },
+   {
+    "member": "0x69fe2a27053cfb87c8522fe0a5f174c95487a844",
+    "cluster": 58,
+    "sweep_to": "0x1fae9cbc34ab298e334cbbbc9735479d834e6556",
+    "then": "-> Bitget 6 1.1994 ETH at 20:21 (+4 min)"
+   },
+   {
+    "member": "0xb2452365fde3a10c07b08eeb8e775668665599b0",
+    "cluster": 80,
+    "sweep_to": "0x05aa0baf64bce5656f8de5afe260f1ef61b7cd97",
+    "then": "-> Bitget 6 1.1994 ETH at 02:07 (+3 min)"
+   }
+  ],
+  "population_level": {
+   "bitget_funded_members_in_c14_19_24_58_80": 232,
+   "nonce0": 232,
+   "priority_fee_wei": {
+    "10000000": 232
+   },
+   "gas_limits": {
+    "91462": 124,
+    "91600": 94,
+    "91477": 13,
+    "91508": 1
+   },
+   "first_deposit_utc": "2026-08-17 13:11:35",
+   "last_deposit_utc": "2026-08-18 03:05:59",
+   "median_gap_s": 180,
+   "mean_gap_s": 217,
+   "gaps_over_30min": 1,
+   "ten_min_buckets": 76,
+   "buckets_mixing_amounts": 62,
+   "fingerprint_prio1e7_gl91462_population": {
+    "total": 128,
+    "in_ladder": 124,
+    "unflagged": 1
+   },
+   "fingerprint_prio1e7_gl91600_population": {
+    "total": 99,
+    "in_ladder": 94,
+    "unflagged": 0
+   }
+  },
+  "welded_strangers_in_c19": [
+   {
+    "address": "0x5163d5b6b6e9d7bc78c6905dca88cc138514c114",
+    "nonce": 245,
+    "evidence": "active since 2026-01, 50+ txs, EigenLayer queueWithdrawals, USDT transfers; 1.29 ETH deposit; funder 0x1b87b6ef (not Bitget)",
+    "attaching_rule": "amount:exact_round_wave 1.29 x35"
+   },
+   {
+    "address": "0x10f9ec8e7967ba8c391830374ad6ee51de6c3ca3",
+    "nonce": 1371,
+    "ens": "justdefaultname.eth",
+    "evidence": "1.45 ETH, nonce 1371, prio 0.15 gwei, gas 114501 (wallet default x1.5); funder FTX2",
+    "attaching_rule": "amount:near_same_block (1.45 within 10% of 1.39/1.49)"
+   },
+   {
+    "address": "0xe208eed1262b746884f87bed6aa60dff693b2f75",
+    "nonce": 0,
+    "evidence": "1.45 ETH, funded 2.9997 from 0x3fd48b23 1.6 min before deposit, swept 2.9997 to 0xa5ed6f 4 min later; two siblings 0x5e904605/0xa00289c8 same 1.45, prio 253000 wei, gas 91600 -> separate 3-wallet mini-farm",
+    "attaching_rule": "amount:near_same_block"
+   }
+  ]
+ },
+ "others_samples": {
+  "51": [
+   {
+    "address": "0xf98c3bf5f3544f64e60560304b58dca900a3c4db",
+    "amount": 1.0,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x18dd3c14e34c1bc379f7538068c59160d9f68e25",
+    "first_in_val": 0.147839,
+    "first_in_t": "08-15 01:37",
+    "fund_to_dep_min": 3181.0,
+    "sweep": [
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      1.0,
+      "08-17 06:41",
+      "dagSwapTo"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.033,
+      "08-17 17:08",
+      "dagSwapTo"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.038,
+      "08-17 19:47",
+      "dagSwapTo"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x0000ec93127baa929e58e97dd0095a2bfb38ec1d",
+      "safeTransferFrom"
+     ],
+     [
+      "0x0000ec93127baa929e58e97dd0095a2bfb38ec1d",
+      "safeTransferFrom"
+     ],
+     [
+      "0x0000ec93127baa929e58e97dd0095a2bfb38ec1d",
+      "safeTransferFrom"
+     ]
+    ],
+    "span": "08-14 17:06..08-25 07:00"
+   },
+   {
+    "address": "0x622d35fc7e377ebb6d97f0cdf9e3295d1f7c701d",
+    "amount": 1.0,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 1.01089,
+    "first_in_t": "08-17 06:12",
+    "fund_to_dep_min": 3.0,
+    "sweep": [
+     [
+      "0x0439e60f02a8900a951603950d8d4527f400c3f1",
+      1.0098,
+      "08-17 06:17",
+      "bridge"
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 06:12..08-17 06:17"
+   },
+   {
+    "address": "0xdceb4aa1c91963d7e91e7ffc9dd6e57d278f00c9",
+    "amount": 1.0,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 0.06992,
+    "first_in_t": "09-17 17:39",
+    "fund_to_dep_min": 480319.4,
+    "sweep": [
+     [
+      "0x9a0a7efa1755e1f7867d4ca0657d20f970d475e4",
+      1.0,
+      "08-17 08:43",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "approve"
+     ],
+     [
+      "0xf7b385cae41a872a4a7ae42bd2fa95b65a2b14c2",
+      "buy"
+     ],
+     [
+      "0xec7cc7752a94e37cb7f72037dac204afe9175613",
+      "0x095ea7b3"
+     ]
+    ],
+    "span": "07-29 13:05..08-17 08:52"
+   }
+  ],
+  "184": [
+   {
+    "address": "0x2b6bb54b0206dfe09e3c6f224f7b739be116cd63",
+    "amount": 0.15,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+    "first_in_val": 0.079646,
+    "first_in_t": "10-26 12:16",
+    "fund_to_dep_min": 950008.6,
+    "sweep": [],
+    "other_contracts": [
+     [
+      "0x9234f83473c03be04358afc3497d6293b2203288",
+      "claim"
+     ],
+     [
+      "0xc71b5f631354be6853efe9c3ab6b9590f8302e81",
+      "transfer"
+     ],
+     [
+      "0x36e66fbbce51e4cd5bd3c62b637eb411b18949d4",
+      "transfer"
+     ]
+    ],
+    "span": "03-23 01:14..08-17 05:45"
+   },
+   {
+    "address": "0xefd67df62714256452d39245681c279b9d24523e",
+    "amount": 0.15,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xe5431d8f35c2cf0c6746788cbffcf928c4cbef21",
+    "first_in_val": 0.029735,
+    "first_in_t": "05-01 15:54",
+    "fund_to_dep_min": 154984.0,
+    "sweep": [],
+    "other_contracts": [
+     [
+      "0x0000000000000068f116a894984e2db1123eb395",
+      "matchAdvancedOrders"
+     ],
+     [
+      "0x49b5a631f54927c0007232844f06fe18cbf69786",
+      "claim"
+     ],
+     [
+      "0x0000000000000068f116a894984e2db1123eb395",
+      "cancel"
+     ]
+    ],
+    "span": "04-08 17:16..08-17 06:58"
+   },
+   {
+    "address": "0xad407ef3307b1d57f06e46bf1852b66e19f1bf72",
+    "amount": 0.15,
+    "txs_first_page": 9,
+    "more_pages": false,
+    "first_in_from_on_page": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_in_val": 2.00307,
+    "first_in_t": "09-25 02:39",
+    "fund_to_dep_min": 1522383.2,
+    "sweep": [
+     [
+      "0x53fcceab2cb6b8d756483355feae1149d5f04b42",
+      0.15,
+      "08-17 07:44",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "09-25 02:39..08-17 07:44"
+   }
+  ],
+  "54": [
+   {
+    "address": "0x76f8e9a04fec538cfbeeae8132e6358d26d6fa38",
+    "amount": 5.0,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_in_val": 3.66,
+    "first_in_t": "03-19 05:14",
+    "fund_to_dep_min": 1269094.2,
+    "sweep": [
+     [
+      "0x8a1661f3aa5f287912f9ec7d51573185372f42ac",
+      5.0,
+      "08-17 12:48",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x9234f83473c03be04358afc3497d6293b2203288",
+      "claim"
+     ],
+     [
+      "0xc71b5f631354be6853efe9c3ab6b9590f8302e81",
+      "transfer"
+     ],
+     [
+      "0x2e1a7ef12d0adeebf6009f0aa964cf686364b01f",
+      "0x8132b321"
+     ]
+    ],
+    "span": "03-19 05:14..08-17 23:46"
+   },
+   {
+    "address": "0xe2e14fef8d8424cdce11b5fa300e1248dfc59819",
+    "amount": 5.0,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_in_val": 0.01,
+    "first_in_t": "05-02 12:55",
+    "fund_to_dep_min": 1205302.8,
+    "sweep": [
+     [
+      "0x8ed69b643b243f0dd5e27010cdc9aade1032a27a",
+      5.0,
+      "08-17 13:18",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xc71b5f631354be6853efe9c3ab6b9590f8302e81",
+      "transfer"
+     ],
+     [
+      "0x2e1a7ef12d0adeebf6009f0aa964cf686364b01f",
+      "0x8132b321"
+     ],
+     [
+      "0xbf5495efe5db9ce00f80364c8b423567e58d2110",
+      "approve"
+     ]
+    ],
+    "span": "04-06 05:28..08-17 22:51"
+   },
+   {
+    "address": "0xece4455c0c33aa399cf2de44e2261bd9c8b0e63c",
+    "amount": 5.0,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+    "first_in_val": 3.48,
+    "first_in_t": "03-20 04:46",
+    "fund_to_dep_min": 1267819.6,
+    "sweep": [
+     [
+      "0x7137ecc0ab4a7ce89f9f0760ee6aaf7c4bf6b233",
+      5.0,
+      "08-17 15:07",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xe87753eb91d6a61ea342bb9044a97764366cc7b2",
+      "refund"
+     ],
+     [
+      "0x9234f83473c03be04358afc3497d6293b2203288",
+      "claim"
+     ],
+     [
+      "0xc71b5f631354be6853efe9c3ab6b9590f8302e81",
+      "transfer"
+     ]
+    ],
+    "span": "01-10 05:17..08-18 00:12"
+   }
+  ],
+  "225": [
+   {
+    "address": "0x4789f8ed86858dd6879104781293a98569b46b16",
+    "amount": 0.25,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xada5bb90d0de0bd1b6f3938708f49295a8d1f7cb",
+    "first_in_val": 0.024174,
+    "first_in_t": "08-13 03:28",
+    "fund_to_dep_min": 6276.0,
+    "sweep": [
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      0.1384,
+      "08-17 12:06",
+      "depositNative"
+     ],
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      0.0692,
+      "08-17 12:06",
+      "depositNative"
+     ],
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      0.04,
+      "08-23 09:03",
+      "depositNative"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xfe2e276ec427cea3ee16f34cd1f617df62b798a4",
+      "claim"
+     ],
+     [
+      "0xcccc62962d17b8914c62d74ffb843d73b2a3cccc",
+      "approve"
+     ],
+     [
+      "0x6131b5fae19ea4f9d964eac0408e4408b66337b5",
+      "swap"
+     ]
+    ],
+    "span": "07-12 11:16..08-23 13:13"
+   },
+   {
+    "address": "0xf5089f5fc3622a670dba61e8b52d90325f3b6365",
+    "amount": 0.25,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x08dba3f05b564b71c38688ec01bb8be7a555100f",
+    "first_in_val": 0.0,
+    "first_in_t": "01-15 12:57",
+    "fund_to_dep_min": 308240.8,
+    "sweep": [],
+    "other_contracts": [
+     [
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "approve"
+     ],
+     [
+      "0xade7ced7969dc44a5b889d9f312a7adbc96b3b89",
+      "deposit"
+     ],
+     [
+      "0x858646372cc42e1a627fce94aa7a7033e7cf075a",
+      "depositIntoStrategy"
+     ]
+    ],
+    "span": "01-15 12:57..08-17 14:18"
+   }
+  ],
+  "176": [
+   {
+    "address": "0x1f58b07b3c8a3951ec0849601b67ba39d1839fa1",
+    "amount": 0.3,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 0.301982,
+    "first_in_t": "08-17 06:28",
+    "fund_to_dep_min": 2.4,
+    "sweep": [
+     [
+      "0xa0309e6494d6b16269f5f5755496ee5fb7eaa24b",
+      0.302,
+      "08-17 06:36",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 06:28..08-17 06:36"
+   },
+   {
+    "address": "0x7f521cd6e0603fe99d5fbc99ca26c33d582665aa",
+    "amount": 0.3,
+    "txs_first_page": 4,
+    "more_pages": false,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 0.305,
+    "first_in_t": "08-17 10:01",
+    "fund_to_dep_min": 6.4,
+    "sweep": [
+     [
+      "0x533553be68c4b5b38a9fc1c99bd20b93c1d72d64",
+      0.305,
+      "08-17 10:10",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 10:01..08-17 20:36"
+   }
+  ],
+  "182": [
+   {
+    "address": "0x07f08d2ad4ced407b4bdf704c4ecbdcaf9267a20",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": null,
+    "first_in_val": null,
+    "first_in_t": null,
+    "fund_to_dep_min": null,
+    "sweep": [
+     [
+      "0x6a000f20005980200259b80c5102003040001068",
+      0.0081,
+      "08-18 07:27",
+      "swapExactAmountIn"
+     ],
+     [
+      "0x4c82d1fbfe28c977cbb58d8c7ff8fcf9f70a2cca",
+      0.008,
+      "08-18 07:37",
+      "execute"
+     ],
+     [
+      "0x4c82d1fbfe28c977cbb58d8c7ff8fcf9f70a2cca",
+      0.008,
+      "08-18 09:34",
+      "execute"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x9d51d507bc7264d4fe8ad1cf7fe191933a0a81d6",
+      "commit"
+     ],
+     [
+      "0x9d51d507bc7264d4fe8ad1cf7fe191933a0a81d6",
+      "commit"
+     ],
+     [
+      "0x0889e9327b98d7d1be3c301a4585ff3330502c9a",
+      "0x1fff991f"
+     ]
+    ],
+    "span": "06-26 23:37..08-25 01:19"
+   },
+   {
+    "address": "0x1d08fb45f0bee9a3ee2d3f18167ebff8fcc4237a",
+    "amount": 0.05,
+    "txs_first_page": 7,
+    "more_pages": false,
+    "first_in_from_on_page": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_val": 0.51993,
+    "first_in_t": "08-18 07:11",
+    "fund_to_dep_min": 0.8,
+    "sweep": [
+     [
+      "0xe436d4f612a444df4dd4a640ca5d58eff4727869",
+      0.499,
+      "08-18 07:43",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 07:11..08-18 07:43"
+   },
+   {
+    "address": "0x127b5b10b20dbbda6cd98ea058207ac07de17276",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x471af911380b1d29e472cf299aff979eedbceb8b",
+    "first_in_val": 0.088913,
+    "first_in_t": "08-18 07:10",
+    "fund_to_dep_min": 1.8,
+    "sweep": [
+     [
+      "0x9e813c89f340429ed5c25e49d2cf92f9092de7de",
+      0.0887,
+      "08-18 07:12",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 07:10..08-18 07:12"
+   }
+  ],
+  "216": [
+   {
+    "address": "0x55ebca2f1f1f58c29706fe0521d40714335e8eb5",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xca3a70c8b91cbf69701c919df38ed2aabdcfeae9",
+    "first_in_val": 0.000668,
+    "first_in_t": "07-09 12:55",
+    "fund_to_dep_min": 57208.2,
+    "sweep": [
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.01,
+      "08-18 06:26",
+      "dagSwapTo"
+     ],
+     [
+      "0x21862e10905e4a172484e0d2198c9531725755cb",
+      0.048,
+      "08-18 06:27",
+      null
+     ],
+     [
+      "0x21862e10905e4a172484e0d2198c9531725755cb",
+      0.01,
+      "08-18 06:47",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x55ad98c4d8ece5e1f40c04e0e1d87c014584dc76",
+      "setApprovalForAll"
+     ],
+     [
+      "0xcba08dbb075959db7a1ed60f7a5f5b7e6b8b1388",
+      "mint"
+     ],
+     [
+      "0x13e967c5895ffb9d63fdbf28e24d4b6ed445fb9b",
+      "mint"
+     ]
+    ],
+    "span": "05-23 10:13..08-21 08:09"
+   },
+   {
+    "address": "0x5b1f0ed37bfb63a0ef660fbeeb12e96d437eec0b",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "first_in_val": 0.232074,
+    "first_in_t": "07-17 08:29",
+    "fund_to_dep_min": 571553.8,
+    "sweep": [
+     [
+      "0x503972ee3a62480f66e7a1bd485dd5f7da754bec",
+      0.05,
+      "08-18 06:26",
+      "0xeffbec13"
+     ],
+     [
+      "0x503972ee3a62480f66e7a1bd485dd5f7da754bec",
+      0.025,
+      "08-18 06:26",
+      "0xeffbec13"
+     ],
+     [
+      "0x503972ee3a62480f66e7a1bd485dd5f7da754bec",
+      0.13,
+      "08-18 06:28",
+      "0xeffbec13"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x3328f7f4a1d1c57c35df56bbf0c9dcafca309c49",
+      "0x75713a08"
+     ],
+     [
+      "0x156acd2bc5fc336d59baae602a2bd9b5e20d6672",
+      "unxswapByOrderId"
+     ],
+     [
+      "0xaae0651db75e740919d1bc06d673935b531999d0",
+      "approve"
+     ]
+    ],
+    "span": "05-12 21:57..08-18 18:06"
+   },
+   {
+    "address": "0xcc73dec0361570831e31ea4c6f9999550bb68888",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x0a759d89f6343597e0a973c7b52187e1fb2da8c9",
+    "first_in_val": 0.0005,
+    "first_in_t": "05-11 02:26",
+    "fund_to_dep_min": 142797.0,
+    "sweep": [
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      0.01,
+      "08-18 06:28",
+      "0xeffbec13"
+     ],
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      0.05,
+      "08-18 06:29",
+      "0xeffbec13"
+     ],
+     [
+      "0x7020438e3360d8aa5b9e1606c4e49d2663f3c64c",
+      0.1765,
+      "08-19 03:01",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xac7b5d06fa1e77d08aea40d46cb7c5923a87a0cc",
+      "mine"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      "dagSwapByOrderId"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      "dagSwapByOrderId"
+     ]
+    ],
+    "span": "05-11 01:36..08-19 03:01"
+   }
+  ],
+  "218": [
+   {
+    "address": "0x993e9c4f63663aa94f25f2cd269df6752c5b08ef",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xff15bee2ceb5b7924b5ba1e44140971adaba3873",
+    "first_in_val": 0.0,
+    "first_in_t": "08-18 12:09",
+    "fund_to_dep_min": -299.6,
+    "sweep": [
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      0.087,
+      "08-18 16:09",
+      "depositNative"
+     ],
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      2.0,
+      "08-20 18:05",
+      "depositNative"
+     ],
+     [
+      "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      0.0065,
+      "08-22 02:03",
+      "depositNative"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xe172e9b6cfbeeb5593bdce3f077356fdb33af904",
+      "approve"
+     ],
+     [
+      "0x000000000022d473030f116ddee9f6b43ac78ba3",
+      "invalidateUnorderedNonces"
+     ],
+     [
+      "0x4c82d1fbfe28c977cbb58d8c7ff8fcf9f70a2cca",
+      "execute"
+     ]
+    ],
+    "span": "08-18 12:09..08-25 09:23"
+   },
+   {
+    "address": "0x3bd4613780f84f110dde649c2fcd3c35deb113e9",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xcb0bb35c9fc3a335407d8bc24e9cda0290dbda91",
+    "first_in_val": 0.0,
+    "first_in_t": "08-18 22:04",
+    "fund_to_dep_min": -893.6,
+    "sweep": [
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.1,
+      "08-18 07:32",
+      "dagSwapTo"
+     ],
+     [
+      "0xee030ec6f4307411607e55acd08e628ae6655b86",
+      0.2,
+      "08-18 07:47",
+      "swapAndBridge"
+     ],
+     [
+      "0xee030ec6f4307411607e55acd08e628ae6655b86",
+      0.54,
+      "08-18 07:54",
+      "swapAndBridge"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xa62755a7460590f78fa7038027cf17f73f4dc1cd",
+      "approve"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      "dagSwapByOrderId"
+     ],
+     [
+      "0x3a9536b169389f96862a825959b69ac5333d5d3b",
+      "approve"
+     ]
+    ],
+    "span": "06-26 04:00..08-24 02:11"
+   }
+  ],
+  "232": [
+   {
+    "address": "0x782cf784411381904e629f2f2dd5c59e10161711",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x247500db42806aab2358b072bb727d6904a5e6d2",
+    "first_in_val": 0.0,
+    "first_in_t": "03-03 07:30",
+    "fund_to_dep_min": 241895.0,
+    "sweep": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.02,
+      "08-18 07:06",
+      "0x810c705b"
+     ],
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      0.01,
+      "08-18 07:17",
+      "0xeffbec13"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x53e82abbb12638f09d9e624578ccb666217a765e",
+      "claimAndRedeem"
+     ],
+     [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "transfer"
+     ],
+     [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "transfer"
+     ]
+    ],
+    "span": "03-03 07:30..08-18 07:17"
+   },
+   {
+    "address": "0xfcfc9fcebfd754afdb03ed61b6d057b47fd8a23a",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x22a28e521108bb2201bb8b5727feebce294e9a86",
+    "first_in_val": 0.005798,
+    "first_in_t": "05-11 06:18",
+    "fund_to_dep_min": 142606.8,
+    "sweep": [],
+    "other_contracts": [
+     [
+      "0x5e1f62dac767b0491e3ce72469c217365d5b48cc",
+      "dagSwapByOrderId"
+     ],
+     [
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "transfer"
+     ],
+     [
+      "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "approve"
+     ]
+    ],
+    "span": "03-19 12:06..08-25 07:41"
+   }
+  ],
+  "228": [
+   {
+    "address": "0xda62689d628d8c23cfe80e9542f02de7cbe4ff27",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0x18dd3c14e34c1bc379f7538068c59160d9f68e25",
+    "first_in_val": 0.312292,
+    "first_in_t": "07-29 02:48",
+    "fund_to_dep_min": 29036.4,
+    "sweep": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.5,
+      "08-22 05:31",
+      "0x810c705b"
+     ],
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      0.1,
+      "08-23 08:18",
+      "0xeffbec13"
+     ],
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      0.05,
+      "08-23 08:19",
+      "0xeffbec13"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x04d698035a1b34e0cf3835aa2cfedbc6361b3f7a",
+      "0xcf99b718"
+     ],
+     [
+      "0x4313c378cc91ea583c91387b9216e2c03096b27f",
+      "0xeffbec13"
+     ],
+     [
+      "0x1a097c66e3587fe31ae09feb1f59181d0596513b",
+      "approve"
+     ]
+    ],
+    "span": "05-12 18:33..08-23 09:21"
+   },
+   {
+    "address": "0x0a9e4440b28438f7d12be54dde039602880c5871",
+    "amount": 0.05,
+    "txs_first_page": 20,
+    "more_pages": false,
+    "first_in_from_on_page": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_val": 1.9999,
+    "first_in_t": "04-18 22:41",
+    "fund_to_dep_min": 174722.4,
+    "sweep": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.2,
+      "08-18 06:44",
+      "0x810c705b"
+     ],
+     [
+      "0x122d8099c33649b1bcc59cf31d99bd9c52d6c701",
+      0.2009,
+      "08-18 07:21",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0x73d8bd54f7cf5fab43fe4ef40a62d390644946db",
+      "0xdb453e2d"
+     ],
+     [
+      "0x4d7078ddd6ccfed2f85db5b7d3ff16828d378d48",
+      "approve"
+     ],
+     [
+      "0x4d7078ddd6ccfed2f85db5b7d3ff16828d378d48",
+      "approve"
+     ]
+    ],
+    "span": "04-18 22:41..08-18 07:21"
+   }
+  ],
+  "254": [
+   {
+    "address": "0x0db1b21f33d26bcc64ce9cd9174642262acc53fb",
+    "amount": 0.05,
+    "txs_first_page": 50,
+    "more_pages": true,
+    "first_in_from_on_page": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "first_in_val": 0.186913,
+    "first_in_t": "05-23 06:33",
+    "fund_to_dep_min": 650906.0,
+    "sweep": [
+     [
+      "0x503972ee3a62480f66e7a1bd485dd5f7da754bec",
+      0.02,
+      "08-18 07:06",
+      "0xeffbec13"
+     ],
+     [
+      "0xb966b56336737135c9247cd20936f32f43f2192b",
+      0.01,
+      "08-21 11:36",
+      null
+     ],
+     [
+      "0x0fbf21081c5d6df6bf61fefda657bc949f6cb7e5",
+      0.05,
+      "08-21 11:39",
+      null
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "approve"
+     ],
+     [
+      "0x6b4472d6047aae634e90a8cfebb34f4ed430eda7",
+      "approve"
+     ],
+     [
+      "0x6088d94c5a40cecd3ae2d4e0710ca687b91c61d0",
+      "unxswapByOrderId"
+     ]
+    ],
+    "span": "05-23 06:29..08-25 07:17"
+   },
+   {
+    "address": "0x63ca36b5c6d434829f69326822ff30bf0c6e6a36",
+    "amount": 0.05,
+    "txs_first_page": 7,
+    "more_pages": false,
+    "first_in_from_on_page": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_val": 0.49993,
+    "first_in_t": "08-18 06:58",
+    "fund_to_dep_min": 0.4,
+    "sweep": [
+     [
+      "0x19950398b3cdd3a7832e12503ddd5d23dcc899c2",
+      0.4999,
+      "08-18 07:03",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 06:58..08-18 07:03"
+   }
+  ],
+  "262": [
+   {
+    "address": "0x877e9558e04917af0ea3b754650a8c07317bb654",
+    "amount": 0.05,
+    "txs_first_page": 4,
+    "more_pages": false,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 0.06,
+    "first_in_t": "08-18 14:05",
+    "fund_to_dep_min": 1.6,
+    "sweep": [
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.01,
+      "08-18 14:08",
+      "dagSwapTo"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.04,
+      "08-18 14:13",
+      "dagSwapTo"
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 14:05..08-18 14:13"
+   },
+   {
+    "address": "0x7ac1bb207f74d831679404ccca72733fdff3b0a7",
+    "amount": 0.05,
+    "txs_first_page": 4,
+    "more_pages": false,
+    "first_in_from_on_page": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+    "first_in_val": 0.06,
+    "first_in_t": "08-18 14:06",
+    "fund_to_dep_min": 1.4,
+    "sweep": [
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.01,
+      "08-18 14:09",
+      "dagSwapTo"
+     ],
+     [
+      "0x28b1dc1a5e3699a428bc51d234dfab7c9cb2a183",
+      0.04,
+      "08-18 14:14",
+      "dagSwapTo"
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 14:06..08-18 14:14"
+   }
+  ],
+  "197": [
+   {
+    "address": "0x35207f1d44cb2b4ed8ddec9d27e712adffd332b7",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x2fc92dde494064724fd371e55172877f86d842e9",
+    "first_in_val": 0.05002,
+    "first_in_t": "08-17 06:34",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x2fc92dde494064724fd371e55172877f86d842e9",
+      0.05,
+      "08-17 06:34",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 06:34..08-17 06:34"
+   },
+   {
+    "address": "0x5f3ef15c49a1bf9c27f0e5ecd71cf8d1ecc651ed",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x2fc92dde494064724fd371e55172877f86d842e9",
+    "first_in_val": 0.05002,
+    "first_in_t": "08-17 06:30",
+    "fund_to_dep_min": 0.4,
+    "sweep": [
+     [
+      "0x2fc92dde494064724fd371e55172877f86d842e9",
+      0.05,
+      "08-17 06:31",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 06:30..08-17 06:31"
+   },
+   {
+    "address": "0x3c6cf3740d969decde036d7f46bd1f9bd695a4c1",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x2fc92dde494064724fd371e55172877f86d842e9",
+    "first_in_val": 0.05002,
+    "first_in_t": "08-17 06:35",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x2fc92dde494064724fd371e55172877f86d842e9",
+      0.05,
+      "08-17 06:35",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-17 06:35..08-17 06:35"
+   }
+  ],
+  "241": [
+   {
+    "address": "0x9b8db22c68e61a71a7dad507c7916b464558b9b7",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:43",
+    "fund_to_dep_min": 0.4,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:43",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:43..08-18 05:43"
+   },
+   {
+    "address": "0xcb7739aed41e0a88d921a58ee6e61960616b6404",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:41",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:42",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:41..08-18 05:42"
+   },
+   {
+    "address": "0x8f5bdf1b7782ad8e5f557c07eaf1464cdbd662c7",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:43",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:44",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:43..08-18 05:44"
+   }
+  ],
+  "247": [
+   {
+    "address": "0x76d84bb5f9719f95e02fea8d03e70e6d7bc079f6",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:11",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:11",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:11..08-18 05:11"
+   },
+   {
+    "address": "0x135cc1acad80cf4b2ebd834b008daf2f7a6210bd",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:12",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:13",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:12..08-18 05:13"
+   },
+   {
+    "address": "0xe19baaf2fe6e913c4c1ac852550baf9a27cc8ca5",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 05:11",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 05:12",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 05:11..08-18 05:12"
+   }
+  ],
+  "261": [
+   {
+    "address": "0xa1555f643f1cf95355cc069bdb984049d0c7e7f9",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 04:55",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 04:55",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 04:55..08-18 04:55"
+   },
+   {
+    "address": "0x66c9a60f16d24303039c940f24fbce5f27ac9b92",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+    "first_in_val": 0.050073,
+    "first_in_t": "08-18 04:54",
+    "fund_to_dep_min": 0.2,
+    "sweep": [
+     [
+      "0x3230466e58bb1019f5695ff55248ece1e753eb79",
+      0.05,
+      "08-18 04:55",
+      null
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 04:54..08-18 04:55"
+   }
+  ],
+  "215": [
+   {
+    "address": "0x88191f4fd99d4197c0adb576a3e317c03e5c96aa",
+    "amount": 0.05,
+    "txs_first_page": 3,
+    "more_pages": false,
+    "first_in_from_on_page": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_val": 0.138408,
+    "first_in_t": "08-18 07:43",
+    "fund_to_dep_min": 3.4,
+    "sweep": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.0692,
+      "08-18 08:45",
+      "0x810c705b"
+     ]
+    ],
+    "other_contracts": [],
+    "span": "08-18 07:43..08-18 08:45"
+   },
+   {
+    "address": "0x17e7694cbebdc426b786bbb98fd7841f74d1553f",
+    "amount": 0.05,
+    "txs_first_page": 27,
+    "more_pages": false,
+    "first_in_from_on_page": "0x9696f59e4d72e237be84ffd425dcad154bf96976",
+    "first_in_val": 0.820479,
+    "first_in_t": "06-17 07:43",
+    "fund_to_dep_min": 89287.8,
+    "sweep": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.06,
+      "08-18 07:53",
+      "0x810c705b"
+     ],
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.08,
+      "08-23 10:03",
+      "0x810c705b"
+     ],
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      0.05,
+      "08-23 16:32",
+      "0x810c705b"
+     ]
+    ],
+    "other_contracts": [
+     [
+      "0xb300000b72deaeb607a12d5f54773d1c19c7028d",
+      "0x810c705b"
+     ],
+     [
+      "0x32708538a107253b51a735a724330a23106ca4ca",
+      "approve"
+     ],
+     [
+      "0x32708538a107253b51a735a724330a23106ca4ca",
+      "approve"
+     ]
+    ],
+    "span": "06-17 07:43..08-24 16:43"
+   }
+  ]
+ },
+ "rule_variants_global": {
+  "baseline": {
+   "label": "baseline",
+   "clusters": 263,
+   "flagged": 11573,
+   "points_pct": 57.63,
+   "slice_flagged": 3574,
+   "slice_total": 3574
+  },
+  "no_hub": {
+   "label": "drop all shared-hub edges",
+   "clusters": 226,
+   "flagged": 11022,
+   "points_pct": 56.07,
+   "slice_flagged": 3137,
+   "slice_total": 3574
+  },
+  "no_exch_hub": {
+   "label": "drop hub edges whose funder is one of the 10 exchange-scale funders",
+   "clusters": 241,
+   "flagged": 11155,
+   "points_pct": 56.31,
+   "slice_flagged": 3156,
+   "slice_total": 3574
+  },
+  "hub_ge3": {
+   "label": "hub needs >= 3 members",
+   "clusters": 242,
+   "flagged": 11365,
+   "points_pct": 57.3,
+   "slice_flagged": 3475,
+   "slice_total": 3574
+  },
+  "hub_ge5": {
+   "label": "hub needs >= 5 members",
+   "clusters": 235,
+   "flagged": 11296,
+   "points_pct": 57.1,
+   "slice_flagged": 3406,
+   "slice_total": 3574
+  },
+  "hub_ge10": {
+   "label": "hub needs >= 10 members",
+   "clusters": 231,
+   "flagged": 11263,
+   "points_pct": 57.02,
+   "slice_flagged": 3378,
+   "slice_total": 3574
+  },
+  "no_exch_hub_and_ge5": {
+   "label": "drop exchange hubs AND require hub >=5",
+   "clusters": 227,
+   "flagged": 11027,
+   "points_pct": 56.07,
+   "slice_flagged": 3137,
+   "slice_total": 3574
+  },
+  "c_strong_required": {
+   "label": "exchange-hub clusters kept only with another STRONG kind (odd/burst/drip/sequence/peel)",
+   "clusters": 250,
+   "flagged": 11258,
+   "points_pct": 56.31,
+   "slice_flagged": 3269,
+   "slice_total": 3574
+  },
+  "no_exch6_hub": {
+   "label": "drop hub edges from the 6 labeled CEX hot wallets only (Bitget6, Binance18, OKX HW3, FTX2, OKX24, OKX3)",
+   "clusters": 245,
+   "flagged": 11199,
+   "points_pct": 56.34,
+   "slice_flagged": 3200
+  },
+  "exch6_fanout_only": {
+   "label": "CEX hub edges kept only as fresh fan-out: both endpoints nonce 0 at deposit AND identical priority fee",
+   "clusters": 251,
+   "flagged": 11444,
+   "points_pct": 57.35,
+   "slice_flagged": 3445
+  },
+  "exch6_fresh_only": {
+   "label": "CEX hub edges kept only when both endpoints are nonce-0 (fresh) at deposit",
+   "clusters": 253,
+   "flagged": 11455,
+   "points_pct": 57.45,
+   "slice_flagged": 3456
+  }
+ },
+ "rule_variants_per_slice_cluster": {
+  "baseline": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 23,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 18,
+   "58": 17,
+   "80": 15,
+   "215": 15,
+   "216": 15,
+   "184": 14,
+   "176": 12,
+   "218": 12,
+   "223": 12,
+   "232": 12,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 9,
+   "247": 9,
+   "52": 8,
+   "54": 8,
+   "174": 8,
+   "222": 7,
+   "71": 6,
+   "260": 6,
+   "163": 5,
+   "168": 5,
+   "180": 5,
+   "225": 5,
+   "253": 5,
+   "254": 5,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 5
+  },
+  "no_hub": {
+   "2": 1996,
+   "6": 896,
+   "14": 0,
+   "19": 0,
+   "24": 0,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 0,
+   "51": 0,
+   "58": 0,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 0,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 0,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 0,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 0,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 0,
+   "262": 0
+  },
+  "no_exch_hub": {
+   "2": 1996,
+   "6": 896,
+   "14": 0,
+   "19": 0,
+   "24": 0,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 0,
+   "51": 0,
+   "58": 0,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 12,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 0,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 0,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 7,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 0,
+   "262": 0
+  },
+  "hub_ge3": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 18,
+   "58": 17,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 14,
+   "176": 12,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 9,
+   "247": 9,
+   "52": 8,
+   "54": 8,
+   "174": 8,
+   "222": 0,
+   "71": 6,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 5
+  },
+  "hub_ge5": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 0,
+   "58": 17,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 0,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 9,
+   "52": 8,
+   "54": 8,
+   "174": 8,
+   "222": 0,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 0,
+   "262": 0
+  },
+  "hub_ge10": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 0,
+   "58": 17,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 0,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 0,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 0,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 0,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 0,
+   "262": 0
+  },
+  "no_exch_hub_and_ge5": {
+   "2": 1996,
+   "6": 896,
+   "14": 0,
+   "19": 0,
+   "24": 0,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 0,
+   "51": 0,
+   "58": 0,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 0,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 0,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 0,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 0,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 0,
+   "262": 0
+  },
+  "c_strong_required": {
+   "2": 1996,
+   "6": 896,
+   "14": 0,
+   "19": 0,
+   "24": 0,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 23,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 0,
+   "58": 0,
+   "80": 0,
+   "215": 15,
+   "216": 15,
+   "184": 0,
+   "176": 0,
+   "218": 12,
+   "223": 12,
+   "232": 12,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 9,
+   "247": 9,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 7,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 5,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 5
+  },
+  "no_exch6_hub": {
+   "2": 1996,
+   "6": 896,
+   "14": 0,
+   "19": 0,
+   "24": 0,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 0,
+   "58": 0,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 12,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 9,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 7,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 0
+  },
+  "exch6_fanout_only": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 18,
+   "58": 17,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 12,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 9,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 7,
+   "71": 0,
+   "260": 6,
+   "163": 0,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 5
+  },
+  "exch6_fresh_only": {
+   "2": 1996,
+   "6": 896,
+   "14": 84,
+   "19": 74,
+   "24": 47,
+   "164": 39,
+   "170": 37,
+   "49": 24,
+   "182": 0,
+   "183": 22,
+   "53": 20,
+   "197": 19,
+   "51": 18,
+   "58": 17,
+   "80": 15,
+   "215": 0,
+   "216": 0,
+   "184": 0,
+   "176": 12,
+   "218": 0,
+   "223": 12,
+   "232": 0,
+   "241": 11,
+   "61": 10,
+   "88": 10,
+   "206": 9,
+   "228": 0,
+   "247": 9,
+   "52": 8,
+   "54": 0,
+   "174": 8,
+   "222": 7,
+   "71": 6,
+   "260": 6,
+   "163": 5,
+   "168": 5,
+   "180": 5,
+   "225": 0,
+   "253": 5,
+   "254": 0,
+   "256": 5,
+   "257": 5,
+   "261": 5,
+   "262": 5
+  }
+ },
+ "hub_edge_inventory": {
+  "6": {
+   "0x077d360fx2": 1,
+   "0x18dd3c14x3": 2,
+   "0x331d9a04x2": 1,
+   "0x370a7e2dx3": 2,
+   "0x4976a4a0x3": 2,
+   "0x4b4e14a3x2": 1,
+   "0x56eddb7ax4": 3,
+   "0x623777ccx3": 2,
+   "0x6f765cb0x2": 1,
+   "0x9696f59ex7": 6,
+   "0xa1abfa21x4": 3,
+   "0xa359ddc1x2": 1,
+   "0xa5a9cf3bx2": 1,
+   "0xa7efae72x4": 3,
+   "0xa9ac43f5x3": 2,
+   "0xbf94f0acx7": 6,
+   "0xc098b2a3x6": 5,
+   "0xca7ded7ex3": 2,
+   "0xd551234ax2": 1,
+   "0xe95f6604x2": 1,
+   "0xf70da978x3": 2,
+   "0xf7858da8x4": 3,
+   "0xf89d7b9cx2": 1,
+   "0xfeb99e2cx14": 13
+  },
+  "49": {
+   "0x0d070796x2": 1,
+   "0x80c67432x2": 1,
+   "0xc098b2a3x3": 2
+  },
+  "176": {
+   "0x0d070796x3": 2,
+   "0xa9ac43f5x3": 2
+  },
+  "24": {
+   "0x1ab4973ax47": 46
+  },
+  "14": {
+   "0x1ab4973ax84": 83
+  },
+  "58": {
+   "0x1ab4973ax17": 16
+  },
+  "80": {
+   "0x1ab4973ax15": 14
+  },
+  "19": {
+   "0x1ab4973ax69": 68
+  },
+  "163": {
+   "0x1ab4973ax2": 1
+  },
+  "71": {
+   "0x1ab4973ax3": 2
+  },
+  "197": {
+   "0x2fc92ddex12": 11
+  },
+  "241": {
+   "0x3230466ex5": 4
+  },
+  "223": {
+   "0x3230466ex3": 2
+  },
+  "247": {
+   "0x3230466ex8": 7
+  },
+  "261": {
+   "0x3230466ex3": 2
+  },
+  "170": {
+   "0x370a7e2dx2": 1,
+   "0x9696f59ex2": 1,
+   "0xa9ac43f5x2": 1,
+   "0xbf94f0acx2": 1
+  },
+  "2": {
+   "0x3c15fc1ax22": 21,
+   "0x4838b106x5": 4,
+   "0xac2d7ef5x15": 14
+  },
+  "183": {
+   "0x4976a4a0x2": 1,
+   "0x56eddb7ax2": 1,
+   "0xc098b2a3x3": 2,
+   "0xf70da978x3": 2
+  },
+  "222": {
+   "0x4b4e14a3x2": 1,
+   "0xc098b2a3x2": 1
+  },
+  "164": {
+   "0x6729b0a8x2": 1,
+   "0xa7efae72x2": 1,
+   "0xbf94f0acx3": 2,
+   "0xe95f6604x2": 1,
+   "0xf7858da8x2": 1,
+   "0xf89d7b9cx2": 1
+  },
+  "216": {
+   "0x9696f59ex2": 1
+  },
+  "168": {
+   "0x9696f59ex2": 1
+  },
+  "53": {
+   "0x9696f59ex2": 1
+  },
+  "215": {
+   "0x9696f59ex2": 1
+  },
+  "218": {
+   "0x9696f59ex2": 1
+  },
+  "228": {
+   "0x9696f59ex3": 2
+  },
+  "254": {
+   "0x9696f59ex2": 1
+  },
+  "256": {
+   "0xa7efae72x5": 4
+  },
+  "257": {
+   "0xa7efae72x3": 2
+  },
+  "232": {
+   "0xa7efae72x2": 1
+  },
+  "51": {
+   "0xa9ac43f5x4": 3
+  },
+  "180": {
+   "0xa9ac43f5x5": 4
+  },
+  "88": {
+   "0xa9ac43f5x5": 4
+  },
+  "61": {
+   "0xa9ac43f5x2": 1,
+   "0xbf94f0acx2": 1
+  },
+  "262": {
+   "0xa9ac43f5x3": 2
+  },
+  "184": {
+   "0xbf94f0acx3": 2,
+   "0xc098b2a3x3": 2
+  },
+  "182": {
+   "0xbf94f0acx2": 1
+  },
+  "225": {
+   "0xc098b2a3x2": 1
+  },
+  "54": {
+   "0xc098b2a3x6": 5
+  },
+  "52": {
+   "0xc098b2a3x3": 2
+  }
+ },
+ "files": {
+  "ladder_analysis": "xhub_ladder_analysis.json",
+  "others_analysis": "xhub_others_analysis.json",
+  "rules": "xhub_rules.json",
+  "rules2": "xhub_rules2.json",
+  "raw_cache_dir": "xhub_bs_cache/",
+  "members": "xhub_members.json",
+  "samples": "xhub_samples.json"
+ }
+}

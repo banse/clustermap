@@ -1,0 +1,298 @@
+[
+ {
+  "address": "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+  "ens": "idonotknowwhatimdoing.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2, cadence:burstx2, funding:shared_hubx2",
+  "why_human": "nonce 11361, holds 12 IDMD identity NFTs, 50+ NFT collections, UniversalRouter trader; attached by sequence+burst in the h34 rescue rush + exchange hub 0xc098b2a3 (2.9M txs)",
+  "nonce_at_deposit": 11361,
+  "nft_collections": "50+",
+  "idmd": 12,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x61fd0d043d519f5a2bd05785000f30db96809429",
+  "ens": "985.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2",
+  "why_human": "999-club name, nonce 22182, DexRouter trader, 0.54 ETH; attached only by sequence at h34",
+  "nonce_at_deposit": 22182,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x3195c3f94154364e897711e501e104f40d8e23fb",
+  "ens": "mehmethan.eth",
+  "cluster_id": 6,
+  "attaching_rule": "amount:exact_round_wavex2, amount:splitx2",
+  "why_human": "nonce 34704, 102 txs after deposit, 50+ NFT collections; attached only by round-wave 0.1 + split",
+  "nonce_at_deposit": 34704,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.1",
+  "deposits": [
+   "0.1"
+  ]
+ },
+ {
+  "address": "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+  "ens": "tonybearbrick.eth",
+  "cluster_id": 6,
+  "attaching_rule": "amount:exact_round_wavex2, amount:splitx2, cadence:dripx1",
+  "why_human": "nonce 4532, holds 1 IDMD, 2.15 ETH balance, 50+ NFT collections; attached by round-wave 0.1 + split + one drip edge",
+  "nonce_at_deposit": 4532,
+  "nft_collections": "50+",
+  "idmd": 1,
+  "first_amount": "0.1",
+  "deposits": [
+   "0.1"
+  ]
+ },
+ {
+  "address": "0x2a967ab031ecd90ad2b4e1b6c4436a29f7a5f33e",
+  "ens": "racylife.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2",
+  "why_human": "8-step ladder 0.05->0.75, nonce 423, 50+ NFT collections, Seaport/UniversalRouter, 0.76 ETH balance; attached only by sequence",
+  "nonce_at_deposit": 423,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05",
+   "0.15",
+   "0.25",
+   "0.35",
+   "0.45",
+   "0.55",
+   "0.65",
+   "0.75"
+  ]
+ },
+ {
+  "address": "0xe7bdafa518bdd898ec3312b0cc32cd6f59567b91",
+  "ens": "枯坐外部山.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2",
+  "why_human": "9-step ladder 0.05->1.0, nonce 8319, 50+ NFT collections; attached only by sequence at h34",
+  "nonce_at_deposit": 8319,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05",
+   "0.15",
+   "0.25",
+   "0.35",
+   "0.55",
+   "0.65",
+   "0.75",
+   "0.85",
+   "1.0"
+  ]
+ },
+ {
+  "address": "0xc1470707ed388697a15b9b9f1f5f4cc882e28a45",
+  "ens": "punk.austingriffith.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2, cadence:dripx1",
+  "why_human": "subname under austingriffith.eth, active since 2024-01 (Dai, Safe), nonce 133; attached by sequence + drip in the h7 window",
+  "nonce_at_deposit": 133,
+  "nft_collections": "4",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x91508018f75f93af3c8c7c501757f1db57f19804",
+  "ens": "chessman.eth",
+  "cluster_id": 7,
+  "attaching_rule": "amount:exact_oddx2",
+  "why_human": "nonce 259, 13 NFT collections, funded 106 days before deposit, zero activity after; attached only by exact-odd 0.055",
+  "nonce_at_deposit": 259,
+  "nft_collections": "13",
+  "idmd": 0,
+  "first_amount": "0.055",
+  "deposits": [
+   "0.055"
+  ]
+ },
+ {
+  "address": "0x070f565dfd13906eba848374c34a4485bd21e876",
+  "ens": "0xmhd.eth",
+  "cluster_id": 7,
+  "attaching_rule": "amount:exact_oddx2",
+  "why_human": "nonce 775, 50+ NFT collections, USDC/Seaport; 0.051 moved from own secondary wallet 0x2163c67b right before; attached only by exact-odd 0.051",
+  "nonce_at_deposit": 775,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.051",
+  "deposits": [
+   "0.051"
+  ]
+ },
+ {
+  "address": "0x96b289aa02d0bb8137249fb0c73235fe1364e6b1",
+  "ens": "4friendscapital.eth",
+  "cluster_id": 6,
+  "attaching_rule": "amount:exact_round_wavex2, amount:near_same_blockx1, amount:splitx2",
+  "why_human": "nonce 2039, 40 NFT collections, BIO vesting + Safe, active since 2025-04; attached by round-wave 0.1 + near-block + split",
+  "nonce_at_deposit": 2039,
+  "nft_collections": "40",
+  "idmd": 0,
+  "first_amount": "0.1",
+  "deposits": [
+   "0.1"
+  ]
+ },
+ {
+  "address": "0x10f9ec8e7967ba8c391830374ad6ee51de6c3ca3",
+  "ens": "justdefaultname.eth",
+  "cluster_id": 19,
+  "attaching_rule": "amount:exact_round_wavex1",
+  "why_human": "nonce 1371, 49 NFT collections, OpenOcean/1inch/Swell DeFi; 1.45 ETH is not the cluster's ladder amount; attached by a single round-wave edge into the exchange-hub cluster c19",
+  "nonce_at_deposit": 1371,
+  "nft_collections": "49",
+  "idmd": 0,
+  "first_amount": "1.45",
+  "deposits": [
+   "1.45"
+  ]
+ },
+ {
+  "address": "0xf70fa1b8443c620ca7d43a9d17f4bde8b09031cc",
+  "ens": "mannersinvest.eth",
+  "cluster_id": 162,
+  "attaching_rule": "amount:exact_round_wavex2, funding:shared_hubx1",
+  "why_human": "nonce 1724 -> 1880 (155 txs after), SeaDrop minter; attached by round-wave 0.2 + exchange hub 0xc098b2a3",
+  "nonce_at_deposit": 1724,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.2",
+  "deposits": [
+   "0.2"
+  ]
+ },
+ {
+  "address": "0x4d48df14a698984c60e705a11dd696f368cb3a21",
+  "ens": "proofoftwitter.eth",
+  "cluster_id": 51,
+  "attaching_rule": "amount:exact_round_wavex2",
+  "why_human": "nonce 940, 49 NFT collections, Safe, USDC OFT; attached only by round-wave 1.0",
+  "nonce_at_deposit": 940,
+  "nft_collections": "49",
+  "idmd": 0,
+  "first_amount": "1.0",
+  "deposits": [
+   "1.0"
+  ]
+ },
+ {
+  "address": "0x0fb37542609921dfbad4d36441d9328985f50449",
+  "ens": "bayc9984.eth",
+  "cluster_id": 164,
+  "attaching_rule": "amount:exact_round_wavex2",
+  "why_human": "nonce 179, 22 NFT collections, active since 2024-01; attached only by round-wave 0.07",
+  "nonce_at_deposit": 179,
+  "nft_collections": "22",
+  "idmd": 0,
+  "first_amount": "0.07",
+  "deposits": [
+   "0.07"
+  ]
+ },
+ {
+  "address": "0xc490bc9e50933600a2a7dc213e69851d8d56098e",
+  "ens": "赚钱给女儿买奶粉.eth",
+  "cluster_id": 181,
+  "attaching_rule": "sequencex2",
+  "why_human": "nonce 6716, 28 NFT collections, active since 2025-09, 0.88 ETH; attached only by sequence at h34",
+  "nonce_at_deposit": 6716,
+  "nft_collections": "28",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x52be3580601524652978648e872d0aa448afc928",
+  "ens": "0xmrdq.eth",
+  "cluster_id": 8,
+  "attaching_rule": "amount:exact_round_wavex1, amount:splitx1",
+  "why_human": "nonce 1628, DexRouter trader (32 swaps), 50+ NFT collections, 1.1 ETH moved after game; deposited 0.45 at h34 during the second 0.45 wave (c8: 364/367 fresh nonce-0 wallets) -> a bystander welded in by round-wave+split",
+  "nonce_at_deposit": 1628,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.45",
+  "deposits": [
+   "0.45"
+  ]
+ },
+ {
+  "address": "0x8c6fdb5926e31994c9372f5907508b36aca500b6",
+  "ens": "pepp.eth",
+  "cluster_id": 170,
+  "attaching_rule": "sequencex2",
+  "why_human": "nonce 4998, 80 txs after deposit, NFT/meme trader; 2 deposits 0.05+0.2; attached only by sequence at h34",
+  "nonce_at_deposit": 4998,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05",
+   "0.2"
+  ]
+ },
+ {
+  "address": "0xfebded7df0b739564dcb218b4e673f0918528b8d",
+  "ens": "ecomalpha.eth",
+  "cluster_id": 177,
+  "attaching_rule": "sequencex2",
+  "why_human": "nonce 5170, 50+ NFT collections, USDC/USDe; attached only by sequence at h34",
+  "nonce_at_deposit": 5170,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x0f5994afdf8c01351a37e501cd28a961d76da66e",
+  "ens": "truthterminal.eth",
+  "cluster_id": 7,
+  "attaching_rule": "sequencex2, cadence:burstx2",
+  "why_human": "nonce 1005, CoWSwap/DexRouter trader, 25 txs after deposit; attached by sequence+burst at h34",
+  "nonce_at_deposit": 1005,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.05",
+  "deposits": [
+   "0.05"
+  ]
+ },
+ {
+  "address": "0x4af694afac543c2586feb46a3fd2b3b9f3d94f7f",
+  "ens": "xoxonft.eth",
+  "cluster_id": 6,
+  "attaching_rule": "amount:exact_round_wavex2, amount:splitx2",
+  "why_human": "nonce 1714, 50+ NFT collections, Seaport/USDC; attached only by round-wave 0.1 + split",
+  "nonce_at_deposit": 1714,
+  "nft_collections": "50+",
+  "idmd": 0,
+  "first_amount": "0.1",
+  "deposits": [
+   "0.1"
+  ]
+ }
+]

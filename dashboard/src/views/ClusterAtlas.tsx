@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 
 import type { ClusterSummary, Overview, RiskTier } from "../models/domain";
 import { buildClusterAtlasLayout, type PositionedCluster } from "../models/clusterAtlasLayout";
-import { clusterLabel, formatCount, formatPercent } from "../models/presentation";
+import { clusterLabel, formatCount, formatPercent, riskLabel } from "../models/presentation";
 import type { ThemeId } from "../models/theme";
 import { drawFocusReticle } from "./drawFocusReticle";
 
@@ -249,7 +249,7 @@ export function ClusterAtlas({ overview, theme, resetKey, focusedClusterId, onOp
       />
       {hovered === null ? null : (
         <div className="map-hover-card atlas-hover-card" aria-hidden="true">
-          <strong>{clusterLabel(hovered.id)} · {hovered.risk.toUpperCase()}</strong>
+          <strong>{clusterLabel(hovered.id)} · {riskLabel(hovered.risk).toUpperCase()}</strong>
           <span>{formatCount(hovered.size)} wallets · {formatPercent(hovered.points_share)} of points</span>
           <small>{formatPercent(hovered.confidence)} confidence · {hovered.families.join(" / ")}</small>
           {hovered.review_flag ? <b>POSSIBLE FALSE POSITIVE · REVIEW</b> : null}

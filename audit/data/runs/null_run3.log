@@ -1,0 +1,12 @@
+human amount prior from 989 ENS single-deposit wallets; top: [('0.05', 435), ('0.1', 51), ('0.051', 39), ('0.06', 23), ('1.0', 20), ('0.2', 16), ('0.055', 15), ('0.5', 13), ('0.07', 13), ('0.08', 11), ('0.052', 11), ('0.053', 10)]
+joiners per hour (observed): 19522 | honest density: 13843
+funder prior from 6852 non-farm resolved rows: personal=4012 (59%); top shared: [('0xd152f549', 253), ('0x1ab4973a', 242), ('0xdfd5293d', 84), ('0x9696f59e', 77), ('0xc098b2a3', 74), ('0x4976a4a0', 72), ('0x28c6c062', 70)]
+exchange-like shared funders (>=10 honest-side wallets): 29
+honest_density    shipped        pop= 13843 flagged= 6084.6 (5945–6221) = 44.0%  clusters= 47.4  combos=[('amount,funding', 124), ('cadence,sequence', 78), ('cadence,funding,sequence', 13), ('cadence,funding', 10)]
+honest_density    v2b            pop= 13843 flagged=   15.4 (0–29) =  0.1%  clusters=  1.4  combos=[('amount,cadence', 4), ('amount,cadence,funding', 2), ('amount,sequence', 1)]
+honest_density    v2b+local2_strong pop= 13843 flagged=   14.2 (0–29) =  0.1%  clusters=  1.4  combos=[('amount,cadence', 4), ('amount,cadence,funding', 2), ('amount,sequence', 1)]
+honest_density    ABCDE          pop= 13843 flagged= 1355.2 (1247–1443) =  9.8%  clusters= 58.2  combos=[('amount,sequence', 274), ('amount,cadence', 6), ('amount,funding,sequence', 5), ('amount,funding', 3)]
+honest_density    ABCDE+local2   pop= 13843 flagged=  133.4 (101–171) =  1.0%  clusters=  7.6  combos=[('amount,sequence', 21), ('amount,cadence', 6), ('amount,funding,sequence', 5), ('amount,funding', 3)]
+honest_density    ABCDE+local2+exchinfra pop= 13843 flagged=  113.6 (86–147) =  0.8%  clusters=  7.0  combos=[('amount,sequence', 26), ('amount,cadence', 6), ('amount,cadence,sequence', 3)]
+honest_density    ABCDE2+local2+exchinfra pop= 13843 flagged=   18.4 (0–37) =  0.1%  clusters=  1.8  combos=[('amount,cadence', 9)]
+honest_density    ABCDE2+local2_strong+exchinfra pop= 13843 flagged=   18.4 (0–37) =  0.1%  clusters=  1.8  combos=[('amount,cadence', 9)]

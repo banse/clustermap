@@ -1,0 +1,587 @@
+{
+ "slice": "late 0.05 ETH clusters, hour_min>=24 (27 clusters, 362 members, cluster_ids = index into groups)",
+ "cluster_ids": [
+  170,
+  177,
+  181,
+  182,
+  204,
+  210,
+  212,
+  215,
+  216,
+  218,
+  219,
+  220,
+  223,
+  228,
+  231,
+  232,
+  234,
+  239,
+  240,
+  241,
+  247,
+  250,
+  254,
+  259,
+  260,
+  261,
+  262
+ ],
+ "note_on_orchestrator_ids": "orchestrator ids c194 (h14) and c197 (h10) have hour_min<24 and are outside the slice; c182/c204/c215/c216/c218/c228/c231/c232/c239/c241/c247/c254/c261/c262 verified as listed",
+ "points_share_pct_total": 0.308,
+ "credit_eth_total": 29.2,
+ "context": {
+  "hour_to_utc": {
+   "h32": "2026-08-18 03:58 UTC",
+   "h33": "04:58",
+   "h34": "05:58",
+   "h35": "06:58",
+   "h36": "07:58"
+  },
+  "dev_onchain_post": "site: https://www.imd.fun/ at 2026-08-18 04:42 UTC = hour 32.72 (bin/aid feed); no other announce-channel post between 08-17 02:31 and 08-20 02:33",
+  "per_hour": {
+   "h24-31": "30-44 joiners/h, 0.05 share 10-33%, volume 45-90 ETH/h, hours 25-31 all rescued by ONE wallet 0xcefdb5f635bfc913d12e6eac3738e92b1681bd65 (_primus.eth, 24 deposits, unflagged)",
+   "h32": "67 joiners, 0.05 share 76% (51), 15.9 ETH",
+   "h33": "206 joiners, 78% (160), 53 ETH",
+   "h34": "701 joiners, 89% (621), 826 ETH, 2.35 joins/block",
+   "h35": "552 joiners, 68% (378), 662 ETH, 1.85 joins/block",
+   "h36": "349, 42%",
+   "h37": "275, 19%",
+   "h39-40": "85/84 joiners, 81%/71% 0.05"
+  },
+  "ten_minute_bins_h32-36_joiners": [
+   6,
+   9,
+   18,
+   9,
+   5,
+   20,
+   18,
+   24,
+   28,
+   36,
+   41,
+   59,
+   48,
+   95,
+   97,
+   139,
+   156,
+   166,
+   156,
+   90,
+   73,
+   79,
+   82,
+   72,
+   61,
+   66,
+   65,
+   54,
+   53,
+   50
+  ],
+  "web_search": "no indexed X/Twitter post found for 2026-08-18 (x.com not indexed); whitelist-curator.pages.dev describes the 5 ETH/hour freeze rule; rally trigger inferred from the onchain site post + the joiner ramp starting 10-min bin 197 (~04:50 UTC)"
+ },
+ "sequence_rule_null_model": {
+  "method": "shuffle first-deposit amounts among joiners WITHIN each hour (keeps block/index structure and per-hour 0.05 share), recount wallets in maximal runs of >=5 consecutive join indices, <=2-block gaps, amounts within 10%; 200 permutations",
+  "h32-36": {
+   "joiners": 1875,
+   "n_0.05": 1356,
+   "share": 0.72,
+   "real_run_members": 885,
+   "real_runs": 60,
+   "longest_runs": [
+    93,
+    77,
+    37,
+    33,
+    33,
+    31,
+    28,
+    23,
+    22,
+    21,
+    20,
+    17
+   ],
+   "null_mean": 897.3,
+   "null_sd": 23.2,
+   "z": -0.5
+  },
+  "h33-35": {
+   "joiners": 1459,
+   "share_0.05": 0.79,
+   "real_run_members": 880,
+   "null_mean": 866.0,
+   "null_sd": 21.9
+  },
+  "h30-45": {
+   "joiners": 2872,
+   "share_0.05": 0.574,
+   "real_run_members": 890,
+   "null_mean": 935.9,
+   "null_sd": 28.9
+  },
+  "h24-31": {
+   "joiners": 288,
+   "share_0.05": 0.2,
+   "real_run_members": 0,
+   "null_mean": 0
+  },
+  "h37-45": {
+   "joiners": 932,
+   "share_0.05": 0.3,
+   "real_run_members": 5,
+   "null_mean": 35.8,
+   "null_sd": 10.8
+  },
+  "analytic": "P(5 consecutive joiners all 0.05 | share 0.89 in h34) = 0.89^5 = 0.56; at 2.35 joins/block the <=2-block gap is almost always met, so most of h34 is one long run by construction",
+  "burst_null_h32-36": {
+   "real_members": 202,
+   "null_mean": 157.5,
+   "null_sd": 13.3,
+   "z": 3.3,
+   "note": "0.05 has 47 qualifying blocks game-wide so the >=2-blocks condition is vacuous; 40 blocks in h33-35 had >=5 0.05 joins"
+  },
+  "drip_null_h32-36": {
+   "real_members": 66,
+   "null_mean": 143.6,
+   "null_sd": 30.7,
+   "note": "real drip firing is BELOW the organic-density expectation"
+  },
+  "coverage": "858 of 1356 h32-36 0.05 joiners sit on a sequence edge; 773 flagged: 357 in the 27 late clusters, 410 welded into c7 (998 members, dom 0.05 47.9%, h0-59), 6 in c221"
+ },
+ "member_anatomy_362": {
+  "nonce_at_deposit": {
+   "0": 93,
+   "1-4": 22,
+   "5-19": 45,
+   ">=20": 202
+  },
+  "txs_after_game (nonce_now - nonce_at_deposit - deposits)": {
+   "0": 15,
+   "1-2": 83,
+   "3-9": 125,
+   "10+": 139
+  },
+  "balance_now_lt_0.001": 151,
+  "idmd_holders": 2,
+  "ens_named": 27,
+  "multi_deposit_ladderers": 25,
+  "first_funder_class": {
+   "binance_infra_list": 35,
+   "exchange_scale_(>=400k txs)": 49,
+   "in_cluster": 6,
+   "other": 272
+  },
+  "edge_attachment": {
+   "sequence_only": 179,
+   "burst+sequence": 75,
+   "hub+sequence": 40,
+   "drip_only": 34,
+   "drip+hub": 19,
+   "burst+hub+sequence": 8,
+   "peel+sequence": 2,
+   "other": 5
+  },
+  "second_family": {
+   "only_shared_funder_hub_x2-x8": {
+    "clusters": [
+     182,
+     204,
+     215,
+     216,
+     218,
+     228,
+     231,
+     232,
+     239,
+     241,
+     247,
+     254,
+     261,
+     262
+    ],
+    "members": 160
+   },
+   "cadence+sequence_only_no_funding": {
+    "clusters": [
+     210,
+     219,
+     234,
+     250,
+     259,
+     260
+    ],
+    "members": 50
+   },
+   "three_families": {
+    "clusters": [
+     170,
+     177,
+     181,
+     212,
+     220,
+     223,
+     240
+    ],
+    "members": 152
+   }
+  },
+  "hub_sizes": {
+   "x2": 18,
+   "x3": 6,
+   "x5": 1,
+   "x8": 1
+  },
+  "gas": "distinct priority fees per cluster 3-16 for sizes 5-37, gas limits 2-8; no fee fingerprint edge in any of the 27 (e.g. c182: 13 fees from 0.0126 to 20 gwei across 23 wallets)"
+ },
+ "funders": {
+  "0x3230466e58bb1019f5695ff55248ece1e753eb79": "EOA, 211 txs, 0 ETH. RECYCLING DRIP FARM: sends 0.0500726 to a fresh wallet every ~40-60 s (2026-08-18 05:12-05:53 UTC), wallet deposits 0.05, sends 0.0500452856 back; >=50 outgoing; 25 contributors funded, 22 flagged (c247 x8, c241 x5, c261 x3, c223 x3); 3 unflagged (no tx enrichment)",
+  "0x2e0db3f849b19b8d23993c4434ed02bf930d94f2": "EOA, funded 2.63 ETH via internal call from 0xb300000b at 06:29 UTC 08-18 (h34.5); funded 10 fresh wallets 0.05 in h34 (blocks 25780200-25780257); 0.507 ETH returned 12:29; sent 2.0 ETH back to 0xb300000b 08-19. Mini-farm; 9/10 flagged (c181 x3, c239 x2, ...)",
+  "0xe7351fd770a37282b91d153ee690b63579d6dd7f": "TransparentUpgradeableProxy contract, 545k txs (bridge/CEX withdrawal proxy); 8 fresh 0.05 wallets h33-35, 6 flagged; farm vs bridged-in humans UNKNOWN",
+  "0x4976a4a02f38326660d17bf34b431dc6e2eb2327": "5.9M txs, 13,668 ETH - exchange hot wallet",
+  "0x56eddb7aa87536c09ccc2793473599fd21a8b17f": "10.1M txs, 13,145 ETH - exchange",
+  "0xf70da97812cb96acdf810712aa562db8dfa3dbef": "5.1M txs, 2,000 ETH - exchange",
+  "0x370a7e2d300c14d79d4a7ee07aaca46c4b3012cf": "424k txs; 31 funded contributors game-wide with nonces 0-405 - exchange withdrawal wallet",
+  "0xca7ded7e4f4ba8ab3b10009236ae6d1b95094589": "422k txs - same family",
+  "0x18dd3c14e34c1bc379f7538068c59160d9f68e25": "427k txs - same family",
+  "0x331d9a049d496385998067abf6cbb6371c8d2466": "423k txs - same family",
+  "0xb92fe925dc43a0ecde6c8b1a2709c170ec4fff4f": "508k txs - exchange",
+  "0xc1d13492285eb664951e201bf7c80c7c6318a1b5": "68k txs, 41k token transfers - service-scale, 7 fresh 0.05 wallets h34, ambiguous",
+  "0x9696f59e/0xa9ac43f5/0xa7efae72/0xbf94f0ac": "exchange-scale per orchestrator; carry 20/12/8/6 members here",
+  "binance_15_0x21a31ee1 / binance_16_0xdfd5293d / binance_14_0x28c6c062": "11/14/9 members; excluded by labels.py so no hub edge"
+ },
+ "blockscout_sample_30": {
+  "human_like": 23,
+  "farm_like": 4,
+  "ambiguous": [
+   "0x3cdbf6cf.. c239 nonce0 funded 0.2659 by 0xdb0ad211 6 min before, 3 targets after",
+   "0x3cf18ae3.. c260 nonce0 funded 0.1577 by 0x97c29f46, 4 targets after",
+   "0x8e4e8903.. c262 nonce0, 5 txs incl depositV3/execute (bridging)"
+  ],
+  "farm_like_all_funded_by": "0x3230466e",
+  "calls_used": 87,
+  "files": [
+   "late05_blockscout.json",
+   "late05_sample_verdicts.json",
+   "late05_funder_extra.json"
+  ]
+ },
+ "rule_variants_full_population": {
+  "baseline": {
+   "clusters": 263,
+   "flagged": 11573,
+   "points_pct": 57.6,
+   "late05_still_flagged": 362,
+   "flagged_0.05_joiners_h32-36": 773
+  },
+  "V1_seq_cadence_ignore_exact_0.05_when_hour>=24": {
+   "clusters": 235,
+   "flagged": 10837,
+   "points_pct": 57.0,
+   "late05_still_flagged": 0,
+   "flagged_0.05_joiners_h32-36": 45
+  },
+  "V2_seq_cadence_ignore_exact_0.05_anywhere": {
+   "clusters": 212,
+   "flagged": 10519,
+   "points_pct": 56.7,
+   "late05_still_flagged": 0,
+   "flagged_0.05_joiners_h32-36": 45
+  },
+  "V3_hub_needs_x>=3": {
+   "clusters": 242,
+   "flagged": 11365,
+   "points_pct": 57.3,
+   "late05_still_flagged": 241,
+   "flagged_0.05_joiners_h32-36": 652
+  },
+  "V4_hub_needs_x>=5": {
+   "clusters": 235,
+   "flagged": 11296,
+   "points_pct": 57.1,
+   "late05_still_flagged": 222,
+   "flagged_0.05_joiners_h32-36": 638
+  },
+  "V5_hub_excludes_exchange_scale_funders_and_Disperse": {
+   "clusters": 240,
+   "flagged": 11147,
+   "points_pct": 56.2,
+   "late05_still_flagged": 238,
+   "flagged_0.05_joiners_h32-36": 654
+  },
+  "V6_V1+V5": {
+   "clusters": 222,
+   "flagged": 10535,
+   "points_pct": 55.7,
+   "late05_still_flagged": 0,
+   "flagged_0.05_joiners_h32-36": 45
+  },
+  "V7_ignore_0.05_only_in_h32-36": {
+   "clusters": 236,
+   "flagged": 10842,
+   "points_pct": 57.0,
+   "late05_still_flagged": 5,
+   "flagged_0.05_joiners_h32-36": 45
+  },
+  "V8_V2+V5": {
+   "clusters": 200,
+   "flagged": 10224,
+   "points_pct": 55.4,
+   "late05_still_flagged": 0,
+   "flagged_0.05_joiners_h32-36": 45
+  },
+  "cost_of_V1": "also releases the two real mini-farms (0x3230466e 22 wallets, 0x2e0db3f8 9 wallets, ~1.6 ETH credit, ~0.03% of points) unless a fresh-wallet-hub rule is added",
+  "fresh_hub_complement": "tier-A rule: >=3 wallets with nonce 0 at deposit sharing one first funder that is not infra and not exchange-scale (<~50k txs), first deposits within 2 hours. Population-wide after h24 this fires on 0x3230466e (22), 0x2e0db3f8 (10), 0x9642b23e (5, 0.113 - already exact-odd), 0x2cff890f (3), 0xcb0bb35c (3), 0x5c7bcd6e (3); borderline 0xc1d13492 (7, 68k txs). Re-flags ~35-50 wallets vs the ~728 released by V1"
+ },
+ "hour_saved_h32-45": "h32 0x1570749f (1.33), h33 0xa67504bb (5.0), h34 0x64f3f169 (0.05, unflagged), h35 0x43904de0 (0.05 x3 deposits, FLAGGED), h36 0x662a99ef (2.711), h37 0x8d503674 (0.45, flagged), h38 0x324f2e18 (10.0 ladder), h39/h41 _primus.eth again, h40 0x0f84bd7c (8.88), h42-45 9.9-10 ETH ladderers",
+ "files": [
+  "late05_members.json",
+  "late05_rpc.json",
+  "late05_blockscout.json",
+  "late05_sample_verdicts.json",
+  "late05_funder_extra.json",
+  "late05_verdicts.json",
+  "late05_fps.json",
+  "late05_variants.json",
+  "late05_variants.log",
+  "late05_members.py",
+  "late05_null2.py",
+  "late05_variants.py",
+  "bs_sample.py",
+  "rpc_batch.py"
+ ],
+ "per_cluster_verdicts": [
+  {
+   "subject": "c170",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=37 h34-34 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 16,408–16,444 · 17-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks', 'shared first funder 0x370a7e2d… ×2 inside one cluster']; nonce0=4 nonce>=20=23 ENS=6 txs_after_game>=3=33 balance<0.001=12; funded_by_identified_farm_funders=0; sampled=[('0x164c70f968d85a1c654c7a13285a6bbed68ac70e', 'human-like'), ('0x505ec7f53383d73c9c6cd98ff355015b01f73ea0', 'human-like')]; distinct_priority_fees=16 gas_limits=7 (no fee fingerprint)"
+  },
+  {
+   "subject": "c177",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.11,
+   "rationale": "n=33 h34-35 fam=['cadence', 'funding', 'sequence'] reasons=['first funder is a member of the same cluster (peel chain)', 'consecutive join indices 16,863–16,895 · 7-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=8 nonce>=20=21 ENS=2 txs_after_game>=3=27 balance<0.001=14; funded_by_identified_farm_funders=0; sampled=[('0xf90e70d9c9244a67814ea75faaa27d8cd15d51ac', 'human-like'), ('0x9184624acd7d86b3414acd314ffec16646acf097', 'human-like')]; distinct_priority_fees=16 gas_limits=8 (no fee fingerprint)"
+  },
+  {
+   "subject": "c181",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.13,
+   "rationale": "n=31 h34-34 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 16,468–16,498 · 10-block span', 'burst ×6 of 0.05Ξ in one block, repeated over 47 blocks', 'shared first funder 0x2e0db3f8… ×3 inside one cluster']; nonce0=5 nonce>=20=16 ENS=1 txs_after_game>=3=22 balance<0.001=10; funded_by_identified_farm_funders=3; sampled=[('0xc490bc9e50933600a2a7dc213e69851d8d56098e', 'human-like'), ('0x8a8bc5b5f5d6e8d114a8eedeb7cfa2f774a64475', 'human-like')]; distinct_priority_fees=16 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c182",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.09,
+   "rationale": "n=23 h35-35 fam=['funding', 'sequence'] reasons=['consecutive join indices 17,076–17,098 · 13-block span', 'shared first funder 0xbf94f0ac… ×2 inside one cluster']; nonce0=7 nonce>=20=10 ENS=2 txs_after_game>=3=15 balance<0.001=8; funded_by_identified_farm_funders=0; sampled=[('0xf78fcee8feb36e5f1c75543f275da93553c7d091', 'human-like')]; distinct_priority_fees=13 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c204",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=16 h33-33 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,166–16,181 · 10-block span', 'shared first funder 0xe7351fd7… ×2 inside one cluster']; nonce0=2 nonce>=20=11 ENS=1 txs_after_game>=3=16 balance<0.001=5; funded_by_identified_farm_funders=0; sampled=[('0x91a836ac890c9468ea0d117f9a4c657fcabf38f2', 'human-like')]; distinct_priority_fees=10 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c210",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.1,
+   "rationale": "n=10 h34-34 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,852–16,861 · 3-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=2 nonce>=20=6 ENS=1 txs_after_game>=3=7 balance<0.001=5; funded_by_identified_farm_funders=0; sampled=[('0xc7df1fd2a322c19f900a13cfcd5c26a8acc4e784', 'human-like')]; distinct_priority_fees=5 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c212",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.06,
+   "rationale": "n=16 h34-34 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 16,627–16,642 · 4-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks', 'shared first funder 0xca7ded7e… ×2 inside one cluster']; nonce0=3 nonce>=20=11 ENS=0 txs_after_game>=3=13 balance<0.001=5; funded_by_identified_farm_funders=0; sampled=[('0x9679e622eb75e8cb0a72fa9c7888c5e81eb91999', 'human-like')]; distinct_priority_fees=9 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c215",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.1,
+   "rationale": "n=15 h35-35 fam=['cadence', 'funding'] reasons=['metronomic drip ×15 of 0.05Ξ every ~1 blocks', 'shared first funder 0x9696f59e… ×2 inside one cluster']; nonce0=3 nonce>=20=10 ENS=1 txs_after_game>=3=10 balance<0.001=0; funded_by_identified_farm_funders=0; sampled=[('0x3142ade78a49ce30ede022121cf4bcb95ebe052e', 'human-like')]; distinct_priority_fees=12 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c216",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=15 h34-34 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,364–16,378 · 8-block span', 'shared first funder 0x9696f59e… ×2 inside one cluster']; nonce0=2 nonce>=20=11 ENS=3 txs_after_game>=3=14 balance<0.001=7; funded_by_identified_farm_funders=0; sampled=[('0xaac762a425157eaf9fd73109fd3a56be1e26e02d', 'human-like')]; distinct_priority_fees=7 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c218",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=12 h35-35 fam=['funding', 'sequence'] reasons=['consecutive join indices 17,060–17,071 · 7-block span', 'shared first funder 0x9696f59e… ×2 inside one cluster']; nonce0=0 nonce>=20=10 ENS=2 txs_after_game>=3=8 balance<0.001=5; funded_by_identified_farm_funders=0; sampled=[('0x27999ed54e2760aade3cd4c3d7804e0814881630', 'human-like')]; distinct_priority_fees=5 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c219",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.11,
+   "rationale": "n=9 h35-35 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,907–16,915 · 2-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=4 nonce>=20=4 ENS=1 txs_after_game>=3=5 balance<0.001=3; funded_by_identified_farm_funders=0; sampled=[('0xb86bc4936b67b8ab34b8466698b83a960a132df0', 'human-like')]; distinct_priority_fees=4 gas_limits=3 (no fee fingerprint)"
+  },
+  {
+   "subject": "c220",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.04,
+   "rationale": "n=12 h35-35 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 17,162–17,167 · 2-block span', 'metronomic drip ×8 of 0.05Ξ every ~1 blocks', 'shared first funder 0x56eddb7a… ×2 inside one cluster']; nonce0=1 nonce>=20=8 ENS=1 txs_after_game>=3=7 balance<0.001=6; funded_by_identified_farm_funders=0; sampled=[('0x4ee088da5078622a890283cd2c4bf3bfeaeb6dac', 'human-like')]; distinct_priority_fees=9 gas_limits=5 (no fee fingerprint)"
+  },
+  {
+   "subject": "c223",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.25,
+   "rationale": "n=12 h33-33 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 16,079–16,090 · 6-block span', 'burst ×6 of 0.05Ξ in one block, repeated over 47 blocks', 'shared first funder 0x3230466e… ×3 inside one cluster']; nonce0=5 nonce>=20=6 ENS=0 txs_after_game>=3=9 balance<0.001=8; funded_by_identified_farm_funders=3; sampled=[('0x0bbe4b3b4a110f4e984e38daecb2befc0ae10ed3', 'farm-like')]; distinct_priority_fees=7 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c228",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=9 h34-34 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,646–16,654 · 4-block span', 'shared first funder 0x9696f59e… ×3 inside one cluster']; nonce0=1 nonce>=20=6 ENS=0 txs_after_game>=3=7 balance<0.001=3; funded_by_identified_farm_funders=0; sampled=[('0x3189dbdaf71b7fedd3a11ba9d477661a8125d0ff', 'human-like')]; distinct_priority_fees=8 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c231",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.0,
+   "rationale": "n=12 h35-35 fam=['cadence', 'funding'] reasons=['metronomic drip ×12 of 0.05Ξ every ~2 blocks', 'shared first funder 0xf70da978… ×2 inside one cluster']; nonce0=0 nonce>=20=8 ENS=3 txs_after_game>=3=10 balance<0.001=3; funded_by_identified_farm_funders=0; sampled=[('0x5d46ed7405a8a87492cd139fcd38bce60cb5030e', 'human-like')]; distinct_priority_fees=10 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c232",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.08,
+   "rationale": "n=12 h35-35 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,986–16,997 · 3-block span', 'shared first funder 0xa7efae72… ×2 inside one cluster']; nonce0=2 nonce>=20=7 ENS=2 txs_after_game>=3=9 balance<0.001=5; funded_by_identified_farm_funders=0; sampled=[('0xfcfc9fcebfd754afdb03ed61b6d057b47fd8a23a', 'human-like')]; distinct_priority_fees=8 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c234",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.05,
+   "rationale": "n=11 h34-34 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,709–16,718 · 2-block span', 'burst ×6 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=4 nonce>=20=5 ENS=0 txs_after_game>=3=8 balance<0.001=6; funded_by_identified_farm_funders=0; sampled=[('0x5c9699ff29d4a0214b02f3be2be4372cf90bac0e', 'human-like')]; distinct_priority_fees=7 gas_limits=5 (no fee fingerprint)"
+  },
+  {
+   "subject": "c239",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.23,
+   "rationale": "n=11 h34-34 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,607–16,617 · 4-block span', 'shared first funder 0x2e0db3f8… ×2 inside one cluster']; nonce0=5 nonce>=20=5 ENS=0 txs_after_game>=3=8 balance<0.001=8; funded_by_identified_farm_funders=2; sampled=[('0x3cdbf6cfe891150e1d3f4258981f939ca43df046', 'ambiguous')]; distinct_priority_fees=7 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c240",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.05,
+   "rationale": "n=11 h34-34 fam=['cadence', 'funding', 'sequence'] reasons=['consecutive join indices 16,734–16,744 · 1-block span', 'burst ×9 of 0.05Ξ in one block, repeated over 47 blocks', 'shared first funder 0x4976a4a0… ×2 inside one cluster']; nonce0=2 nonce>=20=8 ENS=1 txs_after_game>=3=9 balance<0.001=3; funded_by_identified_farm_funders=0; sampled=[('0xbe610cdd7fda3eb07f9aa1dea1db50409cffba9f', 'human-like')]; distinct_priority_fees=6 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c241",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.45,
+   "rationale": "n=11 h33-33 fam=['cadence', 'funding'] reasons=['metronomic drip ×11 of 0.05Ξ every ~3 blocks', 'shared first funder 0x3230466e… ×5 inside one cluster']; nonce0=8 nonce>=20=3 ENS=0 txs_after_game>=3=5 balance<0.001=8; funded_by_identified_farm_funders=5; sampled=[('0x8b053e05794f0895d2c87e634d130898b6aa912e', 'farm-like')]; distinct_priority_fees=7 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c247",
+   "verdict": "farm",
+   "farm_fraction_estimate": 0.89,
+   "rationale": "n=9 h33-33 fam=['cadence', 'funding'] reasons=['metronomic drip ×9 of 0.05Ξ every ~4 blocks', 'shared first funder 0x3230466e… ×8 inside one cluster']; nonce0=8 nonce>=20=0 ENS=0 txs_after_game>=3=1 balance<0.001=9; funded_by_identified_farm_funders=8; sampled=[('0x135cc1acad80cf4b2ebd834b008daf2f7a6210bd', 'farm-like')]; distinct_priority_fees=2 gas_limits=2 (no fee fingerprint)"
+  },
+  {
+   "subject": "c250",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.06,
+   "rationale": "n=8 h34-34 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,450–16,456 · 2-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=1 nonce>=20=5 ENS=0 txs_after_game>=3=8 balance<0.001=3; funded_by_identified_farm_funders=0; sampled=[('0xba8561ca97323cc4c60452acd3a6bc183498874e', 'human-like')]; distinct_priority_fees=7 gas_limits=6 (no fee fingerprint)"
+  },
+  {
+   "subject": "c254",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.2,
+   "rationale": "n=5 h35-35 fam=['funding', 'sequence'] reasons=['consecutive join indices 16,897–16,901 · 0-block span', 'shared first funder 0x9696f59e… ×2 inside one cluster']; nonce0=2 nonce>=20=3 ENS=0 txs_after_game>=3=1 balance<0.001=2; funded_by_identified_farm_funders=0; sampled=[('0x0db1b21f33d26bcc64ce9cd9174642262acc53fb', 'human-like')]; distinct_priority_fees=4 gas_limits=3 (no fee fingerprint)"
+  },
+  {
+   "subject": "c259",
+   "verdict": "honest",
+   "farm_fraction_estimate": 0.08,
+   "rationale": "n=6 h34-34 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,699–16,704 · 1-block span', 'burst ×5 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=2 nonce>=20=2 ENS=0 txs_after_game>=3=5 balance<0.001=2; funded_by_identified_farm_funders=0; sampled=[('0x886cce0378b357cb8147a0d4f480e150b9888888', 'human-like')]; distinct_priority_fees=3 gas_limits=2 (no fee fingerprint)"
+  },
+  {
+   "subject": "c260",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.33,
+   "rationale": "n=6 h34-34 fam=['cadence', 'sequence'] reasons=['consecutive join indices 16,620–16,625 · 0-block span', 'burst ×6 of 0.05Ξ in one block, repeated over 47 blocks']; nonce0=5 nonce>=20=1 ENS=0 txs_after_game>=3=4 balance<0.001=5; funded_by_identified_farm_funders=1; sampled=[('0x3cf18ae378e654683face2e7d77f8e2cb66b697b', 'ambiguous')]; distinct_priority_fees=3 gas_limits=4 (no fee fingerprint)"
+  },
+  {
+   "subject": "c261",
+   "verdict": "farm",
+   "farm_fraction_estimate": 0.6,
+   "rationale": "n=5 h32-32 fam=['funding', 'sequence'] reasons=['consecutive join indices 15,966–15,970 · 6-block span', 'shared first funder 0x3230466e… ×3 inside one cluster']; nonce0=3 nonce>=20=2 ENS=0 txs_after_game>=3=2 balance<0.001=4; funded_by_identified_farm_funders=3; sampled=[('0xa1555f643f1cf95355cc069bdb984049d0c7e7f9', 'farm-like')]; distinct_priority_fees=3 gas_limits=2 (no fee fingerprint)"
+  },
+  {
+   "subject": "c262",
+   "verdict": "mixed",
+   "farm_fraction_estimate": 0.4,
+   "rationale": "n=5 h42-42 fam=['funding', 'sequence'] reasons=['consecutive join indices 18,381–18,385 · 7-block span', 'shared first funder 0xa9ac43f5… ×3 inside one cluster']; nonce0=4 nonce>=20=0 ENS=0 txs_after_game>=3=1 balance<0.001=2; funded_by_identified_farm_funders=0; sampled=[('0x8e4e8903e31022b2a732f2694ee11ffb552af8e2', 'ambiguous')]; distinct_priority_fees=4 gas_limits=3 (no fee fingerprint)"
+  }
+ ],
+ "false_positive_examples": [
+  {
+   "address": "0xc490bc9e50933600a2a7dc213e69851d8d56098e",
+   "cluster_id": 181,
+   "ens": "赚钱给女儿买奶粉.eth",
+   "why_human": "nonce 6716; ENS; >50 txs; 16 distinct targets; active since 2025-09-27 12:19; 6 txs after game",
+   "attaching_rule": "sequence: consecutive join indices 16,468–16,498 · 10-block span"
+  },
+  {
+   "address": "0xc7df1fd2a322c19f900a13cfcd5c26a8acc4e784",
+   "cluster_id": 210,
+   "ens": "",
+   "why_human": "nonce 923; >50 txs; 11 distinct targets; active since 2026-04-29 07:39; 10 txs after game",
+   "attaching_rule": "sequence: consecutive join indices 16,852–16,861 · 3-block span; cadence:burst: burst ×5 of 0.05Ξ in one block, repeated over 47 blocks"
+  },
+  {
+   "address": "0x9679e622eb75e8cb0a72fa9c7888c5e81eb91999",
+   "cluster_id": 212,
+   "ens": "",
+   "why_human": "nonce 1203; >50 txs; 16 distinct targets; 41 txs after game",
+   "attaching_rule": "sequence: consecutive join indices 16,627–16,642 · 4-block span; cadence:burst: burst ×5 of 0.05Ξ in one block, repeated over 47 blocks; funding:shared_hub: shared first funder 0xca7ded7e… ×2 inside one cluster"
+  },
+  {
+   "address": "0x4ee088da5078622a890283cd2c4bf3bfeaeb6dac",
+   "cluster_id": 220,
+   "ens": "",
+   "why_human": "nonce 125; >50 txs; 10 distinct targets; active since 2026-06-24 16:34",
+   "attaching_rule": "sequence: consecutive join indices 17,162–17,167 · 2-block span"
+  },
+  {
+   "address": "0x5d46ed7405a8a87492cd139fcd38bce60cb5030e",
+   "cluster_id": 231,
+   "ens": "b-wallet.eth",
+   "why_human": "funded 0.0633 4min before; nonce 519; ENS; >50 txs; 19 distinct targets; active since 2025-10-11 15:30; 6 txs after game",
+   "attaching_rule": "cadence:drip: metronomic drip ×12 of 0.05Ξ every ~2 blocks"
+  },
+  {
+   "address": "0xfcfc9fcebfd754afdb03ed61b6d057b47fd8a23a",
+   "cluster_id": 232,
+   "ens": "baiwanzzu.eth",
+   "why_human": "nonce 172; ENS; >50 txs; 24 distinct targets; active since 2026-03-19 12:06",
+   "attaching_rule": "sequence: consecutive join indices 16,986–16,997 · 3-block span; funding:shared_hub: shared first funder 0xa7efae72… ×2 inside one cluster"
+  },
+  {
+   "address": "0xbe610cdd7fda3eb07f9aa1dea1db50409cffba9f",
+   "cluster_id": 240,
+   "ens": "",
+   "why_human": "nonce 138; >50 txs; 13 distinct targets; 35 txs after game",
+   "attaching_rule": "sequence: consecutive join indices 16,734–16,744 · 1-block span; cadence:burst: burst ×9 of 0.05Ξ in one block, repeated over 47 blocks"
+  },
+  {
+   "address": "0xba8561ca97323cc4c60452acd3a6bc183498874e",
+   "cluster_id": 250,
+   "ens": "",
+   "why_human": "funded 0.0700 6min before; nonce 108; >50 txs; 9 distinct targets; active since 2026-02-10 16:59; 6 txs after game",
+   "attaching_rule": "sequence: consecutive join indices 16,450–16,456 · 2-block span"
+  },
+  {
+   "address": "0x8a8bc5b5f5d6e8d114a8eedeb7cfa2f774a64475",
+   "cluster_id": 181,
+   "ens": "",
+   "why_human": "funded 0.0500 1min before; nonce 147; >50 txs; 20 distinct targets; active since 2026-01-17 10:47",
+   "attaching_rule": "sequence: consecutive join indices 16,468–16,498 · 10-block span"
+  }
+ ]
+}

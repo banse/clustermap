@@ -1,0 +1,1643 @@
+{
+ "key": "skeptic_c7odd",
+ "finding": "3-decimal amounts 0.051-0.061 treated as global odd fingerprints (c7)",
+ "refuted": false,
+ "confidence": 0.8,
+ "rederived": {
+  "ROUND_WEI": "10**16 (signals/__init__.py:87); odd => one global window (identical_amount_windows); STRENGTH_EXACT_ODD=0.9 (amounts.py:39)",
+  "odd_windows_fully_in_c7": 15,
+  "exact_odd_edges_in_c7": 420,
+  "edges_on_3dec": 412,
+  "claim_said": 415,
+  "windows": {
+   "0.051": [
+    194,
+    "h1-41",
+    34,
+    "nonce0 55 (40 Disperse)",
+    "ens 39",
+    "nonce>=20 108",
+    "distinct funders 112",
+    "peel 23"
+   ],
+   "0.055": [
+    58,
+    "h0-47",
+    31,
+    "nonce0 3",
+    "ens 15",
+    "nonce>=20 43",
+    "funders 47"
+   ],
+   "0.052": [
+    54,
+    "h1-41",
+    25,
+    "nonce0 16",
+    "ens 11",
+    "nonce>=20 30",
+    "peel 11"
+   ],
+   "0.057": [
+    22,
+    "h5-35",
+    9,
+    "nonce0 0",
+    "ens 0",
+    "funders 13 (0xdc4931c3 x9)"
+   ]
+  },
+  "exact_odd_touched_in_c7": {
+   "n": 435,
+   "ens": 89,
+   "nonce_ge20": "~255",
+   "matches_claim": true
+  },
+  "ablation_drop_exact_odd": {
+   "c7_still": 569,
+   "c7_dropped": 429,
+   "pieces": [
+    105,
+    93,
+    54,
+    35,
+    35,
+    33,
+    28,
+    22,
+    16,
+    16,
+    15,
+    13,
+    12,
+    12,
+    11,
+    11,
+    11,
+    11,
+    8,
+    7,
+    6,
+    5,
+    5,
+    5
+   ],
+   "population": 10951,
+   "matches_claim": true
+  },
+  "bridge_0x052_h13": {
+   "edge": [
+    "0xefcc62f14f8e8cdd5812c40dafe3e43b3a9547fc",
+    "0x9e80852747961a3b81c08a596ae4892c1635b089"
+   ],
+   "kinds_between": [
+    "amount:exact_odd"
+   ],
+   "amounts": [
+    "0.052",
+    "0.052"
+   ],
+   "hours": [
+    13,
+    13
+   ],
+   "components_after_removal": [
+    918,
+    80
+   ]
+  },
+  "bridge_0x053_claim": "0x7b695584(h8)->0x6bb02aca(h27) is NOT a single edge (no direct tier-A edge); it is a path through the 0.053 window - minor misstatement"
+ },
+ "base_rates_supporting_human_typed": {
+  "multi_deposit_ladderers_first_amount_in_band": {
+   "n": 112,
+   "ens": 44,
+   "flagged": 3,
+   "top": [
+    [
+     "0.06",
+     37
+    ],
+    [
+     "0.051",
+     36
+    ],
+    [
+     "0.055",
+     15
+    ],
+    [
+     "0.052",
+     5
+    ]
+   ]
+  },
+  "rate_0.051_ladderers_vs_singles": "36/2037=1.8% vs 194/17485=1.1%",
+  "ens_singles_using_band": "125/989=12.6% vs all singles 620/17485=3.5%",
+  "decimals_3_share": "singles 1464/17485=8.4%, unflagged singles 481/5991=8.0%"
+ },
+ "counter_evidence_farm_content": {
+  "c7_band_singles": {
+   "n": 518,
+   "nonce0": 101,
+   "peel": 63,
+   "nonce0_or_peel": 138,
+   "disperse": 40,
+   "ens": 108,
+   "nonce_ge20": 311,
+   "funder_class": {
+    "infra_like_ge5_multicluster": 177,
+    "single_funded": 170,
+    "peel_c7": 63,
+    "small_shared_2_4": 60,
+    "disperse": 40,
+    "operator_like": 8
+   }
+  },
+  "released_by_V2_429": {
+   "nonce0": 58,
+   "peel": 55,
+   "nonce0_or_peel": 91,
+   "dc4931c3_lockstep_batch": 18,
+   "0x37e78449_jitter_hub": 5,
+   "farm_marked_total_approx": 114,
+   "aged_or_ens_not_peel": 255,
+   "neither_nonce0_nor_peel": 338,
+   "distinct_funders": 263,
+   "distinct_gas_fp": 208,
+   "funders_ge3": [
+    [
+     "0xdc4931c3217953ba691e1d4681dfb4305c91ebab",
+     18
+    ],
+    [
+     "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+     14
+    ],
+    [
+     "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+     13
+    ],
+    [
+     "0xa7efae728d2936e78bda97dc267687568dd593f3",
+     11
+    ],
+    [
+     "0xbf94f0ac752c739f623c463b5210a7fb2cbb420b",
+     11
+    ],
+    [
+     "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+     10
+    ],
+    [
+     "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+     9
+    ],
+    [
+     "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+     9
+    ],
+    [
+     "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+     9
+    ],
+    [
+     "0xe95f6604a591f6ba33accb43a8a885c9c272108c",
+     8
+    ],
+    [
+     "0xf7858da8a6617f7c6d0ff2bcafdb6d2eedf64840",
+     7
+    ],
+    [
+     "0x5b6c16a960f6e7b1603b3d4c420e0c0a5f6e2afb",
+     7
+    ]
+   ]
+  },
+  "identified_operators_inside_3dec_windows": [
+   "Disperse 0xd152f549 x40 @0.051 h8 (nonce0) - KEPT by burst under every variant",
+   "0xdc4931c3 x18 aged lockstep relay @0.052/0.053/0.055/0.057 h5 (prior skeptic, on-chain) - RELEASED by V1/V2",
+   "0x37e78449 (EOA 87 txs) x10 fresh staggered 0.053-0.07 h13-20, 5 in c7 - RELEASED",
+   "0.052/0.051 h18-19 peel chain 0x9110d64e->0x46d3766a->0xf1d9e5eb->0x34226cbb->0xab6d41d3->0x3896ea09 (3-tx wallets, JIT+sweep) - on the cited bridge chain, RELEASED"
+  ],
+  "hub_classification_onchain": {
+   "0x4cd00e38": "RelayDepository CONTRACT (Relay bridge), 2.47M txs",
+   "0xca7ded7e": "EOA 424k txs, 5.3 ETH, funds 28 wallets in 12 clusters -> infra-like",
+   "0x18dd3c14": "EOA 427k txs, 4.6 ETH, 27 wallets / 9 clusters -> infra-like",
+   "0x331d9a04": "EOA 423k txs, 5.8 ETH, 25 wallets / 11 clusters -> infra-like",
+   "0x4976a4a0": "72 wallets / 22 clusters / 10 ENS -> infra-like",
+   "0x37e78449": "EOA 87 txs, 0.011 ETH, 10 wallets 7 nonce0 staggered amounts -> operator",
+   "0xba40791c": "EOA 28 txs, funds hanapr.eth+iliapr.eth -> 2-wallet human set",
+   "0x1eccc0ca": "contract (counters empty)"
+  }
+ },
+ "fix_variants": [
+  {
+   "label": "baseline",
+   "clusters": 263,
+   "flagged_total": 11573,
+   "c7_still": 998,
+   "c7_dropped": 0,
+   "disperse051_still": 40,
+   "windows_still": {
+    "0.051": [
+     194,
+     194
+    ],
+    "0.052": [
+     54,
+     54
+    ],
+    "0.055": [
+     58,
+     58
+    ],
+    "0.063": [
+     41,
+     41
+    ],
+    "0.088": [
+     11,
+     11
+    ],
+    "0.091": [
+     21,
+     21
+    ]
+   },
+   "labeled_farm_still": 141,
+   "controls_flagged": 30,
+   "c7_dropped_markers": {
+    "n": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "ens": 0,
+    "disperse": 0,
+    "peel_in_c7": 0,
+    "infra": 0,
+    "multi": 0,
+    "labeled_farm": 0,
+    "controls": 0
+   },
+   "pop_dropped_markers": {
+    "n": 0,
+    "nonce0": 0,
+    "nonce_ge20": 0,
+    "ens": 0,
+    "disperse": 0,
+    "peel_in_c7": 0,
+    "infra": 0,
+    "multi": 0,
+    "labeled_farm": 0,
+    "controls": 0
+   }
+  },
+  {
+   "label": "V1 exact_odd exempt if <=3dec & <0.1",
+   "clusters": 284,
+   "flagged_total": 11054,
+   "c7_still": 572,
+   "c7_dropped": 426,
+   "disperse051_still": 40,
+   "windows_still": {
+    "0.051": [
+     53,
+     194
+    ],
+    "0.052": [
+     4,
+     54
+    ],
+    "0.055": [
+     9,
+     58
+    ],
+    "0.063": [
+     9,
+     41
+    ],
+    "0.088": [
+     10,
+     11
+    ],
+    "0.091": [
+     20,
+     21
+    ]
+   },
+   "labeled_farm_still": 141,
+   "controls_flagged": 26,
+   "c7_dropped_markers": {
+    "n": 426,
+    "nonce0": 56,
+    "nonce_ge20": 271,
+    "ens": 96,
+    "disperse": 0,
+    "peel_in_c7": 55,
+    "infra": 20,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   },
+   "pop_dropped_markers": {
+    "n": 519,
+    "nonce0": 102,
+    "nonce_ge20": 298,
+    "ens": 106,
+    "disperse": 0,
+    "peel_in_c7": 61,
+    "infra": 23,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   }
+  },
+  {
+   "label": "V2 exact_odd exempt if amount<=1.25*min",
+   "clusters": 285,
+   "flagged_total": 11102,
+   "c7_still": 569,
+   "c7_dropped": 429,
+   "disperse051_still": 40,
+   "windows_still": {
+    "0.051": [
+     53,
+     194
+    ],
+    "0.052": [
+     4,
+     54
+    ],
+    "0.055": [
+     9,
+     58
+    ],
+    "0.063": [
+     41,
+     41
+    ],
+    "0.088": [
+     11,
+     11
+    ],
+    "0.091": [
+     21,
+     21
+    ]
+   },
+   "labeled_farm_still": 141,
+   "controls_flagged": 26,
+   "c7_dropped_markers": {
+    "n": 429,
+    "nonce0": 58,
+    "nonce_ge20": 272,
+    "ens": 96,
+    "disperse": 0,
+    "peel_in_c7": 55,
+    "infra": 21,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   },
+   "pop_dropped_markers": {
+    "n": 471,
+    "nonce0": 62,
+    "nonce_ge20": 298,
+    "ens": 106,
+    "disperse": 0,
+    "peel_in_c7": 57,
+    "infra": 22,
+    "multi": 13,
+    "labeled_farm": 0,
+    "controls": 4
+   }
+  },
+  {
+   "label": "V2b exact_odd exempt if 0.051..0.061 (3dec, <=1.25min)",
+   "clusters": 285,
+   "flagged_total": 11139,
+   "c7_still": 572,
+   "c7_dropped": 426,
+   "disperse051_still": 40,
+   "windows_still": {
+    "0.051": [
+     53,
+     194
+    ],
+    "0.052": [
+     4,
+     54
+    ],
+    "0.055": [
+     9,
+     58
+    ],
+    "0.063": [
+     41,
+     41
+    ],
+    "0.088": [
+     11,
+     11
+    ],
+    "0.091": [
+     21,
+     21
+    ]
+   },
+   "labeled_farm_still": 141,
+   "controls_flagged": 26,
+   "c7_dropped_markers": {
+    "n": 426,
+    "nonce0": 56,
+    "nonce_ge20": 271,
+    "ens": 96,
+    "disperse": 0,
+    "peel_in_c7": 55,
+    "infra": 20,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   },
+   "pop_dropped_markers": {
+    "n": 434,
+    "nonce0": 59,
+    "nonce_ge20": 275,
+    "ens": 98,
+    "disperse": 0,
+    "peel_in_c7": 57,
+    "infra": 20,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   }
+  },
+  {
+   "label": "V3 (Variant B) band[0.05,0.0625] exempt from all amount rules+sequence+drip, burst kept",
+   "clusters": 229,
+   "flagged_total": 10040,
+   "c7_still": 60,
+   "c7_dropped": 938,
+   "disperse051_still": 37,
+   "windows_still": {
+    "0.051": [
+     37,
+     194
+    ],
+    "0.052": [
+     0,
+     54
+    ],
+    "0.055": [
+     0,
+     58
+    ],
+    "0.063": [
+     41,
+     41
+    ],
+    "0.088": [
+     11,
+     11
+    ],
+    "0.091": [
+     21,
+     21
+    ]
+   },
+   "labeled_farm_still": 134,
+   "controls_flagged": 25,
+   "c7_dropped_markers": {
+    "n": 938,
+    "nonce0": 156,
+    "nonce_ge20": 590,
+    "ens": 156,
+    "disperse": 3,
+    "peel_in_c7": 80,
+    "infra": 81,
+    "multi": 39,
+    "labeled_farm": 0,
+    "controls": 4
+   },
+   "pop_dropped_markers": {
+    "n": 1533,
+    "nonce0": 355,
+    "nonce_ge20": 882,
+    "ens": 211,
+    "disperse": 19,
+    "peel_in_c7": 97,
+    "infra": 123,
+    "multi": 79,
+    "labeled_farm": 7,
+    "controls": 5
+   }
+  },
+  {
+   "label": "V4 drop exact_odd entirely",
+   "clusters": 285,
+   "flagged_total": 10951,
+   "c7_still": 569,
+   "c7_dropped": 429,
+   "disperse051_still": 40,
+   "windows_still": {
+    "0.051": [
+     53,
+     194
+    ],
+    "0.052": [
+     4,
+     54
+    ],
+    "0.055": [
+     9,
+     58
+    ],
+    "0.063": [
+     9,
+     41
+    ],
+    "0.088": [
+     10,
+     11
+    ],
+    "0.091": [
+     20,
+     21
+    ]
+   },
+   "labeled_farm_still": 141,
+   "controls_flagged": 26,
+   "c7_dropped_markers": {
+    "n": 429,
+    "nonce0": 58,
+    "nonce_ge20": 272,
+    "ens": 96,
+    "disperse": 0,
+    "peel_in_c7": 55,
+    "infra": 21,
+    "multi": 10,
+    "labeled_farm": 0,
+    "controls": 4
+   },
+   "pop_dropped_markers": {
+    "n": 622,
+    "nonce0": 149,
+    "nonce_ge20": 335,
+    "ens": 120,
+    "disperse": 6,
+    "peel_in_c7": 61,
+    "infra": 26,
+    "multi": 13,
+    "labeled_farm": 0,
+    "controls": 4
+   }
+  }
+ ],
+ "fix_assessment": {
+  "V2 <=1.25*min exempt from exact_odd only": "reproduces the finding (c7 998->569, pop -471), 0 labeled-farm loss, Disperse 40/40 kept, 0.063/0.088/0.091 farm windows kept; cost: ~114 farm-marked wallets released (58 nonce0, 55 peel, dc4931c3 x18, 37e78449 x5)",
+  "V1 \"<=3 decimals below 0.1\" wording": "OVER-BROAD: additionally releases 32/41 of the 0.063 farm (35 nonce0, 27 funded by another member) and 1 each of 0.088/0.091 Disperse batches",
+  "V3 Variant B": "TOO AGGRESSIVE: pop 11573->10040 (-1533) releasing 355 nonce0, 19 Disperse, 97 peel-funded, 123 infra-funded, 7 labeled farm members; c7->60"
+ },
+ "onchain_sample": {
+  "n": 25,
+  "strata": "8 bridge-chain, 2 cited ENS, 4 aged 0.051 no-ENS, 4 nonce0 non-Disperse 0.051, 2 x 0.057, 3 x 0.055 no-ENS, 2 nonce0 0.052 (deliberately over-weights suspicious strata; not a random estimate)",
+  "tally": {
+   "farm_like": 9,
+   "two_wallet_human_set": 1,
+   "ambiguous_or_unknown": 8,
+   "human_like": 7
+  },
+  "wallets": [
+   {
+    "addr": "0xefcc62f14f8e8cdd5812c40dafe3e43b3a9547fc",
+    "amt": "0.052",
+    "hour": 13,
+    "block": 25773896,
+    "ts": 1786958783.0,
+    "tx": "0xbd1976f624b9e725b9437a561a2548450c22d9962c1f99d1272f2d4f3d1e9026",
+    "nonce": 0,
+    "pf": 600000000,
+    "gl": 114501,
+    "funder": "0x19af18cb76a88becf7e3189ea9e183234a7d7540",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.05595,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 1,
+    "page_n": 2,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.056,
+      "0x19af18cb",
+      1.8
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 0,
+    "oldest_on_page_days_before_launch": -0.6,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 2,
+    "skeptic_class": "farm-like: nonce0, JIT 0.056 from c7 member 0x19af18cb 1.8min before, NOT swept (0.056 still there), 2 txs; first link of the 0.052 bridge chain"
+   },
+   {
+    "addr": "0x9e80852747961a3b81c08a596ae4892c1635b089",
+    "amt": "0.052",
+    "hour": 13,
+    "block": 25773758,
+    "ts": 1786957127.0,
+    "tx": "0xe232b9be1866ca737c3a9d572438b2a6d985f0c64c217d830df4a165652c7b44",
+    "nonce": 507,
+    "pf": 150000000,
+    "gl": 114501,
+    "funder": "0x141b5a7d85dc97096cca2a943d8ea875855b3aed",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.00038,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "29",
+    "bs_token_transfers": "15",
+    "nonce_now": 512,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.0525,
+      "0x1eccc0ca",
+      1.2
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.05309,
+      "0x1eccc0ca",
+      7.8
+     ]
+    ],
+    "distinct_to_on_page": 16,
+    "oldest_on_page_days_before_launch": 43.2,
+    "post_game_txs_on_page": 1,
+    "game_window_txs_on_page": 7,
+    "skeptic_class": "ambiguous: nonce507, 29 txs, JIT 0.0525 from CONTRACT 0x1eccc0ca, swept back 7.8min after"
+   },
+   {
+    "addr": "0xe054aac700c9aa60b461aa552c5a6be9f382521f",
+    "amt": "0.052",
+    "hour": 14,
+    "block": 25774158,
+    "ts": 1786961939.0,
+    "tx": "0x5ae972e8e0b0e0ce38932ad77ccca244c5ac1cd8368bd0a18ad3af2770782df2",
+    "nonce": 331,
+    "pf": 150000000,
+    "gl": 114501,
+    "funder": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "ens": "trueeth.eth",
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.06282,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 344,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [],
+    "post_out_6h": [],
+    "distinct_to_on_page": 19,
+    "oldest_on_page_days_before_launch": 185.0,
+    "post_game_txs_on_page": 12,
+    "game_window_txs_on_page": 2,
+    "skeptic_class": "human: trueeth.eth, nonce331, 185d, no JIT/sweep, bal 0.063"
+   },
+   {
+    "addr": "0x467f905bc744c252e4bcb0e0f29d93b0a668f068",
+    "amt": "0.052",
+    "hour": 15,
+    "block": 25774642,
+    "ts": 1786967759.0,
+    "tx": "0x4bf14e069dc8ae7530e1afcf7ed856127ba66b5f9b9dd7e392542e26b666076e",
+    "nonce": 139,
+    "pf": 600000000,
+    "gl": 114501,
+    "funder": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.05673,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "123",
+    "bs_token_transfers": "73",
+    "nonce_now": 140,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.05497,
+      "0x331d9a04",
+      2.2
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 25,
+    "oldest_on_page_days_before_launch": 283.2,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 2,
+    "skeptic_class": "ambiguous/human: nonce139, 283d, 123 txs/73 tok, JIT 0.05497 from 424k-tx EOA 0x331d9a04 (infra-like), not swept"
+   },
+   {
+    "addr": "0x4ea637c296bbd7d60ac40d413bb479cab76c0441",
+    "amt": "0.052",
+    "hour": 16,
+    "block": 25774753,
+    "ts": 1786969103.0,
+    "tx": "0xa1cbceff407dc8e3b52af10c05b7d22ed543722a78a426f76f0eb345da1ad3d5",
+    "nonce": 1390,
+    "pf": 150000000,
+    "gl": 114501,
+    "funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.06436,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "1539",
+    "bs_token_transfers": "1926",
+    "nonce_now": 1399,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [],
+    "post_out_6h": [],
+    "distinct_to_on_page": 23,
+    "oldest_on_page_days_before_launch": 95.3,
+    "post_game_txs_on_page": 7,
+    "game_window_txs_on_page": 2,
+    "skeptic_class": "human: nonce1390, 1539 txs/1926 tok, no JIT/sweep"
+   },
+   {
+    "addr": "0x7b6955848ed2fe271e9bd86f5a493d1681d5f3b4",
+    "amt": "0.053",
+    "hour": 8,
+    "block": 25772397,
+    "ts": 1786940747.0,
+    "tx": "0x7386c738f36094d7b2f8600aa8a6a33351583f971cea326dc9217a553ca0d89c",
+    "nonce": 95,
+    "pf": 44165683,
+    "gl": 113508,
+    "funder": "0x397335ae788883e87cca3b5e3272fd0ea4261b1f",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.00737,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 104,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.05293,
+      "0x4976a4a0",
+      4.2
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.053,
+      "0x5c85ef07",
+      8.6
+     ]
+    ],
+    "distinct_to_on_page": 19,
+    "oldest_on_page_days_before_launch": 92.9,
+    "post_game_txs_on_page": 3,
+    "game_window_txs_on_page": 8,
+    "skeptic_class": "ambiguous: nonce95, JIT from infra-like 0x4976a4a0 4.2min before, forwarded 0.053 to non-contributor EOA 0x5c85ef07 (holds 0.057)"
+   },
+   {
+    "addr": "0x6bb02aca1c93f3f528e818499d635a31625fbf93",
+    "amt": "0.053",
+    "hour": 27,
+    "block": 25778190,
+    "ts": 1787010479.0,
+    "tx": "0x6567b35657c2b962dd13b5c185d3dd3bdaef8a7b8e9f32258d3da45901de8b6c",
+    "nonce": 48,
+    "pf": 2000000000,
+    "gl": 114328,
+    "funder": "0xba40791cc448c110ecde65410486fcfaed9de872",
+    "ens": "hanapr.eth",
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": "hanapr.eth",
+    "balance_eth": 0.01171,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "21",
+    "bs_token_transfers": "15",
+    "nonce_now": 50,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.053,
+      "0xba40791c",
+      1.2
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.053,
+      "0xba40791c",
+      0.6
+     ]
+    ],
+    "distinct_to_on_page": 23,
+    "oldest_on_page_days_before_launch": 837.7,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 5,
+    "skeptic_class": "2-wallet human set: hanapr.eth, 838d old, funded 0.053 by 0xba40791c (EOA 28 txs) 1.2min before, sent back 0.6min after; 0xba40791c also funded iliapr.eth (0.054 h27)"
+   },
+   {
+    "addr": "0xa4713b660ce2182ff5bbf240b97c53e20372cd47",
+    "amt": "0.052",
+    "hour": 35,
+    "block": 25780352,
+    "ts": 1787036543.0,
+    "tx": "0xbc81e6761f21f2757e69f40ca03b833cb404b47ac0c362b35e8f0ceff166c205",
+    "nonce": 40,
+    "pf": 56902606,
+    "gl": 113329,
+    "funder": "0x28c6c06298d514db089934071355e5743bf21d60",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "bridge",
+    "bs_ens": null,
+    "balance_eth": 0.06157,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 251,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [],
+    "post_out_6h": [],
+    "distinct_to_on_page": 3,
+    "oldest_on_page_days_before_launch": -7.8,
+    "post_game_txs_on_page": 50,
+    "game_window_txs_on_page": 0,
+    "skeptic_class": "unknown: nonce40 at deposit, 251 now, created ~8d after launch, active trader"
+   },
+   {
+    "addr": "0x34281de3df0ac77b04a09f71bf67b5edbf3fa7bb",
+    "amt": "0.051",
+    "hour": 11,
+    "block": 25773325,
+    "ts": 1786951931.0,
+    "tx": "0x4bab103585faa3f382e158976bf93feee4d08e58b2e42b67c29b2a9e5b6332d3",
+    "nonce": 77,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "ens": "najid.eth",
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "cited_ens",
+    "bs_ens": null,
+    "balance_eth": 0.00113,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "106",
+    "bs_token_transfers": "43",
+    "nonce_now": 79,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.05231,
+      "0xca7ded7e",
+      1.4
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.05122,
+      "0x4cd00e38",
+      1.2
+     ]
+    ],
+    "distinct_to_on_page": 28,
+    "oldest_on_page_days_before_launch": 844.9,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "human: najid.eth, 845d, nonce77, 106 txs; JIT 0.05231 from 424k-tx EOA 0xca7ded7e (bridge-solver/CEX hot wallet profile), sent 0.05122 to RelayDepository contract 0x4cd00e38 (Relay bridge) 1.2min after = bridge in/out"
+   },
+   {
+    "addr": "0xf7b861fba42096fe5cf194286e9a4786230a1e9f",
+    "amt": "0.051",
+    "hour": 14,
+    "block": 25774213,
+    "ts": 1786962611.0,
+    "tx": "0xdf34896a057ff9669b5b0b08a623ddac81022506ef0f18fd0dec6dfe1272a472",
+    "nonce": 2603,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0xc1f6f0137c50de99352cf13c9a0a4c420cebd5ba",
+    "ens": "drioka.eth",
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "cited_ens",
+    "bs_ens": null,
+    "balance_eth": 0.00448,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "2959",
+    "bs_token_transfers": "2982",
+    "nonce_now": 2615,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.04376,
+      "0xca7ded7e",
+      2.6
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.044,
+      "0x4cd00e38",
+      1.0
+     ]
+    ],
+    "distinct_to_on_page": 13,
+    "oldest_on_page_days_before_launch": 11.1,
+    "post_game_txs_on_page": 9,
+    "game_window_txs_on_page": 10,
+    "skeptic_class": "human: drioka.eth, nonce2603, 2959 txs; same Relay in/out pattern as najid.eth (0xca7ded7e -> deposit -> RelayDepository)"
+   },
+   {
+    "addr": "0x0976b0cf2103e07c35f3f7cbccd9136e1b795090",
+    "amt": "0.051",
+    "hour": 11,
+    "block": 25773433,
+    "ts": 1786953227.0,
+    "tx": "0x3d780e80cbe54ede8f2f96b01e91822e65c064cd9c86fea15502c6d0a0f331b1",
+    "nonce": 116,
+    "pf": 150000000,
+    "gl": 114501,
+    "funder": "0x28added038b8d00b8b496e67e2e5ff07dfe0b74a",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "051_aged_noens",
+    "bs_ens": null,
+    "balance_eth": 0.08041,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "146",
+    "bs_token_transfers": "77",
+    "nonce_now": 117,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [],
+    "post_out_6h": [],
+    "distinct_to_on_page": 22,
+    "oldest_on_page_days_before_launch": 437.1,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 1,
+    "skeptic_class": "human: nonce116, 437d, 146 txs, no JIT/sweep"
+   },
+   {
+    "addr": "0x3d3399f60fc1ba33c476dcaa23bbe94311bc0818",
+    "amt": "0.051",
+    "hour": 8,
+    "block": 25772313,
+    "ts": 1786939739.0,
+    "tx": "0x3bc5807b91f6ade913a0cd0319c38d971fcf726dead19fd7d5425ae5c191776f",
+    "nonce": 43,
+    "pf": 44954532,
+    "gl": 113508,
+    "funder": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "051_aged_noens",
+    "bs_ens": null,
+    "balance_eth": 0.12377,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 44,
+    "page_n": 50,
+    "has_next": false,
+    "pre_in_6h": [],
+    "post_out_6h": [],
+    "distinct_to_on_page": 18,
+    "oldest_on_page_days_before_launch": 855.5,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 1,
+    "skeptic_class": "human: nonce43, 855d, no JIT/sweep, bal 0.124"
+   },
+   {
+    "addr": "0xad8dcda3df80a524db2824422caa99e4c0a7dd4e",
+    "amt": "0.051",
+    "hour": 4,
+    "block": 25771210,
+    "ts": 1786926443.0,
+    "tx": "0x3068b49d737c980fdf1cd70d389009a90770ebab62dbe7e36d1b6f877ad94019",
+    "nonce": 533,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0xb6ccb8daddd2c280ef98279bd87f54123f9becda",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "051_aged_noens",
+    "bs_ens": null,
+    "balance_eth": 0.00441,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "584",
+    "bs_token_transfers": "580",
+    "nonce_now": 543,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [],
+    "post_out_6h": [
+     [
+      0.054,
+      "0x97ccdbea",
+      3.2
+     ]
+    ],
+    "distinct_to_on_page": 13,
+    "oldest_on_page_days_before_launch": 9.6,
+    "post_game_txs_on_page": 6,
+    "game_window_txs_on_page": 4,
+    "skeptic_class": "human-like: nonce533, 584 txs, sent 0.054 out 3.2min after, no JIT on page"
+   },
+   {
+    "addr": "0xddbca1200803dc403ff2226b07eeac6435f9533e",
+    "amt": "0.051",
+    "hour": 7,
+    "block": 25772191,
+    "ts": 1786938263.0,
+    "tx": "0x5bc9182cafdb54ea9e7ba8333ee24cbc364f4157c0edc2026fc4af89add733a3",
+    "nonce": 1184,
+    "pf": 46109864,
+    "gl": 113508,
+    "funder": "0xff1125449a338dc45e8b40418e95e81eb91cbd12",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "051_aged_noens",
+    "bs_ens": null,
+    "balance_eth": 0.05384,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "1206",
+    "bs_token_transfers": "1344",
+    "nonce_now": 1185,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.04998,
+      "0xa9ac43f5",
+      1.6
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 11,
+    "oldest_on_page_days_before_launch": 133.2,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 2,
+    "skeptic_class": "human: nonce1184, 1206 txs, exchange withdrawal 0.04998 1.6min before, not swept"
+   },
+   {
+    "addr": "0x34226cbb3253acb8c3d034e45743a4875c54c192",
+    "amt": "0.051",
+    "hour": 18,
+    "block": 25775534,
+    "ts": 1786978511.0,
+    "tx": "0xc41f12b48777541f444665b266eb24d02a1b4f04f07f4a81b615cd005cc52ac9",
+    "nonce": 0,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0xf1d9e5eb8097f5ffb461b583962b8f4448912275",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "051_nonce0_nondisperse",
+    "bs_ens": null,
+    "balance_eth": 0.0,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "3",
+    "bs_token_transfers": "0",
+    "nonce_now": 2,
+    "page_n": 3,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.06458,
+      "0xf1d9e5eb",
+      1.2
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.06443,
+      "0xab6d41d3",
+      0.8
+     ]
+    ],
+    "distinct_to_on_page": 1,
+    "oldest_on_page_days_before_launch": -0.8,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: nonce0, JIT 0.06458 from c7 member 0xf1d9e5eb 1.2min before, swept 0.06443 to c7 member 0xab6d41d3 0.8min after, 3 txs lifetime"
+   },
+   {
+    "addr": "0x9f60afe501cd9f471d41b95fe414e4a15fed2fa8",
+    "amt": "0.051",
+    "hour": 8,
+    "block": 25772310,
+    "ts": 1786939703.0,
+    "tx": "0xeb19ff58c2131e18ef90eb1be24bd1ee06957cf3ee7a8bb478f61d9d382d365c",
+    "nonce": 0,
+    "pf": 5000000000,
+    "gl": 114501,
+    "funder": "0xdaa61a0d6da01fb14e9e4a342a5cf10d3c55871b",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "051_nonce0_nondisperse",
+    "bs_ens": null,
+    "balance_eth": 0.0,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 2,
+    "page_n": 3,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.05411,
+      "0xdaa61a0d",
+      1.2
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.05375,
+      "0x0b4f8cc3",
+      4.4
+     ]
+    ],
+    "distinct_to_on_page": 1,
+    "oldest_on_page_days_before_launch": -0.3,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: nonce0, JIT 0.05411 1.2min before, swept 0.05375 4.4min after, 3 txs"
+   },
+   {
+    "addr": "0x45cdb14b6ce7afb2ca8cf776bb9fd20d4d2850a1",
+    "amt": "0.051",
+    "hour": 35,
+    "block": 25780437,
+    "ts": 1787037563.0,
+    "tx": "0x8bb3d8a853dd91a325f43fa92fb23018f6ad9750fba28ea94a9c04b89676fa5a",
+    "nonce": 0,
+    "pf": 12331983,
+    "gl": 90663,
+    "funder": "0x4976a4a02f38326660d17bf34b431dc6e2eb2327",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "051_nonce0_nondisperse",
+    "bs_ens": null,
+    "balance_eth": 0.0,
+    "is_contract": true,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 13,
+    "page_n": 14,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.10502,
+      "0x4976a4a0",
+      1.0
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.36641,
+      "0x73ed3c2b",
+      54.8
+     ],
+     [
+      0.06119,
+      "0xb300000b",
+      44.2
+     ],
+     [
+      0.10496,
+      "0x07964f13",
+      9.4
+     ]
+    ],
+    "distinct_to_on_page": 5,
+    "oldest_on_page_days_before_launch": -1.5,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 14,
+    "skeptic_class": "unknown: nonce0, funded 0.105 by infra-like 0x4976a4a0, then memecoin swaps, sent 0.366 out"
+   },
+   {
+    "addr": "0x46d3766a137052a8d8d44aa579d505a47c2d5dcf",
+    "amt": "0.051",
+    "hour": 18,
+    "block": 25775506,
+    "ts": 1786978175.0,
+    "tx": "0xb42a122e5b46f5ec4fe0e754f033e71cecc99efae785c90442e5e7169e47707a",
+    "nonce": 0,
+    "pf": 100000,
+    "gl": 114501,
+    "funder": "0x9110d64e300398234a610ffdfb72c0302d72d04f",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "051_nonce0_nondisperse",
+    "bs_ens": null,
+    "balance_eth": 0.0,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 2,
+    "page_n": 3,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.06463,
+      "0x9110d64e",
+      1.0
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.06461,
+      "0xf1d9e5eb",
+      0.8
+     ]
+    ],
+    "distinct_to_on_page": 1,
+    "oldest_on_page_days_before_launch": -0.8,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: nonce0, JIT from c7 member 0x9110d64e, swept to c7 member 0xf1d9e5eb 0.8min after, 3 txs (peel chain 0x9110d64e->0x46d3766a->0xf1d9e5eb->0x34226cbb->0xab6d41d3, 0.051/0.052 h18)"
+   },
+   {
+    "addr": "0x076af1522d97cf372c5d4d0c8d99dcfb7d781d74",
+    "amt": "0.057",
+    "hour": 18,
+    "block": 25775407,
+    "ts": 1786976975.0,
+    "tx": "0x1b2475ff21157846538fa2e33fea9dc5729b622a55309b6c0a05a90800cfe6ce",
+    "nonce": 5,
+    "pf": 384543439,
+    "gl": 114501,
+    "funder": "0x37e78449f76e9444d80ea5eac3abb2912fecfad0",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "057",
+    "bs_ens": null,
+    "balance_eth": 1e-05,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 7,
+    "page_n": 14,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.06652,
+      "0x37e78449",
+      0.6
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.06648,
+      "0x37e78449",
+      0.6
+     ]
+    ],
+    "distinct_to_on_page": 3,
+    "oldest_on_page_days_before_launch": 443.2,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: aged-ish (nonce5, 443d), JIT 0.06652 from operator hub 0x37e78449 0.6min before, swept back 0.6min after; hub funds 10 fresh wallets with staggered 0.053-0.07 h13-20"
+   },
+   {
+    "addr": "0x0460c084ed9118ba765e73fe8e137524a7628279",
+    "amt": "0.057",
+    "hour": 6,
+    "block": 25771944,
+    "ts": 1786935287.0,
+    "tx": "0x717f473261a9385fcd2e94aef8ff16f3e5f079470aa72a908c7fd116197c659f",
+    "nonce": 9,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0x86338ae205a0009c0d0984492781f7f6e13b1815",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "057",
+    "bs_ens": null,
+    "balance_eth": 2e-05,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 11,
+    "page_n": 13,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.05893,
+      "0xdfd5293d",
+      5.4
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 6,
+    "oldest_on_page_days_before_launch": 747.7,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm-like twin: nonce9->11, 13 txs, oldest 747.7d, bal 2e-05, Binance-funded 5.4min before -- identical profile to 0xfdd80928 (lockstep pair)"
+   },
+   {
+    "addr": "0x30cb942dd194e71f4e9fe556f4ab0df351846d69",
+    "amt": "0.055",
+    "hour": 7,
+    "block": 25772134,
+    "ts": 1786937579.0,
+    "tx": "0x1a0f2815c41828c01e1604c01c39ccc610f7a3c6a094694530e51ee85e938d32",
+    "nonce": 122,
+    "pf": 31275375,
+    "gl": 113508,
+    "funder": "0x53d9ca67e76e73d91b8697643221d8cf11c48356",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "055_noens",
+    "bs_ens": null,
+    "balance_eth": 0.06234,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "133",
+    "bs_token_transfers": "112",
+    "nonce_now": 125,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.00288,
+      "0x331d9a04",
+      1.2
+     ],
+     [
+      0.01691,
+      "0x18dd3c14",
+      1.6
+     ],
+     [
+      0.01947,
+      "0xada5bb90",
+      2.4
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 19,
+    "oldest_on_page_days_before_launch": 425.7,
+    "post_game_txs_on_page": 2,
+    "game_window_txs_on_page": 4,
+    "skeptic_class": "ambiguous/human: nonce122, 426d, 133 txs, three small top-ups minutes before from 424k-tx EOAs 0x331d9a04/0x18dd3c14/0xada5bb90, not swept"
+   },
+   {
+    "addr": "0x4a86bf18bfa222665e1c0a5f2054f65c59f86537",
+    "amt": "0.055",
+    "hour": 3,
+    "block": 25770787,
+    "ts": 1786921331.0,
+    "tx": "0xa8d1ed3efa219518a06128b81c3584eea5c026d6afa7c488eb40fa4bb03c024d",
+    "nonce": 182,
+    "pf": 1500000000,
+    "gl": 114501,
+    "funder": "0xc730b028da66ebb14f20e67c68dd809fbc49890d",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "055_noens",
+    "bs_ens": null,
+    "balance_eth": 0.00161,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 207,
+    "page_n": 50,
+    "has_next": true,
+    "pre_in_6h": [
+     [
+      0.05954,
+      "0x18dd3c14",
+      0.4
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.155,
+      "0x4c82d1fb",
+      58.0
+     ],
+     [
+      0.05,
+      "0x4c82d1fb",
+      6.4
+     ]
+    ],
+    "distinct_to_on_page": 8,
+    "oldest_on_page_days_before_launch": 4.7,
+    "post_game_txs_on_page": 13,
+    "game_window_txs_on_page": 17,
+    "skeptic_class": "ambiguous: nonce182, JIT from 424k-tx EOA 0x18dd3c14 0.4min before, later sent 0.155+0.05 to 0x4c82d1fb"
+   },
+   {
+    "addr": "0xfdd809284051bf02b8b0ee43ff3939969032d51e",
+    "amt": "0.055",
+    "hour": 6,
+    "block": 25771937,
+    "ts": 1786935203.0,
+    "tx": "0x93c90bb0c72844f57a752e9e0e9267c4934c4d3543ca962346456749da782838",
+    "nonce": 9,
+    "pf": 2000000000,
+    "gl": 114501,
+    "funder": "0xc5b6a02344fb9e573be65ca117e6831bb4375edc",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": false,
+    "stratum": "055_noens",
+    "bs_ens": null,
+    "balance_eth": 2e-05,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 11,
+    "page_n": 13,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.05793,
+      "0x9696f59e",
+      11.8
+     ]
+    ],
+    "post_out_6h": [],
+    "distinct_to_on_page": 6,
+    "oldest_on_page_days_before_launch": 747.7,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm-like twin: nonce9->11, 13 txs, oldest 747.7d, bal 2e-05, Binance-funded 11.8min before -- identical profile to 0x0460c084"
+   },
+   {
+    "addr": "0x5e5da26b0deb7fb0f30e9e4504cf0eb352d6c1e4",
+    "amt": "0.052",
+    "hour": 8,
+    "block": 25772522,
+    "ts": 1786942259.0,
+    "tx": "0xbe034d28836c4aa475bb6f20c013b17411961cb873f9687ea10c2670d426aa4f",
+    "nonce": 0,
+    "pf": 53864269,
+    "gl": 113508,
+    "funder": "0x3035610cdb4e4a3b40418d053c89346bc4227bcf",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "052_nonce0",
+    "bs_ens": null,
+    "balance_eth": 1e-05,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "0",
+    "bs_token_transfers": "0",
+    "nonce_now": 2,
+    "page_n": 3,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.05995,
+      "0x3035610c",
+      0.4
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.05993,
+      "0x811a5089",
+      0.4
+     ]
+    ],
+    "distinct_to_on_page": 1,
+    "oldest_on_page_days_before_launch": -0.4,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: nonce0, JIT from c7 member 0x3035610c 0.4min before, swept 0.4min after, 3 txs"
+   },
+   {
+    "addr": "0x3896ea09925b2dd70b0b2a689bafead4005cb8d1",
+    "amt": "0.052",
+    "hour": 19,
+    "block": 25775561,
+    "ts": 1786978835.0,
+    "tx": "0x91e0f541527caf28833c25a96990964a26890915c70ea6158066ce81011ea78b",
+    "nonce": 0,
+    "pf": 105284561,
+    "gl": 114501,
+    "funder": "0x4075a67d7612de12604525a6422e365eb817fd82",
+    "ens": null,
+    "disperse": false,
+    "funder_in_c7": true,
+    "stratum": "052_nonce0",
+    "bs_ens": null,
+    "balance_eth": 0.0,
+    "is_contract": false,
+    "name_tag": null,
+    "bs_tx_count": "3",
+    "bs_token_transfers": "0",
+    "nonce_now": 2,
+    "page_n": 3,
+    "has_next": false,
+    "pre_in_6h": [
+     [
+      0.06439,
+      "0x4075a67d",
+      0.6
+     ]
+    ],
+    "post_out_6h": [
+     [
+      0.06437,
+      "0x5ed9184c",
+      1.2
+     ]
+    ],
+    "distinct_to_on_page": 1,
+    "oldest_on_page_days_before_launch": -0.8,
+    "post_game_txs_on_page": 0,
+    "game_window_txs_on_page": 3,
+    "skeptic_class": "farm: nonce0, JIT from c7 member 0x4075a67d, swept 1.2min after, 3 txs; sits on the 0.052 bridge chain (h19)"
+   }
+  ]
+ },
+ "calls": {
+  "blockscout": 91,
+  "cast_nonce": 25
+ },
+ "strongest_supported_claim": "Global-reach identical-odd on 0.051-0.061 is not a machine fingerprint: ladderers and ENS wallets type these min+dust values at equal or higher rates than singles, and the rule alone holds 429 c7 wallets spread over h1-47 with 263 funders and 208 gas fingerprints, ~60% nonce>=20, 22% ENS. But the windows are MIXED: ~27% of the released carry hard farm markers (nonce-0 JIT-funded-and-swept peel chains at 0.051/0.052 h13-19, the 0xdc4931c3 x18 aged lockstep batch at 0.052-0.057 h5, the 0x37e78449 x5 jitter batch). Correct fix: scope the exemption to 0.05<amt<=0.0625 (NOT \"3 decimals <0.1\", which frees the 0.063 farm), demote rather than delete (windowed/round strength), and add a tier-A JIT-fund-and-sweep peel edge so embedded farms stay flagged; do not ship Variant B."
+}

@@ -1,0 +1,4823 @@
+{
+ "scope": "360 flagged ENS-named wallets (of 1,387 ENS-named contributors; 11,573 flagged total)",
+ "headline": {
+  "ens_rate_population": 0.071,
+  "ens_rate_flagged": 0.0311,
+  "ens_rate_unflagged": 0.1292,
+  "ens_rate_undisputed_farms": "4/7828 = 0.0005 (expected 556 at population rate)",
+  "ens_rate_by_category": {
+   "undisputed_farm": "4/7828=0.001",
+   "c7_0.05_crowd": "156/998=0.156",
+   "small_round_or_other(74 clusters)": "97/969=0.100",
+   "c6_0.1_crowd": "57/896=0.064",
+   "late_0.05_wave(27 clusters)": "27/362=0.075",
+   "other_0.05(24 clusters)": "18/272=0.066",
+   "exchange_hub_1.x_ladders(7 clusters)": "1/248=0.004"
+  },
+  "flagged_ens_share_of_all_ens": "360/1387 = 26.0% vs 59.3% of all wallets flagged",
+  "incident_rule_coverage_over_360": {
+   "amount:exact_round_wave": 147,
+   "funding:shared_hub": 139,
+   "amount:exact_odd": 115,
+   "sequence": 83,
+   "amount:split": 50,
+   "funding:peel_chain": 24,
+   "cadence:drip": 24,
+   "amount:near_same_block": 20,
+   "cadence:burst": 17,
+   "gas": 7
+  },
+  "ens_flagged_with_no_strong_rule": 128,
+  "ens_flagged_nonce_stats": "nonce at deposit: 0% are nonce 0, 98-100% are >=20 in every disputed category; medians c7=356, c6=203, small=384, late0.05=600",
+  "unnamed_in_same_disputed_clusters": {
+   "undisputed_farm": {
+    "total": 7828,
+    "unnamed": 7824,
+    "unnamed_nonce0": 6734,
+    "unnamed_nonce1_19": 725,
+    "unnamed_nonce_ge20": 365,
+    "named": 4
+   },
+   "c6_0.1_crowd": {
+    "total": 896,
+    "unnamed": 839,
+    "unnamed_nonce1_19": 42,
+    "unnamed_nonce0": 721,
+    "unnamed_nonce_ge20": 76,
+    "named": 57
+   },
+   "c7_0.05_crowd": {
+    "total": 998,
+    "unnamed": 842,
+    "unnamed_nonce_ge20": 443,
+    "unnamed_nonce1_19": 202,
+    "unnamed_nonce0": 197,
+    "named": 156
+   },
+   "small_round_or_other": {
+    "total": 969,
+    "unnamed": 872,
+    "unnamed_nonce_ge20": 232,
+    "unnamed_nonce0": 492,
+    "unnamed_nonce1_19": 148,
+    "named": 97
+   },
+   "exchange_hub_1.x_ladder": {
+    "total": 248,
+    "unnamed": 247,
+    "unnamed_nonce0": 240,
+    "named": 1,
+    "unnamed_nonce_ge20": 3,
+    "unnamed_nonce1_19": 4
+   },
+   "late_0.05_wave": {
+    "total": 362,
+    "unnamed": 335,
+    "unnamed_nonce_ge20": 175,
+    "unnamed_nonce1_19": 67,
+    "named": 27,
+    "unnamed_nonce0": 93
+   },
+   "other_0.05": {
+    "total": 272,
+    "unnamed": 254,
+    "unnamed_nonce0": 155,
+    "unnamed_nonce_ge20": 65,
+    "named": 18,
+    "unnamed_nonce1_19": 34
+   }
+  }
+ },
+ "name_pattern_analysis": {
+  "digits_in_label": "flagged 130/360=0.36 vs unflagged 327/1027=0.32 (no difference)",
+  "purely_numeric_labels": "flagged 45, unflagged 97",
+  "subnames": [
+   "lens.pigcanfly.eth",
+   "6254.holer.eth",
+   "steevely.btcloil.eth",
+   "hypocritically.btcloil.eth",
+   "celestiaorg.underradargem.eth",
+   "aaa.eth.onwork.eth",
+   "punk.austingriffith.eth"
+  ],
+  "sequential_roots_among_flagged": {
+   "uae": [
+    "uae07.eth",
+    "uae08.eth",
+    "uae12.eth"
+   ],
+   "ming": [
+    "ming16888.eth (c6)",
+    "ming168.eth (c7)"
+   ],
+   "pr-suffix": [
+    "samapr",
+    "hanapr",
+    "iliapr",
+    "zarapr"
+   ],
+   "barad": [
+    "barad.eth",
+    "0xbarad.eth"
+   ],
+   "677660/677668": "c7 h12/h13"
+  },
+  "sequential_roots_among_unflagged": "0x9699/0x4838/0x1838/0x19299, lixy4/5/10, djohnson1/3 - i.e. sequential names also exist among the UNFLAGGED, so name shape alone is not a discriminator",
+  "conclusion": "no programmatic naming family beyond ~4 tiny groups; ENS names of flagged wallets are overwhelmingly distinct personal names, same digit-share as the unflagged"
+ },
+ "shared_funders_of_flagged_ens": {
+  "exchange_scale_hot_wallets(nonce_now)": {
+   "0xc098b2a3": 2939944,
+   "0x56eddb7a": 10109710,
+   "0x75e89d59": 8004536,
+   "0x4976a4a0": 5885498,
+   "0xf70da978": 4731629,
+   "0x0d070796": 10072467,
+   "0xf7858da8": 1814982,
+   "0xcad621da": 1477671,
+   "0x077d360f": 1428427,
+   "0x80c67432": 893736,
+   "0x4b4e14a3": 155607,
+   "0xe95f6604": 145399
+  },
+  "note": "these fund flagged ENS wallets whose nonces range 23..12632, amounts 0.05..1.11, hours 1..45, distinct personal names -> exchange customers, not one operator; none are in sybilkit's 14-entry infra list except 0xdfd5293d/0x28c6c062/0x21a31ee1",
+  "personal_scale_funders(genuine_mini_farm_signal)": {
+   "0x1f806ad7": "nonce 6 -> ming168/mingtian8/huihui166",
+   "0x790fa2ab": "nonce 14 -> liminhoo/samapr",
+   "0xba40791c": "nonce 16 -> hanapr/iliapr",
+   "0xa3c3fb2e": "nonce 53 -> sogito/10forever101",
+   "0x6f765cb0": "nonce 533 -> qianyu007/stanwell/pikking/zhadan"
+  }
+ },
+ "named_farm_groups_identified": {
+  "c6_5digit_peel_group": {
+   "members": [
+    "02861.eth",
+    "07121.eth",
+    "07176.eth",
+    "16568.eth",
+    "05323.eth",
+    "06632.eth",
+    "05605.eth",
+    "07212.eth",
+    "mkkkdyo.eth"
+   ],
+   "evidence": "all 0.1 ETH at h11, first funder inside cluster (peel chain), JIT 0.0999 from exchanges, 07176/05323 nonce 42 with identical 2021-09-13 histories"
+  },
+  "c7_pr_group_h26-27": {
+   "members": [
+    "samapr.eth",
+    "hanapr.eth",
+    "iliapr.eth",
+    "zarapr.eth",
+    "liminhoo.eth",
+    "sogangs.eth",
+    "sorenaap.eth",
+    "sogito.eth",
+    "10forever101.eth"
+   ],
+   "evidence": "amounts 0.051-0.055 consecutive, nonces 47-71 (sogangs/sorenaap both 273), funded by tiny EOAs 0x790fa2ab (nonce 14), 0xba40791c (nonce 16), 0xa3c3fb2e (nonce 53); identical LiFi/Ethena footprints"
+  },
+  "c7_ming_group_h4-5": {
+   "members": [
+    "ming168.eth",
+    "mingtian8.eth",
+    "huihui166.eth"
+   ],
+   "evidence": "all first-funded by 0x1f806ad7 (EOA with 6 lifetime txs), nonces 151-192, 0.06/0.059/0.051"
+  },
+  "c6/c7/c197_0x6f765cb0_group": {
+   "members": [
+    "qianyu007.eth",
+    "stanwell.eth",
+    "pikking.eth",
+    "zhadan.eth"
+   ],
+   "evidence": "shared first funder 0x6f765cb0 (EOA, 533 txs, funds nothing else in the game); uncertain: could be a friend group"
+  },
+  "c196_uae": {
+   "members": [
+    "uae07.eth",
+    "uae08.eth",
+    "uae12.eth"
+   ],
+   "evidence": "fund each other JIT 1.1214 ETH, 1.11 each at h22, same gas fingerprint; sequential name root"
+  },
+  "c3_2.067_named": {
+   "members": [
+    "basebuilder.eth",
+    "viair.eth"
+   ],
+   "evidence": "basebuilder funds viair; identical activity fingerprints; part of the 2.067x327 farm"
+  },
+  "c85_jitter_named": {
+   "members": [
+    "concordclub.eth"
+   ],
+   "evidence": "random-decimal amount matching the batch, in-cluster funder, shared gas fingerprint"
+  },
+  "c49_pair": {
+   "members": [
+    "icdat.eth",
+    "mychemicalromance.eth"
+   ],
+   "evidence": "icdat funds mychemicalromance 1.0 ETH 6 min before deposit; both aged human-looking wallets (2 wallets, 1 person)"
+  },
+  "c190_1.03_group": {
+   "members": [
+    "0xshaf.eth",
+    "aysh7.eth",
+    "0xruman.eth"
+   ],
+   "evidence": "peel chain among the 5 wallets at 1.03; 0xshaf holds IDMD and is very active"
+  },
+  "c7_barad_pair": {
+   "members": [
+    "barad.eth",
+    "0xbarad.eth"
+   ],
+   "evidence": "same name root, h36/h37, 0.051 each; different funders; at most 2 wallets"
+  }
+ },
+ "named_farm_group_wallets_total": 38,
+ "onchain_sample": {
+  "n": 45,
+  "blockscout_calls": 90,
+  "stratification": "35 outside undisputed farms (incl. 4 deliberately suspicious picks), 10 inside undisputed farms or suspected named farms",
+  "tally": {
+   "outside/human": 27,
+   "outside/farm": 4,
+   "outside/mixed": 4,
+   "inside_or_named_farm/farm": 8,
+   "inside_or_named_farm/human": 2
+  },
+  "wallets": [
+   {
+    "ens": "smoorfee.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 1,
+     "funding:shared_hub": 2
+    },
+    "first_amount": "0.052",
+    "deposits": [
+     "0.052"
+    ],
+    "hour": 1,
+    "nonce_at_deposit": 229,
+    "nonce_now": 234,
+    "txs_after_deposit": 4,
+    "balance_now_eth": 0.0003,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "ETH Forgot PiXels",
+     "Doggy Based House",
+     "The Galleria",
+     "Fallen Neogods"
+    ],
+    "oldest_tx_in_last50": "2026-07-08",
+    "last50_span_days": 46.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xf70da97812cb96acdf810712aa562db8dfa3dbef",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x1302c055C293d739DC0F25eD1eDAff1364806E1b",
+     "from_name": null,
+     "eth": 0.0058,
+     "hours_before_deposit": 71.9
+    },
+    "outgoing_txs_before_deposit_in_window": 35,
+    "non_curator_outgoing_in_last50": 39,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "SeaDrop",
+      7
+     ],
+     [
+      "Seaport",
+      7
+     ],
+     [
+      "LiFiDiamond",
+      4
+     ],
+     [
+      "WETH9",
+      4
+     ],
+     [
+      "RelayDepository",
+      4
+     ],
+     [
+      "0x4Aae83a4",
+      4
+     ]
+    ],
+    "methods": [
+     [
+      "mintSigned",
+      7
+     ],
+     [
+      "cancel",
+      6
+     ],
+     [
+      "depositNative",
+      4
+     ],
+     [
+      "deposit",
+      3
+     ],
+     [
+      "startBridgeTokensViaAcrossV4",
+      2
+     ],
+     [
+      "transferFrom",
+      2
+     ]
+    ],
+    "post_settlement_txs": 1,
+    "post_settlement_out_values_eth": [
+     0.0146
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x1302c055c293d739dc0f25ed1edaff1364806e1b",
+    "verdict": "human",
+    "why": "nonce 229, 50+ NFT collections, Seaport/SeaDrop/LiFi user; attached only by exact-odd 0.052 + exchange hub 0xf70da978 (4.7M txs)"
+   },
+   {
+    "ens": "0xmhd.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2
+    },
+    "first_amount": "0.051",
+    "deposits": [
+     "0.051"
+    ],
+    "hour": 1,
+    "nonce_at_deposit": 775,
+    "nonce_now": 782,
+    "txs_after_deposit": 6,
+    "balance_now_eth": 0.0026,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "Unidraw",
+     "LaZy HaM's",
+     "TripperPunks",
+     "AzuLadys"
+    ],
+    "oldest_tx_in_last50": "2026-06-10",
+    "last50_span_days": 72.0,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x4e87e70f86c266e87c984b1e94bc9f5070f59e08",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x2163C67BC8F090a853Ff75Ba53c35dA46C9bb9c4",
+     "from_name": null,
+     "eth": 0.051,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 38,
+    "non_curator_outgoing_in_last50": 44,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "USDC",
+      6
+     ],
+     [
+      "0x2163C67B",
+      5
+     ],
+     [
+      "Seaport",
+      5
+     ],
+     [
+      "WETH9",
+      4
+     ],
+     [
+      "SwapHelper",
+      4
+     ],
+     [
+      "0xF80AaE0A",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      5
+     ],
+     [
+      "buyUB",
+      4
+     ],
+     [
+      "transfer",
+      3
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      2
+     ],
+     [
+      "deposit",
+      2
+     ],
+     [
+      "fulfillBasicOrder_efficient_6GL6yc",
+      2
+     ]
+    ],
+    "post_settlement_txs": 2,
+    "post_settlement_out_values_eth": [
+     0.007
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x070f565dfd13906eba848374c34a4485bd21e876",
+    "verdict": "human",
+    "why": "nonce 775, 50+ NFT collections, USDC/Seaport; 0.051 moved from own secondary wallet 0x2163c67b right before; attached only by exact-odd 0.051"
+   },
+   {
+    "ens": "chessman.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2
+    },
+    "first_amount": "0.055",
+    "deposits": [
+     "0.055"
+    ],
+    "hour": 11,
+    "nonce_at_deposit": 259,
+    "nonce_now": 260,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.0554,
+    "idmd_balance": 0,
+    "nft_collections": 13,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Rabby Desktop Genesis",
+     "LemonHeads",
+     "To Ethereum, with Love"
+    ],
+    "oldest_tx_in_last50": "2025-08-20",
+    "last50_span_days": 361.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x729f1e07ae6dec524a970711a2ac2de1096bb6aa",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xE0C224F85a08D6C15b19e7350761dB839667d0dA",
+     "from_name": null,
+     "eth": 0.05,
+     "hours_before_deposit": 2542.5
+    },
+    "outgoing_txs_before_deposit_in_window": 46,
+    "non_curator_outgoing_in_last50": 42,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "ERC1967Proxy",
+      8
+     ],
+     [
+      "USDC",
+      4
+     ],
+     [
+      "TrustlessManifesto",
+      3
+     ],
+     [
+      "RedStone",
+      2
+     ],
+     [
+      "AllowanceHolder",
+      2
+     ],
+     [
+      "UniversalRouter",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "transfer",
+      5
+     ],
+     [
+      "claim",
+      3
+     ],
+     [
+      "execute",
+      3
+     ],
+     [
+      "withdraw",
+      3
+     ],
+     [
+      "pledge",
+      3
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x91508018f75f93af3c8c7c501757f1db57f19804",
+    "verdict": "human",
+    "why": "nonce 259, 13 NFT collections, funded 106 days before deposit, zero activity after; attached only by exact-odd 0.055"
+   },
+   {
+    "ens": "punk.austingriffith.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2,
+     "cadence:drip": 1
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 7,
+    "nonce_at_deposit": 133,
+    "nonce_now": 134,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.0583,
+    "idmd_balance": 0,
+    "nft_collections": 4,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "BiteByViper",
+     "ButterflyClaims",
+     "Rainbow Zorb",
+     "Loogies"
+    ],
+    "oldest_tx_in_last50": "2024-01-25",
+    "last50_span_days": 934.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x34aa3f359a9d614239015126635ce7732c18fdf3",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x34aA3F359A9D614239015126635CE7732c18fDF3",
+     "from_name": null,
+     "eth": 0.05,
+     "hours_before_deposit": 3.0
+    },
+    "outgoing_txs_before_deposit_in_window": 42,
+    "non_curator_outgoing_in_last50": 42,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "Dai",
+      7
+     ],
+     [
+      "SafeProxy",
+      6
+     ],
+     [
+      "0x34aA3F35",
+      6
+     ],
+     [
+      "ToDaiPlease",
+      4
+     ],
+     [
+      "0xAB512B24",
+      2
+     ],
+     [
+      "0x0C41A9C2",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "execTransaction",
+      6
+     ],
+     [
+      "approve",
+      5
+     ],
+     [
+      "exchangeDaiForEth",
+      4
+     ],
+     [
+      "transfer",
+      2
+     ],
+     [
+      "safeExecuteSignaturesWithAutoGasLimit",
+      1
+     ],
+     [
+      "depositTransaction",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xc1470707ed388697a15b9b9f1f5f4cc882e28a45",
+    "verdict": "human",
+    "why": "subname under austingriffith.eth, active since 2024-01 (Dai, Safe), nonce 133; attached by sequence + drip in the h7 window"
+   },
+   {
+    "ens": "racylife.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.45",
+     "0.55",
+     "0.65",
+     "0.75"
+    ],
+    "hour": 14,
+    "nonce_at_deposit": 423,
+    "nonce_now": 433,
+    "txs_after_deposit": 9,
+    "balance_now_eth": 0.7611,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Pixel Platipy",
+     "THE BALLZ",
+     "Rabby Desktop Genesis"
+    ],
+    "oldest_tx_in_last50": "2026-02-14",
+    "last50_span_days": 187.4,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x3c54b7c8fd52d8673b4c54c287a2f56a25615ec8",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x24Eb3eB8B4A18A2e5cF5f49d8CD3c4c6490988F0",
+     "from_name": null,
+     "eth": 0.0091,
+     "hours_before_deposit": 3886.8
+    },
+    "outgoing_txs_before_deposit_in_window": 34,
+    "non_curator_outgoing_in_last50": 36,
+    "curator_txs_in_last50": 8,
+    "counterparties": [
+     [
+      "Seaport",
+      9
+     ],
+     [
+      "UniversalRouter",
+      3
+     ],
+     [
+      "0x2A967AB0",
+      2
+     ],
+     [
+      "11x11",
+      2
+     ],
+     [
+      "TenThousandTokens",
+      2
+     ],
+     [
+      "Token",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "fulfillAdvancedOrder",
+      7
+     ],
+     [
+      "approve",
+      5
+     ],
+     [
+      "execute",
+      4
+     ],
+     [
+      "mint",
+      2
+     ],
+     [
+      "buy",
+      2
+     ],
+     [
+      "fulfillBasicOrder_efficient_6GL6yc",
+      1
+     ]
+    ],
+    "post_settlement_txs": 3,
+    "post_settlement_out_values_eth": [
+     0.0005,
+     0.05
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x2a967ab031ecd90ad2b4e1b6c4436a29f7a5f33e",
+    "verdict": "human",
+    "why": "8-step ladder 0.05->0.75, nonce 423, 50+ NFT collections, Seaport/UniversalRouter, 0.76 ETH balance; attached only by sequence"
+   },
+   {
+    "ens": "idonotknowwhatimdoing.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2,
+     "cadence:burst": 2,
+     "funding:shared_hub": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 11361,
+    "nonce_now": 11375,
+    "txs_after_deposit": 13,
+    "balance_now_eth": 0.0255,
+    "idmd_balance": 12,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "Ret↵rn",
+     "LooksRare INFILTRATION",
+     "mint.fun !fundrop pass",
+     "Blarg"
+    ],
+    "oldest_tx_in_last50": "2026-05-19",
+    "last50_span_days": 94.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x863B22773dAf094656E7339bbb844514A7E20555",
+     "from_name": null,
+     "eth": 0.1369,
+     "hours_before_deposit": 1229.2
+    },
+    "outgoing_txs_before_deposit_in_window": 35,
+    "non_curator_outgoing_in_last50": 48,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "UniversalRouter",
+      28
+     ],
+     [
+      "Seaport",
+      6
+     ],
+     [
+      "ERC1967Proxy",
+      3
+     ],
+     [
+      "0x863B2277",
+      1
+     ],
+     [
+      "ProofOfNothing",
+      1
+     ],
+     [
+      "SeaDrop",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "execute",
+      28
+     ],
+     [
+      "cancel",
+      4
+     ],
+     [
+      "approve",
+      3
+     ],
+     [
+      "withdraw",
+      2
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      2
+     ],
+     [
+      "setApprovalForAll",
+      2
+     ]
+    ],
+    "post_settlement_txs": 2,
+    "post_settlement_out_values_eth": [
+     0.0774,
+     0.0517
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xbaaba861464f25f52c2ee10cc3ac024f4f77812a",
+    "verdict": "human",
+    "why": "nonce 11361, holds 12 IDMD identity NFTs, 50+ NFT collections, UniversalRouter trader; attached by sequence+burst in the h34 rescue rush + exchange hub 0xc098b2a3 (2.9M txs)"
+   },
+   {
+    "ens": "985.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 22182,
+    "nonce_now": 22189,
+    "txs_after_deposit": 6,
+    "balance_now_eth": 0.5424,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "Underworld",
+     "The Loud Ones"
+    ],
+    "oldest_tx_in_last50": "2026-05-23",
+    "last50_span_days": 92.1,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xf66852bc122fd40bfecc63cd48217e88bda12109",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": null,
+    "outgoing_txs_before_deposit_in_window": 42,
+    "non_curator_outgoing_in_last50": 48,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "DexRouter",
+      32
+     ],
+     [
+      "RelayDepository",
+      2
+     ],
+     [
+      "TetherToken",
+      2
+     ],
+     [
+      "NoCurveToken",
+      1
+     ],
+     [
+      "InfiniteMonkey",
+      1
+     ],
+     [
+      "BridgedFP",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "dagSwapTo",
+      17
+     ],
+     [
+      "dagSwapByOrderId",
+      14
+     ],
+     [
+      "approve",
+      8
+     ],
+     [
+      "uniswapV3SwapTo",
+      1
+     ],
+     [
+      "depositNative",
+      1
+     ],
+     [
+      "send",
+      1
+     ]
+    ],
+    "post_settlement_txs": 4,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x61fd0d043d519f5a2bd05785000f30db96809429",
+    "verdict": "human",
+    "why": "999-club name, nonce 22182, DexRouter trader, 0.54 ETH; attached only by sequence at h34"
+   },
+   {
+    "ens": "truthterminal.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2,
+     "cadence:burst": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 1005,
+    "nonce_now": 1031,
+    "txs_after_deposit": 25,
+    "balance_now_eth": 0.0519,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "uni-20",
+     "Farcaster: Alpaca"
+    ],
+    "oldest_tx_in_last50": "2026-08-08",
+    "last50_span_days": 15.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xab1348b382eaec3d4a05cb85c999fc205b45292c",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": null,
+    "outgoing_txs_before_deposit_in_window": 24,
+    "non_curator_outgoing_in_last50": 49,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "DexRouter",
+      20
+     ],
+     [
+      "NativeOrderFactory",
+      10
+     ],
+     [
+      "CoWSwapEthFlow",
+      4
+     ],
+     [
+      "WETH9",
+      3
+     ],
+     [
+      "TetherToken",
+      2
+     ],
+     [
+      "RelayDepository",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "dagSwapTo",
+      17
+     ],
+     [
+      "create",
+      10
+     ],
+     [
+      "approve",
+      8
+     ],
+     [
+      "unxswapTo",
+      2
+     ],
+     [
+      "invalidateOrder",
+      2
+     ],
+     [
+      "createOrder",
+      2
+     ]
+    ],
+    "post_settlement_txs": 20,
+    "post_settlement_out_values_eth": [
+     0.015,
+     0.015,
+     0.015,
+     0.015,
+     0.01
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x0f5994afdf8c01351a37e501cd28a961d76da66e",
+    "verdict": "human",
+    "why": "nonce 1005, CoWSwap/DexRouter trader, 25 txs after deposit; attached by sequence+burst at h34"
+   },
+   {
+    "ens": "枯坐外部山.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05",
+     "0.15",
+     "0.25",
+     "0.35",
+     "0.55",
+     "0.65",
+     "0.75",
+     "0.85",
+     "1.0"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 8319,
+    "nonce_now": 8332,
+    "txs_after_deposit": 12,
+    "balance_now_eth": 0.0131,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "ProjectGPT",
+     "partyfoolswtf"
+    ],
+    "oldest_tx_in_last50": "2026-05-12",
+    "last50_span_days": 104.1,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x3333e86333e055279627e06ee8bf5396c99debc3",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x56Eddb7aa87536c09CCc2793473599fD21A8b17F",
+     "from_name": null,
+     "eth": 0.5221,
+     "hours_before_deposit": 6.2
+    },
+    "outgoing_txs_before_deposit_in_window": 21,
+    "non_curator_outgoing_in_last50": 25,
+    "curator_txs_in_last50": 9,
+    "counterparties": [
+     [
+      "RelayDepository",
+      4
+     ],
+     [
+      "DexRouter",
+      4
+     ],
+     [
+      "ERC1967Proxy",
+      4
+     ],
+     [
+      "TetherToken",
+      3
+     ],
+     [
+      "0x04D69803",
+      2
+     ],
+     [
+      "0x3c4b8008",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "depositNative",
+      4
+     ],
+     [
+      "approve",
+      4
+     ],
+     [
+      "depositV3",
+      4
+     ],
+     [
+      "transfer",
+      3
+     ],
+     [
+      "unxswapByOrderId",
+      2
+     ],
+     [
+      "dagSwapTo",
+      1
+     ]
+    ],
+    "post_settlement_txs": 2,
+    "post_settlement_out_values_eth": [
+     1.25
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xe7bdafa518bdd898ec3312b0cc32cd6f59567b91",
+    "verdict": "human",
+    "why": "9-step ladder 0.05->1.0, nonce 8319, 50+ NFT collections; attached only by sequence at h34"
+   },
+   {
+    "ens": "samapr.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.052",
+    "deposits": [
+     "0.052"
+    ],
+    "hour": 27,
+    "nonce_at_deposit": 51,
+    "nonce_now": 53,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.012,
+    "idmd_balance": 0,
+    "nft_collections": 2,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Ten Years Of Ethereum",
+     "Zerion DNA 1.0"
+    ],
+    "oldest_tx_in_last50": "2024-08-10",
+    "last50_span_days": 737.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x790fa2abbea100bf997a6bd29589cf40281bf091",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xbA40791CC448c110ecDe65410486fcFAED9de872",
+     "from_name": null,
+     "eth": 0.052,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 41,
+    "non_curator_outgoing_in_last50": 42,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "LiFiDiamond",
+      7
+     ],
+     [
+      "0x391E7C67",
+      4
+     ],
+     [
+      "Ethena Staked ENA",
+      3
+     ],
+     [
+      "0xbA40791C",
+      2
+     ],
+     [
+      "PendleRouterV4",
+      2
+     ],
+     [
+      "WETH9",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "0x8132b321",
+      4
+     ],
+     [
+      "swapTokensSingleV3NativeToERC20",
+      3
+     ],
+     [
+      "swapTokensSingleV3ERC20ToNative",
+      3
+     ],
+     [
+      "swap",
+      2
+     ],
+     [
+      "0xed48907e",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x447143f9955b34198751c53dc47eca66907a7e73",
+    "verdict": "farm",
+    "why": "member of the h26-27 '*pr' group (samapr/hanapr/iliapr/zarapr/liminhoo): JIT-funded exact amounts 0.052-0.055 by tiny EOAs 0x790fa2ab (nonce 14) / 0xba40791c (nonce 16); aged wallets with identical LiFi/Ethena footprints -> one operator, ~5-9 wallets"
+   },
+   {
+    "ens": "sogangs.eth",
+    "group": "outside",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "funding:shared_hub": 2
+    },
+    "first_amount": "0.053",
+    "deposits": [
+     "0.053"
+    ],
+    "hour": 26,
+    "nonce_at_deposit": 273,
+    "nonce_now": 275,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0113,
+    "idmd_balance": 0,
+    "nft_collections": 9,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Dave Still Stands",
+     "Ten Years Of Ethereum",
+     "EigenWorlds"
+    ],
+    "oldest_tx_in_last50": "2025-06-05",
+    "last50_span_days": 438.4,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x80c67432656d59144ceff962e8faf8926599bcf8",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xED6E1cb65ee4C8B5Dc07b5a64f1f82b15F65bE24",
+     "from_name": null,
+     "eth": 0.053,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 46,
+    "non_curator_outgoing_in_last50": 47,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "AggregationRouterV6",
+      7
+     ],
+     [
+      "LiFiDiamond",
+      3
+     ],
+     [
+      "ERC1967Proxy",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0xED6E1cb6",
+      2
+     ],
+     [
+      "0x9053DBb7",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      11
+     ],
+     [
+      "swap",
+      7
+     ],
+     [
+      "withdraw",
+      3
+     ],
+     [
+      "unstake",
+      2
+     ],
+     [
+      "claim",
+      2
+     ],
+     [
+      "executeController",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x9f4858398d630db083342f1e53d9ed5cefb1a995",
+    "verdict": "farm",
+    "why": "pair with sorenaap.eth: both nonce 273 at deposit, 0.053/0.054 same hour, same first funder; JIT funded 0.053; aged DeFi wallet reused -> 2-wallet operator"
+   },
+   {
+    "ens": "mehmethan.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 0,
+    "nonce_at_deposit": 34704,
+    "nonce_now": 34807,
+    "txs_after_deposit": 102,
+    "balance_now_eth": 0.0289,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "fpCyberKongzBaby",
+     "fpMilady",
+     "fpTinFun"
+    ],
+    "oldest_tx_in_last50": "2026-08-21",
+    "last50_span_days": 3.4,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x73e775335bddaac0b95211441fefb7fcce13db08",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": null,
+    "outgoing_txs_before_deposit_in_window": 0,
+    "non_curator_outgoing_in_last50": 43,
+    "curator_txs_in_last50": 0,
+    "counterparties": [
+     [
+      "0x92279780",
+      15
+     ],
+     [
+      "DexRouter",
+      8
+     ],
+     [
+      "WETH9",
+      6
+     ],
+     [
+      "Seaport",
+      4
+     ],
+     [
+      "RelayApprovalProxyV3",
+      2
+     ],
+     [
+      "Glowworms",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "unxswapTo",
+      5
+     ],
+     [
+      "approve",
+      4
+     ],
+     [
+      "deposit",
+      3
+     ],
+     [
+      "dagSwapTo",
+      3
+     ],
+     [
+      "fulfillAdvancedOrder",
+      3
+     ],
+     [
+      "transferAndMulticall",
+      2
+     ]
+    ],
+    "post_settlement_txs": 50,
+    "post_settlement_out_values_eth": [
+     0.01,
+     0.008,
+     0.022,
+     0.003,
+     0.007
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x3195c3f94154364e897711e501e104f40d8e23fb",
+    "verdict": "human",
+    "why": "nonce 34704, 102 txs after deposit, 50+ NFT collections; attached only by round-wave 0.1 + split"
+   },
+   {
+    "ens": "tonybearbrick.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "cadence:drip": 1
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 18,
+    "nonce_at_deposit": 4532,
+    "nonce_now": 4540,
+    "txs_after_deposit": 7,
+    "balance_now_eth": 2.1518,
+    "idmd_balance": 1,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "Maya Spirits",
+     "identity.md"
+    ],
+    "oldest_tx_in_last50": "2026-06-14",
+    "last50_span_days": 72.0,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xfe92a3cf1843b5ec7ccf27b2ae753fac1289fa9d",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x17e566d94b9E9471eaAA1fd48fEd92666Fe0e6c0",
+     "from_name": null,
+     "eth": 0.005,
+     "hours_before_deposit": 448.4
+    },
+    "outgoing_txs_before_deposit_in_window": 42,
+    "non_curator_outgoing_in_last50": 49,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "AllowanceHolder",
+      12
+     ],
+     [
+      "0x17e566d9",
+      4
+     ],
+     [
+      "0x28cfBd4a",
+      4
+     ],
+     [
+      "Rekt",
+      3
+     ],
+     [
+      "USDC",
+      3
+     ],
+     [
+      "LiFiDiamond",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      13
+     ],
+     [
+      "0x2213bc0b",
+      12
+     ],
+     [
+      "0xa22cb465",
+      3
+     ],
+     [
+      "fulfillAdvancedOrder",
+      2
+     ],
+     [
+      "writeEntryEtched",
+      2
+     ],
+     [
+      "swapTokensSingleV3ERC20ToNative",
+      1
+     ]
+    ],
+    "post_settlement_txs": 4,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x17e566d94b9e9471eaaa1fd48fed92666fe0e6c0",
+    "verdict": "human",
+    "why": "nonce 4532, holds 1 IDMD, 2.15 ETH balance, 50+ NFT collections; attached by round-wave 0.1 + split + one drip edge"
+   },
+   {
+    "ens": "4friendscapital.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:near_same_block": 1,
+     "amount:split": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 12,
+    "nonce_at_deposit": 2039,
+    "nonce_now": 2040,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.1394,
+    "idmd_balance": 0,
+    "nft_collections": 40,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "Pixels of The Doge NFT"
+    ],
+    "oldest_tx_in_last50": "2025-04-24",
+    "last50_span_days": 479.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x171b39b3c8440907bff09cc1c750c11c5a1cc078",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x370A7E2d300c14D79d4A7ee07aACA46c4B3012cF",
+     "from_name": null,
+     "eth": 0.2199,
+     "hours_before_deposit": 2445.9
+    },
+    "outgoing_txs_before_deposit_in_window": 48,
+    "non_curator_outgoing_in_last50": 48,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "BIO",
+      4
+     ],
+     [
+      "BIO Vesting Master",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "SafeProxy",
+      2
+     ],
+     [
+      "Seaport",
+      2
+     ],
+     [
+      "TenYearsNFT",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "setApprovalForAll",
+      11
+     ],
+     [
+      "transfer",
+      8
+     ],
+     [
+      "approve",
+      7
+     ],
+     [
+      "release",
+      3
+     ],
+     [
+      "claim",
+      2
+     ],
+     [
+      "fulfillAdvancedOrder",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x96b289aa02d0bb8137249fb0c73235fe1364e6b1",
+    "verdict": "human",
+    "why": "nonce 2039, 40 NFT collections, BIO vesting + Safe, active since 2025-04; attached by round-wave 0.1 + near-block + split"
+   },
+   {
+    "ens": "heisenbergknocks.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "cadence:drip": 2,
+     "funding:shared_hub": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 18,
+    "nonce_at_deposit": 315,
+    "nonce_now": 320,
+    "txs_after_deposit": 4,
+    "balance_now_eth": 0.0,
+    "idmd_balance": 0,
+    "nft_collections": 22,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Anticipation (of a future event)",
+     "The Jews",
+     "HuemanHead",
+     "Minesville"
+    ],
+    "oldest_tx_in_last50": "2024-12-21",
+    "last50_span_days": 606.1,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x56eddb7aa87536c09ccc2793473599fd21a8b17f",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xa1abfA21f80ecf401bd41365adBb6fEF6fEfDF09",
+     "from_name": null,
+     "eth": 0.1042,
+     "hours_before_deposit": 1.0
+    },
+    "outgoing_txs_before_deposit_in_window": 37,
+    "non_curator_outgoing_in_last50": 41,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "WETH9",
+      9
+     ],
+     [
+      "RelayDepository",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0xb3101eC4",
+      2
+     ],
+     [
+      "RelayReceiver",
+      2
+     ],
+     [
+      "UniversalRouter",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      5
+     ],
+     [
+      "depositNative",
+      3
+     ],
+     [
+      "deposit",
+      3
+     ],
+     [
+      "transfer",
+      2
+     ],
+     [
+      "execute",
+      2
+     ],
+     [
+      "0x095ea7b3",
+      2
+     ]
+    ],
+    "post_settlement_txs": 1,
+    "post_settlement_out_values_eth": [
+     0.0006
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xaaeae99cda50a53aae159e6fa8793514b08f18d4",
+    "verdict": "human",
+    "why": "nonce 315, 22 NFT collections, active since 2024-12; attached by round-wave 0.1 + split + drip + exchange hub 0x56eddb7a (10M txs)"
+   },
+   {
+    "ens": "xoxonft.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 16,
+    "nonce_at_deposit": 1714,
+    "nonce_now": 1727,
+    "txs_after_deposit": 12,
+    "balance_now_eth": 0.6572,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "33 Curated Drop Featuring Injectkid",
+     "A smile worth ALOTTAMONEY by Violet P Jones",
+     "Clay Cat"
+    ],
+    "oldest_tx_in_last50": "2026-07-29",
+    "last50_span_days": 22.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xd24400ae8bfebb18ca49be86258a3c749cf46853",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xfb6E2837A6d14b4eF0AB15d353267f296E45e549",
+     "from_name": null,
+     "eth": 0.0,
+     "hours_before_deposit": 60.0
+    },
+    "outgoing_txs_before_deposit_in_window": 32,
+    "non_curator_outgoing_in_last50": 44,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "Seaport",
+      11
+     ],
+     [
+      "USDC",
+      6
+     ],
+     [
+      "SeaDrop",
+      4
+     ],
+     [
+      "ERC1967Proxy",
+      3
+     ],
+     [
+      "ERC721SeaDrop",
+      3
+     ],
+     [
+      "UniversalRouter",
+      3
+     ]
+    ],
+    "methods": [
+     [
+      "fulfillAvailableAdvancedOrders",
+      7
+     ],
+     [
+      "transfer",
+      6
+     ],
+     [
+      "approve",
+      3
+     ],
+     [
+      "cancel",
+      3
+     ],
+     [
+      "transferFrom",
+      3
+     ],
+     [
+      "mintSigned",
+      3
+     ]
+    ],
+    "post_settlement_txs": 3,
+    "post_settlement_out_values_eth": [
+     0.031,
+     0.0114
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x4af694afac543c2586feb46a3fd2b3b9f3d94f7f",
+    "verdict": "human",
+    "why": "nonce 1714, 50+ NFT collections, Seaport/USDC; attached only by round-wave 0.1 + split"
+   },
+   {
+    "ens": "07121.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "funding:peel_chain": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 11,
+    "nonce_at_deposit": 64,
+    "nonce_now": 65,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.1106,
+    "idmd_balance": 0,
+    "nft_collections": 5,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ten Years Of Ethereum",
+     "Introducing World App",
+     "ShapellaUpgrade"
+    ],
+    "oldest_tx_in_last50": "2023-08-01",
+    "last50_span_days": 1111.7,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xe2d9942b99db16f3bcac5787babdf5ef1c415fff",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0xDFd5293D8e347dFe59E90eFd55b2956a1343963d",
+     "from_name": null,
+     "eth": 0.0999,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 36,
+    "non_curator_outgoing_in_last50": 36,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "UniversalRouter",
+      4
+     ],
+     [
+      "0xdc07D1AE",
+      3
+     ],
+     [
+      "SafeProxy",
+      2
+     ],
+     [
+      "StoneBeraVault",
+      2
+     ],
+     [
+      "Frogs",
+      2
+     ],
+     [
+      "ETHRegistrarController",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "mint",
+      4
+     ],
+     [
+      "execute",
+      4
+     ],
+     [
+      "approve",
+      3
+     ],
+     [
+      "0xa2579f49",
+      1
+     ],
+     [
+      "claimRedeemRequest",
+      1
+     ],
+     [
+      "requestRedeem",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xdc07d1aeb630304c8cab22412330433bcd571708",
+    "verdict": "farm",
+    "why": "5-digit-ENS group in c6 h11 (02861/07121/07176/16568/05323/06632/05605/07212): all 0.1, JIT 0.0999 from exchanges, first-funded by each other (peel chain), 07176/05323 both nonce 42 with identical 2021-09-13 history -> one collector operating 8 aged wallets"
+   },
+   {
+    "ens": "prufboogie.eth",
+    "group": "outside",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "cadence:drip": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 17,
+    "nonce_at_deposit": 1722,
+    "nonce_now": 1754,
+    "txs_after_deposit": 31,
+    "balance_now_eth": 0.0014,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "zOrgz",
+     "Eldritch"
+    ],
+    "oldest_tx_in_last50": "2026-08-11",
+    "last50_span_days": 11.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x7f6f613f66997b79a52a3064d54a0e5508cd9ff7",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xca7ded7e4F4Ba8aB3B10009236Ae6d1b95094589",
+     "from_name": null,
+     "eth": 0.1153,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 11,
+    "non_curator_outgoing_in_last50": 42,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "0xa1858144",
+      11
+     ],
+     [
+      "TetherToken",
+      9
+     ],
+     [
+      "RelayDepository",
+      5
+     ],
+     [
+      "RelayApprovalProxyV3",
+      3
+     ],
+     [
+      "0xe934e36A",
+      3
+     ],
+     [
+      "CosmicMetaPixelArt",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "mintFree",
+      11
+     ],
+     [
+      "transfer",
+      7
+     ],
+     [
+      "depositNative",
+      5
+     ],
+     [
+      "transferAndMulticall",
+      3
+     ],
+     [
+      "approve",
+      3
+     ],
+     [
+      "mint",
+      1
+     ]
+    ],
+    "post_settlement_txs": 15,
+    "post_settlement_out_values_eth": [
+     0.005,
+     0.01,
+     0.0009,
+     0.0003
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6880c355c73e9538313c5203c7783cc56609f044",
+    "verdict": "human",
+    "why": "nonce 1722, 50+ NFT collections, 31 txs after deposit, Relay/USDT active; attached by round-wave 0.1 + split + drip"
+   },
+   {
+    "ens": "justdefaultname.eth",
+    "group": "outside",
+    "cluster": 19,
+    "attach_rules": {
+     "amount:exact_round_wave": 1
+    },
+    "first_amount": "1.45",
+    "deposits": [
+     "1.45"
+    ],
+    "hour": 19,
+    "nonce_at_deposit": 1371,
+    "nonce_now": 1374,
+    "txs_after_deposit": 2,
+    "balance_now_eth": 0.0008,
+    "idmd_balance": 0,
+    "nft_collections": 49,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "GOEI",
+     "Safe{Core}, Introduced",
+     "The Jews"
+    ],
+    "oldest_tx_in_last50": "2026-04-16",
+    "last50_span_days": 127.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x91604F590d66Ace8975eeD6bd16cf55647d1C499",
+     "from_name": null,
+     "eth": 0.0001,
+     "hours_before_deposit": 1349.1
+    },
+    "outgoing_txs_before_deposit_in_window": 36,
+    "non_curator_outgoing_in_last50": 38,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "AllowanceHolder",
+      4
+     ],
+     [
+      "OpenOceanExchangeProxy",
+      4
+     ],
+     [
+      "SwellToken",
+      3
+     ],
+     [
+      "AggregationRouterV6",
+      3
+     ],
+     [
+      "SwapProxy",
+      2
+     ],
+     [
+      "RelayDepository",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      17
+     ],
+     [
+      "swap",
+      8
+     ],
+     [
+      "0x2213bc0b",
+      4
+     ],
+     [
+      "execute",
+      2
+     ],
+     [
+      "depositNative",
+      2
+     ],
+     [
+      "swapWithMagpieSignature",
+      2
+     ]
+    ],
+    "post_settlement_txs": 2,
+    "post_settlement_out_values_eth": [
+     1.46
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x10f9ec8e7967ba8c391830374ad6ee51de6c3ca3",
+    "verdict": "human",
+    "why": "nonce 1371, 49 NFT collections, OpenOcean/1inch/Swell DeFi; 1.45 ETH is not the cluster's ladder amount; attached by a single round-wave edge into the exchange-hub cluster c19"
+   },
+   {
+    "ens": "pepp.eth",
+    "group": "outside",
+    "cluster": 170,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05",
+     "0.2"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 4998,
+    "nonce_now": 5079,
+    "txs_after_deposit": 80,
+    "balance_now_eth": 0.0133,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "Crypto Lords",
+     "LESS"
+    ],
+    "oldest_tx_in_last50": "2026-08-18",
+    "last50_span_days": 6.0,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xddfabcdc4d8ffc6d5beaf154f18b778f892a0740",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": null,
+    "outgoing_txs_before_deposit_in_window": 0,
+    "non_curator_outgoing_in_last50": 49,
+    "curator_txs_in_last50": 0,
+    "counterparties": [
+     [
+      "PunkGames",
+      20
+     ],
+     [
+      "₥є₥єภ†๏ร",
+      15
+     ],
+     [
+      "UniversalRouter",
+      5
+     ],
+     [
+      "RelayDepository",
+      3
+     ],
+     [
+      "0x92C8E0Bc",
+      2
+     ],
+     [
+      "DeathAndTaxes",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "claimRefund",
+      20
+     ],
+     [
+      "0xf242432a",
+      15
+     ],
+     [
+      "execute",
+      5
+     ],
+     [
+      "depositNative",
+      3
+     ],
+     [
+      "0xb88d4fde",
+      1
+     ],
+     [
+      "audit",
+      1
+     ]
+    ],
+    "post_settlement_txs": 45,
+    "post_settlement_out_values_eth": [
+     0.25,
+     0.26,
+     0.25,
+     0.5,
+     0.3
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x8c6fdb5926e31994c9372f5907508b36aca500b6",
+    "verdict": "human",
+    "why": "nonce 4998, 80 txs after deposit, NFT/meme trader; 2 deposits 0.05+0.2; attached only by sequence at h34"
+   },
+   {
+    "ens": "赚钱给女儿买奶粉.eth",
+    "group": "outside",
+    "cluster": 181,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 6716,
+    "nonce_now": 6723,
+    "txs_after_deposit": 6,
+    "balance_now_eth": 0.8765,
+    "idmd_balance": 0,
+    "nft_collections": 28,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Asterix Staking Vaults",
+     "uni-20",
+     "Jeetz 404"
+    ],
+    "oldest_tx_in_last50": "2025-09-27",
+    "last50_span_days": 324.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x669307b6de4f2eba6662448f7a81add3099a1357",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x95B30EF2BEE6baA77D77E39a6d0DfA4914B05Aa7",
+     "from_name": null,
+     "eth": 0.0,
+     "hours_before_deposit": 2403.4
+    },
+    "outgoing_txs_before_deposit_in_window": 31,
+    "non_curator_outgoing_in_last50": 37,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "UniversalRouter",
+      9
+     ],
+     [
+      "DexRouter",
+      8
+     ],
+     [
+      "USDC",
+      5
+     ],
+     [
+      "ProofOfNothing",
+      2
+     ],
+     [
+      "SatoSwapRouter",
+      2
+     ],
+     [
+      "Sato",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "execute",
+      9
+     ],
+     [
+      "dagSwapTo",
+      3
+     ],
+     [
+      "dagSwapByOrderId",
+      3
+     ],
+     [
+      "sell",
+      1
+     ],
+     [
+      "buy",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xc490bc9e50933600a2a7dc213e69851d8d56098e",
+    "verdict": "human",
+    "why": "nonce 6716, 28 NFT collections, active since 2025-09, 0.88 ETH; attached only by sequence at h34"
+   },
+   {
+    "ens": "ecomalpha.eth",
+    "group": "outside",
+    "cluster": 177,
+    "attach_rules": {
+     "sequence": 2
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 5170,
+    "nonce_now": 5171,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.0773,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Xtremeverse",
+     "underground",
+     "BiteByViper"
+    ],
+    "oldest_tx_in_last50": "2026-06-09",
+    "last50_span_days": 69.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x416299aade6443e6f6e8ab67126e65a7f606eef5",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x2d40791338A36F73c6B65B6ef986E0Ea2411642a",
+     "from_name": null,
+     "eth": 0.0,
+     "hours_before_deposit": 949.7
+    },
+    "outgoing_txs_before_deposit_in_window": 45,
+    "non_curator_outgoing_in_last50": 45,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "USDC",
+      3
+     ],
+     [
+      "0xa6a1f18F",
+      2
+     ],
+     [
+      "USDe",
+      2
+     ],
+     [
+      "Permit2Proxy",
+      2
+     ],
+     [
+      "FiatTokenProxy",
+      2
+     ],
+     [
+      "Staked USDe",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      36
+     ],
+     [
+      "transfer",
+      2
+     ],
+     [
+      "callDiamondWithPermit2",
+      2
+     ],
+     [
+      "execute",
+      1
+     ],
+     [
+      "swap",
+      1
+     ],
+     [
+      "depositErc20",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xfebded7df0b739564dcb218b4e673f0918528b8d",
+    "verdict": "human",
+    "why": "nonce 5170, 50+ NFT collections, USDC/USDe; attached only by sequence at h34"
+   },
+   {
+    "ens": "💰兜兜转转又回到电脑前打狗💰.eth",
+    "group": "outside",
+    "cluster": 219,
+    "attach_rules": {
+     "sequence": 1
+    },
+    "first_amount": "0.05",
+    "deposits": [
+     "0.05",
+     "0.5",
+     "0.9"
+    ],
+    "hour": 35,
+    "nonce_at_deposit": 328,
+    "nonce_now": 339,
+    "txs_after_deposit": 10,
+    "balance_now_eth": 0.9231,
+    "idmd_balance": 0,
+    "nft_collections": 1,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Ten Years Of Ethereum"
+    ],
+    "oldest_tx_in_last50": "2026-05-14",
+    "last50_span_days": 100.4,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xbbaa1e9109bee8e617ba7fb0e92b8ff632f5db6e",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x1AB4973a48dc892Cd9971ECE8e01DcC7688f8F23",
+     "from_name": null,
+     "eth": 0.9758,
+     "hours_before_deposit": 640.2
+    },
+    "outgoing_txs_before_deposit_in_window": 38,
+    "non_curator_outgoing_in_last50": 46,
+    "curator_txs_in_last50": 3,
+    "counterparties": [
+     [
+      "HashV2",
+      14
+     ],
+     [
+      "0x04D69803",
+      13
+     ],
+     [
+      "DexRouter",
+      5
+     ],
+     [
+      "PAC",
+      2
+     ],
+     [
+      "LaunchToken",
+      2
+     ],
+     [
+      "WEBCAT",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "mine",
+      13
+     ],
+     [
+      "approve",
+      11
+     ],
+     [
+      "0xde05e6a0",
+      6
+     ],
+     [
+      "0x970fd18c",
+      4
+     ],
+     [
+      "dagSwapByOrderId",
+      4
+     ],
+     [
+      "0xcf99b718",
+      3
+     ]
+    ],
+    "post_settlement_txs": 8,
+    "post_settlement_out_values_eth": [
+     0.05,
+     0.05,
+     0.0017
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x7f5f91b894913916926c9ac81f47cd5c7029881b",
+    "verdict": "human",
+    "why": "3 deposits 0.05/0.5/0.9, nonce 328, funded 27 days earlier, 0.92 ETH; attached by one sequence edge at h35"
+   },
+   {
+    "ens": "mychemicalromance.eth",
+    "group": "outside",
+    "cluster": 49,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "funding:peel_chain": 1
+    },
+    "first_amount": "1.0",
+    "deposits": [
+     "1.0"
+    ],
+    "hour": 18,
+    "nonce_at_deposit": 325,
+    "nonce_now": 327,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0423,
+    "idmd_balance": 0,
+    "nft_collections": 28,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "Lazr Gobs"
+    ],
+    "oldest_tx_in_last50": "2023-08-11",
+    "last50_span_days": 1101.6,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x6a61857928149cb7cd2ad29251902787bcf9c3b0",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0x6a61857928149cb7cd2ad29251902787BCf9C3b0",
+     "from_name": null,
+     "eth": 1.0,
+     "hours_before_deposit": 0.1
+    },
+    "outgoing_txs_before_deposit_in_window": 44,
+    "non_curator_outgoing_in_last50": 45,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "ValidatorShareProxy",
+      4
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      4
+     ],
+     [
+      "0x3d0FeAF9",
+      2
+     ],
+     [
+      "AevoToken",
+      2
+     ],
+     [
+      "SafeProxy",
+      1
+     ],
+     [
+      "Aztec",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "transfer",
+      4
+     ],
+     [
+      "approve",
+      4
+     ],
+     [
+      "withdraw",
+      2
+     ],
+     [
+      "unstakeClaimTokens_newPOL",
+      1
+     ],
+     [
+      "0x4e71d92d",
+      1
+     ],
+     [
+      "sellVoucher_newPOL",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x0f8aca6bb8d86bba87892efab1e19491c97387b7",
+    "verdict": "mixed",
+    "why": "aged wallet (since 2023-08, Polygon validator staking, 28 NFT collections) but funded 1.0 ETH 6 min before deposit by icdat.eth which also deposited 1.0 -> one person, 2 wallets; the 24-wallet cluster c49 is not theirs"
+   },
+   {
+    "ens": "0xkian.eth",
+    "group": "outside",
+    "cluster": 49,
+    "attach_rules": {
+     "amount:exact_round_wave": 1
+    },
+    "first_amount": "1.0",
+    "deposits": [
+     "1.0"
+    ],
+    "hour": 16,
+    "nonce_at_deposit": 60,
+    "nonce_now": 62,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.011,
+    "idmd_balance": 0,
+    "nft_collections": 7,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Fluid Pass L1",
+     "Ten Years Of Ethereum",
+     "Etherean",
+     "PumpBTC Pass"
+    ],
+    "oldest_tx_in_last50": "2024-07-18",
+    "last50_span_days": 760.3,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x406c22b8740ae955b04fd11c2061e053807e2a69",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF",
+     "from_name": null,
+     "eth": 0.0038,
+     "hours_before_deposit": 13240.3
+    },
+    "outgoing_txs_before_deposit_in_window": 47,
+    "non_curator_outgoing_in_last50": 48,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "LiFiDiamond",
+      6
+     ],
+     [
+      "Permit2Proxy",
+      4
+     ],
+     [
+      "0xF2285677",
+      4
+     ],
+     [
+      "USDC",
+      3
+     ],
+     [
+      "UniversalRouter",
+      3
+     ],
+     [
+      "MerkleDistributorWithDeadline",
+      3
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "mint",
+      4
+     ],
+     [
+      "claim",
+      4
+     ],
+     [
+      "execute",
+      3
+     ],
+     [
+      "callDiamondWithEIP2612Signature",
+      3
+     ],
+     [
+      "0xae328590",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xf2285677377d330daf8c92581fb4bf360aad6d73",
+    "verdict": "human",
+    "why": "nonce 60, 7 NFT collections, active since 2024-07, LiFi/Permit2; attached by a single round-wave 1.0 edge"
+   },
+   {
+    "ens": "icdat.eth",
+    "group": "outside",
+    "cluster": 49,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "funding:peel_chain": 1,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "1.0",
+    "deposits": [
+     "1.0"
+    ],
+    "hour": 17,
+    "nonce_at_deposit": 1489,
+    "nonce_now": 1492,
+    "txs_after_deposit": 2,
+    "balance_now_eth": 0.0314,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "Knife"
+    ],
+    "oldest_tx_in_last50": "2026-02-12",
+    "last50_span_days": 186.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xEDacA5871dd38B6B8b7fcf67beb36e7A7796febE",
+     "from_name": null,
+     "eth": 0.0,
+     "hours_before_deposit": 3792.2
+    },
+    "outgoing_txs_before_deposit_in_window": 45,
+    "non_curator_outgoing_in_last50": 47,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "UUPSProxy",
+      6
+     ],
+     [
+      "ERC1967Proxy",
+      5
+     ],
+     [
+      "USDC",
+      3
+     ],
+     [
+      "ZamaERC20",
+      3
+     ],
+     [
+      "Governance",
+      3
+     ],
+     [
+      "Rollup",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      9
+     ],
+     [
+      "transfer",
+      4
+     ],
+     [
+      "withdraw",
+      3
+     ],
+     [
+      "finalizeWithdraw",
+      2
+     ],
+     [
+      "claimRewards",
+      2
+     ],
+     [
+      "initiateWithdraw",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6a61857928149cb7cd2ad29251902787bcf9c3b0",
+    "verdict": "mixed",
+    "why": "nonce 1489, 50+ NFT collections; funded mychemicalromance.eth -> 2-wallet person; welded to 22 strangers via round-wave 1.0 + exchange hub"
+   },
+   {
+    "ens": "mannersinvest.eth",
+    "group": "outside",
+    "cluster": 162,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.2",
+    "deposits": [
+     "0.2"
+    ],
+    "hour": 8,
+    "nonce_at_deposit": 1724,
+    "nonce_now": 1880,
+    "txs_after_deposit": 155,
+    "balance_now_eth": 0.021,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "zOrgz",
+     "mint.fun !teams"
+    ],
+    "oldest_tx_in_last50": "2026-08-22",
+    "last50_span_days": 0.0,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": null,
+    "outgoing_txs_before_deposit_in_window": 0,
+    "non_curator_outgoing_in_last50": 50,
+    "curator_txs_in_last50": 0,
+    "counterparties": [
+     [
+      "HoneyComb",
+      5
+     ],
+     [
+      "ERC721SeaDropPausable",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "DragonOG",
+      3
+     ],
+     [
+      "Nakamigos",
+      3
+     ],
+     [
+      "Elemental",
+      3
+     ]
+    ],
+    "methods": [
+     [
+      "setApprovalForAll",
+      46
+     ],
+     [
+      "0xa22cb465",
+      4
+     ]
+    ],
+    "post_settlement_txs": 50,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xf70fa1b8443c620ca7d43a9d17f4bde8b09031cc",
+    "verdict": "human",
+    "why": "nonce 1724 -> 1880 (155 txs after), SeaDrop minter; attached by round-wave 0.2 + exchange hub 0xc098b2a3"
+   },
+   {
+    "ens": "aius-.eth",
+    "group": "outside",
+    "cluster": 162,
+    "attach_rules": {
+     "amount:exact_round_wave": 2
+    },
+    "first_amount": "0.2",
+    "deposits": [
+     "0.2"
+    ],
+    "hour": 10,
+    "nonce_at_deposit": 2649,
+    "nonce_now": 2661,
+    "txs_after_deposit": 11,
+    "balance_now_eth": 0.1899,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "Art Blocks Studio | 54"
+    ],
+    "oldest_tx_in_last50": "2026-04-25",
+    "last50_span_days": 116.6,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xdfd5293d8e347dfe59e90efd55b2956a1343963d",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xEC55D8aBc8752445f2549C631CA6D2CE1d18E423",
+     "from_name": null,
+     "eth": 0.2,
+     "hours_before_deposit": 0.1
+    },
+    "outgoing_txs_before_deposit_in_window": 36,
+    "non_curator_outgoing_in_last50": 47,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "USDC",
+      8
+     ],
+     [
+      "ContinuousClearingAuction",
+      8
+     ],
+     [
+      "UniversalRouter",
+      7
+     ],
+     [
+      "ERC1967Proxy",
+      7
+     ],
+     [
+      "DexRouter",
+      5
+     ],
+     [
+      "InterfoldToken",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      14
+     ],
+     [
+      "execute",
+      8
+     ],
+     [
+      "submitBid",
+      5
+     ],
+     [
+      "dagSwapByOrderId",
+      3
+     ],
+     [
+      "exitPartiallyFilledBid",
+      3
+     ],
+     [
+      "dagSwapTo",
+      2
+     ]
+    ],
+    "post_settlement_txs": 11,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x48910a64005cff019885bd7b277e0a69a94ae11f",
+    "verdict": "human",
+    "why": "nonce 2649, 50+ NFT collections, auctions/UniversalRouter; attached only by round-wave 0.2"
+   },
+   {
+    "ens": "proofoftwitter.eth",
+    "group": "outside",
+    "cluster": 51,
+    "attach_rules": {
+     "amount:exact_round_wave": 2
+    },
+    "first_amount": "1.0",
+    "deposits": [
+     "1.0"
+    ],
+    "hour": 12,
+    "nonce_at_deposit": 940,
+    "nonce_now": 942,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0015,
+    "idmd_balance": 0,
+    "nft_collections": 49,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "Eggi"
+    ],
+    "oldest_tx_in_last50": "2025-04-18",
+    "last50_span_days": 486.1,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xd551234ae421e3bcba99a0da6d736074f22192ff",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x433a6493598b97e23b5647984933620eD4B9BC0C",
+     "from_name": null,
+     "eth": 1.0,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 44,
+    "non_curator_outgoing_in_last50": 45,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "USDCOFTAdapter",
+      7
+     ],
+     [
+      "ZeeMasks",
+      3
+     ],
+     [
+      "0x1728eBBe",
+      2
+     ],
+     [
+      "SafeProxy",
+      2
+     ],
+     [
+      "ERC721SeaDrop",
+      2
+     ],
+     [
+      "Proxy",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "transfer",
+      9
+     ],
+     [
+      "send",
+      9
+     ],
+     [
+      "approve",
+      3
+     ],
+     [
+      "claim",
+      3
+     ],
+     [
+      "safeTransferFrom",
+      3
+     ],
+     [
+      "setApprovalForAll",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x4d48df14a698984c60e705a11dd696f368cb3a21",
+    "verdict": "human",
+    "why": "nonce 940, 49 NFT collections, Safe, USDC OFT; attached only by round-wave 1.0"
+   },
+   {
+    "ens": "6254.holer.eth",
+    "group": "outside",
+    "cluster": 51,
+    "attach_rules": {
+     "amount:exact_round_wave": 2
+    },
+    "first_amount": "1.0",
+    "deposits": [
+     "1.0"
+    ],
+    "hour": 14,
+    "nonce_at_deposit": 4241,
+    "nonce_now": 4257,
+    "txs_after_deposit": 15,
+    "balance_now_eth": 0.2057,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "Glitch-Fi Frog",
+     "Doggy Based House",
+     "Divine Freaks",
+     "Dave Still Stands"
+    ],
+    "oldest_tx_in_last50": "2026-07-20",
+    "last50_span_days": 33.1,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x81b81f92439af0d895071c63f366c2cc1874e0dd",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x2Cd45Da8cA3d0EfB95931C1f8dA33bE7dE14369B",
+     "from_name": null,
+     "eth": 0.2821,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 25,
+    "non_curator_outgoing_in_last50": 40,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "Seaport",
+      11
+     ],
+     [
+      "SeaDrop",
+      3
+     ],
+     [
+      "WETH9",
+      3
+     ],
+     [
+      "BRAINROT",
+      2
+     ],
+     [
+      "TimeIsScam",
+      2
+     ],
+     [
+      "0x718B5059",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "fulfillAdvancedOrder",
+      8
+     ],
+     [
+      "mint",
+      3
+     ],
+     [
+      "safeTransferFrom",
+      2
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      2
+     ],
+     [
+      "mintSigned",
+      2
+     ],
+     [
+      "setApprovalForAll",
+      2
+     ]
+    ],
+    "post_settlement_txs": 7,
+    "post_settlement_out_values_eth": [
+     0.02,
+     0.0196
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xe656df09cca0f9967fc326a807217ec2c4dec9c8",
+    "verdict": "human",
+    "why": "nonce 4241, 50+ NFT collections, Seaport; attached only by round-wave 1.0"
+   },
+   {
+    "ens": "bayc9984.eth",
+    "group": "outside",
+    "cluster": 164,
+    "attach_rules": {
+     "amount:exact_round_wave": 2
+    },
+    "first_amount": "0.07",
+    "deposits": [
+     "0.07"
+    ],
+    "hour": 8,
+    "nonce_at_deposit": 179,
+    "nonce_now": 180,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.0777,
+    "idmd_balance": 0,
+    "nft_collections": 22,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ethereum Name Service",
+     "Fishy Fam",
+     "Galxe ETH Merge NFT"
+    ],
+    "oldest_tx_in_last50": "2024-01-25",
+    "last50_span_days": 934.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x2142b521f3155f1b5d0e230e710aa36cdba88f4b",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xf70da97812CB96acDF810712Aa562db8dfA3dbEF",
+     "from_name": null,
+     "eth": 0.0029,
+     "hours_before_deposit": 10618.9
+    },
+    "outgoing_txs_before_deposit_in_window": 47,
+    "non_curator_outgoing_in_last50": 47,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "ERC1967Proxy",
+      5
+     ],
+     [
+      "UniversalRouter",
+      4
+     ],
+     [
+      "EtherealPreDepositVault",
+      3
+     ],
+     [
+      "CrowClan",
+      3
+     ],
+     [
+      "Ethena Staked ENA",
+      2
+     ],
+     [
+      "USDe",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      8
+     ],
+     [
+      "transfer",
+      6
+     ],
+     [
+      "setApprovalForAll",
+      4
+     ],
+     [
+      "safeTransferFrom",
+      4
+     ],
+     [
+      "execute",
+      4
+     ],
+     [
+      "0x8132b321",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x0fb37542609921dfbad4d36441d9328985f50449",
+    "verdict": "human",
+    "why": "nonce 179, 22 NFT collections, active since 2024-01; attached only by round-wave 0.07"
+   },
+   {
+    "ens": "uae07.eth",
+    "group": "outside",
+    "cluster": 196,
+    "attach_rules": {
+     "amount:exact_round_wave": 1,
+     "gas:limit+fee": 2
+    },
+    "first_amount": "1.11",
+    "deposits": [
+     "1.11"
+    ],
+    "hour": 22,
+    "nonce_at_deposit": 197,
+    "nonce_now": 199,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0,
+    "idmd_balance": 0,
+    "nft_collections": 11,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ten Years Of Ethereum",
+     "To Ethereum, with Love",
+     "Ethereum Name Service"
+    ],
+    "oldest_tx_in_last50": "2024-10-27",
+    "last50_span_days": 659.6,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x21a31ee1afc51d94c2efccaa2092ad1028285549",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x9447fB9F23A314fB7fC3AC69D3080e7F2bdbfEf8",
+     "from_name": null,
+     "eth": 1.1214,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 36,
+    "non_curator_outgoing_in_last50": 37,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "0x5607892e",
+      4
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0x9447fB9F",
+      2
+     ],
+     [
+      "Proxy",
+      2
+     ],
+     [
+      "OpenOceanExchangeProxy",
+      2
+     ],
+     [
+      "MagpieRouterV3_1",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      6
+     ],
+     [
+      "swap",
+      3
+     ],
+     [
+      "transfer",
+      3
+     ],
+     [
+      "swapWithMagpieSignature",
+      2
+     ],
+     [
+      "safeTransferFrom",
+      1
+     ],
+     [
+      "finalizeWithdrawalTransaction",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x8bc5e5ea6f9b94dabad46551f3721016e5c0414c",
+    "verdict": "farm",
+    "why": "uae07->uae08->uae12 fund each other JIT with 1.1214 ETH, all 1.11 at h22, same gas fingerprint; aged wallets (EigenLayer/Magpie) reused -> 3-wallet named operator; cluster c196 (size 5) is essentially correct"
+   },
+   {
+    "ens": "unityacademy.eth",
+    "group": "outside",
+    "cluster": 184,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.15",
+    "deposits": [
+     "0.15"
+    ],
+    "hour": 11,
+    "nonce_at_deposit": 273,
+    "nonce_now": 274,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.1666,
+    "idmd_balance": 0,
+    "nft_collections": 32,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Heraldia",
+     "Anticipation (of a future event)",
+     "The Jews"
+    ],
+    "oldest_tx_in_last50": "2026-04-08",
+    "last50_span_days": 130.6,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xc098b2a3aa256d2140208c3de6543aaef5cd3a94",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x137573cE7F37Cdf481187DDC72C6377FB0d7A600",
+     "from_name": null,
+     "eth": 0.0543,
+     "hours_before_deposit": 660.4
+    },
+    "outgoing_txs_before_deposit_in_window": 44,
+    "non_curator_outgoing_in_last50": 44,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "SeaDrop",
+      15
+     ],
+     [
+      "Seaport",
+      6
+     ],
+     [
+      "ERC721SeaDrop",
+      3
+     ],
+     [
+      "WETH9",
+      3
+     ],
+     [
+      "TetherToken",
+      2
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "mintSigned",
+      14
+     ],
+     [
+      "safeTransferFrom",
+      3
+     ],
+     [
+      "approve",
+      2
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      2
+     ],
+     [
+      "matchAdvancedOrders",
+      2
+     ],
+     [
+      "0x7a225639",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xefd67df62714256452d39245681c279b9d24523e",
+    "verdict": "human",
+    "why": "nonce 273, 32 NFT collections, SeaDrop minter; attached by round-wave 0.15 + exchange hub"
+   },
+   {
+    "ens": "lens.pigcanfly.eth",
+    "group": "outside",
+    "cluster": 52,
+    "attach_rules": {
+     "amount:exact_round_wave": 1,
+     "funding:peel_chain": 1
+    },
+    "first_amount": "4.0",
+    "deposits": [
+     "4.0"
+    ],
+    "hour": 8,
+    "nonce_at_deposit": 2544,
+    "nonce_now": 2550,
+    "txs_after_deposit": 5,
+    "balance_now_eth": 0.25,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "!fundrop #1: Mint Machine by numo",
+     "mint.fun !fundrop pass",
+     "mint.fun !teams",
+     "goblintown3D.wtf"
+    ],
+    "oldest_tx_in_last50": "2026-07-10",
+    "last50_span_days": 37.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x99e0db18b85ab1a49d296b38952b246e48510d95",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xDFd5293D8e347dFe59E90eFd55b2956a1343963d",
+     "from_name": null,
+     "eth": 3.6169,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 14,
+    "non_curator_outgoing_in_last50": 19,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "0xFE52532f",
+      2
+     ],
+     [
+      "USDC",
+      2
+     ],
+     [
+      "Seaport",
+      2
+     ],
+     [
+      "0x316E3241",
+      1
+     ],
+     [
+      "0x0e9939A5",
+      1
+     ],
+     [
+      "0x0bAb76A1",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "transfer",
+      2
+     ],
+     [
+      "execute",
+      1
+     ],
+     [
+      "approve",
+      1
+     ],
+     [
+      "fulfillAdvancedOrder",
+      1
+     ],
+     [
+      "0xa22cb465",
+      1
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x8ba3765af93538054e38998c93c30a94b9c7572f",
+    "verdict": "mixed",
+    "why": "nonce 2544, 50+ NFT collections, 3.6 ETH JIT from CEX 0xdfd5293d; first funder is a cluster member at 4.0 -> probably own main wallet; 2-wallet person at most"
+   },
+   {
+    "ens": "0xshaf.eth",
+    "group": "outside",
+    "cluster": 190,
+    "attach_rules": {
+     "amount:exact_round_wave": 1,
+     "funding:peel_chain": 1
+    },
+    "first_amount": "1.03",
+    "deposits": [
+     "1.03"
+    ],
+    "hour": 12,
+    "nonce_at_deposit": 1593,
+    "nonce_now": 1618,
+    "txs_after_deposit": 24,
+    "balance_now_eth": 0.0113,
+    "idmd_balance": 1,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "identity.md",
+     "Yeepix",
+     "THE LOST PIXEL GEM"
+    ],
+    "oldest_tx_in_last50": "2026-08-08",
+    "last50_span_days": 14.4,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x75874edda73ad5109d09a56d51e1fb5dfd50368b",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0x75874Edda73Ad5109D09a56d51E1fB5DfD50368b",
+     "from_name": null,
+     "eth": 1.04,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 24,
+    "non_curator_outgoing_in_last50": 47,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "Seaport",
+      9
+     ],
+     [
+      "RelayDepository",
+      9
+     ],
+     [
+      "MOMO",
+      8
+     ],
+     [
+      "RelayApprovalProxyV3",
+      4
+     ],
+     [
+      "MomoActivationLedger",
+      4
+     ],
+     [
+      "WETH9",
+      3
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      8
+     ],
+     [
+      "depositNative",
+      8
+     ],
+     [
+      "transferAndMulticall",
+      4
+     ],
+     [
+      "fundActivationBatch",
+      4
+     ],
+     [
+      "executeMetadataAction",
+      2
+     ]
+    ],
+    "post_settlement_txs": 13,
+    "post_settlement_out_values_eth": [
+     0.0041,
+     0.076,
+     0.073
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x253ecae3e5828e31ab54203130dd07838e33b1ab",
+    "verdict": "mixed",
+    "why": "nonce 1593, holds 1 IDMD, 50+ NFT collections, 24 txs after; funded 1.04 JIT by 0x75874edd which also deposited 1.03 (peel chain) -> small group c190 of 5 at 1.03, likely one person/friends"
+   },
+   {
+    "ens": "basebuilder.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 3,
+    "attach_rules": {
+     "amount:exact_odd": 1,
+     "amount:split": 1,
+     "cadence:drip": 1,
+     "funding:peel_chain": 1,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "2.067",
+    "deposits": [
+     "2.067"
+    ],
+    "hour": 13,
+    "nonce_at_deposit": 1214,
+    "nonce_now": 1216,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.3698,
+    "idmd_balance": 0,
+    "nft_collections": 20,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Mergeable Rectangles",
+     "Nonce",
+     "Veiled Creatures",
+     "Easy Punks"
+    ],
+    "oldest_tx_in_last50": "2026-05-04",
+    "last50_span_days": 104.5,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x00000b7a7a859f1b7ab55579fd4e7b0b22064f3d",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x9b150dE62169042C996e763B0F914a17fB9004b5",
+     "from_name": null,
+     "eth": 2.067,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 45,
+    "non_curator_outgoing_in_last50": 46,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "SeaDrop",
+      13
+     ],
+     [
+      "0xb0383F59",
+      6
+     ],
+     [
+      "0xe083C50b",
+      4
+     ],
+     [
+      "0x391222B6",
+      3
+     ],
+     [
+      "Aura",
+      2
+     ],
+     [
+      "Satos",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "mintPublic",
+      13
+     ],
+     [
+      "0xb2703a63",
+      6
+     ],
+     [
+      "approve",
+      5
+     ],
+     [
+      "mint",
+      5
+     ],
+     [
+      "0x72d2563e",
+      3
+     ],
+     [
+      "0x643e65bc",
+      3
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+    "verdict": "farm",
+    "why": "2.067 wave member: funded 2.067 JIT, then funded viair.eth 2.067; basebuilder and viair have byte-identical activity fingerprints (SeaDrop 13, same counterparties, both first active 2026-05-04) -> scripted aged wallets of the 2.067 operator"
+   },
+   {
+    "ens": "viair.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 3,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "amount:split": 2,
+     "cadence:drip": 2,
+     "funding:peel_chain": 1
+    },
+    "first_amount": "2.067",
+    "deposits": [
+     "2.067"
+    ],
+    "hour": 13,
+    "nonce_at_deposit": 3337,
+    "nonce_now": 3339,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.3189,
+    "idmd_balance": 0,
+    "nft_collections": 21,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Mergeable Rectangles",
+     "Nonce",
+     "Veiled Creatures",
+     "Easy Punks"
+    ],
+    "oldest_tx_in_last50": "2026-05-04",
+    "last50_span_days": 104.5,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x6135a1794d04ad3c65b0fb9dbeff5af72b1c89b9",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0x6135A1794D04AD3C65B0fb9DbeFF5af72B1c89b9",
+     "from_name": null,
+     "eth": 2.067,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 45,
+    "non_curator_outgoing_in_last50": 46,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "SeaDrop",
+      13
+     ],
+     [
+      "HASH98",
+      6
+     ],
+     [
+      "0xe083C50b",
+      4
+     ],
+     [
+      "0x391222B6",
+      4
+     ],
+     [
+      "0xb0383F59",
+      3
+     ],
+     [
+      "Aura",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "mintPublic",
+      13
+     ],
+     [
+      "mint",
+      10
+     ],
+     [
+      "0xb2703a63",
+      4
+     ],
+     [
+      "0x643e65bc",
+      4
+     ],
+     [
+      "0x72d2563e",
+      3
+     ],
+     [
+      "approve",
+      3
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xa8a880454a260cbc010b19fa2c2cc0240639c75b",
+    "verdict": "farm",
+    "why": "see basebuilder.eth: funded by basebuilder.eth, identical history fingerprint"
+   },
+   {
+    "ens": "0xmrdq.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 8,
+    "attach_rules": {
+     "amount:exact_round_wave": 1,
+     "amount:split": 1
+    },
+    "first_amount": "0.45",
+    "deposits": [
+     "0.45"
+    ],
+    "hour": 34,
+    "nonce_at_deposit": 1628,
+    "nonce_now": 1636,
+    "txs_after_deposit": 7,
+    "balance_now_eth": 0.0245,
+    "idmd_balance": 0,
+    "nft_collections": 50,
+    "nft_more_than_50": true,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Avium Founders' Pass",
+     "KumaToy",
+     "Gutter Punks Flyer - Azuki"
+    ],
+    "oldest_tx_in_last50": "2026-06-02",
+    "last50_span_days": 78.3,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x708396f17127c42383e3b9014072679b2f60b82f",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x755B795cc6d2565F9083B8C55D5e414e6089a484",
+     "from_name": null,
+     "eth": 0.403,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 37,
+    "non_curator_outgoing_in_last50": 44,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "DexRouter",
+      32
+     ],
+     [
+      "0x755B795c",
+      2
+     ],
+     [
+      "WETH9",
+      2
+     ],
+     [
+      "ArgonotToken",
+      2
+     ],
+     [
+      "Seaport",
+      1
+     ],
+     [
+      "Normies",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "dagSwapByOrderId",
+      30
+     ],
+     [
+      "transfer",
+      2
+     ],
+     [
+      "approve",
+      2
+     ],
+     [
+      "swapWrapToWithBaseRequest",
+      1
+     ],
+     [
+      "fulfillAvailableAdvancedOrders",
+      1
+     ],
+     [
+      "setApprovalForAll",
+      1
+     ]
+    ],
+    "post_settlement_txs": 6,
+    "post_settlement_out_values_eth": [
+     1.1
+    ],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x52be3580601524652978648e872d0aa448afc928",
+    "verdict": "human",
+    "why": "nonce 1628, DexRouter trader (32 swaps), 50+ NFT collections, 1.1 ETH moved after game; deposited 0.45 at h34 during the second 0.45 wave (c8: 364/367 fresh nonce-0 wallets) -> a bystander welded in by round-wave+split"
+   },
+   {
+    "ens": "concordclub.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 85,
+    "attach_rules": {
+     "amount:near_same_block": 2,
+     "sequence": 1,
+     "gas:two_axes": 2,
+     "funding:peel_chain": 1
+    },
+    "first_amount": "1.198786",
+    "deposits": [
+     "1.198786"
+    ],
+    "hour": 2,
+    "nonce_at_deposit": 415,
+    "nonce_now": 417,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0,
+    "idmd_balance": 0,
+    "nft_collections": 14,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "LANCET PASS",
+     "WebbItems",
+     "Falcon Lifetime Access",
+     "Etherean"
+    ],
+    "oldest_tx_in_last50": "2026-03-26",
+    "last50_span_days": 143.6,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x11a77364f2ca798baeebebb915c26fe46094b723",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x59d8C6D20F6A62c240BCFAb40bddAf2c72fe0Be7",
+     "from_name": null,
+     "eth": 1.301,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 33,
+    "non_curator_outgoing_in_last50": 34,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "ERC721SeaDrop",
+      9
+     ],
+     [
+      "Seaport",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0x5a854676",
+      2
+     ],
+     [
+      "0x1cdcE382",
+      2
+     ],
+     [
+      "0xF1ef8cC2",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "transferFrom",
+      9
+     ],
+     [
+      "approve",
+      4
+     ],
+     [
+      "depositForUser",
+      3
+     ],
+     [
+      "cancel",
+      2
+     ],
+     [
+      "0x42b7528d",
+      2
+     ],
+     [
+      "deposit",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6e3b79992705fb88a24296b7a9873967479a27e8",
+    "verdict": "farm",
+    "why": "amount 1.198786 (6 random decimals) matches the 10-wallet ~1.2 jitter batch c85 at h2, first funder in cluster, gas fingerprint shared; aged SeaDrop wallet reused by the jitter operator"
+   },
+   {
+    "ens": "uae08.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 196,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "gas:limit+fee": 2
+    },
+    "first_amount": "1.11",
+    "deposits": [
+     "1.11"
+    ],
+    "hour": 22,
+    "nonce_at_deposit": 159,
+    "nonce_now": 161,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0,
+    "idmd_balance": 0,
+    "nft_collections": 11,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ten Years Of Ethereum",
+     "To Ethereum, with Love",
+     "Ethereum Name Service"
+    ],
+    "oldest_tx_in_last50": "2024-07-26",
+    "last50_span_days": 751.9,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x75e89d5979e4f6fba9f97c104c2f0afb3f1dcb88",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x8bC5e5EA6F9B94DABAD46551f3721016e5C0414c",
+     "from_name": null,
+     "eth": 1.1214,
+     "hours_before_deposit": 0.1
+    },
+    "outgoing_txs_before_deposit_in_window": 37,
+    "non_curator_outgoing_in_last50": 38,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "0xA1613a8E",
+      5
+     ],
+     [
+      "MagpieRouterV3_1",
+      3
+     ],
+     [
+      "EigenCloud (prev. EigenLayer)",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "MetaAggregationRouterV2",
+      2
+     ],
+     [
+      "ZRXToken",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      7
+     ],
+     [
+      "swapWithMagpieSignature",
+      3
+     ],
+     [
+      "swap",
+      3
+     ],
+     [
+      "transfer",
+      3
+     ],
+     [
+      "safeTransferFrom",
+      1
+     ],
+     [
+      "pledge",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x5607892e3276bda70dd23460ccac3d1131b67798",
+    "verdict": "farm",
+    "why": "funded 1.1214 by uae07.eth 6 min before deposit; see uae07"
+   },
+   {
+    "ens": "0xbarad.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.051",
+    "deposits": [
+     "0.051"
+    ],
+    "hour": 37,
+    "nonce_at_deposit": 139,
+    "nonce_now": 140,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.0549,
+    "idmd_balance": 0,
+    "nft_collections": 1,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Ten Years Of Ethereum"
+    ],
+    "oldest_tx_in_last50": "2025-11-28",
+    "last50_span_days": 262.7,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x077d360f11d220e4d5d831430c81c26c9be7c4a4",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0x45DF5E6C3BCcB8A03049653472096156aaEC8012",
+     "from_name": null,
+     "eth": 0.0,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 36,
+    "non_curator_outgoing_in_last50": 36,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "USDC",
+      12
+     ],
+     [
+      "Permit2Proxy",
+      5
+     ],
+     [
+      "TetherToken",
+      3
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      3
+     ],
+     [
+      "0xBc1D9760",
+      2
+     ],
+     [
+      "LiFiDiamond",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "transfer",
+      10
+     ],
+     [
+      "callDiamondWithEIP2612Signature",
+      3
+     ],
+     [
+      "callDiamondWithPermit2",
+      2
+     ],
+     [
+      "0xd984396a",
+      2
+     ],
+     [
+      "swapAndStartBridgeTokensViaAcrossV4",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xea5a9aa245484a88a998ce5192f10c5de31f520d",
+    "verdict": "human",
+    "why": "nonce 139, USDC/USDT/Permit2 user since 2025-11; probably same person as barad.eth (h36, nonce 1104) -> at most 2 wallets; attached by exact-odd 0.051 + exchange hub 0x077d360f (1.4M txs)"
+   },
+   {
+    "ens": "hanapr.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.053",
+    "deposits": [
+     "0.053"
+    ],
+    "hour": 27,
+    "nonce_at_deposit": 48,
+    "nonce_now": 50,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0117,
+    "idmd_balance": 0,
+    "nft_collections": 2,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Ten Years Of Ethereum",
+     "Zerion DNA 1.0"
+    ],
+    "oldest_tx_in_last50": "2024-05-01",
+    "last50_span_days": 838.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xba40791cc448c110ecde65410486fcfaed9de872",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xbA40791CC448c110ecDe65410486fcFAED9de872",
+     "from_name": null,
+     "eth": 0.053,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 42,
+    "non_curator_outgoing_in_last50": 43,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "LiFiDiamond",
+      9
+     ],
+     [
+      "0x391E7C67",
+      5
+     ],
+     [
+      "PendleRouterV4",
+      3
+     ],
+     [
+      "0xbA40791C",
+      2
+     ],
+     [
+      "Ethena Staked ENA",
+      2
+     ],
+     [
+      "Ethena",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      9
+     ],
+     [
+      "0x8132b321",
+      4
+     ],
+     [
+      "0xed48907e",
+      3
+     ],
+     [
+      "swapTokensSingleV3NativeToERC20",
+      3
+     ],
+     [
+      "0x28832cbd",
+      2
+     ],
+     [
+      "deposit",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6bb02aca1c93f3f528e818499d635a31625fbf93",
+    "verdict": "farm",
+    "why": "'*pr' group: JIT 0.053 from 0xba40791c (nonce-16 EOA) which also funded iliapr.eth 0.054; hanapr/iliapr have identical history (first active 2024-05-01, LiFi/Pendle/Ethena) -> same operator"
+   },
+   {
+    "ens": "iliapr.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 7,
+    "attach_rules": {
+     "amount:exact_odd": 2,
+     "funding:shared_hub": 1
+    },
+    "first_amount": "0.054",
+    "deposits": [
+     "0.054"
+    ],
+    "hour": 27,
+    "nonce_at_deposit": 49,
+    "nonce_now": 51,
+    "txs_after_deposit": 1,
+    "balance_now_eth": 0.0108,
+    "idmd_balance": 0,
+    "nft_collections": 2,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "Ten Years Of Ethereum",
+     "Zerion DNA 1.0"
+    ],
+    "oldest_tx_in_last50": "2024-05-01",
+    "last50_span_days": 838.8,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xba40791cc448c110ecde65410486fcfaed9de872",
+    "funder_in_cluster": false,
+    "last_funding_before_deposit": {
+     "from": "0xbA40791CC448c110ecDe65410486fcFAED9de872",
+     "from_name": null,
+     "eth": 0.054,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 43,
+    "non_curator_outgoing_in_last50": 44,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "LiFiDiamond",
+      11
+     ],
+     [
+      "0x391E7C67",
+      4
+     ],
+     [
+      "Ethena",
+      3
+     ],
+     [
+      "DefaultCollateral_ENA",
+      3
+     ],
+     [
+      "0xbA40791C",
+      2
+     ],
+     [
+      "Ethena Staked ENA",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "approve",
+      10
+     ],
+     [
+      "0x8132b321",
+      4
+     ],
+     [
+      "deposit",
+      3
+     ],
+     [
+      "swapTokensSingleV3ERC20ToNative",
+      3
+     ],
+     [
+      "swapTokensSingleV3NativeToERC20",
+      3
+     ],
+     [
+      "0xf3fef3a3",
+      2
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x57f843212a88aa26c12b801d6d8702529891bb48",
+    "verdict": "farm",
+    "why": "see hanapr.eth"
+   },
+   {
+    "ens": "07176.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "funding:peel_chain": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 11,
+    "nonce_at_deposit": 42,
+    "nonce_now": 43,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.1054,
+    "idmd_balance": 0,
+    "nft_collections": 6,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ten Years Of Ethereum",
+     "Introducing World App",
+     "ShapellaUpgrade"
+    ],
+    "oldest_tx_in_last50": "2021-09-13",
+    "last50_span_days": 1799.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0xdc07d1aeb630304c8cab22412330433bcd571708",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0x9696f59E4d72E237BE84fFD425DCaD154Bf96976",
+     "from_name": null,
+     "eth": 0.0999,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 39,
+    "non_curator_outgoing_in_last50": 39,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "TransparentUpgradeableProxy",
+      6
+     ],
+     [
+      "0xc6f58b7a",
+      6
+     ],
+     [
+      "FundropPass",
+      6
+     ],
+     [
+      "LaunchBlockGrapesSale",
+      2
+     ],
+     [
+      "ShapellaUpgradeNFT",
+      2
+     ],
+     [
+      "0x455f44e9",
+      2
+     ]
+    ],
+    "methods": [
+     [
+      "mint",
+      10
+     ],
+     [
+      "executeTransaction",
+      3
+     ],
+     [
+      "publicMint",
+      2
+     ],
+     [
+      "setName",
+      1
+     ],
+     [
+      "setAddr",
+      1
+     ],
+     [
+      "refund",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0xc6f58b7a6c224d8f0fb4e4452354adb72cb4216b",
+    "verdict": "farm",
+    "why": "5-digit group: nonce 42, identical 2021-09-13 history with 05323.eth, JIT 0.0999 from exchange, first funder in cluster"
+   },
+   {
+    "ens": "05323.eth",
+    "group": "inside_or_named_farm",
+    "cluster": 6,
+    "attach_rules": {
+     "amount:exact_round_wave": 2,
+     "amount:split": 2,
+     "funding:peel_chain": 2
+    },
+    "first_amount": "0.1",
+    "deposits": [
+     "0.1"
+    ],
+    "hour": 11,
+    "nonce_at_deposit": 42,
+    "nonce_now": 43,
+    "txs_after_deposit": 0,
+    "balance_now_eth": 0.1053,
+    "idmd_balance": 0,
+    "nft_collections": 5,
+    "nft_more_than_50": false,
+    "nft_sample": [
+     "mint.fun !fundrop pass",
+     "Ten Years Of Ethereum",
+     "Introducing World App",
+     "ShapellaUpgrade"
+    ],
+    "oldest_tx_in_last50": "2021-09-13",
+    "last50_span_days": 1799.2,
+    "has_more_than_50_txs": true,
+    "funder_enrich": "0x455f44e9087aab3af3d232695b624d3d91b6ca31",
+    "funder_in_cluster": true,
+    "last_funding_before_deposit": {
+     "from": "0x28C6c06298d514Db089934071355E5743bf21d60",
+     "from_name": null,
+     "eth": 0.0999,
+     "hours_before_deposit": 0.0
+    },
+    "outgoing_txs_before_deposit_in_window": 40,
+    "non_curator_outgoing_in_last50": 40,
+    "curator_txs_in_last50": 1,
+    "counterparties": [
+     [
+      "0x6026045d",
+      10
+     ],
+     [
+      "TransparentUpgradeableProxy",
+      5
+     ],
+     [
+      "FundropPass",
+      5
+     ],
+     [
+      "0xA4E2d2b4",
+      2
+     ],
+     [
+      "SafeProxy",
+      1
+     ],
+     [
+      "ApprovalProxy",
+      1
+     ]
+    ],
+    "methods": [
+     [
+      "mint",
+      8
+     ],
+     [
+      "depositEth",
+      2
+     ],
+     [
+      "transferAndMulticall",
+      1
+     ],
+     [
+      "approve",
+      1
+     ],
+     [
+      "claim",
+      1
+     ],
+     [
+      "setName",
+      1
+     ]
+    ],
+    "post_settlement_txs": 0,
+    "post_settlement_out_values_eth": [],
+    "tx_err": null,
+    "nft_err": null,
+    "address": "0x6026045d66294824e0b8bd67b829ea74b4bebfd0",
+    "verdict": "farm",
+    "why": "5-digit group: nonce 42, identical history with 07176.eth, JIT 0.0999 from Binance hot wallet 0x28c6c062"
+   }
+  ]
+ },
+ "ablations_targeted": {
+  "drop_exact_odd_edges_on_amounts_with_<=3_decimals(0.051,0.055,2.067...)": {
+   "clusters": 277,
+   "members": 10993,
+   "members_lost": 580,
+   "named_lost": 112,
+   "lost_by_category": {
+    "c7": 426,
+    "small_round_or_other": 136,
+    "c6": 18
+   },
+   "undisputed_farm_members_lost": 0,
+   "c7_fragments_after": "largest surviving pieces 105,93,54,35,35,33,28,22,16,16"
+  },
+  "drop_<=3dec_odd_AND_shared_hub": {
+   "clusters": 244,
+   "members": 10468,
+   "members_lost": 1105,
+   "named_lost": 154,
+   "lost_by_category": {
+    "c7": 441,
+    "exchange_hub_1.x_ladder": 233,
+    "small_round_or_other": 227,
+    "late_0.05_wave": 160,
+    "other_0.05": 26,
+    "c6": 18
+   }
+  },
+  "exact_odd_amount_facts": "1,070 flagged wallets carry exact-odd edges; 982 of them on amounts with <=3 decimals (0.051 x194, 0.055 x58, 0.052 x54, 0.063 x41, 0.053/0.057 x22, 0.091 x21 ...); 410 of those have no other strong rule (101 named)"
+ },
+ "context_h34": "volume h32=15.9 ETH, h33=53 ETH (near the 5 ETH death line), h34=826 ETH, h35=662 ETH: a public rescue rush; 442 of c7's 998 members deposited 0.05 in h34-35 and are welded by sequence/burst edges that measure the rush, not an operator",
+ "fp_estimate": {
+  "named_flagged": {
+   "human_like": "~300-310 of 360 (84-86%)",
+   "named_mini_farms_or_pairs": "~38 (11%) in 10 tiny groups of 1-9 wallets; only c196 (uae, size 5) and c3/c85 are clustered correctly, the rest are welded into 998/896/24-member strangers' clusters",
+   "unknown": "~3-5%"
+  },
+  "method": "29/29 sampled wallets drawn from the non-structural class were human-like (aged nonce, NFT/DeFi history, ladders, IDMD holdings); all farm-like samples came from the structurally pre-identified groups; the structural scan over all 360 (shared tiny-EOA funder, in-cluster peel chain, identical nonce/date pairs, sequential roots) found ~36 members",
+  "extrapolation_to_unnamed_same_clusters": {
+   "assumption": "a wallet's nonce at deposit is the bridge: every named FP is nonce>=20; among UNNAMED members of disputed clusters 994/3,389 are nonce>=20, 497 nonce 1-19, 1,898 nonce 0; undisputed farms reuse aged wallets at only 365/7,824=4.7%, so the 29% aged share in disputed clusters is mostly organic",
+   "estimate": "unnamed nonce>=20: ~70-85% FP -> 700-850; nonce 1-19: ~40% -> ~200; nonce 0: ~10% -> ~190 (a fresh wallet made for the game by a human is indistinguishable from a farm wallet); total unnamed FP ~1,050-1,250 + ~305 named = ~1,350-1,550 wallets = 12-13% of the 11,573 flagged, concentrated in c7 (~600), c6 (~100), small round/odd clusters (~350), late 0.05 waves (~200)",
+   "caveat": "exchange-hub 1.x ladders (248) and c6's 721 nonce-0 members remain farm-like by this bridge; the estimate is wallets, not points (these FPs are mostly 0.05-0.2 ETH depositors, <1.5% of points)"
+  }
+ }
+}
