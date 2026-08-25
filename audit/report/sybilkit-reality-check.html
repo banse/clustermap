@@ -311,7 +311,24 @@ list, and the criteria asked only where money came from, never where it went.</d
 <p><strong>Engines.</strong> Identical ≥3-rung deposit ladders across ≥5 wallets within 300 blocks are amount evidence; ≥20 unique ≥6-decimal amounts inside a 2 % band in one hour are amount and timing evidence. Amount rules run over each wallet's largest deposit.</p>
 <p><strong>Gate.</strong> Components need ≥5 members and ≥2 families as before, but a wallet is <em>core</em> only if ≥2 families are incident on it; the rest is <em>periphery</em>: shown, never removed from the clean list. Confidence should be calibrated per member against the null model rather than noisy-OR'd.</p>
 </div>
-<div class="callout"><strong>What to do with the published list now.</strong> The clustermap and THE LIST clean list currently remove ~1.5–2.3 k honest small wallets (idonotknowwhatimdoing.eth with 12 IDMD, punk.austingriffith.eth, 985.eth …) and keep a single ~99 ETH operator worth 13 % of all points. Before re-publishing: (1) <s>enrich nonce + first funder for every contributor</s> — done, (2) <s>rerun with the v2 rules</s> — done, (3) render periphery as 'review' rather than 'linked' — implemented in the map's read model: a wallet held by fewer than two evidence families now shows as review rather than inheriting its group's tier, (4) open a self-attestation / appeal channel for the wallets that are named or held by weak evidence, (5) <s>rebuild the benchmark from verified-honest controls</s> — done, see above, and gate releases on the null-model false-linking rate. The prototype harness, the diagnostics, the null model and the complete enrichment that produced every number here are published at <code>github.com/banse/clustermap</code> under <code>audit/</code>, and reproduce from a clone.</div>
+<div class="callout"><strong>What has changed on the published list, and what has not.</strong> As of
+<code>v0.2.0</code>, deployed 2026-08-25, the corrections below are <strong>live</strong> at
+clustermap.vibingco.de — and none of them changes the clustering. It is still SybilKit 0.1.1, still 263
+groups, still 11,573 wallets linked. What changed is what the page claims about them.
+<strong>Done:</strong> nonce and first funder enriched for every contributor; the v2 rules measured;
+a wallet held by fewer than two evidence families now renders as <em>review</em> rather than inheriting
+its group's tier (1,107 wallets move, and the wallet quoted at the top of this report drops from
+critical 0.97 to review); tier wording is group-scoped, so a wallet page states membership rather than a
+verdict; no evidence link is drawn stronger than the wallets it joins; the list export carries its own
+provenance and known defects, and every row carries the evidence families incident on that wallet; and a
+dispute route is published, stating the measured error rate up front.
+<strong>Not done, deliberately:</strong> the v2 rule set is <em>not</em> adopted — it will ship as a
+selectable version so it can be inspected before it changes anyone's status, and the default flips only
+in its own release. And the dispute route has no public dated overrides file yet, so an accepted dispute
+currently changes nothing visible; that needs the version model. Until then a contest references a
+release tag, and every wallet's status is recomputable from published data by anyone.
+The harness, diagnostics, null model and complete enrichment behind every number here are at
+<code>github.com/banse/clustermap</code> under <code>audit/</code>, and reproduce from a clone.</div>
 
 <h2>Method</h2>
 <ul class="tight">

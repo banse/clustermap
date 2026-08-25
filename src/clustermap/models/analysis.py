@@ -17,7 +17,7 @@ from sybilkit.signals.split import split_edges
 from .domain import EvidenceEdge
 
 
-def run_analysis(snapshot: dict):
+def load_dataset(snapshot: dict):
     enrichment = snapshot["enrichment"]
     dataset = Dataset.from_events(
         snapshot["events"],
@@ -30,6 +30,11 @@ def run_analysis(snapshot: dict):
         points_per_eth=int(analysis_config["points_per_eth"]),
         protocol_min_amount_wei=int(analysis_config["min_deposit_wei"]),
     )
+    return dataset, config
+
+
+def run_analysis(snapshot: dict):
+    dataset, config = load_dataset(snapshot)
     return dataset, config, detect(dataset, config)
 
 
@@ -93,4 +98,3 @@ def project_evidence_edges(dataset, config, result) -> dict[int, tuple[EvidenceE
 def related_edges(edges: Iterable[EvidenceEdge], address: str, limit: int = 120) -> list[dict]:
     key = address.lower()
     return [edge.as_dict() for edge in edges if key in (edge.source, edge.target)][:limit]
-
