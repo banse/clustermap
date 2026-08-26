@@ -18,7 +18,8 @@ contains 160. Both use the same settled input ending at Ethereum block
 > contains **no** sybils — and they miss an operator holding 419 wallets and
 > 15.6% of all points. The full audit report, the dataset (a first funder for all
 > 19,522 wallets) and the scripts are in [`audit/`](audit/README.md) and are
-> reproducible from this repository. A group on the map is a **question**, not a
+> reproducible from this repository — down to cluster membership, not just totals, so you can check a
+> single wallet's verdict rather than trust an aggregate. A group on the map is a **question**, not a
 > verdict about an individual wallet.
 
 ## Quick start

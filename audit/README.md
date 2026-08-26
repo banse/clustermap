@@ -90,6 +90,40 @@ python3 bench_insitu.py
 Python 3 standard library only. Each run takes a few seconds. `run_full.sh` rebuilds every artefact
 (funder classification → census → both detector runs → report); `null_model.py` takes ~15 minutes.
 
+### What "reproducible" means here
+
+Not "the totals match". **Cluster membership is reproducible**: the sorted membership of all 160 v2
+clusters, and the sorted set of all 12,416 flagged wallets, hash identically across machines and
+processes.
+
+| v2h, from a clean clone | sha256 (first 32) |
+|---|---|
+| cluster membership | `bd986908e33bf6c1c4cda481dae0009f` |
+| flagged set | `71e561a2d104bea9f0e36e742ec54ddc` |
+
+So a third party does not have to accept an aggregate. They can reconstruct which wallet sits in
+which cluster, check a single verdict, and disagree with a specific one. That is the difference
+between a published number and a checkable claim.
+
+### What still has to be taken on trust — and for how long
+
+Four inputs ship in this repository: the frozen population snapshot, the vendored detector, the
+enrichment, and the rule set. Three of them are already independently verifiable — the detector by
+its own commit, the rules by reading them, the enrichment row by row. The snapshot is the one that
+is currently *ours*.
+
+That is being removed. The contract emits everything the analysis consumes —
+`Deposited(contributor, hour, amount, creditedDelta, weightAdded, newWeight, txCount, hourTotal,
+earlyBps)`, plus `FirstDeposit`, `HourSaved` and `Settled` — over 37,187 blocks, so the population
+can be rebuilt from any Ethereum node and checked against the hashes above. `Settled.totalContributors`
+is a free self-check: a reconstruction that does not total 19,522 is wrong before it clusters anything.
+
+The one input that can **never** come from the contract is each wallet's **first funder**, because it
+is a fact about that wallet's own history rather than about the game — and it is what the strongest
+rule runs on (it takes the ≈99 ETH ring from 81/419 to 397/419). It stays a file. But every row in it
+is independently checkable with a single lookup, so disputing one wallet costs one query, not a
+re-audit.
+
 ## Layout
 
 | path | what it is |

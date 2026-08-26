@@ -84,6 +84,32 @@ Full evidence in [`audit/`](audit/README.md), reproducible from a clone. Headlin
 - `null_model.py` was non-deterministic because priors were built by iterating a `set`. Sorted now —
   keep prior inputs sorted or seeds mean nothing.
 
+## How the proof works — do not weaken this
+
+The project's claim is not "our numbers are right", it is "check them". That rests on four inputs
+shipped in this repository, and on what each of them costs a stranger to verify:
+
+| input | verifiable how |
+|---|---|
+| the detector | vendored by commit under `vendor/sybilkit` |
+| the rules | `audit/harness/sk_v2.py`, readable, stdlib only |
+| the enrichment | `audit/data/enrichment/full_enrich.json` — one lookup per row |
+| the population | `data/curator_snapshot.json.gz` — **currently ours**; see below |
+
+Reproduction covers **cluster membership, not totals**. From a clean clone the sorted membership of
+all v2 clusters hashes to `bd986908e33bf6c1c4cda481dae0009f` and the flagged set to
+`71e561a2d104bea9f0e36e742ec54ddc`, identically across machines and processes. Anything that makes
+those hashes unstable — unsorted iteration over a set, a timestamp in an artefact, a dict ordering
+dependency — breaks the proof without breaking a single test. Guard it: the null model already had
+exactly this bug and produced different answers for identical seeds.
+
+**Planned, and the last file to remove from the trust surface:** rebuilding the population directly
+from the contract's event log. `Deposited`, `FirstDeposit`, `HourSaved` and `Settled` carry every
+field the analysis consumes over 37,187 blocks, and `Settled.totalContributors` gives a free
+self-check. Spec: `tools/sybil/ONCHAIN_LOADER.md` in the aidude workspace. The first funder per
+wallet can never come from the contract — it is a fact about the wallet, not the game — so it stays a
+file whose rows are individually checkable.
+
 ## Running it
 
 ```sh

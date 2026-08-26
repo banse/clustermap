@@ -33,6 +33,14 @@ ENS-named flagged 360→28, IDMD holders 35→2, ring 397/419, the 1.0–1.14 ET
 ≥99.4 %, null-model false linking 0.1 %. It releases 2,069 wallets (343 ENS-named) and adds 2,927 carrying funding evidence.
 Rebuild it all: `tools/sybil/run_full.sh` (add `--with-null` for the null model).
 
+**How the proof works.** The public mirror at `github.com/banse/clustermap` under `audit/` reproduces
+every number here from a clone with no private inputs, no key and no network — and reproduces **cluster
+membership**, not just totals: v2h's sorted membership hashes to `bd986908e33bf6c1c4cda481dae0009f` and
+its flagged set to `71e561a2d104bea9f0e36e742ec54ddc`, stable across processes. Keep it that way —
+anything that makes those unstable (unsorted set iteration, a timestamp in an artefact) breaks the proof
+without breaking a test. Next step, spec in `ONCHAIN_LOADER.md`: rebuild the population straight from the
+contract's event log so the snapshot file leaves the trust surface too.
+
 Superseded (kept for the diff): Headline: shipped rules flag 59 % of THE LIST and 44 % of an operator-free null population; ≈1.5–2.3k honest wallets
 are flagged while a ≈99 ETH peel-chain ring (15.6 % of all points) is 81 % unflagged. The v2 rule set measured here:
 10,780 flagged, 70.2 % of points, ENS-named flagged 360→19, IDMD holders 35→2, ring 397/419, Bitget loop 232/232, 10.x ladder engine 176/176, all audited waves ≥99.4 %.
