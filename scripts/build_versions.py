@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import gzip
+import hashlib
 import json
 import sys
 from collections import Counter
@@ -13,6 +14,15 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 AUDIT_HARNESS = PROJECT_ROOT / "audit" / "harness"
+#: The exact detector that produced these versions. "0.1.1" alone is ambiguous —
+#: it spans commits with and without the library's own documented limitations and
+#: its coverage/fold invariant tests, so a version that records only the version
+#: string cannot be attributed to a specific detector.
+DETECTOR_COMMIT = (PROJECT_ROOT / "vendor" / "sybilkit" / "UPSTREAM_COMMIT").read_text().strip()
+#: The v2 rules are not sybilkit's — they are the audit harness. Pin them by
+#: content rather than by commit: a reader holding the file can verify the hash
+#: without a git checkout, which is the point of publishing the harness at all.
+RULES_SHA256 = hashlib.sha256((AUDIT_HARNESS / "sk_v2.py").read_bytes()).hexdigest()
 sys.path.insert(0, str(AUDIT_HARNESS))
 
 import sk_v2  # noqa: E402
@@ -289,6 +299,7 @@ def build_shipped(snapshot: dict) -> dict:
             "summary": "The original 263-group analysis, preserved exactly.",
             "detector": "sybilkit",
             "detector_version": snapshot["meta"]["sybilkit_version"],
+            "detector_commit": DETECTOR_COMMIT,
             "rule_set": "baseline(shipped)",
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "88d595b",
@@ -388,6 +399,9 @@ def build_v2(snapshot: dict) -> dict:
             "summary": "Funding-building v2h analysis with a per-member review periphery.",
             "detector": "sybilkit audit harness",
             "detector_version": "v2h prototype",
+            "detector_commit": DETECTOR_COMMIT,
+            "rules_file": "audit/harness/sk_v2.py",
+            "rules_sha256": RULES_SHA256,
             "rule_set": V2_RULE,
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "f0a084b",
