@@ -9,13 +9,14 @@ is already shipped; nothing about it needs to move. What it specifies is unbuilt
 
 | | status |
 |---|---|
-| `HANDOVER.md` — this file | **shipped** (committed in `236ac57`, tag `v0.2.0`) |
-| Everything in Part 1 (the corrections, the audit, the dispute route) | **shipped and live** |
-| Feature A — the version model | **not built** · the foundation |
-| Feature B — switching between versions | **not built** · renders one version |
-| Feature C — the delta view | **not built** · compares two versions |
+| Everything in Part 1 (the corrections, the audit, the dispute route) | **shipped and live** at `v0.2.0` |
+| Feature A — the version model | **built** (`f573232`) |
+| Feature B — switching between versions | **built** |
+| Feature C — the delta view | **built** |
+| All three | tagged `v0.3.0`, **not deployed** — see below |
 
-**Build Feature A first, and resist the temptation to start with the change log or the delta** — they are
+*(Historical, kept because the reasoning still applies to anything built on top of a version:)*
+**Feature A came first, and the change log and delta were resisted until it existed** — they are
 the visible ones, so they are the tempting ones. All three are one feature underneath: once a *version*
 is a first-class object carrying a status for every wallet, the change log is its history, the switch
 renders one of them, and the delta compares two. Start anywhere else and you will end up with three
@@ -44,8 +45,40 @@ choice.
 |---|---|
 | tag `v0.1.0` | archive of the state the site served before any correction. Recomputes the published 263 clusters / 11,573 flagged **exactly** — verified wallet-for-wallet |
 | tag `v0.2.0` (`236ac57`) | **deployed and live.** The presentation corrections: per-member evidence gate, group-scoped tier wording, edges capped at their weaker endpoint, export provenance + caveats, the dispute route. Clustering untouched |
-| `main` | also carries `audit/` — harness, report, evidence and the complete enrichment — which reproduces every published number from a clone |
-| working tree | clean |
+| tag `v0.3.0` (`cd01549`) | versioned analysis, change log, delta view. **NOT deployed** |
+| `main` | **`911b05d`**, pushed — one commit past the `v0.3.0` tag (the provenance fix) |
+| `main` also carries | `audit/` — harness, report, evidence and the complete enrichment — reproducing every published number from a clone |
+
+**The live site runs `236ac57`.** Quickest way to tell the builds apart: `/api/v1/health` reports
+`analysis: "ready"` on the deployed build and `analysis: "versioned", versions: 2` on the current one.
+
+### Next action
+
+Deploy `911b05d` and tag it — `v0.3.1`, or move `v0.3.0` if nobody has fetched it; prefer a new tag.
+**Deploying changes no wallet's status**: the published default is still `2026-08-22-shipped`, and v2h
+ships only as a selectable version. Flipping that default is a separate decision and a separate release.
+
+**One known issue to settle first:** `/api/v1/versions` returns `published: None`, while `/api/v1/health`
+correctly reports `published_version: "2026-08-22-shipped"`. Likely a key-name mismatch in the list
+payload — but if the frontend reads `published` from there to choose the default version, it silently
+falls back, and which version is default is precisely what decision 4 settled.
+
+### Provenance — closed 2026-08-27 (`911b05d`)
+
+`vendor/sybilkit` is re-vendored at `712c439`, so the copy this site runs carries the library's own
+`KNOWN_LIMITATIONS.md` and its fold/coverage invariant tests. Every analysis version records
+`detector_commit`; the v2 candidate additionally records `rules_file` and `rules_sha256` (`457fac65…`),
+because its detector is the audit harness rather than the library — pinned **by content**, so a reader
+holding `sk_v2.py` can verify it with `sha256sum` and no git checkout. Nothing moved: both content
+hashes, the membership hash, the flagged set and the 2,082 / 2,925 delta are unchanged. `content_hash`
+covers `{wallets, clusters, global_edges}` only, so metadata can gain fields later without invalidating
+anything already published.
+
+### After the deploy
+
+`audit/harness/ONCHAIN_LOADER.md` — rebuild the population directly from the contract's event log, which
+removes the snapshot file from the trust surface. Feasibility is verified and the acceptance test is a
+hash comparison, not a judgement.
 
 Verified live after deploy: the wallet the audit opened with (`0x3195c3f9…`) returns
 `member_families: ['amount']` and `member_risk: review` against a cluster still at `critical` 0.9706, and
