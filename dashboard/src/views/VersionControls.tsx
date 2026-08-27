@@ -43,7 +43,7 @@ export function VersionControls({
         >
           {versions.map((version) => (
             <option key={version.id} value={version.id}>
-              {version.label}{version.published ? " · published" : " · candidate"}
+              {version.label} · {version.published ? "published" : version.stage}
             </option>
           ))}
         </select>

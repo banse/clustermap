@@ -154,6 +154,7 @@ class CuratorRepository:
             for state in version.wallets
             if state["status"] != "clean"
         )
+        enrichment = version.metadata.get("enrichment") or {}
         return {
             "version": version.public_metadata(
                 published=version.id == self.version_store.published_version
@@ -177,8 +178,13 @@ class CuratorRepository:
                 "status_counts": dict(version.status_counts),
                 "points": sum(int(row["points"]) for row in self.rows),
                 "linked_points": linked_points,
-                "tx_fingerprints": len(self.dataset.txs),
-                "funding_rows": len(self.dataset.funding),
+                # Each version records the enrichment it ran on: shipped saw the
+                # snapshot's partial sweep, v2h the complete one. The snapshot's
+                # own counts are only right for the version built from it.
+                "tx_fingerprints": enrichment.get(
+                    "tx_fingerprints", len(self.dataset.txs)
+                ),
+                "funding_rows": enrichment.get("funding_rows", len(self.dataset.funding)),
             },
             "analysis": {
                 "min_size": self.config.min_size,

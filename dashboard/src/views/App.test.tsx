@@ -44,7 +44,7 @@ const analysisVersion: AnalysisVersion = {
 
 const candidateVersion: AnalysisVersion = {
   ...analysisVersion,
-  id: "2026-08-25-v2h",
+  id: "2026-08-25-sybilkit-0.2.0",
   label: "V2H candidate",
   at: "2026-08-25T00:00:00Z",
   stage: "candidate",
@@ -416,13 +416,16 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: "CHANGE LOG" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "WHAT CHANGED" })).toBeInTheDocument();
     expect(screen.getByText("INDEPENDENT WALLETS")).toBeInTheDocument();
-    expect(screen.getByText("19,522", { selector: ".analysis-diff-summary__primary-value--from" })).toBeInTheDocument();
+    // every arrow on this panel reads base -> head; 19,522 is the list, not a status
+    expect(screen.getByText("7,949", { selector: ".analysis-diff-summary__primary-value--from" })).toBeInTheDocument();
     expect(screen.getByText("6,782", { selector: ".analysis-diff-summary__primary-metric strong span:last-child" })).toBeInTheDocument();
-    expect(screen.getByText("−1,167")).toBeInTheDocument();
-    expect(screen.getByText("VS SHIPPED 0.1.1")).toBeInTheDocument();
     expect(screen.getByText("−12,740")).toBeInTheDocument();
     expect(screen.getByText("VS ORIGINAL LIST")).toBeInTheDocument();
+    expect(screen.getByText("57.6% → 76.7%")).toBeInTheDocument();
+    expect(screen.getByText("POINTS COVERED")).toBeInTheDocument();
     expect(screen.getByText("+2,925")).toBeInTheDocument();
+    expect(screen.getByText(/released wallets hold 3\.3% of all contract points/)).toBeInTheDocument();
+    expect(screen.getByText(/shipped rules already reached 232 \/ 239/)).toBeInTheDocument();
     expect(screen.getByText(/393 wallets, 391 newly flagged/)).toBeInTheDocument();
     expect(screen.getByText(/84 \/ 308 flagged → 1 \/ 308/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Snapshot frozen" })).toBeInTheDocument();

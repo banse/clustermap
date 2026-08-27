@@ -10,36 +10,68 @@ def test_final_contract_population_is_loaded(repository: CuratorRepository) -> N
     assert overview["totals"] == {
         "population": 19_522,
         "deposits": 28_353,
-        "groups": 263,
-        "linked_wallets": 11_573,
-        "unlinked_wallets": 7_949,
+        "groups": 160,
+        "linked_wallets": 12_740,
+        "unlinked_wallets": 6_782,
         "points": 29_675_956,
-        "linked_points": 17_103_032,
-        "tx_fingerprints": 12_203,
-        "funding_rows": 12_498,
-        "status_counts": {"clean": 7_949, "review": 0, "flagged": 11_573},
+        "linked_points": 23_010_337,
+        "tx_fingerprints": 28_353,
+        "funding_rows": 19_522,
+        "status_counts": {"clean": 6_782, "review": 324, "flagged": 12_416},
     }
 
 
-def test_versions_are_immutable_and_published_remains_the_default(
+def test_each_version_reports_the_enrichment_it_ran_on(
     repository: CuratorRepository,
 ) -> None:
-    versions = repository.versions()
+    """The two analyses did not share an input.
 
-    assert versions["published_version"] == "2026-08-22-shipped"
+    Shipped saw the snapshot's partial sweep; v2h the complete one. Reporting the
+    snapshot's counts for both would understate the published analysis.
+    """
+    published = repository.overview()["totals"]
+    superseded = repository.overview("2026-08-22-shipped")["totals"]
+
+    assert (published["tx_fingerprints"], published["funding_rows"]) == (28_353, 19_522)
+    assert (superseded["tx_fingerprints"], superseded["funding_rows"]) == (12_203, 12_498)
+
+
+def test_publishing_0_2_0_moved_the_pointer_and_rewrote_no_version(
+    repository: CuratorRepository,
+) -> None:
+    """Correct by adding a version and moving the pointer, never by rewriting one.
+
+    SybilKit 0.2.0 became the published analysis on 2026-08-27. That is a change of which
+    version the site asserts — it must not change what any earlier version said,
+    so both content hashes are pinned by value. `content_hash` covers
+    {wallets, clusters, global_edges} only, which is why re-labelling v0.1.0 as
+    superseded leaves its hash untouched.
+    """
+    versions = repository.versions()
+    by_id = {row["id"]: row for row in versions["versions"]}
+
+    assert versions["published_version"] == "2026-08-25-sybilkit-0.2.0"
     assert [(row["id"], row["cluster_count"]) for row in versions["versions"]] == [
         ("2026-08-22-shipped", 263),
-        ("2026-08-25-v2h", 160),
+        ("2026-08-25-sybilkit-0.2.0", 160),
     ]
-    assert all(len(row["content_hash"]) == 64 for row in versions["versions"])
+    assert by_id["2026-08-22-shipped"]["content_hash"] == (
+        "9c5a1ef4882e84328bfc13da235b4d7d08f7c9fa3eebd4cf8eaab92ecc4ac616"
+    )
+    assert by_id["2026-08-25-sybilkit-0.2.0"]["content_hash"] == (
+        "486c7787fded341765b11c178916b237b46dc7c09e486931758c179af3bf2f9f"
+    )
+    assert by_id["2026-08-22-shipped"]["stage"] == "superseded"
+    assert by_id["2026-08-25-sybilkit-0.2.0"]["stage"] == "published"
+    assert repository.overview()["version"]["id"] == "2026-08-25-sybilkit-0.2.0"
     assert repository.overview()["version"]["published"] is True
 
 
-def test_v2h_candidate_and_delta_reproduce_the_audit_counts(
+def test_sybilkit_0_2_0_and_delta_reproduce_the_audit_counts(
     repository: CuratorRepository,
 ) -> None:
-    candidate = repository.overview("2026-08-25-v2h")
-    delta = repository.delta("2026-08-22-shipped", "2026-08-25-v2h")
+    candidate = repository.overview("2026-08-25-sybilkit-0.2.0")
+    delta = repository.delta("2026-08-22-shipped", "2026-08-25-sybilkit-0.2.0")
 
     assert candidate["totals"]["population"] == 19_522
     assert candidate["totals"]["groups"] == 160
@@ -57,7 +89,7 @@ def test_v2h_candidate_and_delta_reproduce_the_audit_counts(
 def test_same_version_delta_is_entirely_unchanged(
     repository: CuratorRepository,
 ) -> None:
-    delta = repository.delta("2026-08-25-v2h", "2026-08-25-v2h")
+    delta = repository.delta("2026-08-25-sybilkit-0.2.0", "2026-08-25-sybilkit-0.2.0")
 
     assert delta["counts"] == {
         "improved": 0,
@@ -72,14 +104,14 @@ def test_same_version_delta_is_entirely_unchanged(
 def test_wallet_history_qualifies_cluster_ids_by_version(
     repository: CuratorRepository,
 ) -> None:
-    address = repository.global_map("2026-08-25-v2h")["nodes"][0]["address"]
-    detail = repository.wallet(address, "2026-08-25-v2h")
+    address = repository.global_map("2026-08-25-sybilkit-0.2.0")["nodes"][0]["address"]
+    detail = repository.wallet(address, "2026-08-25-sybilkit-0.2.0")
 
     assert detail is not None
-    assert detail["version"] == "2026-08-25-v2h"
+    assert detail["version"] == "2026-08-25-sybilkit-0.2.0"
     assert [row["version"] for row in detail["history"]] == [
         "2026-08-22-shipped",
-        "2026-08-25-v2h",
+        "2026-08-25-sybilkit-0.2.0",
     ]
     assert all("cluster_id" in row and "status" in row for row in detail["history"])
 
@@ -88,8 +120,8 @@ def test_largest_group_has_typed_evidence_edges(repository: CuratorRepository) -
     detail = repository.cluster(0)
 
     assert detail is not None
-    assert detail["cluster"]["size"] == 1_104
-    assert len(detail["nodes"]) == 1_104
+    assert detail["cluster"]["size"] == 997
+    assert len(detail["nodes"]) == 997
     assert detail["edges"]
     node_ids = {node["id"] for node in detail["nodes"]}
     assert all(
@@ -108,7 +140,7 @@ def test_global_map_covers_every_wallet_with_a_sparse_evidence_tree(
     edges = global_map["edges"]
 
     assert len(nodes) == 19_522
-    assert len(edges) == 11_573 - 263
+    assert len(edges) == 12_740 - 160
     assert sum(global_map["meta"]["risk_counts"].values()) == len(nodes)
     assert all(node["risk"] == "independent" for node in nodes if node["cluster_id"] is None)
     assert all(edge["risk"] in {"review", "elevated", "critical"} for edge in edges)
@@ -134,8 +166,8 @@ def test_original_list_filters_and_searches(repository: CuratorRepository) -> No
     address = linked["rows"][0]["address"]
     searched = repository.list_rows(query=address.upper(), limit=10)
 
-    assert linked["total"] == 11_573
-    assert unlinked["total"] == 7_949
+    assert linked["total"] == 12_740
+    assert unlinked["total"] == 6_782
     assert [row["address"] for row in searched["rows"]] == [address]
     assert searched["rows"][0]["cluster_id"] is not None
 
@@ -178,13 +210,14 @@ def test_a_member_held_by_one_family_does_not_inherit_its_groups_tier(
     not even in the list. Fewer than two incident families is the same
     threshold the cluster gate uses, applied per member.
     """
-    detail = repository.wallet("0x3195c3f94154364e897711e501e104f40d8e23fb")
+    shipped = "2026-08-22-shipped"
+    detail = repository.wallet("0x3195c3f94154364e897711e501e104f40d8e23fb", shipped)
     assert detail is not None
     assert detail["cluster"]["risk"] == "critical"
     assert detail["member_families"] == ["amount"]
     assert detail["member_risk"] == "review"
 
-    nodes = {node["address"]: node for node in repository.global_map()["nodes"]}
+    nodes = {node["address"]: node for node in repository.global_map(shipped)["nodes"]}
     node = nodes["0x3195c3f94154364e897711e501e104f40d8e23fb"]
     assert node["risk"] == "review"
     assert node["cluster_risk"] == "critical"
@@ -193,14 +226,16 @@ def test_a_member_held_by_one_family_does_not_inherit_its_groups_tier(
 def test_every_wallets_own_tier_is_capped_by_its_own_evidence(
     repository: CuratorRepository,
 ) -> None:
-    for node in repository.global_map()["nodes"]:
-        if node["cluster_id"] is None:
-            assert node["risk"] == "independent"
-            continue
-        if len(node["member_families"]) < 2:
-            assert node["risk"] == "review", node["address"]
-        else:
-            assert node["risk"] == node["cluster_risk"], node["address"]
+    for version_id in ("2026-08-22-shipped", "2026-08-25-sybilkit-0.2.0"):
+        for node in repository.global_map(version_id)["nodes"]:
+            if node["cluster_id"] is None:
+                assert node["risk"] == "independent"
+                continue
+            # v2h's periphery is shown, never removed, whatever its family count.
+            if node["status"] == "review" or len(node["member_families"]) < 2:
+                assert node["risk"] == "review", node["address"]
+            else:
+                assert node["risk"] == node["cluster_risk"], node["address"]
 
 
 def test_the_export_carries_its_own_provenance_and_known_defects(
@@ -209,7 +244,8 @@ def test_the_export_carries_its_own_provenance_and_known_defects(
     """An export gets forked and cited long after its context is gone."""
     payload = repository.export_rows(preset="first1000")
     assert payload["detector"]["name"] == "sybilkit"
-    assert payload["detector"]["version"]
+    assert payload["detector"]["version"] == "0.2.0"
+    assert payload["detector"]["rule_set"] == "v2h (v2g + aged-weak periphery)"
     assert payload["detector"]["generated_at"].endswith("Z")
     assert any("not proof of common ownership" in c for c in payload["caveats"])
     assert any("audit" in c for c in payload["caveats"])

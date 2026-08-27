@@ -46,7 +46,7 @@ choice.
 | tag `v0.1.0` | archive of the state the site served before any correction. Recomputes the published 263 clusters / 11,573 flagged **exactly** — verified wallet-for-wallet |
 | tag `v0.2.0` (`236ac57`) | **deployed and live.** The presentation corrections: per-member evidence gate, group-scoped tier wording, edges capped at their weaker endpoint, export provenance + caveats, the dispute route. Clustering untouched |
 | tag `v0.3.0` (`cd01549`) | versioned analysis, change log, delta view. **NOT deployed** |
-| `main` | **`911b05d`**, pushed — one commit past the `v0.3.0` tag (the provenance fix) |
+| `main` | past the `v0.3.0` tag: the provenance fix, the changelog UI, and the v2h publication below |
 | `main` also carries | `audit/` — harness, report, evidence and the complete enrichment — reproducing every published number from a clone |
 
 **The live site runs `236ac57`.** Quickest way to tell the builds apart: `/api/v1/health` reports
@@ -54,20 +54,36 @@ choice.
 
 ### Next action
 
-Deploy `911b05d` and tag it — `v0.3.1`, or move `v0.3.0` if nobody has fetched it; prefer a new tag.
-**Deploying changes no wallet's status**: the published default is still `2026-08-22-shipped`, and v2h
-ships only as a selectable version. Flipping that default is a separate decision and a separate release.
+Deploy and tag. This release **does** change what the site asserts about wallets: `published_version`
+moved to `2026-08-25-sybilkit-0.2.0`, so the default view is now SybilKit 0.2.0 (160 groups, 12,416
+flagged, 324 under review) instead of SybilKit 0.1.1's (263 / 11,573). That is decision 4 being
+exercised, on the record — see the amendment in the decisions section.
 
-**One known issue to settle first:** `/api/v1/versions` returns `published: None`, while `/api/v1/health`
-correctly reports `published_version: "2026-08-22-shipped"`. Likely a key-name mismatch in the list
-payload — but if the frontend reads `published` from there to choose the default version, it silently
-falls back, and which version is default is precisely what decision 4 settled.
+**The one field still open is `SYBILKIT_V2_COMMIT`, deliberately `None`.** The analysis already names
+its detector release — `detector: "sybilkit"`, `detector_version: "0.2.0"`, `detector_tag:
+"sybilkit-v0.2.0"` — because the tag name is decided; the commit is not guessed. What actually binds the
+analysis to the release is `rules_sha256`
+(`457fac65506d3ce9693f35c154f2f1d635d3cef5673138e43c3d6332bf71b2b3` over `audit/harness/sk_v2.py`), which
+is content-addressed and needs no tag to be checkable. **sybilkit 0.2.0 is correct only if the file it
+ships hashes to exactly that.** When the tag lands, set `SYBILKIT_V2_COMMIT`, run `make versions`, and
+confirm both content hashes are unchanged — tagging must move no wallet.
+
+Also stamp clustermap's own `commit`/`tag` for the release before tagging the site.
+
+**What did not change: any earlier version.** Both `content_hash` values are byte-identical across the
+promotion (`9c5a1ef4…`, `486c7787…`) and are now pinned by value in
+`tests/test_repository.py::test_publishing_v2h_moved_the_pointer_and_rewrote_no_version`. `v0.1.0`
+stays selectable, re-labelled `superseded`, with its clustering untouched.
+
+**Non-issue, corrected:** an earlier note here claimed `/api/v1/versions` returns `published: None`.
+It does not. The top-level payload carries `published_version`; `published` is a per-version boolean and
+is correct. The earlier reading looked for `published` at the top level, where it was never meant to be.
 
 ### Provenance — closed 2026-08-27 (`911b05d`)
 
 `vendor/sybilkit` is re-vendored at `712c439`, so the copy this site runs carries the library's own
 `KNOWN_LIMITATIONS.md` and its fold/coverage invariant tests. Every analysis version records
-`detector_commit`; the v2 candidate additionally records `rules_file` and `rules_sha256` (`457fac65…`),
+`detector_commit`; the v2h analysis additionally records `rules_file` and `rules_sha256` (`457fac65…`),
 because its detector is the audit harness rather than the library — pinned **by content**, so a reader
 holding `sk_v2.py` can verify it with `sha256sum` and no git checkout. Nothing moved: both content
 hashes, the membership hash, the flagged set and the 2,082 / 2,925 delta are unchanged. `content_hash`
@@ -191,7 +207,7 @@ An `analysis` entry points at a **version**, which is the unit the delta view di
 
 A version records:
 
-- `id` (stable, sortable, e.g. `2026-08-22-shipped`, `2026-08-25-v2h`), `label`, `at`
+- `id` (stable, sortable, e.g. `2026-08-22-shipped`, `2026-08-25-sybilkit-0.2.0`), `label`, `at`
 - provenance: detector name + version, rule-set identifier, snapshot block, commit/tag, and **the exact
   command that reproduces it**
 - a **status for every one of the 19,522 contributors**, from a closed vocabulary of exactly three:
@@ -390,6 +406,15 @@ avoids: because a version is a stored, reproducible status set generated offline
 site never has to run v2 live** — publishing it does not require porting a prototype into the vendored
 library, which is the deeper change (it would touch `detect()`'s union loop, not just the funding
 family).
+
+> **Amended 2026-08-27 — the flip happened.** `published_version` is now `2026-08-25-sybilkit-0.2.0`, so 0.2.0 is
+> the default view and SybilKit 0.1.1 is `superseded` but still selectable. The window this decision
+> asked for was the interval in which v2h shipped selectable alongside the delta view; the audit it
+> rests on is public and reproducible from a clone, down to cluster membership. What the decision was
+> protecting against is unchanged and still true: this is one audit by one party, v2h is a prototype
+> re-implementation living in `audit/harness/sk_v2.py` rather than in the library, and 2,925 wallets are
+> removed that 0.1.1 did not remove. Both versions stay comparable at any URL, which is the mitigation
+> that actually matters. The next rule set arrives as another version, never as an edit to this one.
 
 ## Still genuinely open
 

@@ -57,17 +57,17 @@ describe("ClusterMapApi", () => {
     ));
     const api = new ClusterMapApi("/test");
 
-    await api.globalMap("2026-08-25-v2h");
-    await api.wallet("0x0000000000000000000000000000000000000000", "2026-08-25-v2h");
+    await api.globalMap("2026-08-25-sybilkit-0.2.0");
+    await api.wallet("0x0000000000000000000000000000000000000000", "2026-08-25-sybilkit-0.2.0");
 
     expect(fetchMock).toHaveBeenNthCalledWith(
       1,
-      "/test/map/global?version=2026-08-25-v2h",
+      "/test/map/global?version=2026-08-25-sybilkit-0.2.0",
       { signal: undefined },
     );
     expect(fetchMock).toHaveBeenNthCalledWith(
       2,
-      "/test/wallets/0x0000000000000000000000000000000000000000?version=2026-08-25-v2h",
+      "/test/wallets/0x0000000000000000000000000000000000000000?version=2026-08-25-sybilkit-0.2.0",
       { signal: undefined },
     );
   });

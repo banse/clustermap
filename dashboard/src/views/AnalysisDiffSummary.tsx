@@ -1,4 +1,4 @@
-import { AUDITED_V2H_DIFF } from "../models/analysisDiffSummary";
+import { SYBILKIT_V2_DIFF } from "../models/analysisDiffSummary";
 
 export function AnalysisDiffSummary() {
   return (
@@ -7,32 +7,32 @@ export function AnalysisDiffSummary() {
         <span>AUDITED RULESET DIFF</span>
         <h2 id="analysis-diff-title">WHAT CHANGED</h2>
         <p>
-          Same {AUDITED_V2H_DIFF.population}-wallet snapshot. New evidence rules,
+          Same {SYBILKIT_V2_DIFF.population}-wallet snapshot. New evidence rules,
           new per-wallet outcomes.
         </p>
-        <code>{AUDITED_V2H_DIFF.base} → {AUDITED_V2H_DIFF.head}</code>
+        <code>{SYBILKIT_V2_DIFF.base} → {SYBILKIT_V2_DIFF.head}</code>
         <nav aria-label="V2h audit sources">
-          <a href={AUDITED_V2H_DIFF.reportUrl} target="_blank" rel="noreferrer">FULL AUDIT ↗</a>
-          <a href={AUDITED_V2H_DIFF.reproduceUrl} target="_blank" rel="noreferrer">REPRODUCE ↗</a>
+          <a href={SYBILKIT_V2_DIFF.reportUrl} target="_blank" rel="noreferrer">FULL AUDIT ↗</a>
+          <a href={SYBILKIT_V2_DIFF.reproduceUrl} target="_blank" rel="noreferrer">REPRODUCE ↗</a>
         </nav>
       </header>
 
       <div className="analysis-diff-summary__primary-metric">
         <p>
-          <span>{AUDITED_V2H_DIFF.primaryMetric.label}</span>
-          <small>{AUDITED_V2H_DIFF.primaryMetric.detail}</small>
+          <span>{SYBILKIT_V2_DIFF.primaryMetric.label}</span>
+          <small>{SYBILKIT_V2_DIFF.primaryMetric.detail}</small>
         </p>
         <strong>
           <span className="analysis-diff-summary__primary-value--from">
-            {AUDITED_V2H_DIFF.primaryMetric.fromValue}
+            {SYBILKIT_V2_DIFF.primaryMetric.fromValue}
           </span>
           <span aria-hidden="true"> → </span>
-          <span>{AUDITED_V2H_DIFF.primaryMetric.toValue}</span>
+          <span>{SYBILKIT_V2_DIFF.primaryMetric.toValue}</span>
         </strong>
       </div>
 
       <dl className="analysis-diff-summary__comparisons">
-        {AUDITED_V2H_DIFF.comparisonMetrics.map((metric) => (
+        {SYBILKIT_V2_DIFF.comparisonMetrics.map((metric) => (
           <div key={metric.label}>
             <dt>{metric.label}</dt>
             <dd>{metric.value}</dd>
@@ -42,7 +42,7 @@ export function AnalysisDiffSummary() {
       </dl>
 
       <dl className="analysis-diff-summary__metrics">
-        {AUDITED_V2H_DIFF.metrics.map((metric) => (
+        {SYBILKIT_V2_DIFF.metrics.map((metric) => (
           <div key={metric.label} data-tone={metric.tone}>
             <dt>{metric.label}</dt>
             <dd>{metric.value}</dd>
@@ -52,7 +52,7 @@ export function AnalysisDiffSummary() {
       </dl>
 
       <div className="analysis-diff-summary__sections">
-        {AUDITED_V2H_DIFF.sections.map((section) => (
+        {SYBILKIT_V2_DIFF.sections.map((section) => (
           <article key={section.eyebrow}>
             <span>{section.eyebrow}</span>
             <h3>{section.title}</h3>

@@ -10,7 +10,7 @@ def test_health_and_overview(client: TestClient) -> None:
     assert health.status_code == 200
     assert health.json()["status"] == "ready"
     assert overview.status_code == 200
-    assert overview.json()["totals"]["groups"] == 263
+    assert overview.json()["totals"]["groups"] == 160
 
 
 def test_cluster_and_wallet_routes(client: TestClient) -> None:
@@ -29,7 +29,7 @@ def test_global_map_route(client: TestClient) -> None:
 
     assert response.status_code == 200
     assert response.json()["meta"]["node_count"] == 19_522
-    assert response.json()["meta"]["edge_count"] == 11_310
+    assert response.json()["meta"]["edge_count"] == 12_580
 
 
 def test_address_validation_and_list_bounds(client: TestClient) -> None:
@@ -51,22 +51,25 @@ def test_maxpane_preset_and_browser_export(client: TestClient) -> None:
     assert exported.status_code == 200
     assert exported.json()["count"] == 96
     assert exported.headers["content-disposition"] == (
-        'attachment; filename="the-list-2026-08-22-shipped-hour0.json"'
+        'attachment; filename="the-list-2026-08-25-sybilkit-0.2.0-hour0.json"'
     )
 
 
 def test_analysis_versions_and_directional_delta(client: TestClient) -> None:
     versions = client.get("/api/v1/versions")
-    candidate = client.get("/api/v1/versions/2026-08-25-v2h")
+    published = client.get("/api/v1/versions/2026-08-25-sybilkit-0.2.0")
+    superseded = client.get("/api/v1/versions/2026-08-22-shipped")
     delta = client.get(
-        "/api/v1/delta?base=2026-08-22-shipped&head=2026-08-25-v2h"
+        "/api/v1/delta?base=2026-08-22-shipped&head=2026-08-25-sybilkit-0.2.0"
     )
 
     assert versions.status_code == 200
-    assert versions.json()["published_version"] == "2026-08-22-shipped"
+    assert versions.json()["published_version"] == "2026-08-25-sybilkit-0.2.0"
     assert [version["cluster_count"] for version in versions.json()["versions"]] == [263, 160]
-    assert candidate.status_code == 200
-    assert candidate.json()["published"] is False
+    assert published.status_code == 200
+    assert published.json()["published"] is True
+    assert superseded.status_code == 200
+    assert superseded.json()["published"] is False
     assert delta.status_code == 200
     assert sum(delta.json()["counts"].values()) == 19_522
     assert delta.json()["released"] == 2_082
@@ -74,7 +77,7 @@ def test_analysis_versions_and_directional_delta(client: TestClient) -> None:
 
 
 def test_version_is_pinned_across_data_routes(client: TestClient) -> None:
-    version = "2026-08-25-v2h"
+    version = "2026-08-25-sybilkit-0.2.0"
     overview = client.get(f"/api/v1/overview?version={version}")
     global_map = client.get(f"/api/v1/map/global?version={version}")
     cluster = client.get(f"/api/v1/clusters/0?version={version}")
@@ -99,7 +102,7 @@ def test_delta_self_comparison_and_wallet_filter(client: TestClient) -> None:
     same = client.get(f"/api/v1/delta?base={version}&head={version}")
     released = client.get(
         "/api/v1/delta/wallets?base=2026-08-22-shipped"
-        "&head=2026-08-25-v2h&class=improved&limit=5"
+        "&head=2026-08-25-sybilkit-0.2.0&class=improved&limit=5"
     )
 
     assert same.json()["counts"] == {
@@ -123,7 +126,7 @@ def test_changelog_filters_chain_generated_and_authored_entries(client: TestClie
     assert {entry["kind"] for entry in analysis.json()["entries"]} == {"analysis"}
     assert {entry["id"] for entry in dated.json()["entries"]} >= {
         "publication-presentation-correction",
-        "analysis-v2h",
+        "analysis-sybilkit-0-2-0",
     }
 
 

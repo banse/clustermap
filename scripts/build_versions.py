@@ -14,11 +14,28 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 AUDIT_HARNESS = PROJECT_ROOT / "audit" / "harness"
-#: The exact detector that produced these versions. "0.1.1" alone is ambiguous —
-#: it spans commits with and without the library's own documented limitations and
-#: its coverage/fold invariant tests, so a version that records only the version
-#: string cannot be attributed to a specific detector.
-DETECTOR_COMMIT = (PROJECT_ROOT / "vendor" / "sybilkit" / "UPSTREAM_COMMIT").read_text().strip()
+#: The commit of the sybilkit copy vendored in this repository *right now*. It is
+#: what recomputes each version at build time — not what a published version was
+#: produced by, which is why it is recorded separately from `detector_commit`.
+VENDORED_COMMIT = (PROJECT_ROOT / "vendor" / "sybilkit" / "UPSTREAM_COMMIT").read_text().strip()
+#: The detector release each analysis IS, frozen per version and never inherited
+#: from whatever happens to be vendored. Re-vendoring must not silently restamp
+#: the provenance of an analysis that was published months earlier — and "0.1.1"
+#: alone is ambiguous, so the tag is named with the commit it resolves to.
+#:
+#: `sybilkit-v0.1.1` is `200004fb` in github.com/banse/maxpane. The vendored copy
+#: (`712c4390`) is a descendant whose `sybilkit/src/` is byte-identical to it —
+#: only KNOWN_LIMITATIONS.md, README.md and test_coverage_invariants.py differ —
+#: so the analysis recomputes unchanged and the tag is the honest attribution.
+SYBILKIT_V1_TAG = "sybilkit-v0.1.1"
+SYBILKIT_V1_COMMIT = "200004fbfd05c3c49c1a083635e0dfec3a3090bf"
+#: sybilkit 0.2.0 ships `sk_v2.py` — the script that produced this analysis — as its
+#: main utility. The tag is declared here before it exists, which is safe precisely
+#: because the binding pin is `rules_sha256` and not the tag: the release is correct
+#: only if the file it ships hashes to RULES_SHA256 below. `detector_commit` stays
+#: None until the tag lands; a commit is not something to guess.
+SYBILKIT_V2_TAG = "sybilkit-v0.2.0"
+SYBILKIT_V2_COMMIT = None
 #: The v2 rules are not sybilkit's — they are the audit harness. Pin them by
 #: content rather than by commit: a reader holding the file can verify the hash
 #: without a git checkout, which is the point of publishing the harness at all.
@@ -40,7 +57,7 @@ from clustermap.models.versions import (  # noqa: E402
 
 OUTPUT = PROJECT_ROOT / "data" / "analysis_versions.json.gz"
 V1_ID = "2026-08-22-shipped"
-V2_ID = "2026-08-25-v2h"
+V2_ID = "2026-08-25-sybilkit-0.2.0"
 V2_RULE = "v2h (v2g + aged-weak periphery)"
 GENERATED_AT = "2026-08-25T00:00:00Z"
 
@@ -254,6 +271,16 @@ def finish_version(
     }
 
 
+def enrichment_counts(dataset) -> dict:
+    """What this version actually ran on.
+
+    The two analyses do not share an input: shipped saw the snapshot's partial
+    enrichment, v2h the complete sweep. Reporting the snapshot's counts for both
+    would understate the published analysis, so each version carries its own.
+    """
+    return {"tx_fingerprints": len(dataset.txs), "funding_rows": len(dataset.funding)}
+
+
 def build_shipped(snapshot: dict) -> dict:
     dataset, config, result = run_analysis(snapshot)
     evidence = project_evidence_edges(dataset, config, result)
@@ -293,14 +320,20 @@ def build_shipped(snapshot: dict) -> dict:
     return finish_version(
         metadata={
             "id": V1_ID,
-            "label": "Published SybilKit 0.1.1",
+            "label": "Original SybilKit 0.1.1",
             "at": "2026-08-22T00:00:00Z",
-            "stage": "published",
-            "summary": "The original 263-group analysis, preserved exactly.",
+            "stage": "superseded",
+            "summary": (
+                "The original 263-group analysis, preserved exactly and still selectable. "
+                "Superseded as the default by SybilKit 0.2.0."
+            ),
             "detector": "sybilkit",
             "detector_version": snapshot["meta"]["sybilkit_version"],
-            "detector_commit": DETECTOR_COMMIT,
+            "detector_tag": SYBILKIT_V1_TAG,
+            "detector_commit": SYBILKIT_V1_COMMIT,
+            "vendored_commit": VENDORED_COMMIT,
             "rule_set": "baseline(shipped)",
+            "enrichment": enrichment_counts(dataset),
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "88d595b",
             "tag": "v0.1.0",
@@ -393,16 +426,23 @@ def build_v2(snapshot: dict) -> dict:
     return finish_version(
         metadata={
             "id": V2_ID,
-            "label": "Audited v2h candidate",
+            "label": "SybilKit 0.2.0",
             "at": "2026-08-25T00:00:00Z",
-            "stage": "candidate",
-            "summary": "Funding-building v2h analysis with a per-member review periphery.",
-            "detector": "sybilkit audit harness",
-            "detector_version": "v2h prototype",
-            "detector_commit": DETECTOR_COMMIT,
+            "stage": "published",
+            "summary": (
+                "The v2h rule set: funding structure builds a group, and a per-member "
+                "gate leaves thin evidence visible as a review periphery instead of "
+                "removing it. Ships as sybilkit 0.2.0's main utility."
+            ),
+            "detector": "sybilkit",
+            "detector_version": "0.2.0",
+            "detector_tag": SYBILKIT_V2_TAG,
+            "detector_commit": SYBILKIT_V2_COMMIT,
+            "vendored_commit": VENDORED_COMMIT,
             "rules_file": "audit/harness/sk_v2.py",
             "rules_sha256": RULES_SHA256,
             "rule_set": V2_RULE,
+            "enrichment": enrichment_counts(dataset),
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "f0a084b",
             "tag": None,
@@ -587,15 +627,37 @@ def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict
                 ),
             },
             {
-                "id": "analysis-v2h",
+                "id": "publication-sybilkit-0-2-0",
+                "kind": "publication",
+                "at": "2026-08-27T00:00:00Z",
+                "block": None,
+                "title": "SybilKit 0.2.0 became the published analysis",
+                "summary": (
+                    "The default view moved from SybilKit 0.1.1 to SybilKit 0.2.0: "
+                    "160 groups instead of 263, 12,416 flagged instead of 11,573, and a review "
+                    "periphery of 324 that is shown but never removed. The 0.1.1 analysis was "
+                    "not rewritten — it stays selectable, with its content hash unchanged."
+                ),
+                "version": V2_ID,
+                "links": links(
+                    (
+                        "Compare the two",
+                        f"/?page=map&delta=1&base={V1_ID}&head={V2_ID}&version={V2_ID}",
+                    ),
+                    ("Audit evidence", "https://github.com/banse/clustermap/tree/main/audit"),
+                ),
+            },
+            {
+                "id": "analysis-sybilkit-0-2-0",
                 "kind": "analysis",
                 "at": "2026-08-25T14:00:00Z",
                 "block": snapshot["meta"]["snapshot_block"],
-                "title": "Audited v2h candidate recorded",
+                "title": "SybilKit 0.2.0 analysis recorded",
                 "summary": (
                     "160 groups; 2,082 shipped members released and 2,925 newly flagged. "
                     f"{transition_summary(shipped, candidate)} "
-                    "The review periphery remains visible but is not removed."
+                    "The review periphery remains visible but is not removed. "
+                    "This analysis becomes the default view; the original stays selectable."
                 ),
                 "version": V2_ID,
                 "delta": {"base": V1_ID, "head": V2_ID},
@@ -628,7 +690,7 @@ def main() -> None:
         "schema_version": 1,
         "generated_at": GENERATED_AT,
         "snapshot_block": snapshot["meta"]["snapshot_block"],
-        "published_version": V1_ID,
+        "published_version": V2_ID,
         "versions": [shipped, candidate],
         "changelog": build_changelog(snapshot, shipped, candidate),
     }

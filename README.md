@@ -8,15 +8,20 @@ the strength of their evidence. The current interface uses the MaxPane matrix
 look exclusively; it is browser-native, responsive and read-only.
 
 The bundled snapshot covers 19,522 wallets and 28,353 deposits. The published
-SybilKit version contains 263 groups; the selectable audited v2h candidate
-contains 160. Both use the same settled input ending at Ethereum block
-25,807,057.
+analysis is SybilKit 0.2.0 and contains 160 groups; the superseded
+original SybilKit 0.1.1 analysis (263 groups) stays selectable. Both use the
+same settled input ending at Ethereum block 25,807,057.
 
 > **Audit — please read before interpreting the map.** The groups shown here come
-> from SybilKit 0.1.1, and its rules have been audited: they flag 11,573 of the
-> 19,522 wallets, but also 45.8% of a synthetic population that by construction
-> contains **no** sybils — and they miss an operator holding 419 wallets and
-> 15.6% of all points. The full audit report, the dataset (a first funder for all
+> from SybilKit 0.2.0, published after SybilKit 0.1.1's own rules were
+> measured. Those flagged 11,573 of the 19,522 wallets, but also 45.6% of a
+> synthetic population that by construction contains **no** sybils — and they
+> missed an operator holding 419 wallets and 15.6% of all points. 0.2.0 flags
+> 12,416, links 0.1% of that synthetic population, and reaches 397 of those 419.
+> It is our current best rule set, not a final verdict: every constant in it was
+> calibrated on this one population, and it still contains false positives. The
+> 0.1.1 analysis stays selectable for comparison. The full audit report, the
+> dataset (a first funder for all
 > 19,522 wallets) and the scripts are in [`audit/`](audit/README.md) and are
 > reproducible from this repository — down to cluster membership, not just totals, so you can check a
 > single wallet's verdict rather than trust an aggregate. A group on the map is a **question**, not a
@@ -69,7 +74,8 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   the code for later reactivation
 - responsive desktop/mobile interface and reduced-motion support
 - a fully usable local snapshot without an API key or a running RPC
-- immutable, URL-pinned analysis versions with audited v2h as the frontend default
+- immutable, URL-pinned analysis versions, with SybilKit 0.2.0 published
+  and SybilKit 0.1.1 kept selectable
 - a public change log combining generated chain history with dated analysis and
   publication entries
 - a directional base → head delta on both maps, with wallet histories and
@@ -89,8 +95,8 @@ No shell emulator or per-browser TUI process is required.
 For performance reasons the global view uses a deterministic point and group
 layout algorithm together with a strongest-evidence spanning forest. Once a
 group is opened, the cluster view still shows every projected SybilKit edge. The
-default cluster atlas invents no connections between groups; it arranges all 263
-groups by confidence, share of points and size.
+default cluster atlas invents no connections between groups; it arranges every
+group in the selected version by confidence, share of points and size.
 
 Funding edges are actual transfers and are drawn as solid lines. Dashed edges
 are behavioural similarities. A grouping is an analysis signal and **not proof
@@ -115,8 +121,13 @@ startup, and is rebuilt deterministically from the snapshot and audit harness:
 make versions
 ```
 
-The frontend default is the audited `2026-08-25-v2h` candidate; the published
-`2026-08-22-shipped` version remains selectable and is not overwritten. The
+The published analysis is `2026-08-25-sybilkit-0.2.0`; the superseded
+`2026-08-22-shipped` version remains selectable and is not overwritten. Each
+version records the detector release it *is* — `sybilkit-v0.1.1` and
+`sybilkit-v0.2.0` — frozen per version rather than inherited from whatever is
+vendored, plus the enrichment it ran on, which differs between them. The v2 rules
+are additionally pinned by content (`rules_sha256` over `audit/harness/sk_v2.py`),
+so the tagged release is verifiably the script that produced the analysis. The
 exact detector inputs and rule identifiers are stored with each version. The
 vendored SybilKit commit remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
 
