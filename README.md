@@ -20,7 +20,9 @@ same settled input ending at Ethereum block 25,807,057.
 > 12,416, links 0.1% of that synthetic population, and reaches 397 of those 419.
 > It is our current best rule set, not a final verdict: every constant in it was
 > calibrated on this one population, and it still contains false positives. The
-> 0.1.1 analysis stays selectable for comparison. The full audit report, the
+> 0.1.1 analysis stays selectable for comparison. How each claim is pinned — the
+> population, the detector, the rules, the analysis — is written up in
+> [`PROVENANCE.md`](PROVENANCE.md). The full audit report, the
 > dataset (a first funder for all
 > 19,522 wallets) and the scripts are in [`audit/`](audit/README.md) and are
 > reproducible from this repository — down to cluster membership, not just totals, so you can check a

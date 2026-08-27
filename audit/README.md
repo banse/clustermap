@@ -101,6 +101,13 @@ processes.
 | cluster membership | `bd986908e33bf6c1c4cda481dae0009f` |
 | flagged set | `71e561a2d104bea9f0e36e742ec54ddc` |
 
+The recipe is committed, so these are a check rather than an assertion:
+
+```sh
+python3 harness/verify_hashes.py               # check the published artifact
+python3 harness/verify_hashes.py --from-rules  # re-run the detector, then check
+```
+
 So a third party does not have to accept an aggregate. They can reconstruct which wallet sits in
 which cluster, check a single verdict, and disagree with a specific one. That is the difference
 between a published number and a checkable claim.
@@ -138,6 +145,7 @@ re-audit.
 | `harness/build_report.py` | renders the report from the logs and JSON here |
 | `harness/CONTROL_STANDARD.md` | the pre-registered definition of a verifiably honest wallet, its C6 amendment, and its demonstrated ceiling |
 | `harness/bench_insitu.py` | scores rule sets against those controls inside the full population |
+| `harness/verify_hashes.py` | recomputes the published membership and flagged-set digests, from the artifact or from a detector re-run |
 | `harness/fetch_post_game.py` | the post-settlement behaviour the standard's last criterion needs |
 | `data/controls_verified.json` | the 308 controls (and `controls_verified_pre_c6.json`, the pre-amendment set) |
 | `data/bench_insitu.json` | the measurement, including every control the detector flags |
