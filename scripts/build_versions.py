@@ -30,12 +30,11 @@ VENDORED_COMMIT = (PROJECT_ROOT / "vendor" / "sybilkit" / "UPSTREAM_COMMIT").rea
 SYBILKIT_V1_TAG = "sybilkit-v0.1.1"
 SYBILKIT_V1_COMMIT = "200004fbfd05c3c49c1a083635e0dfec3a3090bf"
 #: sybilkit 0.2.0 ships `sk_v2.py` — the script that produced this analysis — as its
-#: main utility. The tag is declared here before it exists, which is safe precisely
-#: because the binding pin is `rules_sha256` and not the tag: the release is correct
-#: only if the file it ships hashes to RULES_SHA256 below. `detector_commit` stays
-#: None until the tag lands; a commit is not something to guess.
+#: main utility, byte-identical. The binding pin is `rules_sha256` and not the tag:
+#: the release is correct only if the file it ships hashes to RULES_SHA256 below,
+#: which was verified against the file *at the tag* before this commit was recorded.
 SYBILKIT_V2_TAG = "sybilkit-v0.2.0"
-SYBILKIT_V2_COMMIT = None
+SYBILKIT_V2_COMMIT = "d835b3f063b5eecb9bed8d959bd6958aa4a48915"
 #: The v2 rules are not sybilkit's — they are the audit harness. Pin them by
 #: content rather than by commit: a reader holding the file can verify the hash
 #: without a git checkout, which is the point of publishing the harness at all.
@@ -444,8 +443,10 @@ def build_v2(snapshot: dict) -> dict:
             "rule_set": V2_RULE,
             "enrichment": enrichment_counts(dataset),
             "snapshot_block": snapshot["meta"]["snapshot_block"],
-            "commit": "f0a084b",
-            "tag": None,
+            # Where this analysis became the one the site asserts — the same
+            # semantics as v0.1.0 on the version above, not where it was computed.
+            "commit": "f7154a6",
+            "tag": "v0.4.0",
             "reproduce_command": "uv run python scripts/build_versions.py",
         },
         rows=snapshot["raw_list"],

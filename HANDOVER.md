@@ -59,16 +59,17 @@ moved to `2026-08-25-sybilkit-0.2.0`, so the default view is now SybilKit 0.2.0 
 flagged, 324 under review) instead of SybilKit 0.1.1's (263 / 11,573). That is decision 4 being
 exercised, on the record — see the amendment in the decisions section.
 
-**The one field still open is `SYBILKIT_V2_COMMIT`, deliberately `None`.** The analysis already names
-its detector release — `detector: "sybilkit"`, `detector_version: "0.2.0"`, `detector_tag:
-"sybilkit-v0.2.0"` — because the tag name is decided; the commit is not guessed. What actually binds the
-analysis to the release is `rules_sha256`
-(`457fac65506d3ce9693f35c154f2f1d635d3cef5673138e43c3d6332bf71b2b3` over `audit/harness/sk_v2.py`), which
-is content-addressed and needs no tag to be checkable. **sybilkit 0.2.0 is correct only if the file it
-ships hashes to exactly that.** When the tag lands, set `SYBILKIT_V2_COMMIT`, run `make versions`, and
-confirm both content hashes are unchanged — tagging must move no wallet.
+**Closed 2026-08-27.** `sybilkit-v0.2.0` is tagged and pushed at `d835b3f`; the analysis records
+`detector: "sybilkit"`, `detector_version: "0.2.0"`, `detector_tag: "sybilkit-v0.2.0"`,
+`detector_commit: d835b3f0…`. What binds the analysis to that release is not the tag but
+`rules_sha256` (`457fac65506d3ce9693f35c154f2f1d635d3cef5673138e43c3d6332bf71b2b3` over
+`audit/harness/sk_v2.py`) — content-addressed, checkable with `shasum` and no checkout. The file **at
+the tag** was verified to hash to exactly that, and stamping the commit left both content hashes
+unchanged, so naming the release moved no wallet.
 
-Also stamp clustermap's own `commit`/`tag` for the release before tagging the site.
+sybilkit 0.2.0 ships that script byte-identical as `sybilkit.rules_v2`; `detect()` is unchanged, so both
+rule sets ship and a result stays attributable. **Editing `sk_v2.py` breaks the pin** — a rule change is
+a new sybilkit release *and* a new analysis version, never an edit in place.
 
 **What did not change: any earlier version.** Both `content_hash` values are byte-identical across the
 promotion (`9c5a1ef4…`, `486c7787…`) and are now pinned by value in
