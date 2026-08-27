@@ -6,11 +6,13 @@ import { normalizeEthereumAddress } from "../models/walletProfile";
 
 export type MapScope = "global" | "cluster";
 export type GlobalVisualView = "wallets" | "clusters";
-export type AppPage = "welcome" | "map" | "profile" | "changelog";
+export type AppPage = "welcome" | "map" | "profile" | "changelog" | "review";
 
 function readPage(): AppPage {
   const value = new URLSearchParams(window.location.search).get("page");
-  return value === "map" || value === "profile" || value === "changelog" ? value : "welcome";
+  return value === "map" || value === "profile" || value === "changelog" || value === "review"
+    ? value
+    : "welcome";
 }
 
 function readGlobalView(): GlobalVisualView {
@@ -43,6 +45,7 @@ export interface MapViewController {
   readonly showMap: () => void;
   readonly showProfile: () => void;
   readonly showChangelog: () => void;
+  readonly showReview: () => void;
   readonly showFocusedWalletOnMap: () => Promise<void>;
   readonly setWalletDraft: (value: string) => void;
   readonly saveFocusedWallet: () => void;
@@ -178,6 +181,10 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
     showChangelog: () => {
       setPage("changelog");
       updateSearch({ page: "changelog", cluster: null, wallet: null });
+    },
+    showReview: () => {
+      setPage("review");
+      updateSearch({ page: "review", cluster: null, wallet: null });
     },
     showFocusedWalletOnMap,
     setWalletDraft: (value) => {

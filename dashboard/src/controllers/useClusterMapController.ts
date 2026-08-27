@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ApiError, ClusterMapApi } from "../models/api";
 import { validateDelta } from "../models/delta";
 import type {
+  ReviewPayload,
   AnalysisVersion,
   ChangelogResponse,
   ClusterDetail,
@@ -56,6 +57,7 @@ export interface ClusterMapController {
   readonly selectedVersionId: string | null;
   readonly selectedVersion: AnalysisVersion | null;
   readonly changelog: ChangelogResponse | null;
+  readonly review: ReviewPayload | null;
   readonly delta: DeltaPayload | null;
   readonly deltaEnabled: boolean;
   readonly deltaBaseId: string | null;
@@ -72,6 +74,7 @@ export interface ClusterMapController {
   readonly loading: {
     readonly versions: boolean;
     readonly changelog: boolean;
+    readonly review: boolean;
     readonly overview: boolean;
     readonly globalMap: boolean;
     readonly cluster: boolean;
@@ -111,6 +114,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     () => searchParam("version"),
   );
   const [changelog, setChangelog] = useState<ChangelogResponse | null>(null);
+  const [review, setReview] = useState<ReviewPayload | null>(null);
   const [deltaEnabled, setDeltaEnabledState] = useState(() => searchParam("delta") === "1");
   const [deltaBaseId, setDeltaBaseId] = useState<string | null>(() => searchParam("base"));
   const [deltaHeadId, setDeltaHeadId] = useState<string | null>(() => searchParam("head"));
@@ -130,6 +134,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   const [loading, setLoading] = useState({
     versions: true,
     changelog: true,
+    review: true,
     overview: true,
     globalMap: true,
     cluster: false,
@@ -215,6 +220,26 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
       });
     return () => controller.abort();
   }, [focusedWalletAddress, focusedWalletReloadKey, reloadKey, selectedVersionId]);
+
+  useEffect(() => {
+    if (selectedVersionId === null) return;
+    const controller = new AbortController();
+    setLoading((current) => ({ ...current, review: true }));
+    apiRef.current
+      .review(selectedVersionId, controller.signal)
+      .then(setReview)
+      .catch((reason: unknown) => {
+        if (!controller.signal.aborted) {
+          setError(reason instanceof Error ? reason.message : String(reason));
+        }
+      })
+      .finally(() => {
+        if (!controller.signal.aborted) {
+          setLoading((current) => ({ ...current, review: false }));
+        }
+      });
+    return () => controller.abort();
+  }, [reloadKey, selectedVersionId]);
 
   useEffect(() => {
     if (selectedVersionId === null) return;
@@ -385,6 +410,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     selectedVersionId,
     selectedVersion,
     changelog,
+    review,
     delta,
     deltaEnabled,
     deltaBaseId,
@@ -476,6 +502,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     clearError: () => setError(null),
   }), [
     changelog,
+    review,
     cluster,
     delta,
     deltaBaseId,

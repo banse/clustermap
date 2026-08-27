@@ -135,3 +135,15 @@ def test_unbuilt_dashboard_has_direction(client: TestClient) -> None:
 
     assert response.status_code == 200
     assert response.json()["docs"] == "/docs"
+
+
+def test_review_route_is_version_pinned(client: TestClient) -> None:
+    published = client.get("/api/v1/review")
+    superseded = client.get("/api/v1/review?version=2026-08-22-shipped")
+
+    assert published.status_code == 200
+    assert published.json()["totals"]["review_wallets"] == 324
+    assert published.json()["groups"][0]["review_count"] == 88
+    assert superseded.status_code == 200
+    assert superseded.json()["totals"]["review_wallets"] == 0
+    assert client.get("/api/v1/review?version=nope").status_code == 404

@@ -30,6 +30,14 @@ def health(request: Request) -> dict:
     return _repository(request).health()
 
 
+@router.get("/review")
+def review(
+    request: Request,
+    version: Annotated[str | None, Query(max_length=80)] = None,
+) -> dict:
+    return _versioned(lambda: _repository(request).review(version))
+
+
 @router.get("/versions")
 def versions(request: Request) -> dict:
     return _repository(request).versions()

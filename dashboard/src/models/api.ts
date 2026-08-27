@@ -7,6 +7,7 @@ import type {
   ListFilters,
   ListPage,
   Overview,
+  ReviewPayload,
   VersionsResponse,
   WalletDetail,
 } from "./domain";
@@ -95,6 +96,11 @@ export class ClusterMapApi {
   async list(filters: ListFilters, version?: string, signal?: AbortSignal): Promise<ListPage> {
     const query = listQuery(filters, true, version);
     return readJson<ListPage>(await fetch(`${this.baseUrl}/list?${query}`, { signal }));
+  }
+
+  async review(version?: string, signal?: AbortSignal): Promise<ReviewPayload> {
+    const suffix = version === undefined ? "" : `?version=${encodeURIComponent(version)}`;
+    return readJson(await fetch(`${this.baseUrl}/review${suffix}`, { signal }));
   }
 
   async delta(base: string, head: string, signal?: AbortSignal): Promise<DeltaPayload> {

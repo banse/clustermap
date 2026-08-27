@@ -3382,3 +3382,64 @@ kbd {
   .wallet-profile__cluster-facts > div { border-right: 0; border-bottom: 1px solid var(--rule); }
   .wallet-profile__cluster-facts > div:last-child { border-bottom: 0; }
 }
+
+/* ---- Under review -------------------------------------------------------
+   The tier the analysis is least sure about, so the page is built to be read
+   and argued with rather than skimmed: the meter encodes what share of a group
+   is under review, which is the difference between "this whole group rests on
+   thin evidence" and "one member sits at its edge". */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.review-page { min-width: 0; margin-top: 18px; border: 2px solid var(--border); background: var(--surface); }
+.review-page__empty { padding: 28px 22px; color: var(--muted); font-size: 10px; }
+.review-page__header { padding: 20px 22px; border-bottom: 1px solid var(--border); }
+.review-page__header > span { color: var(--muted); font-size: 8px; letter-spacing: 0.12em; }
+.review-page__header h2 { margin: 4px 0 10px; font: 36px "Saira Condensed", sans-serif; }
+.review-page__header p { max-width: 620px; margin: 0 0 8px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.review-page__header strong { color: var(--page-ink); }
+.review-page__note { border-left: 2px solid var(--risk-review); padding-left: 10px; }
+
+.review-page__groups { display: flex; flex-direction: column; gap: 0; }
+.review-group { padding: 18px 22px; border-bottom: 1px solid var(--rule); }
+.review-group > * { max-inline-size: 780px; }
+.review-group__wallets { max-inline-size: 780px; }
+.review-group:last-child { border-bottom: none; }
+.review-group__identity { display: flex; align-items: baseline; gap: 12px; }
+.review-group__identity h3 { margin: 0; font: 16px "Saira Condensed", sans-serif; letter-spacing: 0.04em; }
+.review-group__tier { font-size: 8px; letter-spacing: 0.08em; color: var(--muted); }
+.review-group__tier[data-risk="critical"] { color: var(--risk-critical); }
+.review-group__tier[data-risk="elevated"] { color: var(--risk-elevated); }
+.review-group__tier[data-risk="review"] { color: var(--risk-review); }
+.review-group__ratio { margin: 8px 0 6px; font-size: 10px; color: var(--muted); }
+.review-group__ratio strong { color: var(--risk-review); font-size: 14px; font-variant-numeric: tabular-nums; }
+
+.review-group__meter { block-size: 6px; inline-size: 100%; max-inline-size: 340px; background: color-mix(in srgb, var(--muted) 22%, transparent); }
+.review-group__meter span { display: block; block-size: 100%; background: var(--risk-review); }
+.review-group__share { margin: 5px 0 10px; color: var(--muted); font-size: 8px; font-variant-numeric: tabular-nums; }
+
+.review-group__families { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
+.review-group__families li { padding: 2px 7px; border: 1px solid var(--rule); color: var(--muted); font-size: 8px; }
+
+.review-group__wallets { inline-size: 100%; border-collapse: collapse; font-size: 9px; }
+.review-group__wallets th { padding: 5px 8px 5px 0; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 8px; font-weight: 400; letter-spacing: 0.06em; text-align: start; }
+.review-group__wallets td { padding: 5px 8px 5px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 50%, transparent); color: var(--muted); vertical-align: baseline; }
+.review-group__points { font-variant-numeric: tabular-nums; text-align: end; }
+.review-group > button { margin-top: 10px; padding: 5px 10px; border: 1px solid var(--border); background: transparent; color: var(--page-ink); font: 8px "Fragment Mono", monospace; cursor: pointer; }
+.review-group > button:hover { background: color-mix(in srgb, var(--page-ink) 8%, transparent); }
+
+@media (max-width: 720px) {
+  .review-group__wallets thead { display: none; }
+  .review-group__wallets tr { display: grid; gap: 2px; padding: 7px 0; border-bottom: 1px solid var(--rule); }
+  .review-group__wallets td { padding: 0; border: none; }
+  .review-group__points { text-align: start; }
+}

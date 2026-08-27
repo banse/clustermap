@@ -277,3 +277,34 @@ export interface DeltaPayload {
     readonly points: number;
   }[];
 }
+
+export interface ReviewWallet {
+  readonly address: string;
+  readonly name: string | null;
+  readonly points: number;
+  readonly rank: number;
+  readonly member_families: readonly EvidenceFamily[];
+}
+
+export interface ReviewGroup {
+  readonly id: number;
+  readonly size: number;
+  readonly review_count: number;
+  readonly review_share: number;
+  readonly risk: RiskTier;
+  readonly confidence: number;
+  readonly families: readonly EvidenceFamily[];
+  readonly points_share: number;
+  readonly wallets: readonly ReviewWallet[];
+}
+
+export interface ReviewPayload {
+  readonly version: string;
+  readonly totals: {
+    readonly review_wallets: number;
+    readonly groups_with_review: number;
+    readonly groups_total: number;
+    readonly population: number;
+  };
+  readonly groups: readonly ReviewGroup[];
+}

@@ -21,6 +21,53 @@ def test_final_contract_population_is_loaded(repository: CuratorRepository) -> N
     }
 
 
+def test_review_tier_is_grouped_and_ranked_by_share_not_count(
+    repository: CuratorRepository,
+) -> None:
+    """The ordering is the finding, not a presentation choice.
+
+    A group that is 73% review rests on thin evidence throughout; a group that is
+    0.1% review has a solid core and one member at its edge. Ranking by review
+    *count* would put the second kind first, because large groups have more of
+    everything — so the page would lead with its least interesting rows.
+    """
+    payload = repository.review()
+
+    assert payload["totals"]["review_wallets"] == 324
+    assert payload["totals"]["groups_with_review"] == 26
+    assert payload["totals"]["groups_total"] == 160
+
+    shares = [group["review_share"] for group in payload["groups"]]
+    assert shares == sorted(shares, reverse=True)
+
+    # every wallet listed is actually in the review tier, and its group agrees
+    listed = sum(len(group["wallets"]) for group in payload["groups"])
+    assert listed == payload["totals"]["review_wallets"]
+    for group in payload["groups"]:
+        assert group["review_count"] == len(group["wallets"])
+        assert 0 < group["review_share"] <= 1
+        assert group["review_count"] <= group["size"]
+
+    leader = payload["groups"][0]
+    assert (leader["id"], leader["review_count"], leader["size"]) == (27, 88, 120)
+
+
+def test_a_version_without_a_review_tier_says_so_rather_than_looking_empty(
+    repository: CuratorRepository,
+) -> None:
+    """SybilKit 0.1.1 has no review tier: everything it flags, it removes.
+
+    Zero groups here is a real answer about that analysis, so it has to be
+    distinguishable from a version whose groups simply failed to load.
+    """
+    payload = repository.review("2026-08-22-shipped")
+
+    assert payload["totals"]["review_wallets"] == 0
+    assert payload["totals"]["groups_with_review"] == 0
+    assert payload["totals"]["groups_total"] == 263
+    assert payload["groups"] == []
+
+
 def test_each_version_reports_the_enrichment_it_ran_on(
     repository: CuratorRepository,
 ) -> None:

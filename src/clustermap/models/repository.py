@@ -404,6 +404,65 @@ class CuratorRepository:
             selected.append(row)
         return selected
 
+    def review(self, version_id: str | None = None) -> dict:
+        """The wallets this version shows but does not remove, and where they sit.
+
+        The review tier is where the analysis is least confident, so it is the
+        part most worth contesting — but a flat list of members would hide the
+        thing that actually distinguishes them. A group that is 73% review is
+        largely built on thin evidence; a group that is 0.1% review has a solid
+        core and one wallet at its edge. Same tier, very different claim, so
+        groups are ranked by the share of themselves under review rather than
+        by member count.
+
+        A version with no review tier (SybilKit 0.1.1 has none — everything it
+        flags, it removes) returns no groups. That is a real answer about that
+        analysis, not an empty result.
+        """
+        version = self._version(version_id)
+        by_cluster: dict[int, list[dict]] = {}
+        for state in version.wallets:
+            if state["status"] != "review":
+                continue
+            row = self.rows_by_address[state["address"]]
+            by_cluster.setdefault(state["cluster_id"], []).append(
+                {
+                    "address": state["address"],
+                    "name": row["name"],
+                    "points": row["points"],
+                    "rank": row["rank"],
+                    "member_families": list(state["member_families"]),
+                }
+            )
+        groups = []
+        for cluster_id, wallets in by_cluster.items():
+            cluster = version.clusters_by_id[cluster_id]
+            wallets.sort(key=lambda wallet: (-wallet["points"], wallet["address"]))
+            groups.append(
+                {
+                    "id": cluster_id,
+                    "size": cluster["size"],
+                    "review_count": len(wallets),
+                    "review_share": len(wallets) / cluster["size"],
+                    "risk": cluster["risk"],
+                    "confidence": cluster["confidence"],
+                    "families": list(cluster["families"]),
+                    "points_share": cluster["points_share"],
+                    "wallets": wallets,
+                }
+            )
+        groups.sort(key=lambda g: (-g["review_share"], -g["review_count"], g["id"]))
+        return {
+            "version": version.id,
+            "totals": {
+                "review_wallets": version.status_counts["review"],
+                "groups_with_review": len(groups),
+                "groups_total": len(version.clusters),
+                "population": len(self.rows),
+            },
+            "groups": groups,
+        }
+
     def versions(self) -> dict:
         return self.version_store.list_versions()
 
