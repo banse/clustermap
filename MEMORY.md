@@ -1,6 +1,6 @@
 # CLUSTERMAP Project Memory
 
-Last updated: 2026-08-25
+Last updated: 2026-08-27
 
 ## Product
 
@@ -75,15 +75,24 @@ The public, crypto-native framing is a three-step handoff:
   promise nor proof of a unique human.
 - Within `MAP`, the default global view is `CLUSTERS`, the Evidence Atlas.
   `WALLETS` remains available through the global-view switch.
-- The published SybilKit analysis remains the default. The audited v2h rules
-  are selectable but deliberately remain a candidate until a separate
-  publication decision changes the default.
+- The frontend opens on the audited v2h analysis by default. It remains marked
+  as a candidate; the shipped SybilKit analysis remains the published archive
+  and is still selectable or directly URL-pinnable.
 - The selected version is always visible and URL-pinned. It controls every
   count, map, cluster drill-down, wallet dossier, list row, and export. Cluster
   ids are qualified by their version because ids are not stable across runs.
 - The public change log combines chain entries generated from the frozen
   snapshot with dated analysis, publication, and context entries. Historical
   entries are append-only and filterable by kind and date.
+- The change-log view is split 1:1: an audited shipped→v2h summary ledger on
+  the left and the immutable filtered timeline on the right. The summary covers
+  wallet transitions, the new jitter/peel-chain groups, false-positive controls,
+  recall gains, full enrichment, and the ownership disclaimer. Its primary
+  figure renders `19,522 → 6,782` for wallets with no kept v2h group. A two-box
+  row beneath it shows −1,167 versus shipped SybilKit 0.1.1 and −12,740 versus
+  the full original wallet population before the newly-flagged/released metrics.
+- The analysis-version controls sit immediately above the shared footer on every
+  loaded primary view instead of directly below the masthead.
 - Directional delta mode compares any base/head pair on the head layout. Wallet
   states use the closed order `clean < review < flagged`; visual classes are
   improved, worsened, under review, and unchanged. Atlas bubbles render the

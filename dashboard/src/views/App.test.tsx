@@ -384,6 +384,9 @@ describe("App", () => {
     render(<App controller={data} />);
 
     expect(screen.getByText("Published analysis")).toBeInTheDocument();
+    expect(document.querySelector(".map-footer")?.previousElementSibling).toBe(
+      screen.getByRole("region", { name: "Analysis version" }),
+    );
     fireEvent.change(screen.getByLabelText("Selected analysis version"), {
       target: { value: candidateVersion.id },
     });
@@ -411,6 +414,17 @@ describe("App", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "CHANGE LOG" }));
     expect(screen.getByRole("heading", { name: "CHANGE LOG" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "WHAT CHANGED" })).toBeInTheDocument();
+    expect(screen.getByText("INDEPENDENT WALLETS")).toBeInTheDocument();
+    expect(screen.getByText("19,522", { selector: ".analysis-diff-summary__primary-value--from" })).toBeInTheDocument();
+    expect(screen.getByText("6,782", { selector: ".analysis-diff-summary__primary-metric strong span:last-child" })).toBeInTheDocument();
+    expect(screen.getByText("−1,167")).toBeInTheDocument();
+    expect(screen.getByText("VS SHIPPED 0.1.1")).toBeInTheDocument();
+    expect(screen.getByText("−12,740")).toBeInTheDocument();
+    expect(screen.getByText("VS ORIGINAL LIST")).toBeInTheDocument();
+    expect(screen.getByText("+2,925")).toBeInTheDocument();
+    expect(screen.getByText(/393 wallets, 391 newly flagged/)).toBeInTheDocument();
+    expect(screen.getByText(/84 \/ 308 flagged → 1 \/ 308/)).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Snapshot frozen" })).toBeInTheDocument();
     expect(screen.getAllByText("BLOCK 25,807,057")).toHaveLength(2);
   });

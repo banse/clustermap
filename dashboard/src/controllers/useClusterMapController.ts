@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { ApiError, ClusterMapApi } from "../models/api";
+import { defaultAnalysisVersionId } from "../models/analysisVersion";
 import { validateDelta } from "../models/delta";
 import type {
   AnalysisVersion,
@@ -150,9 +151,10 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
       .then(([index, timeline]) => {
         const ids = new Set(index.versions.map((version) => version.id));
         const requested = selectedVersionId;
+        const defaultVersion = defaultAnalysisVersionId(index);
         const selected = requested !== null && ids.has(requested)
           ? requested
-          : index.published_version;
+          : defaultVersion;
         const requestedBase = deltaBaseId;
         const base = requestedBase !== null && ids.has(requestedBase)
           ? requestedBase

@@ -68,18 +68,6 @@ export function App({ controller }: AppProps) {
         </div>
       )}
 
-      <VersionControls
-        versions={controller.versions}
-        selectedId={controller.selectedVersionId}
-        deltaEnabled={controller.deltaEnabled}
-        baseId={controller.deltaBaseId}
-        headId={controller.deltaHeadId}
-        onVersion={controller.setVersion}
-        onDeltaEnabled={controller.setDeltaEnabled}
-        onBase={controller.setDeltaBase}
-        onHead={controller.setDeltaHead}
-      />
-
       {overview === null || globalMap === null ? (
         <section className="map-loading" aria-live="polite">
           <span aria-hidden="true" />
@@ -205,6 +193,18 @@ export function App({ controller }: AppProps) {
           </section>
           </>
           )}
+
+          <VersionControls
+            versions={controller.versions}
+            selectedId={controller.selectedVersionId}
+            deltaEnabled={controller.deltaEnabled}
+            baseId={controller.deltaBaseId}
+            headId={controller.deltaHeadId}
+            onVersion={controller.setVersion}
+            onDeltaEnabled={controller.setDeltaEnabled}
+            onBase={controller.setDeltaBase}
+            onHead={controller.setDeltaHead}
+          />
 
           <footer className="map-footer">
             <div className="map-footer__projects">

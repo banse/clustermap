@@ -69,7 +69,7 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   the code for later reactivation
 - responsive desktop/mobile interface and reduced-motion support
 - a fully usable local snapshot without an API key or a running RPC
-- immutable, URL-pinned analysis versions with the published version as default
+- immutable, URL-pinned analysis versions with audited v2h as the frontend default
 - a public change log combining generated chain history with dated analysis and
   publication entries
 - a directional base → head delta on both maps, with wallet histories and
@@ -115,8 +115,8 @@ startup, and is rebuilt deterministically from the snapshot and audit harness:
 make versions
 ```
 
-The published default remains `2026-08-22-shipped`; the audited
-`2026-08-25-v2h` version is deliberately selectable but not published. The
+The frontend default is the audited `2026-08-25-v2h` candidate; the published
+`2026-08-22-shipped` version remains selectable and is not overwritten. The
 exact detector inputs and rule identifiers are stored with each version. The
 vendored SybilKit commit remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
 
