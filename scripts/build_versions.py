@@ -34,6 +34,11 @@ SYBILKIT_V1_COMMIT = "200004fbfd05c3c49c1a083635e0dfec3a3090bf"
 #: the release is correct only if the file it ships hashes to RULES_SHA256 below,
 #: which was verified against the file *at the tag* before this commit was recorded.
 SYBILKIT_V2_TAG = "sybilkit-v0.2.0"
+#: sybilkit is a distribution inside the maxpane repository, tagged with a
+#: `sybilkit-` prefix to keep its series separate from maxpane's own `v0.x`.
+#: A "detector" link must resolve THERE — pointing it at a clustermap commit is
+#: how a reader ends up believing the analysis repo is the detector.
+SYBILKIT_REPO = "https://github.com/banse/maxpane"
 SYBILKIT_V2_COMMIT = "d835b3f063b5eecb9bed8d959bd6958aa4a48915"
 #: The v2 rules are not sybilkit's — they are the audit harness. Pin them by
 #: content rather than by commit: a reader holding the file can verify the hash
@@ -596,6 +601,7 @@ def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict
                 "links": links(
                     ("Tag v0.1.0", "https://github.com/banse/clustermap/tree/v0.1.0"),
                     ("Commit", "https://github.com/banse/clustermap/commit/88d595b"),
+                    (f"Detector {SYBILKIT_V1_TAG}", f"{SYBILKIT_REPO}/tree/{SYBILKIT_V1_TAG}"),
                 ),
             },
             {
@@ -646,6 +652,8 @@ def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict
                         f"/?page=map&delta=1&base={V1_ID}&head={V2_ID}&version={V2_ID}",
                     ),
                     ("Audit evidence", "https://github.com/banse/clustermap/tree/main/audit"),
+                    ("Tag v0.4.0", "https://github.com/banse/clustermap/tree/v0.4.0"),
+                    (f"Detector {SYBILKIT_V2_TAG}", f"{SYBILKIT_REPO}/tree/{SYBILKIT_V2_TAG}"),
                 ),
             },
             {
@@ -668,7 +676,7 @@ def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict
                         f"/?page=map&delta=1&base={V1_ID}&head={V2_ID}&version={V2_ID}",
                     ),
                     ("Audit evidence", "https://github.com/banse/clustermap/tree/main/audit"),
-                    ("Detector commit", "https://github.com/banse/clustermap/commit/f0a084b"),
+                    (f"Detector {SYBILKIT_V2_TAG}", f"{SYBILKIT_REPO}/tree/{SYBILKIT_V2_TAG}"),
                 ),
             },
         ]
