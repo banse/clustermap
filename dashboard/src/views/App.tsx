@@ -90,7 +90,13 @@ export function App({ controller }: AppProps) {
           {mapView.page === "welcome" ? (
             <WelcomePage overview={overview} onOpenMap={mapView.showMap} onOpenProfile={mapView.showProfile} />
           ) : mapView.page === "review" ? (
-            <ReviewPage review={controller.review} loading={controller.loading.review} />
+            <ReviewPage
+              review={controller.review}
+              loading={controller.loading.review}
+              walletDetail={controller.reviewWallet}
+              walletLoading={controller.loading.reviewWallet}
+              onSelectWallet={controller.inspectReviewWallet}
+            />
           ) : mapView.page === "changelog" ? (
             <ChangelogPage entries={controller.changelog?.entries ?? []} />
           ) : mapView.page === "profile" ? (

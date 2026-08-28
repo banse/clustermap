@@ -2,6 +2,7 @@ import type { WalletDetail } from "../models/domain";
 import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, walletGroupLabel } from "../models/presentation";
 import type { WalletProfileStatus } from "../models/walletProfile";
 import { AddressLink } from "./AddressLink";
+import { WalletReviewEvidence } from "./ReviewWalletDetail";
 import { WalletVersionHistory } from "./WalletVersionHistory";
 
 interface WalletProfilePageProps {
@@ -134,7 +135,7 @@ export function WalletProfilePage({
 
             <article>
               <span className="wallet-profile__eyebrow">CLUSTERING STATE</span>
-              <div className={`wallet-profile__cluster-state wallet-profile__cluster-state--${detail.cluster?.risk ?? "independent"}`}>
+              <div className={`wallet-profile__cluster-state wallet-profile__cluster-state--${detail.cluster === null ? "independent" : detail.member_risk}`}>
                 <strong>{clusterState(detail)}</strong>
                 <span>{detail.cluster === null ? `No SybilKit group in ${detail.version}` : `${clusterLabel(detail.cluster.id)} · ${detail.version} · ${formatPercent(detail.cluster.confidence)} confidence`}</span>
               </div>
@@ -183,6 +184,7 @@ export function WalletProfilePage({
               )}
             </article>
           </div>
+          <WalletReviewEvidence detail={detail} />
           <WalletVersionHistory history={detail.history} selectedVersion={detail.version} />
           <p className="wallet-profile__disclaimer">{disclaimer}</p>
           {dispute ? (

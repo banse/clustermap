@@ -3384,10 +3384,9 @@ kbd {
 }
 
 /* ---- Under review -------------------------------------------------------
-   The tier the analysis is least sure about, so the page is built to be read
-   and argued with rather than skimmed: the meter encodes what share of a group
-   is under review, which is the difference between "this whole group rests on
-   thin evidence" and "one member sits at its edge". */
+   Master/detail evidence desk: the left ledger selects the wallet and the
+   right trace explains the exact links without turning analysis into a
+   verdict. */
 
 .visually-hidden {
   position: absolute;
@@ -3402,17 +3401,20 @@ kbd {
 
 .review-page { min-width: 0; margin-top: 18px; border: 2px solid var(--border); background: var(--surface); }
 .review-page__empty { padding: 28px 22px; color: var(--muted); font-size: 10px; }
-.review-page__header { padding: 20px 22px; border-bottom: 1px solid var(--border); }
+.review-page__layout { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(420px, 0.97fr); align-items: start; }
+.review-page__layout--empty { grid-template-columns: 1fr; }
+.review-page__master { display: contents; }
+.review-page__header { grid-column: 1; grid-row: 1; min-width: 0; padding: 20px 22px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.review-page__layout--empty .review-page__header { border-right: 0; }
 .review-page__header > span { color: var(--muted); font-size: 8px; letter-spacing: 0.12em; }
 .review-page__header h2 { margin: 4px 0 10px; font: 36px "Saira Condensed", sans-serif; }
-.review-page__header p { max-width: 620px; margin: 0 0 8px; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.review-page__header p { max-width: 680px; margin: 0 0 8px; color: var(--muted); font-size: 10px; line-height: 1.55; }
 .review-page__header strong { color: var(--page-ink); }
 .review-page__note { border-left: 2px solid var(--risk-review); padding-left: 10px; }
 
-.review-page__groups { display: flex; flex-direction: column; gap: 0; }
+.review-page__groups { display: flex; grid-column: 1; grid-row: 2; min-width: 0; flex-direction: column; gap: 0; border-right: 1px solid var(--border); }
+.review-page__layout--empty .review-page__groups { border-right: 0; }
 .review-group { padding: 18px 22px; border-bottom: 1px solid var(--rule); }
-.review-group > * { max-inline-size: 780px; }
-.review-group__wallets { max-inline-size: 780px; }
 .review-group:last-child { border-bottom: none; }
 .review-group__identity { display: flex; align-items: baseline; gap: 12px; }
 .review-group__identity h3 { margin: 0; font: 16px "Saira Condensed", sans-serif; letter-spacing: 0.04em; }
@@ -3430,16 +3432,168 @@ kbd {
 .review-group__families { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 12px; padding: 0; list-style: none; }
 .review-group__families li { padding: 2px 7px; border: 1px solid var(--rule); color: var(--muted); font-size: 8px; }
 
-.review-group__wallets { inline-size: 100%; border-collapse: collapse; font-size: 9px; }
-.review-group__wallets th { padding: 5px 8px 5px 0; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 8px; font-weight: 400; letter-spacing: 0.06em; text-align: start; }
-.review-group__wallets td { padding: 5px 8px 5px 0; border-bottom: 1px solid color-mix(in srgb, var(--rule) 50%, transparent); color: var(--muted); vertical-align: baseline; }
+.review-group__wallets { inline-size: 100%; border-collapse: collapse; table-layout: fixed; font-size: 9px; }
+.review-group__wallets th { padding: 6px 8px; border-bottom: 1px solid var(--rule); color: var(--muted); font-size: 8px; font-weight: 400; letter-spacing: 0.06em; text-align: start; }
+.review-group__wallets th:first-child { width: 38%; }
+.review-group__wallets th:last-child { width: 16%; text-align: end; }
+.review-group__wallets td { min-width: 0; padding: 7px 8px; border-bottom: 1px solid color-mix(in srgb, var(--rule) 50%, transparent); color: var(--muted); vertical-align: baseline; }
+.review-group__wallets tbody tr { cursor: pointer; outline: none; transition: background 120ms ease, box-shadow 120ms ease; }
+.review-group__wallets tbody tr:hover { background: color-mix(in srgb, var(--risk-review) 7%, transparent); }
+.review-group__wallets tbody tr:focus-visible { box-shadow: inset 0 0 0 1px var(--risk-review); }
+.review-group__wallets tbody tr[data-selected] { background: color-mix(in srgb, var(--risk-review) 12%, transparent); box-shadow: inset 3px 0 0 var(--risk-review); }
+.review-group__wallets tbody tr[data-selected] td { color: var(--page-ink); }
+.review-group__wallets .address-identity { max-width: 100%; }
 .review-group__points { font-variant-numeric: tabular-nums; text-align: end; }
 .review-group > button { margin-top: 10px; padding: 5px 10px; border: 1px solid var(--border); background: transparent; color: var(--page-ink); font: 8px "Fragment Mono", monospace; cursor: pointer; }
 .review-group > button:hover { background: color-mix(in srgb, var(--page-ink) 8%, transparent); }
 
+/* Selected-wallet trace */
+.review-detail {
+  position: sticky;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  top: 10px;
+  min-width: 0;
+  max-height: calc(100vh - 20px);
+  overflow: auto;
+  background: color-mix(in srgb, var(--surface-strong) 62%, var(--surface));
+  scrollbar-color: var(--rule) transparent;
+}
+.review-detail__header { padding: 20px 22px 17px; border-bottom: 1px solid var(--border); }
+.review-detail__header > span,
+.review-detail__decision > span,
+.review-detail__section-title span { color: var(--muted); font-size: 8px; letter-spacing: 0.11em; }
+.review-detail__header h2 { margin: 4px 0 8px; color: var(--risk-review); font: 28px "Saira Condensed", sans-serif; }
+.review-detail__header .address-identity { max-width: 100%; }
+.review-detail--profile {
+  position: static;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-column: auto;
+  grid-row: auto;
+  max-height: none;
+  overflow: visible;
+  border-top: 1px solid var(--border);
+  background: color-mix(in srgb, var(--surface-strong) 62%, var(--surface));
+}
+.review-detail--profile > .review-detail__header,
+.review-detail--profile > .review-detail__decision,
+.review-detail--profile > .review-detail__disclaimer--standalone { grid-column: 1 / -1; }
+.review-detail__header--profile h3 { margin: 4px 0 5px; color: var(--risk-review); font: 25px "Saira Condensed", sans-serif; letter-spacing: 0.03em; }
+.review-detail__header--profile p { max-width: 680px; margin: 0; color: var(--muted); font-size: 9px; line-height: 1.5; }
+.review-detail--profile > .review-detail__section { min-width: 0; border-right: 1px solid var(--border); }
+.review-detail--profile > .review-detail__section + .review-detail__section { border-right: 0; }
+.review-detail__disclaimer--standalone { margin: 0; padding: 11px 22px; border-top: 1px solid var(--border); border-left: 0; }
+
+.review-detail__decision {
+  padding: 17px 22px;
+  border-bottom: 1px solid var(--border);
+  background: color-mix(in srgb, var(--risk-review) 7%, transparent);
+  box-shadow: inset 3px 0 0 var(--risk-review);
+}
+.review-detail__decision h3 { margin: 5px 0 8px; font: 19px "Saira Condensed", sans-serif; letter-spacing: 0.02em; }
+.review-detail__decision p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.55; }
+.review-detail__decision > div { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+.review-detail__decision > div span { padding: 3px 7px; border: 1px solid color-mix(in srgb, var(--risk-review) 50%, transparent); color: var(--risk-review); font-size: 8px; }
+
+.review-detail__loading { display: grid; min-height: 280px; place-items: center; align-content: center; gap: 10px; color: var(--muted); font-size: 9px; }
+.review-detail__loading > span { width: 24px; height: 24px; border: 1px solid var(--rule); border-top-color: var(--risk-review); border-radius: 50%; animation: review-spin 800ms linear infinite; }
+@keyframes review-spin { to { transform: rotate(360deg); } }
+
+.review-detail__section { padding: 17px 22px 20px; border-bottom: 1px solid var(--border); }
+.review-detail__section-title { display: flex; align-items: end; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.review-detail__section-title h3 { margin: 3px 0 0; font: 16px "Saira Condensed", sans-serif; letter-spacing: 0.05em; }
+.review-detail__section-title small { color: var(--muted); font-size: 8px; white-space: nowrap; }
+
+.review-evidence-map { border: 1px solid var(--rule); background: var(--map-background); }
+.review-evidence-map svg { display: block; width: 100%; height: auto; min-height: 250px; }
+.review-evidence-map__grid { fill: none; stroke: var(--map-grid); stroke-width: 1; }
+.review-evidence-map__edge { stroke: var(--amount-mark); stroke-width: 2; stroke-dasharray: 5 5; opacity: 0.9; }
+.review-evidence-map__edge--transfer { stroke-dasharray: none; stroke-width: 3; }
+.review-evidence-map__edge--funding { stroke: var(--breach-red); }
+.review-evidence-map__edge--sequence { stroke: var(--chain-blue); }
+.review-evidence-map__edge--amount { stroke: var(--amount-mark); }
+.review-evidence-map__edge--cadence { stroke: var(--cadence-mark); }
+.review-evidence-map__edge--gas { stroke: #c8ffc8; }
+.review-evidence-map__node { fill: var(--map-background); stroke: var(--page-ink); stroke-width: 2; }
+.review-evidence-map__selected-ring { fill: none; stroke: var(--risk-review); stroke-width: 1; stroke-dasharray: 3 3; }
+.review-evidence-map__selected { fill: var(--risk-review); stroke: var(--map-background); stroke-width: 3; }
+.review-evidence-map__label { fill: var(--muted); font: 8px "Fragment Mono", monospace; }
+.review-evidence-map__selected-label { fill: var(--risk-review); font: 9px "Fragment Mono", monospace; letter-spacing: 0.04em; }
+.review-evidence-map__legend { display: flex; flex-wrap: wrap; gap: 7px 12px; padding: 8px 10px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 8px; }
+.review-evidence-map__legend span { display: inline-flex; align-items: center; gap: 5px; }
+.review-evidence-map__legend .family-mark { margin-top: 0; }
+.review-line { display: inline-block; width: 18px; border-top: 1px dashed var(--page-ink); }
+.review-line--transfer { border-top-style: solid; }
+.review-detail__graph-empty { display: grid; min-height: 180px; place-items: center; padding: 22px; color: var(--muted); font-size: 9px; line-height: 1.5; text-align: center; }
+
+.review-detail__edge-list { border-top: 1px solid var(--rule); }
+.review-detail__edge-list > article {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 9px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--terminal-faint);
+}
+.review-detail__edge-list article > div { min-width: 0; }
+.review-detail__edge-list header { display: flex; justify-content: space-between; gap: 10px; }
+.review-detail__edge-list strong { font-size: 9px; font-weight: 400; }
+.review-detail__edge-list small { color: var(--muted); font-size: 7px; text-align: end; }
+.review-detail__edge-list p { margin: 4px 0 6px; color: var(--muted); font-size: 9px; line-height: 1.45; }
+.review-detail__edge-list article > div > span { color: var(--muted); font-size: 8px; }
+.review-detail__edge-list .address-identity__mark { display: none; }
+.review-detail__edge-list .address-identity > button { display: none; }
+.review-detail__truncated,
+.review-detail__empty { margin: 10px 0 0; color: var(--muted); font-size: 8px; line-height: 1.5; }
+
+.review-detail__group-reasons { border-top: 1px solid var(--rule); }
+.review-detail__group-reasons article { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; padding: 9px 0; border-bottom: 1px solid var(--terminal-faint); }
+.review-detail__group-reasons p { display: flex; min-width: 0; flex-direction: column; gap: 3px; font-size: 9px; }
+.review-detail__group-reasons p strong { font-weight: 400; }
+.review-detail__group-reasons p span { color: var(--muted); line-height: 1.4; }
+.review-detail__group-reasons b { color: var(--muted); font-size: 8px; font-weight: 400; }
+.review-detail__facts { display: grid; grid-template-columns: 1fr 1fr; margin-top: 14px; border: 1px solid var(--rule); }
+.review-detail__facts > div { min-width: 0; padding: 8px; border-right: 1px solid var(--terminal-faint); border-bottom: 1px solid var(--terminal-faint); }
+.review-detail__facts > div:nth-child(2n) { border-right: 0; }
+.review-detail__facts > div:nth-last-child(-n+2) { border-bottom: 0; }
+.review-detail__facts dt { color: var(--muted); font-size: 8px; }
+.review-detail__facts dd { margin-top: 4px; overflow-wrap: anywhere; font-size: 9px; line-height: 1.4; }
+.review-detail__facts .address-identity__mark { display: none; }
+.review-detail__disclaimer { margin: 13px 0 0; padding-left: 9px; border-left: 2px solid var(--risk-review); color: var(--muted); font-size: 8px; line-height: 1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .review-group__wallets tbody tr { transition: none; }
+  .review-detail__loading > span { animation: none; }
+}
+
+@media (max-width: 1040px) {
+  .review-page__layout { grid-template-columns: 1fr; }
+  .review-page__header { grid-column: 1; grid-row: 1; border-right: 0; }
+  .review-detail { position: static; grid-column: 1; grid-row: 2; max-height: none; border-bottom: 2px solid var(--border); }
+  .review-page__groups { grid-column: 1; grid-row: 3; border-right: 0; }
+}
+
+@media (max-width: 840px) {
+  .review-detail--profile { grid-template-columns: 1fr; }
+  .review-detail--profile > .review-detail__section { grid-column: 1; border-right: 0; }
+}
+
 @media (max-width: 720px) {
   .review-group__wallets thead { display: none; }
   .review-group__wallets tr { display: grid; gap: 2px; padding: 7px 0; border-bottom: 1px solid var(--rule); }
-  .review-group__wallets td { padding: 0; border: none; }
+  .review-group__wallets td { padding: 0 8px; border: none; }
   .review-group__points { text-align: start; }
+  .review-evidence-map svg { min-height: 220px; }
+}
+
+@media (max-width: 480px) {
+  .review-page__header,
+  .review-group,
+  .review-detail__header,
+  .review-detail__decision,
+  .review-detail__section { padding-inline: 13px; }
+  .review-detail__facts { grid-template-columns: 1fr; }
+  .review-detail__facts > div { border-right: 0; }
+  .review-detail__facts > div:nth-last-child(-n+2) { border-bottom: 1px solid var(--terminal-faint); }
+  .review-detail__facts > div:last-child { border-bottom: 0; }
 }

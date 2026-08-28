@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import type { ReviewGroup, ReviewPayload } from "../models/domain";
+import type { ReviewGroup, ReviewPayload, WalletDetail } from "../models/domain";
 import {
   clusterLabel,
   familyLabel,
@@ -9,12 +9,16 @@ import {
   riskLabel,
 } from "../models/presentation";
 import { AddressLink } from "./AddressLink";
+import { ReviewWalletDetail } from "./ReviewWalletDetail";
 
 const INITIAL_WALLETS = 12;
 
 interface ReviewPageProps {
   readonly review: ReviewPayload | null;
   readonly loading: boolean;
+  readonly walletDetail: WalletDetail | null;
+  readonly walletLoading: boolean;
+  readonly onSelectWallet: (address: string) => void | Promise<unknown>;
 }
 
 /**
@@ -24,7 +28,11 @@ interface ReviewPageProps {
  * review has a solid core and one wallet at its edge. Same tier, different
  * claim — ordering by count would put the second one first.
  */
-function ReviewGroupCard({ group }: { readonly group: ReviewGroup }) {
+function ReviewGroupCard({ group, selectedAddress, onSelectWallet }: {
+  readonly group: ReviewGroup;
+  readonly selectedAddress: string | null;
+  readonly onSelectWallet: (address: string) => void;
+}) {
   const [expanded, setExpanded] = useState(false);
   const shown = expanded ? group.wallets : group.wallets.slice(0, INITIAL_WALLETS);
   const remaining = group.wallets.length - shown.length;
@@ -69,19 +77,33 @@ function ReviewGroupCard({ group }: { readonly group: ReviewGroup }) {
           </tr>
         </thead>
         <tbody>
-          {shown.map((wallet) => (
-            <tr key={wallet.address}>
-              <td>
-                <AddressLink address={wallet.address} name={wallet.name} compact />
-              </td>
-              <td>
-                {wallet.member_families.length === 0
-                  ? "No family touches it directly"
-                  : wallet.member_families.map(familyLabel).join(" · ")}
-              </td>
-              <td className="review-group__points">{formatCount(wallet.points)}</td>
-            </tr>
-          ))}
+          {shown.map((wallet) => {
+            const selected = wallet.address === selectedAddress;
+            return (
+              <tr
+                key={wallet.address}
+                tabIndex={0}
+                aria-selected={selected}
+                data-selected={selected || undefined}
+                onClick={() => onSelectWallet(wallet.address)}
+                onKeyDown={(event) => {
+                  if (event.key !== "Enter" && event.key !== " ") return;
+                  event.preventDefault();
+                  onSelectWallet(wallet.address);
+                }}
+              >
+                <td>
+                  <AddressLink address={wallet.address} name={wallet.name} compact />
+                </td>
+                <td>
+                  {wallet.member_families.length === 0
+                    ? "No family touches it directly"
+                    : wallet.member_families.map(familyLabel).join(" · ")}
+                </td>
+                <td className="review-group__points">{formatCount(wallet.points)}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
@@ -94,7 +116,27 @@ function ReviewGroupCard({ group }: { readonly group: ReviewGroup }) {
   );
 }
 
-export function ReviewPage({ review, loading }: ReviewPageProps) {
+export function ReviewPage({
+  review,
+  loading,
+  walletDetail,
+  walletLoading,
+  onSelectWallet,
+}: ReviewPageProps) {
+  const [requestedAddress, setRequestedAddress] = useState<string | null>(null);
+  const groups = review?.groups ?? [];
+  const selections = groups.flatMap((group) => (
+    group.wallets.map((wallet) => ({ group, wallet }))
+  ));
+  const selected = selections.find(({ wallet }) => wallet.address === requestedAddress)
+    ?? selections[0]
+    ?? null;
+
+  useEffect(() => {
+    if (selected === null) return;
+    void onSelectWallet(selected.wallet.address);
+  }, [onSelectWallet, review?.version, selected?.wallet.address]);
+
   if (loading && review === null) {
     return <p className="review-page__empty">Loading the review tier…</p>;
   }
@@ -102,44 +144,62 @@ export function ReviewPage({ review, loading }: ReviewPageProps) {
     return <p className="review-page__empty">The review tier is unavailable.</p>;
   }
 
-  const { totals, groups } = review;
+  const { totals } = review;
 
   return (
     <section className="review-page" aria-labelledby="review-title">
-      <header className="review-page__header">
-        <span>SHOWN, NEVER REMOVED</span>
-        <h2 id="review-title">UNDER REVIEW</h2>
-        {totals.review_wallets === 0 ? (
-          <p>
-            This analysis has no review tier: everything it flags, it removes. The tier exists
-            in SybilKit 0.2.0, where a wallet the evidence barely touches is shown rather than
-            taken off the list. Switch versions to see it.
-          </p>
-        ) : (
-          <>
-            <p>
-              <strong>{formatCount(totals.review_wallets)} wallets</strong> sit in{" "}
-              {formatCount(totals.groups_with_review)} of {formatCount(totals.groups_total)}{" "}
-              groups. Fewer than two evidence families touch them directly, so they are shown
-              with their group and never removed from the list.
-            </p>
-            <p className="review-page__note">
-              This is where the analysis is least confident, which makes it the part most worth
-              contesting. Groups are ordered by how much of the group is under review — a group
-              that is mostly review rests on thin evidence throughout, while one wallet under
-              review inside a large group is a single member at its edge.
-            </p>
-          </>
-        )}
-      </header>
+      <div className={`review-page__layout${selected === null ? " review-page__layout--empty" : ""}`}>
+        <div className="review-page__master">
+          <header className="review-page__header">
+            <span>SHOWN, NEVER REMOVED</span>
+            <h2 id="review-title">UNDER REVIEW</h2>
+            {totals.review_wallets === 0 ? (
+              <p>
+                This analysis has no review tier: everything it flags, it removes. The tier exists
+                in SybilKit 0.2.0, where a wallet the evidence barely touches is shown rather than
+                taken off the list. Switch versions to see it.
+              </p>
+            ) : (
+              <>
+                <p>
+                  <strong>{formatCount(totals.review_wallets)} wallets</strong> sit in{" "}
+                  {formatCount(totals.groups_with_review)} of {formatCount(totals.groups_total)}{" "}
+                  groups. They sit outside their group's core pattern, so they stay visible and
+                  are never removed from the list. Select a wallet to inspect why.
+                </p>
+                <p className="review-page__note">
+                  This is where the analysis is least confident, which makes it the part most worth
+                  contesting. Groups are ordered by how much of the group is under review — a group
+                  that is mostly review rests on thin evidence throughout, while one wallet under
+                  review inside a large group is a single member at its edge.
+                </p>
+              </>
+            )}
+          </header>
 
-      {groups.length === 0 ? null : (
-        <div className="review-page__groups">
-          {groups.map((group) => (
-            <ReviewGroupCard key={group.id} group={group} />
-          ))}
+          {groups.length === 0 ? null : (
+            <div className="review-page__groups">
+              {groups.map((group) => (
+                <ReviewGroupCard
+                  key={group.id}
+                  group={group}
+                  selectedAddress={selected?.wallet.address ?? null}
+                  onSelectWallet={setRequestedAddress}
+                />
+              ))}
+            </div>
+          )}
         </div>
-      )}
+
+        {selected === null ? null : (
+          <ReviewWalletDetail
+            wallet={selected.wallet}
+            group={selected.group}
+            detail={walletDetail}
+            loading={walletLoading}
+          />
+        )}
+      </div>
     </section>
   );
 }

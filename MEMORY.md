@@ -1,6 +1,6 @@
 # CLUSTERMAP Project Memory
 
-Last updated: 2026-08-27
+Last updated: 2026-08-28
 
 ## Product
 
@@ -114,6 +114,13 @@ The public, crypto-native framing is a three-step handoff:
   touch that wallet directly. A linked wallet with fewer than two incident
   families is capped at the review tier instead of inheriting its cluster's
   stronger tier; the cluster tier remains available separately.
+- `UNDER REVIEW` is a master-detail evidence desk. The existing group-ranked
+  wallet ledger remains on the left and every wallet row is selectable. A
+  dedicated controller state loads the selected wallet dossier on the right,
+  where the review decision, direct edge reasons, transfer-versus-behavioural
+  distinction, group context, wallet facts, and a compact radial evidence map
+  are shown together. On narrow screens the dossier moves directly below the
+  page introduction and before the long group ledger.
 - Clicking a group opens its topology. `WHY THIS GROUP EXISTS` is rendered
   inline below the map.
 - Clicking a wallet replaces that inline group explanation with the complete
@@ -139,6 +146,12 @@ The public, crypto-native framing is a three-step handoff:
   wallet's original-list record and SybilKit clustering state. A valid address
   outside the frozen population remains saveable and is shown as
   `NOT IN THE ORIGINAL LIST`, without treating the API 404 as a product error.
+- When the saved profile wallet is under review, the profile reuses the
+  wallet-specific part of the review evidence desk below its existing list and
+  group facts: the decision explanation, radial direct-link map, textual edge
+  reasons, transfer-versus-behavioural labels, and ownership disclaimer. The
+  block is absent for clean and flagged wallets, and the profile status banner
+  uses the wallet's own review tier rather than its stronger group tier.
 - A persistent white `YOU` reticle marks the saved wallet in the global wallet
   field and selected-group topology. It is drawn above all graph nodes so the
   label remains readable. The Evidence Atlas marks the containing group when
@@ -199,7 +212,7 @@ build step, never a web request.
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 25 backend tests and 34 frontend tests pass; Ruff,
+- Last verified state: 29 backend tests and 41 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
 - Browser QA additionally covers published→candidate switching (263→160),
   directional comparison totals and atlas mixes, version-qualified cluster

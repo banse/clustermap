@@ -66,6 +66,7 @@ export interface ClusterMapController {
   readonly cluster: ClusterDetail | null;
   readonly globalMap: GlobalMap | null;
   readonly wallet: WalletDetail | null;
+  readonly reviewWallet: WalletDetail | null;
   readonly focusedWalletAddress: string | null;
   readonly focusedWallet: WalletDetail | null;
   readonly focusedWalletStatus: WalletProfileStatus;
@@ -79,6 +80,7 @@ export interface ClusterMapController {
     readonly globalMap: boolean;
     readonly cluster: boolean;
     readonly wallet: boolean;
+    readonly reviewWallet: boolean;
     readonly list: boolean;
     readonly delta: boolean;
   };
@@ -90,6 +92,7 @@ export interface ClusterMapController {
   readonly setDeltaHead: (id: string) => void;
   readonly openCluster: (id: number) => Promise<void>;
   readonly inspectWallet: (address: string, clusterId?: number | null) => Promise<boolean>;
+  readonly inspectReviewWallet: (address: string) => Promise<boolean>;
   readonly setFocusedWallet: (address: string) => boolean;
   readonly clearFocusedWallet: () => void;
   readonly backToOverview: () => void;
@@ -123,6 +126,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   const [cluster, setCluster] = useState<ClusterDetail | null>(null);
   const [globalMap, setGlobalMap] = useState<GlobalMap | null>(null);
   const [wallet, setWallet] = useState<WalletDetail | null>(null);
+  const [reviewWallet, setReviewWallet] = useState<WalletDetail | null>(null);
   const [focusedWalletAddress, setFocusedWalletAddress] = useState<string | null>(readStoredFocusWallet);
   const [focusedWallet, setFocusedWalletDetail] = useState<WalletDetail | null>(null);
   const [focusedWalletStatus, setFocusedWalletStatus] = useState<WalletProfileStatus>(
@@ -139,12 +143,14 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     globalMap: true,
     cluster: false,
     wallet: false,
+    reviewWallet: false,
     list: true,
     delta: false,
   });
   const [error, setError] = useState<string | null>(null);
   const [resetViewKey, setResetViewKey] = useState(0);
   const [reloadKey, setReloadKey] = useState(0);
+  const reviewWalletRequest = useRef(0);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -224,7 +230,9 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   useEffect(() => {
     if (selectedVersionId === null) return;
     const controller = new AbortController();
-    setLoading((current) => ({ ...current, review: true }));
+    setLoading((current) => ({ ...current, review: true, reviewWallet: false }));
+    reviewWalletRequest.current += 1;
+    setReviewWallet(null);
     apiRef.current
       .review(selectedVersionId, controller.signal)
       .then(setReview)
@@ -396,6 +404,27 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     }
   }, [cluster?.cluster.id, selectedVersionId]);
 
+  const inspectReviewWallet = useCallback(async (address: string) => {
+    if (selectedVersionId === null) return false;
+    const request = reviewWalletRequest.current + 1;
+    reviewWalletRequest.current = request;
+    setLoading((current) => ({ ...current, reviewWallet: true }));
+    try {
+      const detail = await apiRef.current.wallet(address, selectedVersionId);
+      if (reviewWalletRequest.current === request) setReviewWallet(detail);
+      return true;
+    } catch (reason) {
+      if (reviewWalletRequest.current === request) {
+        setError(reason instanceof Error ? reason.message : String(reason));
+      }
+      return false;
+    } finally {
+      if (reviewWalletRequest.current === request) {
+        setLoading((current) => ({ ...current, reviewWallet: false }));
+      }
+    }
+  }, [selectedVersionId]);
+
   const updateFilters = useCallback((patch: Partial<ListFilters>) => {
     setFilters((current) => ({ ...current, ...patch, offset: patch.offset ?? 0 }));
   }, []);
@@ -419,6 +448,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     cluster,
     globalMap,
     wallet,
+    reviewWallet,
     focusedWalletAddress,
     focusedWallet,
     focusedWalletStatus,
@@ -433,6 +463,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     setDeltaHead,
     openCluster,
     inspectWallet,
+    inspectReviewWallet,
     setFocusedWallet: (address: string) => {
       const normalized = normalizeEthereumAddress(address);
       if (normalized === null) return false;
@@ -503,6 +534,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   }), [
     changelog,
     review,
+    reviewWallet,
     cluster,
     delta,
     deltaBaseId,
@@ -515,6 +547,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     focusedWalletStatus,
     globalMap,
     inspectWallet,
+    inspectReviewWallet,
     list,
     loading,
     openCluster,

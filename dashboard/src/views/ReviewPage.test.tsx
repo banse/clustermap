@@ -1,7 +1,8 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
-import { afterEach, describe, expect, it } from "vitest";
+import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import type { ComponentProps } from "react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
-import type { ReviewPayload } from "../models/domain";
+import type { ReviewPayload, WalletDetail } from "../models/domain";
 import { ReviewPage } from "./ReviewPage";
 
 function wallets(count: number) {
@@ -48,13 +49,72 @@ const payload: ReviewPayload = {
   ],
 };
 
+const selectedDetail: WalletDetail = {
+  version: payload.version,
+  wallet: {
+    rank: 1,
+    address: wallets(1)[0].address,
+    points: 1_000,
+    credit_eth: 1,
+    tx_count: 2,
+    name: null,
+    weight_eth: 1.2,
+    first_hour: 4,
+    first_index: 22,
+  },
+  status: "linked",
+  analysis_status: "review",
+  member_families: ["amount"],
+  member_risk: "review",
+  cluster: {
+    id: 27,
+    size: 120,
+    confidence: 0.85,
+    band: "high",
+    points: 10_000,
+    points_share: 0.01,
+    span_blocks: 20,
+    families: ["amount", "cadence", "funding"],
+    reasons: [{ family: "amount", text: "Repeated deposit amount", strength: 0.84 }],
+    edge_count: 20,
+    risk: "elevated",
+    review_flag: false,
+    review_reasons: [],
+  },
+  related_edges: [{
+    source: wallets(1)[0].address,
+    target: "0x1111111111111111111111111111111111111111",
+    family: "amount",
+    strength: 0.84,
+    reason: "Both wallets used the same uncommon deposit amount.",
+    is_transfer: false,
+  }],
+  history: [],
+  first_funder: null,
+  explorer_url: `https://etherscan.io/address/${wallets(1)[0].address}`,
+  eth_usd: 3_000,
+};
+
+function reviewPage(overrides: Partial<ComponentProps<typeof ReviewPage>> = {}) {
+  return (
+    <ReviewPage
+      review={payload}
+      loading={false}
+      walletDetail={null}
+      walletLoading={false}
+      onSelectWallet={() => undefined}
+      {...overrides}
+    />
+  );
+}
+
 afterEach(() => {
   cleanup();
 });
 
 describe("ReviewPage", () => {
   it("leads with the share of a group under review, not its member count", () => {
-    render(<ReviewPage review={payload} loading={false} />);
+    render(reviewPage());
 
     expect(screen.getByRole("heading", { name: "UNDER REVIEW" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "GROUP 028" })).toBeInTheDocument();
@@ -65,11 +125,33 @@ describe("ReviewPage", () => {
   });
 
   it("keeps long groups readable until asked to expand", () => {
-    render(<ReviewPage review={payload} loading={false} />);
+    render(reviewPage());
 
     const more = screen.getByRole("button", { name: "Show 76 more" });
     fireEvent.click(more);
     expect(screen.getByRole("button", { name: "Show fewer" })).toBeInTheDocument();
+  });
+
+  it("selects review wallets and requests their full evidence", async () => {
+    const inspect = vi.fn();
+    render(reviewPage({ onSelectWallet: inspect }));
+
+    await waitFor(() => expect(inspect).toHaveBeenCalledWith(wallets(1)[0].address));
+    const secondWalletRow = screen.getAllByRole("row").find((row) => row.textContent?.includes("0001"));
+    expect(secondWalletRow).toBeDefined();
+    fireEvent.click(secondWalletRow!);
+    await waitFor(() => expect(inspect).toHaveBeenCalledWith(wallets(2)[1].address));
+    expect(secondWalletRow).toHaveAttribute("aria-selected", "true");
+  });
+
+  it("explains and visualizes the selected wallet's direct evidence", () => {
+    render(reviewPage({ walletDetail: selectedDetail }));
+
+    expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();
+    expect(screen.getByRole("img", { name: /Direct evidence connections/ })).toBeInTheDocument();
+    expect(screen.getByText("Both wallets used the same uncommon deposit amount.")).toBeInTheDocument();
+    expect(screen.getByText("84.00% BEHAVIOURAL MATCH")).toBeInTheDocument();
+    expect(screen.getByText(/do not prove that the wallets share an owner/)).toBeInTheDocument();
   });
 
   it("says a version has no review tier rather than rendering an empty page", () => {
@@ -86,6 +168,9 @@ describe("ReviewPage", () => {
           groups: [],
         }}
         loading={false}
+        walletDetail={null}
+        walletLoading={false}
+        onSelectWallet={() => undefined}
       />,
     );
 
