@@ -12,6 +12,7 @@ import type {
   ListFilters,
   ListPage,
   Overview,
+  QualityStats,
   VersionsResponse,
   WalletDetail,
 } from "../models/domain";
@@ -63,6 +64,7 @@ export interface ClusterMapController {
   readonly deltaBaseId: string | null;
   readonly deltaHeadId: string | null;
   readonly overview: Overview | null;
+  readonly stats: QualityStats | null;
   readonly cluster: ClusterDetail | null;
   readonly globalMap: GlobalMap | null;
   readonly wallet: WalletDetail | null;
@@ -77,6 +79,7 @@ export interface ClusterMapController {
     readonly changelog: boolean;
     readonly review: boolean;
     readonly overview: boolean;
+    readonly stats: boolean;
     readonly globalMap: boolean;
     readonly cluster: boolean;
     readonly wallet: boolean;
@@ -123,6 +126,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   const [deltaHeadId, setDeltaHeadId] = useState<string | null>(() => searchParam("head"));
   const [delta, setDelta] = useState<DeltaPayload | null>(null);
   const [overview, setOverview] = useState<Overview | null>(null);
+  const [stats, setStats] = useState<QualityStats | null>(null);
   const [cluster, setCluster] = useState<ClusterDetail | null>(null);
   const [globalMap, setGlobalMap] = useState<GlobalMap | null>(null);
   const [wallet, setWallet] = useState<WalletDetail | null>(null);
@@ -140,6 +144,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     changelog: true,
     review: true,
     overview: true,
+    stats: true,
     globalMap: true,
     cluster: false,
     wallet: false,
@@ -252,17 +257,20 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   useEffect(() => {
     if (selectedVersionId === null) return;
     const controller = new AbortController();
-    setLoading((current) => ({ ...current, overview: true, globalMap: true }));
+    setLoading((current) => ({ ...current, overview: true, stats: true, globalMap: true }));
     setOverview(null);
+    setStats(null);
     setGlobalMap(null);
     setCluster(null);
     setWallet(null);
     Promise.all([
       apiRef.current.overview(selectedVersionId, controller.signal),
+      apiRef.current.stats(selectedVersionId, controller.signal),
       apiRef.current.globalMap(selectedVersionId, controller.signal),
     ])
-      .then(([nextOverview, nextMap]) => {
+      .then(([nextOverview, nextStats, nextMap]) => {
         setOverview(nextOverview);
+        setStats(nextStats);
         setGlobalMap(nextMap);
         setResetViewKey((value) => value + 1);
       })
@@ -273,7 +281,12 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
       })
       .finally(() => {
         if (!controller.signal.aborted) {
-          setLoading((current) => ({ ...current, overview: false, globalMap: false }));
+          setLoading((current) => ({
+            ...current,
+            overview: false,
+            stats: false,
+            globalMap: false,
+          }));
         }
       });
     return () => controller.abort();
@@ -445,6 +458,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     deltaBaseId,
     deltaHeadId,
     overview,
+    stats,
     cluster,
     globalMap,
     wallet,
@@ -552,6 +566,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     loading,
     openCluster,
     overview,
+    stats,
     resetViewKey,
     selectedVersion,
     selectedVersionId,

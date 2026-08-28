@@ -8,6 +8,8 @@ const address = "0x0758a9ff05aba43572334cbdc4c5df03292d424e";
 
 const detail: WalletDetail = {
   version: "2026-08-25-sybilkit-0.2.0",
+  retained_rank: 4_218,
+  retained_population: 7_106,
   wallet: {
     rank: 11_004,
     address,
@@ -76,6 +78,7 @@ describe("WalletProfilePage wallet evidence", () => {
   it("shows the visual and textual evidence dossier for a wallet under review", () => {
     renderProfile(detail);
 
+    expect(screen.getByRole("group", { name: "Original list rank 11004; cleaned list rank 4218 of 7106" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "UNDER REVIEW EVIDENCE" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();
     expect(screen.getByText("Both wallets used the same uncommon deposit ladder.")).toBeInTheDocument();
@@ -84,8 +87,14 @@ describe("WalletProfilePage wallet evidence", () => {
   });
 
   it("shows the visual and textual evidence dossier for a flagged wallet", () => {
-    renderProfile({ ...detail, analysis_status: "flagged", member_risk: "elevated" });
+    renderProfile({
+      ...detail,
+      retained_rank: null,
+      analysis_status: "flagged",
+      member_risk: "elevated",
+    });
 
+    expect(screen.getByRole("group", { name: /not retained in the cleaned list/ })).toHaveTextContent("NOT RETAINED");
     expect(screen.getByRole("heading", { name: "FLAGGED WALLET EVIDENCE" })).toBeInTheDocument();
     expect(screen.getByText("WHY IT WAS FLAGGED")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();

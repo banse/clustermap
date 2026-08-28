@@ -135,6 +135,8 @@ const globalMap: GlobalMap = {
 
 const wallet: WalletDetail = {
   version: analysisVersion.id,
+  retained_rank: null,
+  retained_population: 7_949,
   wallet: {
     rank: 24,
     address: "0xd15031d0942634ccac10274e68945a23d2720922",
@@ -162,6 +164,8 @@ const wallet: WalletDetail = {
     member_families: ["funding", "amount"],
     risk: "critical",
     cluster_risk: "critical",
+    retained_rank: null,
+    retained_population: 7_949,
   }],
   first_funder: null,
   explorer_url: "https://etherscan.io/address/0xd15031d0942634ccac10274e68945a23d2720922",
@@ -193,6 +197,7 @@ function controller(
     deltaBaseId: analysisVersion.id,
     deltaHeadId: analysisVersion.id,
     overview,
+    stats: null,
     cluster: selectedCluster,
     globalMap,
     wallet: selectedWallet,
@@ -203,7 +208,7 @@ function controller(
     list: { version: analysisVersion.id, rows: [], total: 0, offset: 0, limit: 50 },
     filters: { query: "", link: "all", evidence: "all", preset: "none", offset: 0, limit: 50 },
     loading: { versions: false, changelog: false,
-    review: false, overview: false, globalMap: false, cluster: false, wallet: false, reviewWallet: false, list: false, delta: false },
+    review: false, overview: false, stats: false, globalMap: false, cluster: false, wallet: false, reviewWallet: false, list: false, delta: false },
     error: null,
     resetViewKey: 0,
     setVersion: vi.fn(),
@@ -270,6 +275,16 @@ describe("App", () => {
     expect(screen.getByRole("heading", { name: /PRESENCE WAS.*THE PRODUCT/ })).toBeInTheDocument();
   });
 
+  it("opens the version-pinned stats route from primary navigation", () => {
+    render(<App controller={controller()} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "STATS" }));
+
+    expect(screen.getByText("List quality statistics are unavailable.")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "STATS" })).toHaveAttribute("aria-current", "page");
+    expect(window.location.search).toContain("page=stats");
+  });
+
   it("switches to the wallet field and back to the default cluster atlas", () => {
     const data = controller();
     render(<App controller={data} />);
@@ -305,7 +320,8 @@ describe("App", () => {
     render(<App controller={data} />);
 
     fireEvent.click(screen.getByRole("button", { name: "MAP" }));
-    expect(screen.getByRole("heading", { name: "RANK #24" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "WALLET DETAILS" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: /Original list rank 24; not retained/ })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "WALLET FACTS" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "RELATED EVIDENCE" })).toBeInTheDocument();
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -348,7 +364,8 @@ describe("App", () => {
     render(<App controller={data} />);
 
     fireEvent.click(screen.getByRole("button", { name: /PROFILE/ }));
-    expect(screen.getByText("IN THE LIST · RANK #24")).toBeInTheDocument();
+    expect(screen.getByText("IN THE ORIGINAL LIST")).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: /Original list rank 24; not retained/ })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "ORIGINAL ALLOWLIST RECORD" })).toBeInTheDocument();
     // A wallet page states MEMBERSHIP of a group, not a verdict about the
     // wallet: the tier is a property of the cluster, and a member may be held
@@ -467,7 +484,7 @@ describe("App", () => {
     expect(screen.getByRole("region", { name: "Version delta" })).toHaveTextContent("2,082 released");
     expect(screen.getByRole("region", { name: "Version delta" })).toHaveTextContent("2,925 newly flagged");
     expect(screen.getByText("CHANGE THAT PRODUCED HEAD")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "RANK #24" }).closest("section")).toHaveTextContent("The head version changed wallet status.");
+    expect(screen.getByRole("heading", { name: "WALLET DETAILS" }).closest("section")).toHaveTextContent("The head version changed wallet status.");
     fireEvent.click(screen.getByRole("button", { name: /WORSENED/ }));
     expect(screen.getByRole("button", { name: /WORSENED/ })).toHaveAttribute("aria-pressed", "true");
   });

@@ -82,6 +82,13 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   publication entries
 - a directional base → head delta on both maps, with wallet histories and
   improved, worsened, under-review and unchanged filters
+- a version-pinned Stats page comparing all 19,522 raw wallets with the wallets
+  retained after filtering (`clean + under review`), including point retention,
+  blue-chip NFT holder retention, minimum-deposit ladders, wallet maturity and
+  independent control populations
+- a measured SybilKit 0.2.0 counterfactual showing how many wallets cease to be
+  flagged when only exact `0.05 → 0.15 → 0.25 → …` amount-pattern edges are
+  ignored and every other signal remains active
 
 The earlier MaxPane screens are still in the source but are hidden for now, so
 that the clustermap is the central work surface.
@@ -132,6 +139,28 @@ are additionally pinned by content (`rules_sha256` over `audit/harness/sk_v2.py`
 so the tagged release is verifiably the script that produced the analysis. The
 exact detector inputs and rule identifiers are stored with each version. The
 vendored SybilKit commit remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
+
+The Stats page loads aggregate results from `data/list_quality_stats.json.gz`.
+Its NFT benchmark uses a fixed, offline ERC-721 ownership snapshot at Ethereum
+block 25,853,521 for CryptoPunks, BAYC, MAYC, Azuki, Pudgy Penguins, Doodles,
+Moonbirds, and Milady Maker. No RPC is called at runtime. Rebuild the aggregate
+artifact with:
+
+```bash
+make quality-stats
+```
+
+The NFT snapshot itself is normally treated as an immutable observation. To
+make a new observation, provide an RPC URL only through the process environment:
+
+```bash
+CLUSTERMAP_NFT_RPC_URL=https://your-rpc.example make nft-holder-snapshot
+```
+
+The URL is never stored in the generated artifact or committed to Git. Wallet
+"maturity" on the page is explicitly the first-deposit transaction nonce—the
+number of prior outgoing transactions—because the frozen dataset does not
+contain true wallet-creation timestamps.
 
 A current local MaxPane state can be exported like this:
 

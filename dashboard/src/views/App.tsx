@@ -7,6 +7,7 @@ import { shortWalletAddress } from "../models/walletProfile";
 import { ClusterAtlas } from "./ClusterAtlas";
 import { ChangelogPage } from "./ChangelogPage";
 import { ReviewPage } from "./ReviewPage";
+import { StatsPage } from "./StatsPage";
 import { DeltaPanel } from "./DeltaPanel";
 import { EvidenceGraph } from "./EvidenceGraph";
 import { GlobalViewSwitcher } from "./GlobalViewSwitcher";
@@ -49,6 +50,7 @@ export function App({ controller }: AppProps) {
             <nav className="map-primary-nav" aria-label="Primary views">
               <button type="button" aria-current={mapView.page === "welcome" ? "page" : undefined} onClick={mapView.showWelcome}>WELCOME</button>
               <button type="button" aria-current={mapView.page === "map" ? "page" : undefined} onClick={mapView.showMap}>MAP</button>
+              <button type="button" aria-current={mapView.page === "stats" ? "page" : undefined} onClick={mapView.showStats}>STATS</button>
               <button type="button" aria-current={mapView.page === "changelog" ? "page" : undefined} onClick={mapView.showChangelog}>CHANGE LOG</button>
               <button type="button" aria-current={mapView.page === "review" ? "page" : undefined} onClick={mapView.showReview}>UNDER REVIEW</button>
               <button type="button" aria-current={mapView.page === "profile" ? "page" : undefined} onClick={mapView.showProfile}>
@@ -89,6 +91,8 @@ export function App({ controller }: AppProps) {
 
           {mapView.page === "welcome" ? (
             <WelcomePage overview={overview} onOpenMap={mapView.showMap} onOpenProfile={mapView.showProfile} />
+          ) : mapView.page === "stats" ? (
+            <StatsPage stats={controller.stats} loading={controller.loading.stats} />
           ) : mapView.page === "review" ? (
             <ReviewPage
               review={controller.review}

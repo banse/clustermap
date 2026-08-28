@@ -13,6 +13,7 @@ import {
   riskLabel,
 } from "../models/presentation";
 import { AddressLink } from "./AddressLink";
+import { WalletRankComparison } from "./WalletRankComparison";
 
 const MAX_GRAPH_RELATIONS = 8;
 const MAX_LISTED_EDGES = 16;
@@ -206,6 +207,14 @@ export function ReviewWalletDetail({
           <>
             <h2 id="review-detail-title">RANK #{formatCount(wallet.rank)}</h2>
             <AddressLink address={wallet.address} name={wallet.name} />
+            {resolved === null ? null : (
+              <WalletRankComparison
+                originalRank={resolved.wallet.rank}
+                retainedRank={resolved.retained_rank}
+                retainedPopulation={resolved.retained_population}
+                compact
+              />
+            )}
           </>
         )}
       </header>

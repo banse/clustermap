@@ -9,8 +9,38 @@ def test_health_and_overview(client: TestClient) -> None:
 
     assert health.status_code == 200
     assert health.json()["status"] == "ready"
+    assert health.json()["quality_stats"] == "loaded"
     assert overview.status_code == 200
     assert overview.json()["totals"]["groups"] == 160
+
+
+def test_stats_route_is_version_pinned_and_reports_measured_quality(
+    client: TestClient,
+) -> None:
+    published = client.get("/api/v1/stats")
+    superseded = client.get("/api/v1/stats?version=2026-08-22-shipped")
+
+    assert published.status_code == 200
+    payload = published.json()
+    assert payload["version"]["id"] == "2026-08-25-sybilkit-0.2.0"
+    assert payload["outcome"]["raw_wallets"] == 19_522
+    assert payload["outcome"]["retained_wallets"] == 7_106
+    assert payload["nft"]["observed_block"] == 25_853_521
+    assert payload["nft"]["raw_unique_holders"] == 38
+    assert payload["nft"]["retained_unique_holders"] == 38
+    assert payload["ladder"]["pattern_wallets"] == 564
+    assert payload["ladder"]["status_counts"] == {
+        "clean": 304,
+        "review": 116,
+        "flagged": 144,
+    }
+    assert payload["ladder"]["counterfactual"]["no_longer_flagged"] == 37
+    assert payload["maturity"]["raw"]["median_prior_transactions"] == 0
+    assert payload["maturity"]["retained"]["median_prior_transactions"] == 47
+
+    assert superseded.status_code == 200
+    assert superseded.json()["ladder"]["counterfactual"] is None
+    assert client.get("/api/v1/stats?version=nope").status_code == 404
 
 
 def test_cluster_and_wallet_routes(client: TestClient) -> None:
@@ -21,6 +51,9 @@ def test_cluster_and_wallet_routes(client: TestClient) -> None:
     assert cluster.status_code == 200
     assert wallet.status_code == 200
     assert wallet.json()["cluster"]["id"] == 0
+    assert "retained_rank" in wallet.json()
+    assert wallet.json()["retained_population"] == 7_106
+    assert all("retained_rank" in row for row in wallet.json()["history"])
     assert client.get("/api/v1/clusters/9999").status_code == 404
 
 

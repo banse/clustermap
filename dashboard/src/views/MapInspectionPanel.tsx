@@ -2,6 +2,7 @@ import type { ChangelogEntry, ClusterDetail, ClusterSummary, WalletDetail } from
 import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, riskLabel } from "../models/presentation";
 import { AddressLink } from "./AddressLink";
 import { WalletVersionHistory } from "./WalletVersionHistory";
+import { WalletRankComparison } from "./WalletRankComparison";
 
 function riskTitle(cluster: ClusterSummary | null): string {
   if (cluster === null) return "NO GROUP LINK";
@@ -72,8 +73,14 @@ export function WalletInspectionPanel({ detail, headEntry = null, onClose, onVie
       <header className="inspection-header">
         <div>
           <span>FULL WALLET DETAILS</span>
-          <h2 id="wallet-inspection-title">RANK #{formatCount(detail.wallet.rank)}</h2>
+          <h2 id="wallet-inspection-title">WALLET DETAILS</h2>
           <AddressLink address={detail.wallet.address} name={detail.wallet.name} />
+          <WalletRankComparison
+            originalRank={detail.wallet.rank}
+            retainedRank={detail.retained_rank}
+            retainedPopulation={detail.retained_population}
+            compact
+          />
         </div>
         <button type="button" onClick={onClose} aria-label="Close wallet details">CLOSE WALLET ×</button>
       </header>
@@ -109,6 +116,8 @@ export function WalletInspectionPanel({ detail, headEntry = null, onClose, onVie
         <aside className="wallet-detail-facts">
           <h3>WALLET FACTS</h3>
           <dl>
+            <div><dt>Original rank</dt><dd>#{formatCount(detail.wallet.rank)}</dd></div>
+            <div><dt>Cleaned rank</dt><dd>{detail.retained_rank === null ? "Not retained" : `#${formatCount(detail.retained_rank)} of ${formatCount(detail.retained_population)}`}</dd></div>
             <div><dt>Points</dt><dd>{formatCount(detail.wallet.points)}</dd></div>
             <div><dt>Credit</dt><dd>{formatEth(detail.wallet.credit_eth, detail.eth_usd)}</dd></div>
             <div><dt>Weight</dt><dd>{formatEth(detail.wallet.weight_eth, detail.eth_usd)}</dd></div>

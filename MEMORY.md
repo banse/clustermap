@@ -30,9 +30,9 @@ The public, crypto-native framing is a three-step handoff:
 - Snapshot block: `25,807,057`
 - Snapshot: `data/curator_snapshot.json.gz`
 - Population: 19,522 wallets from 28,353 deposits
-- Published analysis `2026-08-22-shipped`: 263 kept groups, 7,949 clean,
+- Superseded analysis `2026-08-22-shipped`: 263 kept groups, 7,949 clean,
   0 review, 11,573 flagged
-- Selectable v2h candidate `2026-08-25-v2h`: 160 kept groups, 6,782 clean,
+- Published v2h analysis `2026-08-25-sybilkit-0.2.0`: 160 kept groups, 6,782 clean,
   324 review, 12,416 flagged
 - Immutable version artifact: `data/analysis_versions.json.gz`, generated
   deterministically by `scripts/build_versions.py`
@@ -55,7 +55,8 @@ The public, crypto-native framing is a three-step handoff:
   switcher is controlled by `THEME_SWITCHER_ENABLED = false` in
   `dashboard/src/models/theme.ts`. While disabled, MaxPane is forced even when
   a browser has an older Light/Dark preference in local storage.
-- The app opens on `WELCOME`; `MAP`, `CHANGE LOG`, and `PROFILE` remain primary
+- The app opens on `WELCOME`; `MAP`, `STATS`, `CHANGE LOG`, `UNDER REVIEW`, and
+  `PROFILE` remain primary
   peer views.
   The welcome page derives its claims from the WhitelistCurator contract notice
   and clearly separates historical onchain presence from offchain evidence
@@ -75,9 +76,9 @@ The public, crypto-native framing is a three-step handoff:
   promise nor proof of a unique human.
 - Within `MAP`, the default global view is `CLUSTERS`, the Evidence Atlas.
   `WALLETS` remains available through the global-view switch.
-- The frontend opens on the audited v2h analysis by default. It remains marked
-  as a candidate; the shipped SybilKit analysis remains the published archive
-  and is still selectable or directly URL-pinnable.
+- The frontend opens on the published audited v2h analysis by default. The
+  superseded shipped SybilKit analysis is still selectable or directly
+  URL-pinnable.
 - The selected version is always visible and URL-pinned. It controls every
   count, map, cluster drill-down, wallet dossier, list row, and export. Cluster
   ids are qualified by their version because ids are not stable across runs.
@@ -93,6 +94,28 @@ The public, crypto-native framing is a three-step handoff:
   the full original wallet population before the newly-flagged/released metrics.
 - The analysis-version controls sit immediately above the shared footer on every
   loaded primary view instead of directly below the masthead.
+- `STATS` is a version-pinned population quality audit. It defines raw as all
+  19,522 frozen wallets and retained/filtered as `clean + review`; only flagged
+  wallets count as removed. The page compares wallet and point retention, a
+  fixed eight-collection Ethereum NFT holder benchmark, exact natural minimum-
+  deposit ladders, entry-nonce maturity, and ENS/IDMD/verified control retention.
+- NFT ownership is an immutable offline ERC-721 `balanceOf` snapshot at Ethereum
+  block 25,853,521, stored in `data/nft_holder_snapshot.json.gz`; no RPC or API
+  runs in the web process. The fixed benchmark is CryptoPunks, BAYC, MAYC,
+  Azuki, Pudgy Penguins, Doodles, Moonbirds, and Milady Maker. An RPC URL is
+  supplied only through `CLUSTERMAP_NFT_RPC_URL` when rebuilding and is never
+  written to Git. In the frozen list, 38 unique wallets held at least one
+  benchmark collection at observation time; published v2 retains all 38.
+- An exact natural ladder means at least three deposits whose entire ordered
+  amount sequence starts at 0.05 ETH and adds 0.10 ETH per step. There are 564
+  such wallets. The published v2 classifies 304 clean, 116 review, and 144
+  flagged. Its measured counterfactual removes only those exact amount-pattern
+  edges while leaving every other signal active: 37 wallets cease to be
+  flagged (36 exact-pattern wallets), from 12,416 to 12,379 flagged.
+- Calendar wallet age is not available in the frozen data. `STATS` therefore
+  labels entry transaction nonce precisely as prior outgoing transactions and
+  a maturity proxy. Coverage is 100%; the published v2 median moves from 0 in
+  the raw population to 47 in the retained population.
 - Directional delta mode compares any base/head pair on the head layout. Wallet
   states use the closed order `clean < review < flagged`; visual classes are
   improved, worsened, under review, and unchanged. Atlas bubbles render the
@@ -104,6 +127,10 @@ The public, crypto-native framing is a three-step handoff:
 - A wallet dossier shows status, version-qualified cluster, and incident
   evidence families for every version. In delta mode it also names the analysis
   change that produced the head.
+- Wallet profiles, map dossiers, under-review details, and per-version history
+  show `ORIGINAL LIST RANK → CLEANED LIST RANK`. The cleaned rank compacts the
+  original rank order over wallets retained by that analysis (`clean + review`).
+  Flagged wallets have no cleaned rank and are labelled `NOT RETAINED`.
 - Evidence Atlas encoding: X = confidence, Y = logarithmic points share,
   bubble area = wallet count, yellow/orange/red = evidence tier, dashed ring =
   possible false positive.
@@ -189,6 +216,7 @@ Important current frontend files:
 - `dashboard/src/models/delta.ts`: frontend delta-count validation
 - `dashboard/src/models/walletProfile.ts`: focus-address validation/presentation
 - `dashboard/src/views/WalletProfilePage.tsx`: local focus-wallet profile
+- `dashboard/src/views/StatsPage.tsx`: version-pinned population/filter audit
 - `dashboard/src/views/drawFocusReticle.ts`: shared canvas focus marker
 - `dashboard/src/controllers/useThemeController.ts`: forced/dormant theme state
 - `dashboard/src/styles/app.css`: all theme and responsive presentation
@@ -208,11 +236,14 @@ build step, never a web request.
 - Production build: `make build`
 - Run: `make run`
 - Rebuild immutable analysis versions: `make versions`
+- Rebuild aggregate quality statistics: `make quality-stats`
+- Rebuild the NFT observation snapshot (requires a temporary RPC URL in the
+  process environment): `CLUSTERMAP_NFT_RPC_URL=… make nft-holder-snapshot`
 - Full verification: `UV_CACHE_DIR=/tmp/clustermap-uv-cache make test`
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 29 backend tests and 42 frontend tests pass; Ruff,
+- Last verified state: 32 backend tests and 45 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
 - Browser QA additionally covers published→candidate switching (263→160),
   directional comparison totals and atlas mixes, version-qualified cluster

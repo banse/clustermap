@@ -1,5 +1,5 @@
 import type { ChangelogEntry, WalletVersionHistory as WalletVersionHistoryRow } from "../models/domain";
-import { clusterLabel, familyLabel, statusLabel } from "../models/presentation";
+import { clusterLabel, familyLabel, formatCount, statusLabel } from "../models/presentation";
 
 interface WalletVersionHistoryProps {
   readonly history: readonly WalletVersionHistoryRow[];
@@ -16,6 +16,11 @@ export function WalletVersionHistory({ history, selectedVersion, headEntry = nul
           <article key={row.version} data-current={row.version === selectedVersion ? "true" : undefined}>
             <header><strong>{row.label}</strong><span>{row.version === selectedVersion ? "SHOWN NOW" : row.version}</span></header>
             <p>{statusLabel(row.status).toUpperCase()}</p>
+            <strong className="wallet-version-history__rank">
+              CLEANED RANK {row.retained_rank === null
+                ? "NOT RETAINED"
+                : `#${formatCount(row.retained_rank)} / ${formatCount(row.retained_population)}`}
+            </strong>
             <small>{row.cluster_id === null ? "NO CLUSTER" : `${clusterLabel(row.cluster_id)} IN ${row.version}`}</small>
             <div>
               {row.member_families.length === 0

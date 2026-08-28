@@ -97,6 +97,99 @@ export interface Overview {
   readonly clusters: readonly ClusterSummary[];
 }
 
+export interface QualityStats {
+  readonly version: AnalysisVersion;
+  readonly definitions: {
+    readonly raw: string;
+    readonly retained: string;
+  };
+  readonly provenance: {
+    readonly snapshot_sha256: string;
+    readonly versions_sha256: string;
+    readonly nft_snapshot_sha256: string;
+    readonly nft_observed_block: number;
+    readonly nft_observed_at: string;
+    readonly nonce_coverage: number;
+    readonly counterfactual_rule_set: string;
+  };
+  readonly disclaimer: string;
+  readonly outcome: {
+    readonly raw_wallets: number;
+    readonly retained_wallets: number;
+    readonly removed_wallets: number;
+    readonly retention_rate: number;
+    readonly raw_points: number;
+    readonly retained_points: number;
+    readonly retained_points_share: number;
+    readonly status_counts: Readonly<Record<WalletStatus, number>>;
+  };
+  readonly nft: {
+    readonly benchmark: string;
+    readonly method: string;
+    readonly observed_block: number;
+    readonly observed_at: string;
+    readonly raw_unique_holders: number;
+    readonly retained_unique_holders: number;
+    readonly removed_unique_holders: number;
+    readonly retention_rate: number;
+    readonly collections: readonly {
+      readonly id: string;
+      readonly name: string;
+      readonly contract: string;
+      readonly explorer_url: string;
+      readonly raw_holders: number;
+      readonly retained_holders: number;
+      readonly removed_holders: number;
+      readonly retention_rate: number | null;
+    }[];
+  };
+  readonly ladder: {
+    readonly definition: string;
+    readonly pattern_wallets: number;
+    readonly retained_wallets: number;
+    readonly status_counts: Readonly<Record<WalletStatus, number>>;
+    readonly lengths: Readonly<Record<string, number>>;
+    readonly counterfactual: null | {
+      readonly rule_set: string;
+      readonly ignored_evidence: string;
+      readonly removed_edges: number;
+      readonly removed_reason_count: number;
+      readonly flagged_wallets: number;
+      readonly review_wallets: number;
+      readonly retained_wallets: number;
+      readonly no_longer_flagged: number;
+      readonly pattern_wallets_no_longer_flagged: number;
+      readonly newly_flagged: number;
+      readonly transitions: Readonly<Record<string, number>>;
+    };
+  };
+  readonly maturity: {
+    readonly metric: string;
+    readonly interpretation: string;
+    readonly coverage: number;
+    readonly raw: QualityMaturitySlice;
+    readonly retained: QualityMaturitySlice;
+  };
+  readonly controls: readonly {
+    readonly id: string;
+    readonly label: string;
+    readonly meaning: string;
+    readonly raw_wallets: number;
+    readonly retained_wallets: number;
+    readonly removed_wallets: number;
+    readonly retention_rate: number;
+  }[];
+}
+
+export interface QualityMaturitySlice {
+  readonly wallets: number;
+  readonly covered_wallets: number;
+  readonly median_prior_transactions: number;
+  readonly nonce_zero_wallets: number;
+  readonly nonce_zero_share: number;
+  readonly buckets: Readonly<Record<"0" | "1-4" | "5-19" | "20-99" | "100+", number>>;
+}
+
 export interface WalletRow {
   readonly rank: number;
   readonly address: string;
@@ -147,6 +240,9 @@ export interface ClusterDetail {
 export interface WalletDetail {
   readonly version: string;
   readonly wallet: WalletRow;
+  /** Rank among clean + under-review wallets, compacted in original-list order. */
+  readonly retained_rank: number | null;
+  readonly retained_population: number;
   readonly status: "linked" | "unlinked";
   readonly analysis_status: WalletStatus;
   readonly cluster: ClusterSummary | null;
@@ -171,6 +267,8 @@ export interface WalletVersionHistory {
   readonly member_families: readonly EvidenceFamily[];
   readonly risk: RiskTier;
   readonly cluster_risk: RiskTier;
+  readonly retained_rank: number | null;
+  readonly retained_population: number;
 }
 
 export interface ListPage {

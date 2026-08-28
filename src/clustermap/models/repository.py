@@ -48,6 +48,9 @@ class CuratorRepository:
         self.version_store = VersionStore(
             versions_path or snapshot_path.with_name("analysis_versions.json.gz")
         )
+        self.quality_stats = self._read_quality_stats(
+            snapshot_path.with_name("list_quality_stats.json.gz")
+        )
 
         self.rows = tuple(dict(row) for row in self.snapshot["raw_list"])
         self.rows_by_address = {row["address"].lower(): row for row in self.rows}
@@ -65,6 +68,26 @@ class CuratorRepository:
         for version in self.version_store.versions:
             if frozenset(version.wallets_by_address) != expected_addresses:
                 raise ValueError(f"version {version.id} population does not match snapshot")
+        if int(self.quality_stats["population"]) != expected:
+            raise ValueError("quality stats population does not match snapshot")
+        if set(self.quality_stats["versions"]) != {
+            version.id for version in self.version_store.versions
+        }:
+            raise ValueError("quality stats versions do not match analysis versions")
+        self.retained_ranks = {}
+        self.retained_counts = {}
+        rows_by_rank = sorted(self.rows, key=lambda row: int(row["rank"]))
+        for version in self.version_store.versions:
+            retained = [
+                row["address"].lower()
+                for row in rows_by_rank
+                if version.wallets_by_address[row["address"].lower()]["status"]
+                != "flagged"
+            ]
+            self.retained_ranks[version.id] = {
+                address: rank for rank, address in enumerate(retained, start=1)
+            }
+            self.retained_counts[version.id] = len(retained)
         self._global_maps = {
             version.id: self._build_global_map(version)
             for version in self.version_store.versions
@@ -81,6 +104,19 @@ class CuratorRepository:
             ) from exc
         if not isinstance(value, dict) or value.get("schema_version") != 1:
             raise ValueError("unsupported curator snapshot schema")
+        return value
+
+    @staticmethod
+    def _read_quality_stats(path: Path) -> dict:
+        try:
+            with gzip.open(path, "rt", encoding="utf-8") as handle:
+                value = json.load(handle)
+        except FileNotFoundError as exc:
+            raise RuntimeError(
+                f"quality stats not found at {path}; run 'make quality-stats'"
+            ) from exc
+        if not isinstance(value, dict) or value.get("schema_version") != 1:
+            raise ValueError("unsupported list quality stats schema")
         return value
 
     @staticmethod
@@ -215,6 +251,18 @@ class CuratorRepository:
         version = self._version(version_id)
         return self._global_maps[version.id]
 
+    def stats(self, version_id: str | None = None) -> dict:
+        version = self._version(version_id)
+        return {
+            "version": version.public_metadata(
+                published=version.id == self.version_store.published_version
+            ),
+            "definitions": self.quality_stats["definitions"],
+            "provenance": self.quality_stats["provenance"],
+            "disclaimer": self.quality_stats["disclaimer"],
+            **self.quality_stats["versions"][version.id],
+        }
+
     def cluster(self, cluster_id: int, version_id: str | None = None) -> dict | None:
         version = self._version(version_id)
         cluster = version.clusters_by_id.get(cluster_id)
@@ -257,9 +305,16 @@ class CuratorRepository:
         cluster = version.clusters_by_id.get(cluster_id) if cluster_id is not None else None
         edges = cluster["edges"] if cluster is not None else ()
         funding = self.dataset.funding.get(key)
+        history = self.version_store.wallet_history(key)
+        for history_row in history:
+            history_version = history_row["version"]
+            history_row["retained_rank"] = self.retained_ranks[history_version].get(key)
+            history_row["retained_population"] = self.retained_counts[history_version]
         return {
             "version": version.id,
             "wallet": dict(row),
+            "retained_rank": self.retained_ranks[version.id].get(key),
+            "retained_population": self.retained_counts[version.id],
             "status": "linked" if state["status"] != "clean" else "unlinked",
             "analysis_status": state["status"],
             "cluster": self._cluster_summary(cluster) if cluster is not None else None,
@@ -270,7 +325,7 @@ class CuratorRepository:
                 for edge in edges
                 if key in (edge["source"], edge["target"])
             ][:120],
-            "history": self.version_store.wallet_history(key),
+            "history": history,
             "first_funder": funding.funder if funding is not None else None,
             "explorer_url": f"https://etherscan.io/address/{key}",
             "eth_usd": self.eth_usd,
@@ -522,6 +577,7 @@ class CuratorRepository:
         return {
             "status": "ready",
             "snapshot": "loaded",
+            "quality_stats": "loaded",
             "analysis": "versioned",
             "population": len(self.rows),
             "groups": len(published.clusters),

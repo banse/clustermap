@@ -98,6 +98,14 @@ def overview(
     return _versioned(lambda: _repository(request).overview(version))
 
 
+@router.get("/stats")
+def stats(
+    request: Request,
+    version: Annotated[str | None, Query(max_length=80)] = None,
+) -> dict:
+    return _versioned(lambda: _repository(request).stats(version))
+
+
 @router.get("/map/global")
 def global_map(
     request: Request,

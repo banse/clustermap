@@ -21,6 +21,21 @@ def test_final_contract_population_is_loaded(repository: CuratorRepository) -> N
     }
 
 
+def test_list_quality_stats_use_retained_as_clean_plus_review(
+    repository: CuratorRepository,
+) -> None:
+    payload = repository.stats()
+    outcome = payload["outcome"]
+
+    assert outcome["retained_wallets"] == (
+        outcome["status_counts"]["clean"] + outcome["status_counts"]["review"]
+    )
+    assert outcome["removed_wallets"] == outcome["status_counts"]["flagged"]
+    assert payload["maturity"]["coverage"] == 1
+    assert payload["nft"]["raw_unique_holders"] == 38
+    assert payload["nft"]["retained_unique_holders"] == 38
+
+
 def test_review_tier_is_grouped_and_ranked_by_share_not_count(
     repository: CuratorRepository,
 ) -> None:
@@ -243,6 +258,29 @@ def test_wallet_keeps_clean_separate_from_unknown(repository: CuratorRepository)
     assert detail["status"] == "unlinked"
     assert detail["cluster"] is None
     assert repository.wallet("0x0000000000000000000000000000000000000000") is None
+
+
+def test_wallet_rank_is_compacted_over_clean_plus_review(
+    repository: CuratorRepository,
+) -> None:
+    nodes = sorted(repository.global_map()["nodes"], key=lambda node: node["rank"])
+    retained = [node for node in nodes if node["status"] != "flagged"]
+    flagged = next(node for node in nodes if node["status"] == "flagged")
+
+    first = repository.wallet(retained[0]["address"])
+    last = repository.wallet(retained[-1]["address"])
+    removed = repository.wallet(flagged["address"])
+
+    assert first is not None and first["retained_rank"] == 1
+    assert last is not None and last["retained_rank"] == 7_106
+    assert first["retained_population"] == last["retained_population"] == 7_106
+    assert removed is not None and removed["retained_rank"] is None
+    assert all(
+        history["retained_rank"] is None
+        if history["status"] == "flagged"
+        else history["retained_rank"] is not None
+        for history in first["history"]
+    )
 
 
 def test_a_member_held_by_one_family_does_not_inherit_its_groups_tier(

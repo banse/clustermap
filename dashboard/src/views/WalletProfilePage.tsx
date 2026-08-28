@@ -4,6 +4,7 @@ import type { WalletProfileStatus } from "../models/walletProfile";
 import { AddressLink } from "./AddressLink";
 import { WalletProfileEvidence } from "./ReviewWalletDetail";
 import { WalletVersionHistory } from "./WalletVersionHistory";
+import { WalletRankComparison } from "./WalletRankComparison";
 
 interface WalletProfilePageProps {
   readonly address: string | null;
@@ -104,7 +105,7 @@ export function WalletProfilePage({
         <div className="wallet-profile__result">
           <header className="wallet-profile__identity">
             <div>
-              <span>IN THE LIST · RANK #{formatCount(detail.wallet.rank)}</span>
+              <span>IN THE ORIGINAL LIST</span>
               <AddressLink address={detail.wallet.address} name={detail.wallet.name} />
             </div>
             <div className="wallet-profile__actions">
@@ -113,8 +114,14 @@ export function WalletProfilePage({
             </div>
           </header>
 
+          <WalletRankComparison
+            originalRank={detail.wallet.rank}
+            retainedRank={detail.retained_rank}
+            retainedPopulation={detail.retained_population}
+          />
+
           <div className="wallet-profile__metrics" aria-label="Original list metrics">
-            <div><span>LIST RANK</span><strong>#{formatCount(detail.wallet.rank)}</strong></div>
+            <div><span>LIST OUTCOME</span><strong>{detail.retained_rank === null ? "FLAGGED / REMOVED" : "RETAINED"}</strong></div>
             <div><span>POINTS</span><strong>{formatCount(detail.wallet.points)}</strong></div>
             <div><span>TRANSACTIONS</span><strong>{formatCount(detail.wallet.tx_count)}</strong></div>
             <div><span>FIRST SEEN</span><strong>HOUR {detail.wallet.first_hour} · #{formatCount(detail.wallet.first_index)}</strong></div>

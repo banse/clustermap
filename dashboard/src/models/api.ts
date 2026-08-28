@@ -7,6 +7,7 @@ import type {
   ListFilters,
   ListPage,
   Overview,
+  QualityStats,
   ReviewPayload,
   VersionsResponse,
   WalletDetail,
@@ -72,6 +73,12 @@ export class ClusterMapApi {
   async overview(version?: string, signal?: AbortSignal): Promise<Overview> {
     return readJson<Overview>(
       await fetch(`${this.baseUrl}/overview${versionQuery(version)}`, { signal }),
+    );
+  }
+
+  async stats(version?: string, signal?: AbortSignal): Promise<QualityStats> {
+    return readJson<QualityStats>(
+      await fetch(`${this.baseUrl}/stats${versionQuery(version)}`, { signal }),
     );
   }
 
