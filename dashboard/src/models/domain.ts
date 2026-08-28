@@ -240,6 +240,8 @@ export interface ClusterDetail {
 export interface WalletDetail {
   readonly version: string;
   readonly wallet: WalletRow;
+  /** Total wallets in the frozen original-list snapshot. */
+  readonly original_population: number;
   /** Rank among clean + under-review wallets, compacted in original-list order. */
   readonly retained_rank: number | null;
   readonly retained_population: number;

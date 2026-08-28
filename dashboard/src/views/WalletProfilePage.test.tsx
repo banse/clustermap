@@ -8,6 +8,7 @@ const address = "0x0758a9ff05aba43572334cbdc4c5df03292d424e";
 
 const detail: WalletDetail = {
   version: "2026-08-25-sybilkit-0.2.0",
+  original_population: 19_522,
   retained_rank: 4_218,
   retained_population: 7_106,
   wallet: {
@@ -78,7 +79,8 @@ describe("WalletProfilePage wallet evidence", () => {
   it("shows the visual and textual evidence dossier for a wallet under review", () => {
     renderProfile(detail);
 
-    expect(screen.getByRole("group", { name: "Original list rank 11004; cleaned list rank 4218 of 7106" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Original list rank 11004 of 19522; cleaned list rank 4218 of 7106" })).toBeInTheDocument();
+    expect(screen.getByText("OF 19,522 WALLETS")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "UNDER REVIEW EVIDENCE" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();
     expect(screen.getByText("Both wallets used the same uncommon deposit ladder.")).toBeInTheDocument();

@@ -51,6 +51,7 @@ const payload: ReviewPayload = {
 
 const selectedDetail: WalletDetail = {
   version: payload.version,
+  original_population: 19_522,
   retained_rank: 1,
   retained_population: 7_106,
   wallet: {
@@ -149,7 +150,7 @@ describe("ReviewPage", () => {
   it("explains and visualizes the selected wallet's direct evidence", () => {
     render(reviewPage({ walletDetail: selectedDetail }));
 
-    expect(screen.getByRole("group", { name: "Original list rank 1; cleaned list rank 1 of 7106" })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: "Original list rank 1 of 19522; cleaned list rank 1 of 7106" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();
     expect(screen.getByRole("img", { name: /Direct evidence connections/ })).toBeInTheDocument();
     expect(screen.getByText("Both wallets used the same uncommon deposit amount.")).toBeInTheDocument();

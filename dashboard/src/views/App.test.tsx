@@ -135,6 +135,7 @@ const globalMap: GlobalMap = {
 
 const wallet: WalletDetail = {
   version: analysisVersion.id,
+  original_population: 19_522,
   retained_rank: null,
   retained_population: 7_949,
   wallet: {
@@ -321,7 +322,7 @@ describe("App", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "MAP" }));
     expect(screen.getByRole("heading", { name: "WALLET DETAILS" })).toBeInTheDocument();
-    expect(screen.getByRole("group", { name: /Original list rank 24; not retained/ })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: /Original list rank 24 of 19522; not retained/ })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "WALLET FACTS" })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "RELATED EVIDENCE" })).toBeInTheDocument();
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
@@ -365,7 +366,7 @@ describe("App", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /PROFILE/ }));
     expect(screen.getByText("IN THE ORIGINAL LIST")).toBeInTheDocument();
-    expect(screen.getByRole("group", { name: /Original list rank 24; not retained/ })).toBeInTheDocument();
+    expect(screen.getByRole("group", { name: /Original list rank 24 of 19522; not retained/ })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "ORIGINAL ALLOWLIST RECORD" })).toBeInTheDocument();
     // A wallet page states MEMBERSHIP of a group, not a verdict about the
     // wallet: the tier is a property of the cluster, and a member may be held

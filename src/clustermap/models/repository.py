@@ -313,6 +313,7 @@ class CuratorRepository:
         return {
             "version": version.id,
             "wallet": dict(row),
+            "original_population": len(self.rows),
             "retained_rank": self.retained_ranks[version.id].get(key),
             "retained_population": self.retained_counts[version.id],
             "status": "linked" if state["status"] != "clean" else "unlinked",

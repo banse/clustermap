@@ -2,6 +2,7 @@ import { formatCount } from "../models/presentation";
 
 interface WalletRankComparisonProps {
   readonly originalRank: number;
+  readonly originalPopulation: number;
   readonly retainedRank: number | null;
   readonly retainedPopulation: number;
   readonly compact?: boolean;
@@ -9,6 +10,7 @@ interface WalletRankComparisonProps {
 
 export function WalletRankComparison({
   originalRank,
+  originalPopulation,
   retainedRank,
   retainedPopulation,
   compact = false,
@@ -20,12 +22,13 @@ export function WalletRankComparison({
       data-retained={retained ? "true" : "false"}
       role="group"
       aria-label={retained
-        ? `Original list rank ${originalRank}; cleaned list rank ${retainedRank} of ${retainedPopulation}`
-        : `Original list rank ${originalRank}; not retained in the cleaned list`}
+        ? `Original list rank ${originalRank} of ${originalPopulation}; cleaned list rank ${retainedRank} of ${retainedPopulation}`
+        : `Original list rank ${originalRank} of ${originalPopulation}; not retained in the cleaned list`}
     >
       <div>
         <span>ORIGINAL LIST RANK</span>
         <strong>#{formatCount(originalRank)}</strong>
+        <small>OF {formatCount(originalPopulation)} WALLETS</small>
       </div>
       <i aria-hidden="true">→</i>
       <div>

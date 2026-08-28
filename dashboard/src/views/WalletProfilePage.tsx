@@ -116,6 +116,7 @@ export function WalletProfilePage({
 
           <WalletRankComparison
             originalRank={detail.wallet.rank}
+            originalPopulation={detail.original_population}
             retainedRank={detail.retained_rank}
             retainedPopulation={detail.retained_population}
           />

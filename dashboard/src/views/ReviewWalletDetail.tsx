@@ -210,6 +210,7 @@ export function ReviewWalletDetail({
             {resolved === null ? null : (
               <WalletRankComparison
                 originalRank={resolved.wallet.rank}
+                originalPopulation={resolved.original_population}
                 retainedRank={resolved.retained_rank}
                 retainedPopulation={resolved.retained_population}
                 compact

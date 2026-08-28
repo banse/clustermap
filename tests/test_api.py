@@ -51,6 +51,7 @@ def test_cluster_and_wallet_routes(client: TestClient) -> None:
     assert cluster.status_code == 200
     assert wallet.status_code == 200
     assert wallet.json()["cluster"]["id"] == 0
+    assert wallet.json()["original_population"] == 19_522
     assert "retained_rank" in wallet.json()
     assert wallet.json()["retained_population"] == 7_106
     assert all("retained_rank" in row for row in wallet.json()["history"])
