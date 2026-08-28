@@ -30,7 +30,7 @@ export interface TerminalController {
   readonly setCursor: (index: number) => void;
   readonly inspect: (row: WalletRow) => Promise<void>;
   readonly submitWallet: (address: string) => Promise<void>;
-  readonly applyPreset: (key: "1" | "2" | "3") => void;
+  readonly applyPreset: (key: "1" | "2" | "3" | "4") => void;
 }
 
 export function useTerminalController(data: ClusterMapController): TerminalController {
@@ -97,7 +97,7 @@ export function useTerminalController(data: ClusterMapController): TerminalContr
   );
 
   const applyPreset = useCallback(
-    (key: "1" | "2" | "3") => {
+    (key: "1" | "2" | "3" | "4") => {
       const preset = PRESETS.find((item) => item.key === key);
       if (preset === undefined) return;
       setMode("lists");
@@ -132,7 +132,7 @@ export function useTerminalController(data: ClusterMapController): TerminalContr
       if (isEditableTarget(event.target)) return;
 
       const key = event.key.toLowerCase();
-      if (["l", "h", "y", "c", "f", "w", "r", "e", "?", "/", "1", "2", "3", "j", "k", "arrowdown", "arrowup", "enter", "pagedown", "pageup"].includes(key)) {
+      if (["l", "h", "y", "c", "f", "w", "r", "e", "?", "/", "1", "2", "3", "4", "j", "k", "arrowdown", "arrowup", "enter", "pagedown", "pageup"].includes(key)) {
         event.preventDefault();
       }
       if (key === "l") navigate("lists");
@@ -151,7 +151,7 @@ export function useTerminalController(data: ClusterMapController): TerminalContr
       } else if (key === "e") {
         void data.exportList().then((filename) => setNotice(`EXPORTED: ${filename}`));
       } else if (key === "?") setHelpOpen(true);
-      else if (key === "1" || key === "2" || key === "3") applyPreset(key);
+      else if (key === "1" || key === "2" || key === "3" || key === "4") applyPreset(key);
       else if ((key === "j" || key === "arrowdown") && mode === "lists") {
         setCursor((current) => Math.min((data.list?.rows.length ?? 1) - 1, current + 1));
       } else if ((key === "k" || key === "arrowup") && mode === "lists") {

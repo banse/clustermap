@@ -24,9 +24,11 @@ import {
 
 const initialFilters: ListFilters = {
   query: "",
-  link: "all",
+  link: "selected",
   evidence: "all",
   preset: "none",
+  sort: "rank",
+  direction: "asc",
   offset: 0,
   limit: 50,
 };
@@ -104,6 +106,7 @@ export interface ClusterMapController {
   readonly setLinkFilter: (link: ListFilters["link"]) => void;
   readonly setEvidenceFilter: (evidence: ListFilters["evidence"]) => void;
   readonly setPreset: (preset: ListFilters["preset"]) => void;
+  readonly setSort: (sort: ListFilters["sort"]) => void;
   readonly setListView: (view: "raw" | "clean" | "filtered") => void;
   readonly previousPage: () => void;
   readonly nextPage: () => void;
@@ -343,7 +346,16 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   }, [deltaBaseId, deltaEnabled, deltaHeadId, reloadKey]);
 
   const setVersion = useCallback((id: string) => {
-    if (!versionIndex?.versions.some((version) => version.id === id)) return;
+    const version = versionIndex?.versions.find((candidate) => candidate.id === id);
+    if (version === undefined) return;
+    setFilters((current) => ({
+      ...current,
+      link: "selected",
+      preset: current.preset === "first1000" && version.list_scope !== "raw"
+        ? "none"
+        : current.preset,
+      offset: 0,
+    }));
     setSelectedVersionId(id);
     if (deltaEnabled) setDeltaHeadId(id);
     updateSearch({ version: id, head: deltaEnabled ? id : null, cluster: null, wallet: null });
@@ -351,7 +363,20 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
 
   const setDeltaEnabled = useCallback((enabled: boolean) => {
     setDeltaEnabledState(enabled);
-    if (enabled && deltaHeadId !== null) setSelectedVersionId(deltaHeadId);
+    if (enabled && deltaHeadId !== null) {
+      const version = versionIndex?.versions.find((candidate) => candidate.id === deltaHeadId);
+      if (version !== undefined) {
+        setFilters((current) => ({
+          ...current,
+          link: "selected",
+          preset: current.preset === "first1000" && version.list_scope !== "raw"
+            ? "none"
+            : current.preset,
+          offset: 0,
+        }));
+      }
+      setSelectedVersionId(deltaHeadId);
+    }
     updateSearch({
       delta: enabled ? "1" : null,
       base: enabled ? deltaBaseId : null,
@@ -360,7 +385,7 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
       cluster: null,
       wallet: null,
     });
-  }, [deltaBaseId, deltaHeadId, selectedVersionId]);
+  }, [deltaBaseId, deltaHeadId, selectedVersionId, versionIndex]);
 
   const setDeltaBase = useCallback((id: string) => {
     if (!versionIndex?.versions.some((version) => version.id === id)) return;
@@ -369,7 +394,16 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
   }, [versionIndex]);
 
   const setDeltaHead = useCallback((id: string) => {
-    if (!versionIndex?.versions.some((version) => version.id === id)) return;
+    const version = versionIndex?.versions.find((candidate) => candidate.id === id);
+    if (version === undefined) return;
+    setFilters((current) => ({
+      ...current,
+      link: "selected",
+      preset: current.preset === "first1000" && version.list_scope !== "raw"
+        ? "none"
+        : current.preset,
+      offset: 0,
+    }));
     setDeltaHeadId(id);
     setSelectedVersionId(id);
     updateSearch({ version: id, head: id, cluster: null, wallet: null });
@@ -511,12 +545,22 @@ export function useClusterMapController(apiOverride?: ClusterMapApi): ClusterMap
     setQuery: (query: string) => updateFilters({ query }),
     setLinkFilter: (link: ListFilters["link"]) => updateFilters({ link }),
     setEvidenceFilter: (evidence: ListFilters["evidence"]) => updateFilters({ evidence }),
-    setPreset: (preset: ListFilters["preset"]) => updateFilters({ preset }),
+    setPreset: (preset: ListFilters["preset"]) => updateFilters({
+      preset,
+      link: "selected",
+      evidence: "all",
+    }),
+    setSort: (sort: ListFilters["sort"]) => setFilters((current) => ({
+      ...current,
+      sort,
+      direction: current.sort === sort && current.direction === "asc" ? "desc" : "asc",
+      offset: 0,
+    })),
     setListView: (view: "raw" | "clean" | "filtered") => {
       if (view === "raw") {
-        updateFilters({ query: "", link: "all", evidence: "all", preset: "none" });
+        updateFilters({ query: "", link: "selected", evidence: "all", preset: "none", sort: "rank", direction: "asc" });
       } else if (view === "clean") {
-        updateFilters({ query: "", link: "unlinked", evidence: "all", preset: "none" });
+        updateFilters({ query: "", link: "selected", evidence: "all", preset: "none", sort: "rank", direction: "asc" });
       }
     },
     previousPage: () => setFilters((current) => ({

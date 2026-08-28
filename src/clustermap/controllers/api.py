@@ -25,6 +25,13 @@ def _versioned(call):
         raise HTTPException(status_code=404, detail=str(exc.args[0])) from exc
 
 
+def _list_versioned(call):
+    try:
+        return _versioned(call)
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
 @router.get("/health")
 def health(request: Request) -> dict:
     return _repository(request).health()
@@ -145,19 +152,33 @@ def original_list(
     request: Request,
     version: Annotated[str | None, Query(max_length=80)] = None,
     q: Annotated[str, Query(max_length=80)] = "",
-    link: Literal["all", "linked", "unlinked"] = "all",
+    link: Literal["selected", "all", "linked", "unlinked", "retained"] = "selected",
     evidence: Literal["all", "high", "low"] = "all",
-    preset: Literal["none", "first1000", "hour0", "whale"] = "none",
+    preset: Literal["none", "first1000", "hour0", "whale", "ens"] = "none",
+    sort: Literal[
+        "rank",
+        "wallet",
+        "points",
+        "credit",
+        "weight",
+        "deposits",
+        "gross",
+        "range",
+        "window",
+    ] = "rank",
+    direction: Literal["asc", "desc"] = "asc",
     offset: Annotated[int, Query(ge=0)] = 0,
     limit: Annotated[int, Query(ge=1, le=200)] = 50,
 ) -> dict:
-    return _versioned(
+    return _list_versioned(
         lambda: _repository(request).list_rows(
             version_id=version,
             query=q,
             link=link,
             evidence=evidence,
             preset=preset,
+            sort=sort,
+            direction=direction,
             offset=offset,
             limit=limit,
         )
@@ -169,17 +190,31 @@ def export_original_list(
     request: Request,
     version: Annotated[str | None, Query(max_length=80)] = None,
     q: Annotated[str, Query(max_length=80)] = "",
-    link: Literal["all", "linked", "unlinked"] = "all",
+    link: Literal["selected", "all", "linked", "unlinked", "retained"] = "selected",
     evidence: Literal["all", "high", "low"] = "all",
-    preset: Literal["none", "first1000", "hour0", "whale"] = "none",
+    preset: Literal["none", "first1000", "hour0", "whale", "ens"] = "none",
+    sort: Literal[
+        "rank",
+        "wallet",
+        "points",
+        "credit",
+        "weight",
+        "deposits",
+        "gross",
+        "range",
+        "window",
+    ] = "rank",
+    direction: Literal["asc", "desc"] = "asc",
 ) -> Response:
-    payload = _versioned(
+    payload = _list_versioned(
         lambda: _repository(request).export_rows(
             version_id=version,
             query=q,
             link=link,
             evidence=evidence,
             preset=preset,
+            sort=sort,
+            direction=direction,
         )
     )
     suffix = preset if preset != "none" else "current"

@@ -14,10 +14,19 @@ describe("ClusterMapApi", () => {
     );
     const api = new ClusterMapApi("/test");
 
-    await api.list({ query: "0xabc", link: "linked", evidence: "high", preset: "whale", offset: 50, limit: 50 });
+    await api.list({
+      query: "0xabc",
+      link: "linked",
+      evidence: "high",
+      preset: "whale",
+      sort: "points",
+      direction: "desc",
+      offset: 50,
+      limit: 50,
+    });
 
     expect(fetchMock).toHaveBeenCalledWith(
-      "/test/list?q=0xabc&link=linked&evidence=high&preset=whale&offset=50&limit=50",
+      "/test/list?q=0xabc&link=linked&evidence=high&preset=whale&sort=points&direction=desc&offset=50&limit=50",
       { signal: undefined },
     );
   });

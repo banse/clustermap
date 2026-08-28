@@ -23,7 +23,7 @@ export const SHORTCUTS: readonly Shortcut[] = [
 ];
 
 export const PRESETS: readonly {
-  key: "1" | "2" | "3";
+  key: "1" | "2" | "3" | "4";
   value: Exclude<ListFilters["preset"], "none">;
   label: string;
   detail: string;
@@ -31,6 +31,7 @@ export const PRESETS: readonly {
   { key: "1", value: "first1000", label: "First 1000", detail: "join index 1–1000" },
   { key: "2", value: "hour0", label: "Hour 0", detail: "first deposit in hour zero" },
   { key: "3", value: "whale", label: "Whale splash", detail: "single deposit ≥25 ETH" },
+  { key: "4", value: "ens", label: "ENS name set", detail: "recorded ENS name present" },
 ];
 
 export function nextListView(view: ListView): ListView {

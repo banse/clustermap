@@ -36,6 +36,8 @@ function listQuery(filters: ListFilters, includePaging: boolean, version?: strin
     link: filters.link,
     evidence: filters.evidence,
     preset: filters.preset,
+    sort: filters.sort,
+    direction: filters.direction,
   };
   if (includePaging) {
     values.offset = String(filters.offset);

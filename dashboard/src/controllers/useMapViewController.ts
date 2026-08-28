@@ -6,11 +6,11 @@ import { normalizeEthereumAddress } from "../models/walletProfile";
 
 export type MapScope = "global" | "cluster";
 export type GlobalVisualView = "wallets" | "clusters";
-export type AppPage = "welcome" | "map" | "stats" | "profile" | "changelog" | "review";
+export type AppPage = "welcome" | "map" | "list" | "stats" | "profile" | "changelog" | "review";
 
 function readPage(): AppPage {
   const value = new URLSearchParams(window.location.search).get("page");
-  return value === "map" || value === "stats" || value === "profile" || value === "changelog" || value === "review"
+  return value === "map" || value === "list" || value === "stats" || value === "profile" || value === "changelog" || value === "review"
     ? value
     : "welcome";
 }
@@ -43,8 +43,10 @@ export interface MapViewController {
   readonly setGlobalView: (view: GlobalVisualView) => void;
   readonly showWelcome: () => void;
   readonly showMap: () => void;
+  readonly showList: () => void;
   readonly showStats: () => void;
   readonly showProfile: () => void;
+  readonly showWalletProfile: (address: string) => void;
   readonly showChangelog: () => void;
   readonly showReview: () => void;
   readonly showFocusedWalletOnMap: () => Promise<void>;
@@ -135,6 +137,12 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
     updateSearch({ page: "map", view: "wallets", cluster: null, wallet: focus.wallet.address });
   }, [data]);
 
+  const showWalletProfile = useCallback((address: string) => {
+    if (!data.setFocusedWallet(address)) return;
+    setPage("profile");
+    updateSearch({ page: "profile", cluster: null, wallet: null });
+  }, [data]);
+
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
@@ -175,6 +183,11 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
       setPage("map");
       updateSearch({ page: "map" });
     },
+    showList: () => {
+      data.setListView("clean");
+      setPage("list");
+      updateSearch({ page: "list", cluster: null, wallet: null });
+    },
     showStats: () => {
       setPage("stats");
       updateSearch({ page: "stats", cluster: null, wallet: null });
@@ -183,6 +196,7 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
       setPage("profile");
       updateSearch({ page: "profile", cluster: null, wallet: null });
     },
+    showWalletProfile,
     showChangelog: () => {
       setPage("changelog");
       updateSearch({ page: "changelog", cluster: null, wallet: null });
@@ -216,5 +230,5 @@ export function useMapViewController(data: ClusterMapController): MapViewControl
       data.closeWallet();
       updateSearch({ wallet: null });
     },
-  }), [data, deltaFilter, globalView, page, scope, selectWallet, showCluster, showFocusedWalletOnMap, walletDraft, walletDraftError]);
+  }), [data, deltaFilter, globalView, page, scope, selectWallet, showCluster, showFocusedWalletOnMap, showWalletProfile, walletDraft, walletDraftError]);
 }

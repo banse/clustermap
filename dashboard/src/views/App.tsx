@@ -12,6 +12,7 @@ import { DeltaPanel } from "./DeltaPanel";
 import { EvidenceGraph } from "./EvidenceGraph";
 import { GlobalViewSwitcher } from "./GlobalViewSwitcher";
 import { GlobalWalletMap } from "./GlobalWalletMap";
+import { ListLeaderboardPage } from "./ListLeaderboardPage";
 import { GroupInspectionPanel, WalletInspectionPanel } from "./MapInspectionPanel";
 import { MapIntroduction } from "./MapIntroduction";
 import { MapSidebar } from "./MapSidebar";
@@ -49,10 +50,11 @@ export function App({ controller }: AppProps) {
             <p>READ-ONLY <span>/</span> KEYLESS <span>/</span> ETHEREUM</p>
             <nav className="map-primary-nav" aria-label="Primary views">
               <button type="button" aria-current={mapView.page === "welcome" ? "page" : undefined} onClick={mapView.showWelcome}>WELCOME</button>
+              <button type="button" aria-current={mapView.page === "list" ? "page" : undefined} onClick={mapView.showList}>THE LIST</button>
               <button type="button" aria-current={mapView.page === "map" ? "page" : undefined} onClick={mapView.showMap}>MAP</button>
               <button type="button" aria-current={mapView.page === "stats" ? "page" : undefined} onClick={mapView.showStats}>STATS</button>
-              <button type="button" aria-current={mapView.page === "changelog" ? "page" : undefined} onClick={mapView.showChangelog}>CHANGE LOG</button>
               <button type="button" aria-current={mapView.page === "review" ? "page" : undefined} onClick={mapView.showReview}>UNDER REVIEW</button>
+              <button type="button" aria-current={mapView.page === "changelog" ? "page" : undefined} onClick={mapView.showChangelog}>CHANGE LOG</button>
               <button type="button" aria-current={mapView.page === "profile" ? "page" : undefined} onClick={mapView.showProfile}>
                 {controller.focusedWalletAddress === null ? "SET WALLET" : (
                   <>PROFILE<span className="map-primary-nav__address"> · {shortWalletAddress(controller.focusedWalletAddress)}</span></>
@@ -91,6 +93,21 @@ export function App({ controller }: AppProps) {
 
           {mapView.page === "welcome" ? (
             <WelcomePage overview={overview} onOpenMap={mapView.showMap} onOpenProfile={mapView.showProfile} />
+          ) : mapView.page === "list" ? (
+            <ListLeaderboardPage
+              page={controller.list}
+              filters={controller.filters}
+              overview={overview}
+              version={controller.selectedVersion}
+              loading={controller.loading.list}
+              onQuery={controller.setQuery}
+              onPreset={controller.setPreset}
+              onSort={controller.setSort}
+              onPreviousPage={controller.previousPage}
+              onNextPage={controller.nextPage}
+              onExport={() => void controller.exportList()}
+              onOpenWallet={mapView.showWalletProfile}
+            />
           ) : mapView.page === "stats" ? (
             <StatsPage stats={controller.stats} loading={controller.loading.stats} />
           ) : mapView.page === "review" ? (

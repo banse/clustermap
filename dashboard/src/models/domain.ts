@@ -13,6 +13,7 @@ export interface AnalysisVersion {
   readonly detector: string;
   readonly detector_version: string;
   readonly rule_set: string;
+  readonly list_scope: "raw" | "retained";
   readonly snapshot_block: number;
   readonly commit: string;
   readonly tag: string | null;
@@ -207,6 +208,25 @@ export interface WalletRow {
   readonly risk?: RiskTier;
 }
 
+export interface ListWalletRow extends WalletRow {
+  readonly version: string;
+  readonly filter_rank: number;
+  readonly cluster_id: number | null;
+  readonly evidence_band: EvidenceBand;
+  readonly status: WalletStatus;
+  readonly risk: RiskTier;
+  readonly retained_rank: number | null;
+  readonly clean_rank: number | null;
+  readonly member_families: readonly EvidenceFamily[];
+  readonly member_family_count: number;
+  readonly under_review: boolean;
+  readonly deposit_count: number;
+  readonly deposit_total_eth: number;
+  readonly min_deposit_eth: number;
+  readonly max_deposit_eth: number;
+  readonly last_hour: number;
+}
+
 export interface ClusterNode {
   readonly id: string;
   readonly address: string;
@@ -275,7 +295,7 @@ export interface WalletVersionHistory {
 
 export interface ListPage {
   readonly version: string;
-  readonly rows: readonly WalletRow[];
+  readonly rows: readonly ListWalletRow[];
   readonly total: number;
   readonly offset: number;
   readonly limit: number;
@@ -283,9 +303,11 @@ export interface ListPage {
 
 export interface ListFilters {
   readonly query: string;
-  readonly link: "all" | "linked" | "unlinked";
+  readonly link: "selected" | "all" | "linked" | "unlinked" | "retained";
   readonly evidence: "all" | "high" | "low";
-  readonly preset: "none" | "first1000" | "hour0" | "whale";
+  readonly preset: "none" | "first1000" | "hour0" | "whale" | "ens";
+  readonly sort: "rank" | "wallet" | "points" | "credit" | "weight" | "deposits" | "gross" | "range" | "window";
+  readonly direction: "asc" | "desc";
   readonly offset: number;
   readonly limit: number;
 }

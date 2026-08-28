@@ -1,6 +1,10 @@
 from __future__ import annotations
 
+import pytest
+
 from clustermap.models.repository import CuratorRepository
+
+RAW_VERSION = "2026-08-22-whitelistcurator-raw"
 
 
 def test_final_contract_population_is_loaded(repository: CuratorRepository) -> None:
@@ -114,9 +118,13 @@ def test_publishing_0_2_0_moved_the_pointer_and_rewrote_no_version(
 
     assert versions["published_version"] == "2026-08-25-sybilkit-0.2.0"
     assert [(row["id"], row["cluster_count"]) for row in versions["versions"]] == [
+        (RAW_VERSION, 0),
         ("2026-08-22-shipped", 263),
         ("2026-08-25-sybilkit-0.2.0", 160),
     ]
+    assert by_id[RAW_VERSION]["content_hash"] == (
+        "80c6875dcddac375e43ca7a33748fa8189f15763f3dcbf9ecbbc4cf49e5c42be"
+    )
     assert by_id["2026-08-22-shipped"]["content_hash"] == (
         "9c5a1ef4882e84328bfc13da235b4d7d08f7c9fa3eebd4cf8eaab92ecc4ac616"
     )
@@ -125,6 +133,9 @@ def test_publishing_0_2_0_moved_the_pointer_and_rewrote_no_version(
     )
     assert by_id["2026-08-22-shipped"]["stage"] == "superseded"
     assert by_id["2026-08-25-sybilkit-0.2.0"]["stage"] == "published"
+    assert by_id[RAW_VERSION]["list_scope"] == "raw"
+    assert by_id["2026-08-22-shipped"]["list_scope"] == "retained"
+    assert by_id["2026-08-25-sybilkit-0.2.0"]["list_scope"] == "retained"
     assert repository.overview()["version"]["id"] == "2026-08-25-sybilkit-0.2.0"
     assert repository.overview()["version"]["published"] is True
 
@@ -172,6 +183,7 @@ def test_wallet_history_qualifies_cluster_ids_by_version(
     assert detail is not None
     assert detail["version"] == "2026-08-25-sybilkit-0.2.0"
     assert [row["version"] for row in detail["history"]] == [
+        RAW_VERSION,
         "2026-08-22-shipped",
         "2026-08-25-sybilkit-0.2.0",
     ]
@@ -209,6 +221,29 @@ def test_global_map_covers_every_wallet_with_a_sparse_evidence_tree(
     assert global_map["meta"]["review_cluster_count"] > 0
 
 
+def test_raw_version_is_the_unfiltered_contract_population(
+    repository: CuratorRepository,
+) -> None:
+    overview = repository.overview(RAW_VERSION)
+    global_map = repository.global_map(RAW_VERSION)
+    rows = repository.list_rows(version_id=RAW_VERSION, limit=19_522)
+    stats = repository.stats(RAW_VERSION)
+
+    assert overview["totals"]["population"] == 19_522
+    assert overview["totals"]["groups"] == 0
+    assert overview["totals"]["status_counts"] == {
+        "clean": 19_522,
+        "review": 0,
+        "flagged": 0,
+    }
+    assert global_map["edges"] == []
+    assert all(node["risk"] == "independent" for node in global_map["nodes"])
+    assert rows["total"] == 19_522
+    assert [row["filter_rank"] for row in rows["rows"]] == list(range(1, 19_523))
+    assert stats["outcome"]["retained_wallets"] == 19_522
+    assert stats["outcome"]["removed_wallets"] == 0
+
+
 def test_cluster_assessment_exposes_reviewable_false_positive_signals(
     repository: CuratorRepository,
 ) -> None:
@@ -225,28 +260,160 @@ def test_cluster_assessment_exposes_reviewable_false_positive_signals(
 def test_original_list_filters_and_searches(repository: CuratorRepository) -> None:
     linked = repository.list_rows(link="linked", limit=1)
     unlinked = repository.list_rows(link="unlinked", limit=1)
+    retained = repository.list_rows(link="retained", limit=19_522)
     address = linked["rows"][0]["address"]
-    searched = repository.list_rows(query=address.upper(), limit=10)
+    expected_rank = next(
+        row["filter_rank"]
+        for row in repository.list_rows(link="all", limit=19_522)["rows"]
+        if row["address"] == address
+    )
+    searched = repository.list_rows(link="all", query=address.upper(), limit=10)
 
     assert linked["total"] == 12_740
     assert unlinked["total"] == 6_782
+    assert retained["total"] == 7_106
+    assert {row["status"] for row in retained["rows"]} == {"clean", "review"}
     assert [row["address"] for row in searched["rows"]] == [address]
     assert searched["rows"][0]["cluster_id"] is not None
+    assert linked["rows"][0]["filter_rank"] == 1
+    assert unlinked["rows"][0]["filter_rank"] == 1
+    assert searched["rows"][0]["filter_rank"] == expected_rank
+
+
+def test_search_preserves_retained_and_preset_rank(repository: CuratorRepository) -> None:
+    retained_target = repository.list_rows(link="retained", limit=100)["rows"][50]
+    preset_target = repository.list_rows(preset="hour0", limit=100)["rows"][20]
+
+    retained_result = repository.list_rows(
+        link="retained",
+        query=retained_target["address"],
+    )
+    preset_result = repository.list_rows(
+        preset="hour0",
+        query=preset_target["address"],
+    )
+
+    assert retained_result["rows"][0]["filter_rank"] == 51
+    assert preset_result["rows"][0]["filter_rank"] == 21
+
+
+def test_current_list_filter_has_a_gapless_rank(repository: CuratorRepository) -> None:
+    first_page = repository.list_rows(link="retained", offset=0, limit=50)
+    second_page = repository.list_rows(link="retained", offset=50, limit=50)
+
+    assert [row["filter_rank"] for row in first_page["rows"]] == list(range(1, 51))
+    assert [row["filter_rank"] for row in second_page["rows"]] == list(range(51, 101))
+
+
+def test_list_sorts_every_data_column_without_rewriting_rank(
+    repository: CuratorRepository,
+) -> None:
+    sort_keys = {
+        "rank": lambda row: row["filter_rank"],
+        "wallet": lambda row: row["address"].lower(),
+        "points": lambda row: row["points"],
+        "credit": lambda row: row["credit_eth"],
+        "weight": lambda row: row["weight_eth"],
+        "deposits": lambda row: row["deposit_count"],
+        "gross": lambda row: row["deposit_total_eth"],
+        "range": lambda row: (row["min_deposit_eth"], row["max_deposit_eth"]),
+        "window": lambda row: (
+            row["first_hour"],
+            row["last_hour"],
+            row["first_index"],
+        ),
+    }
+
+    for column, key in sort_keys.items():
+        ascending = repository.list_rows(
+            link="retained",
+            sort=column,
+            direction="asc",
+            limit=200,
+        )["rows"]
+        descending = repository.list_rows(
+            link="retained",
+            sort=column,
+            direction="desc",
+            limit=200,
+        )["rows"]
+
+        assert [key(row) for row in ascending] == sorted(key(row) for row in ascending)
+        assert [key(row) for row in descending] == sorted(
+            (key(row) for row in descending),
+            reverse=True,
+        )
+
+    points_sorted = repository.list_rows(
+        link="retained",
+        sort="points",
+        direction="asc",
+        limit=200,
+    )["rows"]
+    assert [row["filter_rank"] for row in points_sorted] != list(range(1, 201))
 
 
 def test_maxpane_presets_and_export(repository: CuratorRepository) -> None:
-    first = repository.list_rows(preset="first1000", limit=1)
+    first = repository.list_rows(version_id=RAW_VERSION, preset="first1000", limit=1)
     hour = repository.list_rows(preset="hour0", limit=200)
     whales = repository.list_rows(preset="whale", limit=1_000)
+    ens = repository.list_rows(preset="ens", limit=200)
     exported = repository.export_rows(preset="whale")
 
     assert first["total"] == 1_000
     assert 1 <= first["rows"][0]["first_index"] <= 1_000
-    assert hour["total"] == 96
+    assert hour["total"] == 87
     assert all(row["first_hour"] == 0 for row in hour["rows"])
-    assert whales["total"] == 568
+    assert whales["total"] == 107
+    assert ens["total"] == 8
+    assert all(row["name"] for row in ens["rows"])
     assert exported["count"] == whales["total"]
     assert exported["snapshot_block"] == 25_807_057
+    assert [row["filter_rank"] for row in hour["rows"]] == list(
+        range(1, hour["total"] + 1)
+    )
+    assert exported["rows"][0]["filter_rank"] == 1
+    with pytest.raises(ValueError, match="available only on the raw list"):
+        repository.list_rows(preset="first1000")
+
+
+def test_presets_filter_the_selected_version_population(
+    repository: CuratorRepository,
+) -> None:
+    raw_hour = repository.list_rows(
+        version_id=RAW_VERSION,
+        preset="hour0",
+        limit=200,
+    )
+    raw_whales = repository.list_rows(
+        version_id=RAW_VERSION,
+        preset="whale",
+        limit=1_000,
+    )
+    raw_ens = repository.list_rows(
+        version_id=RAW_VERSION,
+        preset="ens",
+        limit=200,
+    )
+
+    assert raw_hour["total"] == 96
+    assert raw_whales["total"] == 568
+    assert raw_ens["total"] == 8
+    assert all(row["status"] == "clean" for row in raw_hour["rows"])
+
+
+def test_list_rows_include_frozen_deposit_amounts_and_hour_window(
+    repository: CuratorRepository,
+) -> None:
+    row = repository.list_rows(query="0x2fe4093c894749e596f458764c377bf4f1337b58")[
+        "rows"
+    ][0]
+
+    assert row["deposit_count"] == row["tx_count"] == 2
+    assert row["deposit_total_eth"] == 787
+    assert row["min_deposit_eth"] == 1
+    assert row["max_deposit_eth"] == 786
+    assert row["first_hour"] == row["last_hour"] == 6
 
 
 def test_wallet_keeps_clean_separate_from_unknown(repository: CuratorRepository) -> None:
@@ -275,6 +442,15 @@ def test_wallet_rank_is_compacted_over_clean_plus_review(
     assert last is not None and last["retained_rank"] == 7_106
     assert first["retained_population"] == last["retained_population"] == 7_106
     assert removed is not None and removed["retained_rank"] is None
+    list_rows = repository.list_rows(link="all", limit=19_522)["rows"]
+    ranks_by_address = {row["address"]: row["retained_rank"] for row in list_rows}
+    assert ranks_by_address[first["wallet"]["address"]] == 1
+    assert ranks_by_address[removed["wallet"]["address"]] is None
+    clean_rows = repository.list_rows(link="unlinked", limit=19_522)["rows"]
+    assert [row["clean_rank"] for row in clean_rows] == list(
+        range(1, len(clean_rows) + 1)
+    )
+    assert all(row["status"] == "clean" for row in clean_rows)
     assert all(
         history["retained_rank"] is None
         if history["status"] == "flagged"
@@ -327,7 +503,7 @@ def test_the_export_carries_its_own_provenance_and_known_defects(
     repository: CuratorRepository,
 ) -> None:
     """An export gets forked and cited long after its context is gone."""
-    payload = repository.export_rows(preset="first1000")
+    payload = repository.export_rows(preset="ens")
     assert payload["detector"]["name"] == "sybilkit"
     assert payload["detector"]["version"] == "0.2.0"
     assert payload["detector"]["rule_set"] == "v2h (v2g + aged-weak periphery)"

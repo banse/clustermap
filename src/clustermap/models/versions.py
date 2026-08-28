@@ -129,6 +129,8 @@ class VersionStore:
 
         population = len(self.versions[0].wallets) if self.versions else 0
         for version, raw in zip(self.versions, payload["versions"], strict=True):
+            if version.metadata.get("list_scope") not in {"raw", "retained"}:
+                raise ValueError(f"version {version.id} has invalid list scope")
             if len(version.wallets) != population:
                 raise ValueError(f"version {version.id} population mismatch")
             if len(version.wallets_by_address) != population:

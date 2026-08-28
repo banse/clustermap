@@ -30,6 +30,9 @@ The public, crypto-native framing is a three-step handoff:
 - Snapshot block: `25,807,057`
 - Snapshot: `data/curator_snapshot.json.gz`
 - Population: 19,522 wallets from 28,353 deposits
+- Source version `2026-08-22-whitelistcurator-raw`: the original 19,522-wallet
+  WhitelistCurator.sol list, represented as independent/unclustered before any
+  SybilKit filtering
 - Superseded analysis `2026-08-22-shipped`: 263 kept groups, 7,949 clean,
   0 review, 11,573 flagged
 - Published v2h analysis `2026-08-25-sybilkit-0.2.0`: 160 kept groups, 6,782 clean,
@@ -55,9 +58,8 @@ The public, crypto-native framing is a three-step handoff:
   switcher is controlled by `THEME_SWITCHER_ENABLED = false` in
   `dashboard/src/models/theme.ts`. While disabled, MaxPane is forced even when
   a browser has an older Light/Dark preference in local storage.
-- The app opens on `WELCOME`; `MAP`, `STATS`, `CHANGE LOG`, `UNDER REVIEW`, and
-  `PROFILE` remain primary
-  peer views.
+- The app opens on `WELCOME`; the primary navigation order is `THE LIST`,
+  `MAP`, `STATS`, `UNDER REVIEW`, `CHANGE LOG`, then `PROFILE`/`SET WALLET`.
   The welcome page derives its claims from the WhitelistCurator contract notice
   and clearly separates historical onchain presence from offchain evidence
   review. Its hero shows two responsive, code-comment-style source excerpts in
@@ -76,9 +78,9 @@ The public, crypto-native framing is a three-step handoff:
   promise nor proof of a unique human.
 - Within `MAP`, the default global view is `CLUSTERS`, the Evidence Atlas.
   `WALLETS` remains available through the global-view switch.
-- The frontend opens on the published audited v2h analysis by default. The
-  superseded shipped SybilKit analysis is still selectable or directly
-  URL-pinnable.
+- The frontend opens on the published audited v2h analysis by default. The raw
+  WhitelistCurator list and superseded shipped SybilKit analysis are also
+  globally selectable or directly URL-pinnable.
 - The selected version is always visible and URL-pinned. It controls every
   count, map, cluster drill-down, wallet dossier, list row, and export. Cluster
   ids are qualified by their version because ids are not stable across runs.
@@ -99,6 +101,31 @@ The public, crypto-native framing is a three-step handoff:
   wallets count as removed. The page compares wallet and point retention, a
   fixed eight-collection Ethereum NFT holder benchmark, exact natural minimum-
   deposit ladders, entry-nonce maturity, and ENS/IDMD/verified control retention.
+- `THE LIST` is a version-pinned wallet-attribute leaderboard. The raw source
+  version is titled `THE LIST (RAW)` and defaults to all 19,522 wallets. A
+  SybilKit version is titled `THE LIST (RETAINED)` when it has no review tier,
+  or `THE LIST (RETAINED + UNDER REVIEW)` when review wallets are retained.
+  `CLEAN LIST` contains the selected SybilKit version's `clean + review`
+  population; only `flagged` wallets are excluded. Group, flag, risk, and
+  evidence fields are deliberately absent.
+  `HOUR ZERO`, `25+ ETH DEPOSIT`, and `ENS NAME SET` refine whichever global
+  list version is selected. `FIRST 1,000 ENTRIES` exists only for the raw list
+  and is reset when the user switches to a SybilKit version. The first column
+  is labelled `CLEAN`/`RAW` for the default or `FILTER` for a preset and ranks
+  the selected population contiguously from 1; search and attribute sorting
+  never rewrite that rank.
+  Every data header sorts the complete selected population on the server before
+  pagination, and JSON export preserves the same ordering. Original rank remains
+  visible as provenance. Recorded ENS names sit beside addresses. Credit,
+  weight, gross deposited amount, min→max deposit range, deposit count, and
+  first→last contract-hour window are shown in ETH without USD fallback copy.
+  Non-rank body cells use a prominent 15px data size for scanability, with 11px
+  secondary values.
+  The summary docket labels its result `RAW / FILTERED` or `CLEAN / FILTERED`
+  and shows either the selected-list population or active preset result count.
+  Search, JSON export, wallet-profile handoff, and 50-row server pagination
+  remain available. Published v2 has 7,106 retained wallets: 6,782 clean + 324
+  under review. The frozen source records eight ENS names.
 - NFT ownership is an immutable offline ERC-721 `balanceOf` snapshot at Ethereum
   block 25,853,521, stored in `data/nft_holder_snapshot.json.gz`; no RPC or API
   runs in the web process. The fixed benchmark is CryptoPunks, BAYC, MAYC,
@@ -217,6 +244,7 @@ Important current frontend files:
 - `dashboard/src/models/walletProfile.ts`: focus-address validation/presentation
 - `dashboard/src/views/WalletProfilePage.tsx`: local focus-wallet profile
 - `dashboard/src/views/StatsPage.tsx`: version-pinned population/filter audit
+- `dashboard/src/views/ListLeaderboardPage.tsx`: clean-default/raw-preset attribute leaderboard
 - `dashboard/src/views/drawFocusReticle.ts`: shared canvas focus marker
 - `dashboard/src/controllers/useThemeController.ts`: forced/dormant theme state
 - `dashboard/src/styles/app.css`: all theme and responsive presentation
@@ -226,7 +254,8 @@ Detailed decisions live under `.claude/designs/`.
 The version-store design is recorded in
 `.claude/designs/versioned-analysis-and-delta.md`. Runtime code only reads and
 validates the stored artifact; detector recomputation is an explicit offline
-build step, never a web request.
+build step, never a web request. Raw-version and selected-list semantics are in
+`.claude/designs/raw-list-analysis-version.md`.
 
 ## Operational notes
 
@@ -243,12 +272,15 @@ build step, never a web request.
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 32 backend tests and 45 frontend tests pass; Ruff,
+- Last verified state: 38 backend tests and 54 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
 - Browser QA additionally covers published→candidate switching (263→160),
   directional comparison totals and atlas mixes, version-qualified cluster
-  drill-down, wallet deep links/history, change-log filters, URL pinning, and
-  zero console warnings/errors.
+  drill-down, wallet deep links/history, retained-list search/rank stability,
+  full-result attribute sorting, paging/profile handoff, raw/retained title
+  switching, raw-only first-1,000 reset, version-scoped HOUR ZERO counts,
+  ENS-name filtering, change-log filters, URL pinning, and zero console
+  warnings/errors.
 - Expected non-blocking test warnings: Starlette's `httpx` deprecation and the
   Vitest environment's invalid `--localstorage-file` warning.
 
@@ -259,6 +291,7 @@ build step, never a web request.
 - Never commit API keys or secrets.
 - Read-only, keyless, no signer, no broadcast.
 - Preserve address explorer/copy affordances.
-- ETH values need USD context or the explicit `USD unavailable` fallback.
+- ETH values normally need USD context or the explicit `USD unavailable`
+  fallback; THE LIST ledger is the deliberate ETH-only exception.
 - Never describe analytical evidence as proof of identity or ownership.
 - Preserve unrelated user work in the repository.

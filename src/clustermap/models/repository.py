@@ -11,9 +11,21 @@ from typing import Literal
 from .analysis import load_dataset
 from .versions import AnalysisVersion, DeltaClass, VersionStore
 
-ListLink = Literal["all", "linked", "unlinked"]
+ListLink = Literal["selected", "all", "linked", "unlinked", "retained"]
 EvidenceFilter = Literal["all", "high", "low"]
-ListPreset = Literal["none", "first1000", "hour0", "whale"]
+ListPreset = Literal["none", "first1000", "hour0", "whale", "ens"]
+ListSort = Literal[
+    "rank",
+    "wallet",
+    "points",
+    "credit",
+    "weight",
+    "deposits",
+    "gross",
+    "range",
+    "window",
+]
+ListDirection = Literal["asc", "desc"]
 
 WHALE_DEPOSIT_WEI = 25 * 10**18
 CLUSTER_PUBLIC_FIELDS = (
@@ -54,6 +66,27 @@ class CuratorRepository:
 
         self.rows = tuple(dict(row) for row in self.snapshot["raw_list"])
         self.rows_by_address = {row["address"].lower(): row for row in self.rows}
+        deposit_summaries: dict[str, dict[str, int]] = {}
+        for event in self.snapshot["events"]:
+            address = event["contributor"].lower()
+            amount_wei = int(event["amount_wei"])
+            hour = int(event["hour"])
+            summary = deposit_summaries.setdefault(
+                address,
+                {
+                    "count": 0,
+                    "total_wei": 0,
+                    "min_wei": amount_wei,
+                    "max_wei": amount_wei,
+                    "last_hour": hour,
+                },
+            )
+            summary["count"] += 1
+            summary["total_wei"] += amount_wei
+            summary["min_wei"] = min(summary["min_wei"], amount_wei)
+            summary["max_wei"] = max(summary["max_wei"], amount_wei)
+            summary["last_hour"] = max(summary["last_hour"], hour)
+        self.deposit_summaries = deposit_summaries
         self.whale_addresses = frozenset(
             event["contributor"].lower()
             for event in self.snapshot["events"]
@@ -76,6 +109,7 @@ class CuratorRepository:
             raise ValueError("quality stats versions do not match analysis versions")
         self.retained_ranks = {}
         self.retained_counts = {}
+        self.clean_ranks = {}
         rows_by_rank = sorted(self.rows, key=lambda row: int(row["rank"]))
         for version in self.version_store.versions:
             retained = [
@@ -88,6 +122,15 @@ class CuratorRepository:
                 address: rank for rank, address in enumerate(retained, start=1)
             }
             self.retained_counts[version.id] = len(retained)
+            clean = [
+                row["address"].lower()
+                for row in rows_by_rank
+                if version.wallets_by_address[row["address"].lower()]["status"]
+                == "clean"
+            ]
+            self.clean_ranks[version.id] = {
+                address: rank for rank, address in enumerate(clean, start=1)
+            }
         self._global_maps = {
             version.id: self._build_global_map(version)
             for version in self.version_store.versions
@@ -337,9 +380,11 @@ class CuratorRepository:
         *,
         version_id: str | None = None,
         query: str = "",
-        link: ListLink = "all",
+        link: ListLink = "selected",
         evidence: EvidenceFilter = "all",
         preset: ListPreset = "none",
+        sort: ListSort = "rank",
+        direction: ListDirection = "asc",
         offset: int = 0,
         limit: int = 50,
     ) -> dict:
@@ -350,6 +395,8 @@ class CuratorRepository:
             link=link,
             evidence=evidence,
             preset=preset,
+            sort=sort,
+            direction=direction,
         )
         return {
             "version": version.id,
@@ -364,9 +411,11 @@ class CuratorRepository:
         *,
         version_id: str | None = None,
         query: str = "",
-        link: ListLink = "all",
+        link: ListLink = "selected",
         evidence: EvidenceFilter = "all",
         preset: ListPreset = "none",
+        sort: ListSort = "rank",
+        direction: ListDirection = "asc",
     ) -> dict:
         version = self._version(version_id)
         rows = self._select_rows(
@@ -375,6 +424,8 @@ class CuratorRepository:
             link=link,
             evidence=evidence,
             preset=preset,
+            sort=sort,
+            direction=direction,
         )
         return {
             "source": "CuratorWhitelist",
@@ -404,6 +455,8 @@ class CuratorRepository:
                 "link": link,
                 "evidence": evidence,
                 "preset": preset,
+                "sort": sort,
+                "direction": direction,
             },
             "count": len(rows),
             "rows": rows,
@@ -417,22 +470,35 @@ class CuratorRepository:
         link: ListLink,
         evidence: EvidenceFilter,
         preset: ListPreset,
+        sort: ListSort,
+        direction: ListDirection,
     ) -> list[dict]:
+        list_scope = version.metadata.get("list_scope", "retained")
+        effective_link = (
+            "all" if list_scope == "raw" else "retained"
+        ) if link == "selected" else link
+        if preset == "first1000" and list_scope != "raw":
+            raise ValueError("FIRST 1,000 ENTRIES is available only on the raw list")
         needle = query.strip().lower()
         selected = []
         for source in self.rows:
             address = source["address"].lower()
             state = version.wallets_by_address[address]
             is_linked = state["status"] != "clean"
+            is_retained = state["status"] != "flagged"
             if preset == "first1000" and not 1 <= int(source["first_index"]) <= 1000:
                 continue
             if preset == "hour0" and int(source["first_hour"]) != 0:
                 continue
             if preset == "whale" and address not in self.whale_addresses:
                 continue
-            if link == "linked" and not is_linked:
+            if preset == "ens" and not source.get("name"):
                 continue
-            if link == "unlinked" and is_linked:
+            if effective_link == "linked" and not is_linked:
+                continue
+            if effective_link == "unlinked" and is_linked:
+                continue
+            if effective_link == "retained" and not is_retained:
                 continue
             cluster = (
                 version.clusters_by_id[state["cluster_id"]]
@@ -441,9 +507,6 @@ class CuratorRepository:
             )
             if evidence != "all" and (cluster is None or cluster["band"] != evidence):
                 continue
-            name = (source.get("name") or "").lower()
-            if needle and needle not in address and needle not in name:
-                continue
             row = dict(source)
             row.update(
                 {
@@ -451,14 +514,53 @@ class CuratorRepository:
                     "cluster_id": state["cluster_id"],
                     "status": state["status"],
                     "risk": state["risk"],
+                    "retained_rank": self.retained_ranks[version.id].get(address),
+                    "clean_rank": self.clean_ranks[version.id].get(address),
                     "evidence_band": cluster["band"] if cluster is not None else "none",
                     "member_families": state["member_families"],
                     "member_family_count": len(state["member_families"]),
                     "under_review": is_linked and state["risk"] == "review",
                 }
             )
+            deposits = self.deposit_summaries[address]
+            row.update(
+                {
+                    "deposit_count": deposits["count"],
+                    "deposit_total_eth": deposits["total_wei"] / 10**18,
+                    "min_deposit_eth": deposits["min_wei"] / 10**18,
+                    "max_deposit_eth": deposits["max_wei"] / 10**18,
+                    "last_hour": deposits["last_hour"],
+                    "filter_rank": len(selected) + 1,
+                }
+            )
             selected.append(row)
-        return selected
+        if needle:
+            selected = [
+                row
+                for row in selected
+                if needle in row["address"].lower()
+                or needle in (row.get("name") or "").lower()
+            ]
+        sort_keys = {
+            "rank": lambda row: row["filter_rank"],
+            "wallet": lambda row: row["address"].lower(),
+            "points": lambda row: row["points"],
+            "credit": lambda row: row["credit_eth"],
+            "weight": lambda row: row["weight_eth"],
+            "deposits": lambda row: row["deposit_count"],
+            "gross": lambda row: row["deposit_total_eth"],
+            "range": lambda row: (row["min_deposit_eth"], row["max_deposit_eth"]),
+            "window": lambda row: (
+                row["first_hour"],
+                row["last_hour"],
+                row["first_index"],
+            ),
+        }
+        return sorted(
+            selected,
+            key=sort_keys[sort],
+            reverse=direction == "desc",
+        )
 
     def review(self, version_id: str | None = None) -> dict:
         """The wallets this version shows but does not remove, and where they sit.

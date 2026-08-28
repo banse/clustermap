@@ -9,6 +9,10 @@ const precise = new Intl.NumberFormat("en", {
   maximumFractionDigits: 2,
 });
 
+const preciseEth = new Intl.NumberFormat("en", {
+  maximumFractionDigits: 4,
+});
+
 export function formatCount(value: number): string {
   return new Intl.NumberFormat("en").format(value);
 }
@@ -25,6 +29,10 @@ export function formatEth(value: number, ethUsd: number | null): string {
   const eth = `${precise.format(value)} ETH`;
   if (ethUsd === null) return `${eth} · USD unavailable`;
   return `${eth} · ≈ $${precise.format(value * ethUsd)}`;
+}
+
+export function formatEthAmount(value: number): string {
+  return `${preciseEth.format(value)} ETH`;
 }
 
 export function clusterLabel(id: number): string {

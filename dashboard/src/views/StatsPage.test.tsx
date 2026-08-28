@@ -19,6 +19,7 @@ const version: AnalysisVersion = {
   reproduce_command: "make quality-stats",
   content_hash: "abc",
   published: true,
+  list_scope: "retained",
   status_counts: { clean: 6_782, review: 324, flagged: 12_416 },
   cluster_count: 160,
 };

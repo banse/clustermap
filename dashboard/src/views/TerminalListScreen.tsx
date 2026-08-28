@@ -48,9 +48,11 @@ export function ListScreen({ data, terminal, overview }: ListScreenProps) {
             <label>
               <span>LINK STATE</span>
               <select value={data.filters.link} onChange={(event) => data.setLinkFilter(event.target.value as ListFilters["link"])}>
+                <option value="selected">SELECTED VERSION</option>
                 <option value="all">ALL</option>
                 <option value="linked">LINKED</option>
                 <option value="unlinked">CLEAN</option>
+                <option value="retained">RETAINED + REVIEW</option>
               </select>
             </label>
             <label>

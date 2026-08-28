@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
+import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { ClusterMapController } from "../controllers/useClusterMapController";
@@ -38,6 +38,7 @@ const analysisVersion: AnalysisVersion = {
   reproduce_command: "python scripts/build_versions.py",
   content_hash: "abc123",
   published: true,
+  list_scope: "retained",
   status_counts: { clean: 7_949, review: 0, flagged: 11_573 },
   cluster_count: 263,
 };
@@ -54,6 +55,20 @@ const candidateVersion: AnalysisVersion = {
   published: false,
   status_counts: { clean: 6_782, review: 324, flagged: 12_416 },
   cluster_count: 160,
+};
+
+const rawVersion: AnalysisVersion = {
+  ...analysisVersion,
+  id: "2026-08-22-whitelistcurator-raw",
+  label: "Original WhitelistCurator.sol list",
+  stage: "source",
+  detector: "whitelistcurator",
+  detector_version: "raw",
+  rule_set: "none (raw contract list)",
+  published: false,
+  list_scope: "raw",
+  status_counts: { clean: 19_522, review: 0, flagged: 0 },
+  cluster_count: 0,
 };
 
 const delta: DeltaPayload = {
@@ -207,7 +222,16 @@ function controller(
     focusedWallet,
     focusedWalletStatus: focusedWallet === null ? (focusedAddress === null ? "unset" : "not-listed") : "listed",
     list: { version: analysisVersion.id, rows: [], total: 0, offset: 0, limit: 50 },
-    filters: { query: "", link: "all", evidence: "all", preset: "none", offset: 0, limit: 50 },
+    filters: {
+      query: "",
+      link: "selected",
+      evidence: "all",
+      preset: "none",
+      sort: "rank",
+      direction: "asc",
+      offset: 0,
+      limit: 50,
+    },
     loading: { versions: false, changelog: false,
     review: false, overview: false, stats: false, globalMap: false, cluster: false, wallet: false, reviewWallet: false, list: false, delta: false },
     error: null,
@@ -227,6 +251,7 @@ function controller(
     setLinkFilter: vi.fn(),
     setEvidenceFilter: vi.fn(),
     setPreset: vi.fn(),
+    setSort: vi.fn(),
     setListView: vi.fn(),
     previousPage: vi.fn(),
     nextPage: vi.fn(),
@@ -284,6 +309,33 @@ describe("App", () => {
     expect(screen.getByText("List quality statistics are unavailable.")).toBeInTheDocument();
     expect(screen.getByRole("button", { name: "STATS" })).toHaveAttribute("aria-current", "page");
     expect(window.location.search).toContain("page=stats");
+  });
+
+  it("opens the version-pinned wallet leaderboard from primary navigation", () => {
+    const data = controller();
+    render(<App controller={data} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "THE LIST" }));
+
+    expect(screen.getByRole("heading", { name: "THE LIST (RETAINED)" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "THE LIST" })).toHaveAttribute("aria-current", "page");
+    expect(data.setListView).toHaveBeenCalledWith("clean");
+    expect(window.location.search).toContain("page=list");
+  });
+
+  it("orders THE LIST before MAP and UNDER REVIEW after STATS", () => {
+    render(<App controller={controller()} />);
+
+    const navigation = screen.getByRole("navigation", { name: "Primary views" });
+    expect(within(navigation).getAllByRole("button").map((button) => button.textContent)).toEqual([
+      "WELCOME",
+      "THE LIST",
+      "MAP",
+      "STATS",
+      "UNDER REVIEW",
+      "CHANGE LOG",
+      "SET WALLET",
+    ]);
   });
 
   it("switches to the wallet field and back to the default cluster atlas", () => {
@@ -402,7 +454,7 @@ describe("App", () => {
   });
 
   it("keeps the selected analysis version visible and delegates version changes", () => {
-    const data = { ...controller(), versions: [analysisVersion, candidateVersion] };
+    const data = { ...controller(), versions: [rawVersion, analysisVersion, candidateVersion] };
     render(<App controller={data} />);
 
     expect(screen.getByText("Published analysis")).toBeInTheDocument();
@@ -410,9 +462,9 @@ describe("App", () => {
       screen.getByRole("region", { name: "Analysis version" }),
     );
     fireEvent.change(screen.getByLabelText("Selected analysis version"), {
-      target: { value: candidateVersion.id },
+      target: { value: rawVersion.id },
     });
-    expect(data.setVersion).toHaveBeenCalledWith(candidateVersion.id);
+    expect(data.setVersion).toHaveBeenCalledWith(rawVersion.id);
   });
 
   it("opens the immutable change log and renders chain events", () => {

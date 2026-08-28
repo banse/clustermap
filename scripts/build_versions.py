@@ -60,10 +60,11 @@ from clustermap.models.versions import (  # noqa: E402
 )
 
 OUTPUT = PROJECT_ROOT / "data" / "analysis_versions.json.gz"
+RAW_ID = "2026-08-22-whitelistcurator-raw"
 V1_ID = "2026-08-22-shipped"
 V2_ID = "2026-08-25-sybilkit-0.2.0"
 V2_RULE = "v2h (v2g + aged-weak periphery)"
-GENERATED_AT = "2026-08-25T00:00:00Z"
+GENERATED_AT = "2026-08-28T00:00:00Z"
 
 
 def read_snapshot() -> dict:
@@ -285,6 +286,42 @@ def enrichment_counts(dataset) -> dict:
     return {"tx_fingerprints": len(dataset.txs), "funding_rows": len(dataset.funding)}
 
 
+def build_raw(snapshot: dict) -> dict:
+    addresses = [row["address"].lower() for row in snapshot["raw_list"]]
+    status = {address: "clean" for address in addresses}
+    risk = {address: "independent" for address in addresses}
+    return finish_version(
+        metadata={
+            "id": RAW_ID,
+            "label": "Original WhitelistCurator.sol list",
+            "at": as_utc(snapshot["meta"]["maxpane_saved_at"]),
+            "stage": "source",
+            "summary": (
+                "The original 19,522-wallet contract population before any "
+                "SybilKit filtering."
+            ),
+            "detector": "whitelistcurator",
+            "detector_version": "raw",
+            "rule_set": "none (raw contract list)",
+            "list_scope": "raw",
+            "enrichment": {
+                "tx_fingerprints": len(snapshot["enrichment"]["txs"]),
+                "funding_rows": len(snapshot["enrichment"]["funding"]),
+            },
+            "snapshot_block": snapshot["meta"]["snapshot_block"],
+            "commit": "88d595b",
+            "tag": "v0.1.0",
+            "reproduce_command": "uv run python scripts/build_versions.py",
+        },
+        rows=snapshot["raw_list"],
+        clusters=[],
+        status_by_address=status,
+        display_risk_by_address=risk,
+        cluster_risk_by_address=risk,
+        member_families={},
+    )
+
+
 def build_shipped(snapshot: dict) -> dict:
     dataset, config, result = run_analysis(snapshot)
     evidence = project_evidence_edges(dataset, config, result)
@@ -337,6 +374,7 @@ def build_shipped(snapshot: dict) -> dict:
             "detector_commit": SYBILKIT_V1_COMMIT,
             "vendored_commit": VENDORED_COMMIT,
             "rule_set": "baseline(shipped)",
+            "list_scope": "retained",
             "enrichment": enrichment_counts(dataset),
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             "commit": "88d595b",
@@ -446,6 +484,7 @@ def build_v2(snapshot: dict) -> dict:
             "rules_file": "audit/harness/sk_v2.py",
             "rules_sha256": RULES_SHA256,
             "rule_set": V2_RULE,
+            "list_scope": "retained",
             "enrichment": enrichment_counts(dataset),
             "snapshot_block": snapshot["meta"]["snapshot_block"],
             # Where this analysis became the one the site asserts — the same
@@ -490,7 +529,12 @@ def transition_summary(base: dict, head: dict) -> str:
     return "; ".join([*parts, f"{unchanged:,} unchanged."])
 
 
-def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict]:
+def build_changelog(
+    snapshot: dict,
+    raw_version: dict,
+    shipped: dict,
+    candidate: dict,
+) -> list[dict]:
     events = sorted(snapshot["events"], key=lambda row: (row["block_number"], row["log_index"]))
     by_hour = {}
     for event in events:
@@ -589,6 +633,24 @@ def build_changelog(snapshot: dict, shipped: dict, candidate: dict) -> list[dict
                 "title": "Analysis snapshot pinned",
                 "summary": "The final contract population and enrichment inputs were frozen.",
                 "links": links(("Snapshot tag", "https://github.com/banse/clustermap/tree/v0.1.0/data")),
+            },
+            {
+                "id": "analysis-whitelistcurator-raw",
+                "kind": "analysis",
+                "at": raw_version["metadata"]["at"],
+                "block": snapshot["meta"]["snapshot_block"],
+                "title": "Original WhitelistCurator list recorded",
+                "summary": (
+                    "The unfiltered contract population was fixed at 19,522 wallets, "
+                    "before any SybilKit analysis."
+                ),
+                "version": RAW_ID,
+                "links": links(
+                    (
+                        "Contract",
+                        "https://etherscan.io/address/0xcb0b0531e86a9ac36fa865ca8e3dbccf047fda91#code",
+                    )
+                ),
             },
             {
                 "id": "analysis-shipped",
@@ -693,6 +755,7 @@ def write_artifact(payload: dict) -> None:
 
 def main() -> None:
     snapshot = read_snapshot()
+    raw_version = build_raw(snapshot)
     shipped = build_shipped(snapshot)
     candidate = build_v2(snapshot)
     payload = {
@@ -700,14 +763,15 @@ def main() -> None:
         "generated_at": GENERATED_AT,
         "snapshot_block": snapshot["meta"]["snapshot_block"],
         "published_version": V2_ID,
-        "versions": [shipped, candidate],
-        "changelog": build_changelog(snapshot, shipped, candidate),
+        "versions": [raw_version, shipped, candidate],
+        "changelog": build_changelog(snapshot, raw_version, shipped, candidate),
     }
     write_artifact(payload)
     print(
         f"wrote {OUTPUT.relative_to(PROJECT_ROOT)}: "
         f"{len(shipped['wallets']):,} wallets, "
-        f"{len(shipped['clusters'])}/{len(candidate['clusters'])} clusters, "
+        f"{len(raw_version['clusters'])}/{len(shipped['clusters'])}/"
+        f"{len(candidate['clusters'])} clusters, "
         f"{candidate['status_counts']}"
     )
 

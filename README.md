@@ -76,8 +76,9 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   the code for later reactivation
 - responsive desktop/mobile interface and reduced-motion support
 - a fully usable local snapshot without an API key or a running RPC
-- immutable, URL-pinned analysis versions, with SybilKit 0.2.0 published
-  and SybilKit 0.1.1 kept selectable
+- immutable, URL-pinned analysis versions, with SybilKit 0.2.0 published,
+  SybilKit 0.1.1 preserved, and the original unfiltered WhitelistCurator.sol
+  population selectable as a global raw version
 - a public change log combining generated chain history with dated analysis and
   publication entries
 - a directional base → head delta on both maps, with wallet histories and
@@ -86,6 +87,9 @@ Vite then runs on `5173` and forwards `/api` to the local backend.
   retained after filtering (`clean + under review`), including point retention,
   blue-chip NFT holder retention, minimum-deposit ladders, wallet maturity and
   independent control populations
+- a version-pinned THE LIST leaderboard whose HOUR ZERO, 25+ ETH, and ENS-name
+  presets refine the selected raw or retained population; FIRST 1,000 is
+  available only for the raw contract list
 - a measured SybilKit 0.2.0 counterfactual showing how many wallets cease to be
   flagged when only exact `0.05 → 0.15 → 0.25 → …` amount-pattern edges are
   ignored and every other signal remains active
@@ -130,15 +134,16 @@ startup, and is rebuilt deterministically from the snapshot and audit harness:
 make versions
 ```
 
-The published analysis is `2026-08-25-sybilkit-0.2.0`; the superseded
-`2026-08-22-shipped` version remains selectable and is not overwritten. Each
-version records the detector release it *is* — `sybilkit-v0.1.1` and
-`sybilkit-v0.2.0` — frozen per version rather than inherited from whatever is
-vendored, plus the enrichment it ran on, which differs between them. The v2 rules
-are additionally pinned by content (`rules_sha256` over `audit/harness/sk_v2.py`),
-so the tagged release is verifiably the script that produced the analysis. The
-exact detector inputs and rule identifiers are stored with each version. The
-vendored SybilKit commit remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
+The published analysis is `2026-08-25-sybilkit-0.2.0`; the original
+`2026-08-22-whitelistcurator-raw` population and superseded
+`2026-08-22-shipped` analysis remain selectable and are not overwritten. Each
+version records the source or detector release it *is* — the raw contract list,
+`sybilkit-v0.1.1`, or `sybilkit-v0.2.0` — rather than inheriting whatever is
+vendored, plus the enrichment it ran on. The v2 rules are additionally pinned
+by content (`rules_sha256` over `audit/harness/sk_v2.py`), so the tagged release
+is verifiably the script that produced the analysis. The exact detector inputs
+and rule identifiers are stored with each version. The vendored SybilKit commit
+remains recorded in `vendor/sybilkit/UPSTREAM_COMMIT`.
 
 The Stats page loads aggregate results from `data/list_quality_stats.json.gz`.
 Its NFT benchmark uses a fixed, offline ERC-721 ownership snapshot at Ethereum
