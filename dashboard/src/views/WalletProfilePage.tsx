@@ -2,7 +2,7 @@ import type { WalletDetail } from "../models/domain";
 import { clusterLabel, familyLabel, formatCount, formatEth, formatPercent, walletGroupLabel } from "../models/presentation";
 import type { WalletProfileStatus } from "../models/walletProfile";
 import { AddressLink } from "./AddressLink";
-import { WalletReviewEvidence } from "./ReviewWalletDetail";
+import { WalletProfileEvidence } from "./ReviewWalletDetail";
 import { WalletVersionHistory } from "./WalletVersionHistory";
 
 interface WalletProfilePageProps {
@@ -184,7 +184,7 @@ export function WalletProfilePage({
               )}
             </article>
           </div>
-          <WalletReviewEvidence detail={detail} />
+          <WalletProfileEvidence detail={detail} />
           <WalletVersionHistory history={detail.history} selectedVersion={detail.version} />
           <p className="wallet-profile__disclaimer">{disclaimer}</p>
           {dispute ? (

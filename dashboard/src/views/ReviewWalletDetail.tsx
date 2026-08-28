@@ -23,7 +23,10 @@ interface ReviewWalletDetailProps {
   readonly detail: WalletDetail | null;
   readonly loading: boolean;
   readonly embedded?: boolean;
+  readonly status?: EvidenceWalletStatus;
 }
+
+type EvidenceWalletStatus = "review" | "flagged";
 
 interface ReviewWalletSummary {
   readonly address: string;
@@ -74,8 +77,20 @@ function relatedWallets(detail: WalletDetail): readonly RelatedWallet[] {
     .slice(0, MAX_GRAPH_RELATIONS);
 }
 
-function reviewExplanation(wallet: ReviewWalletSummary): string {
+function evidenceExplanation(
+  wallet: ReviewWalletSummary,
+  status: EvidenceWalletStatus,
+): string {
   const count = wallet.member_families.length;
+  if (status === "flagged") {
+    if (count === 0) {
+      return "This analysis places the wallet in the flagged tier through its kept group, but no displayed evidence family touches it directly. The group decision depends on links among other members.";
+    }
+    if (count === 1) {
+      return `This analysis places the wallet in the flagged tier through its kept group. ${familyLabel(wallet.member_families[0])} touches it directly; the wider group decision also depends on links among other members.`;
+    }
+    return `${formatCount(count)} evidence families touch this wallet directly, and this analysis places it in the flagged tier as part of the kept group. The traces below list its exact incident links.`;
+  }
   if (count === 0) {
     return "No displayed evidence family touches this wallet directly. It appears only at the edge of a kept group, so it remains visible for review and is not placed in the flagged tier.";
   }
@@ -162,6 +177,7 @@ export function ReviewWalletDetail({
   detail,
   loading,
   embedded = false,
+  status = "review",
 }: ReviewWalletDetailProps) {
   const resolved = detail?.wallet.address.toLowerCase() === wallet.address.toLowerCase()
     ? detail
@@ -169,16 +185,22 @@ export function ReviewWalletDetail({
 
   return (
     <aside
-      className={`review-detail${embedded ? " review-detail--profile" : ""}`}
+      className={`review-detail${embedded ? " review-detail--profile" : ""} review-detail--status-${status} review-detail--risk-${resolved?.member_risk ?? "review"}`}
       aria-labelledby="review-detail-title"
       aria-live="polite"
     >
       <header className={`review-detail__header${embedded ? " review-detail__header--profile" : ""}`}>
-        <span>{embedded ? "THIS WALLET · UNDER REVIEW" : "SELECTED WALLET · UNDER REVIEW"}</span>
+        <span>{embedded ? `THIS WALLET · ${status === "flagged" ? "FLAGGED" : "UNDER REVIEW"}` : "SELECTED WALLET · UNDER REVIEW"}</span>
         {embedded ? (
           <>
-            <h3 id="review-detail-title">UNDER REVIEW EVIDENCE</h3>
-            <p>The direct connections and patterns that placed this wallet at the edge of its group.</p>
+            <h3 id="review-detail-title">
+              {status === "flagged" ? "FLAGGED WALLET EVIDENCE" : "UNDER REVIEW EVIDENCE"}
+            </h3>
+            <p>
+              {status === "flagged"
+                ? "The direct connections and patterns associated with this wallet inside its kept group."
+                : "The direct connections and patterns that placed this wallet at the edge of its group."}
+            </p>
           </>
         ) : (
           <>
@@ -189,9 +211,13 @@ export function ReviewWalletDetail({
       </header>
 
       <section className="review-detail__decision" aria-labelledby="review-decision-title">
-        <span>WHY IT WAS HELD FOR REVIEW</span>
-        <h3 id="review-decision-title">The group is kept. This wallet is not in its core.</h3>
-        <p>{reviewExplanation(wallet)}</p>
+        <span>{status === "flagged" ? "WHY IT WAS FLAGGED" : "WHY IT WAS HELD FOR REVIEW"}</span>
+        <h3 id="review-decision-title">
+          {status === "flagged"
+            ? "This analysis places the wallet in the flagged tier."
+            : "The group is kept. This wallet is not in its core."}
+        </h3>
+        <p>{evidenceExplanation(wallet, status)}</p>
         <div>
           <span>
             {formatCount(wallet.member_families.length)} direct {wallet.member_families.length === 1 ? "family" : "families"}
@@ -246,7 +272,7 @@ export function ReviewWalletDetail({
 
           {embedded ? (
             <p className="review-detail__disclaimer review-detail__disclaimer--standalone">
-              These reproducible links support review. They do not prove that the wallets share an owner or identity.
+              These reproducible links support this analysis. They do not prove that the wallets share an owner or identity.
             </p>
           ) : (
             <section className="review-detail__section review-detail__context" aria-labelledby="review-context-title">
@@ -281,8 +307,8 @@ export function ReviewWalletDetail({
   );
 }
 
-export function WalletReviewEvidence({ detail }: { readonly detail: WalletDetail }) {
-  if (detail.analysis_status !== "review" || detail.cluster === null) return null;
+export function WalletProfileEvidence({ detail }: { readonly detail: WalletDetail }) {
+  if (detail.analysis_status === "clean" || detail.cluster === null) return null;
   return (
     <ReviewWalletDetail
       wallet={{
@@ -295,6 +321,7 @@ export function WalletReviewEvidence({ detail }: { readonly detail: WalletDetail
       detail={detail}
       loading={false}
       embedded
+      status={detail.analysis_status}
     />
   );
 }

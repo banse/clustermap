@@ -72,7 +72,7 @@ function renderProfile(wallet: WalletDetail) {
 
 afterEach(cleanup);
 
-describe("WalletProfilePage review evidence", () => {
+describe("WalletProfilePage wallet evidence", () => {
   it("shows the visual and textual evidence dossier for a wallet under review", () => {
     renderProfile(detail);
 
@@ -83,9 +83,28 @@ describe("WalletProfilePage review evidence", () => {
     expect(screen.getByText(/do not prove that the wallets share an owner/)).toBeInTheDocument();
   });
 
-  it("does not show the review dossier for a flagged wallet", () => {
+  it("shows the visual and textual evidence dossier for a flagged wallet", () => {
     renderProfile({ ...detail, analysis_status: "flagged", member_risk: "elevated" });
 
-    expect(screen.queryByRole("heading", { name: "UNDER REVIEW EVIDENCE" })).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "FLAGGED WALLET EVIDENCE" })).toBeInTheDocument();
+    expect(screen.getByText("WHY IT WAS FLAGGED")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "DIRECT EVIDENCE MAP" })).toBeInTheDocument();
+    expect(screen.getByText("Both wallets used the same uncommon deposit ladder.")).toBeInTheDocument();
+  });
+
+  it("does not show an evidence dossier for a clean wallet", () => {
+    renderProfile({
+      ...detail,
+      status: "unlinked",
+      analysis_status: "clean",
+      member_families: [],
+      member_risk: "independent",
+      cluster: null,
+      related_edges: [],
+    });
+
+    expect(
+      screen.queryByRole("heading", { name: /(?:UNDER REVIEW|FLAGGED WALLET) EVIDENCE/ }),
+    ).not.toBeInTheDocument();
   });
 });
