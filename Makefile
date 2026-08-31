@@ -1,4 +1,4 @@
-.PHONY: install build test run snapshot versions nft-holder-snapshot quality-stats
+.PHONY: install build test run snapshot ens-snapshot versions nft-holder-snapshot quality-stats
 
 install:
 	uv sync --all-groups
@@ -19,6 +19,9 @@ run:
 
 snapshot:
 	uv run python scripts/export_snapshot.py
+
+ens-snapshot:
+	uv run python scripts/export_snapshot.py --ens-only
 
 versions:
 	uv run python scripts/build_versions.py

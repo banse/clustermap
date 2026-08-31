@@ -114,7 +114,7 @@ def test_maxpane_preset_and_browser_export(client: TestClient) -> None:
     assert exported.status_code == 200
     assert exported.json()["count"] == 87
     assert ens.status_code == 200
-    assert ens.json()["total"] == 8
+    assert ens.json()["total"] == 1_364
     assert all(row["name"] for row in ens.json()["rows"])
     assert client.get("/api/v1/list?preset=first1000").status_code == 422
     assert exported.json()["filters"]["sort"] == "points"

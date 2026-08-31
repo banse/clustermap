@@ -30,12 +30,136 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=Path(__file__).resolve().parents[1] / "data" / "curator_snapshot.json.gz",
     )
+    parser.add_argument(
+        "--ens-only",
+        action="store_true",
+        help="refresh only forward-verified ENS names in the existing snapshot",
+    )
     return parser.parse_args()
 
 
 def read_json(path: Path):
     with path.open("r", encoding="utf-8") as handle:
         return json.load(handle)
+
+
+def read_gzip_json(path: Path):
+    with gzip.open(path, "rt", encoding="utf-8") as handle:
+        return json.load(handle)
+
+
+def write_snapshot(path: Path, snapshot: dict) -> bool:
+    """Write the snapshot, and report whether that changed the file.
+
+    The gzip stream is deterministic (fixed level, `mtime=0`), so an identical
+    snapshot re-encodes to identical bytes. Skipping that write keeps a refresh
+    that observed nothing new from churning a file this project pins by tag and
+    hashes in `data/list_quality_stats.json.gz`.
+    """
+    path.parent.mkdir(parents=True, exist_ok=True)
+    encoded = json.dumps(snapshot, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
+    payload = gzip.compress(encoded, compresslevel=9, mtime=0)
+    if path.exists() and path.read_bytes() == payload:
+        return False
+    path.write_bytes(payload)
+    return True
+
+
+def _normalise_address(value: object) -> str | None:
+    if not isinstance(value, str) or len(value) != 42 or not value.startswith("0x"):
+        return None
+    try:
+        int(value[2:], 16)
+    except ValueError:
+        return None
+    return value.lower()
+
+
+def merge_verified_ens(snapshot: dict, cache: dict) -> dict:
+    """Attach MaxPane's reverse-and-forward-verified ENS names to every list row."""
+    raw_list = snapshot.get("raw_list")
+    if not isinstance(raw_list, list):
+        raise ValueError("snapshot has no raw list")
+
+    rows_by_address: dict[str, dict] = {}
+    for row in raw_list:
+        if not isinstance(row, dict):
+            raise ValueError("snapshot raw list contains a malformed row")
+        address = _normalise_address(row.get("address"))
+        if address is None or address in rows_by_address:
+            raise ValueError("snapshot raw list contains an invalid or duplicate address")
+        rows_by_address[address] = row
+
+    ens = cache.get("ens")
+    names_blob = ens.get("names") if isinstance(ens, dict) else None
+    misses_blob = ens.get("misses") if isinstance(ens, dict) else None
+    if not isinstance(names_blob, dict) or not isinstance(misses_blob, dict):
+        raise ValueError("MaxPane cache has no complete verified ENS store")
+
+    names: dict[str, str] = {}
+    checked_at: dict[str, float] = {}
+    for raw_address, entry in names_blob.items():
+        address = _normalise_address(raw_address)
+        if (
+            address is None
+            or not isinstance(entry, (list, tuple))
+            or len(entry) != 2
+            or not isinstance(entry[0], str)
+            or not entry[0].strip()
+        ):
+            raise ValueError("MaxPane cache contains a malformed ENS name")
+        try:
+            stamp = float(entry[1])
+        except (TypeError, ValueError) as exc:
+            raise ValueError("MaxPane cache contains a malformed ENS timestamp") from exc
+        names[address] = entry[0].strip()
+        checked_at[address] = stamp
+
+    for raw_address, raw_stamp in misses_blob.items():
+        address = _normalise_address(raw_address)
+        if address is None:
+            raise ValueError("MaxPane cache contains a malformed ENS miss address")
+        try:
+            stamp = float(raw_stamp)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("MaxPane cache contains a malformed ENS miss timestamp") from exc
+        checked_at[address] = max(checked_at.get(address, stamp), stamp)
+
+    population = set(rows_by_address)
+    missing_checks = population - checked_at.keys()
+    if missing_checks:
+        raise ValueError(
+            f"MaxPane ENS lookup is incomplete for {len(missing_checks)} snapshot wallets"
+        )
+
+    verified = {address: name for address, name in names.items() if address in population}
+    merged_rows = []
+    for row in raw_list:
+        merged = dict(row)
+        merged["name"] = verified.get(row["address"].lower())
+        merged_rows.append(merged)
+
+    stamps = [checked_at[address] for address in population]
+    result = dict(snapshot)
+    result["raw_list"] = merged_rows
+    # The ENS block is rebuilt, never accumulated: a stale key from an earlier
+    # refresh would outlive the observation it described.  Every value below is
+    # a function of the population and the cache's ENS store alone, so a refresh
+    # that sees the same names writes the same bytes.
+    meta = {k: v for k, v in (result.get("meta") or {}).items() if not k.startswith("ens_")}
+    meta.update(
+        {
+            "ens_names_count": len(verified),
+            # The window every wallet in the population was checked inside —
+            # names and misses alike.  `from` is the guarantee; a single `last
+            # checked` stamp would be the newest lookup, not the oldest.
+            "ens_checked_from": min(stamps),
+            "ens_checked_to": max(stamps),
+            "ens_source": "maxpane_forward_verified_reverse_ens_cache",
+        }
+    )
+    result["meta"] = meta
+    return result
 
 
 def export(cache_path: Path, raw_list_path: Path, output: Path) -> dict:
@@ -81,21 +205,31 @@ def export(cache_path: Path, raw_list_path: Path, output: Path) -> dict:
             "funding": enrichment.get("funding", {}),
         },
     }
-    output.parent.mkdir(parents=True, exist_ok=True)
-    encoded = json.dumps(snapshot, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-    output.write_bytes(gzip.compress(encoded, compresslevel=9, mtime=0))
-    return snapshot["meta"]
+    snapshot = merge_verified_ens(snapshot, cache)
+    changed = write_snapshot(output, snapshot)
+    return snapshot["meta"], changed
+
+
+def refresh_ens(cache_path: Path, snapshot_path: Path) -> tuple[dict, bool]:
+    cache = read_json(cache_path)
+    snapshot = merge_verified_ens(read_gzip_json(snapshot_path), cache)
+    changed = write_snapshot(snapshot_path, snapshot)
+    return snapshot["meta"], changed
 
 
 def main() -> None:
     args = parse_args()
-    meta = export(args.cache, args.raw_list, args.output)
+    meta, changed = (
+        refresh_ens(args.cache, args.output)
+        if args.ens_only
+        else export(args.cache, args.raw_list, args.output)
+    )
     print(
-        f"wrote {args.output} — {meta['population_count']} wallets, "
-        f"{meta['deposit_count']} deposits, block {meta['snapshot_block']}"
+        f"{'wrote' if changed else 'unchanged'} {args.output} — "
+        f"{meta['population_count']} wallets, {meta['deposit_count']} deposits, "
+        f"{meta['ens_names_count']} ENS names, block {meta['snapshot_block']}"
     )
 
 
 if __name__ == "__main__":
     main()
-

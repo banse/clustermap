@@ -1,6 +1,6 @@
 # CLUSTERMAP Project Memory
 
-Last updated: 2026-08-28
+Last updated: 2026-08-29
 
 ## Product
 
@@ -130,7 +130,10 @@ The public, crypto-native framing is a three-step handoff:
   and shows either the selected-list population or active preset result count.
   Search, JSON export, wallet-profile handoff, and 50-row server pagination
   remain available. Published v2 has 7,106 retained wallets: 6,782 clean + 324
-  under review. The frozen source records eight ENS names.
+  under review. ENS display and the `ENS NAME SET` preset use MaxPane's complete
+  reverse-and-forward-verified observation: 1,387 named wallets in raw, 1,364
+  retained by published v2 (1,333 clean + 31 under review). The ENS observation
+  is folded into the immutable snapshot and never resolved during a web request.
 - NFT ownership is an immutable offline ERC-721 `balanceOf` snapshot at Ethereum
   block 25,853,521, stored in `data/nft_holder_snapshot.json.gz`; no RPC or API
   runs in the web process. The fixed benchmark is CryptoPunks, BAYC, MAYC,
@@ -271,13 +274,15 @@ build step, never a web request. Raw-version and selected-list semantics are in
 - Run: `make run`
 - Rebuild immutable analysis versions: `make versions`
 - Rebuild aggregate quality statistics: `make quality-stats`
+- Refresh only the immutable ENS observation from MaxPane's verified cache:
+  `make ens-snapshot`
 - Rebuild the NFT observation snapshot (requires a temporary RPC URL in the
   process environment): `CLUSTERMAP_NFT_RPC_URL=… make nft-holder-snapshot`
 - Full verification: `UV_CACHE_DIR=/tmp/clustermap-uv-cache make test`
 - The FastAPI server serves `dashboard/dist`. After frontend edits, run
   `npm --prefix dashboard run build`; if a browser still shows the old bundle,
   perform a hard refresh.
-- Last verified state: 38 backend tests and 54 frontend tests pass; Ruff,
+- Last verified state: 39 backend tests and 54 frontend tests pass; Ruff,
   TypeScript, and the Vite production build pass.
 - Browser QA additionally covers published→candidate switching (263→160),
   directional comparison totals and atlas mixes, version-qualified cluster
@@ -288,6 +293,48 @@ build step, never a web request. Raw-version and selected-list semantics are in
   warnings/errors.
 - Expected non-blocking test warnings: Starlette's `httpx` deprecation and the
   Vitest environment's invalid `--localstorage-file` warning.
+
+## Current handoff — 2026-08-29
+
+- Branch: `main`, tracking `origin/main`.
+- The latest ENS correction is implemented locally but is not committed,
+  pushed, or deployed yet.
+- Root cause: the leaderboard snapshot embedded only 8 ENS names even though
+  MaxPane's reverse-and-forward-verified cache contains 1,387 names across the
+  same 19,522-wallet frozen population.
+- The refreshed snapshot now contains all 1,387 verified raw-list names. For
+  SybilKit 0.2.0, the ENS preset contains 1,364 retained wallets: 1,333 clean
+  and 31 under review. The remaining 23 named wallets are flagged. The normal
+  retained list remains 7,106 wallets and still includes all 324 under-review
+  wallets.
+- `scripts/export_snapshot.py` now supports a fail-closed `--ens-only` refresh;
+  `make ens-snapshot` is its public command. It preserves the frozen contract
+  observation at block 25,807,057 and performs no runtime RPC lookup.
+- Regenerated artifacts: `data/curator_snapshot.json.gz` and
+  `data/list_quality_stats.json.gz`.
+- Updated supporting files: `scripts/export_snapshot.py`, `Makefile`,
+  `README.md`, `tests/test_api.py`, `tests/test_repository.py`, and
+  `.claude/designs/raw-list-analysis-version.md`.
+- Verification completed: 39 backend tests, 54 frontend tests, Ruff,
+  TypeScript, production build, and a real-browser ENS-filter check all pass.
+  Browser QA showed 1,364 matched wallets and zero console errors.
+- Pre-commit review pass: the ENS `meta` block is now derived only from the
+  observation (`ens_names_count`, `ens_checked_from`/`ens_checked_to`,
+  `ens_source`) and rebuilt rather than accumulated. The cache's own save time
+  is gone — it moved whenever MaxPane saved for unrelated reasons and rewrote
+  the snapshot for no content change. `write_snapshot` now skips an identical
+  write, so `make ens-snapshot` is a true no-op; `PROVENANCE.md` §1 states that
+  the population is frozen while the ENS name field is a dated observation, and
+  names the four keys (`events`, `first_deposits`, `analysis_config`,
+  `enrichment`) that must stay byte-identical to `v0.1.0`.
+- Still open, for the follow-up commit: no test covers the six fail-closed
+  `raise` branches in `merge_verified_ens`; `refresh_ens` does not assert that
+  the file it patches is the frozen snapshot; the `ens_*` meta is written but
+  read by nothing, so the site shows 1,387 names with no as-of date.
+- Two untracked Greenshot files under `screenshots/` are user-owned and must
+  remain untouched.
+- Likely next action, if requested: review the diff, then commit, push, and
+  deploy the ENS correction.
 
 ## Non-negotiable guardrails
 

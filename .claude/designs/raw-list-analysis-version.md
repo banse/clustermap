@@ -25,8 +25,8 @@ names RAW, RETAINED, or RETAINED + UNDER REVIEW.
   version, map, wallet dossier, comparison, export, and history row.
 - SybilKit 0.1.1 retains 7,949 clean wallets and has no review tier.
 - SybilKit 0.2.0 retains 6,782 clean plus 324 under-review wallets.
-- The raw snapshot contains 19,522 wallets, including 8 rows with a recorded
-  ENS name in the frozen list data.
+- The raw snapshot contains 19,522 wallets. Its separate immutable ENS
+  observation contains 1,387 reverse-and-forward-verified MaxPane names.
 - Search and attribute sorting must never rewrite the selected-population rank.
 
 ### Constraints
@@ -104,5 +104,5 @@ Title derivation remains factual:
 
 ## Open Questions
 
-- None for the frozen snapshot. A future ENS refresh would be a new immutable
-  observation artifact, not a runtime lookup.
+- ENS refreshes update the snapshot's explicit immutable ENS observation from
+  MaxPane's fully checked cache; they never add a runtime lookup.

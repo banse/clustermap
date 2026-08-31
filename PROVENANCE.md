@@ -40,6 +40,22 @@ Two analyses exist. Both are published, both stay selectable, and **neither is e
 **This is the one input that is still ours rather than the chain's.** The file is honest and pinned by
 the `v0.1.0` tag, but you are trusting that we transcribed the contract faithfully.
 
+**The population is frozen; one field in the file is not.** Every row carries a `name` — the
+reverse-and-forward-verified ENS name observed offchain, not a contract fact — and that observation is
+refreshed in place (`make ens-snapshot`). So the file's bytes drift from `v0.1.0` even though the
+population does not, and the digest in `data/list_quality_stats.json.gz` moves with them. What is frozen
+is checkable without trusting that digest: `events` (28,353), `first_deposits` (19,522),
+`analysis_config` and `enrichment` stay byte-identical to `v0.1.0`, and
+[`audit/harness/verify_hashes.py`](audit/harness/verify_hashes.py) re-derives the published membership
+and flagged digests from them alone. A refresh that changes anything else is a bug, and those four keys
+are how you catch it.
+
+The ENS observation dates itself in `meta`: `ens_names_count`, `ens_checked_from` / `ens_checked_to` —
+the window inside which **every** wallet in the population was looked up, names and misses alike, so a
+missing name is a measurement rather than a gap — and `ens_source`. Names change hands and expire; the
+window is what the claim is good for. The refresh is fail-closed on coverage: one unchecked wallet and it
+writes nothing.
+
 That is being removed rather than argued about. The contract emits every field the analysis consumes —
 `Deposited(contributor, hour, amount, creditedDelta, weightAdded, newWeight, txCount, hourTotal,
 earlyBps)`, plus `FirstDeposit`, `HourSaved` and `Settled` — across 37,187 blocks, so the population can

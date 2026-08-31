@@ -1,7 +1,10 @@
 from __future__ import annotations
 
+import json
+
 import pytest
 
+from clustermap.config import PROJECT_ROOT
 from clustermap.models.repository import CuratorRepository
 
 RAW_VERSION = "2026-08-22-whitelistcurator-raw"
@@ -365,7 +368,7 @@ def test_maxpane_presets_and_export(repository: CuratorRepository) -> None:
     assert hour["total"] == 87
     assert all(row["first_hour"] == 0 for row in hour["rows"])
     assert whales["total"] == 107
-    assert ens["total"] == 8
+    assert ens["total"] == 1_364
     assert all(row["name"] for row in ens["rows"])
     assert exported["count"] == whales["total"]
     assert exported["snapshot_block"] == 25_807_057
@@ -398,8 +401,25 @@ def test_presets_filter_the_selected_version_population(
 
     assert raw_hour["total"] == 96
     assert raw_whales["total"] == 568
-    assert raw_ens["total"] == 8
+    assert raw_ens["total"] == 1_387
     assert all(row["status"] == "clean" for row in raw_hour["rows"])
+
+
+def test_list_ens_names_match_the_verified_maxpane_snapshot(
+    repository: CuratorRepository,
+) -> None:
+    expected = {
+        address.lower()
+        for address in json.loads((PROJECT_ROOT / "audit/data/ens_names.json").read_text())
+    }
+    named = {
+        row["address"].lower()
+        for row in repository.rows
+        if isinstance(row.get("name"), str) and row["name"]
+    }
+
+    assert named == expected
+    assert repository.snapshot["meta"]["ens_names_count"] == len(expected) == 1_387
 
 
 def test_list_rows_include_frozen_deposit_amounts_and_hour_window(

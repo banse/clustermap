@@ -175,7 +175,19 @@ make snapshot
 
 By default the export expects `~/.maxpane/curator_cache.json` and
 `~/.maxpane/curator_raw_list.json`. Different paths can be passed directly to
-`scripts/export_snapshot.py`. The export stores no API keys.
+`scripts/export_snapshot.py`. It also imports MaxPane's reverse-and-forward-
+verified ENS cache; the export stores no API keys. To refresh only that ENS
+observation — leaving every contract fact in the snapshot byte-identical — run:
+
+```bash
+make ens-snapshot
+```
+
+The refresh is fail-closed: it writes nothing unless every wallet in the
+population has been looked up, names and misses alike. It is also a no-op when
+nothing changed, so re-running it does not churn the snapshot's digest. It
+rewrites only each row's `name` and the `ens_*` block in `meta`; see
+[`PROVENANCE.md`](PROVENANCE.md) for what stays frozen and how to check it.
 
 ## Architecture
 
