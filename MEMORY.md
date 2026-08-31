@@ -43,7 +43,12 @@ The public, crypto-native framing is a three-step handoff:
   `61696545dd93f52daedd87e37a648e10fdfc8da5`
 - Pinned source: `vendor/sybilkit`; upstream revision is recorded in
   `vendor/sybilkit/UPSTREAM_COMMIT`
-- A group is kept only at 5+ wallets and 2+ independent evidence families.
+- A group is kept only at 5+ wallets and 2+ evidence families. A family is a
+  kind of evidence, not a separate observation: the 0.2.0 tight peel-chain
+  builder books one transfer as both a funding and a cadence family (803
+  flagged wallets hold both families from one transfer; 746 depend on it).
+  The binding gate is the per-member `member_gate=local2` plus `min_size=5`;
+  the group-level `min_families=2` is inert on the published run.
 - Evidence families are funding, amount, sequence, cadence, and gas. Only
   funding edges are actual transfers; other edges are behavioral patterns.
 - A reproducible independent audit lives under `audit/`. It documents that the

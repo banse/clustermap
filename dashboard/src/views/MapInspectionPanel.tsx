@@ -38,7 +38,7 @@ export function GroupInspectionPanel({ detail, disclaimer }: {
       <div className="group-inspection-grid">
         <div>
           <h3>EVIDENCE FAMILIES</h3>
-          <p className="inspection-copy">SybilKit kept this group because multiple independent evidence families crossed the configured threshold.</p>
+          <p className="inspection-copy">SybilKit kept this group because multiple evidence families crossed the configured threshold. A family is a kind of evidence, not a separate witness: the tight peel-chain rule books one transfer as both a funding and a cadence family.</p>
           <div className="inspection-family-strip">
             {cluster.families.map((family) => <span key={family}><i className={`family-mark family-mark--${family}`} />{familyLabel(family)}</span>)}
           </div>

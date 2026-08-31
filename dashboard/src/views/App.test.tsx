@@ -364,7 +364,7 @@ describe("App", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "MAP" }));
     expect(screen.getByRole("region", { name: "What this map shows" })).toHaveTextContent("zero-custody Ethereum allowlist game");
-    expect(screen.getByText(/Groups require 5\+ wallets and 2\+ independent evidence families/)).toBeInTheDocument();
+    expect(screen.getByText(/Groups require 5\+ wallets and 2\+ evidence families/)).toBeInTheDocument();
     expect(screen.getByText(/they do not prove common ownership/)).toBeInTheDocument();
   });
 

@@ -12,7 +12,7 @@ export function MapIntroduction({ analysis }: { readonly analysis: AnalysisMeta 
       </p>
       <p>
         <strong>FILTER // SYBILKIT — &quot;I count.&quot;</strong>
-        <span>This map preserves the frozen CuratorWhitelist. Groups require {minimumSize}+ wallets and {minimumFamilies}+ independent evidence families: funding, amount, sequence, cadence or gas.</span>
+        <span>This map preserves the frozen CuratorWhitelist. Groups require {minimumSize}+ wallets and {minimumFamilies}+ evidence families: funding, amount, sequence, cadence or gas. A family is a kind of evidence, not a separate witness — the tight peel-chain rule books one transfer as both funding and cadence.</span>
       </p>
       <p>
         <strong>READ // EVIDENCE</strong>

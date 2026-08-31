@@ -84,7 +84,7 @@ export const SYBILKIT_V2_DIFF = {
       title: "Broad coincidences stop carrying wallets",
       paragraphs: [
         "The largest cleanup is shipped group 008, where 906 of 998 wallets leave flagged status; another 173 leave shipped group 007. The shipped rules could weld ordinary activity through hour-scale amount windows, popular minimum deposits, short odd amounts, and shared exchange funders.",
-        "Of the 2,082 released wallets, 749 joined during the hour 34–35 community rally and 890 deposited 0.05 ETH. 0.2.0 closes round-amount windows after 32 blocks, exempts the near-minimum band from identity-like sequence and drip rules, requires globally unusual odd amounts to carry at least six decimals, gates funder hubs by scale and freshness, and requires two incident families per flagged wallet.",
+        "Of the 2,082 released wallets, 749 joined during the hour 34–35 community rally and 890 deposited 0.05 ETH. 0.2.0 closes round-amount windows after 32 blocks, exempts the near-minimum band from identity-like sequence and drip rules, requires globally unusual odd amounts to carry at least six decimals, gates funder hubs by scale and freshness, and requires two incident families per flagged wallet — for 803 of them the two are the funding and the timing of one peel transfer, and 746 would fall below that gate if the peel rule booked funding alone.",
       ],
       facts: [
         "Independent-history benchmark: 84 / 308 flagged → 1 / 308",

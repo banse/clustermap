@@ -39,7 +39,9 @@ Curators and onchain analysts who already understand wallet addresses and need a
 - Final MaxPane cache: 28,353 deposits, 19,522 first deposits, 19,522 ranked wallets.
 - SybilKit 0.1.1 reproduces 263 groups over the final population in under one second locally.
 - The largest group has 1,104 wallets; rendering a selected group is tractable, rendering the full population is not.
-- SybilKit requires at least five wallets and two independent evidence families before keeping a cluster.
+- SybilKit requires at least five wallets and two evidence families before keeping a cluster. A family is a
+  kind of evidence, not a separate observation: under the 0.2.0 rules the tight peel-chain builder books one
+  transfer as both a funding and a cadence family.
 
 ### Context
 

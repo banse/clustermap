@@ -232,6 +232,24 @@ nothing about whether the analysis is *right about a person*.
 - **A cluster's tier is not a wallet's verdict.** `risk` is what the wallet's own evidence supports;
   `cluster_risk` is the group's. They are kept distinct everywhere, and no edge is drawn stronger than
   the wallets it joins.
+- **Two families are not always two observations.** The v2 tight peel-chain builder
+  (`audit/harness/sk_v2.py:424-427`) books one transfer twice: a `funding` edge at strength 0.95 and,
+  on the same pair, a `cadence` edge at 0.8 restating the same `≤ 30`-block comparison the funding
+  reason already names. `funding` and `cadence` are therefore two *kinds* of evidence there, not two
+  witnesses. Measured on the published run: 10,907 peel pairs; **803 flagged wallets hold both of their
+  incident families from that single transfer**, and **746 would fall below the per-member two-family
+  gate** if the peel booked `funding` alone. The same conjunctive pairing exists in the fresh-hub,
+  exchange fan-out and jitter-band builders, though those pair two genuinely different measurements
+  rather than restating one. 11,277 of the 12,416 flagged wallets (90.8 %) carry three or more families
+  and do not depend on any pairing.
+  The binding gate is also not the one the group copy describes: `min_families = 2` is inert on this run
+  (`min_families = 1` reproduces it exactly). What binds is the per-member gate `member_gate = local2`
+  plus `min_size = 5`.
+  Removing the pairing is a rule change, so it cannot be applied to a published version — see *What
+  would break the chain* below. The counterfactual is measured and available: booking `funding` alone
+  moves 160 → 135 groups and 12,416 → 11,653 flagged (−763 wallets, −10.20 points of flagged share; 412
+  to review, 351 to clean), and drops the ≈ 99 ETH ring from 397/419 to 145/419. No ENS-named wallet, no
+  verified control and no IDMD holder moves in either direction.
 
 If this analysis is wrong about a wallet, the evidence is published so the claim can be checked rather
 than adjudicated privately — see the dispute route on any wallet profile.

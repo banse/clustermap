@@ -25,8 +25,10 @@ intentionally left to offchain consumers.
   square-root curve rewards wallet fan-out and tells builders to filter the
   event history offchain.
 - SybilKit fills that gap. It groups wallets only when at least five wallets
-  share at least two independent evidence families. It exposes reasons and
-  confidence for review, never an identity verdict.
+  share at least two evidence families. A family is a kind of evidence, not a
+  separate observation — under the 0.2.0 rules the tight peel-chain builder
+  books one transfer as both a funding and a cadence family. It exposes reasons
+  and confidence for review, never an identity verdict.
 - The current snapshot contains 19,522 wallets, 28,353 deposits, and 263 kept
   groups.
 

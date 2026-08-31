@@ -129,8 +129,10 @@ export function WelcomePage({ overview, onOpenMap, onOpenProfile }: WelcomePageP
           </p>
           <p>
             SybilKit was built for that gap. It keeps a group only when multiple wallets
-            share multiple independent evidence families, then exposes the reasons and
-            confidence behind the grouping for inspection.
+            share multiple evidence families, then exposes the reasons and confidence
+            behind the grouping for inspection. A family names a kind of evidence, not
+            a separate witness: the tight peel-chain rule books a single transfer as
+            both a funding and a cadence family.
           </p>
           <strong className="welcome-caveat">
             PATTERN EVIDENCE, NEVER AN IDENTITY VERDICT.
