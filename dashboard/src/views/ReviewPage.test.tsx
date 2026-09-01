@@ -91,6 +91,8 @@ const selectedDetail: WalletDetail = {
     strength: 0.84,
     reason: "Both wallets used the same uncommon deposit amount.",
     is_transfer: false,
+    rule_id: "identical-odd-amount",
+    rule_label: "Identical odd amount",
   }],
   history: [],
   first_funder: null,

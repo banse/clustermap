@@ -12,7 +12,12 @@ export interface AnalysisVersion {
   readonly summary: string;
   readonly detector: string;
   readonly detector_version: string;
+  readonly detector_commit?: string;
+  readonly detector_tag?: string;
+  readonly vendored_commit?: string;
   readonly rule_set: string;
+  readonly rules_file?: string;
+  readonly rules_sha256?: string;
   readonly list_scope: "raw" | "retained";
   readonly snapshot_block: number;
   readonly commit: string;
@@ -248,6 +253,8 @@ export interface EvidenceEdge {
   readonly strength: number;
   readonly reason: string;
   readonly is_transfer: boolean;
+  readonly rule_id: string;
+  readonly rule_label: string;
 }
 
 export interface ClusterDetail {

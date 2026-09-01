@@ -2,7 +2,7 @@ import { cleanup, fireEvent, render, screen, waitFor, within } from "@testing-li
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 import type { ClusterMapController } from "../controllers/useClusterMapController";
-import type { AnalysisVersion, ClusterDetail, DeltaPayload, GlobalMap, Overview, WalletDetail } from "../models/domain";
+import type { AnalysisVersion, ClusterDetail, DeltaPayload, EvidenceEdge, GlobalMap, Overview, WalletDetail } from "../models/domain";
 import { App } from "./App";
 
 vi.mock("./EvidenceGraph", () => ({
@@ -15,6 +15,21 @@ vi.mock("./ClusterAtlas", () => ({
 
 vi.mock("./GlobalWalletMap", () => ({
   GlobalWalletMap: ({ focusedAddress }: { focusedAddress: string | null }) => <div data-testid="global-wallet-map" data-focused={focusedAddress ?? ""}>global map</div>,
+}));
+
+vi.mock("./WalletEvidenceGraph", () => ({
+  WalletEvidenceGraph: ({
+    selectedRuleId,
+    onSelectRule,
+  }: {
+    selectedRuleId: string | null;
+    onSelectRule: (ruleId: string | null) => void;
+  }) => (
+    <div data-testid="wallet-evidence-graph" data-rule={selectedRuleId ?? "all"}>
+      wallet evidence
+      <button type="button" onClick={() => onSelectRule("tight-peel-chain")}>FOCUS TIGHT PEEL</button>
+    </div>
+  ),
 }));
 
 afterEach(() => {
@@ -148,6 +163,17 @@ const globalMap: GlobalMap = {
   },
 };
 
+const walletEdge: EvidenceEdge = {
+  source: "0xd15031d0942634ccac10274e68945a23d2720922",
+  target: "0x1111111111111111111111111111111111111111",
+  family: "funding",
+  strength: 0.95,
+  reason: "tight peel transfer",
+  is_transfer: true,
+  rule_id: "tight-peel-chain",
+  rule_label: "Tight peel chain",
+};
+
 const wallet: WalletDetail = {
   version: analysisVersion.id,
   original_population: 19_522,
@@ -169,7 +195,7 @@ const wallet: WalletDetail = {
   member_families: ["funding", "amount"],
   member_risk: "critical",
   cluster: overview.clusters[0],
-  related_edges: [],
+  related_edges: [walletEdge],
   history: [{
     version: analysisVersion.id,
     label: analysisVersion.label,
@@ -323,7 +349,7 @@ describe("App", () => {
     expect(window.location.search).toContain("page=list");
   });
 
-  it("orders THE LIST before MAP and UNDER REVIEW after STATS", () => {
+  it("orders THE LIST before MAP and exposes the algorithm explanation as a primary page", () => {
     render(<App controller={controller()} />);
 
     const navigation = screen.getByRole("navigation", { name: "Primary views" });
@@ -334,8 +360,51 @@ describe("App", () => {
       "STATS",
       "UNDER REVIEW",
       "CHANGE LOG",
+      "HOW THE ALGO WORKS",
       "SET WALLET",
     ]);
+  });
+
+  it("opens the version-pinned algorithm explanation from primary navigation", () => {
+    render(<App controller={controller()} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "HOW THE ALGO WORKS" }));
+
+    expect(screen.getByRole("heading", { name: "HOW THE ALGO WORKS" })).toBeInTheDocument();
+    expect(screen.getByText(analysisVersion.id)).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "HOW THE ALGO WORKS" })).toHaveAttribute("aria-current", "page");
+    expect(window.location.search).toContain("page=algorithm");
+  });
+
+  it("replaces the surrounding topology with the selected wallet's direct rule map", () => {
+    render(<App controller={controller(wallet, clusterDetail)} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "MAP" }));
+
+    expect(screen.getByTestId("wallet-evidence-graph")).toHaveAttribute("data-rule", "all");
+    expect(screen.queryByTestId("evidence-graph")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("cluster-atlas")).not.toBeInTheDocument();
+    expect(screen.getByText(/1 direct wallet/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 rule/i)).toBeInTheDocument();
+    expect(screen.getByText(/1 displayed link/i)).toBeInTheDocument();
+  });
+
+  it("pins a valid wallet rule in the URL and sends it into the focused map", async () => {
+    window.history.replaceState(null, "", `/?page=map&wallet=${wallet.wallet.address}`);
+    render(<App controller={controller(wallet, clusterDetail)} />);
+
+    fireEvent.click(screen.getByRole("button", { name: "FOCUS TIGHT PEEL" }));
+
+    await waitFor(() => expect(window.location.search).toContain("rule=tight-peel-chain"));
+    expect(screen.getByTestId("wallet-evidence-graph")).toHaveAttribute("data-rule", "tight-peel-chain");
+  });
+
+  it("removes an invalid rule deep link after loading the wallet trace", async () => {
+    window.history.replaceState(null, "", `/?page=map&wallet=${wallet.wallet.address}&rule=not-published`);
+    render(<App controller={controller(wallet, clusterDetail)} />);
+
+    await waitFor(() => expect(window.location.search).not.toContain("rule="));
+    expect(screen.getByTestId("wallet-evidence-graph")).toHaveAttribute("data-rule", "all");
   });
 
   it("switches to the wallet field and back to the default cluster atlas", () => {
@@ -370,7 +439,7 @@ describe("App", () => {
 
   it("shows complete wallet details inline without a popup or dialog", () => {
     const data = controller(wallet);
-    render(<App controller={data} />);
+    const { rerender } = render(<App controller={data} />);
 
     fireEvent.click(screen.getByRole("button", { name: "MAP" }));
     expect(screen.getByRole("heading", { name: "WALLET DETAILS" })).toBeInTheDocument();
@@ -380,6 +449,7 @@ describe("App", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     fireEvent.click(screen.getByRole("button", { name: "Close wallet details" }));
     expect(data.closeWallet).toHaveBeenCalled();
+    rerender(<App controller={controller()} />);
     expect(screen.getByTestId("cluster-atlas")).toBeInTheDocument();
   });
 

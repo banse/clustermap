@@ -48,6 +48,8 @@ const detail: WalletDetail = {
     strength: 0.85,
     reason: "Both wallets used the same uncommon deposit ladder.",
     is_transfer: false,
+    rule_id: "deposit-ladder",
+    rule_label: "Deposit ladder",
   }],
   history: [],
   first_funder: null,

@@ -1,6 +1,6 @@
 # CLUSTERMAP Project Memory
 
-Last updated: 2026-08-29
+Last updated: 2026-09-01
 
 ## Product
 
@@ -65,6 +65,7 @@ The public, crypto-native framing is a three-step handoff:
   a browser has an older Light/Dark preference in local storage.
 - The app opens on `WELCOME`; the primary navigation order is `THE LIST`,
   `MAP`, `STATS`, `UNDER REVIEW`, `CHANGE LOG`, then `PROFILE`/`SET WALLET`.
+  `HOW THE ALGO WORKS` now sits between `CHANGE LOG` and the wallet profile.
   The welcome page derives its claims from the WhitelistCurator contract notice
   and clearly separates historical onchain presence from offchain evidence
   review. Its hero shows two responsive, code-comment-style source excerpts in
@@ -187,6 +188,23 @@ The public, crypto-native framing is a three-step handoff:
   inline below the map.
 - Clicking a wallet replaces that inline group explanation with the complete
   wallet dossier. Closing the wallet restores the group explanation.
+- A selected map wallet now replaces the surrounding group/global topology with
+  a deterministic direct-rule trace: the wallet sits at the centre, concrete
+  SybilKit rules form the first orbit, and only incident counterpart wallets are
+  shown. `ALL TRIGGERED RULES` shows every published incident edge; selecting a
+  rule URL-pins its stable `rule` id and reduces the trace to that rule, its
+  edges, and its direct wallets. Funding lines are transfers; all other family
+  lines are behavioural matches. Closing the dossier restores the prior map.
+- Public cluster and wallet evidence edges receive stable conceptual `rule_id`
+  and `rule_label` fields at the repository/API presentation boundary. The
+  immutable analysis artifact and its content hashes are unchanged. Paired
+  outputs such as jitter amount+cadence and tight-peel funding+cadence share one
+  conceptual rule id rather than appearing as independent triggers.
+- `HOW THE ALGO WORKS` is a version-pinned primary page. It explains the frozen
+  input, exact points curve, active rule atlas, graph and member gates,
+  confidence/presentation tiers, version differences, limits, provenance,
+  reproduction, audit, and dispute route. The raw list explicitly shows
+  `NO DETECTOR APPLIED` and does not invent detector rules.
 - The old wallet popup and maximize modal were removed.
 - Earlier MaxPane list/history/you screens remain in source but are hidden so
   the cluster maps stay the product surface.
@@ -245,6 +263,13 @@ Important current frontend files:
 - `dashboard/src/views/DeltaPanel.tsx`: directional counts and map filter
 - `dashboard/src/views/WalletVersionHistory.tsx`: per-wallet explanations
 - `dashboard/src/views/EvidenceGraph.tsx`: selected group topology
+- `dashboard/src/views/WalletEvidenceGraph.tsx`: selected wallet's direct
+  rule-orbit trace and rule controls
+- `dashboard/src/models/walletEvidence.ts`: pure direct-rule projection and
+  filtering
+- `dashboard/src/views/HowAlgorithmWorksPage.tsx`: version-aware algorithm page
+- `dashboard/src/models/algorithmPresentation.ts`: algorithm-page rule catalog
+  and presentation model
 - `dashboard/src/views/MapInspectionPanel.tsx`: inline group/wallet details
 - `dashboard/src/controllers/useMapViewController.ts`: map selection state
 - `dashboard/src/controllers/useClusterMapController.ts`: version-pinned API state

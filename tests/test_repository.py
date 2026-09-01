@@ -5,7 +5,9 @@ import json
 import pytest
 
 from clustermap.config import PROJECT_ROOT
+from clustermap.models.evidence_rules import classify_evidence_rule
 from clustermap.models.repository import CuratorRepository
+from clustermap.models.versions import canonical_hash
 
 RAW_VERSION = "2026-08-22-whitelistcurator-raw"
 
@@ -207,6 +209,134 @@ def test_largest_group_has_typed_evidence_edges(repository: CuratorRepository) -
     )
     assert any(edge["family"] == "funding" and edge["is_transfer"] for edge in detail["edges"])
     assert any(edge["family"] != "funding" and not edge["is_transfer"] for edge in detail["edges"])
+
+
+def test_paired_evidence_families_share_one_conceptual_rule() -> None:
+    tight_peel_funding = classify_evidence_rule(
+        "funding",
+        "first funder is a member of the same cluster (peel chain) · tight: "
+        "fresh wallet, funded within 30 blocks, like amount",
+    )
+    tight_peel_cadence = classify_evidence_rule(
+        "cadence",
+        "peel cadence: deposit lands ≤30 blocks after the funder's own deposit",
+    )
+    jitter_amount = classify_evidence_rule(
+        "amount",
+        "jitter band: ×20 unique ≥6-decimal amounts within 2% (1.0–1.02Ξ) in hour 1",
+    )
+    jitter_cadence = classify_evidence_rule(
+        "cadence",
+        "engine pocket: ×20 jittered sends inside one hour "
+        "(humans: 0.5% of ENS wallets use such amounts)",
+    )
+
+    assert (
+        tight_peel_funding
+        == tight_peel_cadence
+        == {
+            "rule_id": "tight-peel-chain",
+            "rule_label": "Tight peel chain",
+        }
+    )
+    assert (
+        jitter_amount
+        == jitter_cadence
+        == {
+            "rule_id": "jitter-engine",
+            "rule_label": "Jitter engine",
+        }
+    )
+
+
+def test_every_committed_evidence_edge_has_a_named_rule(
+    repository: CuratorRepository,
+) -> None:
+    classified = {
+        (
+            annotation["rule_id"],
+            annotation["rule_label"],
+        )
+        for version in repository.version_store.versions
+        for cluster in version.clusters
+        for edge in cluster["edges"]
+        for annotation in [classify_evidence_rule(edge["family"], edge["reason"])]
+    }
+
+    assert classified == {
+        ("identical-odd-amount", "Identical odd amount"),
+        ("identical-amount-wave", "Identical amount wave"),
+        ("equal-split", "Equal split"),
+        ("near-same-block", "Near-same-block amounts"),
+        ("consecutive-joins", "Consecutive joins"),
+        ("repeated-block-burst", "Repeated block burst"),
+        ("metronomic-drip", "Metronomic drip"),
+        ("jitter-engine", "Jitter engine"),
+        ("sub-cent-residual", "Sub-cent residual"),
+        ("deposit-ladder", "Deposit ladder"),
+        ("fresh-funder-hub", "Fresh funder hub"),
+        ("exchange-fan-out", "Exchange fan-out"),
+        ("tight-peel-chain", "Tight peel chain"),
+        ("peel-chain", "Peel chain"),
+        ("shared-first-funder", "Shared first funder"),
+        ("fee-fingerprint", "Fee fingerprint"),
+        ("gas-limit-priority-fee", "Gas limit + priority fee"),
+    }
+
+
+def test_rule_classification_fails_closed_for_an_unknown_reason() -> None:
+    with pytest.raises(ValueError, match="unclassified evidence rule"):
+        classify_evidence_rule("amount", "future detector output")
+
+
+def test_rule_annotation_does_not_mutate_version_content(
+    repository: CuratorRepository,
+) -> None:
+    for version in repository.version_store.versions:
+        content = {
+            "wallets": version.wallets,
+            "clusters": version.clusters,
+            "global_edges": version.global_edges,
+        }
+        before = canonical_hash(content)
+
+        if version.clusters:
+            cluster = repository.cluster(version.clusters[0]["id"], version.id)
+            assert cluster is not None
+            repository.wallet(cluster["nodes"][0]["address"], version.id)
+
+        assert canonical_hash(content) == before == version.metadata["content_hash"]
+        assert all(
+            "rule_id" not in edge and "rule_label" not in edge
+            for cluster in version.clusters
+            for edge in cluster["edges"]
+        )
+
+
+def test_only_funding_edges_represent_transfers(
+    repository: CuratorRepository,
+) -> None:
+    for version in repository.version_store.versions:
+        for cluster in version.clusters:
+            for edge in cluster["edges"]:
+                assert edge["is_transfer"] is (edge["family"] == "funding")
+
+
+def test_screenshot_wallet_exposes_its_direct_conceptual_rules(
+    repository: CuratorRepository,
+) -> None:
+    detail = repository.wallet("0xf996f7ce6033210c3905411d22b6799762e5d8e7")
+
+    assert detail is not None
+    assert detail["cluster"]["size"] == 1_151
+    assert len(detail["related_edges"]) == 11
+    assert {edge["rule_id"] for edge in detail["related_edges"]} == {
+        "near-same-block",
+        "jitter-engine",
+        "tight-peel-chain",
+        "consecutive-joins",
+    }
+    assert all(edge["rule_label"] for edge in detail["related_edges"])
 
 
 def test_global_map_covers_every_wallet_with_a_sparse_evidence_tree(

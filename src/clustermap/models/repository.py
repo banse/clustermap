@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Literal
 
 from .analysis import load_dataset
+from .evidence_rules import classify_evidence_rule
 from .versions import AnalysisVersion, DeltaClass, VersionStore
 
 ListLink = Literal["selected", "all", "linked", "unlinked", "retained"]
@@ -172,10 +173,12 @@ class CuratorRepository:
 
     @staticmethod
     def _public_edge(edge: dict) -> dict:
-        return {
+        public = {
             field: edge[field]
             for field in ("source", "target", "family", "strength", "reason", "is_transfer")
         }
+        public.update(classify_evidence_rule(edge["family"], edge["reason"]))
+        return public
 
     def _version(self, version_id: str | None) -> AnalysisVersion:
         return self.version_store.resolve(version_id)

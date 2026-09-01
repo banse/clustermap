@@ -60,6 +60,24 @@ def test_cluster_and_wallet_routes(client: TestClient) -> None:
     assert client.get("/api/v1/clusters/9999").status_code == 404
 
 
+def test_cluster_and_wallet_edges_expose_stable_rule_identity(
+    client: TestClient,
+) -> None:
+    address = "0xf996f7ce6033210c3905411d22b6799762e5d8e7"
+    wallet = client.get(f"/api/v1/wallets/{address}")
+    cluster = client.get(f"/api/v1/clusters/{wallet.json()['cluster']['id']}")
+
+    assert wallet.status_code == 200
+    assert cluster.status_code == 200
+    assert {edge["rule_id"] for edge in wallet.json()["related_edges"]} == {
+        "near-same-block",
+        "jitter-engine",
+        "tight-peel-chain",
+        "consecutive-joins",
+    }
+    assert all(set(edge) >= {"rule_id", "rule_label"} for edge in cluster.json()["edges"])
+
+
 def test_global_map_route(client: TestClient) -> None:
     response = client.get("/api/v1/map/global")
 

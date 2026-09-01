@@ -4,8 +4,10 @@ import { useThemeController } from "../controllers/useThemeController";
 import { clusterLabel, formatCompact, formatCount, riskLabel } from "../models/presentation";
 import { THEME_SWITCHER_ENABLED } from "../models/theme";
 import { shortWalletAddress } from "../models/walletProfile";
+import { projectWalletEvidence } from "../models/walletEvidence";
 import { ClusterAtlas } from "./ClusterAtlas";
 import { ChangelogPage } from "./ChangelogPage";
+import { HowAlgorithmWorksPage } from "./HowAlgorithmWorksPage";
 import { ReviewPage } from "./ReviewPage";
 import { StatsPage } from "./StatsPage";
 import { DeltaPanel } from "./DeltaPanel";
@@ -20,6 +22,7 @@ import { ThemeSwitcher } from "./ThemeSwitcher";
 import { VersionControls } from "./VersionControls";
 import { WelcomePage } from "./WelcomePage";
 import { WalletProfilePage } from "./WalletProfilePage";
+import { WalletEvidenceGraph } from "./WalletEvidenceGraph";
 
 interface AppProps {
   readonly controller: ClusterMapController;
@@ -32,6 +35,13 @@ export function App({ controller }: AppProps) {
   const globalMap = controller.globalMap;
   const detail = mapView.scope === "cluster" ? controller.cluster : null;
   const showingAtlas = detail === null && mapView.globalView === "clusters";
+  const walletProjection = controller.wallet === null
+    ? null
+    : projectWalletEvidence(
+      controller.wallet.wallet.address,
+      controller.wallet.related_edges,
+      mapView.selectedRuleId,
+    );
   const deltaHeadEntry = controller.delta === null
     ? null
     : controller.changelog?.entries.find((entry) => (
@@ -55,6 +65,7 @@ export function App({ controller }: AppProps) {
               <button type="button" aria-current={mapView.page === "stats" ? "page" : undefined} onClick={mapView.showStats}>STATS</button>
               <button type="button" aria-current={mapView.page === "review" ? "page" : undefined} onClick={mapView.showReview}>UNDER REVIEW</button>
               <button type="button" aria-current={mapView.page === "changelog" ? "page" : undefined} onClick={mapView.showChangelog}>CHANGE LOG</button>
+              <button type="button" aria-current={mapView.page === "algorithm" ? "page" : undefined} onClick={mapView.showAlgorithm}>HOW THE ALGO WORKS</button>
               <button type="button" aria-current={mapView.page === "profile" ? "page" : undefined} onClick={mapView.showProfile}>
                 {controller.focusedWalletAddress === null ? "SET WALLET" : (
                   <>PROFILE<span className="map-primary-nav__address"> · {shortWalletAddress(controller.focusedWalletAddress)}</span></>
@@ -120,6 +131,8 @@ export function App({ controller }: AppProps) {
             />
           ) : mapView.page === "changelog" ? (
             <ChangelogPage entries={controller.changelog?.entries ?? []} />
+          ) : mapView.page === "algorithm" ? (
+            <HowAlgorithmWorksPage overview={overview} />
           ) : mapView.page === "profile" ? (
             <WalletProfilePage
               address={controller.focusedWalletAddress}
@@ -144,29 +157,44 @@ export function App({ controller }: AppProps) {
             <div className="map-stage">
               <header className="map-stage__header">
                 <div>
-                  <span>{detail === null ? (showingAtlas ? "CLUSTER ANALYSIS" : "GLOBAL POPULATION") : "CLUSTER TOPOLOGY"}</span>
-                  <h2>{detail === null ? (showingAtlas ? "Evidence atlas" : "All wallets") : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</h2>
+                  <span>{walletProjection !== null ? "WALLET EVIDENCE" : detail === null ? (showingAtlas ? "CLUSTER ANALYSIS" : "GLOBAL POPULATION") : "CLUSTER TOPOLOGY"}</span>
+                  <h2>{walletProjection !== null
+                    ? `${shortWalletAddress(walletProjection.center.address)} · ${controller.wallet?.version}`
+                    : detail === null
+                      ? (showingAtlas ? "Evidence atlas" : "All wallets")
+                      : `${clusterLabel(detail.cluster.id)} · ${detail.version}`}</h2>
                   <p>
-                    {detail === null
+                    {walletProjection !== null
+                      ? `${formatCount(walletProjection.directNeighborCount)} direct ${walletProjection.directNeighborCount === 1 ? "wallet" : "wallets"} · ${formatCount(walletProjection.rules.length)} ${walletProjection.rules.length === 1 ? "rule" : "rules"} · ${formatCount(walletProjection.displayedLinkCount)} displayed ${walletProjection.displayedLinkCount === 1 ? "link" : "links"}`
+                      : detail === null
                       ? (showingAtlas ? "Confidence × points share × wallet count" : "Highest-point wallets begin at the centre")
                       : `${formatCount(detail.cluster.size)} wallets · ${riskLabel(detail.cluster.risk).toUpperCase()}`}
                     {detail?.cluster.review_flag ? <strong className="cluster-review-label">POSSIBLE FALSE POSITIVE</strong> : null}
                   </p>
                 </div>
                 <div>
-                  {detail === null ? (
+                  {controller.wallet !== null ? (
+                    <button type="button" onClick={mapView.closeWallet}>CLOSE WALLET ×</button>
+                  ) : detail === null ? (
                     <GlobalViewSwitcher view={mapView.globalView} onChange={mapView.setGlobalView} />
                   ) : <button type="button" onClick={mapView.showGlobal}>GLOBAL MAP</button>}
                   <button type="button" onClick={controller.resetView}>RESET VIEW</button>
                 </div>
               </header>
 
-              <div className={`map-canvas-frame${detail === null ? "" : " map-canvas-frame--cluster"}`}>
-                {detail === null && mapView.globalView === "wallets" ? (
+              <div className={`map-canvas-frame${controller.wallet !== null ? " map-canvas-frame--wallet" : detail === null ? "" : " map-canvas-frame--cluster"}`}>
+                {controller.wallet !== null ? (
+                  <WalletEvidenceGraph
+                    address={controller.wallet.wallet.address}
+                    edges={controller.wallet.related_edges}
+                    selectedRuleId={mapView.selectedRuleId}
+                    onSelectRule={mapView.selectRule}
+                  />
+                ) : detail === null && mapView.globalView === "wallets" ? (
                   <GlobalWalletMap
                     map={globalMap}
                     theme={themes.theme}
-                    selectedAddress={controller.wallet?.wallet.address ?? null}
+                    selectedAddress={null}
                     focusedAddress={controller.focusedWalletAddress}
                     deltaClasses={controller.deltaEnabled ? controller.delta?.wallet_classes ?? null : null}
                     deltaFilter={mapView.deltaFilter}
@@ -189,7 +217,7 @@ export function App({ controller }: AppProps) {
                   <EvidenceGraph
                     overview={overview}
                     detail={detail}
-                    selectedAddress={controller.wallet?.wallet.address ?? null}
+                    selectedAddress={null}
                     focusedAddress={controller.focusedWalletAddress}
                     resetKey={controller.resetViewKey}
                     theme={themes.theme}
