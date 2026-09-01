@@ -289,6 +289,58 @@ def test_rule_classification_fails_closed_for_an_unknown_reason() -> None:
         classify_evidence_rule("amount", "future detector output")
 
 
+#: Every reason template the rule set can emit, instantiated. The classifier
+#: raises on anything it does not know, and it runs on every edge of every
+#: cluster and wallet response — so an unclassified string is a 500 on a
+#: wallet's own evidence page. This list is what turns that into a build
+#: failure instead. Extend it whenever a rule gains a reason string.
+EMITTABLE_REASONS = [
+    ("amount", "≈ W/k equal split: 13958.0Ξ across ×997 of 14.0Ξ"),
+    ("amount", "identical 5-step ladder 0.05Ξ→0.45Ξ across ×7"),
+    ("amount", "identical sub-cent residual …0001234567890000wei ×4 (max-send-minus-gas script)"),
+    ("amount", "jitter band: ×22 unique ≥6-decimal amounts within 2% (1.1Ξ–1.14Ξ) in hour 40"),
+    ("amount", "near-identical 0.45Ξ–0.4501Ξ in one block"),
+    ("amount", "identical odd 1.234567Ξ send ×5"),
+    ("amount", "identical 0.45Ξ send ×12 in one wave"),
+    ("cadence", "burst ×6 of 0.45Ξ in one block, repeated over 3 blocks"),
+    ("cadence", "engine pocket: ×22 jittered sends inside one hour (humans: 0.5% of ENS wallets)"),
+    ("cadence", "fresh-hub cadence: ×4 nonce-0 deposits within 600 blocks of one small funder"),
+    ("cadence", "metronomic drip ×49 of 14.0Ξ every ~2 blocks"),
+    ("cadence", "peel cadence: deposit lands ≤30 blocks after the funder's own deposit"),
+    (
+        "funding",
+        "first funder is a member of the same cluster (peel chain) · tight: fresh wallet, "
+        "funded within 30 blocks, like amount",
+    ),
+    ("funding", "first funder is a member of the same cluster (peel chain)"),
+    ("funding", "exchange fan-out: 0x1ab4973a… first-funded ×244 nonce-0 wallets"),
+    (
+        "funding",
+        "fresh hub: 0x3230466e… funded ×5 brand-new wallets that all deposited within 2 hours",
+    ),
+    ("funding", "shared first funder 0xabc… ×12"),
+    ("funding", "shared first funder 0xabc… ×12 · exchange withdrawals, all fresh, one fee value"),
+    ("gas", "one max priority fee value across ×24 (controls spread over dozens)"),
+    ("gas", "one gas limit value across ×24 (controls spread over dozens)"),
+    ("gas", "one max fee value across ×24 (controls spread over dozens)"),
+    (
+        "gas",
+        "one priority fee (1000000000 wei) on ×244 of 310 fresh withdrawals "
+        "(population share of that value 0.4%)",
+    ),
+    ("gas", "one fee fingerprint across ×30"),
+    ("gas", "one gas limit + ≤2 priority fees across ×30"),
+    ("sequence", "consecutive join indices 12,058–12,157 · 100 wallets"),
+]
+
+
+@pytest.mark.parametrize(("family", "reason"), EMITTABLE_REASONS)
+def test_every_emittable_reason_string_classifies(family: str, reason: str) -> None:
+    """Rules the published versions do not enable must still classify."""
+    annotation = classify_evidence_rule(family, reason)
+    assert annotation["rule_id"] and annotation["rule_label"]
+
+
 def test_rule_annotation_does_not_mutate_version_content(
     repository: CuratorRepository,
 ) -> None:

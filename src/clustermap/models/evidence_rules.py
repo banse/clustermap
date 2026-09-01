@@ -19,6 +19,7 @@ EVIDENCE_RULE_LABELS = {
     "peel-chain": "Peel chain",
     "shared-first-funder": "Shared first funder",
     "fee-fingerprint": "Fee fingerprint",
+    "single-axis-gas": "Single collapsed gas axis",
     "gas-limit-priority-fee": "Gas limit + priority fee",
 }
 
@@ -74,6 +75,13 @@ def classify_evidence_rule(family: str, reason: str) -> dict[str, str]:
             return _annotation("fee-fingerprint")
         if reason.startswith("one gas limit + ≤2 priority fees across "):
             return _annotation("gas-limit-priority-fee")
+        # The one-axis rule names whichever axis collapsed, so the axis word
+        # varies: "one max priority fee value across ×24 (...)", "one gas limit
+        # value across ×24 (...)". It is off in every published version, but the
+        # classifier runs on every edge of every response — an unclassified
+        # string here is a 500 on a wallet's own evidence page, not a warning.
+        if reason.startswith("one ") and " value across ×" in reason:
+            return _annotation("single-axis-gas")
     raise ValueError(f"unclassified evidence rule: family={family!r}, reason={reason!r}")
 
 

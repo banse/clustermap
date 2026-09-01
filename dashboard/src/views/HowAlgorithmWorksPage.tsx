@@ -30,6 +30,7 @@ function RuleAtlas({ model }: { readonly model: AlgorithmPresentation }) {
             </div>
             {rule.pairedFamilies ? <strong>PAIRED OUTPUT · ONE CONCEPTUAL RULE</strong> : null}
             <p>{rule.threshold}</p>
+            {rule.note === null ? null : <p className="algorithm-page__note">{rule.note}</p>}
             <small>{rule.meaning}</small>
           </article>
         );

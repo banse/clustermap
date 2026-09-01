@@ -4270,6 +4270,7 @@ kbd {
 .algorithm-page__rules article > strong { color: var(--caution-amber); font: 7px "Fragment Mono", monospace; }
 .algorithm-page__rules article > p { margin-top: 8px; color: var(--page-ink); font-size: 8px; line-height: 1.45; }
 .algorithm-page__rules article > small { display: block; margin-top: 7px; color: var(--muted); font: 7px/1.45 "Fragment Mono", monospace; }
+.algorithm-page__rules article > .algorithm-page__note { margin-top: 7px; padding-left: 7px; border-left: 1px solid var(--caution-amber); color: var(--caution-amber); font-size: 7px; line-height: 1.45; }
 .algorithm-page__no-detector { margin-top: 16px; padding: 15px; border: 1px dashed var(--caution-amber); color: var(--caution-amber); background: var(--surface-strong); }
 .algorithm-page__no-detector p { margin-top: 6px; color: var(--muted); font-size: 9px; }
 

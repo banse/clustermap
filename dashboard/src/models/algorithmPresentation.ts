@@ -10,6 +10,8 @@ interface RuleCatalogEntry {
   readonly activeIn: readonly KnownAnalysis[];
   readonly pairedFamilies: boolean;
   readonly threshold: Readonly<Record<KnownAnalysis, string | null>>;
+  /** Set only where this page knowingly departs from the published edge text. */
+  readonly note?: string;
 }
 
 export interface AlgorithmRuleDefinition {
@@ -19,6 +21,7 @@ export interface AlgorithmRuleDefinition {
   readonly pairedFamilies: boolean;
   readonly threshold: string;
   readonly meaning: string;
+  readonly note: string | null;
 }
 
 export interface AlgorithmSection {
@@ -152,6 +155,8 @@ const RULE_CATALOG: readonly RuleCatalogEntry[] = [
       shipped: null,
       v2: "At least 20 jitter-class wallet rows inside a 2% amount band and one contract hour; amounts need not be unique.",
     },
+    note:
+      "This rule's published edge text counts these rows as \u201cunique\u201d amounts. It counts wallet rows: nine wallets share an amount with another wallet in the same hour. The rule file is pinned by content to the published analysis, so the wording is corrected here rather than rewritten there.",
   },
   {
     id: "sub-cent-residual",
@@ -280,6 +285,7 @@ function activeRules(kind: KnownAnalysis | "raw" | "unknown"): AlgorithmRuleDefi
       pairedFamilies: rule.pairedFamilies,
       threshold: rule.threshold[kind]!,
       meaning: ruleMeaning(rule.families),
+      note: rule.note ?? null,
     }));
 }
 

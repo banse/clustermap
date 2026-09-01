@@ -119,6 +119,15 @@ describe("HowAlgorithmWorksPage", () => {
     expect(limits).toHaveTextContent("not proof of common identity, control, intent, or ownership");
   });
 
+  it("flags where the page knowingly departs from the published edge text", () => {
+    render(<HowAlgorithmWorksPage overview={overview(version)} />);
+
+    const atlas = screen.getByRole("region", { name: "RULE ATLAS" });
+    const note = within(atlas).getByText(/counts wallet rows/);
+    expect(note).toBeInTheDocument();
+    expect(note.textContent).toMatch(/pinned by content to the published analysis/);
+  });
+
   it("renders the raw version as no detector applied without rule cards", () => {
     const raw = {
       ...version,
