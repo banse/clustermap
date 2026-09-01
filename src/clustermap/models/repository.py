@@ -8,6 +8,13 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Literal
 
+from sybilkit.eligibility import (
+    DEFAULT_POLICY_ID,
+    AuditedWindows,
+    evaluate,
+    wallet_standing,
+)
+
 from .analysis import load_dataset
 from .evidence_rules import classify_evidence_rule
 from .versions import AnalysisVersion, DeltaClass, VersionStore
@@ -63,6 +70,12 @@ class CuratorRepository:
         )
         self.quality_stats = self._read_quality_stats(
             snapshot_path.with_name("list_quality_stats.json.gz")
+        )
+        # Eligibility is a consumer's policy over the analysis, not part of it,
+        # so its one curated input is its own artifact and its absence disables
+        # only the policy that needs it.
+        self.audited_windows = AuditedWindows.load(
+            snapshot_path.with_name("audited_farm_windows.json.gz")
         )
 
         self.rows = tuple(dict(row) for row in self.snapshot["raw_list"])
@@ -340,6 +353,30 @@ class CuratorRepository:
             "edges": [self._public_edge(edge) for edge in cluster["edges"]],
         }
 
+    def eligibility(self, version_id: str | None = None) -> dict:
+        """Every published policy over one version. None of them is binding yet."""
+        version = self._version(version_id)
+        points = {row["address"].lower(): int(row["points"]) for row in self.rows}
+        return {
+            "version": version.id,
+            "binding": None,
+            "note": (
+                "No eligibility root exists. These are published standards for comparison; "
+                "exactly one will eventually be frozen into a root, and until then a wallet's "
+                "analysis status and its eligibility are separate facts."
+            ),
+            "default_policy": DEFAULT_POLICY_ID,
+            "audited_windows": {
+                "available": self.audited_windows.available,
+                "member_count": len(self.audited_windows.members),
+                "windows": list(self.audited_windows.windows),
+                "provenance": dict(self.audited_windows.provenance),
+            },
+            "policies": evaluate(
+                version.wallets, version.clusters, self.audited_windows, points=points
+            ),
+        }
+
     def wallet(self, address: str, version_id: str | None = None) -> dict | None:
         key = address.lower()
         row = self.rows_by_address.get(key)
@@ -367,6 +404,7 @@ class CuratorRepository:
             "cluster": self._cluster_summary(cluster) if cluster is not None else None,
             "member_families": state["member_families"],
             "member_risk": state["risk"],
+            "eligibility": wallet_standing(state, cluster, self.audited_windows),
             "related_edges": [
                 self._public_edge(edge)
                 for edge in edges

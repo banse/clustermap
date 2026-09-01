@@ -1,4 +1,4 @@
-.PHONY: install build test run snapshot ens-snapshot versions nft-holder-snapshot quality-stats
+.PHONY: install build test run snapshot ens-snapshot versions nft-holder-snapshot quality-stats farm-windows
 
 install:
 	uv sync --all-groups
@@ -25,6 +25,9 @@ ens-snapshot:
 
 versions:
 	uv run python scripts/build_versions.py
+
+farm-windows:
+	uv run python scripts/build_farm_windows.py
 
 nft-holder-snapshot:
 	uv run python scripts/build_nft_holder_snapshot.py

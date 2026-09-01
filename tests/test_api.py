@@ -118,6 +118,33 @@ def test_address_validation_and_list_bounds(client: TestClient) -> None:
     assert [row["filter_rank"] for row in sorted_rows] != list(range(1, 6))
 
 
+def test_eligibility_publishes_every_policy_as_a_proposal(client: TestClient) -> None:
+    response = client.get("/api/v1/eligibility?version=2026-08-25-sybilkit-0.2.0")
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["binding"] is None
+    assert payload["default_policy"] == "E0"
+    assert payload["audited_windows"]["available"] is True
+    rows = {row["id"]: row for row in payload["policies"]}
+    assert set(rows) == {"E0", "E3", "E9"}
+    assert rows["E0"]["proposal"] is False
+    assert rows["E3"]["proposal"] is True and rows["E9"]["proposal"] is True
+    assert rows["E0"]["eligible"] == 7_106
+    assert rows["E3"]["eligible"] == 7_775
+    assert rows["E9"]["eligible"] == 7_504
+    assert client.get("/api/v1/eligibility?version=nope").status_code == 404
+
+
+def test_wallet_carries_its_standing_under_each_policy(client: TestClient) -> None:
+    nodes = client.get("/api/v1/clusters/0").json()["nodes"]
+    address = next(n["address"] for n in nodes if n["status"] == "flagged")
+    wallet = client.get(f"/api/v1/wallets/{address}").json()
+    assert wallet["analysis_status"] == "flagged"
+    standing = {row["id"]: row["eligible"] for row in wallet["eligibility"]}
+    assert set(standing) == {"E0", "E3", "E9"}
+    assert standing["E0"] is False
+
+
 def test_maxpane_preset_and_browser_export(client: TestClient) -> None:
     preset = client.get(
         f"/api/v1/list?version={RAW_VERSION}&preset=first1000&limit=10"

@@ -97,6 +97,14 @@ def delta_wallets(
     )
 
 
+@router.get("/eligibility")
+def eligibility(
+    request: Request,
+    version: Annotated[str | None, Query(max_length=80)] = None,
+) -> dict:
+    return _versioned(lambda: _repository(request).eligibility(version))
+
+
 @router.get("/overview")
 def overview(
     request: Request,
