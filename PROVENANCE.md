@@ -140,12 +140,37 @@ and a transaction fingerprint for all 28,353 deposits.
 It matters more than its size suggests: it is what the tight peel chain runs on, and it takes the
 ≈99 ETH operator from 81 of 419 wallets detected to 397 of 419.
 
+**"First funder" is not what this file records, and the difference is measurable.** The fetcher reads
+Blockscout's `txlist` 25 rows at a time — the wallet's first 25 transactions in *either* direction —
+takes the first incoming one it sees there, and consults internal transfers only when it finds none.
+So a row means *"the first incoming transfer visible in a 25-row window, else the first internal
+one"*. Sampled against the earliest incoming value transfer of either kind (Alchemy, 500 wallets,
+2026-09-12): **36 rows differ (7.2 %), and 28 (5.6 %) name a funder in a different class** — about
+1,093 of 19,522.
+
+The direction is the interesting part: **no correction ever produced a contributor funder, and 21 of
+the 28 removed one.** The window skews toward a contributor who sent this wallet money *during the
+game*, where the earliest-ever transfer is usually an exchange withdrawal from long before. The peel
+chain wants the former — it requires a funder who is a contributor whose deposit precedes this one
+within 30 blocks, which is a game-time relation by construction. So the stricter definition is a
+*different* signal here, not a better one, and adopting it would remove ~820 contributor attributions
+and add none. That is a rule change to be priced on the null model, not a data repair.
+
+**584 rows resolve to nothing**, so the count above is not 19,522 usable funders: 547 record the
+wallet as its own funder — the fetcher accepted a zero-value self-send — and 37 have none. A further
+28 were accepted from a zero-value transfer by someone else. A self-funder draws no edge in any rule,
+so these under-link rather than mislink: 470 of the 584 are flagged on other families regardless, 65
+are review, and 49 are clean and in no cluster at all. Only those 49 could move if the rows were
+repaired.
+
 The trust surface does not vanish here; it **shrinks to something spot-checkable**. Every row is one
 lookup against any block explorer, so disputing one wallet's funder costs one query rather than a
 re-audit. Provenance of the file itself: fetched keyless in ~50 minutes from Blockscout's legacy
 `txlist&sort=asc`, verified 60/60 on a uniform sample, 60/60 on wallets that had already sent ≥100
 transactions, and 60/60 on transaction rows against the independent paginated walk. 37 wallets have no
-incoming transfer at all — recorded as a measurement, never quietly filled in.
+incoming transfer at all — recorded as a measurement, never quietly filled in. That verification
+sampled rows the fetcher resolved; it could not catch a definition the fetcher and the checker shared,
+which is what the paragraph above measures.
 
 Each version also records the enrichment **it actually ran on**, because the two analyses did not share
 one: 0.1.1 saw 12,203 transaction fingerprints and 12,498 funding rows; 0.2.0 saw 28,353 and 19,522.
