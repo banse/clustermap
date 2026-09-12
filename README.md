@@ -33,6 +33,17 @@ same settled input ending at Ethereum block 25,807,057.
 
 Requirements: Python 3.11+, `uv`, Node.js and npm.
 
+The audit harness needs none of them — Python 3.11+ and the standard library only:
+
+```bash
+python3 audit/harness/verify_hashes.py --from-rules   # re-run the detector, check the digests
+python3 audit/harness/sk_v2.py --only "baseline(shipped)"   # 263 groups / 11,573 flagged
+python3 audit/harness/null_model.py                   # false-linking base rate (~15 minutes)
+```
+
+Each prints the snapshot, rules, sybilkit and fixture paths it resolved, with digests, before it runs.
+Writes go to `audit/data`; set `SYBIL_DATA` to send them elsewhere and leave the checkout clean.
+
 ```bash
 make install
 make build

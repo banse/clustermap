@@ -165,9 +165,68 @@ deployed.
 
 ---
 
+## 7. Eligibility policies — published, and none of them binding
+
+A *policy* answers a different question from the analysis. The analysis says which wallets are linked;
+a policy says which of those links a downstream consumer treats as disqualifying. They are separate
+facts, and the API returns them separately: a wallet can be **linked but eligible**.
+
+Three are published over the same analysis, at `GET /api/v1/eligibility`:
+
+| id | rule | eligible |
+|---|---|---|
+| `E0` | flagged is excluded — the standard THE LIST's record NFT specification names today | 7,106 |
+| `E3` | three or more evidence families, **or** a hand-audited operator pattern | 7,775 |
+| `E9` | the group carries three or more families **and** the wallet at least two | 7,504 |
+
+**No eligibility root exists, so none of these binds anything.** Exactly one will eventually be frozen
+into one; until then all three are shown so a wallet can see its own standing under each. The payload
+says so in a `binding: null` field rather than leaving it to be inferred.
+
+The clustering is identical in all three — 160 groups, 12,416 flagged, both digests unchanged. A policy
+can never *add* an exclusion: a wallet the analysis did not flag is eligible under every one of them.
+
+Two of the three are computable from the published payload alone (`wallets[].member_families`,
+`clusters[].families`). The one fact that is not is the hand-audited operator windows, which ship as
+their own artifact, [`data/audited_farm_windows.json.gz`](data/audited_farm_windows.json.gz) — 18
+windows, 7,173 wallets, **each window carrying its predicate in data** so membership can be re-derived
+rather than trusted. It is a separate file for two reasons: adding a field to a published version would
+change its `content_hash` and rewrite it, and window membership is a property of a wallet's own deposits,
+so one file serves a retuned rule set too.
+
+```sh
+make farm-windows     # re-derives it; writes nothing when nothing changed
+```
+
+The policies themselves live in `sybilkit`, not here — the contract is the model, sybilkit the
+controller, this repo the view, and a policy is derivation. Only `sybilkit/eligibility.py` is vendored;
+`rules_v2/` deliberately is not, so `detect()` keeps the exact bytes that produced every published
+version. `vendor/sybilkit/UPSTREAM_COMMIT` therefore names a commit **and** a scope: the vendored tree is
+`src/sybilkit` at that commit **excluding `rules_v2/`**.
+
+---
+
 ## Check it yourself
 
-No API key, no network, no private inputs. Python 3 standard library only.
+No API key, no network, no private inputs. Python 3 standard library only — **Python 3.11 or newer**.
+
+Every harness run prints the files that answered before it does anything else, so a result can be traced
+to its inputs rather than to a machine:
+
+```
+inputs:
+  snapshot   data/curator_snapshot.json.gz  sha256 6ec0ff47…
+  rules      audit/harness/sk_v2.py         sha256 457fac65…
+  sybilkit   vendor/sybilkit/src
+  labeled    vendor/sybilkit/tests/fixtures/labeled_subset.json
+```
+
+The committed snapshot is the default input; `~/.maxpane` is a live cache the dashboard rewrites and is
+used only when named through `SYBIL_CACHE`. One caveat this file will not hide: `sk_v2.py` inserts the
+author's workspace on its own first line, and **it cannot be edited without breaking the digest above**,
+so on that one machine `sybilkit` resolves there rather than from `vendor/`. The two trees are
+byte-identical for every module the rules import; the printed `sybilkit` line is how you check that
+claim rather than accept it.
 
 ```sh
 git clone https://github.com/banse/clustermap

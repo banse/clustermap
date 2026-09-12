@@ -44,10 +44,15 @@ LABELED_SUBSET = _first_path(
     os.path.join(_HERE, "..", "..", "vendor", "sybilkit", "tests", "fixtures", "labeled_subset.json"),
     "/Library/Vibes/autopull/sybilkit/tests/fixtures/labeled_subset.json",
 )
+# The committed snapshot answers first. `~/.maxpane` is a *live* cache the
+# dashboard rewrites, so preferring it made a run depend on whatever that file
+# happened to contain — on this machine it had already lost the `enrichment`
+# key, and an un-pinned run died with `KeyError`. It stays reachable, but only
+# when asked for by name.
 CACHE = _first_path(
     "SYBIL_CACHE",
-    os.path.expanduser("~/.maxpane/curator_cache.json"),             # live maxpane cache
     os.path.join(_HERE, "..", "..", "data", "curator_snapshot.json.gz"),  # public pinned snapshot
+    os.path.expanduser("~/.maxpane/curator_cache.json"),             # live maxpane cache
 )
 
 sys.path.insert(0, SYBILKIT_SRC)
@@ -125,7 +130,54 @@ def _read(path):
     }
 
 
+_DESCRIBED = False
+
+
+def describe_inputs(out=sys.stderr) -> dict:
+    """Say which files answered, once per process.
+
+    A run that does not name its inputs cannot be traced to them. `sk_v2.py` is
+    pinned by content to the published analysis and therefore cannot be edited —
+    including its own `sys.path.insert` of the author's workspace, which wins on
+    that one machine and is inert anywhere else. Printing the resolved
+    `sybilkit.__file__` is what turns that from an invisible dependency into a
+    recorded fact.
+    """
+    global _DESCRIBED
+    import hashlib
+
+    import sybilkit
+
+    def digest(path):
+        try:
+            with open(path, "rb") as handle:
+                return hashlib.sha256(handle.read()).hexdigest()[:16]
+        except OSError:
+            return "unreadable"
+
+    resolved = {
+        "snapshot": CACHE,
+        "snapshot_sha256": digest(CACHE),
+        "sybilkit": os.path.dirname(os.path.dirname(os.path.abspath(sybilkit.__file__))),
+        "rules": os.path.join(_HERE, "sk_v2.py"),
+        "rules_sha256": digest(os.path.join(_HERE, "sk_v2.py")),
+        "labeled_subset": LABELED_SUBSET,
+    }
+    if not _DESCRIBED:
+        _DESCRIBED = True
+        print(
+            "inputs:\n"
+            f"  snapshot   {resolved['snapshot']}  sha256 {resolved['snapshot_sha256']}…\n"
+            f"  rules      {resolved['rules']}  sha256 {resolved['rules_sha256']}…\n"
+            f"  sybilkit   {resolved['sybilkit']}\n"
+            f"  labeled    {resolved['labeled_subset']}",
+            file=out,
+        )
+    return resolved
+
+
 def load():
+    describe_inputs()
     cache = _read(CACHE)
     enr = cache["last_good"]["clusters"]["payload"]["enrichment"]
     cfgp = cache["last_good"]["config"]["payload"]
@@ -229,7 +281,7 @@ def main():
         incident[e.b][k] += 1
 
     # ---- funding facts ---------------------------------------------------------
-    labeled = json.load(open("/Library/Vibes/autopull/sybilkit/tests/fixtures/labeled_subset.json"))
+    labeled = json.load(open(LABELED_SUBSET))
     controls = {c["address"].lower() for c in labeled["controls"]}
     members_lab = {m["address"].lower(): m["cluster"] for m in labeled["members"]}
 

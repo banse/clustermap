@@ -22,8 +22,10 @@ import statistics
 import sys
 from decimal import Decimal
 
-sys.path.insert(0, "/Library/Vibes/autopull/sybilkit/src")
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from sk_diag import SYBILKIT_SRC  # noqa: E402  (resolves vendor/ first, env-overridable)
+
+sys.path.insert(0, SYBILKIT_SRC)
 
 from sybilkit import Dataset  # noqa: E402
 from sybilkit.signals import deposit_counts, first_rows  # noqa: E402

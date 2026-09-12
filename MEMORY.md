@@ -42,7 +42,19 @@ The public, crypto-native framing is a three-step handoff:
 - SybilKit: version 0.1.1, revision
   `61696545dd93f52daedd87e37a648e10fdfc8da5`
 - Pinned source: `vendor/sybilkit`; upstream revision is recorded in
-  `vendor/sybilkit/UPSTREAM_COMMIT`
+  `vendor/sybilkit/UPSTREAM_COMMIT`. That pin names a commit **and** a scope:
+  the vendored tree is `src/sybilkit` at that commit **excluding `rules_v2/`**,
+  which stays out so `detect()` keeps the exact bytes that produced every
+  published version. Verified identical at `925b866`.
+- Eligibility policies (`E0`/`E3`/`E9`) live in `sybilkit.eligibility`, not here:
+  the contract is the model, sybilkit the controller, this repo the view. They
+  are published over the same analysis at `GET /api/v1/eligibility` with
+  `binding: null`; the clustering is identical in all three. `E3`'s second arm
+  is `data/audited_farm_windows.json.gz` (18 windows, 7,173 wallets, each with
+  its predicate in data), rebuilt by `make farm-windows`. See PROVENANCE §7.
+- The harness defaults to the committed snapshot; `~/.maxpane` is a live cache
+  reachable only through `SYBIL_CACHE`. Every run prints the snapshot, rules,
+  sybilkit and fixture paths it resolved, with digests, before it runs.
 - A group is kept only at 5+ wallets and 2+ evidence families. A family is a
   kind of evidence, not a separate observation: the 0.2.0 tight peel-chain
   builder books one transfer as both a funding and a cadence family (803
