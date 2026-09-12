@@ -162,6 +162,8 @@ deployed.
 | `v0.3.0` | version model, change log, delta view |
 | `v0.4.0` | SybilKit 0.2.0 becomes the published analysis |
 | `v0.4.1` | change-log detector links resolve to the sybilkit releases |
+| `v0.5.0` | the review tier gets a page of its own |
+| `v0.6.0` | the raw contract list becomes a selectable version; 1,387 verified ENS names; the “independent evidence families” claim corrected; the rule map and algorithm guide; three eligibility policies published, none binding; the harness runs from the checkout |
 
 ---
 
